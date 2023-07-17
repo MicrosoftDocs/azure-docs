@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
 
-You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#possible-scenarios-to-protect-hsr-nodes-on-azure-backup).
+You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
 >[!Note]
 >- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
@@ -48,7 +48,9 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
 1. Pass the custom backup user key to the script as a parameter: 
 
-   `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`
+   ```HDBSQL
+   -bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME
+   ```
    
    If the password of this custom backup key expires, the backup and restore operations will fail.
 
@@ -58,11 +60,17 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    hdbuserstore set SYSTEMKEY localhost:30013@SYSTEMDB <custom-user> '<some-password>'
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
-
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
-
+   
    >[!Note]
    >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
+   >
+   >**Diagram shows the creation of the custom backup key using local host/IP.**
+   >
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   >
+   >**Diagram shows the creation of the custom backup key using Virtual IP (Load Balancer Frontend IP/Host).**
+   >
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Disgram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
 
 1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
    
@@ -238,7 +246,7 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 
-## Possible scenarios to protect HSR nodes on Azure Backup
+## Scenarios to protect HSR nodes on Azure Backup
 
 
 You can now switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. If you’ve already configured HSR and protecting only the primary node using Azure Backup, you can modify the configuration to protect both primary and secondary nodes.
@@ -248,7 +256,7 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
 
    >[!Note]
-   >HSR-based attributes are added to the latest preregistration script -
+   >HSR-based attributes are added to the latest preregistration script.
 
 1. Configure HSR manually or using any clustering tools, such as **pacemaker**,
 
@@ -267,7 +275,7 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
 
    >[!Note]
-   >HSR-based attributes are added to the latest preregistration script - //link here )
+   >HSR-based attributes are added to the latest preregistration script.
 
 1. Configure HSR manually or using any clustering tools like pacemaker.
 
