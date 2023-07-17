@@ -32,7 +32,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - For tests that previously ran from Azure Pipelines, the URL to view detailed results from Azure portal will not work after the resources have been moved.
 
-- If the resource is moved across subscriptions, the service limits of the target subscription would apply to the resource after the move.  
+- If the resource is moved across subscriptions, the service limits of the target subscription apply to the resource after the move.  
 
 - Moving a resource that has a test that is configured for private endpoint testing to another subscription, will result in an error while running the test. After the move finishes, update the test with a VNet and subnet from the new subscription.
 
