@@ -23,7 +23,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 <send-request mode="new | copy" response-variable-name="" timeout="60 sec" ignore-error
 ="false | true">
   <set-url>request URL</set-url>
-  <set-method>.../set-method>
+  <set-method>...</set-method>
   <set-header>...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
