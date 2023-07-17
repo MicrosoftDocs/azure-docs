@@ -453,7 +453,7 @@ For steps to disable and enable NSG flow logs, see [Configure NSG flow logs](./n
 
 When you delete an NSG flow log, you not only stop the flow logging for the associated network security group but also delete the flow log resource (with all its settings and associations). To begin flow logging again, you must create a new flow log resource for that network security group.
 
-You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete). At this time, you can't delete flow logs from the Azure portal.
+You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete).
 
 When you delete a network security group, the associated flow log resource is deleted by default.
 

@@ -71,15 +71,15 @@ It's important that you have the following prerequisites completed before you be
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed events subscription."  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
 
    > [!TIP]
-   > For more information about providing access using an Azure Managed identity, see [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md) and [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
+   > For more information about providing access using an Azure Managed identity, see [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md) and [Event delivery with a managed identity](../../event-grid/managed-service-identity.md). 
    >
-   > For more information about managed identities, see [What are managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+   > For more information about managed identities, see [What are managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
    >
-   > For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
+   > For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
 
 ## Next steps
 
-In this article, you learned how to deploy Events in the Azure portal. For details about supported events, see [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
+In this quickstart, you learned how to deploy Events using the Azure portal. 
 
 To learn how to enable the Events metrics, see
 
@@ -89,6 +89,6 @@ To learn how to enable the Events metrics, see
 To learn how to export Event Grid system diagnostic logs and metrics, see
 
 > [!div class="nextstepaction"]
-> [How to enable Events diagnostic logs and metrics](events-enable-diagnostic-settings.md)
+> [How to enable diagnostic settings for Events](events-enable-diagnostic-settings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
