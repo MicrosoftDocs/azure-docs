@@ -49,7 +49,7 @@
   - name: Python
     href: /python/api/overview/azure/servicenetworking
   - name: REST
-    href: /rest/api?view=Azure&preserve-view=true
+    href: /rest/api/applicationgatewaycontainers
   - name: Azure Resource Manager
     displayName: ARM
     href: ../../azure-resource-manager/management/overview.md
