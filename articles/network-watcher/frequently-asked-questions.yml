@@ -6,7 +6,7 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 06/27/2023
+  ms.date: 07/18/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: "Azure Network Watcher frequently asked questions (FAQ)"
@@ -40,9 +40,7 @@ sections:
             * [NSG flow logs](./network-watcher-nsg-flow-logging-overview.md) allows you to log network traffic passing through your [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md).
             * [Traffic analytics](./traffic-analytics.md) processes your NSG flow log data enabling you to visualize, query, analyze, and understand your network traffic.
           
-          
           For more detailed information, see [Network Watcher overview](./network-watcher-monitoring-overview.md).
-          
           
       - question: |
           How does Network Watcher pricing work?
@@ -87,7 +85,8 @@ sections:
       - question: |
           What are resource limits on Network Watcher?
         answer: |
-          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) page for all limits.  
+          Network Watcher has the following limits:
+          [!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
           
       - question: |
           Why does Azure allow only one instance of Network Watcher per region? 
