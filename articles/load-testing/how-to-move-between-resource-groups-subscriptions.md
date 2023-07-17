@@ -30,7 +30,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - Automated resource provisioning using ARM templates or Bicep must be updated to the new resource group and / or subscription.
 
-- For test which ran previously from Azure Pipelines, the URL to view detailed results from Azure portal will not work after the resources.
+- For tests that previously ran from Azure Pipelines, the URL to view detailed results from Azure portal will not work after the resources have been moved.
 
 - If the resource is moved across subscriptions, the service limits of the target subscription would apply to the resource after the move.  
 
