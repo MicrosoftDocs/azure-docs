@@ -16,7 +16,7 @@ ms.author: jasteppe
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 
-The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages to help with the authoring and troubleshooting of your own MedTech service mappings.
+The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. The samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
 
 ## Sample resources
 
