@@ -14,10 +14,9 @@ ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev
 ---
-
 # Microsoft Enterprise SSO plug-in for Apple devices
 
-The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
+The **Microsoft Enterprise SSO plug-in for Apple devices** provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
 
 The Enterprise SSO plug-in is currently a built-in feature of the following apps:
 
@@ -359,6 +358,9 @@ The Microsoft Enterprise SSO plug-in relies on the [Apple Enterprise SSO framewo
 
 Native applications can also implement custom operations and communicate directly with the SSO plug-in. For more information, see this [2019 Worldwide Developer Conference video from Apple](https://developer.apple.com/videos/play/tech-talks/301/).
 
+> [!TIP]
+> Learn more about how the SSO plug-in works and how to troubleshoot the Microsoft Enterprise SSO Extension with the [SSO troubleshooting guide for Apple devices](../devices/troubleshoot-mac-sso-extension-plugin.md).
+
 ### Applications that use MSAL
 
 [MSAL for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versions 1.1.0 and later supports the Microsoft Enterprise SSO plug-in for Apple devices natively for work and school accounts. 
@@ -388,3 +390,5 @@ The end user sees the familiar experience and doesn't have to sign in again in e
 ## Next steps
 
 Learn about [Shared device mode for iOS devices](msal-ios-shared-devices.md).
+
+Learn about [troubleshooting the Microsoft Enterprise SSO Extension](../devices/troubleshoot-mac-sso-extension-plugin.md).
