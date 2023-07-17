@@ -284,7 +284,6 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 ### Article change log
 
 - July 17, 2023: Added 16 new subordinate Certificate Authorities
-- March 1, 2023: Provided timelines for upcoming sub CA expiration
 - February 7, 2023: Added eight new subordinate Certificate Authorities
 
 ## Next steps
