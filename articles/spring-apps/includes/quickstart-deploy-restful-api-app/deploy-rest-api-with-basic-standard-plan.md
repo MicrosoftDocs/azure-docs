@@ -102,7 +102,7 @@ Use the following steps to create a service instance:
    | Region                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Container Apps Environment | *myenvironment*                              | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-restful-api-app/create-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
 
    Use the following table as a guide for the Container Apps Environment creation:
 
@@ -121,7 +121,7 @@ Use the following steps to create a service instance:
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
 
 > [!IMPORTANT]
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### 3.3. Prepare the PostgreSQL instance
 
