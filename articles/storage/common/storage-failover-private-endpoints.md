@@ -1,12 +1,12 @@
 # Failover Considerations for Storage Accounts with Private Endpoints
 
-Storage accounts work different than many other Azure services when it comes to high availability configurations.  They do not often use a secondary instance deployed by the customer for resiliency.  Instead,storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) use a specific secondary region based on the main region.  This aligns with [regional pairs](azure/reliability/cross-region-replication-azure).  Customers can fail over to the secondary region, or the storage account will automatically fail over when a regional outage occurs.
+Storage accounts work different than many other Azure services when it comes to high availability configurations.  They do not often use a secondary instance deployed by the customer for resiliency.  Instead,storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicates to another region, based on [regional pairs](azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
 
-This means that customers don't need to plan to have a second storage account already running in their second region; the geo-redundant configuration of the storage account will address this.  You could have multiple storage accounts and use customer managed operations to move data between them, but this is an uncommon pattern.
+This feature means that customers don't need to plan to have a second storage account already running in their second region. You could have multiple storage accounts and use customer managed operations to move data between them, but that is an uncommon pattern.
 
 When a storage account is failed over, the name of the service itself doesn't change.  If you are using the public endpoint for ingress, then systems can use the same DNS resolution to access the service regardless of its fail over state.
 
-This is true when both the storage account and the systems accessing it are failed over to a secondary region, as well as when just the storage account is failed over.  This resilience limits the amount of BCDR tasks needed for the storage account.
+DNS resolution will work when the storage account and the systems accessing it are failed over.  It also works when just one set of services has been failed over.  This resilience limits the amount of BCDR tasks needed for the storage account.
 
 However, there are additional considerations needed if you are using [private endpoints](../../private-link/private-endpoint-dns.md).  This article provides an example architecture of a geo-replicated storage account using private endpoints for secure networking, and what is needed for each BCDR scenario.
 
