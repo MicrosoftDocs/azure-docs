@@ -6,6 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 08/18/2022 
+ms.service: azure-migrate
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 

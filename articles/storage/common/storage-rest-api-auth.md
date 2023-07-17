@@ -5,12 +5,12 @@ description: Use the Azure Storage REST API to make a request to Blob storage us
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: pauljewell
 ms.reviewer: ozge
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

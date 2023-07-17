@@ -37,7 +37,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 ## Prerequisites
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in either CER or PFX format. Self-signed certificates are allowed. 
 
     If you use a self-signed certificate, also install trusted root and intermediate [CA certificates](api-management-howto-ca-certificates.md) in your API Management instance.
     
@@ -45,6 +45,9 @@ Using key vault certificates is recommended because it helps improve API Managem
     > CA certificates for certificate validation are not supported in the Consumption tier.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
+
+   > [!NOTE]
+   > If you only wish to use the certificate to authenticate the client with API Management, you can upload a CER file.
 
 ## Enable API Management instance to receive and verify client certificates
 

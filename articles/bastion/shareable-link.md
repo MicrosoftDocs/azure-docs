@@ -30,7 +30,7 @@ By default, users in your org will have only read access to shared links. If a u
 
 * Bastion must be configured to use the **Standard** SKU for this feature. You can update the SKU from Basic to Standard when you configure the shareable links feature.
 
-* The VNet contains the VM resource to which you want to create a shareable link.
+* The VNet in which the Bastion resource is deployed or a directly peered VNet contains the VM resource to which you want to create a shareable link.
 
 ## Enable Shareable Link feature
 

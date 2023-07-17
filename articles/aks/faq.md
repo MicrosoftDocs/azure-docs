@@ -71,6 +71,9 @@ To enable this architecture, each AKS deployment spans two resource groups:
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
 2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever you delete the cluster. You should only use this cluster for resources that share the cluster's lifecycle.
 
+   > [!NOTE]
+   > Modifying any resource under the node resource group in the AKS cluster is an unsupported action and will cause cluster operation failures. You can prevent changes from being made to the node resource group by [blocking users from modifying resources](cluster-configuration.md#fully-managed-resource-group-preview) managed by the AKS cluster.
+
 ## Can I provide my own name for the AKS node resource group?
 
 Yes. By default, AKS names the node resource group *MC_resourcegroupname_clustername_location*, but you can also provide your own name.

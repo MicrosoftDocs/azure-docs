@@ -38,7 +38,7 @@ At the end of this article, you run two Node.js console apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
@@ -148,7 +148,7 @@ In this section, you create a device app to upload a file to IoT hub. The code i
 
 1. Copy an image file to the `fileupload` folder and give it a name such as `myimage.png`.
 
-1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you registered a device in the IoT Hub.
+1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you registered a device in the IoT hub.
     
     - For Windows:
 

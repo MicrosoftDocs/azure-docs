@@ -5,7 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/28/2023
 ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
-zone_pivot_groups: deploy-python-web-app-postgressql
+zone_pivot_groups: deploy-python-web-app-postgresql
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
@@ -790,7 +790,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
-- For basic access from a commmand-line tool, you can run `psql` from the app's SSH terminal.
+- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
 - To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 

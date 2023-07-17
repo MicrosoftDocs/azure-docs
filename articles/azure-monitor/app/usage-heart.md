@@ -80,7 +80,7 @@ You only have to interact with the main workbook, **HEART Analytics - All Sectio
 To validate that data is flowing as expected to light up the metrics accurately, select the **Development Requirements** tab.
 
 > [!IMPORTANT]
-> Unless you [set the authenticated user context](./javascript-feature-extensions.md#3-optional-set-the-authenticated-user-context), you must select **Anonymous Users** from the **ConversionScope** dropdown to see telemetry data.
+> Unless you [set the authenticated user context](./javascript-feature-extensions.md#2-optional-set-the-authenticated-user-context), you must select **Anonymous Users** from the **ConversionScope** dropdown to see telemetry data.
 
 :::image type="content" source="media/usage-overview/development-requirements-1.png" alt-text="Screenshot that shows the Development Requirements tab of the HEART Analytics - All Sections workbook.":::
 

@@ -28,7 +28,8 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 1. In the pane that appears, select **Upload files** under **Select data source**. Select **Upload files**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
 
     > [!TIP]
-    > For a list of supported data sources, see [Data source options](../concepts/use-your-data.md#data-source-options)
+    > * For a list of supported data sources, see [Data source options](../concepts/use-your-data.md#data-source-options)
+    > *  For documents and datasets with long text, we recommend using the available [data preparation script](../concepts/use-your-data.md#ingesting-your-data-into-azure-cognitive-search). 
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
@@ -38,9 +39,6 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
 
 1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Then select **Upload files**. Then select **Next**.
-
-    > [!NOTE]
-    > The supported file formats for local index creation are: `.txt`, `.md`, `.html`, `.pdf`, `.docx`, and `.pptx`.
 
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it will use information from your data to construct the response.
 
@@ -66,9 +64,10 @@ You can experiment with the configuration settings such as temperature and pre-r
 
 ### Important considerations
 
-* Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
+- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-* By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
+- You can [customize](../concepts/use-your-data.md#using-the-web-app) the frontend and backend logic of the web app.
+- By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
     

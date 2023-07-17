@@ -42,7 +42,7 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](..
 |Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
 | Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for activity monitoring)<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 \* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
 
@@ -123,3 +123,4 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [Enable Defender for Storage](enable-enhanced-security.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
+

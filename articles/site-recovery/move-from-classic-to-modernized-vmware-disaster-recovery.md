@@ -155,9 +155,9 @@ Migration operation will only be marked complete once the first recovery point h
 
 ### What operations can be performed from my classic Recovery Services vault, after migration is done?  
 
-You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
+You can perform failover from your classic vault after the migration. The failover operation will continue to be available in the classic vault until the recovery points expire.
 
-For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful post migration. After the stipulated time, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
+For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful migration. After the stipulated time, Azure Site Recovery will automatically trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 
