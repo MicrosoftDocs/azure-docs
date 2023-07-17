@@ -49,14 +49,14 @@
         href: concept-security-admins.md
       - name: Security admin rule enforcement
         href: concept-enforcement.md
-    - name: Monitoring
-      items:
-    - name: Event Log Options for Azure Virtual Network Manager
-      href: concept-event-logs.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
     href: concept-remove-components-checklist.md
+  - name: Monitoring
+    items:
+    - name: Event Log Options for Azure Virtual Network Manager
+      href: concept-event-logs.md
 - name: Samples
   items:
     - name: Resource Manager Templates
