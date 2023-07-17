@@ -43,7 +43,7 @@ Returns an array expression.
 
 The following example shows how to concatenate two arrays.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/query.sql":::  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/query.sql" highlight="2":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/result.json":::
 
