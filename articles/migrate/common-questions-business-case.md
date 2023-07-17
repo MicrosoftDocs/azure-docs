@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/17/2023
+ms.date: 07/17/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -51,9 +51,9 @@ The **Build business case** feature will be enabled only when you have discovery
 
 ### Why can’t I build business case from my project?
 
-You will not be able to create a business case if your project is in one of these 3 project regions:
+You will not be able to create a business case if your project is in one of these 2 project regions:
 
-Germany West Central, East Asia and Switzerland North.
+Germany West Central and Sweden Central
 
 To verify in an existing project:
 1. You can use the https://portal.azure.com/ URL to get started
@@ -63,7 +63,7 @@ To verify in an existing project:
 5. Check the Project location.
 6. The Business case feature is not supported in the following regions:
 
-    Germany West Central, East Asia and Switzerland North.
+    Germany West Central and Sweden Central
 
 ### Why can't I change the currency during business case creation?
 Currently, the currency is defaulted to USD.
