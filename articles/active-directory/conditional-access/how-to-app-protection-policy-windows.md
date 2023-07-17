@@ -73,7 +73,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 ## Signing in on Windows devices
 
-When users attempt to sign in to a site that is protected by an app protection policy for the first time, they are prompted: 
+When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: 
 
 > To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you are already signed in.
 
