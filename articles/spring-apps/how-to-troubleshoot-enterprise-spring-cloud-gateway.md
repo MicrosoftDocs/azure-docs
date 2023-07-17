@@ -29,7 +29,7 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 ## Check Gateway metrics
 
-- For more information on how to check metrics on Azure Portal, see the [Common metrics page](./concept-metrics.md#common-metrics-page) section of [Metrics for Azure Spring Apps](concept-metrics.md) article.
+- For more information on how to check metrics on Azure portal, see the [Common metrics page](./concept-metrics.md#common-metrics-page) section of [Metrics for Azure Spring Apps](concept-metrics.md).
 - For more information on each supported metrics, see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway).
 
 ## Check Gateway logs
