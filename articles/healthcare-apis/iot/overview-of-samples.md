@@ -10,7 +10,7 @@ ms.date: 07/17/2023
 ms.author: jasteppe
 ---
 
-# Overview of The MedTech service scenario-based mappings samples
+# Overview of the MedTech service scenario-based mappings samples
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
