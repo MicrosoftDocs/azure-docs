@@ -64,7 +64,12 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 In v4, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model. In previous versions, that code shipped directly in Azure and the npm package had only the TypeScript types. You now need to include this package for both TypeScript and JavaScript apps. You _can_ include the package for existing v3 apps, but it isn't required.
 
-Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your *package.json* file. You can install v4 by using the following command: `npm install @azure/functions@preview`.
+1. Add the `@azure/functions` package in the `dependencies` section (not `devDependencies`) of your *package.json* file. 
+1. Install the v4 package locally by using the following command: 
+
+    ```bash
+    `npm install @azure/functions@preview`
+    ```
 
 ## Set your app entry point
 
