@@ -41,7 +41,8 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 ## Create an automation task
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
-2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+
 3. On the **Tasks** pane, select **Add a task** to select a task template.
 4. Under **Select a template**, select the task for **Starting** or **Stopping** your Azure PostgreSQL Flexible Server.
 5. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections.  The types of connections in each task vary based on the task.
