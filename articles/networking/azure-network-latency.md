@@ -21,7 +21,7 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown as follows. 
 
-#### [Test Regions](#tab/TestRegions)
+#### [North America](#tab/NorthAmerica)
 
 | **Source** | **am** | **auh** | **bl** | **bm** | **bn** |
 |--------|-----|-----|-----|-----|-----|
@@ -76,7 +76,7 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 
 
 
-#### [Europe](#tab/visual-studio)
+#### [Europe](#tab/Europe)
 
 | **Source** | **am** | **chn** | **chw** | **db** | **den** | **dewc** | **mrs** | **noe** | **now** | **par** | **sec** |
 |------------|--------|---------|---------|--------|---------|----------|---------|---------|---------|---------|---------|
@@ -129,9 +129,20 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 | **yt**     | 100    | 111     | 107     | 84     | 110     | 104      | 109     | 117     | 107     | 99      | 128     |
 | **yyy**    | 89     | 96      | 89      | 82     | 18      | 54       | 105     | 31      | 34      | 108     | 144     |
 
-
-
 --- 
+
+#### [South America](#tab/SouthAmerica)
+
+---
+
+#### [Middle East/Africa](#tab/MiddleEast)
+
+---
+
+### [Asia Pacific](#tab/AsiaPacific)
+
+
+---
 
 > [!IMPORTANT]
 > Monthly latency numbers across Azure regions do not change regulary. Given this, you can expect an update of this table every 6 to 9 months outside of the addition of new regions. When new regions come online, we will update this document as soon as data is available.
