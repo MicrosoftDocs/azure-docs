@@ -23,7 +23,7 @@ To add your Azure Cosmos DB cluster to the Studio 3T connection manager, perform
 1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
 
     :::image type="content" source="./media/connect-using-robomongo/connectionstring.png" alt-text="Screenshot of the connection string page":::
-2. Run the *Studio 3T* application.
+2. Run the **Studio 3T** application.
 
 3. Click the connection button under **File** to manage your connections. Then, click **New Connection** in the **Connection Manager** window, which will open up another window where you can paste the connection credentials.
 
