@@ -478,6 +478,7 @@ created_monitor = poller.result()
 1. Configure your data assets for Feature Attribution Drift
    
    A.) In your model creation wizard, add your custom data asset from your [Model Data Collector]([url](https://pypi.org/project/azureml-ai-monitoring/)) (with a modified score.py) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+      :::image type="content" source="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
    
    B.) Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
 
