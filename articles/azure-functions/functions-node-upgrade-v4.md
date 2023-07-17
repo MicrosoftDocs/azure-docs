@@ -12,7 +12,7 @@ ms.topic: how-to
 
 This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article also highlights the most important concrete actions that you should take to upgrade your app.
 
-Version 4 had the following design goals:
+Version 4 is designed to provide Node.js developers with the following benefits:
 
 - Provide a familiar and intuitive experience to Node.js developers.
 - Make the file structure flexible with support for full customization.
