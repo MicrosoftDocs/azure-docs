@@ -23,9 +23,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ## Policy statement
 
 ```xml
-<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" 
-continue-timeout="time in seconds"
-follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
+<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" continue-timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ## Attributes
