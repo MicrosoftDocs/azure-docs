@@ -50,7 +50,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Make note of the public IP address:
 
-    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Screenshot of public IP address of NAT gateway." border="true":::
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
