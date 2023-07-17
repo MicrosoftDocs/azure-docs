@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Require an app protection policy on Windows devices (preview)
 
-App protection policies apply mobile application management (MAM) to specific applications on a device. These policies allow for securing data within an application in support of scenarios like bring your own device (BYOD). In the preview we support applying policy to the Microsoft Edge browser on Windows 11 devices.
+App protection policies apply mobile application management (MAM) to specific applications on a device. These policies allow for securing data within an application in support of scenarios like bring your own device (BYOD). In the preview, we support applying policy to the Microsoft Edge browser on Windows 11 devices.
 
 ![Screenshot of a browser requiring the user to sign in to their Microsoft Edge profile to access an application.](./media/how-to-app-protection-policy-windows/browser-sign-in-with-edge-profile.png)
 
@@ -26,10 +26,10 @@ App protection policies apply mobile application management (MAM) to specific ap
 The following requirements must be met before you can apply an [app protection policy] to Windows client devices:
 
 - Ensure your Windows client version is Windows 11, build 10.0.22621 (22H2) or newer.
-- Ensure your device is not managed, including:
+- Ensure your device isn't managed, including:
    - Not Azure AD joined or enrolled in Mobile Device Management (MDM) for the same tenant
 as your MAM user.
-   - Not Azure AD registered (workplace joined) with more than two users besides the MAM user.
+   - Not Azure AD registered (workplace joined) with more than two users besides the MAM user. There's a limit of no more than [three Azure AD registered users to a device](../devices/faq.yml#i-can-t-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-11-device--why).
 - Clients must be running Microsoft Edge build v115.0.1901.155 or newer.
    - You can check the version by going to `edge://settings/help` in the address bar.
 - Clients must have the **Enable MAM on Edge desktop platforms** flag enabled.
@@ -42,11 +42,11 @@ as your MAM user.
 
 ## Create a Conditional Access policy
 
-The policy below is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they'll have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
+The following policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
 ### Require app protection policy for Windows devices
 
-The following steps will help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows).
+The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows).
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -73,22 +73,36 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 ## Signing in on Windows devices
 
-When users attempt to sign in to a site that is protected by an app protection policy for the first time, they will be prompted: 
+When users attempt to sign in to a site that is protected by an app protection policy for the first time, they are prompted: 
 
 > To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you are already signed in.
 
-Clicking on **Switch Edge profile** will open a window listing their Work or school account along with an option to **Sign in to sync data**.
+Clicking on **Switch Edge profile** opens a window listing their Work or school account along with an option to **Sign in to sync data**.
 
    ![Screenshot showing the popup in Microsoft Edge asking user to sign in.](./media/how-to-app-protection-policy-windows/browser-sign-in-continue-with-work-or-school-account.png)
 
-This will open a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
+This opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
 > [!CAUTION]
 > You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
 ![Screenshot showing the stay signed in you all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
-After selecting **OK** you may see a progress window while policy is applied, then you should see a window saying "you're all set". At this point app protection policies are applied.
+After selecting **OK** you may see a progress window while policy is applied, then you should see a window saying "you're all set". At this point, app protection policies are applied.
+
+## Troubleshooting
+
+In some circumstances, after getting the "you're all set" page you may still be prompted to sign in with your work account. This may happen when: 
+
+- Your profile has been added to Microsoft Edge, but MAM enrollment is still being processed.
+- Your profile has been added to Microsoft Edge, but you selected "this app only" on the heads up page.
+- You have enrolled into MAM but your enrollment expired or aren't compliant with your organization's requirements.
+
+To resolve these possible scenarios:
+
+- Wait a few minutes and try again in a new tab.
+- Go to **Settings** > **Accounts** > **Access work or school**, then add the account there.
+- Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
 
 ## Next steps
 
