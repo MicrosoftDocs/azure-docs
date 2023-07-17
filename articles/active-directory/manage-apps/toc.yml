@@ -194,12 +194,16 @@
         items:
         - name: Integrate Datawiza with Azure AD
           href: datawiza-configure-sha.md
-        - name: Configure Oracle JDE with Azure AD 
-          href: datawiza-sso-oracle-jde.md
-        - name: Configure Oracle PeopleSoft with Azure AD 
-          href: datawiza-sso-oracle-peoplesoft.md
-        - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
-          href: datawiza-sso-mfa-oracle-ebs.md
+        - name: Guided configuration 
+          items: 
+          - name: Oracle JDE  
+            href: datawiza-sso-oracle-jde.md
+          - name: Oracle PeopleSoft  
+            href: datawiza-sso-oracle-peoplesoft.md
+          - name: Oracle EBS
+            href: datawiza-sso-mfa-oracle-ebs.md
+          - name: Outlook Web Access
+            href: datawiza-sso-mfa-to-owa.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
