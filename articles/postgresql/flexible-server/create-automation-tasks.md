@@ -99,8 +99,8 @@ Here the possible statuses for a run:
 
 To change a task, you have these options:
 
-* [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
-* [Edit the task's underlying workflow](#edit-task-workflow) in the workflow designer.
+* Edit the task "inline" so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
+* Edit the task's underlying workflow in the workflow designer.
 
 ### Edit the task inline
 
@@ -111,12 +111,5 @@ To change a task, you have these options:
 1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 1. To update other task properties, select **Next: Configure**.
 1. When you're done, select **Save**.
-
-### Edit the task's underlying workflow
-
-* For steps on how to edit the task's underlying workflow, refer
-
-## Next steps
-* [Manage logic apps in the Azure portal](../../manage-logic-apps-with-azure-portal.md)
 
 
