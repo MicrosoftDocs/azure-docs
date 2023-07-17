@@ -15,7 +15,7 @@ ms.date:     07/17/2023
 
 # Log Sharing overview
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Log Sharing provides access to Log files, to help facilitate the creation of more effective support channels.
 
