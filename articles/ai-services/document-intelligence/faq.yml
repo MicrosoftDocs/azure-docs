@@ -7,7 +7,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 06/23/2023
+  ms.date: 07/18/2023
   ms.author: lajanuar
   monikerRange: '<=doc-intel-3.1.0'
 
@@ -15,22 +15,24 @@ title: Frequently asked questions (FAQ)
 summary: |
    [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 
-   - Form Recognizer is now Document Intelligence!
 
-   - As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
-      
+
 sections:
   - name: General concepts
     questions:
       - question: |
-          What is Document Intelligence?
+          What is Azure AI Document Intelligence and what happened to Form Recognizer?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          - Form Recognizer is now Azure AI Document Intelligence!
 
-          Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
+          - Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
-          Learn more about [Document Intelligence use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
+          - Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
+
+          - Learn more about [Document Intelligence use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
+
+          - As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
       - question: |
           Which Document Intelligence use cases require special consideration?
