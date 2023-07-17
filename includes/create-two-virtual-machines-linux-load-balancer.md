@@ -45,7 +45,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-1. In the Networking tab, enter or select the following infroamtion:
+1. In the Networking tab, enter or select the following information:
 
     | Setting | Value |
     |-|-|
