@@ -16,7 +16,7 @@ This article describes how to add a heat map layer to an Azure Maps Power BI vis
 
 :::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in an Azure Maps Power BI visual.":::
 
-Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map result in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
+Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map results in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
 
 A heat map is useful when users want to visualize vast comparative data:
 
