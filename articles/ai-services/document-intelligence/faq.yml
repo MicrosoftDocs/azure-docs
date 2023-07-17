@@ -32,7 +32,7 @@ sections:
 
           - Learn more about [Document Intelligence use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
          
-         - As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+          - As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
       - question: |
           Which Document Intelligence use cases require special consideration?
