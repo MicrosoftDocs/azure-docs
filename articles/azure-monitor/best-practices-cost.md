@@ -70,6 +70,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ### Design checklist
 
 > [!div class="checklist"]
+> - Change to Workspace-based Application Insights.
 > - Use sampling to tune the amount of data collected.
 > - Limit the number of Ajax calls.
 > - Disable unneeded modules.
