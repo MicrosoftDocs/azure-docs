@@ -54,10 +54,7 @@ items:
       expanded: false
       items:
       - name: Overview of the FHIR destination mapping
-        href: overview-of-fhir-destination-mapping.md
-  - name: Samples
-    expanded: false
-    href: overview-of-samples.md      
+        href: overview-of-fhir-destination-mapping.md    
   - name: Monitor
     expanded: false
     items:
