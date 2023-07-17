@@ -53,7 +53,7 @@ The following flowchart outlines a logical flow for approaching troubleshooting 
 
 :::image type="content" source="./media/troubleshoot-mac-sso-extension-plugin/ios-enterprise-sso-tsg-model.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for Apple SSO extension on iOS devices." lightbox="media/troubleshoot-mac-sso-extension-plugin/ios-enterprise-sso-tsg-model.png":::
 
-# [macOS](#tab/flowchart-ios)
+# [macOS](#tab/flowchart-macos)
 
 :::image type="content" source="./media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for Apple SSO extension on macOS devices." lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
 
