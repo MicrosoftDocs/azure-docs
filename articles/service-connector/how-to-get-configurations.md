@@ -22,16 +22,16 @@ You can run the following commands in Azure CLI(/cli/azure) to list configuratio
 # for Azure Web App
 az webapp connection list-configuration -g <myResourceGroupName> -n <myWebAppName> --connection <myConnectionName>
 
-# for Azure ContainerApp
+# for Azure Container App
 az containerapp connection list-configuration -g <myResourceGroupName> -n <myContainerAppName> --connection <myConnectionName>
 
 # for Azure Spring App
 az spring connection list-configuration --id /subscriptions/{subscription}/resourceGroups/{myResourceGroupName}/providers/Microsoft.AppPlatform/Spring/{mySpringAppName}/apps/{myAppName}/deployments/default/providers/Microsoft.ServiceLinker/linkers/{myConnectionName}
 ```
 For more information, see the following articles in Azure CLI reference documentations:
-[az webapp connection list-configuration](/cli/azure/webapp/connection?view=azure-cli-latest#az-webapp-connection-list-configuration)
-[az containerapp connection list-configuration](/cli/azure/containerapp/connection?view=azure-cli-latest#az-containerapp-connection-list-configuration)
-[az spring connection list-configuration](/cli/azure/spring/connection?view=azure-cli-latest#az-spring-connection-list-configuration)
+- [az webapp connection list-configuration](/cli/azure/webapp/connection#az-webapp-connection-list-configuration)
+- [az containerapp connection list-configuration](/cli/azure/containerapp/connection#az-containerapp-connection-list-configuration)
+- [az spring connection list-configuration](/cli/azure/spring/connection#az-spring-connection-list-configuration)
 
 ## [Azure PowerShell](#tab/azure-powershell)
 You can run the following commands in Azure PowerShell to list configurations of a service connection.
@@ -39,16 +39,16 @@ You can run the following commands in Azure PowerShell to list configurations of
 # for Azure Web App
 Get-AzServiceLinkerConfigurationForWebApp -WebApp {myWebAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 
-# for Azure ContainerApp
+# for Azure Container App
 Get-AzServiceLinkerConfigurationForContainerApp -ContainerApp {myContainerAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 
 # for Azure Spring App
 Get-AzServiceLinkerConfigurationForSpringCloud -ServiceName {mySpringAppName} -AppName {myAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 ```
 For more information, see the following articles in Azure PowerShell reference documentations: 
-[Get-AzServiceLinkerConfigurationForWebApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforwebapp?view=azps-10.1.0)
-[Get-AzServiceLinkerConfigurationForContainerApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforcontainerapp?view=azps-10.1.0)
-[Get-AzServiceLinkerConfigurationForSpringApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforspringcloud?view=azps-10.1.0)
+- [Get-AzServiceLinkerConfigurationForWebApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforwebapp)
+- [Get-AzServiceLinkerConfigurationForContainerApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforcontainerapp)
+- [Get-AzServiceLinkerConfigurationForSpringApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforspringcloud)
 
 
 ## Next steps
