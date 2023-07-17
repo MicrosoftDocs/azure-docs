@@ -37,7 +37,7 @@ To leverage precaching of your source code and Visual Studio IDE customizations 
 
 ## Enable Visual Studio caches in dev box images
 
-You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To do so, you must meet the following requirements:
+You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To enable Visual Studio caches in your dev box image:
 
 * Within the [Azure Resource Manager template](../azure-resource-manager/templates/overview.md), add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
 * With the project source located on disk you can now run the `PopulateSolutionCache` feature to generate the project caches. To do this, add the following PowerShell command to your template's customized steps:
@@ -55,8 +55,9 @@ When a dev box user opens the solution on a dev box based off the customized ima
 
 ## Enable Git commit-graph optimizations in dev box images
 
-Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. To do so, you must meet the following requirements:
+Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. 
 
+You can enable Git commit-graph optimizations in your dev box image if you meet the following requirements:
 * You're using a [Microsoft Dev Box](overview-what-is-microsoft-dev-box.md) as your development workstation.
 * The source code for your project is saved in a non-user specific location to be included in the image.
 * You can [create a custom dev box image](how-to-customize-devbox-azure-image-builder.md) that includes the Git source code repository for your project.
