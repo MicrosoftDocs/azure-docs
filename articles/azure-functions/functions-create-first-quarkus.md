@@ -1,6 +1,7 @@
 ---
 title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
+author: KarlErickson
 ms.author: edburns
 ms.service: azure-functions
 ms.topic: quickstart
@@ -27,6 +28,7 @@ Use the following command to clone the sample Java project for this article. The
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
+cd quarkus-azure
 git checkout 2023-01-10
 cd functions-quarkus
 ```
