@@ -29,7 +29,7 @@ For connections from a data center, a VPN connection would be made to the hub ne
 
 ### Architecture Concepts
 
-This architecture leverages functionality of private endpoints that may not be commonly encountered when doing single region deployments
+This architecture leverages functionality of private endpoints that may not be commonly encountered when doing single region deployments.
 
 First, an individual service can have multiple private endpoints attached to it.  For example, a storage account could have a private endpoint for its blob containers located in multiple different virtual networks, and each one will function on their own.
 
