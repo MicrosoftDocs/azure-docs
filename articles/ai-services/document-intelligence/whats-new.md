@@ -30,9 +30,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 ## July 2023
 
 > [!NOTE]
-> Form Recognizer is now Document Intelligence!
-
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
+> Form Recognizer is now Azure AI Document Intelligence!
+>
+> As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
 ## May 2023
 
