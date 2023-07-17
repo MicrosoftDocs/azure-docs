@@ -1,6 +1,8 @@
 items:
 - name: Azure Communication Services documentation
   href: index.yml
+- name: Log File Access
+  href: ./concepts/voice-video-calling/retrieving-support-files.md
 - name: Overview
   expanded: true
   items:
