@@ -36,28 +36,28 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/create-azure-spring-apps.png":::
 
 1. Fill out the **Basics** form with the following information:
 
    Use the following table as a guide for completing the form, the recommended **Plan** is `Basic`.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
-
-   | Setting        | Suggested Value | Description                                                                                                                                                                                                                                                                                        |
-      |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-   | Subscription   | Your subscription name | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | Resource group | *myresourcegroup* | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | Name           | *myasa*        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan           | *Basic*        | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Setting        | Suggested value                  | Description                                                                                                                                                                                                                                                                                        |
+   |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Subscription   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
+   | Resource group | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | Plan           | *Basic*                          | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
    | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Zone Redundant | Unchecked      | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
+   | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-event-driven-app/create-basics.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/3-asa-notifications.png" alt-text="The Notifications pane for Azure Spring Apps Creation":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment page." lightbox="../../media/quickstart-deploy-event-driven-app/notifications.png":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
@@ -65,7 +65,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the **Create App** page, enter `simple-event-driven-app` for **App name**, select *Java 17* for **Runtime platform**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of Azure portal showing basic plan App creation for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of the Azure portal showing the Create App pane with App name and Runtime platform options selected." lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
 1. Select **Create** to finish creating the Azure Spring Apps instance.
 
@@ -73,7 +73,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**, then select **Save**
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/app-config-env.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Environment variables tab of the App Configuration page." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png":::
 
 ### 3.5. Config Key Vault access policy
 
@@ -91,7 +91,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the search box, enter your Azure Spring Apps instance name, you can see the similar search result:
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy-app.png" alt-text="Screenshot of Azure portal showing access policy creation" lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy-app.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy.png" alt-text="Screenshot of the Azure portal showing the Create an access policy page." lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy.png":::
 
 1. select the principal of your Azure Spring Apps instance, select **Next**, and select **Next** to review the creation parameters, then select **Create** to finish creating the access policy.
 

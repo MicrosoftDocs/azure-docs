@@ -24,15 +24,15 @@ This article explains how to deploy a Spring Boot event-driven application to Az
 
 The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
-:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram of Azure Spring Apps event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram showing the Azure Spring Apps event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which utilizes the following Azure resources:
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which uses the following Azure resources:
 
-:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram-v2.png" alt-text="Diagram of Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram-v2.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram-v2.png" alt-text="Diagram showing the Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram-v2.png" border="false":::
 
 Diagram of Spring event-driven app architecture:
 - Use Azure Spring Apps to host the Spring Boot app.
@@ -132,7 +132,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 3. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
-   :::image type="content" source="media/quickstart-deploy-event-driven-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
 ::: zone-end
 
@@ -147,7 +147,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 > [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+>Fal [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
 > [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
