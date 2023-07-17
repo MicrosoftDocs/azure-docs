@@ -1,6 +1,6 @@
 ---
-title: Configure NFSv4.1 domain for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure NFSv4.1 domain for using NFSv4.1 with Azure NetApp Files.
+title: Configure NFSv4.1 ID domain for Azure NetApp Files | Microsoft Docs
+description: Learn how to configure NFSv4.1 ID domain for using NFSv4.1 with Azure NetApp Files.
 documentationcenter: ''
 author: b-hchen
 manager: ''
@@ -14,17 +14,19 @@ ms.topic: how-to
 ms.date: 07/12/2023
 ms.author: anfdocs
 ---
-# Configure NFSv4.1 domain for Azure NetApp Files
+# Configure NFSv4.1 ID domain for Azure NetApp Files
 
-NFSv4.1 introduces the concept of an authentication domain. Azure NetApp Files uses the default value `defaultv4iddomain.com` for authentication domain. Each NFS client has its own default configuration to authenticate users that want to access files on authenticated volumes. If authentication domain settings on the NFS client and Azure NetApp Files do not match, file access may be denied and user mapping may fail.  
+NFSv4 introduces the concept of an ID authentication domain. Azure NetApp Files uses the entry value `defaultv4iddomain.com` as the authentication domain, and NFS clients use their own configuration to authenticate users that want to access files on those volumes. By default, NFS clients will use the DNS domain name as the NFSv4 ID domain. You can override this setting by using the NFSv4 configuration file named `idmapd.conf`. 
 
-The following sections describe how to configure Linux-based NFS clients correct to properly authenticate and allow access.  
+If authentication domain settings on NFS client and Azure NetApp Files do not match, file access may be denied as the NFSv4 user and group mapping may fail. When this happens, the users and groups that do not match properly will squash the user and group configured in the `idmapd.conf` file (generally, nobody:99) and an event will be logged on the client.  
+
+This article explains the default behavior of user/group mapping and how to configure NFS clients correct to authenticate properly and allow access. 
 
 ## Default behavior of user/group mapping
 
-The root user mapping can illustrate what happens if there is a mismatch between the Azure NetApp Files and NFS clients. The installation process of an application often requires the use of the root user. Azure NetApp Files can be configured to allow root access. 
+The root user mapping can illustrate what happens if there is a mismatch between the Azure NetApp Files and NFS clients. The installation process of an application often requires the use of the root user. Azure NetApp Files can be configured to allow access for `root`. 
 
-In the following scenario, the root scenario has mounted a volume on a Linux client that retains its default configuration of `localdomain` for the authentication domain. This domain differs from the Azure NetApp Files default configuration `defaultv4iddomain.com`.
+In the following directory listing example, the user `root` mounts a volume on a Linux client that uses its default configuration `localdomain` for the ID authentication domain, which is different from Azure NetApp Files’ default configuration of `defaultv4iddomain.com`.
 
 :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png" alt-text="Screenshot of file directory output." lightbox="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
 
@@ -40,9 +42,9 @@ There are two ways to adjust the authentication domain on both sides: Azure NetA
 
 In this section we’ll focus on how to configure the Linux client and how to change the Azure NetApp Files authentication domain for all non-LDAP enabled volumes. 
 
-## Configure NFSv4.1 domain for server
+## Configure NFSv4.1 ID domain on Azure NetApp Files
 
-To prepare for a future implementation of LDAP across all NFS clients or achieve a consistent configuration across all NFS clients, you can specify a desired NFSv4.1 ID domain for all non-LDAP volumes in Azure NetApp Files using the Azure portal. This setting applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes. Non-LDAP and LDAP-enabled volumes can coexist in the same subscription.
+You can specify a desired NFSv4.1 ID domain for all non-LDAP volumes using the Azure portal. This setting applies applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes in the same NetApp subscription and region. 
 
 ### Register the feature
 
@@ -71,7 +73,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. To use the default domain `defaultv4iddomain.com`, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
-1. Select **Add**.
+1. Select **Save**.
 
 <!-- 
 #### Edit the NFSv4 domain
@@ -84,7 +86,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Save**.
 -->
 
-### Set NFSv4.1 domain for client
+### Configure NFSv4.1 ID domain in NFS clients
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
@@ -159,6 +161,8 @@ In the following example, `Host1` has three user accounts (`testuser01`, `testus
 On `Host2`, no corresponding user accounts exist, but the same volume is mounted on both hosts:
 
 ![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
+
+To resolve this issue, either create the missing accounts on the NFS client or configure your NFS clients to use the LDAP server that Azure NetApp Files is using for centrally managed UNIX identities. 
 
 ## Next steps
 
