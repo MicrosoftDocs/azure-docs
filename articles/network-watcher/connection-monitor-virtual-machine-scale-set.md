@@ -101,9 +101,7 @@ After the scale set has been created, enable the Network Watcher extension in th
 
 1. Under **Settings**, select **Extensions**. 
 
-1. Select **Add extension**, and then select **Network Watcher Agent for Windows**, as shown in the following image:
-
-   :::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that shows the Network Watcher extension addition.":::
+1. Select **Add extension**, and then select **Network Watcher Agent for Windows**.
 
 1. Under **Network Watcher Agent for Windows**, select **Create**.
 1. Under **Install extension**, select **OK**.
