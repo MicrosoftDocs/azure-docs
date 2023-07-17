@@ -1,6 +1,6 @@
 ---
-title: Diagnostic data that Azure identity support can access - Azure Active Directory | Microsoft Docs
-description: Learn about what diagnostic information Azure identity support can access
+title: Microsoft Entra ID diagnostic data that support engineers can access
+description: Learn about what Microsoft Entra ID diagnostic information support engineers can access.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -10,26 +10,25 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 05/14/2023
+ms.date: 07/17/2023
 ms.collection: M365-identity-device-management
 
 ---
 # Microsoft Support and identity diagnostic data
 
-When you submit a support request to Microsoft, Microsoft Support may need access to your [identity diagnostic data](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs) in Azure Active Directory (Azure AD) in order to help you solve your problem. Microsoft Support's access to your diagnostic data is read-only, and lasts only as long as we are actively working with you to solve your problem.
+Microsoft Support requests are automatically assigned to a support engineer with expertise in solving similar problems. To expedite solution delivery, our support engineers use diagnostic tooling to read [identity diagnostic data](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs) for your tenant.
 
-Microsoft Support accesses your identity diagnostic data only with your approval. For many support requests created in the Azure Portal, you can manage Microsoft Support's access to your identity diagnostic data by setting the "Allow collection of advanced diagnostic information" property in the Azure Portal's support request management experience.
+Microsoft Support access to your identity diagnostic data is granted only with your approval, is read-only, and lasts only as long as we are actively working with you to solve your problem. For many support requests created in the Microsoft Entra admin center, you can manage Microsoft Support's access to your identity diagnostic data by enabling the "Allow collection of advanced diagnostic information" property in the Microsoft Entra admin center's support request management experience. If this setting is set to "no" our support engineers must ask *you* to collect the data needed to solve your problem, which could slow down your problem resolution. 
 
-## Microsoft Support Access Requests
+## Microsoft Support access requests
 
-Microsoft Support Access Requests (preview) enable you to manage Microsoft Support's access to your identity diagnostic data for support requests where you cannot manage that access in the Azure Portal's support request management experience. The following scenarios can trigger a Microsoft Support Access Request:
+Sometimes support engineers need additional approval from you to access identity diagnostic data to solve your problem. For example, if a support engineer needs to access identity diagnostic data in a different Microsoft Entra tenant than the one in which you created the support request, the engineer must ask you to grant them access to that data.
 
-- You created a support request in a tenant other than the tenant in which your problem needs to be diagnosed. For example, you submitted your support request in your production tenant, but the problem needs to be diagnosed in your test tenant.
-- You submitted your support request in a portal other than the Azure portal or the Microsoft 365 Admin Center.
+Microsoft Support access requests (preview) enable you to manage Microsoft Support's access to your identity diagnostic data for support requests where you cannot manage that access in the Microsoft Entra admin center's support request management experience.
 
 ## Support access role permissions
 
-To manage Microsoft Support Access Requests, you must be assigned to an Azure AD role that has full permission to manage Azure support tickets for the tenant. This role permission is included in Azure AD built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Azure AD roles have this permission in the [Azure AD built-in roles](../roles/permissions-reference.md) article.
+To manage Microsoft Support access requests, you must be assigned to a role that has full permission to manage Microsoft Entra support tickets for the tenant. This role permission is included in Azure AD built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Azure AD roles have this permission in the [Azure AD built-in roles](../roles/permissions-reference.md) article. Azure Active Directory is being renamed to Microsoft Entra ID. For more information see [New name for Azure Active Directory](../fundamentals/new-name.md).
 
 ## Next steps
 
