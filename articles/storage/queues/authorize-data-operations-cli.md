@@ -4,12 +4,13 @@ titleSuffix: Azure Storage
 description: Specify how to authorize data operations against queue data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
 author: tamram
 services: storage
+
 ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: common 
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ---
 
@@ -107,4 +108,4 @@ You can specify authorization parameters in environment variables to avoid inclu
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to queue data with managed identities for Azure resources](authorize-managed-identity.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/02/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account for secure access.
 ---
 
@@ -18,7 +18,7 @@ The Microsoft Purview _account_ private endpoint is used to add another layer of
 The Microsoft Purview _portal_ private endpoint is required to enable connectivity to [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) using a private network.
 
 > [!NOTE]
-> If you only create _account_ and _portal_ private endpoints, you won't be able to run any scans. To enable scanning on a private network, you will need to [create an ingestion private endpoint also](catalog-private-link-end-to-end.md).
+> If you only create _account_ and _portal_ private endpoints, you won't be able to run any scans. To enable scanning on a private network, you will also need to [create an ingestion private endpoint](catalog-private-link-end-to-end.md).
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Diagram that shows Microsoft Purview and Private Link architecture.":::
 

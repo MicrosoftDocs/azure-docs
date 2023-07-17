@@ -2,21 +2,16 @@
 title: "Tutorial: Create an Azure custom role with Azure PowerShell - Azure RBAC"
 description: Get started creating an Azure custom role using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
-documentationCenter: ''
 author: rolyon
-manager: karenhoran
-editor: ''
+manager: amycolannino
 
 ms.service: role-based-access-control
-ms.devlang: ''
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
-
 ---
 # Tutorial: Create an Azure custom role using Azure PowerShell
 
@@ -39,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Sign in to Azure PowerShell
 

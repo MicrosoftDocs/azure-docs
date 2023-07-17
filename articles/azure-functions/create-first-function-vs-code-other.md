@@ -4,7 +4,7 @@ description: Learn how to create a Go function as an Azure Functions custom hand
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.devlang: golang, rust
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -65,7 +65,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions cu
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. 
 

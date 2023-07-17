@@ -4,9 +4,9 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/18/2022
-  author: v-amallick
-  ms.author: v-amallick
+  ms.date: 03/21/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
 
@@ -50,7 +50,7 @@ sections:
 
              Learn about [how to configure Azure Backup reports](./configure-reports.md).
 
-          1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
+          1. **SAP HANA Native clients**: If you're an SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png" alt-text="Screenshot showing reports in SAP HANA Native clients.":::
           
@@ -65,12 +65,12 @@ sections:
           Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
 
       - question: | 
-          Can a full backup and a log backup run parallelly?
+          Can a full backup and a log backup run simultaneously?
         answer: |
-          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+          Yes, a full backup and a log backup can run simultaneously. This instance occurs in one of the following ways:
 
-          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
-          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless the full backup triggered was a remedial full to handle any LSN chain-break.
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run simultaneously and succeed.
 
       - question: |
           Are future databases automatically added for backup?
@@ -109,45 +109,25 @@ sections:
           Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
           
       - question: |
-          Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
+          Can the Azure HANA backup be set up against a virtual IP (load balancer) and not a virtual machine?
         answer: |
           Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
       - question: |
           How can I move on-demand backups (triggered from HANA native clients) to the local file system instead of the Azure vault?
         answer: |
-          1. Wait for the currently running backup to complete on the desired database (check from studio for completion).
-          1. Disable log backups and set the catalog backup to **Filesystem** for the desired database using the following steps:
-          1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
-              1. Set enable_auto_log_backup to **no**.
-              1. Set catalog_backup_using_backint to **false**.
-          1. Take an on-demand backup (full / differential/ incremental) on the desired database, and wait for the backup and catalog backup to complete.
-          1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes** and log_backup_using_backint to **false**.
-          1. Revert to the previous settings to allow backups to flow to the Azure vault:
-              1. Set enable_auto_log_backup to **yes**.
-              1. Set catalog_backup_using_backint to **true**.
-              1. Set log_backup_using_backint to **true**, if it's set to **false**.
-          
-          > [!NOTE]
-          > Moving backups to the local Filesystem and switching back again to the Azure vault may cause a log chain break of the log backups in the vault. This will trigger a full backup, which once successfully completed will start backing up the logs.
-
+          You can trigger an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
       - question: |
-          How can I manage or clean-up the HANA catalog for database with Azure Backup enabled?
+          How can I manage or clean up the HANA catalog for database with the Azure Backup enabled?
         answer: |
-          - SAP recommends the catalog retention should be determined by your business need (retention policy). The most common is _30 days_ retention.
-          - You can trigger clean-up/pruning of HANA catalog through HANA native clients (such as cockpit or studio) or through SQL commands.
-          - This clean-up task generates a catalog backup that's not moved to the Azure Backup vault (as there is no associated data backup).
-          - The catalog backup is therefore shown as a failure in the Cockpit/Studio. However, note that this catalog backup failure doesn't mean  the catalog clean-up activity has failed.
-          - Note that this **catalog backup failure also doesn't affect your point-in-time recoverability**.
-          - The catalog clean-up activity may cause the log backups triggered at the same time to be queued. These logs are then moved to the vault after the catalog backup (triggered by catalog clean-up) fails.
-          - Manually check the success of the catalog clean-up activity.
+          You can prune the HANA catalog using SAP recommended methods, such as BACKUP CATALOG DELETE statements or HANA Studio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
       - question: |
           How can I use SAP HANA Backup with my HANA Replication set-up?
         answer: |
           Currently, Azure Backup doesn't have the capability to understand an HSR set-up. This means that the primary and secondary nodes of the HSR will be treated as two individual, unrelated VMs. You'll first need to configure backup on the primary node. When a fail-over happens, backup must be configured on the secondary node (which now becomes the primary node). There's no automatic fail-over of backup to the other node.
           
-          To back up data from the active (primary) node at any given point in time, you can **switch protection** to the secondary node, which has now become the primary after fail-over.
+          To back up data from the active (primary) node at any given point-in-time, you can **switch protection** to the secondary node that has now become the primary after fail-over.
           
           To perform this **switch protection**, follow these steps:
           
@@ -178,7 +158,7 @@ sections:
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
 
           >[!Note]
-          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR setup have the same backup key, thereby reduces the backup sync and failure issues.
 
       - question: |
           What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?
@@ -199,10 +179,29 @@ sections:
            - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
            - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
            - [M-series](../virtual-machines/m-series.md)
-           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
           >[!Note]
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
+      
+      - question: |
+          Can I change the backup performance by editing the "parallel_backup_using_backint" property in SAP HANA "global.ini" file?
+        answer: |
+          Currently, Azure Backup for SAP HANA accepts *1* as the value of the *parallel_backup_using_backint* property. However, Azure Backup splits that single stream in multiple streams for better performance.
+
+
+      - question: |
+          Does HSR support database instances backup using snapshots?
+
+        answer: |
+          Currently, only Backint-based backups are supported for HSR. Snapshots aren't yet.
+
+      - question: |
+          Do I need to run the instance re-detection only on the server marked "Ready", or also on the one marked "Not Ready"?
+
+        answer: |
+          You need to run the instance re-detection on the server that is marked "Not Ready" to update its status.
+
 
   - name: Restore
     questions:
@@ -210,7 +209,7 @@ sections:
       - question: |
           How many restores are supported per day?
         answer: |
-          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is cancelled or fails, it's also considered as a restore attempt.
+          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is canceled or fails, it's also considered as a restore attempt.
            
       - question: |
           Why can't I see the HANA system I want my database to be restored to?
@@ -231,6 +230,15 @@ sections:
           Can I use a backup of a database running on SLES to restore to an RHEL HANA system or vice versa?
         answer: |
           Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to an RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you'll have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
+      - question: |
+          Can I download only a subset of files during restore as files?
+        answer: |
+          Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
+
+      - question: |
+          Do I have to disable the HSR on SAP HANA native environment during "SYSTEMDB + Tenant DB" restore for HSR setup?
+        answer: |
+          Yes, you need to disable the HANA System Replication (HSR) on target system, and then perform restore. You can't restore an HSR-enabled system, as per SAP.
           
   - name: Policy
     questions:
@@ -270,7 +278,16 @@ sections:
           |Daily fulls + logs     |   -      |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |
           |Weekly fulls + daily differentials + logs     |   The previous weekly fulls retention is recalculated as per latest policy. The previous differentials are immediately deleted      |    -     |    The previous differentials are immediately deleted     |
           |Weekly fulls + daily incrementals + logs     |     The previous weekly fulls retention is recalculated as per latest policy. The previous incrementals are immediately deleted    |     The previous incrementals are immediately deleted    |    -     |
-          
+
+      - question: |
+          How can I manage the size of /opt/msawb folder created in the root partition?
+        answer: |
+          You could manage the space in the root folder using one of the following options:
+          - Create an own LV for */opt/msawb*.
+          - Create a soft *link*/*symlink* to another location/folder on the same/different disk.
+          - Increase the space on the root partition.
+
+
 additionalContent: |
 
   ## Next steps

@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
@@ -111,6 +111,8 @@ public static class Clients
 }
 ```
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 ### Initialize application-specific settings
 

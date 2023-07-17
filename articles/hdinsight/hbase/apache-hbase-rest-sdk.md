@@ -3,8 +3,8 @@ title: Use the HBase .NET SDK - Azure HDInsight
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 12/02/2019
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
+ms.date: 04/28/2023
 ---
 
 # Use the .NET SDK for Apache HBase
@@ -38,7 +38,7 @@ HBase stores data in tables. A table consists of a *Rowkey*, the primary key, an
 
 The data is physically stored in *HFiles*. A single HFile contains data for one table, one region, and one column family. Rows in HFile are stored sorted on Rowkey. Each HFile has a *B+ Tree* index for speedy retrieval of the rows.
 
-To create a new table, specify a `TableSchema` and columns. The following code checks whether the table 'RestSDKTable` already exists - if not, the table is created.
+To create a new table, specify a `TableSchema` and columns. The following code checks whether the table `RestSDKTable` already exists - if not, the table is created.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))

@@ -20,11 +20,11 @@ Fluid framework periodically saves state, called summary, without any explicit b
 
 We've added following methods to AzureClient that will enable developers to recover data from corrupted containers. 
 
-[`getContainerVersions(ID, options)`](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-getcontainerversions-Method)
+[`getContainerVersions(ID, options)`](https://fluidframework.com/docs/apis/azure-client/azureclient-class#getcontainerversions-method)
 
 `getContainerVersions` allows developers to view the previously generated versions of the container.
 
-[copyContainer(ID, containerSchema)](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-copycontainer-Method)
+[`copyContainer(ID, containerSchema)`](https://fluidframework.com/docs/apis/azure-client/azureclient-class#copycontainer-method)
 
 `copyContainer` allows developers to generate a new detached container from a specific version of another container.
 
@@ -74,3 +74,11 @@ We aren't recovering (rolling back) existing container. `copyContainer` will giv
 ### New Container is detached
 
  New container is initially in `detached` state. We can continue working with detached container, or immediately attach. After calling `attach` we'll get back unique Container ID, representing newly created instance.
+
+ ## Post-recovery considerations
+
+When it comes to building use cases around post-recovery scenarios, here are couple of considerations on what application might want do to get its remote collaborators all working on the same container again.
+
+If you are modeling your application data solely using fluid containers, the communication “link” is effectively broken when the container is corrupted. Similar real-world example may be video-call where the original author has shared the link with participants and that link is not working any more. With that perspective in mind, one option is to limit recovery permissions to original author and let them share new container link in the same way they shared original link, after recovering the copy of the original container.
+
+Alternatively, if you are using fluid framework for transient data only, you can always use your own source-of-truth data and supporting services to manage more autonomous recovery workflows. For example, multiple clients may kick off the recovery process until your app has a first recovered copy. Your app can then notify all participating clients to transition to a new container. This can be useful as any currently active client can unblock the participating group to proceed with collaboration. One consideration here is the incurred costs of redundancy.

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/30/2017
+ms.date: 08/20/2022
 ---
 
 # Migrate your apps and solutions from BizTalk Services to Azure Logic Apps
@@ -241,6 +241,5 @@ which lets you synchronize B2B data across integration accounts in different reg
 
 ## Next steps
 
-* [What is Logic Apps?](../logic-apps/logic-apps-overview.md)
-* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  
-* [View all the available connectors](../connectors/apis-list.md) that you can use in logic apps
+* [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)

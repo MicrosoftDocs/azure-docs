@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco AnyConnect.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 04/12/2023
 ms.author: jeedes
 ---
 
@@ -45,6 +45,10 @@ To configure the integration of Cisco AnyConnect into Azure AD, you need to add 
 1. In the **Add from the gallery** section, type **Cisco AnyConnect** in the search box.
 1. Select **Cisco AnyConnect** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
+
 ## Configure and test Azure AD SSO for Cisco AnyConnect
 
 Configure and test Azure AD SSO with Cisco AnyConnect using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cisco AnyConnect.
@@ -68,13 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields (note that the values are case-sensitive):
+1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
    1. In the **Identifier** text box, type a URL using the following pattern:  
       `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. In the **Reply URL** text box, type a URL using the following pattern:  
       `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
+
+    > [!NOTE]
+    > `<Tunnel_Group_Name>` is a case-sensitive and the value must not contain dots "." and slashes "/".
 
     > [!NOTE]
     > For clarification about these values, contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact the [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

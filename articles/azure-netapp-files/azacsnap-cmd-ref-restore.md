@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 05/04/2023
 ms.author: phjensen
 ---
 
@@ -20,6 +20,9 @@ ms.author: phjensen
 
 This article provides a guide for running the restore command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
+> [!NOTE]
+> The restore command is only available for Azure Large Instance and Azure NetApp Files.  Any restores of Azure Managed Disk must be done using the Azure Portal or Azure CLI.
+    
 ## Introduction
 
 Doing a volume restore from a snapshot is done using the `azacsnap -c restore` command.
@@ -31,18 +34,23 @@ Doing a volume restore from a snapshot is done using the `azacsnap -c restore` c
 
 The `-c restore` command has the following options:
 
-- `--restore snaptovol` Creates a new volume based on the latest snapshot on the target volume. This command creates a new "cloned" volume based on the configured target volume, using the latest volume snapshot as the base to create the new volume.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the latest available snapshot are created at the DR site and recommended filesystem mountpoints of the cloned volumes are presented. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
+- `--restore snaptovol` Creates a new volume based on a volume snapshot. This command creates a new "cloned" volume for each volume in the configuration file, by default using the latest volume snapshot as the base to create the new volume.  For data volumes it's possible to select a snapshot to clone by using the option `--snapshotfilter <Snapshot Name>`, this will only complete if ALL data volumes have that same snapshot.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the snapshot are created at the same location and recommended filesystem mountpoints of the cloned volumes are presented. If using on Azure Large Instance system this command should be run **in the DR region** (that is, the target fail-over system).
 
-- `--restore revertvolume` Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
-    > [!NOTE]
-    > The sub-command (`--restore revertvolume`) is only available for Azure Large Instance and is not available for Azure NetApp Files.
-- `--dbsid <SAP HANA SID>` is the SAP HANA SID being selected from the configuration file to apply the volume restore commands to.
+- `--restore revertvolume` Reverts the target volume to a prior state based on a volume snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. If using on Azure Large Instance system this command should be run **in the DR region** (that is, the target fail-over system).
+  
+  > [!WARNING]
+  > The revertvolume option is data destructive as any content stored in the volumes after the snapshot chosen to revert to will be lost and is not recoverable.
+
+  > [!TIP]
+  > After doing a revertvolume it is recommended the volume is remounted to ensure there are no stale file handles.  This can be done using `mount -o remount <mount_point>`.
+
+- `--dbsid <SAP HANA SID>` is the database SID as specified in the configuration file to apply the volume restore commands to.
 
 - `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
 
 ## Perform a test DR failover `azacsnap -c restore --restore snaptovol`
 
-This command is like the "full" DR Failover command (`--restore restorevolume`), but rather than breaking the replication between the primary site and the disaster recovery site, a clone volume is created out of the disaster recovery volumes, allowing the restoration of the most recent snapshot in the DR site. Those cloned volumes are then usable by the customer to test Disaster Recovery without having to
+This command is like the "full" DR Failover command (`--restore revertvolume`), but rather than breaking the replication between the primary site and the disaster recovery site, a clone volume is created out of the disaster recovery volumes, allowing the restoration of the most recent snapshot in the DR site. Those cloned volumes are then usable by the customer to test Disaster Recovery without having to
 execute a complete failover of their HANA environment that breaks the replication agreement between the primary site and the disaster recovery site.
 
 - Multiple different restore points can be tested in this way,

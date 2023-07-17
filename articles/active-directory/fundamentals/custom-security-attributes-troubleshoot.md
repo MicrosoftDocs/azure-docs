@@ -1,14 +1,15 @@
 ---
-title: Troubleshoot custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Troubleshoot custom security attributes in Azure AD (Preview)
 description: Learn how to troubleshoot custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -26,7 +27,7 @@ When signed in to the Azure portal as Global Administrator and you try to access
 
 **Cause**
 
-Custom security attributes requires an Azure AD Premium P1 or P2 license.
+Custom security attributes require an Azure AD Premium P1 or P2 license.
 
 **Solution**
 
@@ -90,7 +91,7 @@ There are no custom security attributes defined and assigned yet for your tenant
 
 **Solution 3**
 
-Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -100,7 +101,7 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 **Solution**
 
-Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
+Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md).
 
 ## Symptom - Cannot add a role assignment at an attribute set scope using PIM
 
@@ -139,6 +140,26 @@ You are not assigned the required custom security attribute role to make the API
 **Solution 2**
 
 Make sure that you are assigned the required custom security attribute role. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+
+## Symptom - Request_UnsupportedQuery error
+
+When you try to call Microsoft Graph APIs for custom security attributes, you see a message similar to the following:
+
+```
+Bad Request - 400
+Request_UnsupportedQuery
+Unsupported or invalid query filter clause specified for property '<AttributeSet>_<Attribute>' of resource 'CustomSecurityAttributeValue'.
+```
+
+**Cause**
+
+The request isn't formatted correctly.
+
+**Solution**
+
+If required, add `ConsistencyLevel=eventual` in the request or the header. You might also need to include `$count=true` to ensure the request is routed correctly. For more information, see [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+
+![Screenshot of Graph Explorer with ConsistencyLevel header added.](./media/custom-security-attributes-troubleshoot/graph-explorer-consistency-level-header.png)
 
 ## Next steps
 

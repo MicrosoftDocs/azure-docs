@@ -1,20 +1,19 @@
 ---
-title: Troubleshoot devices by using the dsregcmd command - Azure Active Directory
+title: Troubleshoot devices by using the dsregcmd command
 description: This article covers how to use the output from the dsregcmd command to understand the state of devices in Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 08/31/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
-
 # Troubleshoot devices by using the dsregcmd command
 
 This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Azure Active Directory (Azure AD). The `dsregcmd /status` utility must be run as a domain user account.
@@ -29,7 +28,6 @@ This section lists the device join state parameters. The criteria that are requi
 | NO | NO | YES | Domain Joined |
 | YES | NO | YES | Hybrid AD Joined |
 | NO | YES | YES | On-premises DRS Joined |
-| | |
 
 > [!NOTE]
 > The Workplace Joined (Azure AD registered) state is displayed in the ["User state"](#user-state) section.
@@ -205,6 +203,12 @@ Active Directory Federation Services (AD FS). For hybrid Azure AD-joined devices
 This field is skipped if no diagnostics information is available.
 The diagnostics information fields are same as **AcquirePrtDiagnostics**
 
+>[!NOTE]
+> The following Cloud Kerberos diagnostics fields were added in the original release of Windows 11 (version 21H2).
+
+- **OnPremTgt**: Set the state to *YES* if a Cloud Kerberos ticket to access on-premises resources is present on the device for the logged-in user.
+- **CloudTgt**: Set the state to *YES* if a Cloud Kerberos ticket to access cloud resources is present on the device for the logged-in user.
+- **KerbTopLevelNames**: List of top level Kerberos realm names for Cloud Kerberos.
 
 ### Sample SSO state output
 
@@ -231,6 +235,9 @@ The diagnostics information fields are same as **AcquirePrtDiagnostics**
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC
     EnterprisePrtAuthority : https://fs.hybridadfs.nttest.microsoft.com:443/adfs
+                 OnPremTgt : YES
+                  CloudTgt : YES
+         KerbTopLevelNames : .windows.net,.windows.net:1433,.windows.net:3342,.azure.net,.azure.net:1433,.azure.net:3342
 
 +----------------------------------------------------------------------+
 ```
@@ -333,7 +340,7 @@ The following example shows that diagnostics tests are passing but the registrat
 This diagnostics section displays the output of sanity checks performed on a device that's joined to the cloud.
 
 - **AadRecoveryEnabled**: If the value is *YES*, the keys stored in the device aren't usable, and the device is marked for recovery. The next sign-in will trigger the recovery flow and re-register the device.
-- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD-joined devices, the recovery is silent. While the devices are Azure AD-joined or Azure AD registered, they will prompt for user authentication to recover and re-register the device, if necessary. 
+- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD-joined devices, the recovery is silent. While the devices are Azure AD-joined or Azure AD registered, they'll prompt for user authentication to recover and re-register the device, if necessary. 
    > [!NOTE]
    > The KeySignTest requires elevated privileges.
 
@@ -367,6 +374,14 @@ This diagnostics section performs the prerequisites check for setting up Windows
 - **AdfsRaIsReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if AD FS indicates in discovery metadata that it supports WHFB *and* the logon certificate template is available.
 - **LogonCertTemplateReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if the state of the login certificate template is valid and helps troubleshoot the AD FS Registration Authority (RA).
 - **PreReqResult**: Provides the result of all WHFB prerequisites evaluation. Set the state to *Will Provision* if WHFB enrollment would be launched as a post-login task when the user signs in next time.
+
+>[!NOTE]
+> The following Cloud Kerberos diagnostics fields were added in the Windows 10 May 2021 update (version 21H1).
+
+>[!NOTE]
+> Prior to Windows 11 version 23H2, the setting **OnPremTGT** was named **CloudTGT**.
+
+- **OnPremTGT**: This setting is specific to Cloud Kerberos trust deployment and present only if the CertEnrollment state is *none*. Set the state to *YES* if the device has a Cloud Kerberos ticket to access on-premises resources. Prior to Windows 11 version 23H2, this setting was named **CloudTGT**.
 
 ### Sample NGC prerequisites check output
 

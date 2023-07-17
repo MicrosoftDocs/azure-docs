@@ -1,14 +1,17 @@
 ---
 title: Deploy an Azure SQL Edge container in Kubernetes - Azure SQL Edge
 description: Learn about deploying an Azure SQL Edge container in Kubernetes
-keywords: SQL Edge, container, kubernetes
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: tutorial
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+keywords:
+  - SQL Edge
+  - container
+  - kubernetes
+services: sql-edge
 ---
 
 # Deploy an Azure SQL Edge container in Kubernetes
@@ -41,7 +44,7 @@ In the following diagram, the node hosting the `azure-sql-edge` container has fa
 ## Prerequisites
 
 * **Kubernetes cluster**
-   - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) to manage the cluster. 
+   - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/reference/kubectl/) to manage the cluster. 
 
    - For the purpose of this tutorial, we will be using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/tutorial-kubernetes-deploy-cluster.md) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`. 
 

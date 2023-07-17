@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Bicep'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Bicep
-author: schaffererin
-ms.author: v-eschaffer
+author: reachnijel
+ms.author: nijelsf 
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 04/14/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 11/17/2022
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Bicep
 ---
 
@@ -57,7 +57,7 @@ Two Azure resources are defined in the Bicep file:
     You need to provide values for the parameters:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
-    * Replace **\<cluster-type\>** with the type of the HDInsight cluster to create. Allowed strings include: `hadoop`, `interactivehive`, `hbase`, `storm`, and `spark`.
+    * Replace **\<cluster-type\>** with the type of the HDInsight cluster to create. Allowed strings include: `hadoop`, `interactivehive`, `hbase`, and `spark`.
     * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
     * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
 

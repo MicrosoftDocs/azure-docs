@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -59,7 +58,7 @@ To check which version of the Az.Storage module is installed, run the following 
 Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
-For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 ## Sign in to Azure PowerShell with Azure AD
 

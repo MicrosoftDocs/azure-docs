@@ -3,11 +3,11 @@ title: 'C# tutorial optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 1/29/2021
+ms.date: 1/05/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -87,7 +87,7 @@ API calls require the service URL and an access key. A search service is created
 
 Once you update *appsettings.json*, the sample program in **OptimizeDataIndexing.sln** should be ready to build and run.
 
-This code is derived from the [C# Quickstart](search-get-started-dotnet.md). You can find more detailed information on the basics of working with the .NET SDK in that article.
+This code is derived from the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). You can find more detailed information on the basics of working with the .NET SDK in that article.
 
 This simple C#/.NET console app performs the following tasks:
 

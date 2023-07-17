@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Best practices for Query Store - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 **Applies to:** Azure Database for PostgreSQL - Flex Server versions 11, 12
 

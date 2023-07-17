@@ -1,7 +1,7 @@
 ---
 title: 'Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: 'Use this guide to set up your platform for C# under Universal Windows Platform (UWP) with the Speech service SDK.'
+description: 'Use this guide to set up your platform for C# under Universal Windows Platform (UWP) with the Speech SDK.'
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -105,7 +105,7 @@ Allow the project to capture audio input:
 
 1. From the menu bar, select **File** > **Save Package.appxmanifest** to save your changes.
 
-### Install the Speech SDK
+### Install the Speech SDK for UWP
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 

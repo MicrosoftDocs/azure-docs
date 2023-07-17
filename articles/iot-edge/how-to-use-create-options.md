@@ -13,7 +13,7 @@ services: iot-edge
 
 # How to configure container create options for IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 
@@ -49,7 +49,7 @@ The IoT Edge deployment manifest accepts create options formatted as JSON. For e
 
 This edgeHub example uses the **HostConfig.PortBindings** parameter to map exposed ports on the container to a port on the host device.
 
-If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Code, you can write the create options in JSON format in the **deployment.template.json** file. Then, when you use the extension to build the IoT Edge solution or generate the deployment manifest, it will stringify the JSON for you in the format that the IoT Edge runtime expects. For example:
+If you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio or Visual Studio Code, you can write the create options in JSON format in the **deployment.template.json** file. Then, when you use the extension to build the IoT Edge solution or generate the deployment manifest, it will stringify the JSON for you in the format that the IoT Edge runtime expects. For example:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -57,7 +57,7 @@ If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Cod
 
 One tip for writing create options is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON. For example:
 
-[![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+:::image type="content" source="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png" alt-text="Screenshot of the results of the command docker inspect edgeHub." lightbox="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png":::
 
 ## Common scenarios
 
@@ -66,6 +66,7 @@ Container create options enable many scenarios, but here are some that come up m
 * [Give modules access to host storage](how-to-access-host-storage-from-module.md)
 * [Map host port to module port](#map-host-port-to-module-port)
 * [Restrict module memory and CPU usage](#restrict-module-memory-and-cpu-usage)
+* [GPU-optimize an IoT Edge module](#gpu-optimize-an-iot-edge-module)
 
 ### Map host port to module port
 
@@ -123,6 +124,22 @@ Once stringified for the final deployment manifest, these values would look like
 ```json
 "createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"CpuPeriod\":25000}}"
 ```
+
+### GPU-optimize an IoT Edge module
+
+If you're running your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this with an existing module, add some specifications to your `createOptions`:
+
+```json
+{"HostConfig": {"DeviceRequests": [{"Count": -1,"Capabilities": [["gpu"]]}]}}
+```
+
+To confirm these settings were successfully added, use the Docker inspect command to see the new setting in a JSON printout.
+
+```bash
+sudo docker inspect <YOUR-MODULE-NAME>
+```
+
+To learn more about how your device and virtual machine connect to a GPU, see [Configure, connect, and verify an IoT Edge module for a GPU](configure-connect-verify-gpu.md).
 
 ## Next steps
 

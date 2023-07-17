@@ -1,7 +1,6 @@
 ---
 title: Customize a Brands model with the Azure Video Indexer website
 description: Learn how to customize a Brands model with the Azure Video Indexer website.
-services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -16,12 +15,12 @@ Azure Video Indexer supports brand detection from speech and visual text during 
 A custom Brands model allows you to:
 
 - select if you want Azure Video Indexer to detect brands from the Bing brands database.
-- select if you want Azure Video Indexer to exclude certain brands from being detected (essentially creating a deny list of brands).
+- select if you want Azure Video Indexer to exclude certain brands from being detected (essentially creating a blocklist of brands).
 - select if you want Azure Video Indexer to include brands that should be part of your model that might not be in Bing's brands database (essentially creating an accept list of brands).
 
 For a detailed overview, see this [Overview](customize-brands-model-overview.md).
 
-You can use the Azure Video Indexer website to create, use, and edit custom Brands models detected in a video, as described in this topic. You can also use the API, as described in [Customize Brands model using APIs](customize-brands-model-with-api.md).
+You can use the Azure Video Indexer website to create, use, and edit custom Brands models detected in a video, as described in this article. You can also use the API, as described in [Customize Brands model using APIs](customize-brands-model-with-api.md).
 
 > [!NOTE]
 > If your video was indexed prior to adding a brand, you need to reindex it. You will find **Re-index** item in the drop-down menu associated with the video. Select **Advanced options** -> **Brand categories** and check **All brands**.

@@ -4,6 +4,7 @@ description: This how-to guide describes how to view and use Microsoft Purview c
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
+ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022
@@ -13,8 +14,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # Classification insights about your data in Microsoft Purview
 
 This guide describes how to access, view, and filter Microsoft Purview Classification insight reports for your data.
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 In this guide, you'll learn how to:
 
@@ -62,7 +61,7 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
    |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
    |**Top sources with classified data (last 30 days)**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
    |**Top classification categories by sources**     |Shows the number of sources found by classification category, such as **Financial** or **Government**.      |
-   |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
+   |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national/regional identification numbers.         |
    |**Top classifications for tables**     | Shows the top classifications applied to tables in your data, such as personal identifying information. |   
    |  **Classification activity** <br>(files and tables) |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |

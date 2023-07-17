@@ -1,14 +1,13 @@
 ---
 title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
 description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge
-keywords:
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 07/27/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 07/27/2020
+services: sql-edge
 ---
 
 # CREATE EXTERNAL STREAM (Transact-SQL)
@@ -146,6 +145,7 @@ WITH  ( <with_options> )
     The staging area for high-throughput data ingestion into Azure Synapse Analytics
     - Reserved for future usage. Does not apply to Azure SQL Edge.
 
+For more information about supported input and output options corresponding to the data source type, see [Azure Stream Analytics - Input Overview](../stream-analytics/stream-analytics-add-inputs.md) and [Azure Stream Analytics - Outputs Overview](../stream-analytics/stream-analytics-define-outputs.md) respectively.
 
 ## Examples
 

@@ -7,7 +7,7 @@ ms.date: 04/04/2022
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
@@ -22,7 +22,7 @@ In this article, you'll use Azure SignalR Service, Azure Functions, and Java to 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 - An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Used to run Azure Function apps locally.
-  
+
   - The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
   - To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build Java Azure Function apps.
 
@@ -52,13 +52,13 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     | **groupId** | `com.signalr` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
     | **artifactId** | `java` | A value that is the name of the jar, without a version number. |
     | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-    | **package** | `com.signalr` | A value that is the Java package for the generated function code. Use the default. |  
+    | **package** | `com.signalr` | A value that is the Java package for the generated function code. Use the default. |
 
 1. Go to the folder `src/main/java/com/signalr` and copy the following code to *Function.java*:
 
     ```java
     package com.signalr;
-    
+
     import com.google.gson.Gson;
     import com.microsoft.azure.functions.ExecutionContext;
     import com.microsoft.azure.functions.HttpMethod;
@@ -71,10 +71,10 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     import com.microsoft.azure.functions.annotation.TimerTrigger;
     import com.microsoft.azure.functions.signalr.*;
     import com.microsoft.azure.functions.signalr.annotation.*;
-    
+
     import org.apache.commons.io.IOUtils;
-    
-    
+
+
     import java.io.IOException;
     import java.io.InputStream;
     import java.net.URI;
@@ -84,11 +84,11 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     import java.net.http.HttpResponse.BodyHandlers;
     import java.nio.charset.StandardCharsets;
     import java.util.Optional;
-    
+
     public class Function {
         private static String Etag = "";
         private static String StarCount;
-    
+
         @FunctionName("index")
         public HttpResponseMessage run(
                 @HttpTrigger(
@@ -96,12 +96,12 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
                     methods = {HttpMethod.GET},
                     authLevel = AuthorizationLevel.ANONYMOUS)HttpRequestMessage<Optional<String>> request,
                 final ExecutionContext context) throws IOException {
-            
+
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("content/index.html");
             String text = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
             return request.createResponseBuilder(HttpStatus.OK).header("Content-Type", "text/html").body(text).build();
         }
-    
+
         @FunctionName("negotiate")
         public SignalRConnectionInfo negotiate(
                 @HttpTrigger(
@@ -111,10 +111,10 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
                 @SignalRConnectionInfoInput(
                     name = "connectionInfo",
                     hubName = "serverless") SignalRConnectionInfo connectionInfo) {
-                    
+
             return connectionInfo;
         }
-    
+
         @FunctionName("broadcast")
         @SignalROutput(name = "$return", hubName = "serverless")
         public SignalRMessage broadcast(
@@ -132,10 +132,10 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
                 GitResult result = gson.fromJson(res.body(), GitResult.class);
                 StarCount = result.stargazers_count;
             }
-            
+
             return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(StarCount));
         }
-    
+
         class GitResult {
             public String stargazers_count;
         }
@@ -169,7 +169,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
         | | - main
         | | | - java
         | | | | - com
-        | | | | | - signalr 
+        | | | | | - signalr
         | | | | | | - Function.java
         | | | - resources
         | | | | - content
@@ -183,7 +183,7 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
 
     ```html
     <html>
-    
+
     <body>
         <h1>Azure SignalR Serverless Sample</h1>
         <div id="messages"></div>
@@ -198,14 +198,16 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
             connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
             });
-    
+
             connection.start()
             .catch(console.error);
         </script>
     </body>
-    
+
     </html>
     ```
+
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md).
 
 1. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
@@ -233,10 +235,6 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
     ```
 
     After Azure Function is running locally, go to  `http://localhost:7071/api/index` and you'll see the current star count. If you star or "unstar" in the GitHub, you'll get a star count refreshing every few seconds.
-
-    > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

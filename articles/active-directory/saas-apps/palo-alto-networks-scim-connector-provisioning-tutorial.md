@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Palo Alto Networks SCIM Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Palo Alto Networks SCIM Connector for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Palo Alto Networks SCIM Connector.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: b44885ef-fc1c-473c-9948-d7ca54d42d49
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/23/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

@@ -10,8 +10,6 @@ ms.author: yelevin
 
 # Manage your SOC better with incident metrics
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 As a Security Operations Center (SOC) manager, you need to have overall efficiency metrics and measures at your fingertips to gauge the performance of your team. You'll want to see incident operations over time by many different criteria, like severity, MITRE tactics, mean time to triage, mean time to resolve, and more. Microsoft Sentinel now makes this data available to you with the new **SecurityIncident** table and schema in Log Analytics and the accompanying **Security operations efficiency** workbook. You'll be able to visualize your team's performance over time and use this insight to improve efficiency. You can also write and use your own KQL queries against the incident table to create customized workbooks that fit your specific auditing needs and KPIs.
@@ -45,7 +43,7 @@ SecurityIncident
 | where Severity in ('High','Medium','Low', 'Informational')
 ```
 
-Mean time to closure:
+Closure time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -54,7 +52,7 @@ SecurityIncident
   90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
 ```
 
-Mean time to triage:
+Triage time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -65,7 +63,7 @@ SecurityIncident
 
 ## Security operations efficiency workbook
 
-To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
+To complement the **SecurityIncidents** table, we’ve provided you with an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
 - Incident created over time 
 - Incidents created by closing classification, severity, owner, and status 
 - Mean time to triage 
@@ -87,7 +85,7 @@ You can use the template to create your own custom workbooks tailored to your sp
 
 ## SecurityIncidents schema
 
-[!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
+[!INCLUDE [SecurityIncidents schema](includes/sentinel-schema-security-incident.md)]
 
 ## Next steps
 

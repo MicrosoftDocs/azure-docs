@@ -4,23 +4,26 @@ titleSuffix: Azure Machine Learning
 description: Use CLI (v1) or SDK (v1) to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 07/31/2020
+ms.subservice: inferencing
+ms.date: 11/04/2022
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods
-ms.author: larryfr
-author: blackmist
-ms.custom: deploy, cliv1, sdkv1
+ms.reviewer: larryfr
+author: ositanachi
+ms.author: osiotugo
+ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 ---
 
 # Profile your model to determine resource utilization
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article shows how to profile a machine learning to model to determine how much CPU and memory you will need to allocate for the model when deploying it as a web service.
 
 > [!IMPORTANT]
 > This article applies to CLI v1 and SDK v1.  This profiling technique is not available for v2 of either CLI or SDK.
+
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ Below is an example of how you can construct an input dataset to profile a servi
 
 ::: zone pivot="py-sdk"
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import json
@@ -111,7 +114,7 @@ details = profile.get_details()
 
 ::: zone pivot="cli"
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 The following command demonstrates how to profile a model by using the CLI:
 
@@ -135,12 +138,12 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## Next steps
 
-* [Troubleshoot a failed deployment](../how-to-troubleshoot-deployment.md)
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Create client applications to consume web services](../how-to-consume-web-service.md)
-* [Update web service](../how-to-deploy-update-web-service.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
+* [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
-* [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)

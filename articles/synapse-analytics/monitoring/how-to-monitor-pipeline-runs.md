@@ -6,7 +6,7 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 11/30/2020
+ms.date: 09/26/2022
 ms.author: mahi
 ms.reviewer: mahi
 ---
@@ -33,7 +33,7 @@ Select **Pipeline runs** to view the list of pipeline runs.
 
 ## Filter your pipeline runs
 
-You can filter the list of pipeline runs to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
+You can filter the list of pipeline runs to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter. You can view pipeline run data for the last 45 days. If you want to store pipeline run data for more than 45 days, set up your own diagnostic logging with [Azure monitor](../../data-factory/monitor-using-azure-monitor.md).
 
 For example, you can filter the view to see only the pipeline runs for the pipeline named "holiday":
 

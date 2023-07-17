@@ -188,8 +188,6 @@ You can use a Spark cluster to run Spark jobs on data that is stored in a Data L
 
 ### Use Data Lake Storage Gen1 in a Storm topology
 
-You can use the storage account with Data Lake Storage Gen1 to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Storage Gen1 with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
-
 ## See also
 
 * [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)

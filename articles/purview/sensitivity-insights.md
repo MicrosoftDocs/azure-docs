@@ -1,12 +1,12 @@
 ---
 title: Sensitivity label reporting on your data in Microsoft Purview using Microsoft Purview Data Estate Insights
 description: This how-to guide describes how to view and use sensitivity label reporting on your data.
-author: batamig
-ms.author: bagol
+author: aashishr
+ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 02/20/2023
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
@@ -14,8 +14,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # Sensitivity label insights about your data in Microsoft Purview
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 

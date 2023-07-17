@@ -1,13 +1,13 @@
 ---
-title: Move from Storage Analytics metrics to Azure Monitor metrics | Microsoft Docs
+title: Move from Storage Analytics metrics to Azure Monitor metrics
 description: Learn how to transition from Storage Analytics metrics (classic metrics) to metrics in Azure Monitor. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: monitoring
 ---
 
@@ -25,7 +25,7 @@ To transition to metrics in Azure Monitor, we recommend the following approach.
 
 3. Identify [which metrics in Azure Monitor](#metrics-mapping-between-old-metrics-and-new-metrics) provide the same data as the metrics you currently use.
 
-4. Create [charts](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) or [dashboards](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) to view metric data.
+4. Create [charts](/training/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) or [dashboards](/training/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) to view metric data.
 
    > [!NOTE]
    > Metrics in Azure Monitor are enabled by default, so there is nothing you need to do to begin capturing metrics. You must however, create charts or dashboards to view those metrics.

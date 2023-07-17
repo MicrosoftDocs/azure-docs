@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2022
+ms.date: 06/21/2023
 ms.author: jeedes
 ---
 
@@ -49,6 +49,8 @@ To configure the integration of GitHub Enterprise Server into Azure AD, you need
 1. In the **Add from the gallery** section, type **GitHub Enterprise Server** in the search box.
 1. Select **GitHub Enterprise Server** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for GitHub Enterprise Server
 
 Configure and test Azure AD SSO with GitHub Enterprise Server using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in GitHub Enterprise Server.
@@ -75,15 +77,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/saml/consume`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/sso`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [GitHub Enterprise Server Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -98,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Expand **Claim conditions** and select **Members** from **User type**.
 
-1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
+1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHES.
 
 1. Select **Attribute** for **Source** and enter **true** (without quotes) for the **Value**. 
 
@@ -157,7 +159,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to GitHub Enterprise Server Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to GitHub Enterprise Server Sign-on URL where you can initiate the login flow.  
 
 * Go to GitHub Enterprise Server Sign-on URL directly and initiate the login flow from there.
 
@@ -165,7 +167,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the GitHub Enterprise Server for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub Enterprise Server tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub Enterprise Server for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the GitHub Enterprise Server tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the GitHub Enterprise Server for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

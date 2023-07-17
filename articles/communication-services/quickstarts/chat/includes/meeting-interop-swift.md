@@ -16,7 +16,7 @@ In this quickstart, you'll learn how to chat in a Teams meeting using the Azure 
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting will add them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user will not have access to chat messages that were sent before they joined the meeting and they will not be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting adds them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user will not have access to chat messages that were sent before they joined the meeting and they will not be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
 
 ## Add Chat to the Teams calling app
 
@@ -61,7 +61,7 @@ In `ContentView.swift` add the following snippet below the existing state variab
 
 Replace `<YOUR_DISPLAY_NAME_HERE>` with the display name you'd like to use in the Chat.
 
-Next we will modify the form `Section` to display our chat messages and add UI controls for chatting.
+Next we modify the form `Section` to display our chat messages and add UI controls for chatting.
 
 Add the following snippet to the existing form. Right after the Text view `Text(recordingStatus)`, for recording status.
 
@@ -99,9 +99,9 @@ Next change the title to `Chat Teams Quickstart`. Modify the following line with
 
 ### Initialize the ChatClient
 
-Instantiate the `ChatClient` and enable real-time notifications. We will be using real-time notifications for receiving chat messages.
+Instantiate the `ChatClient` and enable real-time notifications. We are using real-time notifications for receiving chat messages.
 
-Inside the `NavigationView` `.onAppear` add the snippet below, after the existing code that initializes the `CallAgent`.
+Inside the `NavigationView` `.onAppear`, add the snippet below, after the existing code that initializes the `CallAgent`.
 
 ```
 // Initialize the ChatClient
@@ -139,13 +139,13 @@ do {
 Replace `<COMMUNICATION_SERVICES_RESOURCE_ENDPOINT_HERE>` with the endpoint for your Communication Services resource.
 Replace `<USER_ACCESS_TOKEN_HERE>` with an access token that has Chat scope. 
 
-Read more about user access tokens: [User Access Token](../../access-tokens.md)
+Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
 
 ### Initialize the ChatThreadClient
 
 Inside the existing `joinTeamsMeeting()` function, we will initialize the `ChatThreadClient` after the user has joined the meeting.
 
-Inside the completion handler for the call to `self.callAgent?.join()` add the code below the comment `// Initialize the ChatThreadClient`. The full code is shown below.
+Inside the completion handler for the call to `self.callAgent?.join()`, add the code below the comment `// Initialize the ChatThreadClient`. The full code is shown below.
 
 ```
 self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) { (call, error) in
@@ -190,7 +190,7 @@ func getThreadId(from meetingLink: String) -> String? {
 
 ### Enable sending messages
 
-Add the `sendMessage()` function to `ContentView`. This function will use the `ChatThreadClient` to send messages from the user.
+Add the `sendMessage()` function to `ContentView`. This function uses the `ChatThreadClient` to send messages from the user.
 
 ```
 func sendMessage() {
@@ -214,9 +214,9 @@ func sendMessage() {
 
 ### Enable receiving messages
 
-To receive messages we will implement the handler for `ChatMessageReceived` events. When new messages are sent to the thread, this handler will add the messages to the `meetingMessages` variable so they can be displayed in the UI.
+To receive messages, we implement the handler for `ChatMessageReceived` events. When new messages are sent to the thread, this handler adds the messages to the `meetingMessages` variable so they can be displayed in the UI.
 
-First add the following struct to `ContentView.swift`. The UI will use the data in the struct to display our Chat messages.
+First add the following struct to `ContentView.swift`. The UI uses the data in the struct to display our Chat messages.
 
 ```
 struct MeetingMessage {
@@ -247,7 +247,7 @@ func receiveMessage(response: Any, eventId: ChatEventId) {
 
 ### Leave the chat
 
-When the user leaves the Team's meeting we will clear the Chat from the UI. The full code is shown below.
+When the user leaves the Team's meeting, we clear the Chat from the UI. The full code is shown below.
 
 ```
 func leaveMeeting() {
@@ -271,21 +271,22 @@ func leaveMeeting() {
 
 The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 
-With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response will have a `chatInfo` object that contains the `threadID`.
+With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response has a `chatInfo` object that contains the `threadID`.
 
 You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadID` will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
+A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadID` is where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
 
 
 ## Run the code
 
 Run the application. 
 
-To join the Teams meeting enter your Team's meeting link in the UI.
+To join the Teams meeting, enter your Team's meeting link in the UI.
 
-After you join the Team's meeting you will need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat you will be able to send and receive messages.
+After you join the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you are able to send and receive messages.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
 
 > [!NOTE] 
-> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
+

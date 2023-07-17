@@ -7,9 +7,8 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.date: 05/24/2022
+ms.date: 06/01/2023
 ms.author: lajanuar
 ---
 # Translator language support
@@ -39,31 +38,31 @@ ms.author: lajanuar
 | Assamese  | `as` |✔|✔|✔|||
 | Azerbaijani (Latin) | `az` |✔|✔||||
 | Bangla  | `bn` |✔|✔|✔||✔|
-| Bashkir  | `ba` |✔|||||
-| Basque | `eu` |✔|||||
+| Bashkir  | `ba` |✔|✔||||
+| Basque | `eu` |✔|✔||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional)  | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
-| Chinese (Literary) | `lzh` |✔|||||
+| Chinese (Literary) | `lzh` |✔|✔||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
 | Croatian | `hr` |✔|✔|✔|✔|✔|
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
-| Divehi  | `dv` |✔|||✔||
+| Divehi  | `dv` |✔|✔||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
-| Faroese | `fo` |✔|||||
+| Faroese | `fo` |✔|✔||||
 | Fijian | `fj` |✔|✔|✔|||
 | Filipino | `fil` |✔|✔|✔|||
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
-| Galician | `gl` |✔|||||
-| Georgian  | `ka` |✔|||✔||
+| Galician | `gl` |✔|✔||||
+| Georgian  | `ka` |✔|✔||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek  | `el` |✔|✔|✔|✔|✔|
 | Gujarati  | `gu` |✔|✔|✔|✔||
@@ -74,9 +73,9 @@ ms.author: lajanuar
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| Inuinnaqtun  | `ikt` |✔|||||
+| Inuinnaqtun  | `ikt` |✔|✔||||
 | Inuktitut  | `iu` |✔|✔|✔|✔||
-| Inuktitut (Latin) | `iu-Latn` |✔|||||
+| Inuktitut (Latin) | `iu-Latn` |✔|✔||||
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
@@ -88,19 +87,19 @@ ms.author: lajanuar
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
 | Kurdish (Northern)  | `kmr` |✔|✔||||
-| Kyrgyz (Cyrillic) | `ky` |✔|||||
+| Kyrgyz (Cyrillic) | `ky` |✔|✔||||
 | Lao  | `lo` |✔|✔||✔||
 | Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
-| Macedonian  | `mk` |✔|||✔||
+| Macedonian  | `mk` |✔|✔||✔||
 | Malagasy  | `mg` |✔|✔|✔|||
 | Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
 | Malayalam  | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
-| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
-| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
+| Mongolian (Cyrillic) | `mn-Cyrl` |✔|✔||||
+| Mongolian (Traditional) | `mn-Mong` |✔|✔||✔||
 | Myanmar  | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
@@ -114,34 +113,34 @@ ms.author: lajanuar
 | Queretaro Otomi  | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
 | Russian | `ru` |✔|✔|✔|✔|✔|
-| Samoan (Latin) | `sm` |✔| |✔|||
+| Samoan (Latin) | `sm` |✔|✔ |✔|||
 | Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
-| Somali (Arabic) | `so` |✔|||✔||
+| Somali (Arabic) | `so` |✔|✔||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili (Latin) | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
-| Tahitian  | `ty` |✔| |✔|✔||
+| Tahitian  | `ty` |✔|✔ |✔|✔||
 | Tamil  | `ta` |✔|✔|✔||✔|
-| Tatar (Latin) | `tt` |✔|||||
+| Tatar (Latin) | `tt` |✔|✔||||
 | Telugu  | `te` |✔|✔|✔|||
-| Thai  | `th` |✔| |✔|✔|✔|
-| Tibetan  | `bo` |✔||||
+| Thai  | `th` |✔|✔ |✔|✔|✔|
+| Tibetan  | `bo` |✔|✔|||
 | Tigrinya  | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
-| Turkmen (Latin) | `tk` |✔||||
+| Turkmen (Latin) | `tk` |✔|✔|||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
-| Upper Sorbian | `hsb` |✔|||||
+| Upper Sorbian | `hsb` |✔|✔||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
-| Uyghur (Arabic) | `ug` |✔||||
-| Uzbek (Latin | `uz` |✔|||✔||
+| Uyghur (Arabic) | `ug` |✔|✔|||
+| Uzbek (Latin | `uz` |✔|✔||✔||
 | Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
-| Zulu | `zu` |✔|||||
+| Zulu | `zu` |✔|✔||||
 
 ## Document Translation: scanned PDF support
 
@@ -150,7 +149,7 @@ ms.author: lajanuar
 |Afrikaans|`af`|Yes|Yes|
 |Albanian|`sq`|Yes|Yes|
 |Amharic|`am`|No|No|
-|Arabic|`ar`|No|No|
+|Arabic|`ar`|Yes|Yes|
 |Armenian|`hy`|No|No|
 |Assamese|`as`|No|No|
 |Azerbaijani (Latin)|`az`|Yes|Yes|
@@ -305,14 +304,67 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 |Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
+## Custom Translator language pairs
+
+|Source Language|Target Language|
+|:----|:----|
+| Czech (cs-cz)     | English (en-us) |
+| Danish (da-dk)     | English (en-us) |
+| German (de-&#8203;de)     | English (en-us) |
+| Greek (el-gr)     | English (en-us) |
+| English (en-us)     | Arabic (ar-sa) |
+| English (en-us)     | Czech (cs-cz) |
+| English (en-us)     | Danish (da-dk) |
+| English (en-us)     | German (de-&#8203;de) |
+| English (en-us)     | Greek (el-gr) |
+| English (en-us)     | Spanish (es-es) |
+| English (en-us)     | French (fr-fr) |
+| English (en-us)     | Hebrew (he-il) |
+| English (en-us)     | Hindi (hi-in) |
+| English (en-us)     | Croatian (hr-hr) |
+| English (en-us)     | Hungarian (hu-hu) |
+| English (en-us)     | Indonesian (id-id) |
+| English (en-us)     | Italian (it-it) |
+| English (en-us)     | Japanese (ja-jp) |
+| English (en-us)     | Korean (ko-kr) |
+| English (en-us)     | Lithuanian (lt-lt) |
+| English (en-us)     | Latvian (lv-lv) |
+| English (en-us)     | Norwegian (nb-no) |
+| English (en-us)     | Polish (pl-pl) |
+| English (en-us)     | Portuguese (pt-pt) |
+| English (en-us)     | Russian (ru-ru) |
+| English (en-us)     | Slovak (sk-sk) |
+| English (en-us)     | Swedish (sv-se) |
+| English (en-us)     | Ukrainian (uk-ua) |
+| English (en-us)     | Vietnamese (vi-vn) |
+| English (en-us)     | Chinese Simplified (zh-cn) |
+| Spanish (es-es)     | English (en-us) |
+| French (fr-fr)     | English (en-us) |
+| Hindi (hi-in)     | English (en-us) |
+| Hungarian (hu-hu)     | English (en-us) |
+| Indonesian (id-id)     | English (en-us) |
+| Italian (it-it)     | English (en-us) |
+| Japanese (ja-jp)     | English (en-us) |
+| Korean (ko-kr)     | English (en-us) |
+| Norwegian (nb-no)     | English (en-us) |
+| Dutch (nl-nl)     | English (en-us) |
+| Polish (pl-pl)     | English (en-us) |
+| Portuguese (pt-br)     | English (en-us) |
+| Russian (ru-ru)     | English (en-us) |
+| Swedish (sv-se)     | English (en-us) |
+| Thai (th-th)     | English (en-us) |
+| Turkish (tr-tr)     | English (en-us) |
+| Vietnamese (vi-vn)     | English (en-us) |
+| Chinese Simplified (zh-cn)     | English (en-us) |
+||
+
 ## Other Cognitive Services
 
-Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below:
+Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language support for other services:
 
-* [Computer Vision](../computer-vision/language-support.md) 
-* [Speech](../speech-service/language-support.md) 
-* [Language service](../language-service/index.yml) 
-  * Select the feature you want to use, and then **Language support** on the left navigation menu.
+* [Computer Vision](../computer-vision/language-support.md)
+* [Speech](../speech-service/language-support.md)
+* [Language service](../language-service/concepts/language-support.md)
 
 View all [Cognitive Services](../index.yml).
 

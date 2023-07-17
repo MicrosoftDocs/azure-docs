@@ -12,7 +12,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 > Custom keyword models, and the resulting `.table` files, can **only** be created in Speech Studio.
 > You cannot create custom keywords from the SDK or with REST calls.
 
-1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in**. If you don't have a speech subscription, go to [**Create Speech Services**](https://go.microsoft.com/fwlink/?linkid=2086754).
+1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in**. If you don't have a speech subscription, go to [**Create Speech Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 
 1. On the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, select **Create a new project**. 
 
@@ -34,7 +34,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
     :::image type="content" source="../../../media/custom-keyword/custom-kw-portal-choose-prons.png" alt-text="Screenshot that shows where you choose the correct pronunciations.":::
 
-1. Select a model type, then select **Create**. You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](../../../regions.md#keyword-recognition) documentation. 
+1. Select a model type, then select **Create**. You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](../../../regions.md#speech-service) documentation. 
 
 1. It may take up to 30 minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. 
 

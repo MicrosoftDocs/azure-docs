@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/03/2021
-ms.custom: template-tutorial, ignite-fall-2021
+ms.date: 06/27/2023
+ms.custom: template-tutorial, ignite-fall-2021, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal
@@ -21,11 +21,6 @@ In this tutorial, you learn how to:
 > * Create network security group.
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
-
-> [!IMPORTANT]
-> Gateway Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -82,13 +77,19 @@ A virtual network is needed for the resources that are in the backend pool of th
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ## Create NSG
 

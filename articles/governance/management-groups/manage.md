@@ -1,10 +1,13 @@
 ---
-title: How to work with your management groups - Azure Governance
+title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 01/07/2022
+ms.date: 12/01/2022
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
+ms.author: tomfitz
+author: tfitzmac
 ---
-# Manage your resources with management groups
+# Manage your Azure subscriptions at scale with management groups
 
 If your organization has many subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. Azure management groups provide a level of scope
@@ -25,8 +28,8 @@ subscriptions you might have. To learn more about management groups, see
 > refreshing the browser, signing in and out, or requesting a new token.
 
 > [!IMPORTANT]
-> AzManagementGroup related Az PowerShell cmdlets mention that the **-GroupId** is alias of **-GroupName** parameter 
-> so we can use either of it to provide Management Group Id as a string value. 
+> AzManagementGroup related Az PowerShell cmdlets mention that the **-GroupId** is alias of **-GroupName** parameter
+> so we can use either of it to provide Management Group Id as a string value.
 
 ## Change the name of a management group
 
@@ -227,7 +230,7 @@ If you're doing the move action, you need permission at each of the following la
 
 - Child subscription / management group
   - `Microsoft.management/managementgroups/write`
-  - `Microsoft.management/managementgroups/subscription/write` (only for Subscriptions)
+  - `Microsoft.management/managementgroups/subscriptions/write` (only for Subscriptions)
   - `Microsoft.Authorization/roleAssignments/write`
   - `Microsoft.Authorization/roleAssignments/delete`
   - `Microsoft.Management/register/action`
@@ -297,7 +300,7 @@ To move a subscription in PowerShell, you use the New-AzManagementGroupSubscript
 New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-To remove the link between and subscription and the management group use the
+To remove the link between the subscription and the management group use the
 Remove-AzManagementGroupSubscription command.
 
 ```azurepowershell-interactive

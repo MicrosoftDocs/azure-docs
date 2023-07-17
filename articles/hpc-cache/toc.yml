@@ -73,6 +73,8 @@ items:
   items:
   - name: Contact support
     href: hpc-cache-support-ticket.md
+  - name: Increase quota
+    href: increase-quota.md
 
   - name: Troubleshoot
     items:
@@ -97,6 +99,9 @@ items:
 
   - name: Load balance client traffic
     href: client-load-balancing.md
+
+  - name: Customize file write-back
+    href: custom-flush-script.md
 
   - name: Prime the cache
     href: prime-cache.md

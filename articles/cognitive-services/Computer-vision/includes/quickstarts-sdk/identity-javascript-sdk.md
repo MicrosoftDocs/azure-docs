@@ -11,22 +11,25 @@ ms.date: 05/03/2022
 ms.author: pafarley
 ---
 
-## Quickstart: Face client library for JavaScript
-
 Get started with facial recognition using the Face client library for JavaScript. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/javascript/api/overview/azure/cognitiveservices/face) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Reference documentation](/javascript/api/overview/azure/cognitiveservices-face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of [Node.js](https://nodejs.org/en/)
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
-* Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Face API.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Identify faces
+
+
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
+
+## Identify and verify faces
 
 1. Create a new Node.js application
 
@@ -42,32 +45,28 @@ Get started with facial recognition using the Face client library for JavaScript
     npm init
     ```
 
-1. Install the `ms-rest-azure` and `azure-cognitiveservices-face` NPM packages:
+1. Install the `ms-rest-azure` and `azure-cognitiveservices-face` npm packages:
 
     ```console
     npm install @azure/cognitiveservices-face @azure/ms-rest-js uuid
     ```
 
-    Your app's `package.json` file will be updated with the dependencies.
+    Your app's `package.json` file is updated with the dependencies.
 
 1. Create a file named `index.js`, open it in a text editor, and paste in the following code:
 
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
-
-
-1. Enter your key and endpoint into the corresponding fields.
-
-    > [!IMPORTANT]
-    > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `node` command on your quickstart file.
 
     ```console
     node index.js
     ```
+
+
 
 ## Output
 
@@ -102,6 +101,7 @@ Person: Family1-Mom is identified for face in: identification1.jpg with ID: b7f7
 Person: Family1-Son is identified for face in: identification1.jpg with ID: 600dc1b4-b2c4-4516-87de-edbbdd8d7632. Confidence: 0.92886.
 Person: Family1-Dad is identified for face in: identification1.jpg with ID: e83b494f-9ad2-473f-9d86-3de79c01e345. Confidence: 0.96725.
 ```
+
 
 ## Clean up resources
 

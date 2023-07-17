@@ -3,17 +3,16 @@ title: Secure Azure AD Domain Services | Microsoft Docs
 description: Learn how to disable weak ciphers, old protocols, and NTLM password hash synchronization for an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 # Harden an Azure Active Directory Domain Services managed domain
 
@@ -25,6 +24,8 @@ This article shows you how to harden a managed domain by using setting setting s
 - Disable NTLM password hash synchronization
 - Disable the ability to change passwords with RC4 encryption
 - Enable Kerberos armoring
+- LDAP signing 
+- LDAP channel binding
 
 ## Prerequisites
 
@@ -44,12 +45,13 @@ To complete this article, you need the following resources:
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Security settings**.
 1. Click **Enable** or **Disable** for the following settings:
-   - **TLS 1.2 only mode**
-   - **NTLM authentication**
-   - **Password synchronization from on-premises**
-   - **NTLM password synchronization from on-premises**
-   - **RC4 encryption**
-   - **Kerberos armoring**
+   - **TLS 1.2 Only Mode**
+   - **NTLM v1 Authentication**
+   - **NTLM Password Synchronization**
+   - **Kerberos RC4 Encryption**
+   - **Kerberos Armoring**
+   - **LDAP Signing**
+   - **LDAP Channel Binding**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
@@ -68,7 +70,7 @@ While disabling NTLM password synchronization will improve security, many applic
 
 ## Use PowerShell to harden your domain
 
-If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
+If needed, [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
 
 Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 

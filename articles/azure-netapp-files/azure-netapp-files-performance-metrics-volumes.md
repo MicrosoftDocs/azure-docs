@@ -6,8 +6,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 11/09/2021
-
+ms.date: 05/08/2023
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
 
@@ -18,7 +17,8 @@ This article provides benchmark testing recommendations for volume performance a
 To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate various workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
 
 > [!IMPORTANT]
-> Azure NetApp Files does *not* recommend using the `dd` utility as a baseline benchmarking tool. You should use an actual application workload, workload simulation, and benchmarking and analyzing tools (for example, Oracle AWR with Oracle, or the IBM equivalent for DB2) to establish and analyze optimal infrastructure performance. Tools such as FIO, vdbench, and iometer have their places in determining virtual machines to storage limits, matching the parameters of the test to the actual application workload mixtures for most useful results. However, it is always best to test with the real-world application.  
+> Azure NetApp Files does *not* recommend using the `dd` utility as a baseline benchmarking tool. You should use an actual application workload, workload simulation, and benchmarking and analyzing tools (for example, Oracle AWR with Oracle, or the IBM equivalent for DB2) to establish and analyze optimal infrastructure performance. Tools such as FIO, vdbench, and iometer have their places in determining virtual machines to storage limits, matching the parameters of the test to the actual application workload mixtures for most useful results. However, it is always best to test with the real-world application. 
+ 
 ### VM instance sizing
 
 For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
@@ -70,19 +70,13 @@ The following examples show the FIO random reads and writes.
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-##### Output: 68k read IOPS displayed
-
-`Starting 4 processes`  
-`Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
-
 ##### FIO: 8k block size 100% random writes
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-##### Output: 73k write IOPS displayed
+##### Benchmark results
 
-`Starting 4 processes`  
-`Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
+For official benchmark results for how FIO performs in Azure NetApp Files, see [Azure NetApp Files performance benchmarks for Linux](performance-benchmarks-linux.md).
 
 #### FIO examples for bandwidth
 
@@ -92,19 +86,13 @@ The examples in this section show the FIO sequential reads and writes.
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-##### Output: 11.8 Gbit/s throughput displayed
-
-`Starting 4 processes`  
-`Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
-
 ##### FIO: 64k block size 100% sequential writes
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-##### Output: 12.2 Gbit/s throughput displayed
+##### Benchmark results
 
-`Starting 4 processes`  
-`Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`
+For official benchmark results for how FIO performs in Azure NetApp Files, see [Azure NetApp Files performance benchmarks for Linux](performance-benchmarks-linux.md).
 
 ## Volume metrics
 

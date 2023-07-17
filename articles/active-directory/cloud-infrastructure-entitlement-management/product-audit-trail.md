@@ -1,21 +1,18 @@
 ---
-title: Filter and query user activity in Permissions Management
-description: How to filter and query user activity in Permissions Management.
+title: Filter and query user activity in Microsoft Entra Permissions Management
+description: How to filter and query user activity in Microsoft Entra Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 06/19/2023
+ms.author: jfields
 ---
 
 # Filter and query user activity
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The **Audit** dashboard in Permissions Management details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to:
 
@@ -49,7 +46,7 @@ There are several different query parameters you can configure individually or i
 - To delete a function line in a query, select **Delete** (the minus sign **-** icon).
 - To create multiple queries at one time, select **Add New Tab** to the right of the **Query** tabs that are displayed.
 
-  You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
+  You can open a maximum number of six query tab pages at the same time. A message appears when you've reached the maximum.
 
 ## Create a query with specific parameters
 
@@ -304,7 +301,7 @@ The **Operator** menu displays the following options depending on the identity y
 1. To view a list of all resources, hover over **Multiple**.
 
     - **Resource Type**: Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
-    - **Task Name**: The name of the task that was performed by the identity.
+    - **Task Name**: The name of the task performed by the identity.
 
          An exclamation mark (**!**) next to the task name indicates that the task failed.
 
@@ -345,7 +342,7 @@ The **Operator** menu displays the following options depending on the identity y
 
       - **Query Name**: Displays the name of the saved query.
       - **Query Type**: Displays whether the query is a *System* query or a *Custom* query.
-      - **Schedule**: Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
+      - **Schedule**: Displays how often a report is generated. You can schedule a one-time report or a monthly report.
       - **Next On**: Displays the date and time the next report will be generated.
       - **Format**: Displays the output format for the report, for example, CSV.
       - **Last Modified On**: Displays the date in which the query was last modified on.

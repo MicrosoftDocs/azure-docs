@@ -1,24 +1,24 @@
 ---
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.custom: event-tier1-build-2022
-ms.date: 05/16/2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
+ms.date: 06/27/2023
 ---
 
 # Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) is defined when you create an AKS cluster, which creates a [system node pool][use-system-pool]. To support applications that have different compute or storage demands, you can create additional *user node pools*. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. User node pools are where you place your application-specific pods. For example, use these additional user node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) is defined when you create an AKS cluster, which creates a [system node pool][use-system-pool]. To support applications that have different compute or storage demands, you can create more *user node pools*. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and `konnectivity`. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. User node pools are where you place your application-specific pods. For example, use more user node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 > [!NOTE]
-> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
+> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only options to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
-This article shows you how to create and manage multiple node pools in an AKS cluster.
+This article shows you how to create and manage one or more node pools in an AKS cluster.
 
 ## Before you begin
 
-You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Review [Storage options for applications in Azure Kubernetes Service][aks-storage-concepts] to plan your storage configuration.
 
 ## Limitations
 
@@ -28,7 +28,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature isn't supported with Basic SKU load balancers.
-* The AKS cluster must use virtual machine scale sets for the nodes.
+* The AKS cluster must use Virtual Machine Scale Sets for the nodes.
 * You can't change the VM size of a node pool after you create it.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * All node pools must reside in the same virtual network.
@@ -36,10 +36,10 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## Create an AKS cluster
 
-> [!Important]
-> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
+> [!IMPORTANT]
+> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool. If one node goes down, you lose control plane resources and redundancy is compromised. You can mitigate this risk by having more control plane nodes.
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command.
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [`az aks create`][az-aks-create] command.
 
 > [!NOTE]
 > The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from the Azure CLI and Azure portal.
@@ -48,7 +48,7 @@ To get started, create an AKS cluster with a single node pool. The following exa
 # Create a resource group in East US
 az group create --name myResourceGroup --location eastus
 
-# Create a basic single-node AKS cluster
+# Create a basic single-node pool AKS cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -63,7 +63,7 @@ It takes a few minutes to create the cluster.
 > [!NOTE]
 > To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool, as essential system services are running across this node pool.
 
-When the cluster is ready, use the [az aks get-credentials][az-aks-get-credentials] command to get the cluster credentials for use with `kubectl`:
+When the cluster is ready, use the [`az aks get-credentials`][az-aks-get-credentials] command to get the cluster credentials for use with `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -71,7 +71,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## Add a node pool
 
-The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
+The cluster created in the previous step has a single node pool. Let's add a second node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -84,7 +84,7 @@ az aks nodepool add \
 > [!NOTE]
 > The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 
-To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
+To see the status of your node pools, use the [`az aks node pool list`][az-aks-nodepool-list] command and specify your resource group and cluster name:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -120,54 +120,58 @@ The following example output shows that *mynodepool* has been successfully creat
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
-### Add an ARM64 node pool (preview)
+### Add an ARM64 node pool
 
-The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose an [ARM capable instance SKU][arm-sku-vm].
+The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you need to choose a [Dpsv5][arm-sku-vm1], [Dplsv5][arm-sku-vm2] or [Epsv5][arm-sku-vm3] series Virtual Machine.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+#### Limitations
 
-#### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.23 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-#### Register the `AKSARM64Preview` preview feature
-
-To use the feature, you must also enable the `AKSARM64Preview` feature flag on your subscription.
-
-Register the `AKSARM64Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKSARM64Preview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSARM64Preview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* ARM64 node pools aren't supported on Defender-enabled clusters
+* FIPS-enabled node pools aren't supported with ARM64 SKUs
 
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name armpool \
     --node-count 3 \
-    --node-vm-size Standard_Dpds_v5
+    --node-vm-size Standard_D2pds_v5
+```
+
+### Add an Azure Linux node pool
+
+The Azure Linux container host for AKS is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. It only includes the minimal set of packages needed for running container workloads, which improve boot times and overall performance.
+
+You can add an Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name azurelinuxpool \
+    --os-sku AzureLinux
+```
+
+### Migrate Ubuntu nodes to Azure Linux
+
+Use the following instructions to migrate your Ubuntu nodes to Azure Linux nodes.
+
+1. Add an Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
+
+> [!NOTE]
+> When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+
+2. [Cordon the existing Ubuntu nodes][cordon-and-drain.md].
+3. [Drain the existing Ubuntu nodes][drain-nodes].
+4. Remove the existing Ubuntu nodes using the `az aks delete` command.
+
+```azurecli-interactive
+az aks nodepool delete \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name myNodePool
 ```
 
 ### Add a node pool with a unique subnet
@@ -181,12 +185,12 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 
 * All subnets assigned to node pools must belong to the same virtual network.
 * System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. The `aks-preview` Azure CLI extension (version 0.5.66+) now supports running `az aks update -g <resourceGroup> -n <clusterName>` without any optional arguments. This command will perform an update operation without making any changes, which can recover a cluster stuck in a failed state.
+* If you expand your VNET after creating the cluster, you must update your cluster (perform any managed cluster operations, but node pool operations don't count) before adding a subnet outside the original CIDR block. While AKS errors-out on the agent pool add, the `aks-preview` Azure CLI extension (version 0.5.66+) now supports running `az aks update -g <resourceGroup> -n <clusterName>` without any optional arguments. This command performs an update operation without making any changes, which can recover a cluster stuck in a failed state.
 * In clusters with Kubernetes version < 1.23.3, kube-proxy will SNAT traffic from new subnets, which can cause Azure Network Policy to drop the packets.
 * Windows nodes will SNAT traffic to the new subnets until the node pool is reimaged.
 * Internal load balancers default to one of the node pool subnets (usually the first subnet of the node pool at cluster creation). To override this behavior, you can [specify the load balancer's subnet explicitly using an annotation][internal-lb-different-subnet].
 
-To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
+To create a node pool with a dedicated subnet, pass the subnet resource ID as another parameter when creating a node pool.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -202,18 +206,18 @@ az aks nodepool add \
 > [!NOTE]
 > Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
-The commands in this section explain how to upgrade a single specific node pool. The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+The commands in this section explain how to upgrade a single specific node pool. The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [Upgrade a cluster control plan with multiple node pools](#upgrade-a-cluster-control-plane-with-multiple-node-pools) section.
 
 > [!NOTE]
-> The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
+> The node pool OS image version is tied to the Kubernetes version of the cluster. You only get OS image upgrades, following a cluster upgrade.
 
-Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. To see the available upgrades use [az aks get-upgrades][az-aks-get-upgrades]
+Since there are two node pools in this example, we must use [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] to upgrade a node pool. To see the available upgrades use [`az aks get-upgrades`][az-aks-get-upgrades]
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Let's upgrade the *mynodepool*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Let's upgrade the *mynodepool*. Use the [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -224,7 +228,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *KUBERNETES_VERSION*:
+List the status of your node pools again using the [`az aks node pool list`][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -266,7 +270,7 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 ## Upgrade a cluster control plane with multiple node pools
 
 > [!NOTE]
-> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version, and 6 is the patch version. The Kubernetes version of the control plane and the initial node pool are set during cluster creation. All additional node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane.
+> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version, and 6 is the patch version. The Kubernetes version of the control plane and the initial node pool are set during cluster creation. Other node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane.
 
 An AKS cluster has two cluster resource objects with Kubernetes versions associated.
 
@@ -283,7 +287,7 @@ Upgrading individual node pools requires using `az aks nodepool upgrade`. This c
 
 ### Validation rules for upgrades
 
-The valid Kubernetes upgrades for a cluster's control plane and node pools are validated by the following sets of rules.
+Kubernetes upgrades for a cluster's control plane and node pools are validated  using the following sets of rules.
 
 * Rules for valid versions to upgrade node pools:
    * The node pool version must have the same *major* version as the control plane.
@@ -301,7 +305,7 @@ As your application workload demands change, you may need to scale the number of
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-To scale the number of nodes in a node pool, use the [az aks node pool scale][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
+To scale the number of nodes in a node pool, use the [`az aks node pool scale`][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -312,9 +316,9 @@ az aks nodepool scale \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
+List the status of your node pools again using the [`az aks node pool list`][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -355,7 +359,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 
 ## Delete a node pool
 
-If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
+If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [`az aks node pool delete`][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
 > When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more information, see [cordon and drain node pools][cordon-and-drain].
@@ -364,9 +368,9 @@ If you no longer need a pool, you can delete it and remove the underlying VM nod
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
+The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -403,27 +407,64 @@ It takes a few minutes to delete the nodes and the node pool.
 
 ## Associate capacity reservation groups to node pools (preview)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+As your application workloads demands, you may associate node pools to capacity reservation groups already created. This ensures guaranteed capacity is allocated for your node pools.  
 
-As your application workloads demands, you may associate node pools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your node pools.  
+For more information on the capacity reservation groups, review [Capacity Reservation Groups][capacity-reservation-groups].
 
-For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
+### Register preview feature
 
-Associating a node pool with an existing capacity reservation group can be done using [az aks nodepool add][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist , otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli-interactive
+az extension update --name aks-preview
+```
+
+Register the `CapacityReservationGroupPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Manage capacity reservations
+
+Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag". The capacity reservation group should already exist, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated.
 
 ```azurecli-interactive
 az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
 ```
-Associating a system node pool with an existing capacity reservation group can be done using [az aks create][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
+
+Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association.
 
 ```azurecli-interactive
 az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
 ```
-Deleting a node pool command will implicitly dissociate a node pool from any associated capacity reservation group, before that node pool is deleted.
+
+Deleting a node pool command implicitly dissociates a node pool from any associated capacity reservation group, before that node pool is deleted.
 
 ```azurecli-interactive
 az aks nodepool delete -g MyRG --cluster-name MyMC -n myAP
 ```
+
 Deleting a cluster command implicitly dissociates all node pools in a cluster from their associated capacity reservation groups.
 
 ```azurecli-interactive
@@ -432,11 +473,11 @@ az aks delete -g MyRG --cluster-name MyMC
 
 ## Specify a VM size for a node pool
 
-In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-nodepool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
+In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-node-pool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
 In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
-Create a node pool using the [az aks node pool add][az-aks-nodepool-add] command again. This time, specify the name *gpunodepool*, and use the `--node-vm-size` parameter to specify the *Standard_NC6* size:
+Create a node pool using the [`az aks node pool add`][az-aks-nodepool-add] command again. This time, specify the name *gpunodepool*, and use the `--node-vm-size` parameter to specify the *Standard_NC6* size:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -448,9 +489,9 @@ az aks nodepool add \
     --no-wait
 ```
 
-The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
+The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -492,9 +533,9 @@ When creating a node pool, you can add taints, labels, or tags to that node pool
 > [!IMPORTANT]
 > Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, labels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
 
-### Setting nodepool taints
+### Setting node pool taints
 
-To create a node pool with a taint, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
+To create a node pool with a taint, use [`az aks nodepool add`][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -506,9 +547,9 @@ az aks nodepool add \
     --no-wait
 ```
 
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
+The following example output from the [`az aks nodepool list`][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -568,13 +609,13 @@ spec:
 
 Schedule the pod using the `kubectl apply -f nginx-toleration.yaml` command:
 
-```console
+```bash
 kubectl apply -f nginx-toleration.yaml
 ```
 
 It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-taintnp-28993262-vmss000000* node:
 
-```console
+```bash
 kubectl describe pod mypod
 ```
 
@@ -593,89 +634,19 @@ Events:
   Normal  Started    4m40s  kubelet             Started container
 ```
 
-Only pods that have this toleration applied can be scheduled on nodes in *taintnp*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
+Only pods that have this toleration applied can be scheduled on nodes in *taintnp*. Any other pod would be scheduled in the *nodepool1* node pool. If you create more node pools, you can use taints and tolerations to limit what pods can be scheduled on those node resources.
 
-### Setting nodepool labels
+### Setting node pool labels
 
 For more information on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
-### Setting nodepool Azure tags
+### Setting node pool Azure tags
 
 For more information on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Add a FIPS-enabled node pool
 
-The Federal Information Processing Standard (FIPS) 140-2 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. AKS allows you to create Linux-based node pools with FIPS 140-2 enabled. Deployments running on FIPS-enabled node pools can use those cryptographic modules to provide increased security and help meet security controls as part of FedRAMP compliance. For more information on FIPS 140-2, see [Federal Information Processing Standard (FIPS) 140-2][fips].
-
-### Prerequisites
-
-You need the Azure CLI version 2.32.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-FIPS-enabled node pools have the following limitations:
-
-* Currently, you can only have FIPS-enabled Linux-based node pools running on Ubuntu 18.04.
-* FIPS-enabled node pools require Kubernetes version 1.19 and greater.
-* To update the underlying packages or modules used for FIPS, you must use [Node Image Upgrade][node-image-upgrade].
-* Container Images on the FIPS nodes haven't been assessed for FIPS compliance.
-
-> [!IMPORTANT]
-> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
-> 
-> FIPS-enabled node images may have different version numbers, such as kernel version, than images that are not FIPS-enabled. Also, the update cycle for FIPS-enabled node pools and node images may differ from node pools and images that are not FIPS-enabled.
-
-To create a FIPS-enabled node pool, use [az aks nodepool add][az-aks-nodepool-add] with the *--enable-fips-image* parameter when creating a node pool.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name fipsnp \
-    --enable-fips-image
-```
-
-> [!NOTE]
-> You can also use the *--enable-fips-image* parameter with [az aks create][az-aks-create] when creating a cluster to enable FIPS on the default node pool. When adding node pools to a cluster created in this way, you still must use the *--enable-fips-image* parameter when adding node pools to create a FIPS-enabled node pool.
-
-To verify your node pool is FIPS-enabled, use [az aks show][az-aks-show] to check the *enableFIPS* value in *agentPoolProfiles*.
-
-```azurecli-interactive
-az aks show --resource-group myResourceGroup --name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
-```
-
-The following example output shows the *fipsnp* node pool is FIPS-enabled and *nodepool1* isn't.
-
-```output
-Name       enableFips
----------  ------------
-fipsnp     True
-nodepool1  False  
-```
-
-You can also verify deployments have access to the FIPS cryptographic libraries using `kubectl debug` on a node in the FIPS-enabled node pool. Use `kubectl get nodes` to list the nodes:
-
-```output
-$ kubectl get nodes
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-fipsnp-12345678-vmss000000      Ready    agent   6m4s    v1.19.9
-aks-fipsnp-12345678-vmss000001      Ready    agent   5m21s   v1.19.9
-aks-fipsnp-12345678-vmss000002      Ready    agent   6m8s    v1.19.9
-aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
-```
-
-In the above example, the nodes starting with `aks-fipsnp` are part of the FIPS-enabled node pool. Use `kubectl debug` to run a deployment with an interactive session on one of those nodes in the FIPS-enabled node pool.
-
-```azurecli-interactive
-kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-```
-
-From the interactive session, you can verify the FIPS cryptographic libraries are enabled:
-
-```output
-root@aks-fipsnp-12345678-vmss000000:/# cat /proc/sys/crypto/fips_enabled
-1
-```
-
-FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* label, which can be used by deployments to target those node pools.
+For more information on enabling Federal Information Process Standard (FIPS) for your AKS cluster, see [Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools][enable-fips-nodes].
 
 ## Manage node pools using a Resource Manager template
 
@@ -756,7 +727,7 @@ Edit these values as need to update, add, or delete node pools as needed:
 }
 ```
 
-Deploy this template using the [az deployment group create][az-deployment-group-create] command, as shown in the following example. You're prompted for the existing AKS cluster name and location:
+Deploy this template using the [`az deployment group create`][az-deployment-group-create] command, as shown in the following example. You're prompted for the existing AKS cluster name and location:
 
 ```azurecli-interactive
 az deployment group create \
@@ -785,86 +756,23 @@ az deployment group create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node for your node pools
-
-AKS nodes don't require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by using Node Public IP.
-
-First, create a new resource group.
-
-```azurecli-interactive
-az group create --name myResourceGroup2 --location eastus
-```
-
-Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
-
-```azurecli-interactive
-az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
-```
-
-For existing AKS clusters, you can also add a new node pool, and attach a public IP for your nodes.
-
-```azurecli-interactive
-az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
-```
-
-### Use a public IP prefix
-
-There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `node-public-ip-prefix` when creating a new cluster or adding a node pool.
-
-First, create a public IP prefix using [az network public-ip prefix create][az-public-ip-prefix-create]:
-
-```azurecli-interactive
-az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
-```
-
-View the output, and take note of the `id` for the prefix:
-
-```output
-{
-  ...
-  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
-  ...
-}
-```
-
-Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
-
-```azurecli-interactive
-az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
-```
-
-### Locate public IPs for nodes
-
-You can locate the public IPs for your nodes in various ways:
-
-* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
-* Use [PowerShell or Bash commands][vmss-commands]. 
-* You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
-
-> [!Important]
-> The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
-
-```azurecli
-az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
-```
-
 ## Clean up resources
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
 
-To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
+To delete the GPU-based node pool, use the [`az aks nodepool delete`][az-aks-nodepool-delete] command as shown in following example:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-To delete the cluster itself, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+To delete the cluster itself, use the [`az group delete`][az-group-delete] command to delete the AKS resource group:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-You can also delete the additional cluster you created for the public IP for node pools scenario.
+You can also delete the other cluster you created for the public IP for node pools scenario.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup2 --yes --no-wait
@@ -872,63 +780,49 @@ az group delete --name myResourceGroup2 --yes --no-wait
 
 ## Next steps
 
-Learn more about [system node pools][use-system-pool].
+* Learn more about [system node pools][use-system-pool].
 
-In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+* In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
+* To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
 
-Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
+* Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
+
+* Use [instance-level public IP addresses](use-node-public-ips.md) to make your nodes able to serve traffic directly.
 
 <!-- EXTERNAL LINKS -->
-[arm-vm-sku]: https://azure.microsoft.com/updates/public-preview-arm64based-azure-vms-can-deliver-up-to-50-better-priceperformance/
-[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 [capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
+[aks-storage-concepts]: concepts-storage.md
+[arm-sku-vm1]: ../virtual-machines/dpsv5-dpdsv5-series.md
+[arm-sku-vm2]: ../virtual-machines/dplsv5-dpldsv5-series.md
+[arm-sku-vm3]: ../virtual-machines/epsv5-epdsv5-series.md
 [aks-quickstart-windows-cli]: ./learn/quick-windows-container-deploy-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
-[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
-[gpu-cluster]: gpu-cluster.md
+[enable-fips-nodes]: enable-fips-nodes.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
-[supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
-[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[public-ip-prefix-benefits]: ../virtual-network/ip-services/public-ip-address-prefix.md
-[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create
-[node-image-upgrade]: node-image-upgrade.md
-[fips]: /azure/compliance/offerings/offering-fips-140-2
-[use-tags]: use-tags.md
+[[use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
+[drain-nodes]: resize-node-pool.md#drain-the-existing-nodes

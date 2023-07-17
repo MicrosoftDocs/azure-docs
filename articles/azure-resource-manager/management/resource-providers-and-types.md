@@ -2,15 +2,15 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 11/15/2021 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 08/05/2022 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Azure resource providers and types
 
-When deploying resources, you frequently need to retrieve information about the resource providers and types. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+An Azure resource provider is a collection of REST operations that provide functionality for an Azure service. For example, the Key Vault service consists of a resource provider named **Microsoft.KeyVault**. The resource provider defines [REST operations](/rest/api/keyvault/) for working with vaults, secrets, keys, and certificates.
 
-The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
+The resource provider defines the Azure resources that are available for you to deploy to your account. The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
 
 In this article, you learn how to:
 
@@ -80,23 +80,23 @@ To see information for a particular resource provider:
 2. On the Azure portal menu, select **All services**.
 3. In the **All services** box, enter **resource explorer**, and then select **Resource Explorer**.
 
-    ![select All services](./media/resource-providers-and-types/select-resource-explorer.png)
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-explorer.png" alt-text="Screenshot of selecting All services in the Azure portal.":::
 
 4. Expand **Providers** by selecting the right arrow.
 
-    ![Select providers](./media/resource-providers-and-types/select-providers.png)
+    :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of selecting providers in the Azure Resource Explorer.":::
 
 5. Expand a resource provider and resource type that you want to view.
 
-    ![Select resource type](./media/resource-providers-and-types/select-resource-type.png)
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of selecting a resource type in the Azure Resource Explorer.":::
 
 6. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
-    ![Show locations](./media/resource-providers-and-types/show-locations.png)
+    :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of showing locations for a resource type in the Azure Resource Explorer.":::
 
 7. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
 
-    ![Show API versions](./media/resource-providers-and-types/show-api-versions.png)
+    :::image type="content" source="./media/resource-providers-and-types/show-api-versions.png" alt-text="Screenshot of showing API versions for a resource type in the Azure Resource Explorer.":::
 
 ## Azure PowerShell
 

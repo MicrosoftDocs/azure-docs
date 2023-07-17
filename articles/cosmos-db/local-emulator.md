@@ -6,13 +6,13 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperf-fy21q1
+ms.custom: devx-track-csharp, contperf-fy21q1, ignite-2022
 ---
 
 # Install and use the Azure Cosmos DB Emulator for local development and testing
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos account in the cloud. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
+The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
 
 ## Download the emulator
 
@@ -20,7 +20,7 @@ To get started, download and install the latest version of Azure Cosmos DB Emula
 
 :::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Download the Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)**
 
-You can develop applications using Azure Cosmos DB Emulator with the [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
+You can develop applications using Azure Cosmos DB Emulator with the account using the APIs for [NoSQL](local-emulator.md#api-for-nosql), [Apache Cassandra](local-emulator.md#api-for-cassandra), [MongoDB](local-emulator.md#api-for-mongodb), [Apache Gremlin](local-emulator.md#api-for-gremlin), and [Table](local-emulator.md#api-for-table). Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
 
 ## How does the emulator work?
 
@@ -28,21 +28,19 @@ The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cos
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on the Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable when you use the emulator.
 
-You can migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service by using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
-
 ## Differences between the emulator and the cloud service
 
-Because the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
+Because the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
-* Currently the **Data Explorer** pane in the emulator fully supports SQL API clients only. The **Data Explorer** view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
+* Currently the **Data Explorer** pane in the emulator fully supports API for NoSQL clients only. The **Data Explorer** view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 
 * The emulator supports only a single fixed account and a well-known primary key. You can't regenerate key when using the Azure Cosmos DB Emulator, however you can change the default key by using the [command-line](emulator-command-line-parameters.md) option.
 
-* With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
+* With the emulator, you can create an Azure Cosmos DB account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
+* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#change-the-number-of-default-containers) article.
 
-* The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
+* The emulator does not offer all of the [Azure Cosmos DB consistency levels](consistency-levels.md) that the cloud service does, only [*Session*](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/consistency-levels.md#session-consistency) consistency and [*Strong*](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/consistency-levels.md#strong-consistency) consistency are supported. The default consistency level is *Session*, which can be changed using [command line parameters](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/emulator-command-line-parameters.md).
 
 * The emulator does not offer [multi-region replication](distribute-data-globally.md).
 
@@ -72,7 +70,7 @@ Depending upon your system requirements, you can run the emulator on [Windows](#
 
 Each version of emulator comes with a set of feature updates or bug fixes. To see the available versions, read the [emulator release notes](local-emulator-release-notes.md) article.
 
-After installation, if you have used the default settings, the data corresponding to the emulator is saved at %LOCALAPPDATA%\CosmosDBEmulator location. You can configure a different location by using the optional data path settings; that is the `/DataPath=PREFERRED_LOCATION` as the [command-line parameter](emulator-command-line-parameters.md). The data created in one version of the Azure Cosmos DB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos account, instead of the Azure Cosmos DB Emulator.
+After installation, if you have used the default settings, the data corresponding to the emulator is saved at %LOCALAPPDATA%\CosmosDBEmulator location. You can configure a different location by using the optional data path settings; that is the `/DataPath=PREFERRED_LOCATION` as the [command-line parameter](emulator-command-line-parameters.md). The data created in one version of the Azure Cosmos DB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos DB account, instead of the Azure Cosmos DB Emulator.
 
 ## <a id="run-on-windows"></a>Use the emulator on Windows
 
@@ -80,7 +78,7 @@ The Azure Cosmos DB Emulator is installed at `C:\Program Files\Azure Cosmos DB E
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Select the Start button or press the Windows key, begin typing Azure Cosmos DB Emulator, and select the emulator from the list of applications":::
 
-When the emulator has started, you'll see an icon in the Windows taskbar notification area. It automatically opens the Azure Cosmos data explorer in your browser at this URL `https://localhost:8081/_explorer/index.html` URL.
+When the emulator has started, you'll see an icon in the Windows taskbar notification area. It automatically opens the Azure Cosmos DB data explorer in your browser at this URL `https://localhost:8081/_explorer/index.html` URL.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB local emulator task bar notification":::
 
@@ -88,7 +86,7 @@ You can also start and stop the emulator from the command-line or PowerShell com
 
 The Azure Cosmos DB Emulator by default runs on the local machine ("localhost") listening on port 8081. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos DB Emulator in the Windows Tray Icon as shown below.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos local emulator data explorer launcher":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos DB local emulator data explorer launcher":::
 
 ## <a id="run-on-linux-macos"></a>Use the emulator on Linux or macOS
 
@@ -123,7 +121,7 @@ The following sections show how to import the emulator TLS/SSL certificate into 
 
 #### Linux environment
 
-If you are working on Linux, .NET relays on OpenSSL to do the validation:
+If you are working on Linux, .NET relies on OpenSSL to do the validation:
 
 1. [Export the certificate in PFX format](local-emulator-export-ssl-certificates.md#export-emulator-certificate). The PFX option is available when choosing to export the private key.
 
@@ -213,9 +211,9 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 
 ## <a id="connect-with-emulator-apis"></a>Connect to different APIs with the emulator
 
-### SQL API
+### API for NoSQL
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in data explorer that lets you create containers for SQL API or Azure Cosmos DB for Mongo DB API. By using the data explorer, you can view and edit items without writing any code.
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](nosql/sdk-dotnet-v3.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in data explorer that lets you create containers for API for NoSQL or MongoDB. By using the data explorer, you can view and edit items without writing any code.
 
 ```csharp
 // Connect to the Azure Cosmos DB Emulator running locally
@@ -225,17 +223,17 @@ CosmosClient client = new CosmosClient(
 
 ```
 
-### Azure Cosmos DB's API for MongoDB
+### API for MongoDB
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the MongoDB API account:
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb/introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the API for MongoDB account:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 ```
 
-### Table API
+### API for Table
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](./table/tutorial-develop-table-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB API for Table SDK](./table/tutorial-develop-table-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the API for Table account:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -252,7 +250,7 @@ table.CreateIfNotExists();
 table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
-### Cassandra API
+### API for Cassandra
 
 Start emulator from an administrator [command prompt](emulator-command-line-parameters.md) with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
@@ -282,43 +280,67 @@ Start emulator from an administrator [command prompt](emulator-command-line-para
    EXIT
    ```
 
-### Gremlin API
+### API for Gremlin
 
-Start emulator from an administrator [command prompt](emulator-command-line-parameters.md)with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Start the emulator from an administrator [command prompt](emulator-command-line-parameters.md) with `/EnableGremlinEndpoint`. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-1. [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
+1. Tinkerpop console **3.6.2** is compatible with Java 8 or Java 11. For more information, see [OpenJDK 11](/java/openjdk/download#openjdk-11).
 
-1. From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+1. Extract [apache-tinkerpop-gremlin-console-3.6.2](https://tinkerpop.apache.org/download.html) to a folder on your machine.
+
+    > [!NOTE]
+    > For the remainder of these steps, we will assume that you installed the console to the `%ProgramFiles%\gremlin` folder.
+
+1. From the emulator's data explorer create a database "db1" and a container "coll1"; for the partition key, choose "/name"
 
 1. Run the following commands in a regular command prompt window:
 
-   ```bash
-   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
-  
-   copy /y conf\remote.yaml conf\remote-localcompute.yaml
-   notepad.exe conf\remote-localcompute.yaml
-     hosts: [localhost]
-     port: 8901
-     username: /dbs/db1/colls/coll1
-     password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-     connectionPool: {
-     enableSsl: false}
-     serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
-     config: { serializeResultToString: true  }}
+    ```cmd
+    cd /d %ProgramFiles%\apache-tinkerpop-gremlin-console-3.6.0
+    ```
 
-   bin\gremlin.bat
-   ```
+    ```cmd
+    copy /y conf\remote.yaml conf\remote-localcompute.yaml
+    ```
+
+1. Open the `conf\remote-localcompute.yaml` file in Notepad.
+
+    ```cmd
+    notepad.exe conf\remote-localcompute.yaml
+    ```
+
+1. Replace the contents of the YAML file with this configuration and **Save** the file.
+
+    ```yaml
+    hosts: [localhost]
+    port: 8901
+    username: /dbs/db1/colls/coll1
+    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    connectionPool: { enableSsl: false }
+    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+    ```
+
+1. Run the gremlin console.
+
+    ```cmd
+    bin\gremlin.bat
+    ```
 
 1. In the Gremlin shell, run the following commands to connect to the Gremlin endpoint:
 
-   ```bash
-   :remote connect tinkerpop.server conf/remote-localcompute.yaml
-   :remote console
-   :> g.V()
-   :> g.addV('person1').property(id, '1').property('name', 'somename1')
-   :> g.addV('person2').property(id, '2').property('name', 'somename2')
-   :> g.V()
-   ```
+    ```gremlin
+    :remote connect tinkerpop.server conf/remote-localcompute.yaml
+    :remote console
+    ```
+
+1. Run the following commands to try various operations on the Gremlin endpont:
+
+    ```gremlin
+    g.V()
+    g.addV('person1').property(id, '1').property('name', 'somename1')
+    g.addV('person2').property(id, '2').property('name', 'somename2')
+    g.V()
+    ```
 
 ## <a id="uninstall"></a>Uninstall the local emulator
 

@@ -4,8 +4,8 @@ description: Learn about cryptography mitigation for threats exposed in the Thre
 author: jegeib
 manager: jegeib
 editor: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -153,7 +153,7 @@ ms.author: jegeib
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, MsSQL2016 |
 | **References**              | [Always Encrypted (Database Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
-| **Steps** | Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access) |
+| **Steps** | Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national/regional identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access) |
 
 ## <a id="keys-iot"></a>Store Cryptographic Keys securely on IoT Device
 

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Cerby for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cerby for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cerby.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 465492d5-4f75-4201-bed4-f45b3be18702
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

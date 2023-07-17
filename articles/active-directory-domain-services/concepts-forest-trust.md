@@ -3,13 +3,13 @@ title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 03/02/2023
 ms.author: justinha
 ---
 
@@ -91,7 +91,7 @@ For example, when a one-way, forest trust is created between *Forest 1* (the tru
 * Members of *Forest 2* can't access resources located in *Forest 1* using the same trust.
 
 > [!IMPORTANT]
-> Azure AD Domain Services resource forest only supports a one-way forest trust to on-premises Active Directory.
+> Azure AD Domain Services only supports a one-way forest trust to on-premises Active Directory.
 
 ### Forest trust requirements
 
@@ -280,11 +280,8 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 ## Next steps
 
-To learn more about forest trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
-
 To get started with creating a managed domain with a forest trust, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
-[concepts-trust]: concepts-forest-trust.md
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md
 [create-forest-trust]: tutorial-create-forest-trust.md

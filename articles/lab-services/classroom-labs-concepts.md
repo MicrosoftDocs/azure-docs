@@ -1,91 +1,117 @@
 ---
-title: Labs concepts - Azure Lab Services | Microsoft Docs
-description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
+title: Key concepts for Azure Lab services
+titleSuffix: Azure Lab Services
+description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs.
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 02/02/2023
+ms.custom: devdivchpfy22
 ---
 
-# Labs concepts
+# Key concepts for Azure Lab Services
 
 This article describes key Azure Lab Services concepts and definitions.
 
-## Schedules
+The following conceptual diagram shows how the different Azure Lab Services components are related.
 
-Schedules are the time slots that an educator creates so the lab VMs are available for class time.  Schedules can be one-time or recurring.  Any scheduled time doesn't count against extra time students may be given to complete homework. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
+:::image type="complex" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services." lightbox="./media/classroom-labs-concepts/lab-services-key-concepts.png":::
+    Diagram that shows the hierarchical relationship between the different components in Azure Lab Services. It also shows how lab users and lab creators interact with some of these components. A lab plan uses VM images from the Azure Marketplace or an Azure compute gallery. The lab plan has one or more labs. When you publish a lab, one or more lab VMs are created. The lab has the list of users that are allowed to connect to a lab VM. Optionally, a lab can have a template VM, which enables a lab creator to customize the base VM image of the lab. The lab creator can remotely connect to the template VM to customize it. A lab can also optionally have lab schedules and user quota.
+:::image-end:::
 
-Scheduled time is commonly used when students are following the educator's directions during class hours. For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
+## Lab plan
 
-All the student VMs are started with schedules.  (Unclaimed VMs aren't started when schedules run.)  VMs are started even if a student doesn't sign into a VM.  To help reduce likelihood of accruing costs when a VM isn't being used, see [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md).
+In Azure Lab Services, a lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes, and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab. Learn more about [planning your lab plan settings](./lab-plan-setup-guide.md#plan-your-lab-plan-settings).
 
-There are two types of schedules.
+You can associate a lab plan with zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure RBAC roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md). 
 
-- **Standard**.  This schedule will start all student VMs at the specified start time and shut down all lab VMs at the specified stop time.
-- **Stop only**.  This schedule will stop all lab VMs at the specified time, even if the VM was manually started by an educator or student.
+## Lab
 
-## Quota
+A lab contains the configuration and settings for creating and running [lab virtual machines](#lab-virtual-machine). For example, you specify the base VM image for the lab VMs by selecting an image from the Azure Marketplace or an [Azure compute gallery](#azure-compute-gallery). Optionally, you can customize this VM image by using a [template VM](#template-virtual-machine).
 
-Quota is the limit of time a student may use their VM outside of class.  Allowing time for homework is done by using quota hours.  If no quota is assigned, students can only use their VM during scheduled time or if the educator starts the VM for them.  
+You can further configure the lab behavior by creating [lab schedules](#schedule) or configuring automatic shutdown settings to optimize cost.
 
-Quota hours are counted when the student starts the lab VM themselves.  If an educator manually starts the lab VM for a student, quota hours aren't used for that student.
+When you publish a lab, Azure Lab Services provisions the lab VMs. All lab VMs for a lab share the same configuration and are identical.
 
-A lab can use either quota time, [scheduled time](#schedules), or a combination of both.
+To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure RBAC role, or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
-## Automatic shut-down
+You use the Azure Lab Services website (https://labs.azure.com) to create labs for a lab plan. Alternately, you can also [configure Microsoft Teams integration](./how-to-configure-teams-for-lab-plans.md) or [Canvas integration](./how-to-configure-canvas-for-lab-plans.md) with Azure Lab Services to create labs directly in Microsoft Teams or Canvas.
 
-Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
+By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-manage-lab-users.md) that have access to the lab.
 
-- Disconnect idle virtual machines.
-- Shut down virtual machines when students disconnect from the virtual machine.
-- Shut down virtual machines when students don't connect a recently started virtual machine.
+Get started by [creating a lab using the Azure portal](quick-create-connect-lab.md).
 
-For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
+## Azure Compute Gallery
+
+When you create a lab, you select the base VM image for the lab VMs. You can use an [Azure compute gallery](/azure/virtual-machines/azure-compute-gallery) to store and share custom VM images. By using a compute gallery, you avoid having to repeatedly apply the same customizations when you create a new lab. If you've customized a lab with a template VM, you can [export the template VM to your compute gallery](./approaches-for-custom-image-creation.md).
+
+To use VM images from a compute gallery, you attach the Azure compute gallery to your lab plan. You can attach zero or more Azure compute galleries to a lab plan. After attaching a compute gallery, you can further enable or disable specific images.
+
+Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-shared-image-gallery.md).
 
 ## Template virtual machine
 
-A template VM in a lab is a base image from which all students' VMs are created. Educators configure the template VM with the software needed to complete the lab. When educators [publish a template VM](tutorial-setup-lab.md#publish-a-lab), Azure Lab Services creates or updates student lab VMs to match the template VM.
+You can choose to create a customizable lab, which enables you to modify the base image for the [lab virtual machines](#lab-virtual-machine). In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize. For example, you might install extra software components, such as Visual Studio, or configure the operating system to disable the web server process.
 
-Labs can be created without needing a template VM, if using the [April 2022 Update (preview)](lab-services-whats-new.md).  The Marketplace or Azure Compute Gallery image is used as-is to create the student's VMs.
+When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the template VM image. If you modify the template VM at a later stage, when you republish the template VM, all lab VMs are updated to match the new template. When you republish a template VM, Azure Lab Services reimages the lab VMs and removes all changes and data on the VM.
 
-## Lab plans
+With the [introduction of lab plans](lab-services-whats-new.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery, and you can't further customize the image of a templateless lab. You might use templateless labs because you manage  your *golden* VM images in an Azure compute gallery. The advantage of templateless labs is that all labs use your *golden images* without changes. Another benefit is that lab creation is faster because there's no need to create a template VM.
 
-Lab plans are an Azure resource and contain settings used when creating new labs.  Lab plans control the networking setup, which VM images are available and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab.  To create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
+Learn how to [create and manage a template in Azure Lab Services](./how-to-create-manage-template.md).
 
-## User profiles
+## Lab virtual machine
 
-Azure Lab Services was designed with three major personas in mind: administrators, educators, and students.  You'll see these three roles mentioned throughout Azure Lab Services documentation.  This section describes each persona and the tasks they’re typically responsible for.
+In Azure Lab Services, lab VMs are managed virtual machines that get their configuration from the [lab](#lab). All VMs for a lab are identical. Azure Lab Services provisions the lab VMs when you publish the lab.
 
-### Administrator
+After you publish the lab VMs, lab users can connect to their VM through remote desktop (RDP) or secure shell (SSH). Before they can connect to the lab VM, lab users have to first [register for the lab](./how-to-use-lab.md) by using a registration link. Azure Lab Services then assigns the user to a specific lab VM.
 
-An IT administrator for organization is typically the lab plan owner.  The lab plan owner is often the one owns the Azure subscription and does the following tasks:
+In the lab settings, you can optionally configure one or more [schedules](#schedule) and assign [user quota](#quota).
 
-- Creates and organizes resource groups to contain lab plans and labs.
-- Creates lab plans for your organization.
-- Manages and configures policies across all labs.
-- Gives permissions to educators in the organization to create a lab using the lab plan.
+## Schedule
 
-### Educator
+Schedules are the time slots that define when the lab VMs are available for class time. With schedules, you can avoid that lab users need to wait for their VM to start up. Schedules can be one-time or recurring. The lab creator can define schedules for a lab.
 
-Educators, often a teacher or an online trainer, creates labs using a pre-created lab plan. An educator does the following tasks:
+The use of schedules for a lab is optional and you might [specify user quota](#quota) instead, or use a combination of both. User quota is the time that lab users can run their lab VM outside of scheduled time. For example, to complete assignments or homework. Any scheduled time doesn't count against extra time that lab users have. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
 
-- Creates a lab.
-- Installs the appropriate software on virtual machines template.
-- Publishes the lab to create VMs for the students.
-- Specifies which students can access the lab.
-- Sends registration link to the lab to students, if necessary.
-- Use the lab to teach their course.
+Example scenarios for using schedules are:
 
-Some organizations may opt to have their administrators complete the previous tasks to create and manage labs on behalf of the educators.
+- A class happens at regular intervals or at a predefined time. You assign one or multiple schedules that match the class time slots, and that enables the students to follow the educator's directions during class hours.
+- A class happens at regular intervals, and students need to complete assignments after class hours. You assign a schedule that matches the class time slots, and you assign user quota for students to complete after-hours assignments.
 
-### Student
+There are two types of schedules.
 
-A student does the following tasks:
+- **Standard**. This schedule starts all lab VMs, except VMs that aren't assigned yet, at the specified start time and shuts down all lab VMs at the specified stop time.
+- **Stop only**. This schedule stops all lab VMs at the specified time, even if the lab creator or lab user started the VM manually.
 
-- Registers for the lab, if needed.
-- Connects to a VM in the lab and uses it for completing assigned work.
+Azure Lab Services starts a lab VM, regardless if the user signs into the VM or not. To help reduce the cost of running VMs that are unused, see how you can [configure automatic shutdown of lab VMs](how-to-enable-shutdown-disconnect.md).
+
+For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
+
+## Quota
+
+A quota is the limit of time a lab user can use their VM outside of scheduled lab events. The use of quota is optional, and you can use [lab schedules](#schedule) instead, or use a combination of both. If no quota is assigned, lab users can only use their VM during scheduled time, or if the lab creator manually starts a lab VM for them.
+
+Example scenarios for using quotas are:
+
+- Students need to use their lab VMs outside of class time to complete their homework. You can assign a schedule for the class time, and additionally assign quota hours for homework.
+- There are no regular class times, for example with students in different geographical areas. The lab has no scheduled events, and you only specify quota hours for lab users.
+
+When a lab user starts their lab VM, quota hours for the lab start counting. If a lab creator manually starts the lab VM for a user, quota hours aren't used for that student.
+
+The quota applies to a lab for each lab user individually, for the entire duration of the lab.
+
+A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
+
+## Advanced networking
+
+With lab plans, you have more control over the virtual network for labs by using advanced networking. With advanced networking, you can connect to a virtual network.
+
+Use advanced networking to connect to on premise resources such as licensing servers and use user defined routes (UDRs). Some organizations also have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, and more.
+
+Azure Lab Services advanced networking uses virtual network (VNET) injection to connect a lab plan to your virtual network. VNET injection replaces the [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that was used with lab accounts.
+
+Learn more about how to [connect a lab plan to a virtual network](./how-to-connect-vnet-injection.md).
 
 ## Next steps
 
-The first action to take to use Azure Lab Services is to create a lab plan.  Labs can be created only after a lab plan is created.
-
-- [As an admin, create a lab plan](tutorial-setup-lab-plan.md)
-- [As an educator, create a lab](tutorial-setup-lab.md)
+- [Create the resources to get started](./quick-create-resources.md)
+- [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab.md)
+- Learn about the [architecture fundamentals of Azure Lab Services](./classroom-labs-fundamentals.md)

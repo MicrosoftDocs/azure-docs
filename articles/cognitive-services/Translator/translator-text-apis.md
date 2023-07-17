@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/12/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other
+ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
@@ -21,7 +21,7 @@ keywords: translator, translator service, translate text, transliterate text, la
 
 # Use Azure Cognitive Services Translator APIs
 
-In this how-to guide, you'll learn to use the [Translator service REST APIs](reference/rest-api-guide.md). You'll start with basic examples and move onto some core configuration options that are commonly used during development, including:
+In this how-to guide, you learn to use the [Translator service REST APIs](reference/rest-api-guide.md). You start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
 * [Translation](#translate-text)
 * [Transliteration](#transliterate-text)
@@ -33,31 +33,30 @@ In this how-to guide, you'll learn to use the [Translator service REST APIs](ref
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* A Cognitive Services or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
-    > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
-
-* You'll need the key and endpoint from the resource to connect your application to the Translator service. Later, you'll paste your key and endpoint into the code samples. You can find these values on the Azure portal **Keys and Endpoint** page:
+* You need the key and endpoint from the resource to connect your application to the Translator service. Later, you paste your key and endpoint into the code samples. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Cognitive Services [security](../cognitive-services-security.md).
+
 ## Headers
 
-To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections.
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you need to make sure the following headers are included with each request. Don't worry, we include the headers in the sample code in the following sections.
 
 |Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services Resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
 |**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
-|||
 
-## Setup your application
+## Set up your application
 
 ### [C#](#tab/csharp)
 
@@ -65,7 +64,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
     > [!TIP]
     >
-    > If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
+    > If you're new to Visual Studio, try the [Introduction to Visual Studio](/training/modules/go-get-started/) Learn module.
 
 1. Open Visual Studio.
 
@@ -110,7 +109,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. You will copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
 1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
@@ -122,7 +121,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 > [!TIP]
 >
-> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
+> If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
 
 1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
@@ -138,7 +137,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Create a new GO file named **text-translator.go** from the **translator-text-app** directory.
 
-1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
+1. Copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
 
 1. Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
 
@@ -155,7 +154,7 @@ You can use any text editor to write Go applications. We recommend using the lat
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
-* If you aren't using VS Code, make sure you have the following installed in your development environment:
+* If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 
@@ -173,7 +172,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     mkdir translator-text-app; cd translator-text-app
    ```
 
-1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from the translator-text-app directory. This command creates essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -182,6 +181,9 @@ You can use any text editor to write Go applications. We recommend using the lat
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
 1. Accept the default project name (translator-text-app) by selecting **Return** or **Enter**.
+
+  > [!NOTE]
+  > It may take a few minutes for the entire application to be created, but soon you should see several folders and files including `build-gradle.kts`.
 
 1. Update `build.gradle.kts` with the following code:
 
@@ -210,7 +212,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     mkdir -p src/main/java
     ```
 
-   You'll create the following directory structure:
+   You create the following directory structure:
 
     :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure.":::
 
@@ -224,7 +226,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     >
     > * You can also create a new file in your IDE named `TranslatorText.java`  and save it to the `java` directory.
 
-1. You will copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
+1. Copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
 
 1. Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
@@ -246,7 +248,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
     > [!TIP]
     >
-    > If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+    > If you're new to Node.js, try the [Introduction to Node.js](/training/modules/intro-to-nodejs/) Learn module.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-text-app`.
 
@@ -287,7 +289,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-text-app` directory.
 
-1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
+1. Copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
 
 1. Once you've added the code sample to your application, run your program:
 
@@ -305,7 +307,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
     > [!TIP]
     >
-    > If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
+    > If you're new to Python, try the [Introduction to Python](/training/paths/beginner-python/) Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
@@ -339,7 +341,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 ## Translate text
 
-The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response.
+The core operation of the Translator service is to translate text. In this section, you build a request that takes a single source (`from`) and provides two outputs (`to`). Then we review some parameters that can be used to adjust both the request and the response.
 
 ### [C#](#tab/csharp)
 
@@ -352,8 +354,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource and can be found in the Azure portal on the Keys and Endpoint page.
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -372,6 +374,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -400,11 +403,12 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
+
+     // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
 
     // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -429,6 +433,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -467,8 +472,8 @@ public class TranslatorText {
     public String route = "/translate?api-version=3.0&from=en&to=sw&to=it";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -483,6 +488,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource. 
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -519,8 +525,8 @@ const axios = require('axios').default;
     let key = "<your-translator-key>";
     let endpoint = "https://api.cognitive.microsofttranslator.com";
 
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -529,6 +535,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+         // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -556,8 +563,8 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
@@ -571,6 +578,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+     # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -608,13 +616,15 @@ After a successful call, you should see the following response:
 ]
 ```
 
+You can check the consumption (the number of characters charged) for each request in the [**response headers: x-metered-usage**](reference/v3-0-translate.md#response-headers) field.
+
 ## Detect language
 
-If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint.
+If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you learn how to use language detection using the `translate` endpoint, and the `detect` endpoint.
 
 ### Detect source language during translation
 
-If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there's increased confidence that the detection is correct.
+If you don't include the `from` parameter in your translation request, the Translator service attempts to detect the source text's language. In the response, you get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there's increased confidence that the detection is correct.
 
 ### [C#](#tab/csharp)
 
@@ -627,8 +637,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -646,6 +656,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+            // location required if you're using a multi-service or regional (not global) resource. 
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
@@ -675,9 +686,10 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -703,6 +715,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -741,8 +754,8 @@ public class TranslatorText {
     public String route = "/translate?api-version=3.0&to=en&to=it";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
      // Instantiates the OkHttpClient.
@@ -757,6 +770,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -790,12 +804,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -803,6 +817,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -829,8 +844,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
@@ -843,6 +859,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -886,7 +903,7 @@ After a successful call, you should see the following response:
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint.
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you use the [`/detect`](./reference/v3-0-detect.md) endpoint.
 
 ### [C#](#tab/csharp)
 
@@ -899,8 +916,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -947,9 +964,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
 
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
@@ -974,6 +991,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1012,8 +1030,8 @@ public class TranslatorText {
     public String route = "/detect?api-version=3.0";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -1028,6 +1046,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1061,12 +1080,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1074,6 +1093,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1099,8 +1119,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/detect'
@@ -1112,6 +1133,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1130,7 +1152,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-The `/detect` endpoint response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response:
+The `/detect` endpoint response includes alternate detections, and indicates if the translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response:
 
 ```json
 [
@@ -1148,11 +1170,11 @@ The `/detect` endpoint response will include alternate detections, and will let 
 
 ## Transliterate text
 
-Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint.
+Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint.
 
 ### Transliterate during translation
 
-If you're translating into a language that uses a different alphabet (or phonemes) than your source, you might need a transliteration. In this example, we translate "Hello" from English to Thai. In addition to getting the translation in Thai, you'll get a transliteration of the translated phrase using the Latin alphabet.
+If you're translating into a language that uses a different alphabet (or phonemes) than your source, you might need a transliteration. In this example, we translate "Hello" from English to Thai. In addition to getting the translation in Thai, you get a transliteration of the translated phrase using the Latin alphabet.
 
 To get a transliteration from the `translate` endpoint, use the `toScript` parameter.
 
@@ -1170,8 +1192,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -1218,9 +1240,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
 
     uri := endpoint + "/translate?api-version=3.0"
@@ -1247,6 +1269,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1285,8 +1308,8 @@ public class TranslatorText {
     public String route = "/translate?api-version=3.0&to=th&toScript=latn";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
 
@@ -1302,6 +1325,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1335,12 +1359,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1348,6 +1372,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1375,8 +1400,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
@@ -1390,6 +1416,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1448,8 +1475,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -1469,6 +1496,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -1497,9 +1525,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
@@ -1526,6 +1554,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1564,8 +1593,8 @@ public class TranslatorText {
     public String route = "/transliterate?api-version=3.0&language=th&fromScript=thai&toScript=latn";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
 
@@ -1581,6 +1610,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1614,12 +1644,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1627,6 +1657,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1655,8 +1686,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/transliterate'
@@ -1671,6 +1703,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1720,8 +1753,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -1741,6 +1774,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -1769,9 +1803,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1797,6 +1831,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1835,8 +1870,8 @@ public class TranslatorText {
     public String route = "/translate?api-version=3.0&to=es&includeSentenceLength=true";
     public static String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -1851,6 +1886,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1884,12 +1920,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1897,6 +1933,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1924,8 +1961,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
@@ -1939,6 +1977,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1956,7 +1995,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-After a successful call, you should see the following response. In addition to the detected source language and translation, you'll get character counts for each detected sentence for both the source (`srcSentLen`) and translation (`transSentLen`).
+After a successful call, you should see the following response. In addition to the detected source language and translation, you get character counts for each detected sentence for both the source (`srcSentLen`) and translation (`transSentLen`).
 
 ```json
 [
@@ -2002,8 +2041,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -2023,6 +2062,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -2051,9 +2091,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
@@ -2077,6 +2117,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2112,8 +2153,8 @@ public class TranslatorText {
     public String route = "/breaksentence?api-version=3.0";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -2128,6 +2169,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -2161,12 +2203,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2174,6 +2216,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2199,8 +2242,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/breaksentence'
@@ -2212,6 +2256,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -2250,7 +2295,7 @@ After a successful call, you should see the following response. Unlike the call 
 
 ## Dictionary lookup (alternate translations)
 
-With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "luz solar", "rayos solares", and "soleamiento", "sol", and "insolación".
+With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "`luz solar`," "`rayos solares`," and "`soleamiento`," "`sol`," and "`insolación`."
 
 ### [C#](#tab/csharp)
 
@@ -2263,8 +2308,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -2283,6 +2328,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -2311,9 +2357,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
@@ -2339,6 +2385,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2374,8 +2421,8 @@ public class TranslatorText {
     public String route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
     public String url = endpoint.concat(route);
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -2390,6 +2437,7 @@ public class TranslatorText {
                .url(url)
                .post(body)
                .addHeader("Ocp-Apim-Subscription-Key", key)
+               // location required if you're using a multi-service or regional (not global) resource.
                .addHeader("Ocp-Apim-Subscription-Region", location)
                .addHeader("Content-type", "application/json")
                .build();
@@ -2423,12 +2471,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2436,6 +2484,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2463,8 +2512,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/dictionary/lookup'
@@ -2478,6 +2528,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -2663,7 +2714,7 @@ After a successful call, you should see the following response. Let's examine th
 
 ## Dictionary examples (translations in context)
 
-After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
+After you've performed a dictionary lookup, pass the source and translation text to the `dictionary/examples` endpoint, to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
 
 ### [C#](#tab/csharp)
 
@@ -2676,8 +2727,8 @@ class Program
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
 
     static async Task Main(string[] args)
@@ -2695,6 +2746,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
 
             // Send the request and get response.
@@ -2723,9 +2775,9 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
 
@@ -2755,6 +2807,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2791,8 +2844,8 @@ public class TranslatorText {
     public String url = endpoint.concat(route);
 
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     // Instantiates the OkHttpClient.
@@ -2807,6 +2860,7 @@ public class TranslatorText {
                 .url(url)
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource.
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -2840,12 +2894,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2853,6 +2907,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': key,
+        // location required if you're using a multi-service or regional (not global) resource.
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2881,8 +2936,9 @@ import requests, uuid, json
 key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+
 location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/dictionary/examples'
@@ -2896,6 +2952,7 @@ params = {
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())

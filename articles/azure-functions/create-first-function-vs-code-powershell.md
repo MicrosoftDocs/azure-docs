@@ -4,7 +4,7 @@ description: Learn how to create a PowerShell function, then publish the local p
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.devlang: powershell
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code
@@ -21,19 +21,7 @@ There's also a [CLI-based version](create-first-function-cli-powershell.md) of t
 
 Before you get started, make sure you have the following requirements in place:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
-
-+ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download/dotnet)  
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
-
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+[!INCLUDE [functions-requirements-visual-studio-code-powershell](../../includes/functions-requirements-visual-studio-code-powershell.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -53,7 +41,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=powershell#generated-project-files). 
 

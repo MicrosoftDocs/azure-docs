@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
@@ -1153,7 +1153,7 @@ See the following articles for help with Hive queries for machine learning:
 **Resolution:**
  Revisit the component and inspect the SQL query for mistakes.  
 
- Verify that the query works correctly outside of Azure ML by logging in to the database server directly and running the query.  
+ Verify that the query works correctly outside of Azure Machine Learning by logging in to the database server directly and running the query.  
 
  If there is a SQL generated message reported by the component exception, take action based on the reported error. For example, the error messages sometimes include specific guidance on the likely error:
 + *No such column or missing database*, indicating that you might have typed a column name wrong. If you are sure the column name is correct, try using brackets or quotation marks to enclose the column identifier.
@@ -1554,7 +1554,7 @@ Resolution:
 |Exception Messages|
 |------------------------|
 |Datastore information is invalid.|
-|Datastore information is invalid. Failed to get AzureML datastore '{datastore_name}' in workspace '{workspace_name}'.|
+|Datastore information is invalid. Failed to get Azure Machine Learning datastore '{datastore_name}' in workspace '{workspace_name}'.|
 
 
 ## Error 0158

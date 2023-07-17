@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot expired Visual Studio subscription
 description: Learn how to renew an expired subscription, purchase a new one, or transfer your Azure resources.
-author: jamestramel
-ms.author: jametra
+author: jenp
+ms.author: jenp
 ms.date: 12/15/2021
 ms.topic: troubleshooting
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
 
-# Renew an expired subscription, purchase a new on, or transfer your Azure resources
+# Renew an expired subscription, purchase a new one, or transfer your Azure resources
 
 If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To continue using Azure with a monthly credit, you will need to renew your subscription, purchase a new subscription, and/or transfer your Azure resources to a different Azure subscription that includes the Azure dev/test individual credit.
 

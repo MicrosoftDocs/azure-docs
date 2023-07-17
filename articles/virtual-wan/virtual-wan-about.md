@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/07/2022
+ms.date: 06/30/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -30,7 +30,7 @@ Azure regions serve as hubs that you can choose to connect to. All hubs are conn
 
 For spoke connectivity with SD-WAN/VPN devices, users can either manually set it up in Azure Virtual WAN, or use the Virtual WAN CPE (SD-WAN/VPN) partner solution to set up connectivity to Azure. We have a list of partners that support connectivity automation (ability to export the device info into Azure, download the Azure configuration and establish connectivity) with Azure Virtual WAN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
+:::image type="content" source="./media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtual-wan-diagram.png":::
 
  Virtual WAN offers the following advantages:
 
@@ -53,7 +53,7 @@ For available regions and locations, see [Virtual WAN partners, regions, and loc
 
 To configure an end-to-end virtual WAN, you create the following resources:
 
-* **Virtual WAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and can't contain a common hub. Virtual hubs across Virtual WAN don't communicate with each other.
+* **Virtual WAN:** The *virtualWAN* resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WANs are isolated from each other and can't contain a common hub. Virtual hubs in different virtual WANs don't communicate with each other.
 
 * **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN gateway inside the virtual hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a point-to-site gateway in the virtual hub. The hub is the core of your network in a region. Multiple virtual hubs can be created in the same region.
 
@@ -135,27 +135,17 @@ If you have pre-existing routes in the Routing section for the hub in the Azure 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 If you have pre-existing routes in Routing section for the hub in the Azure portal, you'll need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It's best to perform the delete step for all hubs in a virtual WAN.
 
-## Gated public preview
-
-The following features are currently in gated public preview. If, after working with the listed articles, you have questions or require support, please reach out the the contact alias that corresponds to the feature.
-
-| Feature | Description | Contact alias |
-| ---------- | --------- | ---|
-| Routing intent and policies enabling Inter-hub security | This feature allows you to configure internet-bound, private, or inter-hub traffic flow through the Azure Firewall. For more information, see [Routing intent and policies](../virtual-wan/how-to-routing-policies.md).| previewinterhub@microsoft.com |
-| Hub-to-hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). For more information, see [Hub-to-hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie).|  previewpreferh2h@microsoft.com |
-| BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. For more information, see [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md).| previewbgpwithvhub@microsoft.com |
-| Virtual hub routing preference | This features allows you to influence routing decisions for the virtual hub router. For more information, see [Virtual hub routing preference](about-virtual-hub-routing-preference.md). | preview-vwan-hrp@microsoft.com |
-
 ## <a name="faq"></a>FAQ
 
 For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
-## <a name="new"></a>What's new?
+## <a name="new"></a>Previews and What's new?
 
-Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
+* For information about recent releases, previews underway, preview limitations, known issues, and deprecated functionality, see [What's new?](whats-new.md)
+* Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates - Virtual WAN](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
 
 ## Next steps
 
 * [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
 
-* [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+* [Learn module: Introduction to Azure Virtual WAN](/training/modules/introduction-azure-virtual-wan/)

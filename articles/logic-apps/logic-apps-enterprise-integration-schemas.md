@@ -1,76 +1,78 @@
 ---
-title: Add schemas to validate XML in workflows
-description: Add schemas to validate XML documents in workflows with Azure Logic Apps and the Enterprise Integration Pack.
+title: Add schemas to use with workflows
+description: Add schemas for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 08/30/2022 
 ---
 
-# Add schemas to validate XML in workflows with Azure Logic Apps
+# Add schemas to use with workflows with Azure Logic Apps
 
-To check that documents use valid XML and have the expected data in the predefined format, your logic app workflow can use XML schemas with the **XML Validation** action. An XML schema describes a business document that's represented in XML using the [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/).
+Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+This article shows how to add a schema to your integration account. If you're working with a Standard logic app workflow, you can also add a schema directly to your logic app resource.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* To create schemas, you can use the following tools:
+* The schema file that you want to add. To create schemas, you can use the following tools:
 
   * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
 
   * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
 
-   > [!IMPORTANT]
+   > [!NOTE]
    > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
    > produce unexpected behavior. Make sure that you only have one of these extensions installed.
-
-   > [!NOTE]
+   >
    > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+* Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  > [!IMPORTANT]
+  >
+  > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation** action.
+  * If you're working on a Consumption logic app workflow, you'll need an [integration account that's linked to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-  * If you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts in your workflow.
+  * If you're working on a Standard logic app workflow, you can link your integration account to your logic app resource, upload schemas directly to your logic app resource, or both, based on the following scenarios:
 
-    To create and add schemas for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those schemas in your workflows, your logic app resource requires a linked integration account that stores those schemas.
+    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
-  * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store schemas in your integration account. Instead, you can directly add schemas to your logic app resource using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+    * The **Flat File** built-in connector lets you select a schema that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use this artifact across all child workflows within the same logic app resource.
 
-    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+    So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
-    > [!NOTE]
-    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
-    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+## Limitations
 
-* If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal. However, if your schema is bigger than 2 MB but not bigger than the [size limit for schemas](logic-apps-limits-and-config.md#artifact-capacity-limits), you can upload your schema to an Azure storage account. To add that schema to your integration account, you can then link to your storage account from your integration account. For this task, here are the items you need:
+* Limits apply to the number of artifacts, such as schemas, per integration account. For more information, review [Limits and configuration information for Azure Logic Apps](logic-apps-limits-and-config.md#integration-account-limits).
 
-    | Item | Description |
-    |------|-------------|
-    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your schema. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
-    | Blob container | In this container, you can upload your schema. You also need this container's content URI later when you add the schema to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, choose a step: <p>- In the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. <p>- For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).  |
-    |||
+* Based on whether you're working on a Consumption or Standard logic app workflow, schema file size limits might apply.
 
-  To add larger schemas for the **Logic App (Consumption)** resource type, you can also use the [Azure Logic Apps REST API - Schemas](/rest/api/logic/schemas/create-or-update). However, for the **Logic App (Standard)** resource type, the Azure Logic Apps REST API is currently unavailable.
+  * If you're working with Standard workflows, no limits apply to schema file sizes.
 
-## Limits
+  * If you're working with Consumption workflows, the following limits apply:
 
-* For **Logic App (Standard)**, no limits exist for schema file sizes.
+    * If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal.
 
-* For **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as schemas. For more information, review [Limits and configuration information for Azure Logic Apps](logic-apps-limits-and-config.md#integration-account-limits).
+    * If your schema is bigger than 2 MB but not bigger than the [size limit for schemas](logic-apps-limits-and-config.md#artifact-capacity-limits), you'll need an Azure storage account and a blob container where you can upload your schema. Then, to add that schema to your integration account, you can then link to your storage account from your integration account. For this task, the following table describes the items you need:
 
-  Usually, when you're using an integration account with your workflow and you want to validate XML, you add or upload the schema to that account. If you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
+      | Item | Description |
+      |------|-------------|
+      | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your schema. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
+      | Blob container | In this container, you can upload your schema. You also need this container's content URI later when you add the schema to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
+      | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, choose a step: <br><br>- In the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. <br><br>- For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). |
+
+      To add larger schemas, you can also use the [Azure Logic Apps REST API - Schemas](/rest/api/logic/schemas/create-or-update). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
+
+* Usually, when you're using an integration account with your workflow, you add the schema to that account. However, if you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
 
   `An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
 
@@ -80,11 +82,21 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 ## Add schemas
 
-### [Consumption](#tab/consumption)
+* If you're working with a Consumption workflow, you must add your schema to a linked integration account.
+
+* If you're working with a Standard workflow, you have the following options:
+
+  * Add your schema to a linked integration account. You can share the schema and integration account across multiple Standard logic app resources and their child workflows.
+
+  * Add your schema directly to your logic app resource. However, you can only share that schema across child workflows in the same logic app resource.
+
+<a name="add-schema-integration-account"></a>
+
+### Add schema to integration account
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
-1. In the main Azure search box, enter `integration accounts`, and select **Integration accounts**.
+1. In the main Azure search box, enter **integration accounts**, and select **Integration accounts**.
 
 1. Select the integration account where you want to add your schema.
 
@@ -92,7 +104,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-Based on your schema (.xsd) file's size, follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
+For Consumption workflows, based on your schema's file size, now follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
 
 <a name="smaller-schema"></a>
 
@@ -108,7 +120,7 @@ Based on your schema (.xsd) file's size, follow the steps for uploading a schema
 
 ### Add schemas more than 2 MB
 
-To add larger schemas, you can upload your schema to an Azure blob container in your Azure storage account. Your steps for adding schemas differ based whether your blob container has public read access. So first, check whether or not your blob container has public read access by following these steps: [Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+To add larger schemas for Consumption workflows to use, you can either use the [Azure Logic Apps REST API - Schemas](/rest/api/logic/schemas/create-or-update) or upload your schema to an Azure blob container in your Azure storage account. Your steps for adding schemas differ based whether your blob container has public read access. So first, check whether or not your blob container has public read access by following these steps: [Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### Check container access level
 
@@ -160,7 +172,11 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
-### [Standard](#tab/standard)
+---
+
+### Add schema to Standard logic app resource
+
+The following steps apply only if you want to add a schema directly to your Standard logic app resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
 
 #### Azure portal
 
@@ -182,9 +198,9 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 1. In the **Schemas** folder, add your schema.
 
----
-
 <a name="edit-schema"></a>
+
+---
 
 ## Edit a schema
 
@@ -207,6 +223,8 @@ To update an existing schema, you have to upload a new schema file that has the 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
 ### [Standard](#tab/standard)
+
+The following steps apply only if you're updating a schema that you added to your logic app resource. Otherwise, follow the Consumption steps for updating a schema in your integration account.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
@@ -241,6 +259,8 @@ To update an existing schema, you have to upload a new schema file that has the 
 1. To confirm you want to delete the schema, select **Yes**.
 
 ### [Standard](#tab/standard)
+
+The following steps apply only if you're deleting a schema that you added to your logic app resource. Otherwise, follow the Consumption steps for deleting a schema from your integration account.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 

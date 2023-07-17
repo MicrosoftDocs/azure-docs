@@ -1,9 +1,9 @@
 ---
-title: Custom role permissions for app registration - Azure AD | Microsoft Docs
+title: Custom role permissions for app registration
 description: Delegate custom administrator role permissions for managing app registrations. 
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -47,7 +47,7 @@ If both permissions are assigned, the /create permission will take precedence. T
 
 Create permissions grant access to the **New registration** command.
 
-[These permissions grant access to the New Registration portal command](./media/custom-available-permissions/new-custom-role.png)
+![These permissions grant access to the New Registration portal command](./media/custom-available-permissions/new-custom-role.png)
 
 There are two permissions available for granting the ability to delete app registrations:
 

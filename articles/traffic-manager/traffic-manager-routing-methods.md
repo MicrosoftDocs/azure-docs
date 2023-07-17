@@ -2,13 +2,13 @@
 title: Azure Traffic Manager - traffic routing methods
 description: This article helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
-author: asudbring
+author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
-ms.author: allensu
+ms.date: 11/30/2022
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Traffic Manager routing methods
@@ -92,7 +92,7 @@ Points to note:
 
 ## <a name = "geographic"></a>Geographic traffic-routing method
 
-Traffic Manager profiles can be configured to use the Geographic routing method so that users get directed to specific endpoints (Azure, External, or Nested) based on the geographic location their DNS query originates from. With this routing method, it enables you to be in compliance with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
+Traffic Manager profiles can be configured to use the Geographic routing method so that users get directed to specific endpoints: Azure, External, or Nested. Matching is based on the geographic location that the DNS query originates from. With this routing method, it enables you to be in compliance with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
 When a profile is configured for geographic routing, each endpoint associated with that profile needs to have a set of geographic regions assigned to it. A geographic region can be at following levels of granularity 
 - World– any region
 - Regional Grouping – for example, Africa, Middle East, Australia/Pacific etc. 
@@ -103,7 +103,7 @@ When a region or a set of regions is assigned to an endpoint, any requests from 
 
 ![Azure Traffic Manager 'Geographic' traffic-routing method](./media/traffic-manager-routing-methods/geographic.png)
 
-Traffic Manager reads the source IP address of the DNS query and decides which geographic region it's originating from. It then looks to see if there's an endpoint that has this geographic region mapped to it. This lookup starts at the lowest granularity level (State/Province where it's supported, else at the Country/Region level) and goes all the way up to the highest level, which is **World**. The first match found using this traversal is chosen as the endpoint to return in the query response. When matching with a Nested type endpoint, an endpoint within that child profile is returned, based on its routing method. The following points are applicable to this behavior:
+Traffic Manager reads the source IP address of the DNS query and decides which geographic region it's originating from. It then looks to see if there's an endpoint that has this geographic region mapped to it. This lookup starts at the lowest granularity level (first at the State/Province where it's supported, next at the Country/Region level) and goes all the way up to the highest level, which is **World**. The first match found using this traversal is chosen as the endpoint to return in the query response. When a query matches with a Nested type endpoint, an endpoint within that child profile is returned, based on its routing method. The following points are applicable to this behavior:
 
 - A geographic region can be mapped only to one endpoint in a Traffic Manager profile when the routing type is Geographic Routing. This restriction ensures that routing of users is deterministic, and customers can enable scenarios that require unambiguous geographic boundaries.
 - If a user’s region is listed under two different endpoints’ geographic mapping, Traffic Manager selects the endpoint with the lowest granularity. Traffic Manager won't consider routing requests from that region to the other endpoint. For example, consider a Geographic Routing type profile with two endpoints - Endpoint1 and Endpoint2. Endpoint1 is configured to receive traffic from Ireland and Endpoint2 is configured to receive traffic from Europe. If a request originates from Ireland, it's always routed to Endpoint1.
@@ -154,7 +154,7 @@ The **Multivalue** traffic-routing method allows you to get multiple healthy end
 The **Subnet** traffic-routing method allows you to map a set of end-user IP address ranges to specific endpoints in a profile. If Traffic Manager receives a DNS query for that profile, it will inspect the source IP address of that request. It will then determine which endpoint it's mapped to and will return that endpoint in the query response. In most cases, the source IP address is the DNS resolver that is used by the caller.
 
 The IP address to be mapped to an endpoint can be specified as CIDR ranges (for example, 1.2.3.0/24) or as an address range (for example, 1.2.3.4-5.6.7.8). The IP ranges associated with an endpoint need to be unique within that profile. The address range can't have an overlap with the IP address set of a different endpoint in the same profile.
-If you define an endpoint with no address range, that functions as a fallback and take traffic from any remaining subnets. If no fallback endpoint is included, Traffic Manager sends a NODATA response for any undefined ranges. It's highly recommended you define a fallback endpoint to ensure all possible IP ranges are specified across your endpoints.
+If you define an endpoint with no address range, then it functions as a fallback and takes traffic from any remaining subnets. If no fallback endpoint is included, Traffic Manager sends a NODATA response for any undefined ranges. It's highly recommended you define a fallback endpoint to ensure all possible IP ranges are specified across your endpoints.
 
 Subnet routing can be used to deliver a different experience for users connecting from a specific IP space. For example, you can make all requests from your corporate office be routed to a different endpoint. This routing method is especially useful if you're trying to test an internal only version of your app. Another scenario is if you want to provide a different experience to users connecting from a specific ISP (For example, block users from a given ISP).
 

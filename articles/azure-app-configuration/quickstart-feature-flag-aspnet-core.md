@@ -1,212 +1,186 @@
 ---
 title: Quickstart for adding feature flags to ASP.NET Core
 description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
-author: AlexandraKemperMS
+author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 09/28/2020
-ms.author: alkemper
+ms.date: 03/28/2023
+ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-In this quickstart, you create an end-to-end implementation of feature management in an ASP.NET Core app using Azure App Configuration. You'll use the App Configuration service to centrally store all your feature flags and control their states. 
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it.
 
-The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
+The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-aspnet-core-app.md), and the [tutorial](./enable-dynamic-configuration-aspnet-core.md) to create an ASP.NET Core app with dynamic configuration first.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+Follow the documents to create an ASP.NET Core app with dynamic configuration.
+- [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
+- [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
 
-## Create an App Configuration store
+## Create a feature flag
 
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-8. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
 
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+## Use a feature flag
 
-    Leave **Label** empty for now. Select **Apply** to save the new feature flag.
-
-## Create an ASP.NET Core web app
-
-Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core MVC project. The advantage of using the .NET Core CLI instead of Visual Studio is that the .NET Core CLI is available across the Windows, macOS, and Linux platforms.
-
-Run the following command to create an ASP.NET Core MVC project in a new *TestFeatureFlags* folder:
-
-```dotnetcli
-dotnet new mvc --no-https --output TestFeatureFlags
-```
-
-[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
-
-## Connect to an App Configuration store
-
-1. Install the [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) and [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet packages by running the following commands:
-
-    ```dotnetcli
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    ```
+1. Navigate into the project's directory, and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package.
 
     ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Run the following command in the same directory as the *.csproj* file. The command uses Secret Manager to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** in the Azure portal.
+1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
 
-    ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
-    ```
-
-    Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
-
-    Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
-
-1. In *Program.cs*, update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
-
-     #### [.NET 5.x](#tab/core5x)
-
+    #### [.NET 6.x](#tab/core6x)
     ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(connection).UseFeatureFlags());
-                }).UseStartup<Startup>());
+    // Load configuration from Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(connectionString)
+               // Load all keys that start with `TestApp:` and have no label
+               .Select("TestApp:*", LabelFilter.Null)
+               // Configure to reload configuration if the registered sentinel key is modified
+               .ConfigureRefresh(refreshOptions =>
+                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+        
+        // Load all feature flags with no label
+        options.UseFeatureFlags();
+    });
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
+            {
                 webBuilder.ConfigureAppConfiguration(config =>
                 {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
+                    //Retrieve the Connection String from the secrets manager
+                    IConfiguration settings = config.Build();
+                    string connectionString = settings.GetConnectionString("AppConfig");
+
+                    // Load configuration from Azure App Configuration
                     config.AddAzureAppConfiguration(options =>
-                        options.Connect(connection).UseFeatureFlags());
-                }).UseStartup<Startup>());
+                    {
+                        options.Connect(connectionString)
+                               // Load all keys that start with `TestApp:` and have no label
+                               .Select("TestApp:*", LabelFilter.Null)
+                               // Configure to reload configuration if the registered sentinel key is modified
+                               .ConfigureRefresh(refreshOptions =>
+                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+
+                        // Load all feature flags with no label
+                        options.UseFeatureFlags();
+                    });
+                });
+
+                webBuilder.UseStartup<Startup>();
+            });
     ```
-
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-               .ConfigureAppConfiguration(config =>
-               {
-                   var settings = config.Build();
-                   var connection = settings.GetConnectionString("AppConfig");
-                   config.AddAzureAppConfiguration(options =>
-                       options.Connect(connection).UseFeatureFlags());
-               }).UseStartup<Startup>();
-    ```
-
     ---
 
-    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
+    > [!TIP]
+    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
+    >
+    > ```csharp
+    > options.UseFeatureFlags(featureFlagOptions =>
+    > {
+    >     featureFlagOptions.Select("TestApp:*", "dev");
+    >     featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
+    > });
+    > ```
 
-1. In *Startup.cs*, add a reference to the .NET Core feature manager:
+1. Add feature management to the service collection of your app by calling `AddFeatureManagement`.
+
+    #### [.NET 6.x](#tab/core6x)
+    Update *Program.cs* with the following code. 
 
     ```csharp
-    using Microsoft.FeatureManagement;
+    // Existing code in Program.cs
+    // ... ...
+
+    builder.Services.AddRazorPages();
+
+    // Add Azure App Configuration middleware to the container of services.
+    builder.Services.AddAzureAppConfiguration();
+
+    // Add feature management to the container of services.
+    builder.Services.AddFeatureManagement();
+
+    // Bind configuration "TestApp:Settings" section to the Settings object
+    builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
+
+    var app = builder.Build();
+
+    // The rest of existing code in program.cs
+    // ... ...
     ```
 
-1. Update the `Startup.ConfigureServices` method to add feature flag support by calling the `AddFeatureManagement` method. Optionally, you can include any filter to be used with feature flags by calling `AddFeatureFilter<FilterType>()`:
-
-     #### [.NET 5.x](#tab/core5x)
-
-    ```csharp    
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllersWithViews();
-        services.AddFeatureManagement();
-    }
-    ```
     #### [.NET Core 3.x](#tab/core3x)
-    
-    Add the following code:
-    ```csharp    
+    Open *Startup.cs*, and update the `ConfigureServices` method.
+
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllersWithViews();
+        services.AddRazorPages();
+
+        // Add Azure App Configuration middleware to the container of services.
         services.AddAzureAppConfiguration();
+
+        // Add feature management to the container of services.
         services.AddFeatureManagement();
-    }
+
+        // Bind configuration "TestApp:Settings" section to the Settings object
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+    }   
     ```
-
-    And then add below:
-
-    ```csharp    
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        // ...
-        app.UseAzureAppConfiguration();
-    }
-    ```
-    
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-        services.AddFeatureManagement();
-    }
-    ```
-
     ---
 
-1. Add a *MyFeatureFlags.cs* file to the root project directory with the following code:
+    Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
 
-    ```csharp
-    namespace TestFeatureFlags
-    {
-        public enum MyFeatureFlags
-        {
-            Beta
-        }
+1. Add a new empty Razor page named **Beta** under the *Pages* directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
+
+    Open *Beta.cshtml*, and update it with the following markup:
+
+    ```cshtml
+    @page
+    @model TestAppConfig.Pages.BetaModel
+    @{
+        ViewData["Title"] = "Beta Page";
     }
+
+    <h1>This is the beta website.</h1>
     ```
 
-1. Add a *BetaController.cs* file to the *Controllers* directory with the following code:
+    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
 
     ```csharp
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.FeatureManagement;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.FeatureManagement.Mvc;
 
-    namespace TestFeatureFlags.Controllers
+    namespace TestAppConfig.Pages
     {
-        public class BetaController: Controller
+        [FeatureGate("Beta")]
+        public class BetaModel : PageModel
         {
-            private readonly IFeatureManager _featureManager;
-
-            public BetaController(IFeatureManagerSnapshot featureManager) =>
-                _featureManager = featureManager;
-
-            [FeatureGate(MyFeatureFlags.Beta)]
-            public IActionResult Index() => View();
+            public void OnGet()
+            {
+            }
         }
-    }
+    }   
     ```
 
-1. In *Views/_ViewImports.cshtml*, register the feature manager Tag Helper using an `@addTagHelper` directive:
+1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive:
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -214,19 +188,11 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
+1. Open *_Layout.cshtml* in the *Pages*\\*Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
-
-    ```cshtml
-    @{
-        ViewData["Title"] = "Beta Home Page";
-    }
-
-    <h1>This is the beta website.</h1>
-    ```
+    The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
 
 ## Build and run the app locally
 
@@ -241,26 +207,22 @@ dotnet new mvc --no-https --output TestFeatureFlags
     ```dotnetcli
     dotnet run
     ```
+1. Open a browser window, and go to the URL shown in the `dotnet run` output. Your browser should display a page similar to the image below.
 
-1. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**. When prompted, select port 5000.
+    ![Feature flag before enabled](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-    ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
-    Your browser should display a page similar to the image below.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Local quickstart app before change" border="true":::
+1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
 
-1. Select **Feature manager**. 
+    ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-1. Enable the *Beta* flag by selecting the checkbox under **Enabled**.
+1. Select the *Beta* menu. It will bring you to the beta website that you enabled dynamically.
 
-1. Return to the command shell. Cancel the running `dotnet` process by pressing <kbd>Ctrl+C</kbd>. Restart your app using `dotnet run`.
-
-1. Refresh the browser page to see the new configuration settings.
-
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Local quickstart app after change" border="true":::
+    ![Feature flag beta page](./media/quickstarts/aspnet-core-feature-flag-local-beta.png)
 
 ## Clean up resources
 
@@ -268,9 +230,30 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For more information, continue to the following tutorial.
 
-* Learn more about [feature management](./concept-feature-management.md).
-* [Manage feature flags](./manage-feature-flags.md).
-* [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md).
-* [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
+> [!div class="nextstepaction"]
+> [Use feature flags in ASP.NET Core apps](./use-feature-flags-dotnet-core.md)
+
+While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Use feature filters for conditional feature flags](./howto-feature-filters-aspnet-core.md)
+
+Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+
+To enable feature management capability for other types of apps, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET apps](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)
+
+To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)

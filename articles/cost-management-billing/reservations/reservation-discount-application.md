@@ -2,11 +2,12 @@
 title: How an Azure reservation discount is applied
 description: This article helps you understand how reserved instance discounts are generally applied.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -45,10 +46,11 @@ Read the following articles that apply to you to learn how discounts apply to a 
 
 - [App Service](reservation-discount-app-service.md)
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
-- [Cosmos DB](understand-cosmosdb-reservation-charges.md)
+- [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
+- [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)
-- [Database for PostgreSQL](understand-reservation-charges-postgresql.md)
+- [Database for PostgreSQL](../../postgresql/single-server/concept-reserved-pricing.md)
 - [Databricks](reservation-discount-databricks.md)
 - [Data Explorer](understand-azure-data-explorer-reservation-charges.md)
 - [Dedicated Hosts](billing-understand-dedicated-hosts-reservation-charges.md)

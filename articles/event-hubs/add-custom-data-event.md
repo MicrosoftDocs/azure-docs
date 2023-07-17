@@ -2,6 +2,7 @@
 title: Add custom data to events in Azure Event Hubs
 description: This article shows you how to add custom data to events in Azure Event Hubs. 
 ms.topic: how-to
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/19/2021
 ---
 

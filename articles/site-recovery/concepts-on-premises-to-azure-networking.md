@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure VMs on-premises failover with Azure Site Recovery
 description: Describes how to connect to Azure VMs after failover from on-premises to Azure using Azure Site Recovery
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
-ms.author: harshacs
+ms.date: 07/26/2022
+ms.author: ankitadutta
 
 ---
 # Connect to Azure VMs after failover from on-premises 
@@ -150,11 +150,11 @@ In this scenario, the Azure VM gets a new IP address after failover. To setup a 
 2. Select the desired Azure virtual machine.
 3. Select **Compute and Network** and select **Edit**.
 
-     ![Customize the failover networking configurations](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+     :::image type="network configurations" source="media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="Customize the failover networking configurations.":::
 
 4. To update Failover network settings, Select **Edit** for the NIC you want to configure. In the next page that opens, provide the corresponding pre-created IP Address in the test failover and failover location.
 
-    ![Edit the NIC configuration](media/azure-to-azure-customize-networking/nic-drilldown.png)
+    :::image type="NIC configuration" source="media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="Edit the NIC configuration.":::
 
 5. Select **OK**.
 

@@ -7,24 +7,21 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn
 ---
 
 # Spot Virtual Machine size recommendation 
 
-**Applies to:** :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
 The Spot VM size recommendations tool is an easy way to view and select alternative VM sizes that are better suited for your stateless, flexible, and fault tolerant workload needs during the Virtual Machine Scale Set deployment process in the Azure portal. This tool allows Azure to recommend appropriate VM sizes to you after you filter by region, price, and eviction rate. You can further filter the recommended VMs list by size, type, generation, and disk (premium or ephemeral OS disk). 
-
 
 ## Azure portal 
 
-You can access Azure's size recommendations through the virtual machine scale sets creation process in the Azure portal. The following steps will instruct you on how to access this tool during that process. 
+You can access Azure's size recommendations through the Virtual Machine Scale Sets creation process in the Azure portal. The following steps will instruct you on how to access this tool during that process. 
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, search for and select **Virtual machine scale sets**.
-1. Select **Create** on the **Virtual machine scale sets** page.
+1. In the search bar, search for and select **Virtual Machine Scale Sets**.
+1. Select **Create** on the **Virtual Machine Scale Sets** page.
 1. In the **Basics** tab, fill out the required fields. 
 1. Under **Instance details**, select **Run with Azure Spot discount**. 
     
@@ -50,7 +47,7 @@ You can access Azure's size recommendations through the virtual machine scale se
     :::image type="content" source="./media/spot-vm-size-recommendation/size-recommendations-tab.png" alt-text="Screenshot of the Size recommendations tab with a list of alternative VM sizes.":::
 
 1. Make your selection and click **Save**. 
-1. Continue through the virtual machine scale set creation process. 
+1. Continue through the Virtual Machine Scale Set creation process. 
 
 
 ## Next steps

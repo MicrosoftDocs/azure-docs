@@ -4,21 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: ssambare
-author: shivanissambare
-ms.date: 10/21/2021
+ms.subservice: inferencing
+ms.author: sehan
+author: dem108
+ms.date: 11/04/2022
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt, curated environments
+ms.reviewer: mopeakande
+ms.custom: deploy, docker, prebuilt
 ---
 
 # Prebuilt Docker images for inference
 
 Prebuilt Docker container images for inference are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
-
-* [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use prebuilt inference image as base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Using this method, you can install both **Python packages and apt packages**.
 
 ## Why should I use prebuilt images?
 
@@ -29,9 +26,17 @@ Prebuilt Docker container images for inference are used when deploying a model w
 
 ## List of prebuilt Docker images for inference 
 
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+> [!IMPORTANT]
+> The list provided below includes only **currently supported** inference docker images by Azure Machine Learning.
+
+[!INCLUDE [list-of-inference-prebuilt-docker-images](includes/aml-inference-list-prebuilt-docker-images.md)]
+
+## How to use inference prebuilt docker images?
+
+[Check examples in the Azure machine learning GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container)
 
 ## Next steps
 
-* [Add Python packages to prebuilt images](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md).
+* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+* [Learn more about custom containers](how-to-deploy-custom-container.md)
+* [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online)

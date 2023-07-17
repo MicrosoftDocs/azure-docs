@@ -1,13 +1,14 @@
 ---
-title: Enable and manage Azure Storage Analytics logs (classic) | Microsoft Docs
+title: Enable and manage Azure Storage Analytics logs (classic)
 description: Learn how to monitor a storage account in Azure by using Azure Storage Analytics.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 09/30/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
 ms.custom: monitoring, devx-track-azurepowershell
 ---
 
@@ -43,18 +44,21 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 3. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
    > [!div class="mx-imgBorder"]
-   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
+   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
-4. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the log data.
+4. To retain logs, ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days.  If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
    > [!WARNING]
-   > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
+   > Logs are stored as data in your account. Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
 
 4. Click **Save**.
 
    The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   
+   > [!NOTE]
+   > For classic storage accounts, the $logs container appears only in Azure Storage Explorer. The $logs container isn't visible from storage browser or the container view that is available in the Azure portal.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -105,22 +109,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;
-
-queueClient.SetServiceProperties(serviceProperties);  
-```
 
 ---
 
@@ -129,9 +120,6 @@ queueClient.SetServiceProperties(serviceProperties);
 ## Modify log data retention period
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
-
-> [!NOTE]
-> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored).
 
 ### [Portal](#tab/azure-portal)
 
@@ -143,9 +131,9 @@ Log data can accumulate in your account over time which can increase the cost of
 3. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control.
 
    > [!div class="mx-imgBorder"]
-   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
+   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
-   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the monitoring data.
 
 4. Click **Save**.
 
@@ -202,7 +190,7 @@ Log data can accumulate in your account over time which can increase the cost of
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -211,37 +199,6 @@ The following example prints to the console the retention period for blob and qu
 The following example changes the retention period to 4 days.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-The following example prints to the console the retention period for blob and queue storage services.
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connectionString);
-
-var blobClient = storageAccount.CreateCloudBlobClient();
-var queueClient = storageAccount.CreateCloudQueueClient();
-
-var blobserviceProperties = blobClient.GetServiceProperties();
-var queueserviceProperties = queueClient.GetServiceProperties();
-
-Console.WriteLine("Retention period for logs from the blob service is: " +
-   blobserviceProperties.Logging.RetentionDays.ToString());
-
-Console.WriteLine("Retention period for logs from the queue service is: " +
-   queueserviceProperties.Logging.RetentionDays.ToString());
-```
-
-The following example changes the retention period for logs for the blob and queue storage services to 4 days.
-
-```csharp
-
-blobserviceProperties.Logging.RetentionDays = 4;
-queueserviceProperties.Logging.RetentionDays = 4;
-
-blobClient.SetServiceProperties(blobserviceProperties);
-queueClient.SetServiceProperties(queueserviceProperties);  
-```
 
 ---
 
@@ -275,7 +232,7 @@ The following example shows how you can download the log data for the queue serv
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-To learn more about how to download specific files, see [Download blobs from Azure Blob storage by using AzCopy v10](./storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn more about how to download specific files, see [Download blobs from Azure Blob storage by using AzCopy v10](./storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json).
 
 When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) and [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

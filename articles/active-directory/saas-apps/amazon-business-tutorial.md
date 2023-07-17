@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Amazon Business | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Amazon Business'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Business.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 12/21/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,8 @@ In this tutorial, you'll learn how to integrate Amazon Business with Azure Activ
 * Control in Azure AD who has access to Amazon Business.
 * Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5cbi8]
 
 ## Prerequisites
 
@@ -48,6 +50,8 @@ To configure the integration of Amazon Business into Azure AD, you need to add A
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Amazon Business** in the search box.
 1. Select **Amazon Business** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Amazon Business
 
@@ -119,9 +123,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. Click **Save**.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 1. On the **Set up Amazon Business** section, copy the appropriate URL(s) based on your requirement.
 
@@ -132,7 +136,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 > [!NOTE]
-> Adminstrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
+> Administrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -188,7 +192,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Business SSO
 
-1. In a different web browser window, sign in to your Amazon Business company site as an administrator.
+
+
+
+1. In a different web browser window, sign in to your up Amazon Business company site as an administrator
 
 1. Click on the **User Profile** and select **Business Settings**.
 
@@ -209,9 +216,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/group.png)
 
-1. On the **Upload your metadata file** wizard, click **Browse** to upload the **Metadata XML** file, which you have downloaded from the Azure portal and click **Upload**.
+1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **App Federation Metadata URL** value, which you have copied from Azure portal and click **Validate**.
 
     ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data.png)
+
+    >[!NOTE]
+    > Alternatively, you can also upload the **Federation Metadata XML** file by clicking on the **Upload XML File** option.
 
 1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
 
@@ -225,7 +235,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows Attribute mapping, where you can edit your Amazon data SAML attribute names.](media/amazon-business-tutorial/attribute-mapping.png)
 
-1. On the **Amazon connection data** wizard, click **Next**.
+1. On the **Amazon connection data** wizard, please confirm your IDP has configured and click **Continue**.
 
     ![Screenshot shows Amazon connection data, where you can click next to continue.](media/amazon-business-tutorial/amazon-connect.png)
 
@@ -264,15 +274,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Amazon Business Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Amazon Business Sign-on URL where you can initiate the login flow.  
 
-* Go to Amazon Business Sign-on URL directly and initiate the login flow from there.
+* Go to the Amazon Business Single Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Amazon Business for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Amazon Business tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Business for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Amazon Business tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Business for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

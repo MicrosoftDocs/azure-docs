@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 07/05/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -28,9 +28,7 @@ The following is a general pattern to help you train a more accurate model:
 
 ## Prevent overfitting
 
-Sometimes, a model will learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you are creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
-
-![Image of unexpected classification](./media/getting-started-improving-your-classifier/unexpected.png)
+Sometimes a model will learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you're creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
 
 To correct this problem, provide images with different angles, backgrounds, object size, groups, and other variations. The following sections expand upon these concepts.
 
@@ -44,35 +42,35 @@ It's also important to consider the relative quantities of your training data. F
 
 ## Data variety
 
-Be sure to use images that are representative of what will be submitted to the classifier during normal use. Otherwise, your model could learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you are creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
+Be sure to use images that are representative of what will be submitted to the classifier during normal use. Otherwise, your model could learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you're creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
 
-![Image of unexpected classification](./media/getting-started-improving-your-classifier/unexpected.png)
+![Photo of fruits with unexpected matching.](./media/getting-started-improving-your-classifier/unexpected.png)
 
 To correct this problem, include a variety of images to ensure that your model can generalize well. Below are some ways you can make your training set more diverse:
 
 * __Background:__ Provide images of your object in front of different backgrounds. Photos in natural contexts are better than photos in front of neutral backgrounds as they provide more information for the classifier.
 
-    ![Image of background samples](./media/getting-started-improving-your-classifier/background.png)
+    ![Photo of background samples.](./media/getting-started-improving-your-classifier/background.png)
 
-* __Lighting:__ Provide images with varied lighting (that is, taken with flash, high exposure, and so on), especially if the images used for prediction have different lighting. It is also helpful to use images with varying saturation, hue, and brightness.
+* __Lighting:__ Provide images with varied lighting (that is, taken with flash, high exposure, and so on), especially if the images used for prediction have different lighting. It's also helpful to use images with varying saturation, hue, and brightness.
 
-    ![Image of lighting samples](./media/getting-started-improving-your-classifier/lighting.png)
+    ![Photo of lighting samples.](./media/getting-started-improving-your-classifier/lighting.png)
 
 * __Object Size:__ Provide images in which the objects vary in size and number (for example, a photo of bunches of bananas and a closeup of a single banana). Different sizing helps the classifier generalize better.
 
-    ![Image of size samples](./media/getting-started-improving-your-classifier/size.png)
+    ![Photo of size samples.](./media/getting-started-improving-your-classifier/size.png)
 
-* __Camera Angle:__ Provide images taken with different camera angles. Alternatively, if all of your photos must be taken with fixed cameras (such as surveillance cameras), be sure to assign a different label to every regularly-occurring object to avoid overfitting&mdash;interpreting unrelated objects (such as lampposts) as the key feature.
+* __Camera Angle:__ Provide images taken with different camera angles. Alternatively, if all of your photos must be taken with fixed cameras (such as surveillance cameras), be sure to assign a different label to every regularly occurring object to avoid overfitting&mdash;interpreting unrelated objects (such as lampposts) as the key feature.
 
-    ![Image of angle samples](./media/getting-started-improving-your-classifier/angle.png)
+    ![Photo of angle samples.](./media/getting-started-improving-your-classifier/angle.png)
 
 * __Style:__ Provide images of different styles of the same class (for example, different varieties of the same fruit). However, if you have objects of drastically different styles (such as Mickey Mouse vs. a real-life mouse), we recommend you label them as separate classes to better represent their distinct features.
 
-    ![Image of style samples](./media/getting-started-improving-your-classifier/style.png)
+    ![Photo of style samples.](./media/getting-started-improving-your-classifier/style.png)
 
 ## Negative images (classifiers only)
 
-If you're using an image classifier, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are images which do not match any of the other tags. When you upload these images, apply the special **Negative** label to them.
+If you're using an image classifier, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are images that don't match any of the other tags. When you upload these images, apply the special **Negative** label to them.
 
 Object detectors handle negative samples automatically, because any image areas outside of the drawn bounding boxes are considered negative.
 
@@ -81,9 +79,9 @@ Object detectors handle negative samples automatically, because any image areas 
 > 
 > On the other hand, in cases where the negative images are just a variation of the images used in training, it is likely that the model will classify the negative images as a labeled class due to the great similarities. For example, if you have an orange vs. grapefruit classifier, and you feed in an image of a clementine, it may score the clementine as an orange because many features of the clementine resemble those of oranges. If your negative images are of this nature, we recommend you create one or more additional tags (such as **Other**) and label the negative images with this tag during training to allow the model to better differentiate between these classes.
 
-## Consider occlusion and truncation (object detectors only)
+## Occlusion and truncation (object detectors only)
 
-If you want your object detector to detect truncated objects (object is partially cut out of the image) or occluded objects (object is partially blocked by another object in the image), you'll need to include training images that cover those cases.
+If you want your object detector to detect truncated objects (objects that are partially cut out of the image) or occluded objects (objects that are partially blocked by other objects in the image), you'll need to include training images that cover those cases.
 
 > [!NOTE]
 > The issue of objects being occluded by other objects is not to be confused with **Overlap Threshold**, a parameter for rating model performance. The **Overlap Threshold** slider on the [Custom Vision website](https://customvision.ai) deals with how much a predicted bounding box must overlap with the true bounding box to be considered correct.
@@ -96,11 +94,11 @@ When you use or test the model by submitting images to the prediction endpoint, 
 
     ![screenshot of the predictions tab, with images in view](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Hover over an image to see the tags that were predicted by the model. Images are sorted so that the ones which can bring the most improvements to the model are listed the top. To use a different sorting method, make a selection in the __Sort__ section. 
+2. Hover over an image to see the tags that were predicted by the model. Images are sorted so that the ones that can bring the most improvements to the model are listed the top. To use a different sorting method, make a selection in the __Sort__ section. 
 
-    To add an image to your existing training data, select the image, set the correct tag(s), and click __Save and close__. The image will be removed from __Predictions__ and added to the set of training images. You can view it by selecting the __Training Images__ tab.
+    To add an image to your existing training data, select the image, set the correct tag(s), and select __Save and close__. The image will be removed from __Predictions__ and added to the set of training images. You can view it by selecting the __Training Images__ tab.
 
-    ![Image of the tagging page](./media/getting-started-improving-your-classifier/tag.png)
+    ![Screenshot of the tagging page.](./media/getting-started-improving-your-classifier/tag.png)
 
 3. Then use the __Train__ button to retrain the model.
 

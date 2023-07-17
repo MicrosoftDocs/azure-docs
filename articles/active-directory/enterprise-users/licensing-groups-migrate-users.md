@@ -1,12 +1,12 @@
 ---
 
-title: Add users with direct licenses to group licensing - Azure AD | Microsoft Docs
+title: Add users with direct licenses to group licensing
 description: How to migrate from individual user licenses to group-based licensing using Azure Active Directory
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "seohack1;it-pro"
 ms.collection: M365-identity-device-management
@@ -44,7 +44,7 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 1. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
 
-Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. If you could leave the original direct assignments on users, but when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
+Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. You could leave the original direct assignments on users, but when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
 
 ## An example
 

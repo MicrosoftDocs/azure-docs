@@ -1,13 +1,10 @@
 ---
 title: MultiStorageAccountCombo UI element
 description: Describes the Microsoft.Storage.MultiStorageAccountCombo UI element for Azure portal.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: tomfitz
-
 ---
+
 # Microsoft.Storage.MultiStorageAccountCombo UI element
 
 A group of controls for creating several storage accounts with names that start with a common prefix.

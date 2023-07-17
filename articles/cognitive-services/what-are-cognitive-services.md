@@ -8,23 +8,24 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021, build-2023, build-2023-dataai
 ---
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help you build cognitive intelligence into your applications. They are available as REST APIs, client library SDKs, and user interfaces. You can add cognitive features to your applications without having AI or data science skills. Cognitive Services enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 ## Categories of Cognitive Services
 
-Cognitive Services can be categorized into four main pillars:
+Cognitive Services can be categorized into five main areas:
 
 * Vision
 * Speech
 * Language
 * Decision
+* Azure OpenAI Service
 
 See the tables below to learn about the services offered within those categories. 
 
@@ -40,7 +41,7 @@ See the tables below to learn about the services offered within those categories
 
 |Service Name|Service Description| Quickstart|
 |:-----------|:------------------|--|
-|[Speech service](./speech-service/index.yml "Speech service")|Speech service adds speech-enabled features to applications. Speech service includes various capabilities like speech-to-text, text-to-speech, speech translation, and many more.| Go to the [Speech documentation](./speech-service/index.yml) to choose a subservice quickstart.|
+|[Speech service](./speech-service/index.yml "Speech service")|Speech service adds speech-enabled features to applications. Speech service includes various capabilities like speech to text, text to speech, speech translation, and many more.| Go to the [Speech documentation](./speech-service/index.yml) to choose a subservice quickstart.|
 <!--
 |[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
@@ -64,13 +65,19 @@ See the tables below to learn about the services offered within those categories
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content. | [Content Moderator quickstart](./content-moderator/client-libraries.md)|
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior. |[Personalizer quickstart](./personalizer/quickstart-personalizer-sdk.md)|
 
+## Azure OpenAI
+
+|Service Name | Service Description| Quickstart|
+|:------------|:-------------------|-----------|
+|[Azure OpenAI](./openai/index.yml "Azure OpenAI") |Powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. | [Azure OpenAI quickstart](./openai/quickstart.md) |
+
 ## Create a Cognitive Services resource
 
 You can create a Cognitive Services resource with hands-on quickstarts using any of the following methods:
 
 * [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
 * [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
-* [Azure SDK client libraries](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Azure SDK client libraries](cognitive-services-apis-create-account-client-library.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
 * [Azure Resource Manager (ARM template)](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM template)")
 
 ## Use Cognitive Services in different development environments
@@ -80,7 +87,7 @@ With Azure and Cognitive Services, you have access to several development option
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Cognitive Services Docker containers for secure access.
-* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
 To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
 

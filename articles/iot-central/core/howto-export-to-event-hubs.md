@@ -1,12 +1,13 @@
 ---
-title: Export data to Event Hubs IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Event Hubs
+title: Export data to Event Hubs IoT Central
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Event Hubs
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 04/28/2022
+author: dominicbetts
+ms.author: dobett
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Export IoT data to Event Hubs
@@ -27,11 +28,11 @@ Event Hubs destinations let you configure the connection with a *connection stri
 
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+### Create an Event Hubs destination
 
 # [Connection string](#tab/connection-string)
 
-### Create an Event Hubs destination
+
 
 If you don't have an existing Event Hubs namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Event Hubs namespace, and event hub. It then prints the connection string to use when you configure the data export in IoT Central:
 
@@ -66,7 +67,7 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 
 # [Managed identity](#tab/managed-identity)
 
-### Create an Event Hubs destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
 If you don't have an existing Event Hubs namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Event Hubs namespace, and event hub. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your event hub:
 
@@ -96,7 +97,7 @@ az role assignment create --assignee $PI --role "Azure Event Hubs Data Sender" -
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $EHNS.servicebus.windows.net"
-echo "Event Hub: $CN"
+echo "Event Hub: $EH"
 ```
 
 To further secure your event hub and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
@@ -125,7 +126,9 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
 
-For Event Hubs, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
+
+For Event Hubs, IoT Central exports new messages data to your event hub in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 ## Next steps
 

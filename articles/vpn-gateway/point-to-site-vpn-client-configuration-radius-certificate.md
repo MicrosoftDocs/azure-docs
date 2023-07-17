@@ -51,7 +51,13 @@ You can generate the VPN client configuration files by using the Azure portal, o
 1. Navigate to the virtual network gateway.
 1. Click **Point-to-Site configuration**.
 1. Click **Download VPN client**.
-1. Select the client and fill out any information that is requested.
+1. Select the client and fill out any information that is requested. Depending on the configuration, you might be requested to upload the Radius root certificate to the portal. Export the certificate in the required Base-64 encoded X.509 (.CER) format and open it using a text editor, such as Notepad. You'll see text similar to the following example. The section highlighted in blue contains the information that you copy and upload to Azure.
+
+
+   :::image type="content" source="../../includes/media/vpn-gateway-certificates-export-public-key-include/notepad-file.png" alt-text="Screenshot shows the CER file open in Notepad with the certificate data highlighted." lightbox="../../includes/media/vpn-gateway-certificates-export-public-key-include/notepad-file.png":::
+
+   If your file doesn't look similar to the example, typically that means you didn't export it using the Base-64 encoded X.509(.CER) format. Additionally, if you use a text editor other than Notepad, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
+
 1. Click **Download** to generate the .zip file.
 1. The .zip file will download, typically to your Downloads folder.
 
@@ -76,7 +82,9 @@ To retrieve previously generated client configuration files, use the following c
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
 
-## Windows VPN client
+## Windows native VPN client
+
+You can use the native VPN client if you configured IKEv2 or SSTP.
 
 1. Select a configuration package and install it on the client device. For a 64-bit processor architecture, choose the **VpnClientSetupAmd64** installer package. For a 32-bit processor architecture, choose the **VpnClientSetupX86** installer package. If you see a SmartScreen pop-up, select **More info** > **Run anyway**. You can also save the package to install on other client computers.
 
@@ -84,9 +92,9 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 
 1. On the client computer, browse to **Network Settings** and select **VPN**. The VPN connection shows the name of the virtual network that it connects to.
 
-## Mac (macOS) VPN client
+## Mac (macOS) native VPN client
 
-You must create a separate profile for every Mac device that connects to the Azure virtual network. This is because these devices require the user certificate for authentication to be specified in the profile. The **Generic** folder has all the information that's required to create a profile:
+You must create a separate profile for every Mac device that connects to the Azure virtual network. This is because these devices require the user certificate for authentication to be specified in the profile. Additionally, you can only use the macOS native VPN client if you included the IKEv2 tunnel type in your configuration. The **Generic** folder has all the information that's required to create a profile:
 
 * **VpnSettings.xml** contains important settings such as server address and tunnel type.
 * **VpnServerRoot.cer** contains the root certificate that's required to validate the VPN gateway during P2S connection setup.

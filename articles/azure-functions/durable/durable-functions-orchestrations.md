@@ -3,9 +3,10 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
 
@@ -54,7 +55,9 @@ When an orchestration function is given more work to do (for example, a response
 
 The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following orchestrator function:
 
-# [C#](#tab/csharp)
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
+
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("HelloCities")]
@@ -72,7 +75,25 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("HelloCities")]
+public static async Task<List<string>> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "London"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+}
+```
+
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -84,6 +105,23 @@ module.exports = df.orchestrator(function*(context) {
     output.push(yield context.df.callActivity("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return output;
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const helloActivityName = "sayHello";
+
+df.app.orchestration("helloSequence", function* (context) {
+    const output = [];
+    output.push(yield context.df.callActivity(helloActivityName, "Tokyo"));
+    output.push(yield context.df.callActivity(helloActivityName, "Seattle"));
+    output.push(yield context.df.callActivity(helloActivityName, "Cairo"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello Cairo!"]
     return output;
 });
 ```
@@ -121,14 +159,12 @@ $output
 ```java
 @FunctionName("HelloCities")
 public String helloCitiesOrchestrator(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        String result = "";
-        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
-        result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
-        result += ctx.callActivity("SayHello", "London", String.class).await();
-        return result;
-    });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String result = "";
+    result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+    result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
+    result += ctx.callActivity("SayHello", "London", String.class).await();
+    return result;
 }
 ```
 
@@ -241,13 +277,13 @@ The `LockAsync` acquires the durable lock(s) and returns an `IDisposable` that e
 The critical section feature is also useful for coordinating changes to durable entities. For more information about critical sections, see the [Durable entities "Entity coordination"](durable-functions-entities.md#entity-coordination) topic.
 
 > [!NOTE]
-> Critical sections are available in Durable Functions 2.0 and above. Currently, only .NET orchestrations implement this feature.
+> Critical sections are available in Durable Functions 2.0. Currently, only .NET in-proc orchestrations implement this feature. Entities and critical sections are not yet available in Durable Functions for dotnet-isolated worker.
 
 ### Calling HTTP endpoints (Durable Functions 2.x)
 
 Orchestrator functions aren't permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the result to the orchestration.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method to invoke HTTP APIs directly.
 
@@ -269,7 +305,11 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [C# (Isolated)](#tab/csharp-isolated)
+
+The feature is not currently supported in dotnet-isolated worker. Instead, write an activity which performs the desired HTTP call.
+
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -277,6 +317,20 @@ const df = require("durable-functions");
 module.exports = df.orchestrator(function*(context) {
     const url = context.df.getInput();
     var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("checkSiteAvailable", function* (context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp({ method: "GET", url });
     if (res.statusCode >= 400) {
         // handling of error codes goes here
     }
@@ -295,6 +349,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if res.status_code >= 400:
         # handing of error code goes here
 ```
+
 # [PowerShell](#tab/powershell)
 
 The feature is not currently supported in PowerShell.
@@ -316,7 +371,7 @@ For more information and for detailed examples, see the [HTTP features](durable-
 
 It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or composite objects.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 In .NET you can also use [ValueTuple](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuple](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -355,7 +410,43 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In .NET you can also use [ValueTuple](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuple](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[Function("GetCourseRecommendations")]
+public static async Task<object> RunOrchestrator(
+    [OrchestrationTrigger] TaskOrchestrationContext context, int universityYear)
+{
+    string major = "ComputerScience";
+
+    object courseRecommendations = await context.CallActivityAsync<object>(
+        "CourseRecommendations",
+        (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<object> Mapper(
+    [ActivityTrigger] (string Major, int UniversityYear) inputs, FunctionContext executionContext)
+{
+    // retrieve and return course recommendations by major and university year
+    return new
+    {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
+}
+```
+
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### Orchestrator
 
@@ -370,7 +461,7 @@ module.exports = df.orchestrator(function*(context) {
     const weather = yield context.df.callActivity("GetWeather", location);
 
     // ...
-};
+});
 ```
 
 #### `GetWeather` Activity
@@ -381,6 +472,29 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+
+```javascript
+const getWeatherActivityName = "getWeather";
+
+df.app.orchestration("getWeatherOrchestrator", function* (context) {
+    const location = {
+        city: "Seattle",
+        state: "WA",
+    };
+    const weather = yield context.df.callActivity(getWeatherActivityName, location);
+
+    // ...
+});
+
+df.app.activity(getWeatherActivityName, async function (location) {
+    const { city, state } = location; // destructure properties into variables
+
+    // ...
+});
 ```
 
 # [Python](#tab/python)
@@ -446,14 +560,12 @@ param($location)
 ```java
 @FunctionName("GetWeatherOrchestrator")
 public String getWeatherOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            var location = new Location();
-            location.city = "Seattle";
-            location.state = "WA";
-            String weather = ctx.callActivity("GetWeather", location, String.class).await();
-            return weather;
-        });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    var location = new Location();
+    location.city = "Seattle";
+    location.state = "WA";
+    String weather = ctx.callActivity("GetWeather", location, String.class).await();
+    return weather;
 }
 
 @FunctionName("GetWeather")

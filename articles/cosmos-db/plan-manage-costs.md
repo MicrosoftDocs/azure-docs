@@ -4,14 +4,14 @@ description: Learn how to plan for and manage costs for Azure Cosmos DB by using
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: subject-cost-optimization, ignite-fall-2021
+ms.custom: subject-cost-optimization, ignite-fall-2021, ignite-2022
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/08/2021
 ---
 
 # Plan and manage costs for Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes how you can plan and manage costs for Azure Cosmos DB. First, you use the Azure Cosmos DB capacity calculator to estimate your workload cost before you create any resources. Later you can review the estimated cost and start creating your resources.
 
@@ -42,9 +42,9 @@ As an aid for estimating costs, it can be helpful to do capacity planning for a 
 
 ### Estimate provisioned throughput costs
 
-If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) to estimate costs before you create the resources in an Azure Cosmos account. The capacity calculator is used to get an estimate of the required throughput and cost of your workload. The capacity calculator is currently available for SQL API, Cassandra API, and API for MongoDB only.
+If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) to estimate costs before you create the resources in an Azure Cosmos DB account. The capacity calculator is used to get an estimate of the required throughput and cost of your workload. The capacity calculator is currently available for API for NoSQL, Cassandra, and MongoDB only.
 
-Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimize the cost and performance. You have to input details such as API type, number of regions, item size, read/write requests per second, total data stored to get a cost estimate. To learn more about the capacity calculator, see the [estimate](estimate-ru-with-capacity-planner.md) article.
+Configuring your Azure Cosmos DB databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimize the cost and performance. You have to input details such as API type, number of regions, item size, read/write requests per second, total data stored to get a cost estimate. To learn more about the capacity calculator, see the [estimate](estimate-ru-with-capacity-planner.md) article.
 
 > [!TIP]
 > To make sure you never exceed the provisioned throughput you've budgeted, [limit your account's total provisioned throughput](./limit-total-account-throughput.md)
@@ -97,7 +97,7 @@ You can pay for Azure Cosmos DB charges with your Azure Prepayment credit. Howev
 
 As you start using Azure Cosmos DB resources from Azure portal, you can see the estimated costs. Use the following steps to review the cost estimate:
 
-1. Sign into the Azure portal and navigate to your Azure Cosmos account.
+1. Sign into the Azure portal and navigate to your Azure Cosmos DB account.
 1. Go to the **Overview** section.
 1. Check the **Cost** chart at the bottom. This chart shows an estimate of your current cost over a configurable time period:
 1. Create a new container such as a graph container.
@@ -153,7 +153,7 @@ The following are some best practices you can use to reduce the costs:
 
 * [Optimize development/testing cost](optimize-dev-test.md) - Learn how to optimize your development cost by using the local emulator, the Azure Cosmos DB free tier, Azure free account and few other options.
 
-* [Optimize cost with reserved capacity](cosmos-db-reserved-capacity.md) - Learn how to use reserved capacity to save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years.
+* [Optimize cost with reserved capacity](reserved-capacity.md) - Learn how to use reserved capacity to save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years.
 
 ## Next steps
 
@@ -166,4 +166,4 @@ See the following articles to learn more on how pricing works in Azure Cosmos DB
 * Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-* Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+* Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

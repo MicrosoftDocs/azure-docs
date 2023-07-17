@@ -13,7 +13,9 @@ ms.custom: contperf-fy21q1
 
 # Protect an API in Azure API Management using OAuth 2.0 authorization with Azure Active Directory 
 
-In this article, you'll learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
+In this article, you'll learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md).
+
+For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md). 
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ Follow these steps to protect an API in API Management, using OAuth 2.0 authoriz
 
     To access the API, users or applications will acquire and present a valid OAuth token granting access to this app with each API request.
 
-1. Configure the [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the API.
+1. Configure the [validate-jwt](validate-jwt-policy.md) policy in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the API.
 
 Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Azure AD that authorize access to the API. For links to more information, see the [Next steps](#next-steps).
 

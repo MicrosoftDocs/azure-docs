@@ -1,27 +1,29 @@
 ---
 title: AI enrichment concepts
 titleSuffix: Azure Cognitive Search
-description: Content extraction, natural language processing (NLP), and image processing are used to create searchable content in Azure Cognitive Search indexes. AI enrichment can use both pre-defined cognitive skills and custom AI algorithms.
+description: Content extraction, natural language processing (NLP), and image processing can create searchable content in Azure Cognitive Search indexes.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 07/01/2022
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-*AI enrichment* is the application of machine learning models over raw content, where analysis and inference are used to create searchable content and structure where none previously existed. Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
+*AI enrichment* is the application of machine learning models over content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
 
-+ Machine translation and language detection support multi-lingual search
-+ Entity recognition finds people, places, and other entities in large chunks of text
+Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
+
++ Translation and language detection for multi-lingual search
++ Entity recognition extracts people, places, and other entities from large chunks of text
 + Key phrase extraction identifies and then outputs important terms
-+ Optical Character Recognition (OCR) recognizes text in binary files
++ Optical Character Recognition (OCR) recognizes printed and handwritten text in binary files
 + Image analysis describes image content and outputs the descriptions as searchable text fields
 
-AI enrichment is an extension of an [**indexer pipeline**](search-indexer-overview.md). It has all of the base components (indexer, data source, index), plus a [**skillset**](cognitive-search-working-with-skillsets.md) that specifies atomic enrichment steps.
+AI enrichment is an extension of an [**indexer pipeline**](search-indexer-overview.md). An enrichment pipeline has all of the components of an indexer pipeline (indexer, data source, index), plus a [**skillset**](cognitive-search-working-with-skillsets.md) that specifies atomic enrichment steps.
 
 The following diagram shows the progression of AI enrichment:
 
@@ -31,21 +33,24 @@ The following diagram shows the progression of AI enrichment:
 
 **Enrich & Index** covers most of the AI enrichment pipeline:
 
-+ Enrichment starts when the indexer ["cracks documents"](search-indexer-overview.md#document-cracking) and extracts images and text. The kind of processing that occurs next will depend on your data and which skills you've added to a skillset. If you have images, they can be forwarded to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an "enriched document" that collects the transformations as they occur.
++ Enrichment starts when the indexer ["cracks documents"](search-indexer-overview.md#document-cracking) and extracts images and text. The kind of processing that occurs next will depend on your data and which skills you've added to a skillset. If you have images, they can be forwarded to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an ["enriched document"](cognitive-search-working-with-skillsets.md#enrichment-tree) that collects the transformations as they occur.
 
-  Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. Output field mappings set up these associations.
++ Enriched content is generated during skillset execution, and is temporary unless you save it. You can enable an [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) to persist cracked documents and skill outputs for subsequent reuse during future skillset executions.
 
-+ Indexing is the process wherein raw and enriched content is ingested into a [search index](search-what-is-an-index.md) (its files and folders).
++ To get content into a search index, the indexer must have mapping information for sending enriched content to target field. [Field mappings](search-indexer-field-mappings.md) (explicit or implicit) set the data path from source data to a search index. [Output field mappings](cognitive-search-output-field-mapping.md) set the data path from enriched documents to an index.
 
-**Exploration** is the last step. Output is always a [search index](search-what-is-an-index.md) that you can query from a client app. Output can optionally be a [knowledge store](knowledge-store-concept-intro.md) consisting of blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. [Field mappings](search-indexer-field-mappings.md), [output field mappings](cognitive-search-output-field-mapping.md), and [projections](knowledge-store-projection-overview.md) determine the data paths that direct content out of the pipeline and into a search index or knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
++ Indexing is the process wherein raw and enriched content is ingested into the physical data structures of a [search index](search-what-is-an-index.md) (its files and folders). Lexical analysis and tokenization occur in this step.
+
+**Exploration** is the last step. Output is always a [search index](search-what-is-an-index.md) that you can query from a client app. Output can optionally be a [knowledge store](knowledge-store-concept-intro.md) consisting of blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. If you're creating a knowledge store, [projections](knowledge-store-projection-overview.md) determine the data path for enriched content. The same enriched content can appear in both indexes and knowledge stores.
 
 <!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
 ## When to use AI enrichment
 
-Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the [*built-in skills*](cognitive-search-predefined-skills.md) can unlock this content for full text search and data science applications.
+Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the [**built-in skills**](cognitive-search-predefined-skills.md) can unlock this content for full text search and data science applications. 
 
-Enrichment also unlocks external processing that you provide. Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
+You can also create [**custom skills**](cognitive-search-create-custom-skill-example.md) to provide external processing.
+Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
 
 ### Use-cases for built-in skills
 
@@ -109,25 +114,25 @@ Billing follows a pay-as-you-go pricing model. The costs of using built-in skill
 
 ## Checklist: A typical workflow
 
-An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a [search index](search-what-is-an-index.md) or projections that define data structures in a [knowledge store](knowledge-store-concept-intro.md).
+An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). Post-indexing, you can query an index to validate your results.
 
-Post-indexing, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).
-
-1. Start with a subset of data. Indexer and skillset design is an iterative process, and the work goes faster with a small representative data set.
+Start with a subset of data in a [supported data source](search-indexer-overview.md#supported-data-sources). Indexer and skillset design is an iterative process. The work goes faster with a small representative data set.
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. Create a [skillset](cognitive-search-defining-skillset.md) to add enrichment steps. If you're using a knowledge store, you'll specify it in this step. Unless you're doing a small proof-of-concept exercise, you'll want to [attach a multi-region Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to the skillset.
+1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
 
-1. Create an [index schema](search-how-to-create-search-index.md) that defines a search index.
+1. [Create an index schema](search-how-to-create-search-index.md) that defines a search index.
 
-1. Create and run the [indexer](search-howto-create-indexers.md) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index. An indexer is also where you specify field mappings and output field mappings that set up the data path to a search index.
+1. [Create and run the indexer](search-howto-create-indexers.md) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index. 
 
-   If possible, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) in the indexer configuration. This step allows you to reuse existing enrichments later on.
+   An indexer is also where you specify field mappings and output field mappings that set up the data path to a search index.
 
-1. Run [queries](search-query-create.md) to evaluate results and modify code to update skillsets, schema, or indexer configuration.
+   Optionally, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) in the indexer configuration. This step allows you to reuse existing enrichments later on.
 
-1. To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
+1. [Run queries](search-query-create.md) to evaluate results or [start a debug session](cognitive-search-how-to-debug-skillset.md) to work through any skillset issues.
+
+To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
 
 ## Next steps
 

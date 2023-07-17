@@ -5,7 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 07/01/2020
+ms.service: azure-migrate
+ms.date: 04/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -22,7 +24,7 @@ If the servers don't appear in the portal, wait for a few minutes because it tak
 
 If the state still doesn't change:
 
-- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Azure Migrate: Server migration.
+- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
 
 If the preceding step doesn't work and you're discovering VMware servers:
 
@@ -76,13 +78,19 @@ The software inventory discovery runs once every 24 hours. This process might ta
 1. Select **Refresh services**.
 Wait for the refresh operation to finish. You should now see up-to-date information.
 
-## Unable to export software inventory
+## Unable to export software inventory data
 
 You get this error when you don't have Contributor privileges.
 
 ### Remediation
 
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
+
+## Export the software inventory errors
+
+You can export all the errors and remediations for software inventory from portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
+
+:::image type="content" source="./media/troubleshoot-discovery/export-notifications.png" alt-text="Screenshot of Export notifications screen.":::
 
 ## Common software inventory errors
 
@@ -335,7 +343,7 @@ Creating assessment on top of servers containing SQL instances that weren't disc
 
 ## Common SQL Server instances and database discovery errors
 
-Azure Migrate supports discovery of SQL Server instances and databases running on on-premises machines by using Azure Migrate: Discovery and assessment. SQL discovery is currently supported for VMware only. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
+Azure Migrate supports discovery of SQL Server instances and databases running on on-premises machines by using Azure Migrate: Discovery and assessment. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
 
 Typical SQL discovery errors are summarized in the following table.
 
@@ -363,7 +371,7 @@ Typical SQL discovery errors are summarized in the following table.
 
 ## Common web apps discovery errors
 
-Azure Migrate supports discovery of ASP.NET web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. Web apps discovery is currently supported for VMware only. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
+Azure Migrate supports discovery of web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
 
 Typical web apps discovery errors are summarized in the following table.
 

@@ -2,12 +2,13 @@
 title: Fail back Hyper-V VMs from Azure with Azure Site Recovery 
 description: How to fail back Hyper-V VMs to an on-premises site from Azure with Azure Site Recovery.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/12/2019
-ms.author: ramamill
+ms.date: 11/29/2022
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 
 ---
 
@@ -27,6 +28,8 @@ This article describes how to fail back Azure VMs that were created after failov
 4. Make sure that failover and commit are complete for the VMs. You don't need to set up any specific Site Recovery components for failback of Hyper-V VMs from Azure.
 5. The time needed to complete data synchronization and start the on-premises VM will depend on a number of factors. To speed up data download, you can configure the Microsoft Recovery Services agent to use more threads to parallelize the download. [Learn more](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
 
+>[!NOTE]
+> Failing back to alternate location is not possible when using recovery plans. 
 
 ## Fail back to the original location
 
@@ -74,7 +77,9 @@ Fail back to an alternate location as follows:
 10. Click **Reverse Replicate** to start replicating the on-premises VM to Azure. Only the delta changes since the VM was turned off in Azure will be replicated.
 
     > [!NOTE]
-    > If you cancel the failback job during data synchronization, the on-premises VM will be in a corrupted state. This is because data synchronization copies the latest data from Azure VM disks to the on-premises data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the on-premises VM starts after data synchronization is canceled, it might not boot. In this case, rerun the failover to complete data synchronization.
+    > - If you cancel the failback job during data synchronization, the on-premises VM will be in a corrupted state. This is because data synchronization copies the latest data from Azure VM disks to the on-premises data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the on-premises VM starts after data synchronization is canceled, it might not boot. In this case, rerun the failover to complete data synchronization.
+	> - Failing back to alternate location is not possible when using recovery plans. 
+
 
 
 ## Next steps

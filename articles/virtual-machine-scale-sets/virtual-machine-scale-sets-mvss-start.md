@@ -1,19 +1,17 @@
 ---
-title: Learn about virtual machine scale set templates
-description: Learn how to create a basic scale set template for Azure virtual machine scale sets through several simple steps.
+title: Learn about Virtual Machine Scale Set templates
+description: Learn how to create a basic scale set template for Azure Virtual Machine Scale Sets through several simple steps.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 04/26/2019
+ms.date: 11/22/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
 ---
 
-# Learn about virtual machine scale set templates
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+# Learn about Virtual Machine Scale Set templates
 
 [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md#template-deployment-process) are a great way to deploy groups of related resources. This tutorial series shows how to create a basic scale set template and how to modify this template to suit various scenarios. All examples come from this [GitHub repository](https://github.com/gatneil/mvss).
 
@@ -123,7 +121,7 @@ The scale set needs to know what size of VM to create ("sku name") and how many 
 ```
 
 ### Choose type of updates
-The scale set also needs to know how to handle updates on the scale set. Currently, there are three options, `Manual`, `Rolling` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+The scale set also needs to know how to handle updates on the scale set. Currently, there are three options, `Manual`, `Rolling` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-policy.md).
 
 ```json
        "properties": {

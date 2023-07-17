@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/06/2021
+ms.date: 04/20/2023
 ms.author: lajanuar
 ---
 
@@ -26,27 +26,27 @@ Version 3 of the Translator provides a modern JSON-based Web API. It improves us
 
 ## Base URLs
 
-Requests to Translator are, in most cases, handled by the datacenter that is closest to where the request originated. If there is a datacenter failure when using the global endpoint, the request may be routed outside of the geography.
+Requests to Translator are, in most cases, handled by the datacenter that is closest to where the request originated. If there's a datacenter failure when using the global endpoint, the request may be routed outside of the geography.
 
-To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography. 
+To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography.
 
 |Geography|Base URL (geographical endpoint)|Datacenters|
 |:--|:--|:--|
-|Global (non-regional)|    api.cognitive.microsofttranslator.com|Closest available datacenter|
+|Global (`non-regional`)|    api.cognitive.microsofttranslator.com|Closest available datacenter|
 |Asia Pacific|    api-apc.cognitive.microsofttranslator.com|Korea South, Japan East, Southeast Asia, and Australia East|
 |Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
 |United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
 
-<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-ch-n', then your custom endpoint is "https://my-ch-n.cognitiveservices.azure.com". And a sample request to translate is:
+<sup>`1`</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-swiss-n', then your custom endpoint is "https://my-swiss-n.cognitiveservices.azure.com". And a sample request to translate is:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
-curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
 -H "Ocp-Apim-Subscription-Key: xxx" \
 -H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup> Custom Translator isn't currently available in Switzerland.
+<sup>`2`</sup> Custom Translator isn't currently available in Switzerland.
 
 ## Authentication
 
@@ -56,11 +56,12 @@ There are three headers that you can use to authenticate your subscription. This
 
 |Headers|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
-|Authorization|*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you're passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
+|Authorization|*Use with Cognitive Services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
-###  Secret key
+### Secret key
+
 The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
 
 #### Authenticating with a global resource
@@ -83,8 +84,8 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a regional resource
 
-When you use a [regional translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-There are two headers that you need to call the Translator.
+When you use a [regional translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation),
+there are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -113,7 +114,7 @@ When you use a multi-service secret key, you must include two authentication hea
 |Ocp-Apim-Subscription-Key| The value is the Azure secret key for your multi-service resource.|
 |Ocp-Apim-Subscription-Region| The value is the region of the multi-service resource. |
 
-Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service key. It must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
@@ -168,9 +169,9 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 |Header|Value|
 |:-----|:----|
-|Authorization| The value is an access **bearer token** generated by Azure AD.</br><ul><li> The bearer token provides proof of authentication and validates the client's authorization to use the resource.</li><li> An authentication token is valid for 10 minutes and should be reused when making multiple calls to Translator.</br></li>*See* [Authenticating with an access token](#authenticating-with-an-access-token), above. </ul>|
+|Authorization| The value is an access **bearer token** generated by Azure AD.</br><ul><li> The bearer token provides proof of authentication and validates the client's authorization to use the resource.</li><li> An authentication token is valid for 10 minutes and should be reused when making multiple calls to Translator.</br></li>*See* [Sample request: 2. Get a token](../../authentication.md?tabs=powershell#sample-request)</ul>|
 |Ocp-Apim-Subscription-Region| The value is the region of the **translator resource**.</br><ul><li> This value is optional if the resource is global.</li></ul>|
-|Ocp-Apim-ResourceId| The value is the Resource ID for your Translator resource instance.</br><ul><li>You'll find the Resource ID in the Azure portal at **Translator Resource  → Properties**. </li><li>Resource ID format: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
+|Ocp-Apim-ResourceId| The value is the Resource ID for your Translator resource instance.</br><ul><li>You find the Resource ID in the Azure portal at **Translator Resource  → Properties**. </li><li>Resource ID format: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
 
 ##### **Translator property page—Azure portal**
 
@@ -238,6 +239,19 @@ Once you turn on this capability, you must use the custom endpoint to call the T
 
 You can find the custom endpoint after you create a [translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
+1. Navigate to your Translator resource in the Azure portal.
+1. Select **Networking** from the **Resource Management** section.
+1. Under the **Firewalls and virtual networks** tab, choose **Selected Networks and Private Endpoints**.
+
+   :::image type="content" source="../media/virtual-network-setting-azure-portal.png" alt-text="Screenshot of the virtual network setting in the Azure portal.":::
+
+1. Select **Save** to apply your changes.
+1. Select **Keys and Endpoint** from the **Resource Management** section.
+1. Select the **Virtual Network** tab.
+1. Listed there are the endpoints for Text Translation and Document Translation.
+
+   :::image type="content" source="../media/virtual-network-endpoint.png" alt-text="Screenshot of the virtual network endpoint.":::
+
 |Headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
@@ -258,8 +272,8 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 
 A standard error response is a JSON object with name/value pair named `error`. The value is also a JSON object with properties:
 
-  * `code`: A server-defined error code.
-  * `message`: A string giving a human-readable representation of the error.
+* `code`: A server-defined error code.
+* `message`: A string giving a human-readable representation of the error.
 
 For example, a customer with a free trial subscription would receive the following error once the free quota is exhausted:
 
@@ -294,14 +308,14 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
 | 400050| The input text is too long. View [request limits](../request-limits.md).|
 | 400064| The "translation" parameter is missing or invalid.|
-| 400070| The number of target scripts (ToScript parameter) does not match the number of target languages (To parameter).|
+| 400070| The number of target scripts (ToScript parameter) doesn't match the number of target languages (To parameter).|
 | 400071| The value isn't valid for TextType.|
 | 400072| The array of input text has too many elements.|
 | 400073| The script parameter isn't valid.|
 | 400074| The body of the request isn't valid JSON.|
 | 400075| The language pair and category combination isn't valid.|
 | 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
-| 400079| The custom system requested for translation between from and to language does not exist.|
+| 400079| The custom system requested for translation between from and to language doesn't exist.|
 | 400080| Transliteration isn't supported for the language or script.|
 | 401000| The request isn't authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator."|
@@ -309,7 +323,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 403001| The operation isn't allowed because the subscription has exceeded its free quota.|
 | 405000| The request method isn't supported for the requested resource.|
 | 408001| The translation system requested is being prepared. Retry in a few minutes.|
-| 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
+| 408002| Request timed out waiting on incoming stream. The client didn't produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
@@ -320,7 +334,7 @@ Metrics allow you to view the translator usage and availability information in A
 
 ![Translator Metrics](../media/translatormetrics.png)
 
-This table lists available metrics with description of how they are used to monitor translation API calls.
+This table lists available metrics with description of how they're used to monitor translation API calls.
 
 | Metrics | Description |
 |:----|:-----|

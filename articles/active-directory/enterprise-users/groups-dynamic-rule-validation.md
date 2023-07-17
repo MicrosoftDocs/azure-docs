@@ -1,16 +1,16 @@
 ---
-title: Validate rules for dynamic group membership (preview) - Azure AD | Microsoft Docs
+title: Validate rules for dynamic group membership (preview)
 description: How to test members against a membership rule for a dynamic group in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

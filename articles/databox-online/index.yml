@@ -4,16 +4,16 @@ title: Azure Stack Edge documentation  # < 60 chars
 summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
 
 metadata:
-  title: Azure Stack Edge documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Stack Edge documentation
+  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
   services: databox
-  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: databox
   ms.subservice: edge
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: alkohli #Required; your GitHub user alias, with correct capitalization.
-  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/09/2022 #Required; mm/dd/yyyy format.
+  author: alkohli
+  ms.author: alkohli
+  ms.date: 02/09/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,8 +41,8 @@ landingContent:
             url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2202 release notes for Azure Stack Edge Pro GPU
-            url: azure-stack-edge-gpu-2111-release-notes.md
+          - text: 2205 release notes for Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-2205-release-notes.md
           - text: 2101 release notes for Azure Stack Edge Pro FPGA
             url: azure-stack-edge-2101-release-notes.md
 

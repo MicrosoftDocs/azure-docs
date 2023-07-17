@@ -17,6 +17,8 @@ ms.author: pafarley
 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 
+
+
 ## Analyze an image
 
 1. Select the **Analyze images** tab, and select panel titled **Extract common tags from images**.
@@ -24,6 +26,8 @@ ms.author: pafarley
 1. Select an image from the available set, or upload your own.
 1. After you select your image, you'll see the detected tags appear in the output window along with their confidence scores. You can also select the **JSON** tab to see the JSON output that the API call returns. 
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+
 
 ## Next steps
 

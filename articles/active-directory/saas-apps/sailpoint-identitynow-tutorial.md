@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2022
+ms.date: 06/28/2023
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of SailPoint IdentityNow into Azure AD, you need to
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SailPoint IdentityNow** in the search box.
 1. Select **SailPoint IdentityNow** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SailPoint IdentityNow
 
@@ -122,11 +124,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SailPoint IdentityNow SSO
 
-To configure single sign-on on **SailPoint IdentityNow** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [SailPoint IdentityNow support team](mailto:suppor@sailpoint.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. In a different web browser window, sign in to your SailPoint IdentityNow company site as an administrator.
+
+1. Go to **Global -> Security Settings -> Service Provider** make the following configuration changes.
+
+    [![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png "sailpoint")](./media/sailpoint-identitynow-tutorial/configuration.png#lightbox)
+
+    a. Enable Remote Identity Provider.
+
+    b. In the **Entity ID** field, paste **Entity ID** value, which you have copied from the Azure portal.
+
+    c. In the **Login URL for Post** field, paste **Login URL** value, which you have copied from the Azure portal.
+
+    d. In the **Login URL for Redirect** field, paste **Login URL** value, which you have copied from the Azure portal.
+
+    e. In the **Logout URL** field, enter the value `https://<IDN Tenant>.login.sailpoint.com/signout`.
+
+    f. In the **SAML Request Attribute** section, select the following values.
+
+    * Identity Mapping Attribute - `uid`
+    * SAML NameID - `Unspecified`
+    * SAML Binding - `Post`
+    * Exclude Requested Authentication Context - `checked`
+
+    g. In the **Signing Certificate**, click on **Import** to upload the downloaded **Certificate (Base64)** from Azure portal.
 
 ### Create SailPoint IdentityNow test user
 
-In this section, you create a user called Britta Simon in SailPoint IdentityNow. Work with [SailPoint IdentityNow support team](mailto:support@sailpoint.com) to add the users in the SailPoint IdentityNow platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SailPoint IdentityNow. Work with [SailPoint IdentityNow support team](mailto:support@sailpoint.com) to add the users in the SailPoint IdentityNow platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -142,7 +167,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SailPoint IdentityNow tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SailPoint IdentityNow tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

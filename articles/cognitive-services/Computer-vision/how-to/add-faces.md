@@ -3,14 +3,14 @@ title: "Example: Add faces to a PersonGroup - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
 services: cognitive-services
-author: SteveMSFT
+author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
 ms.date: 04/10/2019
-ms.author: sbowles
+ms.author: nitinme
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -60,15 +60,8 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use a client library, you must pass your key to the constructor of the **FaceClient** class. For example:
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
-```csharp
-private readonly IFaceClient faceClient = new FaceClient(
-    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
-    new System.Net.Http.DelegatingHandler[] { });
-```
-
-To get the key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## Step 3: Create the PersonGroup
 

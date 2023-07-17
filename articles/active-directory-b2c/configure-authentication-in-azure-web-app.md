@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Configure authentication in an Azure Web App by using Azure AD B2C
 
-This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [configure your App Service or Azure Functions app to login using an OpenID Connect provider](/app-service/configure-authentication-provider-openid-connect.md) article.
+This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [configure your App Service or Azure Functions app to login using an OpenID Connect provider](../app-service/configure-authentication-provider-openid-connect.md) article.
 
 ## Overview
 
@@ -86,7 +86,7 @@ To register your application, follow these steps:
     https://<TENANT_NAME>.b2clogin.com/<TENANT_NAME>.onmicrosoft.com/<POLICY_NAME>/v2.0/.well-known/openid-configuration
     ```
 
-    1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`). If you have a [custom domains](custom-domain.md) configure, you can use that custom domain. Replace your B2C tenant name, contoso.onmicrosoft.com, in the authentication request URL with your tenant ID GUID. For example, you can change `https://fabrikamb2c.b2clogin.com/contoso.onmicrosoft.com/` to `https://account.contosobank.co.uk/<tenant ID GUID>/`.
+    1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`). If you have a [custom domains](custom-domain.md) configure, you can use that custom domain. Replace your B2C tenant name, contoso.onmicrosoft.com, in the authentication request URL with your tenant ID GUID. For example, you can change `https://fabrikamb2c.b2clogin.com/contoso.onmicrosoft.com/` to `https://account.contosobank.co.uk/<tenant ID GUID>/`.
 
     1. Replace the `<POLICY_NAME>` with the user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).
 
@@ -94,7 +94,7 @@ To register your application, follow these steps:
 1. For the  **Client Secret** provide the Web App (client) secret from [step 2.2](#step-22-create-a-client-secret).
 
     > [!TIP]
-    > Your client secret will be stored as an app setting to ensure secrets are stored in a secure fashion. You can update that setting later to use [Key Vault references](/app-service/app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+    > Your client secret will be stored as an app setting to ensure secrets are stored in a secure fashion. You can update that setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
     
 1. Keep the rest of the settings with the default values.
 1. Press the **Add** button to finish setting up the identity provider. 
@@ -119,6 +119,5 @@ From your server code, the provider-specific tokens are injected into the reques
 
 ## Next steps
 
-* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](/app-service/configure-authentication-user-identities).
-* Lear how to [Work with OAuth tokens in Azure App Service authentication](/app-service/configure-authentication-oauth-tokens).
-
+* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](../app-service/configure-authentication-user-identities.md).
+* Learn how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).

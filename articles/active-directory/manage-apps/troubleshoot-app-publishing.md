@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 1/18/2022
 ms.author: jomondi
 ms.reviewer: jeedes
+ms.custom: enterprise-apps
 #Customer intent: As a publisher of an application, I want troubleshoot a blocked sign-in to the Microsoft Application Network portal.
 ---
 

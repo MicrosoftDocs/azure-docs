@@ -1,32 +1,31 @@
 ---
-title: Upgrading Azure MFA Server - Azure Active Directory
-description: Steps and guidance to upgrade the Azure Multi-Factor Authentication Server to a newer version. 
+title: Upgrading Azure MFA Server
+description: Steps and guidance to upgrade the Azure AD Multi-Factor Authentication Server to a newer version. 
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/12/2018
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# Upgrade to the latest Azure Multi-Factor Authentication Server
+# Upgrade to the latest Azure AD Multi-Factor Authentication Server
 
-This article walks you through the process of upgrading Azure Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
+This article walks you through the process of upgrading Azure AD Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure AD Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
 If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
->
+> In September 2022, Microsoft announced deprecation of Azure AD Multi-Factor Authentication Server. Beginning September 30, 2024, Azure AD Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
+
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
->
-> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
+
 
 Upgrade steps at a glance:
 
@@ -36,7 +35,7 @@ Upgrade steps at a glance:
 
 ## Upgrade Azure MFA Server
 
-1. Use the instructions in [Download the Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md#download-the-mfa-server) to get the latest version of the Azure MFA Server installer.
+1. Use the instructions in [Download the Azure AD Multi-Factor Authentication Server](howto-mfaserver-deploy.md#download-the-mfa-server) to get the latest version of the Azure MFA Server installer.
 2. Make a backup of the MFA Server data file located at C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (assuming the default install location) on your primary MFA Server.
 3. If you run multiple servers for high availability, change the client systems that authenticate to the MFA Server so that they stop sending traffic to the servers that are upgrading. If you use a load balancer, remove a subordinate MFA Server from the load balancer, do the upgrade, and then add the server back into the farm.
 4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the primary.
@@ -113,7 +112,7 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
 ## Next steps
 
-* Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
+* Get examples of [Advanced scenarios with Azure AD Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
 
 * [Synchronize MFA Server with Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 

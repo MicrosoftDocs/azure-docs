@@ -3,19 +3,19 @@ title: Create an Azure Cognitive Services resource using Bicep | Microsoft Docs
 description: Create an Azure Cognitive Service resource with Bicep.
 keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
-author: schaffererin
+author: aahill
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 04/29/2022
-ms.author: v-eschaffer
-ms.custom: subject-armqs, mode-arm
+ms.date: 01/19/2023
+ms.author: aahi
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Cognitive Services resource using Bicep
 
 Follow this quickstart to create Cognitive Services resource using Bicep.
 
-Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -35,10 +35,17 @@ Using Bicep to create a Cognitive Service resource lets you create a multi-servi
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
+> [!NOTE]
+> * If you use a different resource `kind` (listed below), you may need to change the `sku` parameter to match the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) tier you wish to use. For example, the `TextAnalytics` kind uses `S` instead of `S0`.
+> * Many of the Cognitive Services have a free `F0` pricing tier that you can use to try the service.
+
+Be sure to change the `sku` parameter to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, `TextAnalytics` 
+
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
-One Azure resource is defined in the Bicep file:
-* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Cognitive Services resource. The `kind` field in the Bicep file defines the type of resource.
+
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 ## Deploy the Bicep file
 

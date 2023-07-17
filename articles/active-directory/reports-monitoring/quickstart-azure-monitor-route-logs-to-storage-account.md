@@ -1,20 +1,15 @@
 ---
-title: Tutorial - Archive directory logs to a storage account | Microsoft Docs
+title: Tutorial - Archive directory logs to a storage account
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/05/2021
-ms.author: markvi
+ms.date: 07/14/2023
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.
@@ -49,11 +44,11 @@ To use this feature, you need:
 
      ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. Once in the **Diagnostic setting** pane if you are creating a new setting, enter a name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). You can't change the name of an existing setting.
+5. Once in the **Diagnostic setting** pane if you're creating a new setting, enter a name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). You can't change the name of an existing setting.
 
 6. Under **Destination Details** Select the **Archive to a storage account** check box. 
 
-7. Select the Azure subscription in the **Subscription** drop down menu and storage account in the **Storage account** drop down menu that you want to route the logs to.
+7. Select the Azure subscription in the **Subscription**  menu and storage account in the **Storage account** menu that you want to route the logs to.
 
 8. Select all the relevant categories in under **Category details**:
 
@@ -65,13 +60,17 @@ To use this feature, you need:
     ![Diagnostics settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
 9. After the categories have been selected, in the **Retention days** field, type in the number of days of retention you need of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
- 
+
+> [!NOTE]
+> The Diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+
 10. Select **Save** to save the setting.
 
 11. Close the window to return to the Diagnostic settings pane.
 
 ## Next steps
 
+* [Tutorial: Configure a log analytics workspace](tutorial-log-analytics-wizard.md)
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

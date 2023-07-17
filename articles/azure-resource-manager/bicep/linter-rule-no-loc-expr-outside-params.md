@@ -2,7 +2,8 @@
 title: Linter rule - no location expressions outside of parameter default values
 description: Linter rule - no location expressions outside of parameter default values
 ms.topic: conceptual
-ms.date: 1/6/2022
+ms.custom: devx-track-bicep
+ms.date: 8/30/2022
 ---
 
 # Linter rule - no location expressions outside of parameter default values
@@ -50,6 +51,10 @@ You can fix the failure by turning the variable into a parameter:
 ```bicep
   param location string  = resourceGroup().location
 ```
+
+If you're using Azure PowerShell to deploy to a subscription, management group, or tenant, you should use a parameter name other than `location`. The [New-AzDeployment](/powershell/module/az.resources/new-azdeployment), [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment), and [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment) commands have a parameter named `location`. This command parameter conflicts with the parameter in your Bicep file. You can avoid this conflict by using a name such as `rgLocation`.
+
+You can use `location` for a parameter name when deploying to a resource group, because [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) doesn't have a parameter named `location`.
 
 ## Next steps
 

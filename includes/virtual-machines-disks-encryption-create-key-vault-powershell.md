@@ -7,9 +7,9 @@
  ms.topic: include
  ms.date: 10/25/2021
  ms.author: rogarana
- ms.custom: include file
+ms.custom: include file, devx-track-azurepowershell
 ---
-1. Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-az-ps), and you are signed in to an Azure account in with Connect-AzAccount
+1. Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-azure-powershell), and you are signed in to an Azure account in with Connect-AzAccount
 
 1. Create an instance of Azure Key Vault and encryption key.
 

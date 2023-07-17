@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Chatwork for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Chatwork for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Chatwork.
 
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 586bcb81-1c00-4b46-9da0-4aa86c6c8fd5
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 
 
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

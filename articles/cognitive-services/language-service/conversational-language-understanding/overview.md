@@ -1,14 +1,14 @@
 ---
 title: Conversational Language Understanding - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Conversational Language Understanding.
+description: Customize an AI model to predict the intentions of utterances, and extract important information from them.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 10/26/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -40,7 +40,7 @@ One example of a human assistant bot is to help staff improve customer engagemen
 
 ### Command and control application
 
-When you integrate a client application with a speech-to-text component, users can speak a command in natural language for CLU to process, identify intent, and extract information from the text for the client application to perform an action. This use case has many applications, such as to stop, play, forward, and rewind a song or turn lights on or off.
+When you integrate a client application with a speech to text component, users can speak a command in natural language for CLU to process, identify intent, and extract information from the text for the client application to perform an action. This use case has many applications, such as to stop, play, forward, and rewind a song or turn lights on or off.
 
 ### Enterprise chat bot
 
@@ -77,8 +77,8 @@ As you use CLU, see the following reference documentation and samples for Azure 
 |---------|---------|---------|
 |REST APIs (Authoring)   | [REST API documentation](https://aka.ms/clu-authoring-apis)        |         |
 |REST APIs (Runtime)    | [REST API documentation](https://aka.ms/clu-apis)        |         |
-|C# (Runtime)    | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
-|Python (Runtime)| [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
+|C# (Runtime)    | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
+|Python (Runtime)| [Python documentation](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
 
 ## Responsible AI 
 

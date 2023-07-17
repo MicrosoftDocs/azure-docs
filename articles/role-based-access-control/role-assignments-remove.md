@@ -3,13 +3,13 @@ title: Remove Azure role assignments - Azure RBAC
 description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 10/19/2022
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -22,6 +22,12 @@ ms.devlang: azurecli
 To remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
+
+For the REST API, you must use the following version:
+
+- `2015-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
 ## Azure portal
 
@@ -71,7 +77,7 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
 -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
+If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---role-assignments-with-identity-not-found).
 
 ## Azure CLI
 
@@ -103,14 +109,14 @@ az role assignment delete --assignee "alain@example.com" \
 
 ## REST API
 
-In the REST API, you remove a role assignment by using [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete).
+In the REST API, you remove a role assignment by using [Role Assignments - Delete](/rest/api/authorization/role-assignments/delete).
 
 1. Get the role assignment identifier (GUID). This identifier is returned when you first create the role assignment or you can get it by listing the role assignments.
 
 1. Start with the following request:
 
     ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for removing the role assignment.
@@ -128,7 +134,7 @@ In the REST API, you remove a role assignment by using [Role Assignments - Delet
 The following request removes the specified role assignment at subscription scope:
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2022-04-01
 ```
 
 The following shows an example of the output:
@@ -138,11 +144,16 @@ The following shows an example of the output:
     "properties": {
         "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
         "principalId": "{objectId1}",
+        "principalType": "User",
         "scope": "/subscriptions/{subscriptionId1}",
-        "createdOn": "2020-05-06T23:55:24.5379478Z",
-        "updatedOn": "2020-05-06T23:55:24.5379478Z",
+        "condition": null,
+        "conditionVersion": null,
+        "createdOn": "2022-05-06T23:55:24.5379478Z",
+        "updatedOn": "2022-05-06T23:55:24.5379478Z",
         "createdBy": "{createdByObjectId1}",
-        "updatedBy": "{updatedByObjectId1}"
+        "updatedBy": "{updatedByObjectId1}",
+        "delegatedManagedIdentityResourceId": null,
+        "description": null
     },
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
     "type": "Microsoft.Authorization/roleAssignments",

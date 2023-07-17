@@ -3,12 +3,12 @@ title: Upgrade Azure SQL Managed Instance directly connected Azure Arc using the
 description: Article describes how to upgrade Azure SQL Managed Instance directly connected Azure Arc using Azure portal
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
@@ -20,7 +20,9 @@ This article describes how to upgrade Azure SQL Managed Instance deployed on a d
 
 The Azure Arc data controller must be upgraded to the new version before the managed instance can be upgraded.
 
-The managed instance must be at the same version as the data controller before a data controller is upgraded.
+If Active Directory integration is enabled then Active Directory connector must be upgraded to the new version before the managed instance can be upgraded.
+
+The managed instance must be at the same version as the data controller and active directory connector before a data controller is upgraded.
 
 There's no batch upgrade process available at this time.
 
@@ -45,6 +47,4 @@ To view the status of your upgrade in the portal, go to the resource group of th
 
 A **Validate Deploy** option that shows the status.
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

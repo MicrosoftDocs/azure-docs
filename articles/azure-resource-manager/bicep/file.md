@@ -2,7 +2,8 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.custom: devx-track-bicep
+ms.date: 06/06/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -18,6 +19,8 @@ Bicep is a declarative language, which means the elements can appear in any orde
 A Bicep file has the following elements.
 
 ```bicep
+metadata <metadata-name> = ANY
+
 targetScope = '<scope>'
 
 @<decorator>(<argument>)
@@ -42,6 +45,9 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
+metadata description = 'Creates a storage account and a web app'
+
+@description('The prefix to use for the storage account name.')
 @minLength(3)
 @maxLength(11)
 param storagePrefix string
@@ -51,7 +57,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -70,9 +76,11 @@ module webModule './webApp.bicep' = {
     location: location
   }
 }
-
-output storageEndpoint object = stg.properties.primaryEndpoints
 ```
+
+## Metadata
+
+Metadata in Bicep is an untyped value that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
 
 ## Target scope
 
@@ -109,7 +117,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but there are many others that are available.
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
 
 ```bicep
 @allowed([
@@ -142,7 +150,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resources
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
@@ -330,11 +338,25 @@ The preceding example is equivalent to the following JSON.
 }
 ```
 
+## Multiple-line declarations
+
+You can now use multiple lines in function, array and object declarations. This feature requires **Bicep version 0.7.4 or later**.
+
+In the following example, the `resourceGroup()` definition is broken into multiple lines.
+
+```bicep
+var foo = resourceGroup(
+  mySubscription,
+  myRgName)
+```
+
+See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md#objects) for multiple-line declaration samples.
+
 ## Known limitations
 
-- No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
-- No support for user-defined functions.
-- Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available when all of the required updates have been deployed to global Azure. If you're using a different environment, such as Azure Stack, there may be a delay in the availability of the feature. The Bicep feature is only available when the intermediate language has also been updated in that environment.
+* No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
+* No support for user-defined functions.
+* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available when all of the required updates have been deployed to global Azure. If you're using a different environment, such as Azure Stack, there may be a delay in the availability of the feature. The Bicep feature is only available when the intermediate language has also been updated in that environment.
 
 ## Next steps
 

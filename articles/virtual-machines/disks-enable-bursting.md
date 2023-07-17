@@ -3,10 +3,9 @@ title: Enable on-demand disk bursting
 description: Enable on-demand disk bursting on your managed disk.
 author: roygara
 ms.author: rogarana
-ms.date: 11/09/2021
+ms.date: 05/02/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -31,7 +30,17 @@ Before you enable on-demand bursting, understand the following:
 
 ## Get started
 
-On-demand bursting can be enabled with either the Azure PowerShell module, the Azure CLI, or Azure Resource Manager templates. The following examples cover how to create a new disk with on-demand bursting enabled and enabling on-demand bursting on existing disks.
+On-demand bursting can be enabled with either the Azure portal, the Azure PowerShell module, the Azure CLI, or Azure Resource Manager templates. The following examples cover how to create a new disk with on-demand bursting enabled and enabling on-demand bursting on existing disks.
+
+# [Portal](#tab/azure-portal)
+
+A managed disk must be larger than 512 GiB to enable on-demand bursting.
+
+To enable on-demand bursting for an existing disk:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your disk.
+1. Select **Configuration** and select **Enable on-demand bursting**.
+1. Select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 

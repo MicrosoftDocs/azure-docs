@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for GitHub - Azure AD'
+title: 'Tutorial: User provisioning for GitHub'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
 services: active-directory
 author: twimmers
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
@@ -78,7 +78,7 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
 10. Under the Mappings section, select **Synchronize Azure Active Directory Users to GitHub**.
 
-11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precendence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
+11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precedence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
 
 12. To enable the Azure AD provisioning service for GitHub, change the **Provisioning Status** to **On** in the **Settings** section.
 

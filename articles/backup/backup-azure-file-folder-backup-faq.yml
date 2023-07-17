@@ -5,8 +5,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 02/25/2022
-  author: v-amallick
-  ms.author: v-amallick
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
@@ -31,6 +31,11 @@ sections:
           How long are vault credentials valid?
         answer: |
           Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+          
+      - question: |
+          Why do I need to update my MARS agent for the vault credentials to work?
+        answer: |
+          A new parameter is added to the vault credentials file. It can be parsed correctly only with MARS agent version 2.0.9249.0 and above.
 
       - question: |
           What characters are allowed for the passphrase?

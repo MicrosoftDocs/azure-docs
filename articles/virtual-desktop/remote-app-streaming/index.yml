@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: 1. Create a host pool with the Azure portal
             url: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-          - text: 2. Manage app groups
+          - text: 2. Manage application groups
             url: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
           - text: 3. Create a host pool to validate service updates
             url: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json

@@ -1,18 +1,17 @@
 ---
-title: User management enhancements - Azure Active Directory | Microsoft Docs
+title: User management enhancements
 description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 
@@ -26,7 +25,7 @@ This article describes how to use the user management enhancements in the admin 
 Enhancements include:
 
 - Preloaded scrolling so that you no longer have to select ‘Load more’ to view more users 
-- More user properties can be added as columns including city, country, employee ID, employee type, and external user state
+- More user properties can be added as columns including city, country/region, employee ID, employee type, and external user state
 - More user properties can be filtered on including custom security attributes, on-premises extension attributes, and manager 
 - More ways to customize your view, like using drag-and-drop to reorder columns 
 - Copy and share your customized All Users view with others 

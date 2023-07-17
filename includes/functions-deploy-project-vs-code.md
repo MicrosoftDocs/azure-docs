@@ -14,6 +14,8 @@ ms.custom: devdivchpfy22
 
     :::image type="content" source="media/functions-publish-project-vscode/functions-vscode-deploy.png" alt-text="Deploy project from the Visual Studio Code workspace":::
 
+1. Select **Deploy to Function App...**, choose the function app you just created, and select **Deploy**.   
+
 1. After deployment completes, select **View Output** to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     :::image type="content" source="media/functions-publish-project-vscode/function-create-notifications.png" alt-text="Screenshot of the View Output window.":::

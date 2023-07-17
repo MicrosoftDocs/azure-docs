@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/2/2021
+ms.date: 06/23/2023
 
 ---
 
@@ -53,7 +53,8 @@ For example, if you set your AWS **Inside IPv4 CIDR** to be **169.254.21.0/30**,
    >
    > [!IMPORTANT]
    >
-   > Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > 1. Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > 2. If you choose to configure multiple APIPA BGP peer addresses on the VPN gateway, you must also configure all Connection objects with their corresponding IP address of your choice. If you fail to do so, all connections will use the first APIPA IP address in the list no matter how many IPs are present.
    >
 
 ## Prerequisites
@@ -240,8 +241,9 @@ Next, you'll connect your AWS tunnels to Azure. For each of the four tunnels, yo
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-connection.png" alt-text="Modifying connection" :::
 
 9. From the **Connections** page for your VPN gateway, select the connection you created and navigate to the **Configuration** page.
-10. Select **ResponderOnly** for the **Connection Mode** and select **Save**.
-    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/responder-only.png" alt-text="Make connections ResponderOnly" :::
+10. You can select any of the available options (Default, Initiator Only, Responder Only) for **Connection Mode**, then select **Save**.
+    
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/responder-only.png" alt-text="Specify connection mode." :::
 
 
 Verify that you have a **local network gateway** and **connection** for **each of your four AWS tunnels**. 

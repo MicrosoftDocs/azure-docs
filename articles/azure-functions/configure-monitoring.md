@@ -62,13 +62,15 @@ The example below defines logging based on the following rules:
 + For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
 + For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
 + For all other logs, including user logs, log only `Information` level and higher events.
++ For `fileLoggingMode` the default is `debugOnly`. The value `always` should only be used for short periods of time to review logs in the filesystem. Revert this setting when you are done debugging. 
+
 
 # [v2.x+](#tab/v2)
 
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "default": "Information",
       "Host.Results": "Error",
@@ -195,7 +197,24 @@ You can exclude certain types of telemetry from sampling. In this example, data 
 ```
 ---
 
-For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration differs from the sampling configuration in your function app. In such cases, use the same sampling configuration as the function app. For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+
+## Enable SQL query collection
+
+Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md#applicationinsightsdependencytrackingoptions): 
+
+```json
+"logging": {
+    "applicationInsights": {
+        "enableDependencyTracking": true,    
+        "dependencyTrackingOptions": {
+            "enableSqlCommandTextInstrumentation": true
+        }
+    }
+}
+```
+
+For more information, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 ## Configure scale controller logs
 
@@ -290,7 +309,7 @@ Function apps are an essential part of solutions that can cause high volumes of 
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
-+ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still a get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
++ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` level so that you can monitor and diagnose your functions properly.
 
@@ -399,7 +418,7 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host.Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
 | logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
 | logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |
@@ -418,6 +437,10 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
+
+## Monitor function apps using Health check
+
+The Health Check feature can be used to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check is not an option for the Consumption plan. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the 'Path' parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
 
 ## Next steps
 

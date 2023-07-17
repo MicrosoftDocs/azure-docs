@@ -2,19 +2,16 @@
 title: View roles and identities that can access account information from an external account
 description: How to view information about identities that can access accounts from an external account in Permissions Management.
 services: active-directory
-manager: rkarlin
-ms.service: ciem
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.topic: how-to
-author: kenwith
-ms.date: 02/23/2022
-ms.author: kenwith
+author: jenniferf-skc
+ms.date: 06/16/2023
+ms.author: jfields
 ---
 
 # View roles and identities that can access account information from an external account
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 You can view information about users, groups, and resources that can access account information from an external account in Permissions Management.
 
@@ -73,6 +70,8 @@ To export the data in comma-separated values (CSV) file format, select **Export*
       - To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name.
       - To view a graph of how the identity can access the specified account and through which role(s), select the identity name.
 
-1. The **Info** tab displays the **Privilege creep index** and **Service control policy (SCP)** information about the account.
+1. The **Dashboard** tab displays the **Permissions Creep Index (PCI)** and **Identity findings** information about the account.
 
-For more information about the **Privilege creep index** and SCP information, see [View key statistics and data about your authorization system](ui-dashboard.md).
+## Next steps
+
+For more information about the **Permissions Creep Index (PCI)** and SCP information, see [View key statistics and data about your authorization system](ui-dashboard.md).

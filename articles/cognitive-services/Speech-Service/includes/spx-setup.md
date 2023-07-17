@@ -3,7 +3,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 11/12/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 Follow these steps to install the Speech CLI on Windows:
 
 1. Install the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing it for the first time might require a restart.
-1. Install [.NET Core 3.1 Runtime](/dotnet/core/install/windows##runtime-information).
+1. Install [.NET 6](/dotnet/core/install/windows?tabs=net60#runtime-information).
 1. Install the Speech CLI via the .NET CLI by entering this command:
 
    ```dotnetcli
@@ -26,9 +26,6 @@ Follow these steps to install the Speech CLI on Windows:
    ```
 
 Enter `spx` or `spx help` to see help for the Speech CLI.
-
-> [!NOTE]
-> As an alternative, you can download and extract the Speech CLI for Windows as a [.zip file](https://aka.ms/speech/spx-windows).
 
 ### Font limitations
 
@@ -50,7 +47,7 @@ The following Linux distributions are supported for x64 architectures that use t
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
-1. Install the [.NET Core 3.1 Runtime](/dotnet/core/install/linux).
+1. Install the [.NET 6](/dotnet/core/install/linux).
 2. Install the Speech CLI via the .NET CLI by entering this command:
 
    ```dotnetcli
@@ -67,15 +64,11 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
 Enter `spx` to see help for the Speech CLI.
 
-> [!NOTE]
-> As an alternative, you can download the Linux binaries as a [.zip file](https://aka.ms/speech/spx-linux). Extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, enter `sudo chmod +r+x spx` on the binary, and add the `~/spx` path to your `PATH` system variable.
-
-
 #### [macOS](#tab/macOS)
 
 Follow these steps to install the Speech CLI on macOS 10.14 or later:
 
-1. Install [.NET Core 3.1 Runtime](/dotnet/core/install/macos#runtime-information).
+1. Install [.NET 6](/dotnet/core/install/macos#runtime-information).
 1. Install the Speech CLI via the .NET CLI by entering this command:
 
    ```dotnetcli
@@ -91,11 +84,7 @@ Enter `spx` or `spx help` to see help for the Speech CLI.
 
 #### [Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!IMPORTANT]
-> You can't use your computer's microphone when you run the Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
-
-> [!NOTE]
-> The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when you're using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](../../../container-registry/buffer-gate-public-content.md).
+The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when you're using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](../../../container-registry/buffer-gate-public-content.md).
 
 Follow these steps to install the Speech CLI in a Docker container:
 
@@ -171,36 +160,4 @@ You can combine that with AZ Login and have SPX Init guide you through creating 
    spx init
    ```
 
-<!-- Need to troubleshoot issues with docker pull image
-
-### Optional: Create a command-line shortcut
-
-If you're running the Speech CLI from a Docker container on Linux or macOS, you can create a shortcut:
-
-1. Open `.bash_profile` with your favorite text editor. For example:
-   ```shell
-   nano ~/.bash_profile
-   ```
-2. Add the following function to `.bash_profile`. Be sure to update this function with the correct path to your mounted directory:
-   ```shell   
-   spx(){
-       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
-   }
-   ```
-3. Source your profile:
-   ```shell
-   source ~/.bash_profile
-   ```
-4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just use `spx` followed by arguments. For example: 
-   ```shell
-   // Get some help
-   spx help recognize
-
-   // Recognize speech from an audio file 
-   spx recognize --file /mounted/directory/file.wav
-   ```
-
-> [!WARNING]
-> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
---->
 ***

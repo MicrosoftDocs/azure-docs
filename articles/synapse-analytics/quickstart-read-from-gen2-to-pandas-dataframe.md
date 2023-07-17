@@ -5,10 +5,10 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: sngun, garye, negust
-ms.date: 03/23/2021
+ms.date: 07/11/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-python
 ---
 
 # Quickstart: Read data from ADLS Gen2 to Pandas dataframe in Azure Synapse Analytics
@@ -17,14 +17,14 @@ In this quickstart, you'll learn how to easily use Python to read data from an A
 
 From a Synapse Studio notebook, you'll:
 
-- connect to a container in Data Lake Storage Gen2 that is linked to your Azure Synapse Analytics workspace
-- read the data from a PySpark Notebook using `spark.read.load`
-- convert the data to a Pandas dataframe using `.toPandas()`
+- Connect to a container in Azure Data Lake Storage (ADLS) Gen2 that is linked to your Azure Synapse Analytics workspace.
+- Read the data from a PySpark Notebook using `spark.read.load`.
+- Convert the data to a Pandas dataframe using `.toPandas()`.
 
 ## Prerequisites
 
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- Synapse Analytics workspace with Data Lake Storage Gen2 configured as the default storage - You need to be the **Storage Blob Data Contributor** of the Data Lake Storage Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/).
+- Synapse Analytics workspace with ADLS Gen2 configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
 - Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Sign in to the Azure portal
@@ -33,21 +33,21 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Upload sample data to ADLS Gen2
 
-1. In the Azure portal, create a container in the same Data Lake Storage Gen2 used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse Analytics workspace.
+1. In the Azure portal, create a container in the same ADLS Gen2 used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse Analytics workspace.
 
-1. In Synapse Studio, click **Data**, select the **Linked** tab, and select the container under **Azure Data Lake Storage Gen2**.
+1. In Synapse Studio, select **Data**, select the **Linked** tab, and select the container under **Azure Data Lake Storage Gen2**.
 
 1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to the container.
 
-1. Select the uploaded file, click **Properties**, and copy the **ABFSS Path** value.
+1. Select the uploaded file, select **Properties**, and copy the **ABFSS Path** value.
 
 ## Read data from ADLS Gen2 into a Pandas dataframe
 
-1. In the left pane, click **Develop**.
+1. In the left pane, select **Develop**.
 
-1. Click **+** and select "Notebook" to create a new notebook.
+1. Select **+** and select "Notebook" to create a new notebook.
 
-1. In **Attach to**, select your Apache Spark Pool. If you don't have one, click **Create Apache Spark pool**.
+1. In **Attach to**, select your Apache Spark Pool. If you don't have one, select **Create Apache Spark pool**.
 
 1. In the notebook code cell, paste the following Python code, inserting the ABFSS path you copied earlier:
 
@@ -64,7 +64,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Run the cell.
 
-After a few minutes the text displayed should look similar to the following.
+After a few minutes, the text displayed should look similar to the following.
 
 ```text
 Command executed in 25s 324ms by gary on 03-23-2021 17:40:23.481 -07:00
@@ -109,3 +109,6 @@ Converting to Pandas.
 - [What is Azure Synapse Analytics?](overview-what-is.md)
 - [Get Started with Azure Synapse Analytics](get-started.md)
 - [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
+- [How to use file mount/unmount API in Synapse](spark/synapse-file-mount-api.md)
+- [Azure Architecture Center: Explore data in Azure Blob storage with the pandas Python package](/azure/architecture/data-science-process/explore-data-blob)
+- [Tutorial: Use Pandas to read/write Azure Data Lake Storage Gen2 data in serverless Apache Spark pool in Synapse Analytics](spark/tutorial-use-pandas-spark-pool.md)

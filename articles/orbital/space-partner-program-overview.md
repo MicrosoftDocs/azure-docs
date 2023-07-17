@@ -1,11 +1,11 @@
 ---
-title: What is the Space Partner Community?
+title: What is the Azure Orbital Space Partner Community?
 description: Overview of the Azure Space Partner Community
 author: wamota
 ms.service: orbital
 ms.topic: overview
-ms.custom: public-preview
-ms.date: 3/21/2022
+ms.custom: ga
+ms.date: 07/13/2022
 ms.author: wamota
 # Customer intent: Educate potential partners on how to engage with the Azure Space partner Communities.
 ---
@@ -24,15 +24,32 @@ Our differentiated ecosystem of partners spans space operators, manufacturers, s
 
 We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the community, you can gain access to various benefits such as: 
 
-- Azure Engineering Training & Adoption Resources 
-- Quarterly NDA roadmap reviews and newsletters
-- Participation in Space and Spectrum focused Microsoft events
-- Co-engineering for customer POCs
-- Microsoft Product Integration or add-ins
-- Joint PR & Marketing for POCs and co-investment
-- Azure Sponsorship Credits 
-- Co-sell and joint GTM coordination
-- Opportunities to be showcased in Microsoft customer presentations and sales trainings
+### Co-innovation and engineering
+The Azure Space Partner Community will have direct access to Azure engineering and specialist resources to turn our partnership vision into reality, including: 
+-	Participation in Azure Space training to learn about and onboard the latest Azure Space technologies.
+-	Collaboration and innovation with our engineering and sales specialist teams for customer proof of concepts to demonstrate the value of our partnership.
+-	Access to quarterly Azure Space Confidential roadmap reviews and newsletters, and ability to directly influence the produce roadmap.
+-	Partner highlighting in reference architectures and training materials.
+
+### Go-to-market scale and support
+Our Azure Space Partner Community will be able to increase their go-to-market opportunities and margins by participating in the following opportunities:
+-	Opportunity for Microsoft first party product integration or add-ins, such as in Teams, Power BI, or Outlook.
+-	White glove onboarding to the Microsoft Cloud Partner Program, to become a cloud solution provider or managed solution provider via direct or indirect channels.
+-	Support onboarding to the Azure Marketplace as an indirect or transactable offer, with access to a broad set of Azure sellers and customers.
+-	Joint go-to-market coordination with a regular cadence of customer pipeline reviews. 
+
+### Marketing and community involvement
+Azure Space provides a unique opportunity for our partners to expand their marketing through public outreach via our marketing channels, such as:
+-	Opportunities to be showcased in Microsoft customer presentations and sales training
+-	Participation in space and spectrum focused Microsoft events – such as BUILD, Inspire or sales readiness.
+-	Joint public relations and marketing opportunities, such as press releases, blogs, and speaking events at conferences.
+
+### Product offering incentives
+The Space Partner Community will also have special access to our premier incentives offered for Azure Space product offerings:
+-	Azure credits, sponsored accounts, and volume discounts in return for Microsoft Azure Consumption Commitment
+-	EA Programs, such as LSPs and AOSG, including rebates based on resell volume 
+-	FastTrack dedicated migration and modernization architecture support for qualified opportunities
+-	Many other MPN benefits, such as credits for gold competencies and partner marketing benefits via co-sell programs
 
 :::image type="content" source="media/azure-space-program.png" alt-text="Benefits of the Azure Space Community" lightbox="media/azure-space-program.png":::
 

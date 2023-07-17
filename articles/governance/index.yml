@@ -10,9 +10,9 @@ metadata:
   ms.service: governance
   ms.topic: hub-page
   ms.collection: collection
-  author: DCtheGeek
-  ms.author: dacoulte
-  ms.date: 07/09/2021
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 06/16/2023
 
 highlightedContent:
   items:
@@ -27,7 +27,7 @@ highlightedContent:
       url: /azure/architecture/cloud-adoption/governance
     - title: Build a cloud governance strategy on Azure
       itemType: learn
-      url: /learn/modules/build-cloud-governance-strategy-azure/
+      url: /training/modules/build-cloud-governance-strategy-azure/
 
 productDirectory:
   title: Components and Services
@@ -46,12 +46,12 @@ productDirectory:
       links:
         - url: ./policy/overview.md
           text: Overview
-        - url: ./policy/how-to/get-compliance-data.md
-          text: Evaluate compliance
-        - url: ./policy/concepts/policy-for-kubernetes.md
-          text: Manage Kubernetes configuration
-        - url: ./policy/concepts/guest-configuration.md
-          text: Manage VM configuration
+        - url: ./policy/policy-glossary.md
+          text: Azure Policy glossary
+        - url: ./policy/concepts/definition-structure.md
+          text: Policy definition structure
+        - url: ./policy/concepts/effects.md
+          text: Azure Policy effects
         - url: ./policy/index.yml
           text: See more >
     - title: Azure Blueprints
@@ -112,7 +112,7 @@ additionalContent:
             - text: Azure PowerShell
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET
-              url: /dotnet/api/overview/azure/managementgroups
+              url: /dotnet/api/overview/azure/management-groups
             - text: Azure SDK for Go
               url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
             - text: Azure SDK for JavaScript
@@ -172,7 +172,7 @@ additionalContent:
               url: https://www.powershellgallery.com/packages/Az.Blueprint
               note: (PS Gallery Module)
             - text: Azure SDK for .NET
-              url: /dotnet/api/overview/azure/blueprints/management
+              url: /dotnet/api/overview/azure/blueprint
             - text: REST
               url: /rest/api/blueprints/
         - title: Azure Resource Graph

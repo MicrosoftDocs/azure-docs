@@ -6,14 +6,15 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 
 This article describes options for migrating Amazon Web Services (AWS) instances to Azure.
 
 > [!NOTE]
-> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported. [Learn more](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#for-linux).
+> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported. [Learn more](./vmware-physical-azure-support-matrix.md#for-linux).
 
 ## Migrate with Azure Migrate
 

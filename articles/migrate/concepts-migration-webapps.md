@@ -3,15 +3,15 @@ title: Support matrix for web apps migration
 description: Support matrix for web apps migration
 author: vineetvikram
 ms.author: vivikram
-ms.service: azure
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/22/2022
-ms.custom: template-concept
+ms.date: 02/28/2023
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Support matrix for web apps migration
 
-This article summarizes support settings and limitations for agentless migration of web apps to Azure App Service [Azure Migrate: Migration and modernization](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing web apps for migration to Azure App Service, review the [assessment support matrix](concepts-azure-webapps-assessment-calculation.md).
+This article summarizes support settings and limitations for agentless migration of web apps to Azure App Service [Azure Migrate: Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing web apps for migration to Azure App Service, review the [assessment support matrix](concepts-azure-webapps-assessment-calculation.md).
 
 ## Migration options
 
@@ -42,14 +42,14 @@ Support | Details
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
-  - [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
-  - [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
-  - [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview).
-  - [Deployment best practices](/azure/app-service/deploy-best-practices).
-  - [Security recommendations](/azure/app-service/security-recommendations).
-  - [Networking features](/azure/app-service/networking-features).
-  - [Monitor App Service with Azure Monitor](/azure/app-service/monitor-app-service).
-  - [Configure Azure AD authentication](/azure/app-service/configure-authentication-provider-aad).
-- [Review best practices](/azure/app-service/deploy-best-practices.md) for deploying to Azure App service.
+  - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
+  - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
+  - [Securely connect to Azure resources](../app-service/tutorial-connect-overview.md).
+  - [Deployment best practices](../app-service/deploy-best-practices.md).
+  - [Security recommendations](../app-service/security-recommendations.md).
+  - [Networking features](../app-service/networking-features.md).
+  - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
+  - [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+- [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.

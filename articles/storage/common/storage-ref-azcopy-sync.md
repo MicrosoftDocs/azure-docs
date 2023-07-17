@@ -1,12 +1,12 @@
 ---
-title: azcopy sync | Microsoft Docs
+title: azcopy sync
 description: This article provides reference information for the azcopy sync command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 02/09/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -16,7 +16,7 @@ Replicates the source location to the destination location. This article provide
 
 ## Synopsis
 
-The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. The supported pairs are:
+The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:
   
 - Local <-> Azure Blob / Azure File (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
@@ -25,11 +25,17 @@ The last modified times are used for comparison. The file is skipped if the last
 
 The sync command differs from the copy command in several ways:
 
-  1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
+  1. By default, the recursive flag is true and sync copies all subdirectories. Sync copies only the top-level files inside a directory if the recursive flag is false.
   2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
   3. If the 'delete-destination' flag is set to true or prompt, then sync will delete files and blobs at the destination that aren't present at the source.
 
-Advanced:
+## Guidelines
+
+[!INCLUDE [Azcopy sync command general guidelines](../../../includes/azure-storage-azcopy-sync-guidelines.md)]
+
+- For Blob Storage, you can prevent accidental deletions by making sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
+
+## Advanced
 
 Note that if you don't specify a file extension, AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content.
 
@@ -41,12 +47,18 @@ The built-in lookup table is small but on Unix it's augmented by the local syste
 
 On Windows, MIME types are extracted from the registry.
 
-Also note that sync works off of the last modified times exclusively. So in the case of Azure File <-> Azure File,
+By default sync works off of the last modified times unless you override that default behavior by using the `--compare-hash` flag. So in the case of Azure File <-> Azure File,
 the header field Last-Modified is used instead of x-ms-file-change-time, which means that metadata changes at the source can also trigger a full copy.
 
 ```azcopy
 azcopy sync [flags]
 ```
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 ## Examples
 

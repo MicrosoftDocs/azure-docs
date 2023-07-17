@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -88,7 +88,6 @@ Your usage charges are displayed at the meter level. The following terms mean th
 |Resource |MeterName |
 |Region |MeterRegion |
 |Consumed | Quantity |
-|Included |Included Quantity |
 |Billable |Overage Quantity |
 |Rate | EffectivePrice|
 | Value | Cost |

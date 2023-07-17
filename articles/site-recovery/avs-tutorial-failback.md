@@ -1,12 +1,12 @@
 ---
 title: Fail back Azure VMware Solution VMsfrom Azure with Azure Site Recovery 
 description: Learn how to failback to the Azure VMware Solution private cloud after failover to Azure, during disaster recovery.
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: harshacs
+ms.author: ankitadutta
 ms.custom: MVC
 
 ---
@@ -16,9 +16,9 @@ This article describes how to failback Azure VMs to an Azure VMware Solution pri
 
 ## Before you start
 
-1. Learn about [VMware failback](failover-failback-overview.md#vmwarephysical-reprotectionfailback). 
+1. Learn about [VMware vSphere failback](failover-failback-overview.md#vmwarephysical-reprotectionfailback). 
 2. Make sure you've reviewed and completed the steps to [prepare for failback](vmware-azure-prepare-failback.md), and that all the required components are deployed. Components include a process server in Azure, a master target server, and a VPN site-to-site connection (or ExpressRoute private peering) for failback.
-3. Make sure you've completed the [requirements](avs-tutorial-reprotect.md#before-you-begin) for reprotection and failback, and that you've [enabled reprotection](avs-tutorial-reprotect.md#enable-reprotection) of Azure VMs, so that they're replicating from Azure to the Azure VMware Solution private cloud. VMs must be in a replicated state is order to fail back.
+3. Make sure you've completed the [requirements](avs-tutorial-reprotect.md#before-you-begin) for reprotection and failback, and that you've [enabled reprotection](avs-tutorial-reprotect.md#enable-reprotection) of Azure VMs, so that they're replicating from Azure to the Azure VMware Solution private cloud. VMs must be in a replicated state in order to fail back.
 
 
 
@@ -35,12 +35,12 @@ This article describes how to failback Azure VMs to an Azure VMware Solution pri
     - **Latest** is a crash-consistent recovery point.
     - With **Latest**, a VM fails over to its latest available point in time. If you have a replication group for multi-VM consistency within a recovery plan, each VM in the group fails over to its independent latest point in time.
     - If you use an app-consistent recovery point, each VM fails back to its latest available point. If a recovery plan has a replication group, each group recovers to its common available recovery point.
-5. Failover begins. Site Recovery shuts down the Azure VMs.
+5. Failover begins. Azure Site Recovery shuts down the Azure VMs.
 6. After failover completes, check everything's working as expected. Check that the Azure VMs are shut down. 
 7. With everything verified, right-click  the VM > **Commit**, to finish the failover process. Commit removes the failed-over Azure VM. 
 
 > [!NOTE]
-> For Windows VMs, Site Recovery disables the VMware tools during failover. During failback of the Windows VM, the VMware tools are enable again. 
+> For Windows VMs, Azure Site Recovery disables the VMware tools during failover. During failback of the Windows VM, the VMware tools are enabled again. 
 
 
 

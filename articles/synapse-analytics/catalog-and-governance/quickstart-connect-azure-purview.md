@@ -82,6 +82,10 @@ For **Data Lineage - Synapse Pipeline**, you may see one of below status:
     - Cannot reach the Microsoft Purview account from your current network because the account is protected by firewall. You can launch the Synapse Studio from a private network that has connectivity to your Microsoft Purview account instead.
     - You don't have permission to check role assignments on the Microsoft Purview account. You can contact the Microsoft Purview account admin to check the role assignments for you. Learn about the needed Microsoft Purview role from [Set up authentication](#set-up-authentication) section.
 
+>[!Note]
+> 
+> Disconnected status doesn't impact you to use catalog search feature within Azure Synapse; it continues to work if the data readers role is granted at the Microsoft purview collection level.
+
 ## Report lineage to Microsoft Purview
 
 Once you connect the Synapse workspace to a Microsoft Purview account, when you execute pipelines, Synapse reports lineage information to the Microsoft Purview account. For detailed supported capabilities and an end to end walkthrough, see [Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md).

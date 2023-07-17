@@ -5,9 +5,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/17/2018
-author: nanditavalsan 
-ms.author: nanditav
-ms.reviewer: wiassaf
+author: WilliamDAssafMSFT 
+ms.author: wiassaf
 ms.custom: seo-lt-2019
 ---
 

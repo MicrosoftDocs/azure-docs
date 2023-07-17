@@ -1,19 +1,20 @@
 ---
-title: 'Tutorial: Hosts multiple web sites using the Azure portal'
+title: 'Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal'
 titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 06/13/2023
 ms.author: greglin
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
 
 # Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal
 
-You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on two domains to make sure web traffic arrives at the appropriate servers in the pools. This tutorial uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure portal to configure the [hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on two domains to make sure web traffic arrives at the appropriate servers in the pools. This tutorial uses examples of `www.contoso.com` and `www.fabrikam.com`.
 
 In this tutorial, you learn how to:
 
@@ -23,42 +24,44 @@ In this tutorial, you learn how to:
 > * Create backend pools with the backend servers
 > * Create listeners
 > * Create routing rules
-> * Edit Hosts file for name resolution
+> * Edit hosts file for name resolution
 
-:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Multi-site Application Gateway":::
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site application gateway.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- An Azure subscription
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Application Gateway**, or search for *Application Gateway* in the portal search box.
 
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+2. Select **Create**.
 
 ### Basics tab
 
-1. On the **Basics** tab, enter these values for the following application gateway settings:
+1. On the **Basics** tab, enter these values:
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Create Application Gateway":::
+     :::image type="content" source="./media/create-multiple-sites-portal/application-gateway-create-basics.png" alt-text="Screenshot showing Create application gateway page.":::
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
-    Under **Configure virtual network**, select **Create new** to create a new virtual network . In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
+    Under **Configure virtual network**, select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
-
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
-
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+    - **Subnet name** (application gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -70,7 +73,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the application gateway v2 SKU, you can only choose **Public** frontend IP configuration. Use of a private frontend IP address configuration is currently in public preview. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
@@ -80,7 +83,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -113,7 +116,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
    Under **Additional settings**:
    - **Listener type**: Multiple sites
-   - **Host name**: **www.contoso.com**
+   - **Host name**: `www.contoso.com`
 
    Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
@@ -121,10 +124,10 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
 4. On the **Backend targets** tab, select **contosoPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *contosoHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting will determine the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *contosoSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
-7. Select **Add a routing rule** and add a similar rule, listener, backend target, and HTTP setting for Fabrikam.
+7. Select **Add a routing rule** and add a similar rule, listener, backend target, and backend setting for Fabrikam.
 
      :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Fabrikam rule":::
 
@@ -142,9 +145,17 @@ In this example, you'll use virtual machines as the target backend. You can eith
 
 To add backend targets, you'll:
 
-1. Create two new VMs, *contosoVM* and *fabrikamVM*, to be used as backend servers.
-2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
-3. Add the backend servers to the backend pools.
+1. Add a backend subnet.
+2. Create two new VMs, *contosoVM* and *fabrikamVM*, to be used as backend servers.
+3. Install IIS on the virtual machines to verify that the application gateway was created successfully.
+4. Add the backend servers to the backend pools.
+
+### Add a backend subnet
+
+1. On the Azure portal, search for **virtual networks** and select **myVNet*.
+2. Under **Settings**, select **Subnets**.
+3. Select **+ Subnet** and in the **Add subnet** pane, enter *myBackendSubnet* for **Name** and accept *10.0.1.0/24* as the **Subnet address range**.
+4. Accept all other default settings and select **Save**.
 
 ### Create a virtual machine
 
@@ -210,9 +221,9 @@ Wait for the deployment to complete before proceeding to the next step.
 
 ## Edit your hosts file for name resolution
 
-After the application gateway is created with its public IP address, you can get the IP address and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com`. In a production environment, you could create a `CNAME` in DNS for name resolution.
+After the application gateway is created with its public IP address, you can get the IP address, and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com`. In a production environment, you could create a `CNAME` in DNS for name resolution.
 
-1. Click **All resources**, and then click **myAGPublicIPAddress**.
+1. Select **All resources**, and then select **myAGPublicIPAddress**.
 
     ![Record application gateway DNS address](./media/create-multiple-sites-portal/public-ip.png)
 
@@ -264,19 +275,30 @@ After the application gateway is created with its public IP address, you can get
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, remove the resource group. When you remove the resource group, you also remove the application gateway and all its related resources.
+When you no longer need the resources that you created with the application gateway, delete the resource group. When you delete the resource group, you also delete the application gateway and all its related resources.
 
 To remove the resource group:
 
 1. On the left menu of the Azure portal, select **Resource groups**.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
-3. On the **Resource group page**, select **Delete resource group**.
+3. On the **myResourceGroupAG** page, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
 
 To restore the hosts file:
-1. Delete the `www.contoso.com` and `www.fabrikam.com` lines from the hosts file and run `ipconfig/registerdns` and `ipconfig/flushdns` from the command prompt.
+
+1. Delete the `www.contoso.com` and `www.fabrikam.com` lines from the `hosts` file.
+1. Run `ipconfig/registerdns` and `ipconfig/flushdns` from the command prompt.
 
 ## Next steps
 
+In this tutorial, you:
+
+- Created an application gateway with listeners and rules based on two domains
+- Tested the application gateway after editing the host files of backend servers
+
+To learn more about hosting multiple sites, see [application gateway multiple site hosting](multiple-site-overview.md).
+
+To learn how to create and configure an application gateway with path-based routing rules using the Azure portal, advance to the next tutorial.
+
 > [!div class="nextstepaction"]
-> [Learn more about what you can do with Azure Application Gateway](./overview.md)
+> [Route by URL](create-url-route-portal.md)

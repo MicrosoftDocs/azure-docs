@@ -2,13 +2,13 @@
 title: 'Quickstart: Use a Bicep file to create a Windows VM'
 description: In this quickstart, you learn how to use a Bicep file to create a Windows virtual machine
 author: schaffererin
+ms.author: schaffererin
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/11/2022
-ms.author: v-eschaffer
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Windows virtual machine using a Bicep file

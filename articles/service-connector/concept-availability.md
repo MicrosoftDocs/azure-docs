@@ -1,8 +1,8 @@
 ---
 title: High availability for Service Connector 
 description: This article covers availability zones, zone redundancy, disaster recovery, and cross-region failover for Service Connector.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 05/24/2022
@@ -104,7 +104,7 @@ The health check that runs every 10 minutes simulates user behavior by creating,
 - Service Connector’s dependent services declare an outage
 - Customers report a region outage
 
-Requests to service connections are impacted during a failover. Once the failover is complete, service connection data is restored. You can check the [Azure status page](https://status.azure.com/en-us/status) to check the status of all Azure services.
+Requests to service connections are impacted during a failover. Once the failover is complete, service connection data is restored. You can check the [Azure status page](https://azure.status.microsoft/en-us/status) to check the status of all Azure services.
 
 ## Next steps
 

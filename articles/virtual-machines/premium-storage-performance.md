@@ -2,11 +2,10 @@
 title: 'Azure Premium Storage: Design for high performance'
 description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Azure premium storage: design for high performance
@@ -116,7 +115,7 @@ The best way to measure performance requirements of your application, is to use 
 
 The PerfMon counters are available for processor, memory and, each logical disk and physical disk of your server. When you use premium storage disks with a VM, the physical disk counters are for each premium storage disk, and logical disk counters are for each volume created on the premium storage disks. You must capture the values for the disks that host your application workload. If there is a one to one mapping between logical and physical disks, you can refer to physical disk counters; otherwise refer to the logical disk counters. On Linux, the iostat command generates a CPU and disk utilization report. The disk utilization report provides statistics per physical device or partition. If you have a database server with its data and logs on separate disks, collect this data for both disks. Below table describes counters for disks, processors, and memory:
 
-| Counter | Description | PerfMon | Iostat |
+| Counter | Description | PerfMon | iostat |
 | --- | --- | --- | --- |
 | **IOPS or Transactions per second** |Number of I/O requests issued to the storage disk per second. |Disk Reads/sec <br> Disk Writes/sec |tps <br> r/s <br> w/s |
 | **Disk Reads and Writes** |% of Reads and Write operations performed on the disk. |% Disk Read Time <br> % Disk Write Time |r/s <br> w/s |
@@ -139,7 +138,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 ### Optimize IOPS, throughput, and latency at a glance
 
-The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor is much more depth.
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor in much more depth.
 
 For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Sizes for virtual machines in Azure](sizes.md).
 
@@ -151,7 +150,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
 | **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
-| **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
+| **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get very low Read latencies. |
 | **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. The combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
 | **Stripe Size** |Smaller stripe size for random small IO pattern seen in OLTP applications. For example, use stripe size of 64 KB for SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in Data Warehouse applications. For example, use 256 KB stripe size for SQL Server Data warehouse application. | &nbsp; |
 | **Multithreading** |Use multithreading to push higher number of requests to Premium Storage that will lead to higher IOPS and Throughput. For example, on SQL Server set a high MAXDOP value to allocate more CPUs to SQL Server. | &nbsp; | &nbsp; |

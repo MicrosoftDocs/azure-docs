@@ -1,5 +1,5 @@
 ---
-title: Multi-device Conversation overview - Speech Service
+title: Multi-device Conversation overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Multi-device conversation makes it easy to create a speech or text conversation between multiple clients and coordinate the messages that are sent between them.
 services: cognitive-services
@@ -36,10 +36,10 @@ Whereas [Conversation Transcription](conversation-transcription.md) works on a s
 ## Key features
 
 - **Real-time transcription:** Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
-- **Real-time translation:** With more than 70 [supported languages](language-support.md#text-languages) for text translation, users can translate the conversation to their preferred language(s).
+- **Real-time translation:** With more than 70 [supported languages](language-support.md) for text translation, users can translate the conversation to their preferred languages.
 - **Readable transcripts:** The transcription and translation are easy to follow, with punctuation and sentence breaks.
-- **Voice or text input:** Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](language-support.md#speech-to-text).
-- **Message relay:** The multi-device conversation service will distribute messages sent by one client to all the others, in the language(s) of their choice.
+- **Voice or text input:** Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](language-support.md).
+- **Message relay:** The multi-device conversation service will distribute messages sent by one client to all the others, in the languages of their choice.
 - **Message identification:** Every message that users receive in the conversation will be tagged with the nickname of the user who sent it.
 
 ## Use cases
@@ -98,24 +98,24 @@ A participant is a user who joins a conversation.
 
 When creating or joining a conversation, each user must choose a primary language: the language that they will speak and send instant messages in, and also the language they will see other users' messages.
 
-There are two kinds of languages: speech-to-text and text-only:
-- If the user chooses a speech-to-text language as their primary language, then they will be able to use both speech and text input in the conversation.
+There are two kinds of languages: speech to text and text-only:
+- If the user chooses a speech to text language as their primary language, then they will be able to use both speech and text input in the conversation.
 
-- If the user chooses a text-only language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](./language-support.md) page.
+- If the user chooses a text-only language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech to text. You can see available languages on the [language support](./language-support.md) page.
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
 Below is a summary of what the user will be able to do in a multi-device conversation, based to their chosen primary language.
 
 
-| What the user can do in the conversation | Speech-to-text | Text-only |
+| What the user can do in the conversation | Speech to text | Text-only |
 |-----------------------------------|----------------|------|
 | Use speech input | ✔️ | ❌ |
 | Send instant messages | ✔️ | ✔️ |
 | Translate the conversation | ✔️ | ✔️ |
 
 > [!NOTE]
-> For lists of available speech-to-text and text translation languages, see [supported languages](./language-support.md).
+> For lists of available speech to text and text translation languages, see [supported languages](./language-support.md).
 
 
 

@@ -1,13 +1,13 @@
 ---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
-author: joshuha-msft
-ms.author: joowen
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 07/13/2023
 ---
 
 # Visually monitor Azure Data Factory
@@ -170,7 +170,7 @@ You can raise alerts on supported metrics in Data Factory. Select **Monitor** > 
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
+> [!VIDEO https://learn.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create alerts
 

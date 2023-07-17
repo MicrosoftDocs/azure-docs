@@ -4,20 +4,21 @@ description: The latest restorable timestamp API provides the latest restorable 
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 04/08/2022
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
 
 # Latest restorable timestamp for Azure Cosmos DB accounts with continuous backup mode
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB offers an API to get the latest restorable timestamp of a container. This API is available for accounts that have continuous backup mode enabled. Latest restorable timestamp represents the latest timestamp in UTC format up to which your data has been successfully backed up. Using this API, you can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 This API also takes the account location as an input parameter and returns the latest restorable timestamp for the given container in this location. If an account exists in multiple locations, then the latest restorable timestamp for a container in different locations could be different because the backups in each location are taken independently.
 
-By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL API, MongoDB API, Table API (preview), Gremlin API (preview) accounts.
+By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for API for NoSQL, MongoDB, Table, and Gremlin accounts.
 
 ## Use cases
 

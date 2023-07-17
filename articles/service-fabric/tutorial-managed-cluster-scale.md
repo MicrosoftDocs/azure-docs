@@ -2,8 +2,11 @@
 title: Scale out a Service Fabric managed cluster
 description: In this tutorial, learn how to scale out a node type of a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 8/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Tutorial: Scale out a Service Fabric managed cluster
@@ -24,7 +27,7 @@ This part of the series covers how to:
 ## Prerequisites
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) or later (see [*Install Azure PowerShell*](/powershell/azure/install-az-ps)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) or later (see [*Install Azure PowerShell*](/powershell/azure/install-azure-powershell)).
 
 ## Scale a Service Fabric managed cluster
 Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  

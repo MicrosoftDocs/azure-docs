@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/01/2021
+ms.date: 07/11/2023
 ms.custom: mode-ui
 ---
 
-# Quickstart: Use Search explorer to run queries in the portal
+# Quickstart: Use Search explorer to run queries in the Azure portal
 
-**Search explorer** is a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
+In this Azure Cognitive Search quickstart, you'll learn how to use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
 This quickstart uses an existing index to demonstrate Search explorer. 
 
@@ -43,9 +43,9 @@ Before you begin, have the following prerequisites in place:
 
 ## Unspecified query
 
-In Search explorer, requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
+In Search explorer, POST requests are formulated internally using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
 
-For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
+For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there's no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 
 Equivalent syntax for an empty search is `*` or `search=*`.
    
@@ -61,7 +61,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
 Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Cognitive Search. Only those fields attributed as **Searchable** in the index definition are scanned for matches. 
 
-Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search.
+Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search. The "@search.score" is a relevance score computed for the match using the [default scoring algorithm](index-ranking-similarity.md#default-scoring-algorithm).
 
    ```http
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -75,7 +75,7 @@ Notice that when you provide search criteria, such as query terms or expressions
 
 ## Count of matching documents 
 
-Add **$count=true** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so you might have more matches in the index than what's included in the results.
+Add **$count=true** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so the count might indicate more matches in the index than what's returned in the results.
 
    ```http
    $count=true
@@ -87,7 +87,7 @@ Add **$count=true** to get the number of matches found in an index. On an empty 
 
 ## Limit fields in search results
 
-Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
+Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the previously mentioned parameters in the query, use **&** to separate each parameter.
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
@@ -145,7 +145,7 @@ In this quickstart, you used **Search explorer** to query an index using the RES
 
 + Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. The **$select** parameter in a query expression can limit which fields are returned.
 
-+ Search results are composed of all fields marked as **Retrievable** in the index. To view field attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page, and then open the **Fields** tab.
++ Search results are composed of all fields marked as **Retrievable** in the index. To view field attributes in the portal, select *realestate-us-sample* in the **Indexes** list on the search overview page, and then open the **Fields** tab.
 
 + Keyword search, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in real estate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
@@ -157,11 +157,11 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
-To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](/rest/api/searchservice/search-documents) is especially helpful for learning and exploration.
+To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that use more parts of the API. The [Search REST API](/rest/api/searchservice/search-documents) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
 > [Create a basic query in Postman](search-get-started-rest.md)

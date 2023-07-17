@@ -2,8 +2,8 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
-ms.date: 03/17/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
+ms.date: 06/22/2023
 ---
 
 # Syntax and expressions in ARM templates
@@ -67,25 +67,42 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 },
 ```
 
+To escape single quotes in an ARM expression output, double up the single quotes. The output of the following template will result in JSON value `{"abc":"'quoted'"}`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [],
+  "outputs": {
+    "foo": {
+      "type": "object",
+      "value": "[createObject('abc', '''quoted''')]"
+    }
+  }
+}
+```
+
 When passing in parameter values, the use of escape characters depends on where the parameter value is specified. If you set a default value in the template, you need the extra left bracket.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "demoParam1":{
-            "type": "string",
-            "defaultValue": "[[test value]"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "exampleOutput": {
-            "type": "string",
-            "value": "[parameters('demoParam1')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "demoParam1": {
+      "type": "string",
+      "defaultValue": "[[test value]"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+      "type": "string",
+      "value": "[parameters('demoParam1')]"
+    }
+  }
 }
 ```
 
@@ -107,13 +124,13 @@ The same formatting applies when passing values in from a parameter file. The ch
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "demoParam1": {
-            "value": "[test value]"
-        }
-   }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "demoParam1": {
+      "value": "[test value]"
+    }
+  }
 }
 ```
 
@@ -124,6 +141,41 @@ To set a property to null, you can use `null` or `[json('null')]`. The [json fun
 ```json
 "stringValue": null,
 "objectValue": "[json('null')]"
+```
+
+To totally remove an element, you can use the [filter() function](./template-functions-lambda.md#filter). For example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployCaboodle": {
+      "type": "bool",
+      "defaultValue": false
+    }
+  },
+  "variables": {
+    "op": [
+      {
+        "name": "ODB"
+      },
+      {
+        "name": "ODBRPT"
+      },
+      {
+        "name": "Caboodle"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "backendAddressPools": {
+      "type": "array",
+      "value": "[if(parameters('deployCaboodle'), variables('op'), filter(variables('op'), lambda('on', not(equals(lambdaVariables('on').name, 'Caboodle')))))]"
+    }
+  }
+}
 ```
 
 ## Next steps

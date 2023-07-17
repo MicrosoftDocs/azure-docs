@@ -1,7 +1,7 @@
 ---
 title: 'Speech SDK for C# (Xamarin) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: 'Use this guide to set up your platform for C# Xamarin with the Speech service SDK.'
+description: 'Use this guide to set up your platform for C# Xamarin with the Speech SDK.'
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -85,7 +85,7 @@ Next, create your project and select the target architecture:
    
    In the **Start-up Projects** drop-down box, select **helloworld.UWP (Universal Windows)**.
 
-#### Install the Speech SDK
+#### Install the Speech SDK for Xamarin
 
 Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 

@@ -7,8 +7,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 05/25/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 06/29/2023
 ---
 
 # Quickstart: Deploy Cognitive Search using an Azure Resource Manager template

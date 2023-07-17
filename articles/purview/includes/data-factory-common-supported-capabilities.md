@@ -3,8 +3,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 11/01/2021
+ms.date: 06/12/2023
 ---
 
 ### Copy activity support
@@ -13,8 +14,8 @@ ms.date: 11/01/2021
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Cosmos DB for NoSQL \* | Yes | 
+| Azure Cosmos DB for MongoDB \* | Yes |
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
@@ -50,6 +51,7 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Compression setting for Binary, delimited text, Excel, JSON, and XML files.
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
 - Copy data to file-based sink with setting of max rows per file.
+- Column level lineage is not currently supported by copy activity when source/sink is resource set.
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 
@@ -61,7 +63,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
-| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB for NoSQL \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure Database for MySQL \* | Yes | 
@@ -75,4 +77,5 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).
+- Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).
+- For the lineage of Dataflow activity, Microsoft Purview only support showing the source and sink involved. The detailed lineage for Dataflow transformation isn't supported yet.

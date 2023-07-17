@@ -1,8 +1,8 @@
 ---
 title: Azure Maps Glossary | Microsoft Docs 
 description: A glossary of commonly used terms associated with Azure Maps, Location-Based Services, and GIS. 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -19,7 +19,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="advanced-routing"></a> **Advanced routing**: A collection of services that perform advance operations using road routing data; such as, calculating reachable ranges (isochrones), distance matrices, and batch route requests.
 
-<a name="aerial-imagery"></a> **Aerial imagery**: See [Satellite imagery](#satellite-imagery). 
+<a name="aerial-imagery"></a> **Aerial imagery**: See [Satellite imagery](#satellite-imagery).
 
 <a name="along-a-route-search"></a> **Along a route search**: A spatial query that looks for data within a specified detour time or distance from a route path.
 
@@ -29,7 +29,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="annotation"></a> **Annotation**: Text or graphics displayed on the map to provide information to the user. Annotation may identify or describe a specific map entity, provide general information about an area on the map, or supply information about the map itself.
 
-<a name="antimeridian"></a> **Antimeridian**: Also known as the 180<sup>th</sup> Meridian. This is the point where -180 degrees and 180 degrees of longitude meet. Which is the opposite of the prime meridian on the globe.
+<a name="antimeridian"></a> **Antimeridian**: Or _180<sup>th</sup> Meridian_. The point where -180 degrees and 180 degrees of longitude meet, the opposite of the prime meridian on the globe.
 
 <a name="application-programming-interface-api"></a> **Application Programming Interface (API)**: A specification that allows developers to create applications.
 
@@ -125,7 +125,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="envelope"></a> **Envelope**: See [Bounding box](#bounding-box).
 
-<a name="extended-postal-code"></a> **Extended postal code**: A postal code that may include additional information. For example, in the USA, zip codes have five digits. But, an extended zip code, known as zip+4, includes four additional digits. These additional digits are used to identify a geographic segment within the five-digit delivery area, such as a city block, a group of apartments, or a post office box. Knowing the geographic segment aids in efficient mail sorting and delivery.
+<a name="extended-postal-code"></a> **Extended postal code**: A postal code that may include more information. For example, in the USA, zip codes have five digits. But, an extended zip code, known as zip+4, includes four more digits. These digits are used to identify a geographic segment within the five-digit delivery area, such as a city block, a group of apartments, or a post office box. Knowing the geographic segment aids in efficient mail sorting and delivery.
 
 <a name="extent"></a> **Extent**: See [Bounding box](#bounding-box).
 
@@ -133,7 +133,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="federated-authentication"></a> **Federated authentication**: An authentication method that allows a single logon/authentication mechanism to be used across multiple web and mobile apps. 
 
-<a name="feature"></a> **Feature**: An object that combines a geometry with an additional metadata information. 
+<a name="feature"></a> **Feature**: An object that combines a geometry with metadata information.
 
 <a name="feature-collection"></a> **Feature collection**: A collection of feature objects.
 
@@ -147,19 +147,19 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="free-form-address"></a> **Free form address**: A full address that is represented as a single line of text.
 
-<a name="fuzzy-search"></a> **Fuzzy search**: A search that takes in a free form string of text that may be an address or point of interest. 
+<a name="fuzzy-search"></a> **Fuzzy search**: A search that takes in a free form string of text that may be an address or point of interest.
 
 ## G
 
-<a name="geocode"></a> **Geocode**: An address or location that has been converted into a coordinate that can be used to display that location on a map. 
+<a name="geocode"></a> **Geocode**: An address or location that has been converted into a coordinate that can be used to display that location on a map.
 
-<a name="geocoding"></a> **Geocoding**: Also known as forward geocoding, is the process of converting address of location data into coordinates. 
+<a name="geocoding"></a> **Geocoding**: Or _forward geocoding_, is the process of converting address of location data into coordinates.
 
 <a name="geodesic-path"></a> **Geodesic path**: The shortest path between two points on a curved surface. When rendered on Azure Maps this path appears as a curved line due to the Mercator projection.
 
 <a name="geofence"></a> **Geofence**: A defined geographical region that can be used to trigger events when a device enters or exists the region.
 
-<a name="geojson"></a> **GeoJSON**: Is a common JSON-based file format used for storing geographical vector data such as points, lines, and polygons. **Note**: Azure Maps uses an extended version of GeoJSON as [documented here](extend-geojson.md).
+<a name="geojson"></a> **GeoJSON**: Is a common JSON-based file format used for storing geographical vector data such as points, lines, and polygons. For more information Azure Maps use of an extended version of GeoJSON, see  [Extended geojson](extend-geojson.md).
 
 <a name="geometry"></a> **Geometry**: Represents a spatial object such as a point, line, or polygon.
 
@@ -173,23 +173,23 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="gis"></a> **GIS**: An acronym for "Geographic Information System". A common term used to describe the mapping industry.
 
-<a name="gml"></a> **GML**: Also known as Geography Markup Language. An XML file extension for storing spatial data.
+<a name="gml"></a> **GML** (Geography Markup Language): An XML file extension for storing spatial data.
 
-<a name="gps"></a> **GPS**: Also known as Global Positioning System, is a system of satellites used for determining a devices position on the earth. The orbiting satellites transmit signals that allow a GPS receiver anywhere on earth to calculate its own location through trilateration.
+<a name="gps"></a> **GPS** (Global Positioning System): A system of satellites used for determining a devices position on the earth. The orbiting satellites transmit signals that allow a GPS receiver anywhere on earth to calculate its own location through trilateration.
 
-<a name="gpx"></a> **GPX**: Also known as GPS eXchange format, is an XML file format commonly created from GPS devices.  
+<a name="gpx"></a> **GPX** (GPS eXchange format): An XML file format commonly created from GPS devices.  
 
 <a name="great-circle-distance"></a> **Great-circle distance**: The shortest distance between two points on the surface of a sphere.
 
 <a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)**: The time at the prime meridian, which runs through the Royal Observatory in Greenwich, England.
 
-<a name="guid"></a> **GUID**: A globally unique identifier. A string used to uniquely identify an interface, class, type library, component category, or record.
+<a name="guid"></a> **GUID** (globally unique identifier): A string used to uniquely identify an interface, class, type library, component category, or record.
 
 ## H
 
 <a name="haversine-formula"></a> **Haversine formula**: A common equation used for calculating the great-circle distance between two points on a sphere.
 
-<a name="hd-maps"></a> **HD maps**: Also known as High Definition Maps, consists of high fidelity road network information such as lane markings, signage, and direction lights required for autonomous driving.
+<a name="hd-maps"></a> **HD maps** (High Definition Maps): consists of high fidelity road network information such as lane markings, signage, and direction lights required for autonomous driving.
 
 <a name="heading"></a> **Heading**: The direction something is pointing or facing. See also [Bearing](#heading).
 
@@ -221,7 +221,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="linear-interpolation"></a> **Linear interpolation**: The estimation of an unknown value using the linear distance between known values.
 
-<a name="linestring"></a> **LineString**: A geometry used to represent a line. Also known as a polyline. 
+<a name="linestring"></a> **LineString**: A geometry used to represent a line. Also known as a polyline.
 
 <a name="localization"></a> **Localization**: Support for different languages and cultures.
 
@@ -233,17 +233,17 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="map-tile"></a> **Map Tile**: A rectangular image that represents a partition of a map canvas. For more information, see the [Zoom levels and tile grid documentation](zoom-levels-and-tile-grid.md).
 
-<a name="marker"></a> **Marker**: Also known as a pin or pushpin, is an icon that represents a point location on a map.
+<a name="marker"></a> **Marker**: Also called a pin or pushpin, is an icon that represents a point location on a map.
 
 <a name="mercator-projection"></a> **Mercator projection**: A cylindrical map projection that became the standard map projection for nautical purposes because of its ability to represent lines of constant course, known as rhumb lines, as straight segments that conserve the angles with the meridians. All flat map projections distort the shapes or sizes of the map when compared to the true layout of the Earth's surface. The Mercator projection exaggerates areas far from the equator, such that smaller areas appear larger on the map as you approach the poles. 
 
-<a name="multilinestring"></a> **MultiLineString**: A geometry that represents a collection of LineString objects. 
+<a name="multilinestring"></a> **MultiLineString**: A geometry that represents a collection of LineString objects.
 
 <a name="multipoint"></a> **MultiPoint**: A geometry that represents a collection of Point objects.
 
 <a name="multipolygon"></a> **MultiPolygon**: A geometry that represents a collection of Polygon objects. For example, to show the boundary of Hawaii, each island would be outlined with a polygon. Thus, the boundary of Hawaii would thus be a MultiPolygon.
 
-<a name="municipality"></a> **Municipality**: A city or town. 
+<a name="municipality"></a> **Municipality**: A city or town.
 
 <a name="municipality-subdivision"></a> **Municipality subdivision**: A subdivision of a municipality, such as a neighborhood or local area name such as "downtown".
 
@@ -267,13 +267,13 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="pitch"></a> **Pitch**: The amount of tilt the map has relative to the vertical where 0 is looking straight down at the map.
 
-<a name="point"></a> **Point**: A geometry that represents a single position on the map. 
+<a name="point"></a> **Point**: A geometry that represents a single position on the map.
 
 <a name="points-of-interest-poi"></a> **Points of interest (POI)**: A business, landmark, or common place of interest.
 
-<a name="polygon"></a> **Polygon**: A solid geometry that represents an area on a map. 
+<a name="polygon"></a> **Polygon**: A solid geometry that represents an area on a map.
 
-<a name="polyline"></a> **Polyline**: A geometry used to represent a line. Also known as a LineString. 
+<a name="polyline"></a> **Polyline**: A geometry used to represent a line. Also known as a LineString.
 
 <a name="position"></a> **Position**: The longitude, latitude, and altitude (x,y,z coordinates) of a point.
 
@@ -281,25 +281,25 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="postal-code"></a> **Postal code**: A series of letters or numbers, or both, in a specific format. The postal-code is used by the postal service of a country/region to divide geographic areas into zones in order to simplify delivery of mail.
 
-<a name="primary-key"></a> **Primary key**: The first of two subscriptions keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
+<a name="primary-key"></a> **Primary key**: The first of two subscription keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
 
-<a name="prime-meridian"></a> **Prime meridian**: A line of longitude that represents 0-degrees longitude. Generally, longitude values decrease when traveling in a westerly direction until 180 degrees and increase when traveling in easterly directions to -180-degrees. 
+<a name="prime-meridian"></a> **Prime meridian**: A line of longitude that represents 0-degrees longitude. Generally, longitude values decrease when traveling in a westerly direction until 180 degrees and increase when traveling in easterly directions to -180-degrees.
 
-<a name="prj"></a> **PRJ**: A text file which often accompanies a Shapefile file that contains information about the projected coordinate system the data set is in.
+<a name="prj"></a> **PRJ**: A text file often accompanying a `Shapefile` file that contains information about the projected coordinate system the data set is in.
 
-<a name="projection"></a> **Projection**: A projected coordinate system based on a map projection such as transverse Mercator, Albers equal area, and Robinson. These provide the ability to project maps of the earth's spherical surface onto a two-dimensional Cartesian coordinate plane. Projected coordinate systems are sometimes referred to as map projections.
+<a name="projection"></a> **Projection**: A projected coordinate system based on a map projection such as transverse Mercator, Albers equal area, and Robinson. Projection enables the earth's spherical surface to be represented on a two-dimensional Cartesian coordinate plane. Projected coordinate systems are sometimes referred to as map projections.
 
 ## Q
 
-<a name="quadkey"></a> **Quadkey**: A base-4 address index for a tile within a quadtree tiling system. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation for more information.
+<a name="quadkey"></a> **`Quadkey`**: A base-4 address index for a tile within a `quadtree` tiling system. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-<a name="quadtree"></a> **Quadtree**: A data structure in which each node has exactly four children. The tiling system used in Azure Maps uses a quadtree structure such that as a user zooms in one level, each map tile breaks up into four subtiles.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation for more information.
+<a name="quadtree"></a> **`Quadtree`**: A data structure in which each node has exactly four children. The tiling system used in Azure Maps uses a 'quadtree' structure such that as a user zooms in one level, each map tile breaks up into four subtiles.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-<a name="queries-per-second-qps"></a> **Queries Per Second (QPS)**: The number of queries or requests that can be made to a service or platform within one second. 
+<a name="queries-per-second-qps"></a> **Queries Per Second (QPS)**: The number of queries or requests that can be made to a service or platform within one second.
 
 ## R
 
-<a name="radial-search"></a> **Radial search**: A spatial query that searches a fixed straight-line distance (as the crow flies) from a point. 
+<a name="radial-search"></a> **Radial search**: A spatial query that searches a fixed straight-line distance (as the crow flies) from a point.
 
 <a name="raster-data"></a> **Raster data**: A matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as temperature. Raster's include digital aerial photographs, imagery from satellites, digital pictures, and scanned maps.
 
@@ -311,7 +311,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="rest-service"></a> **REST service**: The acronym REST stands for Representational State Transfer. A REST service is a URL-based web service that relies on basic web technology to communicate, the most common methods being HTTP GET and POST requests. These types of services tend to me much quicker and smaller than traditional SOAP-based services.
 
-<a name="reverse-geocode"></a> **Reverse geocode**: The process of taking a coordinate and determining the address in which is represents on a map.
+<a name="reverse-geocode"></a> **Reverse geocode**: The process of taking a coordinate and determining the address it represents on a map.
 
 <a name="reproject"></a> **Reproject**: See [Transformation](#transformation).
 
@@ -319,19 +319,19 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="route"></a> **Route**: A path between two or more locations, which may also include additional information such as instructions for waypoints along the route.
 
-<a name="requests-per-second-rps"></a> **Requests Per Second (RPS)**: See [Queries Per Second (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Requests Per Second (RPS)**: See [Queries Per Second (QPS)](#queries-per-second-qps).
 
 <a name="rss"></a> **RSS**: Acronym for Really Simple Syndication, Resource Description Framework (RDF) Site Summary, or Rich Site Summary, depending on the source. A simple, structured XML format for sharing content among different Web sites. RSS documents include key metadata elements such as author, date, title, a brief description, and a hypertext link. This information helps a user (or an RSS publisher service) decide what materials are worth further investigation.
 
 ## S
 
-<a name="satellite-imagery"></a> **Satellite imagery**: Imagery that has been captured by planes and satellites pointing straight down.
+<a name="satellite-imagery"></a> **Satellite imagery**: Imagery captured by planes and satellites pointing straight down.
 
 <a name="secondary-key"></a> **Secondary key**: The second of two subscriptions keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
 
-<a name="shapefile-shp"></a> **Shapefile (SHP)**: Also known as an ESRI Shapefile, is a vector data storage format for storing the location, shape, and attributes of geographic features. A shapefile is stored in a set of related files.
+<a name="shapefile-shp"></a> **Shapefile (SHP)**: Or *ESRI Shapefile*, is a vector data storage format for storing the location, shape, and attributes of geographic features. A shapefile is stored in a set of related files.
 
-<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It is recommended that keys are regularly regenerated for security. Two keys are provided so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It's recommended that keys are regularly regenerated for security. Two keys are provided so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a name="software-development-kit-sdk"></a> **Software development kit (SDK)**: A collection of documentation, sample code, and sample apps to help a developer use an API to build apps.
 
@@ -341,15 +341,15 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="spatial-reference"></a> **Spatial reference**: A coordinate-based local, regional, or global system used to precisely locate geographical entities. It defines the coordinate system used to relate map coordinates to locations in the real world. Spatial references ensure spatial data from different layers, or sources, can be integrated for accurate viewing or analysis. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system and WGS 84 for input geometry data.
 
-<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
+<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see [Spatial Data (SQL Server)](/sql/relational-databases/spatial/spatial-data-sql-server).
 
 <a name="subscription-key"></a> **Subscription key**: See [Shared key authentication](#shared-key-authentication).
 
-<a name="synchronous-request"></a> **Synchronous request**: An HTTP request opens a connection and waits for a response. Browsers limit the number of concurrent HTTP requests that can be made from a page. If multiple long running synchronous requests are made at the same time, then this limit can be reached. Requests will be delayed until one of the other requests has completed.
+<a name="synchronous-request"></a> **Synchronous request**: An HTTP request opens a connection and waits for a response. Browsers limit the number of concurrent HTTP requests that can be made from a page. If multiple long running synchronous requests are made at the same time, then this limit can be reached. Requests are delayed until one of the other requests has completed.
 
 ## T
 
-<a name="telematics"></a> **Telematics**: Sending, receiving, and storing information via telecommunication devices in conjunction with effecting control on remote objects. 
+<a name="telematics"></a> **Telematics**: Sending, receiving, and storing information via telecommunication devices along with effecting control on remote objects.
 
 <a name="temporal-data"></a> **Temporal data**: Data that specifically refers to times or dates. Temporal data may refer to discrete events, such as lightning strikes; moving objects, such as trains; or repeated observations, such as counts from traffic sensors.
 
@@ -366,7 +366,7 @@ The following list describes common words used with the Azure Maps services.
 - One transaction is created for every 15 map or traffic tiles requested.
 - One transaction is created for each API call to one of the services in Azure Maps. Searching and routing are examples of Azure Maps service.
 
-<a name="transformation"></a> **Transformation**: The process of converting data between different geographic coordinate systems. You may, for example, have some data that was captured in the United Kingdom and based on the OSGB 1936 geographic coordinate system. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system variant of WGS84. As such to display the data correctly, it will need to have its coordinates transformed from one system to another.
+<a name="transformation"></a> **Transformation**: The process of converting data between different geographic coordinate systems. You may, for example, have some data that was captured in the United Kingdom and based on the OSGB 1936 geographic coordinate system. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system variant of WGS84. As such to display the data correctly, it needs to have its coordinates transformed from one system to another.
 
 <a name="traveling-salesmen-problem-tsp"></a> **Traveling Salesmen Problem (TSP)**:  A Hamiltonian circuit problem in which a salesperson must find the most efficient way to visit a series of stops, then return to the starting location.  
 
@@ -382,7 +382,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="vehicle-routing-problem-vrp"></a> **Vehicle Routing Problem (VRP)**: A class of problems, in which a set of ordered routes for a fleet of vehicles is calculated while taking into consideration as set of constraints. These constraints may include delivery time windows, multiple route capacities, and travel duration constraints.
 
-<a name="voronoi-diagram"></a> **Voronoi diagram**: A partition of space into areas, or cells, that surround a set of geometric objects, usually point features. These cells, or polygons, must satisfy the criteria for Delaunay triangles. All locations within an area are closer to the object it surrounds than to any other object in the set. Voronoi diagrams are often used to delineate areas of influence around geographic features. 
+<a name="voronoi-diagram"></a> **Voronoi diagram**: A partition of space into areas, or cells, that surrounds a set of geometric objects, usually point features. These cells, or polygons, must satisfy the criteria for Delaunay triangles. All locations within an area are closer to the object it surrounds than to any other object in the set. Voronoi diagrams are often used to delineate areas of influence around geographic features. 
 
 ## W
 
@@ -390,7 +390,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="waypoint-optimization"></a> **Waypoint optimization**: The process of reordering a set of waypoints to minimize the travel time or distance required to pass through all provided waypoints. Depending on the complexity of the optimization, this optimization is often referred to as the [Traveling Salesmen Problem](#traveling-salesmen-problem-tsp) or [Vehicle Routing Problem](#vehicle-routing-problem-vrp).
 
-<a name="web-map-service-wms"></a> **Web Map Service (WMS)**: WMS is an Open Geographic Consortium (OGC) standard that defines image-based map services. WMS services provide map images for specific areas within a map on demand. Images include pre-rendered symbology and may be rendered in one of several named styles if defined by the service.
+<a name="web-map-service-wms"></a> **Web Map Service (WMS)**: WMS is an Open Geographic Consortium (OGC) standard that defines image-based map services. WMS services provide map images for specific areas within a map on demand. Images include prerendered symbology and may be rendered in one of several named styles if defined by the service.
 
 <a name="web-mercator"></a> **Web Mercator**: Also known as Spherical Mercator projection. It's a slight variant of the Mercator projection, one used primarily in Web-based mapping programs. It uses the same formulas as the standard Mercator projection as used for small-scale maps. However, the Web Mercator uses the spherical formulas at all scales, but large-scale Mercator maps normally use the ellipsoidal form of the projection. The discrepancy is imperceptible at the global scale, but it causes maps of local areas to deviate slightly from true ellipsoidal Mercator maps, at the same scale.
 
@@ -398,8 +398,8 @@ The following list describes common words used with the Azure Maps services.
 
 ## Z
 
-<a name="z-coordinate"></a> **Z-coordinate**: See [Altitude](#altitude). 
+<a name="z-coordinate"></a> **Z-coordinate**: See [Altitude](#altitude).
 
 <a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
 
-<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map is often visible. But, the map shows limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map displays an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.

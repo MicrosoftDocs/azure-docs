@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Cisco Umbrella User Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cisco Umbrella User Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cisco Umbrella User Management.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 1aa20f40-19ec-4213-9a3b-5eb2bcdd9bbd
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -44,10 +44,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Cisco Umbrella User Management](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Import ObjectGUID attribute via Azure AD Connect (Optional)
-If you have previously provisioned user identities from on-premise AD to Cisco Umbrella and would now like to provision the same users from Azure AD, you will need to synchronize the ObjectGUID attribute so that previously provisioned identities persist in the Umbrella reporting. You will need to reconfigure any Umbrella policy on groups after importing groups from Azure AD.
+If your endpoints are running AnyConnect or the Cisco Secure Client version 4.10 MR5 or earlier, you will need to synchronize the ObjectGUID attribute for user identity attribution. You will need to reconfigure any Umbrella policy on groups after importing groups from Azure AD.
 
 > [!NOTE]
-> The on-premise Umbrella AD Connector should be turned off before importing the ObjectGUID attribute.
+> The on-premises Umbrella AD Connector should be turned off before importing the ObjectGUID attribute.
 
 When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not synchronized from on-premises AD to Azure AD by default. To synchronize this attribute, enable the optional **Directory Extension attribute sync** and select the objectGUID attributes for users.
 
@@ -57,6 +57,9 @@ When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not 
 > The search under **Available Attributes** is case sensitive.
 
    ![Screenshot that shows the "Directory extensions" selection page](./media/cisco-umbrella-user-management-provisioning-tutorial/active-directory-connect-directory-extensions.png)
+
+> [!NOTE]
+> This step is not required if all your endpoints are running Cisco Secure Client or AnyConnect version 4.10 MR6 or higher.
 
 ## Step 3. Configure Cisco Umbrella User Management to support provisioning with Azure AD
 

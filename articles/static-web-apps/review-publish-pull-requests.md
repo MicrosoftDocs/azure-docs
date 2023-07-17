@@ -1,119 +1,113 @@
 ---
-title: Review pull requests in pre-production environments in Azure Static Web Apps
+title: Review pull requests in pre-production environments
 description: Learn how to use pre-production environments to review pull requests changes in Azure Static Web Apps.
 services: static-web-apps
 author: sinedied
 ms.service: static-web-apps
+ms.custom: engagement-fy23
 ms.topic:  conceptual
-ms.date: 05/08/2020
+ms.date: 10/27/2022
 ms.author: yolasors
 ---
 
-# Review pull requests in pre-production environments in Azure Static Web Apps
+# Review pull requests in pre-production environments
 
-This article demonstrates how to use pre-production environments to review changes to applications deployed with [Azure Static Web Apps](overview.md).
+This article shows you how to use pre-production environments to review changes to applications that are deployed with [Azure Static Web Apps](overview.md). A pre-production environment is a fully functional staged version of your application that includes changes not available in production.
 
-A pre-production (staging) environment is a fully-functional staged version of your application that includes changes not available in production.
+Azure Static Web Apps generates a GitHub Actions workflow in the repo. When a pull request is created against a branch that the workflow watches, the pre-production environment gets built. The pre-production environment stages the app, so you can review the changes before you push them to production.
 
-Azure Static Web Apps generates a GitHub Actions workflow in the repository. When a pull request is created against a branch that the workflow watches, the pre-production environment is built. The pre-production environment stages the app, enables you to perform reviews before pushing them to production.
+You can do the following tasks within pre-production environments:
 
-Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request against the watched branch, a staged version with your changes is deployed to a distinct pre-production environment.
-
-There are many benefits of using pre-production environments. For example, you can:
-
-- Review visual changes between production and staging. For example, viewing updates to content and layout.
-- Demonstrate the changes to your team.
-- Compare different versions of your application.
-- Validate changes using acceptance tests.
-- Perform sanity checks before deploying to production.
+- Review visual changes between production and staging, like updates to content and layout
+- Demonstrate the changes to your team
+- Compare different versions of your application
+- Validate changes using acceptance tests
+- Perform sanity checks before you deploy to production
 
 > [!NOTE]
-> Pull requests and pre-production environments are currently only supported in GitHub Actions deployments.
+> Pull requests and pre-production environments are only supported in GitHub Actions deployments.
 
 ## Prerequisites
 
-- An existing GitHub repository configured with Azure Static Web Apps. See [Building your first static app](getting-started.md) if you don't have one.
+- An existing GitHub repo configured with Azure Static Web Apps. See [Building your first static app](getting-started.md) if you don't have one.
 
 ## Make a change
 
-Begin by making a change in your repository. You can do it directly on GitHub as shown in the following steps.
+Make a change in your repo directly on GitHub, as shown in the following steps.
 
-1. Navigate to your project's repository on GitHub, then click on the **Branch** button to create a new branch.
+1. Go to your project's repo on GitHub, and then select **Branch**.
 
     :::image type="content" source="./media/review-publish-pull-requests/create-branch.png" alt-text="Create new branch using GitHub interface":::
 
-    Type a branch name and click on **Create branch**.
+1. Enter a branch name and select **Create branch**.
 
-1. Go to your _app_ folder and change some text content. For example, you can change a title or paragraph. Once you found the file you want to edit, click on **Edit** to make the change.
+1. Go to your _app_ folder and change some text content, like a title or paragraph. Select **Edit** to make the change in the file.
 
     :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Edit file button in GitHub interface":::
 
-1. After you make the changes, click on **Commit changes** to commit your changes to the branch.
+1. Select **Commit changes** when you're done.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Commit changes button in GitHub interface":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Screenshot showing the Commit changes button in the GitHub interface.":::
 
 ## Create a pull request
 
-Next, create a pull request from this change.
+Create a pull request to publish your update.
 
-1. Open the **Pull request** tab of your project on GitHub:
+1. Open the **Pull request** tab of your project on GitHub.
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Pull request tab in a GitHub repository":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Screenshot showing the pull request tab in a GitHub repo.":::
 
-1. Click on the **Compare & pull request** button of your branch.
+1. Select **Compare & pull request**.
 
-1. You can optionally fill in some details about your changes, then click on **Create pull request**.
+1. Optionally, enter details about your changes, and then select **Create pull request**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Pull request creation in GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Screenshot showing the pull request creation in GitHub.":::
 
-You can assign reviewers and add comments to discuss your changes if needed.
+Assign reviewers and add comments to discuss your changes, if needed.
 
-> [!NOTE]
-> You can make multiple changes by pushing new commits to your branch. The pull request is then automatically updated to reflect all changes.
+Multiple pre-production environments can co-exist at the same time when you use Azure Static Web Apps. Each time you create a pull request against the watched branch, a staged version with your changes deploys to a distinct pre-production environment.
+
+You can make multiple changes and push new commits to your branch. The pull request automatically updates to reflect all changes.
 
 ## Review changes
 
-After the pull request is created, the [GitHub Actions](https://github.com/features/actions) deployment workflow runs and deploys your changes to a pre-production environment.
+The [GitHub Actions](https://github.com/features/actions) deployment workflow runs and deploys your pull request changes to a pre-production environment.
 
-Once the workflow has completed building and deploying your app, the GitHub bot adds a comment to your pull request which contains the URL of the pre-production environment. You can click on this link to see your staged changes.
+Once the workflow completes building and deploying your app, the GitHub bot adds a comment to your pull request, which contains the URL of the pre-production environment. 
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Pull request comment with the pre-production URL":::
+1. Select the pre-production URL to see your staged changes.
 
-Click on the generated URL to see the changes.
+   :::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Screenshot of pull request comment with the pre-production URL.":::
 
-If you take a closer look at the URL, you can see that it's composed like this: `https://<SUBDOMAIN-PULL_REQUEST_ID>.<AZURE_REGION>.azurestaticapps.net`.
+   The URL is composed like this: `https://<SUBDOMAIN-PULL_REQUEST_ID>.<AZURE_REGION>.azurestaticapps.net`. For a given pull request, the URL remains the same, even if you push new updates. The same pre-production environment also gets reused for the life of the pull request.
 
-For a given pull request, the URL remains the same even if you push new updates. In addition to the URL staying constant, the same pre-production environment is reused for the life of the pull request.
-
-To automate the review process with end-to-end testing, the [Azure Static Web App Deploy GitHub Action](https://github.com/Azure/static-web-apps-deploy) has the `static_web_app_url` output variable.
-This URL can be referenced in the rest of your workflow to run your tests against the pre-production environment.
+To automate the review process with end-to-end testing, the [GitHub Action for deploying Azure Static Web Apps](https://github.com/Azure/static-web-apps-deploy) has the `static_web_app_url` output variable.
+You can reference this URL in the rest of your workflow to run your tests against the pre-production environment.
 
 ## Publish changes
 
-Once changes are approved, you can publish your changes to production by merging the pull request.
+Merge the pull request to publish to production.
 
-Click on **Merge pull request**:
+1. Select **Merge pull request**.
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Merge pull request button in GitHub interface":::
+   :::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Screenshot showing the Merge pull request button in GitHub interface.":::
 
-Merging copies your changes to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes are live after your application has been rebuilt.
+   Your changes get copied to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes go live after    your application rebuilds.
 
-To verify the changes in production,  open your production URL to load the live version of the website.
+1. Open your production URL to load the live version of the website and verify.
 
 ## Limitations
 
-- Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
+- Anyone can access the staged versions of your application via their URL, even if your GitHub repo is private.
 
     > [!WARNING]
-    > Be careful when publishing sensitive content to staged versions, as access to pre-production environments are not restricted.
+    > Be careful with sensitive content, since anyone can access pre-production environments.
 
-- The number of pre-production environments available for each app deployed with Static Web Apps depends on the [hosting plan](plans.md) you are using. For example, with the Free tier you can have 3 pre-production environments in addition to the production environment.
-
-- Pre-production environments are not geo-distributed.
-
-- Currently, only GitHub Actions deployments support pre-production environments.
+- The number of pre-production environments available for each app deployed with Static Web Apps depends your [hosting plan](plans.md). For example, with the [Free tier](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) you can have three pre-production environments along with the production environment.
+- Pre-production environments aren't geo-distributed.
+- Only GitHub Actions deployments support pre-production environments.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Branch preview environments](branch-environments.md)
+> [Create branch preview environments](branch-environments.md)

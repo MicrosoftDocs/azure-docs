@@ -1,13 +1,14 @@
 ---
-title: Access control and security for DPS by using shared access signatures | Microsoft Docs
-description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
+title: Access control and security for DPS with security tokens
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps by using shared access signatures and security tokens.
 author: kgremban
+
 ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/22/2021
 ms.author: kgremban
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens
@@ -30,7 +31,7 @@ When using key-based authentication, the Device Provisioning Service uses securi
 
 In some cases you may need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how to authenticate directly against the REST APIs.
 
-## Device API Authentication
+## Device API authentication
 
 The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
@@ -129,7 +130,7 @@ curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key]
 
 ```
 
-## Service API Authentication
+## Service API authentication
 
 The [Service API](/rest/api/iot-dps/service/device-registration-state) is used to retrieve registration state and remove device registrations. The service is also used by backend apps to programmatically manage both [individual groups](/rest/api/iot-dps/service/individual-enrollment) and [enrollment groups](/rest/api/iot-dps/service/enrollment-group). The Service API supports key-based authentication for backend apps.  
 
@@ -176,7 +177,7 @@ The security token has the following format:
 
 `SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
-Here are the expected values:
+Here are the expected values
 
 | Value | Description |
 | --- | --- |
@@ -217,7 +218,7 @@ As a comparison, the equivalent Python code to generate a security token is:
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
-from urllib import quote_plus, urlencode
+from urllib.parse import quote_plus, urlencode
 from hmac import HMAC
 
 def generate_sas_token(uri, key, policy_name, expiry=3600):

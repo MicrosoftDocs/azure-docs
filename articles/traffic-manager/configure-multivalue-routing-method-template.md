@@ -2,12 +2,12 @@
 title: Configure the Multivalue routing method - Azure Resource Manager template (ARM template)
 titlesuffix: Azure Traffic Manager
 description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.service: traffic-manager
 ms.topic: how-to
 ms.date: 04/28/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Configure the Multivalue routing method using an ARM Template
@@ -28,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/traffic-manager-minchild).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/traffic-manager-minchild/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-minchild/azuredeploy.json":::
 

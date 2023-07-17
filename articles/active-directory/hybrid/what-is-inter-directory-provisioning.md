@@ -1,13 +1,13 @@
 ---
-title: 'What is inter-directory provisioning with Azure Active Directory? | Microsoft Docs'
+title: 'What is inter-directory provisioning with Azure Active Directory?'
 description: Describes overview of identity inter-directory provisioning.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2020
+ms.date: 01/19/2023
 ms.subservice: compliance
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,9 +25,9 @@ Inter-directory provisioning allows us to create [hybrid identity](whatis-hybrid
 
 Azure AD currently supports three methods for accomplishing inter-directory provisioning. These methods are:
 
-- [Azure AD Connect](whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
+- [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD and is configured via the portal.
 
-- [Azure AD Connect Cloud Provisioning](../cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
+- [Azure AD Connect](whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioning to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
 
@@ -43,6 +43,6 @@ This capability of inter-directory provisioning offers the following significant
 
 ## Next steps 
 - [What is identity lifecycle management](../governance/what-is-identity-lifecycle-management.md)
-- [What is provisioning?](../governance/what-is-provisioning.md)
+- [What is provisioning?](what-is-provisioning.md)
 - [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
 - [What is app provisioning?](../app-provisioning/user-provisioning.md)

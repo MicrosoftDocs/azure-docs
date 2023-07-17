@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philema
-ms.custom: subject-rbac-steps, kr2b-contr-experiment
+ms.custom: subject-rbac-steps, kr2b-contr-experiment, devx-track-azurecli
 ---
 
 # Secure an Azure Maps account with a SAS token
@@ -305,7 +305,7 @@ The following steps describe how to create and configure an Azure Maps account w
             {
                 "name": "[parameters('accountName')]",
                 "type": "Microsoft.Maps/accounts",
-                "apiVersion": "2021-12-01-preview",
+                "apiVersion": "2023-06-01",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "[parameters('pricingTier')]"
@@ -353,7 +353,7 @@ The following steps describe how to create and configure an Azure Maps account w
                     "expiry" : "[variables('sasParameters').expiry]"
                 },
                 "properties": {
-                    "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+                    "value": "[listSas(variables('accountId'), '2023-06-01', variables('sasParameters')).accountSasToken]"
                 }
             }
         ]
@@ -409,7 +409,7 @@ az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?a
 
 You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) converts an API request into a basic client code snippet in almost any programming language or framework you choose. You can use this generated code snippet in your front-end applications.
 
-The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses the Azure Maps [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
+The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
 
 For this sample to work, make sure to run it from within the same origin as the `allowedOrigins` for the API call. For example, if you provide `https://contoso.com` as the `allowedOrigins` in the API call, the HTML page that hosts the JavaScript script should be `https://contoso.com`.
 

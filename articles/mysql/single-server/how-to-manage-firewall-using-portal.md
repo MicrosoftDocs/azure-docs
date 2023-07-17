@@ -12,9 +12,15 @@ ms.date: 06/20/2022
 # Create and manage Azure Database for MySQL firewall rules by using the Azure portal
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Server-level firewall rules can be used to manage access to an Azure Database for MySQL Server from a specified IP address or a range of IP addresses. 
 
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](how-to-manage-vnet-using-portal.md).
+
+> [!NOTE]
+> Virtual Network (VNet) rules can only be used on General Purpose or Memory Optimized tiers.
 
 ## Create a server-level firewall rule in the Azure portal
 

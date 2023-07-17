@@ -2,20 +2,17 @@
 title: Set and view configuration settings in Permissions Management
 description: How to view the Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 06/16/2023
+ms.author: jfields
 ---
 
 # Set and view configuration settings
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This topic describes how to view configuration settings, create and delete a service account, and create a role in Permissions Management.
 
@@ -30,7 +27,6 @@ The **Integrations** dashboard displays the authorization systems available to y
 1. Select an authorization system tile to view the following integration information:
 
     1. To find out more about the Permissions Management API, select **Permissions Management API**, and then select documentation.
-        <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
     1. To view information about service accounts, select **Integration**:
         - **Email**: Lists the email address of the user who created the integration.
@@ -96,9 +92,3 @@ The **Integrations** dashboard displays the authorization systems available to y
     - **Action (after the key rotation period ends)**: Select **Disable Action Key** or **No Action**.
 
 5. Click **Save**.
-
-<!---## Next steps--->
-
-<!---View integrated authorization systems](product-integrations)--->
-<!---[Installation overview](installation.md)--->
-<!---[Sign up and deploy FortSentry registration](fortsentry-registration.md)--->

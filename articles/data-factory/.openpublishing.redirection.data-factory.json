@@ -542,19 +542,69 @@
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/data-factory/wrangling-data-flow-overview.md",
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-overview.md",
             "redirect_url": "/azure/data-factory/wrangling-overview",
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/data-factory/wrangling-data-flow-functions.md",
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-functions.md",
             "redirect_url": "/azure/data-factory/wrangling-functions",
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md",
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-tutorial.md",
             "redirect_url": "/azure/data-factory/wrangling-tutorial",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/quickstart-create-data-factory-portal.md",
+            "redirect_url": "/azure/data-factory/quickstart-create-data-factory",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/scenario-ssis-migration-ssisdb-mi.md",
+            "redirect_url": "/azure/data-factory/scenario-ssis-migration-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-flow-troubleshoot-errors.md",
+            "redirect_url": "/azure/data-factory/data-flow-troubleshoot-guide",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/monitor-install-analytics.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-replication-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-partitioning-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/quickstart-create-data-factory-copy-data-tool.md",
+            "redirect_url": "/azure/data-factory/quickstart-hello-world-copy-data-tool",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/solution-template-copy-new-files-lastmodifieddate.md",
+            "redirect_url": "/azure/data-factory/solution-template-copy-new-files-last-modified-date",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-azure-synapse-analytics-artifacts.md",
+            "redirect_url": "/azure/data-factory/compute-linked-services",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-refresh-power-bi-dataset-with-airflow.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": true
           }
     ]
 }

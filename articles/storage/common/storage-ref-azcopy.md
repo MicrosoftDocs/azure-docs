@@ -1,12 +1,12 @@
 ---
-title: azcopy | Microsoft Docs
+title: azcopy
 description: This article provides reference information for the azcopy command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -59,3 +59,4 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 - [azcopy make](storage-ref-azcopy-make.md)
 - [azcopy remove](storage-ref-azcopy-remove.md)
 - [azcopy sync](storage-ref-azcopy-sync.md)
+- [azcopy set-properties](storage-ref-azcopy-set-properties.md)

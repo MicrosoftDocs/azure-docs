@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 09/09/2019
+ms.date: 07/05/2022
 ms.devlang: csharp
 ms.custom: [seodec18, devx-track-csharp, cogserv-non-critical-vision]
 ---
@@ -135,7 +135,7 @@ while (true)
 
 ## Implement the solution
 
-### Get started quickly
+### Get sample code
 
 To help get your app up and running as quickly as possible, we've implemented the system that's described in the preceding section. It's intended to be flexible enough to accommodate many scenarios, while being easy to use. To access the code, go to the [Video frame analysis sample](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) page on GitHub.
 
@@ -221,7 +221,7 @@ By using this approach, you can visualize the detected face immediately. You can
 
 ![The LiveCameraSample app displaying an image with tags](../../Video/Images/FramebyFrame.jpg)
 
-### Integrate the samples into your codebase
+### Integrate samples into your codebase
 
 To get started with this sample, do the following:
 
@@ -239,9 +239,10 @@ When you're ready to integrate the samples, reference the VideoFrameAnalyzer lib
 
 The image-, voice-, video-, and text-understanding capabilities of VideoFrameAnalyzer use Azure Cognitive Services. Microsoft receives the images, audio, video, and other data that you upload (via this app) and might use them for service-improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services.
 
-## Summary
+## Next steps
 
 In this article, you learned how to run near real-time analysis on live video streams by using the Face and Computer Vision services. You also learned how you can use our sample code to get started.
 
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) site.
 
+- [Call the Image Analysis API (how to)](call-analyze-image.md)

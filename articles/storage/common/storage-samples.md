@@ -1,14 +1,13 @@
 ---
-title: Azure Storage code samples | Microsoft Docs
+title: Azure Storage code samples
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Python, Node.js, Azure CLI, and C++ storage client libraries.
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 10/01/2020
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: sample 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Azure Storage samples
@@ -64,7 +63,7 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 |----------|---------------|-------------|
 | .NET | [.NET Client Library Reference](/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
 | Java | [Java Client Library Reference](/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
-| Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
+| Python | [Python Client Library Reference](/python/api/overview/azure/storage) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ Client Library Reference](https://azure.github.io/azure-sdk-for-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
 | Azure CLI | [Azure CLI Library Reference](/cli/azure/storage) | [Source code for the Azure CLI storage client library](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)

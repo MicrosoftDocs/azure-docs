@@ -13,13 +13,15 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
 
 ## What is a planned maintenance?
 
 Azure Database for PostgreSQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security, and software updates. For PostgreSQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
 
-A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
+A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance periods is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
 
 ## Planned maintenance - duration and customer impact
 

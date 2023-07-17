@@ -1,10 +1,10 @@
 ---
 title: Create your first function using Azure Resource Manager templates
 description: Create and deploy to Azure a simple HTTP triggered serverless function by using an Azure Resource Manager template (ARM template).
-ms.date: 06/22/2022
+ms.date: 07/19/2022
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from an ARM template
@@ -40,7 +40,12 @@ The following four Azure resources are created by this template:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
 
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 ## Deploy the template
+
+The following scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -52,7 +57,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri  $
 echo "Press [ENTER] to continue ..." &&
 read
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
@@ -74,13 +79,13 @@ If you continue to the next step and add an Azure Storage queue output binding, 
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name <RESOURCE_GROUP_NAME>
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name <RESOURCE_GROUP_NAME>

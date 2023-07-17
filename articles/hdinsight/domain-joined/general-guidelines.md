@@ -3,7 +3,7 @@ title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 05/23/2023
 ---
 
 # Enterprise security general information and guidelines in Azure HDInsight
@@ -119,7 +119,7 @@ HDInsight can't depend on on-premises domain controllers or custom domain contro
 
 ### Properties synced from Azure AD to Azure AD DS
 
-* Azure AD connect syncs from on-premise to Azure AD.
+* Azure AD connect syncs from on-premises to Azure AD.
 * Azure AD DS syncs from Azure AD.
 
 Azure AD DS syncs objects from Azure AD periodically. The Azure AD DS blade on the Azure portal displays the sync status. During each stage of sync, unique properties may get into conflict and renamed. Pay attention to the property mapping from Azure AD to Azure AD DS.

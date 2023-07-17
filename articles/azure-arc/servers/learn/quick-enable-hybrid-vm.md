@@ -2,7 +2,7 @@
 title: Quickstart - Connect hybrid machine with Azure Arc-enabled servers
 description: In this quickstart, you connect and register a hybrid machine with Azure Arc-enabled servers.
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 05/04/2023
 ms.custom: mode-other
 ---
 
@@ -12,11 +12,14 @@ Get started with [Azure Arc-enabled servers](../overview.md) to manage and gover
 
 In this quickstart, you'll deploy and configure the Azure Connected Machine agent on a Windows or Linux machine hosted outside of Azure, so that it can be managed through Azure Arc-enabled servers.
 
+> [!TIP]
+> If you prefer to try out things in a sample/practice experience, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
-* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers), or while completing the steps in this quickstart.
+* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, Microsoft.HybridConnectivity, and Microsoft.AzureArcData resource providers must be registered on your subscription. Please [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers).
 * Before you get started, be sure to review the [agent prerequisites](../prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../prerequisites.md#required-permissions).
@@ -38,7 +41,7 @@ Use the Azure portal to create a script that automates the agent download and in
 
     :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page." lightbox="media/quick-enable-hybrid-vm/add-single-server-expanded.png":::
     > [!NOTE]
-    > In the portal, you can also reach the page for adding servers by searching for and selecting "Servers - Azure Arc" and then selecting **+Add**.
+    > In the portal, you can also reach this page by searching for and selecting "Servers - Azure Arc" and then selecting **+Add**.
 
 1. Review the information on the **Prerequisites** page, then select **Next**.
 
@@ -51,8 +54,6 @@ Use the Azure portal to create a script that automates the agent download and in
    1. Select **Next**.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards. Then select **Next**.
-
-1. On the **Download and run script** page, select the **Register** button to register the required resource providers in your subscription, if you haven't already done so.
 
 1. In the **Download or copy the following script** section, review the script. If you want to make any changes, use the **Previous** button to go back and update your selections. Otherwise, select **Download** to save the script file.
 

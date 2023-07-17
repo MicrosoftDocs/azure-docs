@@ -1,14 +1,13 @@
 ---
 title: How to monitor Synapse Analytics using Azure Monitor
 description: Learn how to monitor your Synapse Analytics workspace using Azure Monitor metrics, alerts, and logs
-services: synapse-analytics 
 author: matt1883
-ms.service: synapse-analytics
-ms.topic: how-to
-ms.subservice: monitoring
-ms.date: 11/30/2020
 ms.author: mahi
-ms.reviewer: mahi
+ms.reviewer: mahi, wiassaf
+ms.date: 11/02/2022
+ms.service: synapse-analytics
+ms.subservice: monitoring
+ms.topic: how-to
 ---
 
 # Use Azure Monitor with your Azure Synapse Analytics workspace
@@ -29,50 +28,53 @@ To access these metrics, complete the instructions in [Azure Monitor data platfo
 
 Here are some of the metrics emitted by workspaces:
 
-| **Metric**                           | **Metric category, display name**                  | **Unit** | **Aggregation types** | **Description**                |
-|--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| IntegrationActivityRunsEnded         | Integration, Activity runs metric                     | Count    | Sum (default), Count                | The total number of activity runs that occurred/ended within a 1-minute window. </br></br> Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state.|
-| IntegrationPipelineRunsEnded         | Integration, Pipeline runs metric                     | Count    | Sum (default), Count                | The total number of pipeline runs that occurred/ended within a 1-minute window. </br></br> Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state. |
-| IntegrationTriggerRunsEnded          | Integration, Trigger runs metric                      | Count    | Sum (default), Count                | The total number of trigger runs that occurred/ended within a 1-minute window. </br></br> Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state. |
-| BuiltinSqlPoolDataProcessedBytes     | Built-in SQL pool, Data processed (bytes) | Byte | Sum (default) | Amount of data processed by the built-in serverless SQL pool. |
-| BuiltinSqlPoolLoginAttempts          | Built-in SQL pool, Login attempts | Count | Sum (default) | Number of login attempts for the built-in serverless SQL pool. |
-| BuiltinSqlPoolDataRequestsEnded      | Built-in SQL pool, Requests ended (bytes) | Count | Sum (default) | Number of ended SQL requests for the built-in serverless SQL pool. </br></br> Use the Result dimension of this metric to filter by final state. |
+| **Metric** | **Metric category, display name** | **Unit** | **Aggregation types** | **Description** |
+| --- | --- | --- | --- | --- |
+| IntegrationActivityRunsEnded | Integration, Activity runs metric | Count | Sum (default), Count | The total number of activity runs that occurred/ended within a 1-minute window.<br /><br />Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state. |
+| IntegrationPipelineRunsEnded | Integration, Pipeline runs metric | Count | Sum (default), Count | The total number of pipeline runs that occurred/ended within a 1-minute window.<br /><br />Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state. |
+| IntegrationTriggerRunsEnded | Integration, Trigger runs metric | Count | Sum (default), Count | The total number of trigger runs that occurred/ended within a 1-minute window.<br /><br />Use the Result dimension of this metric to filter by Succeeded, Failed, or Cancelled final state. |
+| BuiltinSqlPoolDataProcessedBytes | Built-in SQL pool, Data processed (bytes) | Byte | Sum (default) | Amount of data processed by the built-in serverless SQL pool. |
+| BuiltinSqlPoolLoginAttempts | Built-in SQL pool, Login attempts | Count | Sum (default) | Number of login attempts for the built-in serverless SQL pool. |
+| BuiltinSqlPoolDataRequestsEnded | Built-in SQL pool, Requests ended (bytes) | Count | Sum (default) | Number of ended SQL requests for the built-in serverless SQL pool.<br /><br />Use the Result dimension of this metric to filter by final state. |
 
 ### Dedicated SQL pool metrics
 
-Here are some of the metrics emitted by dedicated SQL pools:
+Here are some of the metrics emitted by dedicated SQL pools created in Azure Synapse workspaces. For metrics emitted by dedicated SQL pools (formerly SQL Data Warehouse), see [Monitoring resource utilization and query activity](../sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md).
 
-| **Metric**                           | **Display name**                  | **Unit** | **Aggregation types** | **Description**                |
-|--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| DWULimit                            | DWU limit                       | Count   | Max (default), Min, Avg | Configured size of the SQL pool |
-| DWUUsed                             | DWU used                        | Count   | Max (default), Min, Avg | Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage |
-| DWUUsedPercent                      | DWU used percentage             | Percent | Max (default), Min, Avg | Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage |
-| ConnectionsBlockedByFirewall        | Connections blocked by firewall | Count   | Sum (default)   | Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high |
-| AdaptiveCacheHitPercent             | Adaptive cache hit percentage   | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
-| AdaptiveCacheUsedPercent            | Adaptive cache used percentage  | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
-| LocalTempDBUsedPercent              | Local tempdb used percentage    | Percent | Max (default), Min, Avg | Local tempdb utilization across all compute nodes - values are emitted every five minute |
-| MemoryUsedPercent                   | Memory used percentage          | Percent | Max (default), Min, Avg | Memory utilization across all nodes in the SQL pool |
-| CPUPercent                          | CPU used percentage             | Percent | Max (default), Min, Avg | CPU utilization across all nodes in the SQL pool |
-| Connections                         | Connections                     | Count   | Sum (default)  | Count of total logins to the SQL pool |
-| ActiveQueries                      | Active queries                 | Count   | Sum (default)   | The active queries. Using this metric unfiltered and unsplit displays all active queries running on the system |
-| QueuedQueries                      | Queued queries                  | Count   | Sum (default)   | Cumulative count of requests queued after the max concurrency limit was reached |
-| WLGActiveQueries                   | Workload group active queries   | Count   | Sum (default)   | The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system |
-| WLGActiveQueriesTimeouts           | Workload group query timeouts   | Count   | Sum (default)   | Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits) |
-| WLGQueuedQueries                   | Workload group queued queries   | Count   | Sum (default)   | Cumulative count of requests queued after the max concurrency limit was reached |
-| WLGAllocationBySystemPercent        | Workload group allocation by system percent | Percent | Max (default), Min, Avg, Sum | The percentage allocation of resources relative to the entire system |
-| WLGAllocationByEffectiveCapResourcePercent   | Workload group allocation by max resource percent | Percent | Max (default), Min, Avg | Displays the percentage allocation of resources relative to the effective cap resource percent per workload group. This metric provides the effective utilization of the workload group |
-| WLGEffectiveCapResourcePercent      | Effective cap resource percent  | Percent | Max (default), Min, Avg | The effective cap resource percent for the workload group. If there are other workload groups with min_percentage_resource > 0, the effective_cap_percentage_resource is lowered proportionally |
-| WLGEffectiveMinResourcePercent      | Effective min resource percent  | Percent | Max (default), Min, Avg, Sum | The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels |
+| **Metric** | **Display name** | **Unit** | **Aggregation types** | **Description** |
+| --- | --- | --- | --- | --- |
+| DWULimit | DWU limit | Count | Max (default), Min, Avg | Configured size of the SQL pool |
+| DWUUsed | DWU used | Count | Max (default), Min, Avg | Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage |
+| DWUUsedPercent | DWU used percentage | Percent | Max (default), Min, Avg | Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage |
+| ConnectionsBlockedByFirewall | Connections blocked by firewall | Count | Sum (default) | Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high |
+| AdaptiveCacheHitPercent | Adaptive cache hit percentage | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
+| AdaptiveCacheUsedPercent | Adaptive cache used percentage | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
+| LocalTempDBUsedPercent | Local `tempdb` used percentage | Percent | Max (default), Min, Avg | Local `tempdb` utilization across all compute nodes - values are emitted every five minutes |
+| MemoryUsedPercent | Memory used percentage | Percent | Max (default), Min, Avg | Memory utilization across all nodes in the SQL pool |
+| CPUPercent | CPU used percentage | Percent | Max (default), Min, Avg | CPU utilization across all nodes in the SQL pool |
+| Connections | Connections | Count | Sum (default) | Count of total logins to the SQL pool |
+| ActiveQueries | Active queries | Count | Sum (default) | The active queries. Using this metric unfiltered and unsplit displays all active queries running on the system |
+| QueuedQueries | Queued queries | Count | Sum (default) | Cumulative count of requests queued after the max concurrency limit was reached |
+| WLGActiveQueries | Workload group active queries | Count | Sum (default) | The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system |
+| WLGActiveQueriesTimeouts | Workload group query timeouts | Count | Sum (default) | Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits) |
+| WLGQueuedQueries | Workload group queued queries | Count | Sum (default) | Cumulative count of requests queued after the max concurrency limit was reached |
+| WLGAllocationBySystemPercent | Workload group allocation by system percent | Percent | Max (default), Min, Avg, Sum | The percentage allocation of resources relative to the entire system |
+| WLGAllocationByEffectiveCapResourcePercent | Workload group allocation by max resource percent | Percent | Max (default), Min, Avg | Displays the percentage allocation of resources relative to the effective cap resource percent per workload group. This metric provides the effective utilization of the workload group |
+| WLGEffectiveCapResourcePercent | Effective cap resource percent | Percent | Max (default), Min, Avg | The effective cap resource percent for the workload group. If there are other workload groups with min_percentage_resource > 0, the effective_cap_percentage_resource is lowered proportionally |
+| WLGEffectiveMinResourcePercent | Effective min resource percent | Percent | Max (default), Min, Avg, Sum | The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels |
+
+> [!NOTE]
+> Dedicated SQL pool measures performance in compute data warehouse units (cDWUs). Even though we do not surface details of individual nodes such as memory per node or number of CPUs per node, the intent behind emitting metrics such as `MemoryUsedPercent`; `CPUPercent` etc. is to show general usage trend over a period of time. These trends will help administrators understand how an instance of dedicated SQL pool is utilized, and changes in footprint of memory and/or CPU could be a trigger for one or more actions such as scale-up or scale-down cDWUs, investigating a query (or queries) which may require optimization, etcetera.
 
 ### Apache Spark pool metrics
 
 Here are some of the metrics emitted by Apache Spark pools:
 
-| **Metric**                           | **Metric category, display name**                  | **Unit** | **Aggregation types** | **Description**                |
-|--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| BigDataPoolApplicationsEnded  | Ended Apache Spark applications  | Count | Sum (default) | Number of Apache Spark pool applications ended |
-| BigDataPoolAllocatedCores     | Number of vCores allocated to the Apache Spark pool                 | Count | Max (default), Min, Avg | Allocated vCores for an Apache Spark Pool |
-| BigDataPoolAllocatedMemory    | Amount of memory (GB) allocated to the Apache Spark pool            | Count | Max (default), Min, Avg | Allocated Memory for Apache Spark Pool (GB) |
+| **Metric** | **Metric category, display name** | **Unit** | **Aggregation types** | **Description** |
+| --- | --- | --- | --- | --- |
+| BigDataPoolApplicationsEnded | Ended Apache Spark applications | Count | Sum (default) | Number of Apache Spark pool applications ended |
+| BigDataPoolAllocatedCores | Number of vCores allocated to the Apache Spark pool | Count | Max (default), Min, Avg | Allocated vCores for an Apache Spark Pool |
+| BigDataPoolAllocatedMemory | Amount of memory (GB) allocated to the Apache Spark pool | Count | Max (default), Min, Avg | Allocated Memory for Apache Spark Pool (GB) |
 | BigDataPoolApplicationsActive | Active Apache Spark applications | Count | Max (default), Min, Avg | Number of active Apache Spark pool applications |
 
 ## Alerts
@@ -85,7 +87,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 1. Define the **alert condition** to specify when the alert should fire.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Make sure to select **All** in the **Filter by resource type** drop-down list.
 
 1. Define the **alert details** to further specify how the alert should be configured.
@@ -98,21 +100,25 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 Here are the logs emitted by Azure Synapse Analytics workspaces:
 
-| Log Analytics table name       | Log category name              | Description          |
-|--------------------------------|--------------------------------|----------------------|
-| SynapseGatewayApiRequests      | GatewayApiRequests             | Azure Synapse gateway API requests. |
-| SynapseRbacOperations          | SynapseRbacOperations          | Azure Synapse role-based access control (SRBAC) operations. |
-| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Azure Synapse built-in serverless SQL pool ended requests. |
-| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Azure Synapse integration pipeline runs. |
-| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | Azure Synapse integration activity runs. |
-| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Azure Synapse integration trigger runs. |
+| Log Analytics table name | Log category name | Description |
+| --- | --- | --- |
+| SynapseGatewayApiRequests | GatewayApiRequests | Azure Synapse gateway API requests. |
+| SynapseRbacOperations | SynapseRbacOperations | Azure Synapse role-based access control (SRBAC) operations. |
+| SynapseBuiltinSqlPoolRequestsEnded | BuiltinSqlReqsEnded | Azure Synapse built-in serverless SQL pool ended requests. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns | Azure Synapse integration pipeline runs. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns | Azure Synapse integration activity runs. |
+| SynapseIntegrationTriggerRuns | IntegrationTriggerRuns | Azure Synapse integration trigger runs. |
+
+   > [!NOTE]  
+   > The event **SynapseBuiltinSqlPoolRequestsEnded** is only emitted for queries that read data from storage. It will not be emitted for queries that only process metadata.
+
 
 ### Dedicated SQL pool logs
 
 Here are the logs emitted by dedicated SQL pools:
 
-| Log Analytics table name        | Log category name             | Description |
-|----------------------|--------------------------------------|-------------|
+| Log Analytics table name | Log category name | Description |
+| --- | --- | --- |
 | SynapseSqlPoolExecRequests  | ExecRequests | Information about SQL requests/queries in an Azure Synapse dedicated SQL pool.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Information about workers completing DMS steps in an Azure Synapse dedicated SQL pool.
 | SynapseSqlPoolRequestSteps  | RequestSteps | Information about request steps that compose a given SQL request/query in an Azure Synapse dedicated SQL pool.
@@ -130,8 +136,8 @@ For more information on these logs, see the following information:
 
 Here is the log emitted by Apache Spark pools:
 
-| Log Analytics table name               | Log category name              | Description                 |
-|-----------------------------|---------------------------------------|-----------------------------|
+| Log Analytics table name | Log category name | Description |
+| --- | --- | --- |
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | Information about ended Apache Spark applications |
 
 ### Diagnostic settings
@@ -148,12 +154,12 @@ Use diagnostic settings to configure diagnostic logs for non-compute resources. 
 With Azure Monitor diagnostic settings, you can route diagnostic logs for analysis to multiple different targets.
 
 * **Storage account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
+* **Event Hubs**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
 * **Log Analytics workspace**: Analyze the logs with Log Analytics. The Azure Synapse integration with Log Analytics is useful in the following scenarios:
   * You want to write complex queries on a rich set of metrics that are published by Azure Synapse to Log Analytics. You can create custom alerts on these queries via Azure Monitor.
   * You want to monitor across workspaces. You can route data from multiple workspaces to a single Log Analytics workspace.
 
-You can also use a storage account or Event Hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
+You can also use a storage account or Event Hubs namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
 
 #### Configure diagnostic settings
 
@@ -169,7 +175,7 @@ Create or add diagnostic settings for your workspace, dedicated SQL pool, or Apa
 
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
@@ -178,8 +184,8 @@ After a few moments, the new setting appears in your list of settings for your w
 
 ## Next steps
 
-For more information on monitoring pipeline runs, see the [Monitor pipeline runs in Synapse Studio](how-to-monitor-pipeline-runs.md) article. 
+- For more information on monitoring pipeline runs, see the [Monitor pipeline runs in Synapse Studio](how-to-monitor-pipeline-runs.md) article.
 
-For more information on monitoring Apache Spark applications, see the [Monitor Apache Spark applications in Synapse Studio](apache-spark-applications.md) article.
+- For more information on monitoring Apache Spark applications, see the [Monitor Apache Spark applications in Synapse Studio](apache-spark-applications.md) article.
 
-For more information on monitoring SQL requests, see the [Monitor SQL requests in Synapse Studio](how-to-monitor-sql-requests.md) article.
+- For more information on monitoring SQL requests, see the [Monitor SQL requests in Synapse Studio](how-to-monitor-sql-requests.md) article.

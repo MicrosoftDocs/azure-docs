@@ -4,18 +4,18 @@ title: Azure Container Registry documentation # < 60 chars
 summary: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers.
 
 metadata:
-  title: Azure Container Registry documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn about Azure's private registry service to host Docker container images and related artifacts. Azure Container Registry service also supports ACR Tasks, a suite of services to build, manage, and patch container images. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Container Registry documentation
+  description: Learn about Azure's private registry service to host Docker container images and related artifacts. Azure Container Registry service also supports ACR Tasks, a suite of services to build, manage, and patch container images.
   services: container-registry
-  ms.service: container-registry #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: container-registry
   ms.subservice: subservice
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: dlepow #Required; your GitHub user alias, with correct capitalization.
-  ms.author: danlep #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/08/2019 #Required; mm/dd/yyyy format.
+  author: tejaswikolli-web
+  ms.author: tejaswikolli
+  ms.date: 11/08/2019
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new 
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -47,7 +47,7 @@ landingContent:
     - linkListType: learn 
       links:
           - text: Build and store container images with Azure Container Registry
-            url: /learn/modules/build-and-store-container-images/
+            url: /training/modules/build-and-store-container-images/
     - linkListType: video
       links:
           - text: Azure Container Registry videos
@@ -79,6 +79,21 @@ landingContent:
             url: container-registry-authentication.md
           - text: Best practices
             url: container-registry-best-practices.md
+  # Card   
+  - title: Troubleshoot guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot authentication issues
+            url: container-registry-troubleshoot-login.md
+          - text: Troubleshoot network issues
+            url: container-registry-troubleshoot-access.md
+          - text: Troubleshoot performance issues
+            url: container-registry-troubleshoot-performance.md
+          - text: Detect common issues
+            url: container-registry-check-health.md
+          - text: ACR Technical Support policies
+            url: container-registry-check-health.md
           - text: FAQ
             url: container-registry-faq.yml
   # Card (optional)
@@ -112,3 +127,13 @@ landingContent:
             url: quickstart-connected-registry-cli.md
           - text: Create a connected registry - Portal
             url: quickstart-connected-registry-portal.md
+
+
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Push and pull supply chain artifacts (Preview)
+            url: container-registry-oras-artifacts.md
+          - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
+            url: container-registry-tutorial-sign-build-push.md

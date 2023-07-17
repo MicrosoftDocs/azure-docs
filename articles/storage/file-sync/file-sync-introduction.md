@@ -1,12 +1,11 @@
 ---
-title: Introduction to Azure File Sync | Microsoft Docs
+title: Introduction to Azure File Sync
 description: An overview of Azure File Sync, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/14/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # What is Azure File Sync?
@@ -35,7 +34,22 @@ Azure File Sync is backed by Azure Files, which offers several redundancy option
 
 ### Cloud-side backup
 
-Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. Azure Files SMB shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
+Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. SMB Azure file shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
+
+## Training
+
+For self-paced training, see the following modules:
+
+- [Implement a hybrid file server infrastructure](/training/modules/implement-hybrid-file-server-infrastructure/)
+- [Extend your on-premises file share capacity using Azure File Sync](/training/modules/extend-share-capacity-with-azure-file-sync/)
+
+## Architecture
+
+For guidance on architecting solutions with Azure Files and Azure File Sync using established patterns and practices, see the following:
+
+- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
+- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
 
 ## Next Steps
 

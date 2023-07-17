@@ -8,20 +8,21 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Quickstart: Azure Key Vault keys client library for Go
 
 In this quickstart, you'll learn to use the Azure SDK for Go to create, retrieve, update, list, and delete Azure Key Vault keys.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md). 
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md).
 
-Follow this guide to learn how to use the [azkeys](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys) package to manage your Azure Key Vault keys using Go.
+Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyvault-keys/docs) package to manage your Azure Key Vault keys using Go.
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- **Go installed**: Version 1.16 or [above](https://go.dev/dl/)
+- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 
@@ -68,7 +69,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
@@ -86,60 +86,68 @@ func main() {
 	}
 
 	// create azkeys client
-	client, err := azkeys.NewClient(keyVaultUrl, cred, nil)
-	if err != nil {
-		log.Fatalf("failed to connect to client: %v", err)
-	}
+	client := azkeys.NewClient(keyVaultUrl, cred, nil)
+
 	// create RSA Key
-	rsaResp, err := client.CreateRSAKey(context.TODO(), "new-rsa-key", &azkeys.CreateRSAKeyOptions{KeySize: to.Int32Ptr(2048)})
+	rsaKeyParams := azkeys.CreateKeyParameters{
+		Kty:     to.Ptr(azkeys.JSONWebKeyTypeRSA),
+		KeySize: to.Ptr(int32(2048)),
+	}
+	rsaResp, err := client.CreateKey(context.TODO(), "new-rsa-key", rsaKeyParams, nil)
 	if err != nil {
 		log.Fatalf("failed to create rsa key: %v", err)
 	}
-	fmt.Printf("Key ID: %s: Key Type: %s\n", *rsaResp.Key.ID, *rsaResp.Key.KeyType)
+	fmt.Printf("New RSA key ID: %s\n", *rsaResp.Key.KID)
 
 	// create EC Key
-	ecResp, err := client.CreateECKey(context.TODO(), "new-ec-key", &azkeys.CreateECKeyOptions{CurveName: azkeys.JSONWebKeyCurveNameP256.ToPtr()})
+	ecKeyParams := azkeys.CreateKeyParameters{
+		Kty:   to.Ptr(azkeys.JSONWebKeyTypeEC),
+		Curve: to.Ptr(azkeys.JSONWebKeyCurveNameP256),
+	}
+	ecResp, err := client.CreateKey(context.TODO(), "new-ec-key", ecKeyParams, nil)
 	if err != nil {
 		log.Fatalf("failed to create ec key: %v", err)
 	}
-	fmt.Printf("Key ID: %s: Key Type: %s\n", *ecResp.Key.ID, *ecResp.Key.KeyType)
+	fmt.Printf("New EC key ID: %s\n", *ecResp.Key.KID)
 
 	// list all vault keys
 	fmt.Println("List all vault keys:")
-	pager := client.ListKeys(nil)
-	for pager.NextPage(context.TODO()) {
-		for _, key := range pager.PageResponse().Keys {
+	pager := client.NewListKeysPager(nil)
+	for pager.More() {
+		page, err := pager.NextPage(context.TODO())
+		if err != nil {
+			log.Fatal(err)
+		}
+		for _, key := range page.Value {
 			fmt.Println(*key.KID)
 		}
 	}
 
-	if pager.Err() != nil {
-		panic(pager.Err())
-	}
-
-	//update key properties to disable key
-	updateResp, err := client.UpdateKeyProperties(context.TODO(), "new-rsa-key", &azkeys.UpdateKeyPropertiesOptions{
+	// update key properties to disable key
+	updateParams := azkeys.UpdateKeyParameters{
 		KeyAttributes: &azkeys.KeyAttributes{
-			Attributes: azkeys.Attributes{
-				Enabled: to.BoolPtr(false),
-			},
+			Enabled: to.Ptr(false),
 		},
-	})
+	}
+	// an empty string version updates the latest version of the key
+	version := ""
+	updateResp, err := client.UpdateKey(context.TODO(), "new-rsa-key", version, updateParams, nil)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Key %s Enabled attribute set to: %t\n", *updateResp.Key.ID, *updateResp.Attributes.Enabled)
+	fmt.Printf("Key %s Enabled attribute set to: %t\n", *updateResp.Key.KID, *updateResp.Attributes.Enabled)
 
-	// delete rsa key
-	delResp, err := client.BeginDeleteKey(context.TODO(), "new-rsa-key", nil)
-	if err != nil {
-		panic(err)
+	// delete the created keys
+	for _, keyName := range []string{"new-rsa-key", "new-ec-key"} {
+		// DeleteKey returns when Key Vault has begun deleting the key. That can take several
+		// seconds to complete, so it may be necessary to wait before performing other operations
+		// on the deleted key.
+		delResp, err := client.DeleteKey(context.TODO(), keyName, nil)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Printf("Successfully deleted key %s", *delResp.Key.KID)
 	}
-	pollResp, err := delResp.PollUntilDone(context.TODO(), 1*time.Second)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("Successfully deleted key %s", *pollResp.Key.ID)
 }
 ```
 
@@ -170,103 +178,11 @@ Successfully deleted key https://quickstart-kv.vault.azure.net/keys/new-rsa-key4
 ```
 
 > [!NOTE]
-> The output is for informational purposes only. Your returns values may vary based on your Azure subscription and Azure Key Vault.
+> The output is for informational purposes only. Your return values may vary based on your Azure subscription and Azure Key Vault.
 
 ## Code examples
 
-These code examples show how to create, retrieve, list, update key properties, and delete a key from Azure Key Vault.
-
-**Authenticate and create a client**
-
-```go
-cred, err := azidentity.NewDefaultAzureCredential(nil)
-if err != nil {
-    log.Fatalf("failed to obtain a credential: %v", err)
-}
-
-client, err := azkeys.NewClient("https://keyVaultName.vault.azure.net/", cred, nil)
-if err != nil {
-    log.Fatalf("failed to create a client: %v", err)
-}
-```
-
-If you used a different Key Vault name, replace keyVaultName with your vault's name.
-
-**Create a key**
-
-```go
-//RSA Key
-resp, err := client.CreateRSAKey(context.TODO(), "new-rsa-key", &azkeys.CreateRSAKeyOptions{KeySize: to.Int32Ptr(2048)})
-if err != nil {
-
-}
-fmt.Println(*resp.Key.ID)
-fmt.Println(*resp.Key.KeyType)
-
-//EC key
-resp, err := client.CreateECKey(context.TODO(), "new-ec-key", &azkeys.CreateECKeyOptions{CurveName: azkeys.JSONWebKeyCurveNameP256.ToPtr()})
-if err != nil {
-  panic(err)
-}
-fmt.Println(*resp.Key.ID)
-fmt.Println(*resp.Key.KeyType)
-```
-
-**Get a key**
-
-```go
-resp, err := client.GetKey(context.TODO(), "new-rsa-key", nil)
-if err != nil {
-  panic(err)
-}
-fmt.Println(*resp.Key.ID)
-```
-
-**List all keys**
-
-```go
-pager := client.ListKeys(nil)
-for pager.NextPage(context.TODO()) {
-    for _, key := range pager.PageResponse().Keys {
-        fmt.Println(*key.KID)
-    }
-}
-
-if pager.Err() != nil {
-    panic(pager.Err())
-}
-```
-
-**Update a key properties**
-
-```go
-resp, err := client.UpdateKeyProperties(context.TODO(), "new-rsa-key", &azkeys.UpdateKeyPropertiesOptions{
-  KeyAttributes: &azkeys.KeyAttributes{
-    Attributes: azkeys.Attributes{
-      Enabled: to.BoolPtr(false),
-    },
-  },
-})
-if err != nil {
-  panic(err)
-}
-fmt.Println(*resp.Attributes.Enabled)
-```
-
-**Delete a key**
-
-```go
-resp, err := client.BeginDeleteKey(context.TODO(), "new-rsa-key", nil)
-if err != nil {
-    panic(err)
-}
-pollResp, err := resp.PollUntilDone(context.TODO(), 1*time.Second)
-if err != nil {
-    panic(err)
-}
-fmt.Printf("Successfully deleted key %s", *pollResp.Key.ID)
-```
-
+See the [module documentation](https://aka.ms/azsdk/go/keyvault-keys/docs) for more examples.
 
 ## Clean up resources
 

@@ -8,13 +8,13 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 02/08/2023
 ms.custom: subject-monitoring
 ---
 
 # Azure Cognitive Search monitoring data reference
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cognitive Search. See [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) for details on collecting and analyzing monitoring data for your search service.
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cognitive Search. See [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) for an overview.
 
 ## Metrics
 
@@ -88,7 +88,7 @@ The following table lists common operations related to Azure Cognitive Search th
 | Get Query Key | Any read-only operation against the documents collection of an index.  |
 | Regenerate Admin Key | A request to regenerate either the primary or secondary admin API key. |
 
-Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging. 
+Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure resource logging. 
 
 Alternatively, you might gain some insight through change history. In Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 

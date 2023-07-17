@@ -1,12 +1,10 @@
 ---
 title: Use Azure portal to monitor a managed app
 description: Shows how to use the Azure portal to monitor availability and alerts for a managed application.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.author: tomfitz
 ---
+
 # Monitor a deployed instance of a managed application
 
 After you've deployed a managed application to your Azure subscription, you may want to check the status of the application. This article shows options in the Azure portal for checking the status. You can monitor the availability of the resources in your managed application. You can also set up and view alerts.
