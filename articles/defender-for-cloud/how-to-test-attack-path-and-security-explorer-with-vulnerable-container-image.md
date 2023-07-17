@@ -3,7 +3,7 @@ title: How-to test the attack path and security explorer using a vulnerable cont
 description: Learn how to test the attack path and security explorer using a vulnerable container image
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 06/25/2023
+ms.date: 07/17/2023
 ---
 
 # Testing the Attack Path and Security Explorer using a vulnerable container image
@@ -38,7 +38,7 @@ If there are no entries in the list of attack paths, you can still test this fea
         ```
         az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 
-1. Allow work on a cluster:
+1. Authenticate your Cloud Shell session to work with the cluster:
     
     ```
     az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>
@@ -58,22 +58,37 @@ If there are no entries in the list of attack paths, you can still test this fea
 > [!NOTE]
 > After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
 
-1. Query the Cloud Security Explorer for containers images that are vulnerable.
+## Investigate internet exposed Kubernetes pods through the Cloud Security Explorer
 
-    :::image type="content" source="media/how-to-test-attack-path/query-images-with-vulnerabilities.png" alt-text="Screenshot of building a query in Cloud Security Explorer." lightbox="media/how-to-test-attack-path/query-images-with-vulnerabilities.png":::
+You can build queries with cloud security explorer in one of two ways:
 
-1. Find this security issue under attack paths:
+- [Find the security issue under attack paths](#find-this-security-issue-under-attack-paths)
+- [Create a query using the built-in templates](#create-a-query-using-the-built-in-templates)
+- [Create custom queries with cloud security explorer](#create-custom-queries-with-cloud-security-explorer)
 
-    1.	Go to **Recommendations** in the Defender for Cloud menu.
-    1.	Select on the **Attack Path** link to open the Attack Paths view.
+### Find this security issue under attack paths
 
-        :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/how-to-test-attack-path/attack-path.png":::
+1.Go to **Recommendations** in the Defender for Cloud menu.
+1. Select the **Attack Path** link to open the Attack Paths view.
 
-    1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities”.
+    :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/how-to-test-attack-path/attack-path.png":::
 
-        :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png"::: 
+1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities”.
 
- Depending on the way you connected the container to the internet, the issue can be alternatively be found under “Try triggering another attack path: an AKS pod with host network access is running a container with a vulnerability that can be exploited remotely." 
+   :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png"::: 
+
+### Create a query using the built-in templates
+
+1. From the Defender for Cloud overview page, open the Cloud Security Explorer (Preview) page.
+
+1. Some out of the box templates for Kubernetes appear. Select one of the templates:
+
+  - **Azure Kubernetes pods running images with high severity vulnerabilities.**
+  - **Kubernetes namespaces contain vulnerable pods**
+
+1. Select **Open query**, then select **Search** to view the results.
+
+### Create custom queries with cloud security explorer.   
 
 ## Next Steps 
 
