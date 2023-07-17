@@ -252,7 +252,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    .\AzureMfaNpsExtnConfigSetup.ps1
    ```
 
-1. When prompted, sign in to Azure AD as an administrator.
+1. When prompted, sign in to Azure AD as a Global administrator.
 1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
 1. A success message is shown when the script is finished.  
 

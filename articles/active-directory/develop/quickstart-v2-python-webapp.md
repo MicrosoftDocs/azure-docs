@@ -96,7 +96,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > import msal
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 
