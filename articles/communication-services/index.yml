@@ -106,6 +106,15 @@ productDirectory:
         text: How to set up a phone number
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
+  - title: Advanced Messaging
+    imageSrc: ./media/icons/whatsapp-icon.svg
+    links:
+      - url: ./concepts/advancedmessaging/whatsapp/whatsapp-overview.md
+        text: AdvancedMessaging for Whatsapp concepts
+      - url: ./quickstarts/advancedmessaging/whatsapp/get-started.md
+        text: Add Advanced Messages SDK to your App
+      - url: ./quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
+        text: Register Whatsapp Business Account
         
 #------------------------------------------------------------------
 additionalContent:
