@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Dagster Cloud with Admin permissions.
+* A user account in Dagster Cloud with Org Admin permissions.
 
 
 ## Step 1. Plan your provisioning deployment
@@ -42,7 +42,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Dagster Cloud](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Dagster Cloud to support provisioning with Azure AD
-Contact Dagster Cloud  support to configure Dagster Cloud  to support provisioning with Azure AD.
+1. Sign in to your Dagster Cloud account.
+1. Click the **user menu (your icon) > Cloud Settings**.
+1. Click the **Provisioning** tab.
+1. If SCIM provisioning isn't enabled, click the **Enable SCIM provisioning** button to enable it.
+1. Click **Create SCIM token** to create an API token. This token will be used to authenticate requests from Azure AD to Dagster Cloud.
+Keep the API token handy - you'll need it later in step 5.
 
 ## Step 3. Add Dagster Cloud from the Azure AD application gallery
 
@@ -79,7 +84,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Dagster Cloud Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Dagster Cloud.
+1. Under the **Admin Credentials** section, input your Dagster Cloud Tenant URL and Secret Token. The Tenant URL is `https://*your-org-name*.dagster.cloud/scim/v2` and the Secret Token is the SCIM token you created in step 2 above. Click **Test Connection** to ensure Azure AD can connect to Dagster Cloud.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
