@@ -1,19 +1,22 @@
 ---
-title: COUNT in Azure Cosmos DB query language
-description: Learn about the Count (COUNT) SQL system function in Azure Cosmos DB.
-author: seesharprun
+title: COUNT 
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that counts the number of occurrences of a value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 12/02/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/17/2023
+ms.custom: query-reference
 ---
-# COUNT (Azure Cosmos DB)
+
+# COUNT (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This system function returns the count of the values in the expression.
+Returns the count of the values in the expression.
   
 ## Syntax
   
@@ -22,35 +25,39 @@ COUNT(<scalar_expr>)
 ```  
   
 ## Arguments
-  
-*scalar_expr*  
-   Any expression that results in a scalar value
+
+| | Description |
+| --- | --- |
+| **`scalar_expr`** | A scalar expression. |
   
 ## Return types
   
-Returns a numeric (scalar) value
+Returns a numeric scalar value.
   
 ## Examples
   
-The following example returns the total count of items in a container:
-  
-```sql
-SELECT COUNT(1)
-FROM c
-```
+This first example passes in either a scalar value or a numeric expression to the `COUNT` function. The expression is evaluated first to a scalar, making the result of both uses of the function the same value.
 
-In the first example, the parameter of the `COUNT` function is any scalar value or expression, but the parameter does not influence the result. The first example passes in a scalar value of `1` to the `COUNT` function. This second example will produce an identical result even though a different scalar expression is used. In the second example, the scalar expression of `2 + 3` is passed in to the `COUNT` function, but the result will be equivalent to the first function.
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/count-expression/query.sql" highlight="2-3":::
 
-```sql
-SELECT COUNT(2 + 3)
-FROM c
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/count-expression/result.json":::
+
+This next example assumes that there's a container with two items with a `/category` value of `socks`.
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/count/seed.json" range="1-2,4-7,9-12" highlight="5,10":::
+
+In this example, the function counts the number of times the specified scalar field occurs in the filtered data. Here, the function looks for the number of times the `/name` field occurs which is two out of three times.
+
+:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/query.sql" higlight="2":::
+
+:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
+- This function benefit from a [range index](../../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
 
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)
+- [`AVG`](average.md)
