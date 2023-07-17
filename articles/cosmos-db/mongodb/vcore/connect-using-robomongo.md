@@ -8,7 +8,7 @@ ms.date: 07/07/2023
 author: lucasbfernandes
 ms.author: lucasbo
 ---
-# Use Studio 3T with Azure Cosmos DB's API for MongoDB vCore
+# Use Studio 3T to connect to Azure Cosmos DB for MongoDB vCore
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
 Studio 3T (also known as Robomongo or Robo 3T) is a professional GUI that offers IDE & client tools for MongoDB. It's a great tool to speed up MongoDB development with a friendly user interface. In order to connect to your Azure Cosmos DB for MongoDB vCore cluster using Studio 3T, you must:
