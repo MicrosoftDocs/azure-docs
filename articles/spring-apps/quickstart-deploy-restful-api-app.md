@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article explains how to deploy a RESTful API application protected by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
 The sample project is a simplified version based on the [Simple Todo] web application (https://github.com/Azure-Samples/ASA-Samples-Web-Application), 
@@ -39,7 +39,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant).
+- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 
 [!INCLUDE [deploy-rest-api-app-with-basic-standard-plan](includes/quickstart-deploy-restful-api-app/deploy-rest-api-with-basic-standard-plan.md)]
 
@@ -72,11 +72,11 @@ This section provides the steps to register an application in Azure AD, which is
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire access token.
 
 1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, 
-   then select the Permissions **ToDo.Read**, **Todo.Write** and **Todo.Delete**, and select **Add permissions**.
+   then select the Permissions **ToDo.Read**, **ToDo.Write** and **ToDo.Delete**, and select **Add permissions**.
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
-:::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
+   :::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
 
 1. Navigate to **Certificates & secrets** and select the **New client secret**. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and select **Add**. 
 
@@ -112,7 +112,7 @@ This section provides the steps to use [OAuth 2.0 Resource Owner Password Creden
    export USERNAME=<user-principal-name>
    export PASSWORD='<user-password>'
    export TENANT_ID=<tenant-ID-of-your-Azure-AD>
-   export SCOPE=api://simple-todo/SimpleToDo.Read%20api://simple-todo/ToDo.Write%20api://simple-todo/ToDo.Delete
+   export SCOPE=api://simple-todo/ToDo.Read%20api://simple-todo/ToDo.Write%20api://simple-todo/ToDo.Delete
    curl -H "Content-Type: application/x-www-form-urlencoded" \
      -d "grant_type=password&client_id=${CLIENT_ID}&scope=${SCOPE}&client_secret=${CLIENT_SECRET}&username=${USERNAME}&password=${PASSWORD}" \
      "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
@@ -127,17 +127,17 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 1. Define the following variables for HTTP requests:
    
    ```shell
-   export SPRING_APPS_NAME=<Azure-Spring-Apps-instance-name>
+   export EXPOSED_APPLICATION_URL=<your-app-exposed-application-url>
    export BEARER_TOKEN=<access-token-from-previous-step>
    ```
    
 1. Ordinary users create a ToDo list:
 
    ```shell
-   curl -X POST https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists \
+   curl -X POST ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d '{"name":"My List"}'
+    -d "{\"name\":\"My List\"}"
    ```
 
    After the addition is successful, the ToDo list information will be returned.
@@ -150,7 +150,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 
    ```shell
    export LIST_ID=<ID-of-the-ToDo-list>
-   curl -X POST https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items \
+   curl -X POST ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${BEARER_TOKEN}" \
     -d "{\"name\":\"My first ToDo item\",\"listId\":\"${LIST_ID}\",\"state\":\"todo\"}"
@@ -165,7 +165,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 1. Anonymous users query ToDo list:
 
    ```shell
-   curl -X GET https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists
+   curl -X GET ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists
    ```
 
    Return ToDo list:
@@ -177,7 +177,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 1. Anonymous users query Todo items within the specified list:
 
    ```shell
-   curl -X GET https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items
+   curl -X GET ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items
    ```
 
    Return ToDo item:
@@ -190,7 +190,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 
    ```shell
    export ITEM_ID=<ID-of-the-ToDo-item>
-   curl -X PUT https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
+   curl -X PUT ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${BEARER_TOKEN}" \
     -d "{\"id\":\"${ITEM_ID}\",\"listId\":\"${LIST_ID}\",\"name\":\"My first ToDo item\",\"description\":\"Updated description.\",\"dueDate\":\"2023-07-11T13:59:24.903307+08:00\",\"state\":\"inprogress\"}"
@@ -205,7 +205,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 1. Admin users delete a ToDo item within a list:
 
    ```shell
-   curl -i -X DELETE https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
+   curl -i -X DELETE ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
     -H "Authorization: Bearer ${BEARER_TOKEN}"
    ```
    
