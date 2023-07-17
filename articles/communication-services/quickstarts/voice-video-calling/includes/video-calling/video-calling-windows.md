@@ -29,7 +29,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior version. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
