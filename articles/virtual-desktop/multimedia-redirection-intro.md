@@ -13,7 +13,7 @@ manager: femila
 > Call redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature.
+Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
 Multimedia redirection has two key components:
 
@@ -25,17 +25,6 @@ Call redirection only affects the connection between the local client device and
 :::image type="content" source="media/multimedia-redirection-intro/call-redirection.png" alt-text="A diagram depicting the relationship between the telephony web app server, the Azure Virtual Desktop user, the web app, and other callers." lightbox="media/multimedia-redirection-intro/call-redirection.png":::
 
 Call redirection offloads WebRTC calls from session hosts to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call.
-
-## Prerequisites
-
-In order to use multimedia redirection for Azure Virtual Desktop, you need:
-
-- The Windows Desktop client.
-- A Windows 11, Windows 10, or Windows 10 IoT Enterprise device.
-
-To use multimedia redirection video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](whats-new-client-windows.md). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
-
-To use multimedia redirection call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
 ## Websites that work with multimedia redirection
 
