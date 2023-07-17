@@ -395,7 +395,11 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
+
 ## Related information
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- Log Filename API's for Calling SDK
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)
+
+
