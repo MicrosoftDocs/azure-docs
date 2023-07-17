@@ -17,7 +17,8 @@ This guide assumes you're following the "managed by ALB controller" deployment s
 ## Prerequisites
 
 > [!IMPORTANT]
-> Application Gateway for Containers is currently in [Private Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+> Application Gateway for Containers is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't yet deployed the ALB Controller.
 
