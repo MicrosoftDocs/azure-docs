@@ -50,8 +50,8 @@ For this example, the `MIN` function is used in a query that includes the numeri
 
 - This function benefits from a [range index](../../index-policy.md#includeexclude-strategy). 
 - The arguments in `MIN` can be number, string, boolean, or null.
-- Any `undefined` values will be ignored.
-- When comparing different types of data, the following priority order is used (in ascending order):
+- Any `undefined` values are ignored.
+- The following priority order is used (in ascending order), when comparing different types of data:
    1. null
    1. boolean
    1. number
