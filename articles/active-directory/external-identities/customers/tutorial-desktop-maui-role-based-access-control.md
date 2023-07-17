@@ -34,15 +34,31 @@ The .NET MAUI needs to check for the app roles claims in the ID token to impleme
 
 In this tutorial series, you created a .NET MAUI app where you developed the [_ClaimsView.xaml.cs_](tutorial-desktop-app-maui-sign-in-sign-out.md#handle-the-claimsview-data) to handle `ClaimsView` data. In this file, we inspect the contents of ID tokens. The value of the roles claim is checked in the following code snippet:
 
-```csharp
-IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Value);
-```
-
-To access the role claim only, you can modify the code snippet as follows:
+To access the role claim, you can modify the code snippet as follows:
 
 ```csharp
-IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Type == "roles")?.Value;
+    var idToken = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.IdToken;
+    var handler = new JwtSecurityTokenHandler();
+    var token = handler.ReadJwtToken(idToken);
+    // Get the role claim value
+    var roleClaim = token.Claims.FirstOrDefault(c => c.Type == "roles")?.Value;
+
+    if (!string.IsNullOrEmpty(roleClaim))
+    {
+        // If the role claim exists, add it to the IdTokenClaims
+        IdTokenClaims = new List<string> { roleClaim };
+    }
+    else
+    {
+        // If the role claim doesn't exist, add a message indicating that no role claim was found
+        IdTokenClaims = new List<string> { "No role claim found in ID token" };
+    }
+
+    Claims.ItemsSource = IdTokenClaims;
 ```
+
+> [!NOTE] 
+> To read the Id token, you must install the `System.IdentityModel.Tokens.Jwt` package.
 
 If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as `Orders.Manager, Store.Manager,...`. Make sure you build your application to handle the following conditions:
 
