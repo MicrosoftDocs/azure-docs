@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 06/13/2023
+ms.date: 06/22/2023
 ms.custom: template-quickstart, ignite-2022
 ---
 
@@ -17,7 +17,7 @@ A DDoS protection plan defines a set of virtual networks that have DDoS Network 
 
 In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram.png" alt-text="Diagram of DDoS Network Protection.":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection.":::
 
 ## Prerequisites
 

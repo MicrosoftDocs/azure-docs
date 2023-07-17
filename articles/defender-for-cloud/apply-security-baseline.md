@@ -1,13 +1,14 @@
 ---
-title: Harden your Windows and Linux OS with Azure security baseline and Microsoft Defender for Cloud
+title: Review hardening recommendations
 description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Microsoft cloud security benchmark
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 06/27/2023
 ---
-# Apply Azure security baselines to machines
+
+# Review hardening recommendations
 
 To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
@@ -63,36 +64,6 @@ To compare machines with the OS security baselines:
     - To view the list of machines that have been assessed, open **Affected resources**.
     - To view the list of findings for one machine, select a machine from the **Unhealthy resources** tab. A page will open listing only the findings for that machine.
 
-## FAQ - Hardening an OS according to the security baseline
-
-- [Apply Azure security baselines to machines](#apply-azure-security-baselines-to-machines)
-  - [Availability](#availability)
-  - [What are the hardening recommendations?](#what-are-the-hardening-recommendations)
-  - [Compare machines in your subscriptions with the OS security baselines](#compare-machines-in-your-subscriptions-with-the-os-security-baselines)
-  - [FAQ - Hardening an OS according to the security baseline](#faq---hardening-an-os-according-to-the-security-baseline)
-    - [How do I deploy the prerequisites for the security configuration recommendations?](#how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations)
-    - [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
-  - [Next steps](#next-steps)
-
-### How do I deploy the prerequisites for the security configuration recommendations?
-
-To deploy the Guest Configuration extension with its prerequisites:
-
-- For selected machines, follow the security recommendation **Guest Configuration extension should be installed on your machines** from the **Implement security best practices** security control.
-
-- At scale, assign the policy initiative **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
-
-### Why is a machine shown as not applicable?
-
-The list of resources in the **Not applicable** tab includes a **Reason** column. Some of the common reasons include:
-
-| Reason                                                            | Details                                                                                                                                                                        |
-|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **No scan data available on the machine**                         | There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension. You can check the data in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration).|
-| **Guest Configuration extension is not installed on the machine** | The machine is missing the Guest Configuration extension, which is a prerequisite for assessing the compliance with the Azure security baseline.                               |
-| **System managed identity is not configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
-| **The recommendation is disabled in policy**                      | The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine.                                                               |
-
 ## Next steps
 
 In this document, you learned how to use Defender for Cloud's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
@@ -102,3 +73,4 @@ To learn more about these configuration settings, see:
 - [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md)
 - [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md)
 - [Microsoft cloud security benchmark](/security/benchmark/azure/overview)
+- Check out [common questions](faq-defender-for-servers.yml) about Defender for Servers.

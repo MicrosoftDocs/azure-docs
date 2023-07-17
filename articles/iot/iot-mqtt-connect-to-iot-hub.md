@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 06/27/2023
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
 ---
@@ -31,10 +31,10 @@ The following table explains the differences in MQTT support between the two ser
 | IoT Hub | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
-| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). Additional feature support is not planned. | MQTT v3.1.1 and v5 protocol support, with additional feature support and industry compliance planned. |
-| Static, pre-defined topics. | Custom hierarchical topics with wildcard support. |
+| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
+| Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts and device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
-| 256kb max message size. | 512kb max message size. |
+| 256-kb max message size. | 512-kb max message size. |
 
 ## Connecting to IoT Hub
 
@@ -179,7 +179,7 @@ For more information about using MQTT with modules, see [Publish and subscribe w
 
 ## Samples using MQTT without an Azure IoT SDK
 
-The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample), contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
+The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample) contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
 
 The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
 
@@ -189,7 +189,7 @@ To learn more, see [Tutorial - Use MQTT to develop an IoT device client](../iot-
 
 To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
-In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This certificate is the one that Azure uses to secure the connection. You can find this certificate in the [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) repository. More information about these certificates can be found on [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
+In order to establish a TLS connection, you may need to download and reference the DigiCert root certificate that Azure uses. Between February 15 and October 15, 2023, Azure IoT Hub is migrating its TLS root certificate from the DigiCert Baltimore Root Certificate to the DigiCert Global Root G2. During the migration period, you should have both certificates on your devices to ensure connectivity. For more information about the migration, see [Migrate IoT resources to a new TLS certificate root](../iot-hub/migrate-tls-certificate.md) For more information about these certificates, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
 The following example demonstrates how to implement this configuration, by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation.
 
@@ -201,7 +201,7 @@ pip install paho-mqtt
 
 Then, implement the client in a Python script. Replace these placeholders in the following code snippet:
 
-* `<local path to digicert.cer>` is the path to a local file that contains the DigiCert Baltimore Root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
+* `<local path to digicert.cer>` is the path to a local file that contains the DigiCert root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
 
 * `<device id from device registry>` is the ID of a device you added to your IoT hub.
 
@@ -302,7 +302,7 @@ For more information, see [Send device-to-cloud and cloud-to-device messages wit
 
 ## Receiving cloud-to-device messages
 
-To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters. A device can only subscribe to five topics at a time.
 
 The device doesn't receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device-id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it doesn't receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
@@ -437,6 +437,7 @@ To learn more about using MQTT, see:
 
 * [MQTT documentation](https://mqtt.org/)
 * [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+* [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:
 * [Azure IoT SDKs](iot-sdks.md)

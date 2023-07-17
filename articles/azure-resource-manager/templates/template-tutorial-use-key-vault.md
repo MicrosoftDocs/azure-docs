@@ -1,7 +1,7 @@
 ---
 title: Use Azure Key Vault in templates
 description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
-ms.date: 03/01/2021
+ms.date: 06/23/2023
 ms.topic: tutorial
 ms.custom: seodec18, devx-track-arm-template
 ---

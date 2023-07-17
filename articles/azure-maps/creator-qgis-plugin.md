@@ -1,5 +1,5 @@
 ---
-title: View and edit data with the Azure Maps QGIS plugin
+title: Work with datasets using the QGIS plugin
 titleSuffix: Microsoft Azure Maps Creator
 description: How to view and edit indoor map data using the Azure Maps QGIS plugin
 author: brendansco
@@ -200,7 +200,7 @@ If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
-[Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/QGISPlugin
+[Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/AzureMapsCreator/
 [Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
 [Digitizing an existing layer]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=digitizing%20toolbar#digitizing-an-existing-layer
 [MICROSOFT Q&A]: /answers/questions/ask

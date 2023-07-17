@@ -16,8 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart describes how to use Bicep to create an Azure Front Door Standard/Premium with a Web App as origin.
 
-> [!NOTE]
-> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 

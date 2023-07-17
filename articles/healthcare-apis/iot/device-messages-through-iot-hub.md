@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 05/16/2023
+ms.date: 07/05/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -23,7 +23,7 @@ For enhanced workflows and ease of use, you can use the MedTech service to recei
 > [!TIP]
 > To learn how the MedTech service transforms and persists device data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
-In this tutorial, you learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Open an ARM template in the Azure portal.
@@ -246,9 +246,19 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn about other methods for deploying the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
-> [!div class="nextstepaction"] 
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -80,3 +80,4 @@ Although either app roles or groups can be used for authorization, key differenc
 ## Next steps
 
 - [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)
+- To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)

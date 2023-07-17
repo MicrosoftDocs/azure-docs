@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 06/11/2023
+ms.date: 06/24/2023
 ms.custom: generated
 ---
 
@@ -208,8 +208,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Lets you manage EventGrid event subscription operations. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Lets you read EventGrid event subscriptions. | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | [FHIR Data Contributor](#fhir-data-contributor) | Role allows user or principal full access to FHIR Data | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
-> | [FHIR Data Importer](#fhir-data-importer) | Role allows user or principal to read and import FHIR Data | 4465e953-8ced-4406-a58e-0f6e3f3b530b |
 > | [FHIR Data Exporter](#fhir-data-exporter) | Role allows user or principal to read and export FHIR Data | 3db33094-8700-4567-8da5-1501d4e7e843 |
+> | [FHIR Data Importer](#fhir-data-importer) | Role allows user or principal to read and import FHIR Data | 4465e953-8ced-4406-a58e-0f6e3f3b530b |
 > | [FHIR Data Reader](#fhir-data-reader) | Role allows user or principal to read FHIR Data | 4c8d0bbc-75d3-4935-991f-5f3c56d81508 |
 > | [FHIR Data Writer](#fhir-data-writer) | Role allows user or principal to read and write FHIR Data | 3f88fce4-5892-4214-ae73-ba5294559913 |
 > | [Integration Service Environment Contributor](#integration-service-environment-contributor) | Lets you manage integration service environments, but not access to them. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
@@ -1867,6 +1867,11 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/write | Creates Backup Policy |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
@@ -1957,6 +1962,11 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
         "Microsoft.DataProtection/backupVaults/backupPolicies/write",
         "Microsoft.DataProtection/backupVaults/backupPolicies/delete",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
@@ -2081,6 +2091,11 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2184,7 +2199,12 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
-        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action"
+        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2267,6 +2287,9 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2347,7 +2370,10 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/operations/read"
+        "Microsoft.DataProtection/operations/read",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3183,40 +3209,41 @@ Allows for read, write, delete, and modify ACLs on files/directories in Azure fi
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Sematics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
-    "properties": {
-        "roleName": "Storage File Data Privileged Contributor",
-        "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
-                    "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
-                ],
-                "notDataActions": []
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
+  "name": "69566ab7-960f-475b-8e7c-b3118f30c6bd",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
+      ],
+      "notDataActions": []
     }
+  ],
+  "roleName": "Storage File Data Privileged Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -3231,32 +3258,33 @@ Allows for read access on files/directories in Azure file shares by overriding e
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
-    "properties": {
-        "roleName": "Storage File Data Privileged Reader",
-        "description": "Customer has read access on Azure Storage file shares.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
-                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
-                ],
-                "notDataActions": []
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Customer has read access on Azure Storage file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
+  "name": "b8eda974-7b85-4f76-af95-65846b26df6d",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
+      ],
+      "notDataActions": []
     }
+  ],
+  "roleName": "Storage File Data Privileged Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -5686,6 +5714,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/read | Reads cronjobs |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/jobs/read | Reads jobs |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/discovery.k8s.io/endpointslices/read | Reads endpointslices |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/read | Reads endpoints |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.k8s.io/events/read | Reads events |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/read | Reads events |
@@ -5695,13 +5724,14 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/read | Reads networkpolicies |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/read | Reads replicasets |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/read | Reads ingresses |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/read | Reads persistentvolumeclaims |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/pods/read | Reads pods |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/read | Reads replicationcontrollers |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/read | Reads replicationcontrollers |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/serviceaccounts/read | Reads serviceaccounts |
@@ -5736,6 +5766,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
         "Microsoft.ContainerService/managedClusters/batch/cronjobs/read",
         "Microsoft.ContainerService/managedClusters/batch/jobs/read",
         "Microsoft.ContainerService/managedClusters/configmaps/read",
+        "Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/read",
         "Microsoft.ContainerService/managedClusters/endpoints/read",
         "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
         "Microsoft.ContainerService/managedClusters/events/read",
@@ -5745,13 +5776,14 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
         "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/read",
         "Microsoft.ContainerService/managedClusters/extensions/replicasets/read",
         "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read",
         "Microsoft.ContainerService/managedClusters/namespaces/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/read",
         "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/read",
         "Microsoft.ContainerService/managedClusters/pods/read",
         "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/read",
-        "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
         "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
         "Microsoft.ContainerService/managedClusters/resourcequotas/read",
         "Microsoft.ContainerService/managedClusters/serviceaccounts/read",
@@ -5787,24 +5819,29 @@ Allows read/write access to most objects in a namespace. This role does not allo
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/apps/statefulsets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/autoscaling/horizontalpodautoscalers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/read | Reads leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/write | Writes leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/delete | Deletes leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/discovery.k8s.io/endpointslices/read | Reads endpointslices |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/jobs/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.k8s.io/events/read | Reads events |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/daemonsets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/deployments/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/ingresses/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/pods/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/secrets/* |  |
@@ -5838,24 +5875,29 @@ Allows read/write access to most objects in a namespace. This role does not allo
         "Microsoft.ContainerService/managedClusters/apps/statefulsets/*",
         "Microsoft.ContainerService/managedClusters/autoscaling/horizontalpodautoscalers/*",
         "Microsoft.ContainerService/managedClusters/batch/cronjobs/*",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/read",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/write",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/delete",
+        "Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/read",
         "Microsoft.ContainerService/managedClusters/batch/jobs/*",
         "Microsoft.ContainerService/managedClusters/configmaps/*",
         "Microsoft.ContainerService/managedClusters/endpoints/*",
         "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
-        "Microsoft.ContainerService/managedClusters/events/read",
+        "Microsoft.ContainerService/managedClusters/events/*",
         "Microsoft.ContainerService/managedClusters/extensions/daemonsets/*",
         "Microsoft.ContainerService/managedClusters/extensions/deployments/*",
         "Microsoft.ContainerService/managedClusters/extensions/ingresses/*",
         "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/*",
         "Microsoft.ContainerService/managedClusters/extensions/replicasets/*",
         "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read",
         "Microsoft.ContainerService/managedClusters/namespaces/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/*",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/*",
         "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/*",
         "Microsoft.ContainerService/managedClusters/pods/*",
         "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/*",
-        "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
         "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
         "Microsoft.ContainerService/managedClusters/resourcequotas/read",
         "Microsoft.ContainerService/managedClusters/secrets/*",
@@ -7286,8 +7328,6 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/delete |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/write |  |
-> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
-> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/checkNameAvailability/read | Checks the Machine Learning Services FeatureStore name availability |
 > | **NotActions** |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/write | Creates or updates a Machine Learning Services Workspace(s) |
@@ -7295,6 +7335,10 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/*/delete |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/listKeys/action | List secrets for compute resources in Machine Learning Services Workspace |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/hubs/write | Creates or updates a Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -7314,9 +7358,7 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
         "Microsoft.MachineLearningServices/workspaces/*/read",
         "Microsoft.MachineLearningServices/workspaces/*/action",
         "Microsoft.MachineLearningServices/workspaces/*/delete",
-        "Microsoft.MachineLearningServices/workspaces/*/write",
-        "Microsoft.MachineLearningServices/featurestores/read",
-        "Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read"
+        "Microsoft.MachineLearningServices/workspaces/*/write"
       ],
       "notActions": [
         "Microsoft.MachineLearningServices/workspaces/delete",
@@ -7324,7 +7366,11 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/listKeys/action"
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/hubs/write",
+        "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -7851,6 +7897,7 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/write |  |
 > | **NotDataActions** |  |
@@ -7881,6 +7928,7 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write"
       ],
@@ -9963,8 +10011,8 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/* |  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -9993,51 +10041,6 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
 }
 ```
 
-### FHIR Data Importer
-
-Role allows user or principal to read and import FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/services/fhir/resources/import/action | Import operation ($export). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action | Import operation ($export). |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Role allows user or principal to read and import FHIR Data",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4465e953-8ced-4406-a58e-0f6e3f3b530b",
-  "name": "4465e953-8ced-4406-a58e-0f6e3f3b530b",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/read",
-        "Microsoft.HealthcareApis/services/fhir/resources/import/action",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "FHIR Data Importer",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ### FHIR Data Exporter
 
 Role allows user or principal to read and export FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
@@ -10049,10 +10052,10 @@ Role allows user or principal to read and export FHIR Data [Learn more](../healt
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/services/fhir/resources/export/action | Export operation ($export). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/export/action | Export operation ($export). |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -10083,6 +10086,47 @@ Role allows user or principal to read and export FHIR Data [Learn more](../healt
 }
 ```
 
+### FHIR Data Importer
+
+Role allows user or principal to read and import FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to read and import FHIR Data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4465e953-8ced-4406-a58e-0f6e3f3b530b",
+  "name": "4465e953-8ced-4406-a58e-0f6e3f3b530b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Importer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### FHIR Data Reader
 
 Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
@@ -10094,8 +10138,8 @@ Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -10135,11 +10179,11 @@ Role allows user or principal to read and write FHIR Data [Learn more](../health
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/* |  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
 
 ```json
 {
@@ -11137,6 +11181,7 @@ Perform any action on the certificates of a key vault, except manage permissions
 > | **DataActions** |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificatecas/* |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificates/* |  |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificatecontacts/write | Manage Certificate Contact |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11165,7 +11210,8 @@ Perform any action on the certificates of a key vault, except manage permissions
       "notActions": [],
       "dataActions": [
         "Microsoft.KeyVault/vaults/certificatecas/*",
-        "Microsoft.KeyVault/vaults/certificates/*"
+        "Microsoft.KeyVault/vaults/certificates/*",
+        "Microsoft.KeyVault/vaults/certificatecontacts/write"
       ],
       "notDataActions": []
     }
@@ -14828,6 +14874,7 @@ Users with rights to create/modify resource policy, create support ticket and re
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyexemptions/* | Create and manage policy exemptions |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/* | Create and manage policy sets |
 > | [Microsoft.PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -14853,6 +14900,7 @@ Users with rights to create/modify resource policy, create support ticket and re
         "Microsoft.Authorization/policyexemptions/*",
         "Microsoft.Authorization/policysetdefinitions/*",
         "Microsoft.PolicyInsights/*",
+        "Microsoft.Resources/deployments/*",
         "Microsoft.Support/*"
       ],
       "notActions": [],
@@ -15769,6 +15817,7 @@ Allows user to use the applications in an application group. [Learn more](../vir
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationGroups/useApplications/action | Use ApplicationGroup |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/appAttachPackages/useApplications/action | Allow user permissioning on app attach packages in an application group |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -15785,7 +15834,8 @@ Allows user to use the applications in an application group. [Learn more](../vir
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DesktopVirtualization/applicationGroups/useApplications/action"
+        "Microsoft.DesktopVirtualization/applicationGroups/useApplications/action",
+        "Microsoft.DesktopVirtualization/appAttachPackages/useApplications/action"
       ],
       "notDataActions": []
     }

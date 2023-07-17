@@ -138,7 +138,7 @@
   - name: SAP on Azure
     href: ../sap/index.yml
   - name: Oracle
-    href: ./workloads/oracle/oracle-database-quick-create.md
+    href: ./workloads/oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -184,7 +184,15 @@
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
-        href: sizes-b-series-burstable.md
+        items:
+        - name: B-series V1
+          href: sizes-b-series-burstable.md
+        - name: Bsv2-series 
+          href: bsv2-series.md 
+        - name: Basv2-series  
+          href: basv2.md   
+        - name: Bpsv2-series
+          href: bpsv2-arm.md    
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -207,6 +215,8 @@
         href: dasv5-dadsv5-series.md
       - name: DCasv5 and DCadsv5-series
         href: dcasv5-dcadsv5-series.md
+      - name: DCas_cc_v5 and DCads_cc_v5-series
+        href: dcasccv5-dcadsccv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -252,6 +262,8 @@
         href: easv5-eadsv5-series.md
       - name: ECasv5 and ECadsv5-series
         href: ecasv5-ecadsv5-series.md
+      - name: ECas_cc_v5 and ECads_cc_v5-series
+        href: ecasccv5-ecadsccv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
@@ -690,6 +702,9 @@
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: image-builder-reliability.md
+      - name: Image Optimization
+        displayName: Image builder, images, building, boot, optimization, prefetch
+        href: image-builder-prefetch.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1382,14 +1397,8 @@
         href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
-    - name: Convert disk to another disk type
-      items:
-      - name: CLI
-        displayName: Convert disk to another disk type
-        href: ./linux/convert-disk-storage.md
-      - name: PowerShell
-        displayName: Convert disk to another disk type
-        href: ./windows/convert-disk-storage.md
+    - name: Change disk types
+      href: disks-convert-types.md
     - name: Migrate to the same or different subscription
       items:
       - name: Copy a managed disk to the same or different subscription - CLI
@@ -1410,7 +1419,7 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
-    - name: Unmanaged Disks retirement starting November 18, 2022
+    - name: Unmanaged Disks retirement
       href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
@@ -1585,14 +1594,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?toc=/azure/virtual-machines/toc.json
-  - name: Open ports and filter traffic
-    items:
-    - name: CLI
-      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
-    - name: PowerShell
-      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
-    - name: Portal
-      href: ../virtual-network/tutorial-filter-network-traffic.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
@@ -1620,6 +1621,8 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?toc=/azure/virtual-machines/toc.json
+  - name: Zero trust principles
+    href: /security/zero-trust/azure-infrastructure-virtual-machines
   - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
     maintainContext: true

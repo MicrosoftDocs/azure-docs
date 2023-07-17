@@ -33,9 +33,9 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Configure auditing](configure-audit.md)
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md)
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md) 
 
 1. **Configure Microsoft Sentinel solution for SAP® applications (*You are here*)**
 
@@ -133,7 +133,7 @@ To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop th
 docker stop sapcon-[SID]
 ```
 
-The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This both stops the ingestion and billing for the SAP system related to the connector.
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
 
 If you need to reenable the Docker container, run this command: 
 
@@ -162,7 +162,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

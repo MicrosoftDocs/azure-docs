@@ -78,7 +78,7 @@ If you have a Kubernetes cluster with Windows nodes, review and configure the ne
 
 ## Authentication
 
-Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster. 
+Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster. Read more in [Authentication for Container Insights](container-insights-authentication.md)
 
 ## Agent
 
