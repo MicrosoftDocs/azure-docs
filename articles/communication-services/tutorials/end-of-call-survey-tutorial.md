@@ -93,21 +93,44 @@ call.feature(Features.CallSurvey).submitSurvey({
 
 
 
-<!-- ## Find different types of errors
+## Find different types of errors
+
+ 
 
 ### Failures while submitting survey:
 
-API will return the error messages when data validation failed or unable to submit the survey.
--	At least one survey rating is required.
--	In default scale X should be 1 to 5. - where X is either of
-- overallRating.score
-- 	audioRating.score
-- videoRating.score
-- ScreenshareRating.score
--	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
--	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
--	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
--	event discarded [ACS failed to submit survey, due to network or other error] -->
+The API will return the following error messages if data validation fails or the survey can't be submitted.
+
+- At least one survey rating is required.
+
+- In default scale X should be 1 to 5. - where X is either of:
+  - overallRating.score
+  - audioRating.score
+  - videoRating.score
+  - ScreenshareRating.score
+
+- \{propertyName\}: \{rating.score\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
+
+- \{propertyName\}: \{rating.scale?.lowScoreThreshold\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
+
+- \{propertyName\} lowerBound: \{rating.scale?.lowerBound\} and upperBound: \{rating.scale?.upperBound\} should be between 0 and 100.
+
+- Please try again [ACS failed to submit survey, due to network or other error].
+
+### We will return any error codes with a message.
+
+- Error code 400 (bad request) for all the error messages except one.
+
+```
+{ message: validationErrorMessage, code: 400 }
+```
+
+- One 408 (timeout) when event discarded:
+ 
+```
+{ message: "Please try again.", code: 408 }
+```
+
 
 ## All possible values
 

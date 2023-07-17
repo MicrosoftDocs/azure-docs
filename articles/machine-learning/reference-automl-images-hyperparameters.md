@@ -15,7 +15,7 @@ ms.date: 01/18/2022
 
 # Hyperparameters for computer vision tasks in automated machine learning
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 

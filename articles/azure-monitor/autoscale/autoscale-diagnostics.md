@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 01/25/2023
 ms.reviewer: akkumari
 
 # Customer intent: As a DevOps admin, I want to collect and analyze autoscale metrics and logs.
@@ -44,6 +44,9 @@ View the history of your autoscale activity on the **Run history** tab. The **Ru
 The following examples are the general formats for autoscale resource logs with example data included. Not all the examples are properly formed JSON because they might include a valid list for a given field.
 
 Use these logs to troubleshoot issues in autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
+
+> [!NOTE]
+> Although the logs may refer to "scale up" and "scale down" actions, the actual action taken is scale in or scale out.  
 
 ## Autoscale evaluations log
 The following schemas appear in the autoscale evaluations log.

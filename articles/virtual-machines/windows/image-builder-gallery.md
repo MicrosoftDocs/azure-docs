@@ -3,8 +3,8 @@ title: Use Azure VM Image Builder with a gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using VM Image Builder and Azure PowerShell.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.reviewer: erd
+ms.date: 06/30/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -214,7 +214,7 @@ Your template must be submitted to the service. The following commands will down
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -ApiVersion "2020-02-14" `
+   -ApiVersion "2022-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -226,7 +226,7 @@ Invoke-AzResourceAction `
    -ResourceName $imageTemplateName `
    -ResourceGroupName $imageResourceGroup `
    -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
-   -ApiVersion "2020-02-14" `
+   -ApiVersion "2022-02-14" `
    -Action Run
 ```
 
@@ -245,9 +245,10 @@ Create a VM from the image version that you created with VM Image Builder.
 
    ```powershell
    $imageVersion = Get-AzGalleryImageVersion `
-      -ResourceGroupName $imageResourceGroup `
-      -GalleryName $sigGalleryName `
-      -GalleryImageDefinitionName $imageDefName
+   -ResourceGroupName $imageResourceGroup `
+   -GalleryName $sigGalleryName `
+   -GalleryImageDefinitionName $imageDefName
+   $imageVersionId = $imageVersion.Id
    ```
 
 1. Create the VM in the second region, where the image was replicated:
@@ -311,7 +312,7 @@ Delete the resource group template first. Otherwise, the staging resource group 
 1. Get the ResourceID of the image template. 
 
    ```powerShell
-   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
+   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2022-02-14"
    ```
 
 1. Delete image template.

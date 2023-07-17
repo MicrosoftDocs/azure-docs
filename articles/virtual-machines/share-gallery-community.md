@@ -63,7 +63,7 @@ When creating a community gallery, you will need to provide contact information 
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
-- Legal agreement URL
+- Legal agreement URL (Do not put secrets, passwords, SASURI etc. in legal agreement URL field)
 
 Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
 
@@ -93,14 +93,14 @@ Why use a marketplace mage?
 - Microsoft certified images
 - Can be used for production workloads
 - First party and third party images
-- Paid images with additional software offerings
+- Free and Paid images with additional software offerings
 - Supported by Microsoft
 
 When to use a community image?
 - You trust and know how to contact the publisher
 - You're looking for a community version of an image published by open-source community
 - Using the image for testing
-- Community images are free
+"- Community images are free images. However, if the image used to build the community image was an Azure marketplace image with a cost associated with it, you will be billed for those same costs. You can see what costs are associated with a Marketplace image by looking at the **Plans + Pricing** tab for the image in the Azure portal."
 - Supported by the owner of the image, not Microsoft.
 
 ## Reporting issues with a community image
@@ -120,6 +120,8 @@ Use the following links to report issues:
 **A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
 - Network egress charges for replication across regions.
+
+Consumers of the image may have to pay additional software cost if the base image is using an Azure marketplace image with software charges.
 
 **Q: Is it safe to use images shared to the community?**
 

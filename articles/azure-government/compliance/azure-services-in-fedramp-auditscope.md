@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 06/14/2023
+ms.date: 06/23/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -302,15 +302,15 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; |  |  |  |
+| [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; | &#x2705; |  |  |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; |  |  |  |
-| [Azure Video Indexer](../../azure-video-indexer/index.yml)  | &#x2705; | &#x2705; | | | |
+| [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; | &#x2705; |  |  |
+| [Azure Video Indexer](../../azure-video-indexer/index.yml)  | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Bastion](../../bastion/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -439,7 +439,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; |  |  |  |
+| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; | &#x2705; |  |  |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 

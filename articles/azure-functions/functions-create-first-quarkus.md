@@ -27,7 +27,11 @@ Use the following command to clone the sample Java project for this article. The
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
+git checkout 2023-01-10
+cd functions-quarkus
 ```
+
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article does not require any commits, detached HEAD state is appropriate.
 
 Explore the sample function. Open the *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java* file. 
 

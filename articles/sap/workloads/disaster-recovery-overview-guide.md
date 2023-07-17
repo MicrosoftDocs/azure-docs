@@ -9,14 +9,14 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 06/19/2023
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
 
 Many organizations running critical business applications on Azure set up both High Availability (HA) and Disaster Recovery (DR) strategy. The purpose of high availability is to increase the SLA of business systems by eliminating single points of failure in the underlying system infrastructure. High Availability technologies reduce the effect of unplanned infrastructure failure and help with planned maintenance. Disaster Recovery is defined as policies, tools and procedures to enable the recovery or continuation of vital technology infrastructure and systems following a geographically widespread natural or human-induced disaster.
 
-To achieve [high availability for SAP workload on Azure](sap-high-availability-guide-start.md), virtual machines are typically deployed in an [availability set](planning-guide.md#availability-sets) or in [availability zones](planning-guide.md#availability-zones) to protect applications from infrastructure maintenance or failure within region. But the deployment doesn’t protect applications from widespread disaster within region. So to protect applications from regional disaster, disaster recovery strategy for the applications should be in place. Disaster recovery is a documented and structured approach that is designed to assist an  organization in executing the recovery processes in response to a disaster, and to protect or minimize IT services disruption and promote recovery.
+To achieve [high availability for SAP workload on Azure](sap-high-availability-guide-start.md), virtual machines are typically deployed in an [availability set](planning-guide.md#availability-sets), [availability zones](planning-guide.md#availability-zones) or in [flexible scale set](./virtual-machine-scale-set-sap-deployment-guide.md) to protect applications from infrastructure maintenance or failure within region. But the deployment doesn’t protect applications from widespread disaster within region. So to protect applications from regional disaster, disaster recovery strategy for the applications should be in place. Disaster recovery is a documented and structured approach that is designed to assist an  organization in executing the recovery processes in response to a disaster, and to protect or minimize IT services disruption and promote recovery.
 
 This document provides details on protecting SAP workloads from large scale catastrophe by implementing structured DR approach. The details in this document are presented at an abstract level, based on different Azure services and SAP components. Exact DR strategy and the order of recovery for your SAP workload must be tested, documented and fine tuned regularly. Also, the document focuses on the Azure-to-Azure DR strategy for SAP workload.
 
@@ -61,7 +61,7 @@ The following reference architecture shows typical SAP NetWeaver system running 
 
 Organizations should plan and design a DR strategy for their entire IT landscape. Usually SAP systems running in production environment are integrated with different services and interfaces like Active directory, DNS, third-party application, and so on. So you must include the non-SAP systems and other services in your disaster recovery planning as well. This document focuses on the recovery planning for SAP applications. But you can expand the size and scope of the DR planning for dependent components to fit your requirements.
 
-[![Disaster Recovery reference architecture for SAP workload](media/disaster-recovery/disaster-recovery-reference-architecture.png)](media/disaster-recovery/disaster-recovery-reference-architecture.png#lighbox)
+[![Disaster Recovery reference architecture for SAP workload](media/disaster-recovery/disaster-recovery-reference-architecture.png)](media/disaster-recovery/disaster-recovery-reference-architecture.png#lightbox)
 
 ## Infrastructure components of DR solution for SAP workload
 
@@ -91,11 +91,13 @@ An SAP workload running on Azure uses different infrastructure components to run
 ### Virtual machines
 
 - On Azure, different components of a single SAP system run on virtual machines with different SKU types. For DR, protection of an application (SAP NetWeaver and non-SAP) running on Azure VMs can be enabled by replicating components using  [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to another Azure region or zone. With Azure Site Recovery, Azure VMs are replicated continuously from primary to disaster recovery site. Depending on the selected Azure DR region, the VM SKU type may not be available on the DR site. You need to make sure that the required VM SKU types are available in the Azure DRregion as well. Check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/) to see if the required VM family SKU type is available or not.
+  
+  > [!IMPORTANT]
+  > If SAP system is configured with flexible scale set with FD=1, then you need to use [PowerShell](../../site-recovery/azure-to-azure-powershell.md) to set up Azure Site Recovery for disaster recovery. Currently, it's the only method available to configure disaster recovery for VMs deployed in scale set.
 
 - For databases running on Azure virtual machines, it's recommended to use native database replication technology to synchronize data to the disaster recovery site. The large VMs on which the databases are running may not be available in all regions. If you're using [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md), you should check that the respective VM SKUs are available in the zone of your disaster recovery site.
 
-  > [!Note]
-  >
+  > [!NOTE]
   > It isn't advised using Azure Site Recovery for databases, as it doesn’t guarantee DB consistency and has [data churn limitation](../../site-recovery/azure-to-azure-support-matrix.md#limits-and-data-change-rates).
 
 - With production applications running on the primary region at all time, [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) are typically used to economize Azure costs. If using reserved instances, you need to sign up for 1-year or a 3-year term commitment that may not be cost effective for DR site. Also setting up Azure Site Recovery doesn’t guarantee you the capacity of the required VM SKU during your failover. To make sure that the VM SKU capacity is available, you can consider an option to enable [on-demand capacity reservation](../../virtual-machines/capacity-reservation-overview.md). It reserves compute capacity in an Azure region or an Azure availability zone for any duration of time without commitment. Azure Site Recovery is [integrated](https://azure.microsoft.com/updates/ondemand-capacity-reservation-with-azure-site-recovery-safeguards-vms-failover/) with on-demand capacity reservation. With this integration, you can use the power of capacity reservation with Azure Site Recovery to reserve compute capacity in the DR site and guarantee your failovers. For more information, read on-demand capacity reservation [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions).

@@ -158,6 +158,8 @@
       href: ./afds/waf-front-door-monitor.md
   - name: Configure policies using Firewall Manager
     href: ./shared/manage-policies.md
+  - name: Protect APIs hosted in APIM using Web Application Firewall
+    href: ./afds/protect-api-hosted-apim-by-waf.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
   - name: Troubleshoot

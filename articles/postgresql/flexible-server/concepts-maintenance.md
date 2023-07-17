@@ -1,6 +1,6 @@
 ---
-title: Scheduled maintenance - Azure Database for PostgreSQL - Flexible server
-description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Flexible server.
+title: Scheduled maintenance - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.reviewer:
 ms.date: 11/30/2021
 ---
 
-# Scheduled maintenance in Azure Database for PostgreSQL – Flexible server
+# Scheduled maintenance in Azure Database for PostgreSQL – Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
  
-Azure Database for PostgreSQL - Flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
+Azure Database for PostgreSQL - Flexible Server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
  
 ## Selecting a maintenance window
  
@@ -35,7 +35,7 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 >
 > However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than five days or be omitted. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
 
-You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
+You can update scheduling settings at any time. If there is maintenance scheduled for your flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 
 You can define system-managed schedule or custom schedule for each flexible server in your Azure subscription.  
 * With custom schedule, you can specify your maintenance window for the server by choosing the day of the week and a one-hour time window.  
