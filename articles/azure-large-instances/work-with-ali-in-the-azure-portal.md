@@ -57,7 +57,7 @@ When you're prompted, install the Azure CLI extension on first use. For more inf
 
 Run [az version](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
 
-For more information about resource providers, see [Azure resource providers and types](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+For more information about resource providers, see [Azure resource providers and types](./../azure-resource-manager/management/resource-providers-and-types.md).
 
 [comment]: <End of Include content> 
 
