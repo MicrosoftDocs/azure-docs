@@ -375,13 +375,9 @@ Cross Regional Restore (CRR) with CSR is not supported.
 |            | Virtual Machine Contributor | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
 |          | Backup Operator | Target Recovery Services vault |            |	
 
-
-
-
-
 By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
 
-
+:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-hana.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for HANA database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-hana.png":::
 
 **Related CLI command**
 
