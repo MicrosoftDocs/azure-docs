@@ -387,4 +387,4 @@ If you get the following error, make sure that you're using Node.js version 18.x
 > System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
 > Exception: undici_1.Request is not a constructor
 
-For any other problems or to give feedback, file an issue in [this GitHub repo](https://github.com/Azure/azure-functions-nodejs-library/issues).
+For any other problems or to give feedback, file an issue in the [Azure Functions Node.js repository](https://github.com/Azure/azure-functions-nodejs-library/issues).
