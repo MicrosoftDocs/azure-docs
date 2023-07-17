@@ -16,7 +16,7 @@ This article introduces workbooks for Azure Monitor workspaces and shows you how
 To query Prometheus metrics from an Azure Monitor workspace you need the following:
 -	An Azure Monitor workspace. To create an Azure Monitor workspace see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview.md?tabs=azure-portal.md).
 -	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
--	The user must be assigned role that can perform the *microsoft.monitor/accounts/read* operation on the Azure Monitor workspace.
+-	The user must be assigned role that can perform the **microsoft.monitor/accounts/read** operation on the Azure Monitor workspace.
 
 ## Prometheus Explorer workbook
 Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
@@ -60,7 +60,7 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 
 If your workbook query does not return data:
 
--	Check that you have **Monitoring Data Reader** role permissions assigned through Access Control (IAM) in your Azure Monitor workspace
+-	Check that you have sufficient permissions to perform **microsoft.monitor/accounts/read** assigned through Access Control (IAM) in your Azure Monitor workspace
 -	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace.
 
 
