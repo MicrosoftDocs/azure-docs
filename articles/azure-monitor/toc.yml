@@ -242,9 +242,9 @@ items:
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md
-        - name: SLA Report
+        - name: SLA report
           href: app/sla-report.md
-        - name: Migrate Availability Tests
+        - name: Migrate availability tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
       - name: Transaction diagnostics
