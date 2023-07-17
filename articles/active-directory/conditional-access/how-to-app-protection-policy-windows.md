@@ -108,7 +108,7 @@ To resolve these possible scenarios:
 
 ### Existing account
 
-If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration permanently blocks the user from being properly enrolled in MAM.
+If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue that is currently being worked on. 
 
 ## Next steps
 
