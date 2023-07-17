@@ -5,10 +5,10 @@ description: Monitor online endpoints and create alerts with Application Insight
 services: machine-learning
 ms.service: machine-learning
 ms.reviewer: mopeakande 
-author: Bozhong68
-ms.author: bozhlin
+author: dem108
+ms.author: sehan
 ms.subservice: mlops
-ms.date: 08/29/2022
+ms.date: 07/17/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -122,7 +122,7 @@ You can also create custom alerts to notify you of important status updates to y
 
 There are three logs that can be enabled for online endpoints:
 
-* **AMLOnlineEndpointTrafficLog** (preview): You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
+* **AMLOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
 
     * If the response isn't 200, check the value of the column “ResponseCodeReason” to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
 
@@ -142,7 +142,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You may also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog** (preview): Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -194,7 +194,7 @@ You can find example queries on the __Queries__ tab while viewing logs. Search f
 
 The following tables provide details on the data stored in each log:
 
-**AMLOnlineEndpointTrafficLog** (preview)
+**AMLOnlineEndpointTrafficLog**
 
 | Field name | Description |
 | ---- | ---- |
@@ -232,7 +232,7 @@ The following tables provide details on the data stored in each log:
 | ContainerName | The name of the container where the log was generated. 
 | Message | The content of the log. 
 
-**AMLOnlineEndpointEventLog** (preview)
+**AMLOnlineEndpointEventLog**
 
 
 | Field Name | Description |
