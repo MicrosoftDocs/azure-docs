@@ -37,29 +37,28 @@ In this tutorial series, you created a .NET MAUI app where you developed the [_C
 To access the role claim, you can modify the code snippet as follows:
 
 ```csharp
-    var idToken = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.IdToken;
-    var handler = new JwtSecurityTokenHandler();
-    var token = handler.ReadJwtToken(idToken);
-    // Get the role claim value
-    var roleClaim = token.Claims.FirstOrDefault(c => c.Type == "roles")?.Value;
+var idToken = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.IdToken;
+var handler = new JwtSecurityTokenHandler();
+var token = handler.ReadJwtToken(idToken);
+// Get the role claim value
+var roleClaim = token.Claims.FirstOrDefault(c => c.Type == "roles")?.Value;
 
-    if (!string.IsNullOrEmpty(roleClaim))
-    {
-        // If the role claim exists, add it to the IdTokenClaims
-        IdTokenClaims = new List<string> { roleClaim };
-    }
-    else
-    {
-        // If the role claim doesn't exist, add a message indicating that no role claim was found
-        IdTokenClaims = new List<string> { "No role claim found in ID token" };
-    }
+if (!string.IsNullOrEmpty(roleClaim))
+{
+    // If the role claim exists, add it to the IdTokenClaims
+    IdTokenClaims = new List<string> { roleClaim };
+}
+else
+{
+    // If the role claim doesn't exist, add a message indicating that no role claim was found
+    IdTokenClaims = new List<string> { "No role claim found in ID token" };
+}
 
-    Claims.ItemsSource = IdTokenClaims;
+Claims.ItemsSource = IdTokenClaims;
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > To read the Id token, you must install the `System.IdentityModel.Tokens.Jwt` package.
-
 
 If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as `Orders.Manager, Store.Manager,...`. Make sure you build your application to handle the following conditions:
 
