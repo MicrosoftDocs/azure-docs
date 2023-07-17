@@ -67,7 +67,7 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 
   | Location                             | Deployment use case                                          |
   | ------------------------------------ | ------------------------------------------------------------ |
-  | All                                  | <u>Windows 2012, 2016:</u> <br />Azure VMs or Azure Arc  machines already onboarded and billed by Defender for Servers via an Azure subscription or Log Analytics workspace, running the Defender for Endpoint agent without the MDE.Windows Azure extension. For such machines, you can enable Defender for Cloud integration with Defender for Endpoint to deploy the extension. |
+  | All                                  | <u>Windows 2012, 2016:</u> <br />Azure VMs or Azure Arc  machines already onboarded and billed by Defender for Servers via an Azure subscription or Log Analytics workspace, running the Defender for Endpoint modern unified agent without the MDE.Windows Azure extension. For such machines, you can enable Defender for Cloud integration with Defender for Endpoint to deploy the extension. |
   | On-premises (not running  Azure Arc) | <u>Windows Server 2012,  2016</u>:  <br />Servers running the Defender for Endpoint modern unified agent, and already billed by Defender for Servers  P2 via the Log Analytics workspace |
   | AWS, GCP (not running Azure  Arc)    | <u>Windows Server 2012,  2016</u>: <br />AWS or GCP VMs using the  modern unified Defender for Endpoint solution, already onboarded and billed by Defender for Servers via multicloud connectors, Log Analytics workspace, or both. |
 
