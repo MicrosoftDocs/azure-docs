@@ -55,7 +55,7 @@ When a dev box user opens the solution on a dev box based off the customized ima
 
 ## Enable Git commit-graph optimizations in dev box images
 
-Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. 
+Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://aka.ms/devblogs-commit-graph), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. 
 
 You can enable Git commit-graph optimizations in your dev box image if you meet the following requirements:
 * You're using a [Microsoft Dev Box](overview-what-is-microsoft-dev-box.md) as your development workstation.
