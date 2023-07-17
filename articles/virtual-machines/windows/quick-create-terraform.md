@@ -66,7 +66,7 @@ In this article, you learn how to:
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/output.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/outputs.tf":::
 
 ## Initialize Terraform
 
