@@ -415,14 +415,19 @@ The following schemas are in use by Azure Machine Learning
 
 [!INCLUDE [endpoint-monitor-traffic-reference](includes/endpoint-monitor-traffic-reference.md)]
 
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
 ### AMLOnlineEndpointConsoleLog
 
 [!INCLUDE [endpoint-monitor-console-reference](includes/endpoint-monitor-console-reference.md)]
+
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 ### AMLOnlineEndpointEventLog (preview)
 
 [!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
 
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 ## See also
 
 - See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
