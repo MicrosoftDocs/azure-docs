@@ -47,9 +47,7 @@ In addition, users that are enabled for SMS sign-in cannot be synchronized throu
 
 Provisioning manager attributes isn't supported.
 
-### Universal people search
-
-It's possible for synchronized users to appear in the global address list (GAL) of the target tenant for people search scenarios, but it isn't enabled by default. In attribute mappings for a configuration, you must update the value for the **showInAddressList** attribute. Set the mapping type as constant with a default value of `True`. For any newly created B2B collaboration users, the showInAddressList attribute will be set to true and they'll appear in people search scenarios. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+### Updating the showInAddressList property fails
 
 For existing B2B collaboration users, the showInAddressList attribute will be updated as long as the B2B collaboration user doesn't have a mailbox enabled in the target tenant. If the mailbox is enabled in the target tenant, use the [Set-MailUser](/powershell/module/exchange/set-mailuser) PowerShell cmdlet to set the HiddenFromAddressListsEnabled property to a value of $false.
 
@@ -169,7 +167,7 @@ The following information is a current list of known limitations with the Azure 
 The following applications and directories aren't yet supported.
 
 #### Active Directory Domain Services (user or group writeback from Azure AD by using the on-premises provisioning preview)
-   - When a user is managed by Azure AD Connect, the source of authority is on-premises Azure AD. So, user attributes can't be changed in Azure AD. This preview doesn't change the source of authority for users managed by Azure AD Connect.
+   - When a user is managed by Azure AD Connect, the source of authority is on-premises Active Directory Domain Services. So, user attributes can't be changed in Azure AD. This preview doesn't change the source of authority for users managed by Azure AD Connect.
    - Attempting to use Azure AD Connect and the on-premises provisioning to provision groups or users into Active Directory Domain Services can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group or user writeback. Upvote the UserVoice feedback on [this website](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789/) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for user or group writeback from Azure AD to Active Directory.
 
 #### Azure AD

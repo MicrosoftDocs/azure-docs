@@ -43,11 +43,11 @@ This guide walks you through the Azure portal creation experience.
 
 ## Deploy a model
 
-Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure AI Studio.
+Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure OpenAI Studio.
 
 To deploy a model, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://oai.azure.com).
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 2. Select the subscription and Azure OpenAI resource to work with.
 3. Under **Management** select **Deployments**.
 4. Select **Create new deployment**.
@@ -56,7 +56,7 @@ To deploy a model, follow these steps:
     |--|--|
     | Select a model | Model availability varies by region.For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).|
     | Deployment name | Choose a name carefully. The deployment name will be used in your code to call the model via the client libraries and REST API |
-    | Advanced Options| Content Filter - Assign a content filter to your deployment. You can modify this selection at any time under the [Quotas menu](../how-to/quota.md)<br> TPM - Adjust the Tokens Per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the **Quotas** menu |
+    | Advanced Options| Content Filter - Assign a content filter to your deployment.<br> Tokens per Minute Rate Limit - Adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the [**Quotas**](../how-to/quota.md) menu |
 
 5. Select a model from the drop-down.
 6. Enter a deployment name to help you identify the model.

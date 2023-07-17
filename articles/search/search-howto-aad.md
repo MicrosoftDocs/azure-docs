@@ -155,7 +155,7 @@ Use the following client libraries for role-based access control:
 
 The following instructions reference an existing C# sample to demonstrate the code changes.
 
-1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the [C# quickstart](search-get-started-dotnet.md).
+1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md).
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 

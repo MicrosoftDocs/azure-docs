@@ -149,7 +149,7 @@ ms.author: lajanuar
 |Afrikaans|`af`|Yes|Yes|
 |Albanian|`sq`|Yes|Yes|
 |Amharic|`am`|No|No|
-|Arabic|`ar`|No|No|
+|Arabic|`ar`|Yes|Yes|
 |Armenian|`hy`|No|No|
 |Assamese|`as`|No|No|
 |Azerbaijani (Latin)|`az`|Yes|Yes|

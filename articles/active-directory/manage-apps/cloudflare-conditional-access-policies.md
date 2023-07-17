@@ -20,6 +20,8 @@ With Conditional Access, administrators enforce policies on application and user
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 * An Azure AD subscription

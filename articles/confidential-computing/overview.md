@@ -40,8 +40,7 @@ Running workloads on the cloud requires trust. You give this trust to various pr
 - **Infrastructure providers**: Trust cloud providers or manage your own on-premises data centers.
 
 ## Reducing the attack surface
-The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
-
+The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
 ### Next steps
 [Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
@@ -49,3 +48,4 @@ Learn more about confidential computing on Azure
 
 > [!div class="nextstepaction"]
 > [Overview of Azure Confidential Computing](overview-azure-products.md)
+

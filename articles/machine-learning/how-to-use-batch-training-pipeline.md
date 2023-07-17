@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2023
 
 # How to operationalize a training pipeline with batch endpoints (preview)
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to operationalize a training pipeline under a batch endpoint. The pipeline uses multiple components (or steps) that include model training, data preprocessing, and model evaluation.
 
@@ -28,7 +28,7 @@ You'll learn to:
 > * Modify the pipeline and create a new deployment in the same endpoint
 > * Test the new deployment and set it as the default deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
@@ -38,7 +38,7 @@ A visualization of the pipeline is as follows:
 
 :::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="A screenshot of the pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -52,7 +52,7 @@ You can follow along with the Python SDK version of this example by opening the 
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Create the training pipeline component
 

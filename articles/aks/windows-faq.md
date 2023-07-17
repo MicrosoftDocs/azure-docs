@@ -116,7 +116,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> Performing the `az aks update` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected. 
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
@@ -133,7 +133,7 @@ $cluster | Set-AzAksCluster
 ```
 
 > [!IMPORTANT]
-> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected.
 >
 > When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 

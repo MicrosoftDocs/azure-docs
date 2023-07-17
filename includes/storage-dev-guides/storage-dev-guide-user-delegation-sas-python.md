@@ -53,7 +53,7 @@ account_url = "https://<storage-account-name>.blob.core.windows.net"
 blob_service_client = BlobServiceClient(account_url, credential=DefaultAzureCredential())
 ```
 
-To learn more about authorizing access to Blob Storage from your applications with the Python SDK, see [How to authenticate .NET applications with Azure services](/azure/developer/python/sdk/authentication-overview).
+To learn more about authorizing access to Blob Storage from your applications with the Python SDK, see [Authenticate Python apps to Azure services](/azure/developer/python/sdk/authentication-overview).
 
 ## Get the user delegation key
 

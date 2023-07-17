@@ -203,13 +203,13 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
 1. Download the configuration tool.
 
    ```bash
-    mkdir nestedIotEdgeTutorial
-    cd ~/nestedIotEdgeTutorial
+    mkdir nested_iot_edge_tutorial
+    cd ~/nested_iot_edge_tutorial
     wget -O iotedge_config.tar "https://github.com/Azure-Samples/iotedge_config_cli/releases/download/latest/iotedge_config_cli.tar.gz"
     tar -xvf iotedge_config.tar
     ```
 
-    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there are two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
+    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nested_iot_edge_tutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there are two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
 
 1. Edit `iotedge_config.yaml` with your information. Edit the `iothub_hostname`, `iot_name`, deployment manifest filenames for the top layer and lower layer, and the client token credentials you created to pull images from upstream from each layer. The following example is a sample configuration file:
 

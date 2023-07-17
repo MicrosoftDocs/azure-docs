@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Configure Microsoft Dev Box'
-description: In this quickstart, you learn how to configure the Microsoft Dev Box Preview service to provide dev boxes for users.
+description: In this quickstart, you learn how to configure the Microsoft Dev Box service to provide dev boxes for users.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -10,9 +10,9 @@ ms.date: 04/25/2023
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
-# Quickstart: Configure Microsoft Dev Box Preview
+# Quickstart: Configure Microsoft Dev Box 
 
-This quickstart describes how to set up Microsoft Dev Box Preview to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, dev infra admins configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
+This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, dev infra admins configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
 
 The following graphic shows the steps required to configure Microsoft Dev Box in the Azure portal. 
 
@@ -30,7 +30,7 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
-- User licenses. To use Dev Box Preview, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
+- User licenses. To use Dev Box , each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
   - Microsoft 365 F3
   - Microsoft 365 E3, Microsoft 365 E5
   - Microsoft 365 A3, Microsoft 365 A5
@@ -40,7 +40,7 @@ To complete this quickstart, you need:
 - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 ## 1. Create a dev center
 
-Use the following steps to create a dev center so that you can manage your dev box resources:  
+Use the following steps to create a dev center so that you can manage your dev box resources: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -81,7 +81,7 @@ Use the following steps to create a dev center so that you can manage your dev b
 
 ## 2. Configure a network connection
 
-Network connections determine the region in which dev boxes are deployed. They also allow dev boxes to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box Preview.  
+Network connections determine the region in which dev boxes are deployed. They also allow dev boxes to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box . 
 
 ### Create a virtual network and subnet
 
@@ -339,7 +339,7 @@ To assign roles:
 
 ## Project Admins
 
-Microsoft Dev Box Preview makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams, like creating and managing dev box pools. To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
+Microsoft Dev Box  makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams, like creating and managing dev box pools. To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
 
 You can assign the DevCenter Project Admin role by using the steps described earlier in [6. Provide access to a dev box project](#6-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 

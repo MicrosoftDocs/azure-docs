@@ -107,6 +107,31 @@ To run the script:
       ```
 
      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
+
+   * **sslCertificates from Keyvault: Optional**.You can download the certificates stored in Azure Key Vault and pass it to migration script.To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
+
+     ```azurepowershell
+      $vaultName = <kv-name>
+      $certificateName = <cert-name>
+      $password = <password>
+      
+      $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
+      $secretByte = [Convert]::FromBase64String($pfxSecret)
+      $x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
+      $x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+      $pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
+      
+      # Write to a file
+      [IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+      ```
+      For each of the cert downloaded from the Keyvault, you can create a new PSApplicationGatewaySslCertificate object via the New-AzApplicationGatewaySslCertificate command shown here. You need the path to your TLS/SSL Cert file and the password.
+
+       ```azurepowershell
+      //Convert the downloaded certificate to SSL object
+      $password = ConvertTo-SecureString  <password> -AsPlainText -Force 
+      $cert = New-AzApplicationGatewaySSLCertificate -Name <certname> -CertificateFile <Cert-File-Path-1> -Password $password 
+       ```
+     
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
 
       ```azurepowershell

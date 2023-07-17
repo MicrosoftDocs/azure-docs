@@ -6049,6 +6049,36 @@
       "source_path_from_root": "/articles/cosmos-db/serverless-1TB.md",
       "redirect_url": "/azure/cosmos-db/serverless-performance",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/array-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/date-time-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/mathematical-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/spatial-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/string-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/type-checking-functions.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
+      "redirect_document_id": false
     }
   ]
 }

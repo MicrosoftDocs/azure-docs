@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/27/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Troubleshoot virtual machine (VM) deployment failures in Azure DevTest Labs

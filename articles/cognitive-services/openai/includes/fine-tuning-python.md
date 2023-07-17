@@ -58,7 +58,7 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Creating your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
@@ -350,7 +350,7 @@ When you're done with your customized model, you can delete the deployment and m
 
 You can use various methods to delete the deployment for your customized model:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)</a>
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)</a>
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/deployments/delete)
 - Python SDK
@@ -367,7 +367,7 @@ result = openai.Deployment.delete(sid=deployment_id)
 
 Similarly, you can use various methods to delete your customized model:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/delete) 
 - Python SDK
 
@@ -386,7 +386,7 @@ result = openai.FineTune.delete(sid=job_id)
 
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
 - Python SDK
 

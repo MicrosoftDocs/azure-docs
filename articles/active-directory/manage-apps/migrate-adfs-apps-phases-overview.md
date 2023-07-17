@@ -43,7 +43,7 @@ To ensure that the users can easily and securely access applications, your goal 
 
 [Azure AD](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your employees, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
-:::image type="content" source="media/migrate-adfs-apps-phases-overview/azure-ad-connectivity.png" alt-text="Diagram showing Azure AD connectivity.":::
+:::image type="content" source="media/migrate-adfs-apps-phases-overview/connectivity.png" alt-text="Diagram showing Azure AD connectivity.":::
 
 Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD gets you the benefits that these capabilities provide.
 

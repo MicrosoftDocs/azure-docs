@@ -108,7 +108,7 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
-Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia.
+Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 > [!NOTE]
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
@@ -139,7 +139,7 @@ You can specify which features you want to use by setting the URL query paramete
 |---|---|--|
 |`features`|`read` | Reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`caption` | Describes the image content with a complete sentence in supported languages.|
-|`features`|`denseCaption` | Generates detailed captions for up to 10 prominent image regions. |
+|`features`|`denseCaptions` | Generates detailed captions for up to 10 prominent image regions. |
 |`features`|`smartCrops` | Finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`objects` | Detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`tags` | Tags the image with a detailed list of words related to the image content.|
@@ -147,7 +147,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
 
 ---
 
