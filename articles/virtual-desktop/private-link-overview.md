@@ -3,7 +3,7 @@ title:  Azure Private Link with Azure Virtual Desktop - Azure
 description: Learn about using Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/17/2023
 ms.author: daknappe
 ---
 
@@ -52,17 +52,15 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 
 Private Link with Azure Virtual Desktop has the following limitations:
 
-- You need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
-
-- You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
+- Before you use Private Link for Azure Virtual Desktop, you need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
 - All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
 
-- After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
+- After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
-- Service tags are used by the Azure Virtual Desktop service for agent monitoring traffic. These tags are created automatically.
+- Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't currently supported.
 
-- Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't supported.
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
 ## Next steps
 
