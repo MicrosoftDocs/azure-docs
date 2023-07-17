@@ -144,12 +144,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
 
-1. Make sure you use the correct orchestration mode.  
-    - [Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) supports both zonal and zone redundancy.
-
-    - [Uniform orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-uniform-orchestration) only supports zone redundancy across availability zones.
-
-1. When you deploy a regional (non-zonal) scale set into one or more zones as of API version 2017-12-01, you have the following availability options: 
+1. All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 
 
 ### SLA improvements
@@ -328,9 +323,15 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ### Low-latency design
 
-Zonal deployment is recommended when super low latency is required, and can be achieved by using VMSS Flex and PPGs for resources alignment. You can combine VMs with other services such as zonal load balancer, IP, NAT Gateway, and especially those services that are running on physical HW/Azure Large Instances (AVS, SAP, Epic, Oracle).
+It's recommended that you configure VMSS with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your VMSS instances. In the case of zonal VMSS deployment,  it's recommended that you create multiple VMSS instances across more than one zone. For example, you can create one VMSS instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate VMSS in the case of a zone outage.
+
+>[!Important]
+>If you opt out of zone-aware deployment, you forego protection from isolation of underlying faults. Opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
 
 ### Safe deployment techniques
+
+It's recommended that you deploy zonal VMSS instances over regional instances in order to have more control over where your instances are deployed to. However, zonal instances only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal instances, there should be two or more instances across different zones. 
+
 
 #### Spreading options
 
