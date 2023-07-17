@@ -450,7 +450,7 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
+1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-the-box-model-monitoring) section.
 1. Select **More options** to open the advanced setup wizard.
 
 1. In the "Configure dataset" section, add a dataset to be used as the comparison baseline. We recommend using the model training data as the comparison baseline for data drift and data quality, and using the model validation data as the comparison baseline for prediction drift.
@@ -477,7 +477,7 @@ created_monitor = poller.result()
 1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
 1. Configure your data assets for Feature Attribution Drift
    
-   A.) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+   A.) In your model creation wizard, add your custom data asset from your [Model Data Collector]([url](https://pypi.org/project/azureml-ai-monitoring/)) (with a modified score.py) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
    
    B.) Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
 
