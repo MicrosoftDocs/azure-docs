@@ -10,7 +10,7 @@ One popular goal of cloud governance is restricting what resource types are allo
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) |This policy enables you to specify the resource types that your organization can deploy. Only resource types that support 'tags' and 'location' will be affected by this policy. To restrict all resources please duplicate this policy and change the 'mode' to 'All'. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json) |
+|[Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) |This policy enables you to specify the resource types that your organization can deploy. Only resource types that support 'tags' and 'location' are affected by this policy. To restrict all resources, duplicate this policy and change the 'mode' to 'All'. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json) |
 |[Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) |Restrict which resource types can be deployed in your environment. Limiting resource types can reduce the complexity and attack surface of your environment while also helping to manage costs. Compliance results are only shown for non-compliant resources. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/InvalidResourceTypes_Deny.json) |
 
 In this tutorial, you apply the **Not allowed resource types** policy and manage resource types at scale through Azure Portal.
@@ -33,7 +33,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 1. On the **Basics** tab, select the **Scope** by selecting the ellipsis
    and choosing a management group, subscription, or resource group of choice. Ensure that the selected scope has at least one sub scope. Learn more about [scopes](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
 
-   This example uses the **Contoso** subscription. Your subscription will differ.
+   This example uses the **Contoso** subscription.
 
 1. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than
    the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
@@ -52,7 +52,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 1. Select the **Parameters** tab at the top of the wizard. This tutorial skips the **Advanced** tab.
 
-1. For the **Not allowed resource types** parameter, use the drop down to search and select resource types which should not be allowed in your cloud environment.
+1. For the **Not allowed resource types** parameter, use the drop down to search and select resource types that should not be allowed in your cloud environment.
 
 1. This policy definition does not have the `modify` or `deployIfNotExists` effects, so it does not support remediation tasks. For this tutorial, skip the **Remediation** tab.
 
@@ -86,7 +86,7 @@ Now suppose that one sub-scope should be allowed to have the resource types disa
 
 1. Select **Assignments** under **Authoring** in the left side of the Azure Policy page.
 
-1. Search for the policy assignment you just created.
+1. Search for the policy assignment you created.
 
 1. Select the **Create exemption** button on the top of the page. 
 
@@ -94,16 +94,16 @@ Now suppose that one sub-scope should be allowed to have the resource types disa
 
 1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of *Waiver*. Do not switch the toggle for **Exemption expiration setting**, because this exemption will not be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
 
-1. This tutorial will bypass the **Advanced** tab. From the **Review + create** tab, select **Create**.
+1. This tutorial bypasses the **Advanced** tab. From the **Review + create** tab, select **Create**.
 
 1. To view the exemption, select **Exemptions** under **Authoring** in the left side of the Azure Policy page.
 
-Now your sub-scope can have the resource types which are disallowed by the policy.
+Now your sub-scope can have the resource types disallowed by the policy.
 
 ## Clean up resources
 
 If you're done working with resources from this tutorial, use the following steps to delete any of
-the policy assignments or definitions created above:
+the policy assignments or definitions created in this tutorial:
 
 1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under
    **Authoring** in the left side of the Azure Policy page.
