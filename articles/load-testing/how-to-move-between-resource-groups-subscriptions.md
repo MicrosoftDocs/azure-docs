@@ -49,7 +49,7 @@ You can move an Azure Load Testing resource to a different resource group or sub
 
 1. On the subscription or resource group overview page, select **Move**.
 
-1. Select the **Subscription** (if applicable) where you want the resource to be moved.
+1. If you're moving the resource to another subscription, select the destination **Subscription**.
 
 1. If you're moving the resource to another resource group, select the destination **Resource group**, or create a new resource group.
 
