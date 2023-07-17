@@ -38,7 +38,7 @@ Returns a numeric expression.
   
 For this example, consider a container with multiple items that may contain a `quantity` field.
   
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sum/seed.json" range="1-2,4-8,10-13,15-19" higlight="5,16":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sum/seed.json" range="1-2,4-8,10-13,15-19" highlight="5,16":::
 
 The `SUM` function is used to sum the values of the `quantity` field, when it exists, into a single aggregated value.
 
