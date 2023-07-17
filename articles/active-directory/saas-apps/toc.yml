@@ -2515,8 +2515,8 @@
         href: tangoe-tutorial.md
       - name: Tango Reserve by AgilQuest (EU Instance)
         href: tango-reserve-tutorial.md
-      - name: Tanium Cloud SSO
-        href: tanium-cloud-sso-tutorial.md
+      - name: Tanium SSO
+        href: tanium-sso-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2982,6 +2982,8 @@
         href: airstack-provisioning-tutorial.md
       - name: Akamai Enterprise Application Access
         href: akamai-enterprise-application-access-provisioning-tutorial.md
+      - name: Airtable
+        href: airtable-provisioning-tutorial.md
       - name: Albert
         href: albert-provisioning-tutorial.md
       - name: AlertMedia
@@ -3210,6 +3212,8 @@
         href: ideagen-cloud-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
+      - name: InformaCast
+        href: informacast-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: Iris Intranet
