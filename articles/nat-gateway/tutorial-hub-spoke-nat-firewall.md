@@ -344,7 +344,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ## Create test virtual machine
 
-A Ubuntu virtual machine is used to test the outbound internet traffic through the NAT gateway. Use the following example to create a Ubuntu virtual machine.
+An Ubuntu virtual machine is used to test the outbound internet traffic through the NAT gateway. Use the following example to create an Ubuntu virtual machine.
 
 The following procedure creates a test virtual machine (VM) named **vm-spoke** in the virtual network.
 
