@@ -32,9 +32,9 @@ An Azure account with an active subscription. [Create an account for free](https
 
 [!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
 
-[!INCLUDE [load-balancer-create-http.md](../../includes/load-balancer-create-http.md)]
+[!INCLUDE [load-balancer-public-create-http.md](../../includes/load-balancer-public-create-http.md)]
 
-[!INCLUDE [create-two-virtual-machines-load-balancer.md](../../includes/create-two-virtual-machines-load-balancer.md)]
+[!INCLUDE [create-two-virtual-machines-linux-load-balancer.md](../../includes/create-two-virtual-machines-linux-load-balancer.md)]
 
 ## Test NAT gateway
 
