@@ -6,11 +6,11 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 02/07/2023
+ms.date: 07/17/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: python
-ms.custom: devx-track-python, py-fresh-zinc
+ms.custom: devx-track-python
 ---
 
 # Use Python to manage directories and files in Azure Data Lake Storage Gen2
@@ -40,11 +40,13 @@ pip install azure-storage-file-datalake azure-identity
 Then open your code file and add the necessary import statements. In this example, we add the following to our *.py* file:
 
 ```python
-import os, uuid, sys
+import os
+from azure.storage.filedatalake import (
+    DataLakeServiceClient,
+    DataLakeDirectoryClient,
+    FileSystemClient
+)
 from azure.identity import DefaultAzureCredential
-from azure.storage.filedatalake import DataLakeServiceClient
-from azure.core._match_conditions import MatchConditions
-from azure.storage.filedatalake._models import ContentSettings
 ```
 
 ## Authorize access and connect to data resources
@@ -119,33 +121,31 @@ The following code example shows how to rename a subdirectory:
 
 ## Upload a file to a directory
 
-This section shows how to upload data to a file in the following ways:
+You can upload content to a new or existing file by using the following method:
 
-- You can upload data to be appended to a file by using the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
-- You can upload content to a new or existing file by using the [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method.
+- [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data)
 
-> [!TIP]
-> If your file size is larger than 4000 MiB, your code will have to make multiple calls to the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. When uploading large files, consider using [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data), which uploads the entire file with a single method call.
-
-### Upload data to a file using append_data
-
-The following code example shows how to append data to a file and using these steps:
-
-- Create a file reference in the target directory by creating a `DataLakeFileClient` object.
-- Upload data to the file using the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
-- Complete the upload by calling the [flush_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-flush-data) method to write the previously uploaded data to the file.
+The following code example shows how to upload a file to a directory using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFile":::
 
-Using this method, data can only be appended to a file and the operation is limited to 4000 MiB per request.
-
-### Upload a file using upload_data
-
-The following code example shows how to upload a file to a directory using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method. This method can be used to upload large files without having to make multiple calls to [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data).
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFileBulk":::
-
 You can use this method to create and upload content to a new file, or you can set the `overwrite` argument to `True` to overwrite an existing file.
+
+## Append data to a file
+
+You can upload data to be appended to a file by using the following method:
+
+- [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
+
+The following code example shows how to append data to a file and using these steps:
+
+- Create a `DataLakeFileClient` object to represent the file resource you're working with.
+- Upload data to the file using the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
+- Complete the upload by calling the [flush_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-flush-data) method to write the previously uploaded data to the file.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AppendData":::
+
+With this method, data can only be appended to a file and the operation is limited to 4000 MiB per request.
 
 ## Download from a directory
 
