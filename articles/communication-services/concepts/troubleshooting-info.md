@@ -181,6 +181,13 @@ AzureLogger.log = (...args) => {
 };
 ```
 
+# Beta: iOS/Windows/Android Log Filename Access
+
+Calling SDK provides convenience methods to get access to the Log Locations. It's recommended to implement a user facing mechanism for error-reporting that includes these files when escalating support requests, as it can be difficult for an end-user to access or supply these files.
+
+[Log Sharing Tutorials](../tutorials/log-sharing-tutorial.md)
+[Log Sharing Conceptual Document](../concepts/voice-video-calling/log-sharing-concept.md)
+
 # [iOS](#tab/ios)
 
 When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
@@ -208,6 +215,7 @@ These are accessed by looking at where your app is keeping its local data. There
 4. Please check if the app ID of your application matches with the one returned by the previous command.
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
+
 
 ## Finding Azure Active Directory information
 
