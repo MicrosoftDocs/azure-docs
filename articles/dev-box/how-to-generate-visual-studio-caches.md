@@ -32,7 +32,7 @@ To leverage precaching of your source code and Visual Studio IDE customizations 
 - Create a dev center and configure the Microsoft Dev Box service. If you don't have one available, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create a dev center and configure a dev box.
 - [Create a custom VM image for dev box](how-to-customize-devbox-azure-image-builder.md) that includes your source code and pregenerated caches. 
 
-  This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations) for your project. 
+  This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-visual-studio-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations-in-dev-box-images) for your project. 
   You can then use the resulting image to [create new dev boxes](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition) for your team.
 
 ## Enable Visual Studio caches in dev box images
