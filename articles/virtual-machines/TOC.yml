@@ -304,6 +304,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NGads V620-series (preview)
+        href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
       - name: NVv3-series
@@ -381,7 +383,13 @@
         - name: Performance
           href: hbv3-performance.md
       - name: HBv4-series
-        href: hbv4-series.md
+        items:
+        - name: Overview
+          href: hbv4-series-overview.md
+        - name: HBv4-series
+          href: hbv4-series.md
+        - name: Performance
+          href: hbv4-performance.md
       - name: HC-series
         items:
         - name: Overview
@@ -391,7 +399,13 @@
         - name: Performance
           href: hc-series-performance.md
       - name: HX-series
-        href: hx-series.md
+        items:
+        - name: Overview
+          href: hx-series-overview.md
+        - name: HX-series
+          href: hx-series.md
+        - name: Performance
+          href: hx-performance.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
@@ -399,7 +413,7 @@
       - name: Setup MPI for HPC
         href: setup-mpi.md
       - name: Scaling HPC applications
-        href: compiling-scaling-applications.md        
+        href: compiling-scaling-applications.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -661,7 +675,7 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
-      - name: How to use AIB triggers to setup an automatic image build (preview)
+      - name: How to use AIB triggers to set up an automatic image build (preview)
         displayName: Image builder, images, building, triggers
         href: image-builder-triggers-how-to.md
       - name: Store scripts
@@ -1626,7 +1640,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring (guest attestation) overview
+    - name: Boot integrity monitoring overview
       href: boot-integrity-monitoring-overview.md
  
   - name: Just-in-time access

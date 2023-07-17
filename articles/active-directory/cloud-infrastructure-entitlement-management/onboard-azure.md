@@ -69,7 +69,7 @@ To view status of onboarding after saving the configuration:
 
 #### Option 2: Enter authorization systems 
 
-You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
+You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
 1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for the subscription. 
 1. In the EPM portal, click the cog on the top right-hand side. 

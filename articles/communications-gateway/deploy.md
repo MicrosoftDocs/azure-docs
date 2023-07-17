@@ -126,6 +126,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
         # Assign the relevant Role to the managed identity for the Azure Communications Gateway resource
         New-AzureADServiceAppRoleAssignment -ObjectId $commGwayObjectId -PrincipalId $commGwayObjectId -ResourceId $projectSynergyObjectId -Id $role
     }
+    
     ```
 
 ## 5. Provide additional information to your onboarding team

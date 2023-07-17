@@ -148,33 +148,33 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
   1. Install or update `aks-preview` using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
-    ```azurecli
-    # Install aks-preview
+        ```azurecli
+        # Install aks-preview
 
-    az extension add --name aks-preview
+        az extension add --name aks-preview
 
-    # Update aks-preview
+        # Update aks-preview
 
-    az extension update --name aks-preview
-    ```
+        az extension update --name aks-preview
+        ```
 
   2. Register the feature flag using the [`az feature register`][az-feature-register] command.
 
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
-    ```
+        ```azurecli
+        az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+        ```
 
   3. Check the registration status using the [`az feature list`][az-feature-list] command.
 
-    ```azurecli
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
-    ```
+        ```azurecli
+        az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+        ```
 
   4. Refresh the registration of the `Microsoft.ContainerService` resource provider us
 
-    ```azurecli
-    az provider register --namespace Microsoft.ContainerService
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ContainerService
+        ```
 
 * Your clusters must have a managed NAT gateway (which may increase the overall cost).
 * If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].

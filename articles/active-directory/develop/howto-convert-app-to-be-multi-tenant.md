@@ -183,7 +183,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
-[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]: ./media/devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 [Consent-Single-Tier]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-single-tier.svg
 [Consent-Multi-Tier-Known-Client]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-known-clients.svg
 [Consent-Multi-Tier-Multi-Party]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-multi-party.svg

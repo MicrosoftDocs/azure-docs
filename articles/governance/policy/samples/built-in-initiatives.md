@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy initiatives
 description: List built-in policy initiatives for Azure Policy. Categories include Regulatory Compliance, Guest Configuration, and more.
-ms.date: 02/21/2023
+ms.date: 06/01/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -13,6 +13,10 @@ The name on each built-in links to the initiative definition source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
 side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+
+## Automanage
+
+[!INCLUDE [azure-policy-reference-policysets-automanage](../../../../includes/policy/reference/bycat/policysets-automanage.md)]
 
 ## ChangeTrackingAndInventory
 
@@ -29,6 +33,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Kubernetes
 
 [!INCLUDE [azure-policy-reference-policysets-kubernetes](../../../../includes/policy/reference/bycat/policysets-kubernetes.md)]
+
+## Managed Identity
+
+[!INCLUDE [azure-policy-reference-policysets-managed-identity](../../../../includes/policy/reference/bycat/policysets-managed-identity.md)]
 
 ## Monitoring
 
@@ -49,6 +57,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Security Center
 
 [!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
+
+## Tags
+
+[!INCLUDE [azure-policy-reference-policysets-tags](../../../../includes/policy/reference/bycat/policysets-tags.md)]
 
 ## Trusted Launch
 

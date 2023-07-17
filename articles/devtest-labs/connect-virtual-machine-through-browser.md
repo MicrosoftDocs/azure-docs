@@ -4,7 +4,7 @@ description: Learn how to connect to lab virtual machines (VMs) through a browse
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/14/2022
+ms.date: 06/14/2023
 ---
 
 # Connect to DevTest Labs VMs through a browser with Azure Bastion

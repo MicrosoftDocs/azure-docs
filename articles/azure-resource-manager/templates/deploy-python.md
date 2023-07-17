@@ -3,7 +3,7 @@ title: Deploy resources with Python and template
 description: Use Azure Resource Manager and Python to deploy resources to Azure. The resources are defined in an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 04/24/2023
-ms.custom: devx-track-azurepowershell, devx-track-arm-template, ai-gen-docs
+ms.custom: devx-track-arm-template, ai-gen-docs, devx-track-python
 ---
 
 # Deploy resources with ARM templates and Python

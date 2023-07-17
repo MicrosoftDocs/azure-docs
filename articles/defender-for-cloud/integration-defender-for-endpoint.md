@@ -196,7 +196,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
     > [!NOTE]
-    > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
+    > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by turning the toggle **off** in **Endpoint Protection**, and selecting **Continue**.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 

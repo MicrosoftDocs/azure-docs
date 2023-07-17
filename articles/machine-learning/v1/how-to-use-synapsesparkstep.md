@@ -28,7 +28,7 @@ In this article, you'll learn how to use Apache Spark pools powered by Azure Syn
 
 * Create an [Azure Machine Learning workspace](../quickstart-create-resources.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 * Create an Azure Synapse Analytics workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
 
@@ -69,7 +69,7 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Create a workspace configuration file](how-to-configure-environment-v1.md)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
+First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Create a workspace configuration file](how-to-configure-environment.md)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
 
 ## Attach your Apache spark pool as a compute target for Azure Machine Learning
 

@@ -10,7 +10,7 @@ author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
 ms.date: 04/12/2023
-ms.custom: sdkv2, cliv2, 
+ms.custom: sdkv2, cliv2, devx-track-python
 ---
 
 # How to use pipeline component to build nested pipeline job (V2) (preview)

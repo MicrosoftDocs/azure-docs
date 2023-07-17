@@ -55,7 +55,7 @@ To roll out changes to the service across data centers, the Azure AD team define
 
 ## Next steps
 
-* [Azure Active Directory and data residency](azure-ad-data-residency.md)
+* [Azure Active Directory and data residency](data-residency.md)
 
 * [Data operational considerations](data-operational-considerations.md) (You're here)
 * [Data protection considerations](data-protection-considerations.md)

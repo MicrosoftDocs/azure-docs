@@ -7,7 +7,7 @@ ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23, devx-track-azurecli
 ---
 
 # Use Application Configuration Service for Tanzu

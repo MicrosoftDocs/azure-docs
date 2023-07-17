@@ -22,7 +22,7 @@ For more information on how to export, see [Import and Export data in Azure Cach
 > [!IMPORTANT]
 > As announced in [What's new](cache-whats-new.md#upgrade-your-azure-cache-for-redis-instances-to-use-redis-version-6-by-june-30-2023), we'll retire version 4 for Azure Cache for Redis instances on June 30, 2023. Before that date, you need to upgrade any of your cache instances to version 6.
 >
-> For more information on the retirement of Redis 4, see [Retirements](cache-retired-features.md).
+> For more information on the retirement of Redis 4, see [Retirements](cache-retired-features.md) and [Frequently asked questions](cache-retired-features.md#redis-4-retirement-questions)
 >
 
 ## Prerequisites

@@ -152,9 +152,9 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the **Vnet injection** page.
 
-1. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
-   :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
+   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
 #### [CLI](#tab/azure-CLI)
 
@@ -164,7 +164,7 @@ Use the following command to enable the log stream public endpoint.
 az spring update \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
-    --enable-log-stream-public-endpoint true
+    --enable-dataplane-public-endpoint true
 ```
 
 After you've enabled the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.

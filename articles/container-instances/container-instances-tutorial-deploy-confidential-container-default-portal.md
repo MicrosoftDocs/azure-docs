@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: seodec18, mvc, devx-track-js
+ms.custom: seodec18, mvc
 ---
 
 # Tutorial: Deploy a confidential container to Azure Container Instances via Azure portal

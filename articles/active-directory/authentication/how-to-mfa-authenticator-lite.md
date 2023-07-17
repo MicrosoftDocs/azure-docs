@@ -25,7 +25,7 @@ Microsoft Authenticator Lite is another surface for Azure Active Directory (Azur
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 >[!NOTE]
->This is an important security enhancement for users authenticating via telecom transports. This feature is currently in the state ‘Microsoft managed’. Until June 9th, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 9th. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 9th. If you do not wish for this feature to be enabled on June 9th, move the state to ‘disabled’ or set users to include and exclude groups. 
+>This is an important security enhancement for users authenticating via telecom transports. This feature is currently in the state ‘Microsoft managed’. Until June 26, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 26. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 26. If you do not wish for this feature to be enabled on June 26, move the state to ‘disabled’ or set users to include and exclude groups. 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
 ## Enable Authenticator Lite
 
-By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings). Until June 9th, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 9th. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 9th. If you do not wish for this feature to be enabled on June 9th, move the state to ‘disabled’ or set users to include and exclude groups. 
+By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings). Until June 26, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 26. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 26. If you do not wish for this feature to be enabled on June 26, move the state to ‘disabled’ or set users to include and exclude groups. 
 
 ### Enablement Authenticator Lite in Azure portal UX
 

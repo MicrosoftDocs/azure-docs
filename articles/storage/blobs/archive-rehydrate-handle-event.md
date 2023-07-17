@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Run an Azure Function in response to a blob rehydration event

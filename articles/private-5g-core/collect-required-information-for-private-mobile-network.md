@@ -82,7 +82,7 @@ Note that once the SIM group is created, the encryption type cannot be changed.
    |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
    |The name for the SIM resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
-   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
+   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
    |The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
    |The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. The Ki must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
    |The derived operator code (OPc). The OPc is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|

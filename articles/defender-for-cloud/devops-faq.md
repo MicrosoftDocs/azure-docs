@@ -83,9 +83,9 @@ If you don’t see SARIF file in the expected path, you may have chosen a differ
 
 ### I don’t see the results for my ADO projects in Microsoft Defender for Cloud 
 
-Currently, OSS vulnerability findings are only available for GitHub repositories. 
+When you use classic pipeline configuration, make sure you don't change artifact name. This can result not seeing the results for your project. 
 
-Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
+Currently, OSS vulnerability findings are only available for GitHub repositories. Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
 ### Why is my Azure DevOps repository not refreshing to healthy? 
 

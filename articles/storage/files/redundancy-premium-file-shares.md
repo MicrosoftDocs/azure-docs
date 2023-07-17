@@ -29,4 +29,4 @@ ZRS is supported for premium Azure file shares through the `FileStorage` storage
 
 ## See also
 
-- [Azure Storage redundancy](../common/storage-redundancy.md)
+- [Azure Files redundancy](files-redundancy.md)

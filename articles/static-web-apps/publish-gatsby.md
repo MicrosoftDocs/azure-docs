@@ -7,8 +7,7 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: aapowell
-ms.custom: devx-track-js
-
+ms.custom:
 ---
 
 # Tutorial: Publish a Gatsby site to Azure Static Web Apps
@@ -29,6 +28,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 - [Node.js](https://nodejs.org) installed.
 
 ## Create a Gatsby App

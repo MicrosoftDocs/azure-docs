@@ -119,7 +119,7 @@ with fs.open('./folder1/file1.csv') as f:
 ```python
 from azureml.fsspec import AzureMachineLearningFileSystem
 # instantiate file system using following URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastorename>/paths/')
 
 # you can specify recursive as False to upload a file
 fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': 'MERGE_WITH_OVERWRITE'})

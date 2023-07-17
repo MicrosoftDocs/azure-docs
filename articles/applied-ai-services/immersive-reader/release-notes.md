@@ -8,6 +8,7 @@ manager: guillasi
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
+ms.custom: devx-track-js
 ms.topic: release-notes
 ms.date: 11/15/2021
 ms.author: rwaller

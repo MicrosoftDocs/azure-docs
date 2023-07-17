@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/07/2019
-ms.custom: "amqp, devx-track-csharp"
+ms.custom: amqp, devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with IoT Hub module identity and module twin (.NET)

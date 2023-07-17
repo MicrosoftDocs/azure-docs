@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 ## Applies to
 
-This Quickstart only applies to SMB Azure file shares. Standard and premium SMB file shares support locally redundant storage (LRS) and zone-redundant storage (ZRS). Standard file shares also support geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) options. For more information, see [Azure Storage redundancy](../common/storage-redundancy.md).
+This Quickstart only applies to SMB Azure file shares. Standard and premium SMB file shares support locally redundant storage (LRS) and zone-redundant storage (ZRS). Standard file shares also support geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) options. For more information, see [Azure Files redundancy](files-redundancy.md).
 
 | File share type | SMB | NFS |
 |-|:-:|:-:|

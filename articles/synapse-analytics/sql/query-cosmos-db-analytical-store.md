@@ -433,7 +433,7 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country.
+In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country/region.
 
 ## Troubleshooting
 

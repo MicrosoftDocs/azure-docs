@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's security recommendations for MFA
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 06/11/2023
 ---
 
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
@@ -18,8 +18,9 @@ Defender for Cloud places a high value on MFA. The security control that contrib
 
 The recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
 
-- MFA should be enabled on accounts with owner permissions on your subscription
-- MFA should be enabled on accounts with write permissions on your subscription
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
 
 There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, conditional access (CA) policy.
 

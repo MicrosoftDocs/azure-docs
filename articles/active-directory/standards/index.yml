@@ -27,15 +27,15 @@ landingContent:
           - text: NIST AAL overview
             url: nist-overview.md
           - text: FedRAMP High impact overview
-            url: configure-azure-active-directory-for-fedramp-high-impact.md
+            url: configure-for-fedramp-high-impact.md
           - text: Configure Azure Active Directory for Memorandum 22-09 requirements
             url: memo-22-09-meet-identity-requirements.md
           - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
+            url: configure-for-cmmc-compliance.md
           - text: Configure Azure Active Directory for HIPAA compliance
-            url: hipaa-configure-azure-active-directory-for-compliance.md
+            url: hipaa-configure-for-compliance.md
           - text: Configure Azure Active Directory for PCI-DSS compliance
-            url: azure-ad-pci-dss-guidance.md
+            url: pci-dss-guidance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -93,7 +93,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
+            url: configure-for-cmmc-compliance.md
           - text: Configure CMMC Level 1 controls
             url: configure-cmmc-level-1-controls.md
           - text: Configure CMMC Level 2 Access Control controls
@@ -137,4 +137,4 @@ landingContent:
           - text: Meet PCI-DSS Requirement 11
             url: pci-requirement-11.md
           - text: Meet Azure Active Directory PCI-DSS MFA supplemental requirements
-            url: azure-ad-pci-dss-mfa.md
+            url: pci-dss-mfa.md

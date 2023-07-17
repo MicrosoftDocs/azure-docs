@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, tracking-python, contperf-fy21q3, FY21Q4-aml-seo-ha
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-bring-data.md)
-> * [v2](../tutorial-1st-experiment-bring-data.md?view=azureml-api-2&preserve-view=true)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 

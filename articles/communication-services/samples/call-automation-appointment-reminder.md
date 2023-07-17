@@ -11,6 +11,7 @@ ms.date: 11/17/2022
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: call-automation
+ms.custom: devx-track-extended-java
 zone_pivot_groups: acs-csharp-java
 ---
 
@@ -49,5 +50,3 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn about [Call Automation](../concepts/call-automation/call-automation.md) and its features.
 - Learn about [Play action](../concepts/call-automation/play-action.md) to play audio in call.
 - Learn about [Recognize action](../concepts/call-automation/recognize-action.md) to gather user input.
-
-

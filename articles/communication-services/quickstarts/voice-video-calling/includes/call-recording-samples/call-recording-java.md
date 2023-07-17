@@ -1,14 +1,14 @@
 ---
 author: dbasantes
 ms.service: azure-communication-services
-ms.date: 10/14/2022
+ms.date: 06/11/2023
 ms.topic: include
 ms.custom: public_preview
 ---
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallRecording)
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
             .buildClient();
 ```
 
-## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' API
+## 2. Start recording session with StartRecordingOptions using 'startWithResponse' API
 
 Use the `serverCallId` received during initiation of the call.
 - RecordingContent is used to pass the recording content type. Use AUDIO
@@ -61,8 +61,8 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
                     .setRecordingContent(RecordingContent.AUDIO)
                     .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>");
 
-Response<StartCallRecordingResult> response = callAutomationClient.getCallRecording()
-.startRecordingWithResponse(recordingOptions, null);
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
 
 ```
 
@@ -78,35 +78,52 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
                     .setAudioChannelParticipantOrdering(List.of(new CommunicationUserIdentifier("<participantMri>")));
 
 Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
+
+```
+
+### 2.2. Only for Unmixed - Specify channel affinity
+```java
+ChannelAffinity channelAffinity = new ChannelAffinity()
+.setParticipant(new PhoneNumberIdentifier("RECORDING_ID"))
+.setChannel(0);
+List<ChannelAffinity> channelAffinities = Arrays.asList(channelAffinity);
+
+StartRecordingOptions startRecordingOptions = new StartRecordingOptions(new ServerCallLocator(SERVER_CALL_ID))
+   .setRecordingChannel(RecordingChannel.UNMIXED)
+   .setRecordingFormat(RecordingFormat.WAV)
+   .setRecordingContent(RecordingContent.AUDIO)
+   .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>")
+   .setChannelAffinity(channelAffinities);
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
 .startRecordingWithResponse(recordingOptions, null);
-
 ```
-The `startRecordingWithResponse` API response contains the `recordingId` of the recording session.
+The `startWithResponse` API response contains the `recordingId` of the recording session.
 
-## 3.	Stop recording session using 'stopRecordingWithResponse' API
+## 3.	Stop recording session using 'stopWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-               .stopRecordingWithResponse(response.getValue().getRecordingId(), null);
+               .stopWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 4.	Pause recording session using 'pauseRecordingWithResponse' API
+## 4.	Pause recording session using 'pauseWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-              .pauseRecordingWithResponse(response.getValue().getRecordingId(), null);
+              .pauseWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 5.	Resume recording session using 'resumeRecordingWithResponse' API
+## 5.	Resume recording session using 'resumeWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-               .resumeRecordingWithResponse(response.getValue().getRecordingId(), null);
+               .resumeWithResponse(response.getValue().getRecordingId(), null);
 ```
 
 ## 6.	Download recording File using 'downloadToWithResponse' API
@@ -166,13 +183,13 @@ Response<Void> downloadResponse = callAutomationClient.getCallRecording().downlo
 ```
 The content location and document IDs for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
 
-## 7. Delete recording content using ‘deleteRecordingWithResponse’ API.
+## 7. Delete recording content using ‘deleteWithResponse’ API.
 
-Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteRecordingWithResponse` method:
+Use `deleteWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteWithResponse` method:
 - `deleteLocation`: Azure Communication Services URL where the content to delete is located.
 - `context`: A Context representing the request context.
 
 ```
-Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteRecordingWithResponse(deleteLocation, context);
+Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteWithResponse(deleteLocation, context);
 ```
 The delete location for the recording can be fetched from the `deleteLocation` field of the Event Grid event.

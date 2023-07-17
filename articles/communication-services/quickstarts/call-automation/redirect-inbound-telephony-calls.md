@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: askaur
-ms.custom: public_preview
+ms.custom: public_preview, devx-track-extended-java
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---

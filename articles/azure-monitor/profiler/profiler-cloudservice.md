@@ -2,7 +2,7 @@
 title: Enable Profiler for Azure Cloud Services | Microsoft Docs
 description: Profile live Azure Cloud Services with Application Insights Profiler.
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.date: 07/15/2022
 ---
 

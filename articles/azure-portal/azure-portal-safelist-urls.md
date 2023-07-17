@@ -32,12 +32,12 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 #### Azure portal authentication
 
 ```
-*.login.microsoftonline.com
+login.microsoftonline.com
 *.aadcdn.msftauth.net
 *.aadcdn.msftauthimages.net
 *.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
-*.login.live.com
+login.live.com
 *.msauth.net
 *.aadcdn.microsoftonline-p.com
 *.microsoftonline-p.com
@@ -49,7 +49,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.portal.azure.com
 *.hosting.portal.azure.net
 *.reactblade.portal.azure.net
-*.management.azure.com
+management.azure.com
 *.ext.azure.com
 *.graph.windows.net
 *.graph.microsoft.com

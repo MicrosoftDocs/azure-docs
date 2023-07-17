@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
-ms.date: 03/07/2023
+ms.date: 06/07/2023
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -67,8 +67,6 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 * Kata containers may not reach the IOPS performance limits that traditional containers can reach on Azure Files and high performance local SSD.
 
 * [Microsoft Defender for Containers][defender-for-containers] doesn't support assessing Kata runtime pods.
-
-* [Container Insights][container-insights] doesn't support monitoring of Kata runtime pods in the preview release.
 
 * [Kata][kata-network-limitations] host-network isn't supported.
 

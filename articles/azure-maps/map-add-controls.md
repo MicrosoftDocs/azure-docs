@@ -6,7 +6,7 @@ ms.author: yuchungchen
 ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add controls to a map

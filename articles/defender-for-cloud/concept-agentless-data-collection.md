@@ -21,7 +21,8 @@ Agentless scanning for VMs provides vulnerability assessment and software invent
 |---------|---------|
 |Release state:| GA |
 |Pricing:|Requires either [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) or [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
-| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management) | 
+| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management) |
+| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management) |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
 | Operating systems:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Linux        |
 | Instance types:    | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Standard VMs<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Virtual machine scale set - Flex<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual machine scale set - Uniform<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: EC2<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Auto Scale instances<br>:::image type="icon" source="./media/icons/no-icon.png"::: Instances with a ProductCode (Paid AMIs)        |
@@ -40,6 +41,7 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 ## FAQ
 
 ### How does scanning affect the instances?
+
 Since the scanning process is an out-of-band analysis of snapshots, it doesn't impact the actual workloads and isn't visible by the guest operating system.
 
 ### How does scanning affect the account/subscription?
@@ -59,16 +61,16 @@ Each VM is scanned every 24 hours.
 
 The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure and AWS environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
-- Azure	permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks which are required for the snapshot process. The detailed list of permissions is:
+- Azure permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks which are required for the snapshot process. The detailed list of permissions is:
 
-    - `Microsoft.Compute/disks/read`
-    - `Microsoft.Compute/disks/beginGetAccess/action`
-    - `Microsoft.Compute/virtualMachines/instanceView/read`
-    - `Microsoft.Compute/virtualMachines/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/instanceView/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
+  - `Microsoft.Compute/disks/read`
+  - `Microsoft.Compute/disks/beginGetAccess/action`
+  - `Microsoft.Compute/virtualMachines/instanceView/read`
+  - `Microsoft.Compute/virtualMachines/read`
+  - `Microsoft.Compute/virtualMachineScaleSets/instanceView/read`
+  - `Microsoft.Compute/virtualMachineScaleSets/read`
+  - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
+  - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
 
 - AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
 
@@ -87,7 +89,7 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Conditions | None |
     | Resources | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ |
     | Effect | Allow |
-    
+
     | Attribute | Value |
     |---------|---------|
     | SID | **VmScannerVerificationAccess** |
@@ -95,7 +97,7 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Conditions | None |
     | Resources | * |
     | Effect | Allow |
-       
+
     | Attribute | Value |
     |---------|---------|
     | SID | **VmScannerEncryptionKeyCreation** |
@@ -103,7 +105,7 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Conditions | None |
     | Resources | * |
     | Effect | Allow |
-    
+
     | Attribute | Value |
     |---------|---------|
     | SID | **VmScannerEncryptionKeyManagement** |
@@ -111,7 +113,7 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Conditions | None |
     | Resources | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey |
     | Effect | Allow |
-    
+
     | Attribute | Value |
     |---------|---------|
     | SID | **VmScannerEncryptionKeyUsage** |
@@ -119,7 +121,6 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Conditions | None |
     | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
     | Effect | Allow |
-
 
 ### Which data is collected from snapshots?
 

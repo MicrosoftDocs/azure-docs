@@ -12,9 +12,9 @@ ms.custom: template-concept
 # CSV parser ingestion concepts
 A CSV (comma-separated values) file is a comma delimited text file that is used to save data in a table structured format. 
 
-A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy Preview instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers must create and register the custom schema using the Schema service before loading the data. 
+A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy Preview instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) Well Known Schema (WKS). Customers must create and register the custom schema using the Schema service before loading the data. 
 
-A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) canonical schema using a mapping service.
+A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) Well Known Schema using a mapping service.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

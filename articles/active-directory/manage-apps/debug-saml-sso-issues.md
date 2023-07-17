@@ -26,6 +26,8 @@ To download and install the My Apps Secure Sign-in Extension, use one of the fol
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
 - [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Test SAML-based single sign-on
 
 To test SAML-based single sign-on between Azure AD and a target application:

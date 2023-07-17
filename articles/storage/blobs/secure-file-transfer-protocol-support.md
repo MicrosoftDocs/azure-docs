@@ -109,13 +109,13 @@ put logfile.txt
 
 You can use many different SFTP clients to securely connect and then transfer files. Connecting clients must use algorithms specified in table below. 
 
-| Host key <sup>1</sup> | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
-|----------|--------------|--------------------|---------------|------------|
-| rsa-sha2-256 <sup>2</sup> | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa <sup>2</sup> |
-| rsa-sha2-512 <sup>2</sup> | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-ctr| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384 | diffie-hellman-group16-sha512 | aes192-ctr | hmac-sha2-512-etm@openssh.com | 
-|| diffie-hellman-group-exchange-sha256 | aes256-ctr ||
+| Type | Algorithm |
+|--|--|
+| Host key <sup>1</sup> | rsa-sha2-256 <sup>2</sup><br>rsa-sha2-512 <sup>2</sup><br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384 |
+| Key exchange |ecdh-sha2-nistp384<br>ecdh-sha2-nistp256<br>diffie-hellman-group14-sha256<br>diffie-hellman-group16-sha512<br>diffie-hellman-group-exchange-sha256|
+| Ciphers/encryption |aes128-gcm@openssh.com<br>aes256-gcm@openssh.com<br>aes128-ctr<br>aes192-ctr<br>aes256-ctr|
+| Integrity/MAC |hmac-sha2-256<br>hmac-sha2-512<br>hmac-sha2-256-etm@openssh.com<br>hmac-sha2-512-etm@openssh.com|
+| Public key |ssh-rsa <sup>2</sup><br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384|
 
 <sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
 <sup>2</sup>    RSA keys must be minimum 2048 bits in length.

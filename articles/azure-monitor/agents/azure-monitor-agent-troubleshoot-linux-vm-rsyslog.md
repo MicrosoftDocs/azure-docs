@@ -78,15 +78,15 @@ none      849   root  txt    REG    0,1       8632     0 16764 / (deleted)
 rsyslogd 1484 syslog   14w   REG    8,1 3601566564     0 35280 /var/log/syslog (deleted)
 ```
 
-### Rsyslog default configuration logs all facilities to /var/log/syslog
-On some popular distros (for example Ubuntu 18.04 LTS), rsyslog ships with a default configuration file (`/etc/rsyslog.d/50-default.conf`) which will log events from nearly all facilities to disk at `/var/log/syslog`.
+### Rsyslog default configuration logs all facilities to /var/log/
+On some popular distros (for example Ubuntu 18.04 LTS), rsyslog ships with a default configuration file (`/etc/rsyslog.d/50-default.conf`) which logs events from nearly all facilities to disk at `/var/log/syslog`. Note that for RedHat/CentOS family syslog events will be stored under `/var/log/` but in a different file:  `/var/log/messages`.
 
-AMA doesn't rely on syslog events being logged to `/var/log/syslog`. Instead, it configures rsyslog to forward events over a socket directly to the azuremonitoragent service process (mdsd).
+AMA doesn't rely on syslog events being logged to `/var/log/`. Instead, it configures rsyslog service to forward events over a socket directly to the azuremonitoragent service process (mdsd).
 
 #### Fix: Remove high-volume facilities from /etc/rsyslog.d/50-default.conf
-If you're sending a high log volume through rsyslog, consider modifying the default rsyslog config to avoid logging these events to this location `/var/log/syslog`. The events for this facility would still be forwarded to AMA because of the config in `/etc/rsyslog.d/10-azuremonitoragent.conf`.
+If you're sending a high log volume through rsyslog and your system is setup to log events for these facilities, consider modifying the default rsyslog config to avoid logging and storing them under `/var/log/`. The events for this facility would still be forwarded to AMA because rsyslog is using a different configuration for forwarding placed in `/etc/rsyslog.d/10-azuremonitoragent.conf`.
 
-1. For example, to remove local4 events from being logged at `/var/log/syslog`, change this line in `/etc/rsyslog.d/50-default.conf` from this:
+1. For example, to remove local4 events from being logged at `/var/log/syslog` or `/var/log/messages`, change this line in `/etc/rsyslog.d/50-default.conf` from this:
 	```config
 	*.*;auth,authpriv.none          -/var/log/syslog
 	```

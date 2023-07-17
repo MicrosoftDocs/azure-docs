@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: rhurey
 ms.devlang: cpp, csharp, java, objective-c, python
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
 ---

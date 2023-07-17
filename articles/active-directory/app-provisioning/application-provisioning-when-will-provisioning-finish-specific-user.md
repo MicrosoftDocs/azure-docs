@@ -93,5 +93,12 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - If performance becomes an issue, and you're attempting to provision most users and groups in your tenant, then use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
+The **incremental cycle** may also take longer than the duration we have documented above. Some of the factors that influence this duration are:
+
+- The  number of changes on the individual objects properties.
+- The number of changes on the groups memberships.
+- The scope of assignment configured for the app. Configuration of **sync assigned users and groups only** is recommended where possible.
+
+
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)

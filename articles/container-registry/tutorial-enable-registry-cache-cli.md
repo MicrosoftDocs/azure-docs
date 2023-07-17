@@ -2,6 +2,7 @@
 title: Enable Cache for ACR (preview) - Azure CLI 
 description: Learn how to enable Registry Cachein your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---

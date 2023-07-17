@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: mopeakande
 ms.date: 07/01/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning

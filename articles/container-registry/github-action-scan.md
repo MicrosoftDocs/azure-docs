@@ -6,7 +6,7 @@ ms.reviewer: jukullam
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-ms.custom: github-actions-azure, mode-other
+ms.custom: github-actions-azure, mode-other, devx-track-extended-java
 ---
 
 # Scan container images using GitHub Actions

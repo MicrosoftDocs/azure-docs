@@ -4,7 +4,7 @@ description: This article provides a walkthrough of creating a Java application 
 ms.topic: quickstart
 ms.date: 02/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs
@@ -91,7 +91,7 @@ public class SenderAAD {
     // Example: private static final String namespaceName = "contosons.servicebus.windows.net";
     private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
 
-    // Replace <EVENT HUB NAME> with the name of your event hug. 
+    // Replace <EVENT HUB NAME> with the name of your event hub. 
     // Example: private static final String eventHubName = "ordersehub";
     private static final String eventHubName = "<EVENT HUB NAME>";
 

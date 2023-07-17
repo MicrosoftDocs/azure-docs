@@ -1073,7 +1073,7 @@ items:
     - name: Azure Machine Learning
       items:
       - name: Data ingestion
-        href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
+        href: ../machine-learning/v1/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files

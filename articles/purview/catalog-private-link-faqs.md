@@ -27,7 +27,7 @@ Use a Managed IR if:
 - You are planning to scan any of the [supported data sources](catalog-managed-vnet.md#supported-data-sources) by Managed IR.
 
 Use a self-hosted integration runtime if:
-- You are planning to scan any Azure IaaS, SaaS on-premises data sources.
+- You are planning to scan data sources in Azure IaaS, SaaS services behind private network or in your on-premises network.
 - Managed VNet is not available in the region where your Microsoft Purview account is deployed.
 
 ### Can I use both self-hosted integration runtime and Managed IR inside a Microsoft Purview account?

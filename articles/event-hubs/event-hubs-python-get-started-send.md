@@ -4,7 +4,7 @@ description: This article provides a walkthrough for creating a Python applicati
 ms.topic: quickstart
 ms.date: 01/08/2023
 ms.devlang: python
-ms.custom: mode-api, passwordless-python
+ms.custom: mode-api, passwordless-python, devx-track-python
 ---
 
 # Send events to or receive events from event hubs by using Python

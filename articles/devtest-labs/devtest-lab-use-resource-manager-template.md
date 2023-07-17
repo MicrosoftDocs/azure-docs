@@ -4,7 +4,7 @@ description: Learn how to view, edit, save, and store ARM virtual machine (VM) t
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/11/2022
+ms.date: 06/09/2023
 ---
 
 # Use ARM templates to create DevTest Labs virtual machines

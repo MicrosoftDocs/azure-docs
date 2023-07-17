@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/11/2022
 ms.author: maquaran
 ms.devlang: csharp, java
-ms.custom: devx-track-dotnet, devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 

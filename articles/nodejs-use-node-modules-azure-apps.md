@@ -7,6 +7,7 @@ manager: rloutlaw
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.prod: azure-nodejs
 ms.devlang: javascript
+ms.custom: devx-track-js
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw

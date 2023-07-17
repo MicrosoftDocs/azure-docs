@@ -196,14 +196,10 @@ public class ActionController {
 
                 // This RecognizeCompleted correlates to the previous action as per the OperationContext value
                 if (event.getOperationContext().equals("MainMenu")) {
-                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());
-
-                    // Invite other participants to the call
-                    CommunicationIdentifier target = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
-                    List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(target)); 
-                    AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targets) 
-        .setSourceCallerId(new PhoneNumberIdentifier(applicationPhoneNumber));  
-                    Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
+                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());                   
+                    CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier(phoneNumberToAddToCall), new PhoneNumberIdentifier(applicationPhoneNumber)); 
+                    AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+                    Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
                 }
             }
         }
@@ -212,7 +208,7 @@ public class ActionController {
 }
 
 ```
-Replace the placeholders with the actual values in lines 28-32. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this. 
+Replace the placeholders with the actual values in lines 28-32.
 
 ## Run the app
 

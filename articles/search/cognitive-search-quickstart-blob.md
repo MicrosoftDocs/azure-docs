@@ -10,9 +10,9 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 05/31/2023
 ---
-# Quickstart: Create an Azure Cognitive Search skillset in the Azure portal
+# Quickstart: Create a skillset in the Azure portal
 
-In this quickstart, you'll learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
+In this Azure Cognitive Search quickstart, you'll learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
 
 You'll run the **Import data** wizard in the Azure portal to apply skills that transform and enrich content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Enriched content is queryable in the portal using [**Search explorer**](search-explorer.md).
 
@@ -76,8 +76,8 @@ If you get "Error detecting index schema from data source", the indexer that's p
 | Security feature | Solution |
 |--------------------|----------|
 | Resource requires Azure roles or its access keys are disabled | [Connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md) or [connect using a managed identity](search-howto-managed-identities-data-sources.md) |
-| Resource is behind an IP firewall | [Open an inbound rule for Azure portal](search-indexer-howto-access-ip-restricted.md) |
-| Resource requires a private endpoint connection | [Create a shared private link for your target resource](search-indexer-howto-access-private.md) |
+| Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
+| Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
 ### Step 2 - Add cognitive skills
 

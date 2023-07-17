@@ -7,7 +7,7 @@ ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-python
 ms.topic: quickstart 
 ms.date: 05/22/2023
 #Customer intent: As a Full Stack ML Pro, I want to submit a Spark job in Azure Machine Learning.

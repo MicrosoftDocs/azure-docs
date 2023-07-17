@@ -40,18 +40,6 @@
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Samples
-  items:
-  - name: Application Gateway
-    items:
-    - name: Azure PowerShell
-      href: ./ag/powershell-samples.md
-    - name: Resource Manager templates
-      href: ./ag/resource-manager-template-samples.md  
-  - name: Front Door
-    items:
-    - name: Resource Manager templates
-      href: ./afds/resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Application Gateway

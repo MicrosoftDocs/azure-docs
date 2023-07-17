@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-summarization, ignite-fall-2021, mode-api
+ms.custom: language-service-summarization, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 

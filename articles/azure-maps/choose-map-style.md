@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Change the style of the map

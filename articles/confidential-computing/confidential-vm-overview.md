@@ -80,6 +80,7 @@ Confidential VMs support the following VM sizes:
 Confidential VMs support the following OS options:
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
+- RHEL 9.2 [Tech Preview](https://techcommunity.microsoft.com/t5/azure-confidential-computing/rhel-9-2-preview-confidential-image-is-now-available-on/ba-p/3823616)
 - Windows Server 2019 Datacenter - x64 Gen 2
 - Windows Server 2019 Datacenter Server Core - x64 Gen 2
 - Windows Server 2022 Datacenter - x64 Gen 2

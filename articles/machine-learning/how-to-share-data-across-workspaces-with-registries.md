@@ -10,7 +10,7 @@ author: fkriti
 ms.reviewer: larryfr
 ms.date: 03/21/2023
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, sdkv2, build-2023
+ms.custom: devx-track-azurecli, sdkv2, build-2023
 ---
 
 # Share data across workspaces with registries (preview)

@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 04/26/2023
+  ms.date: 06/07/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -112,6 +112,11 @@ sections:
           How do I deploy a model with the REST API? 
         answer:
           There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Cognitive Services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
+      - question: |
+          Can I use quota to increase the max token limit of a model?
+        answer:
+          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM.  
+
 additionalContent: |
 
   ## Next steps

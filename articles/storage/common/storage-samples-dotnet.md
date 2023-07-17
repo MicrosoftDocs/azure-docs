@@ -8,6 +8,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Azure Storage samples using v12 .NET client libraries

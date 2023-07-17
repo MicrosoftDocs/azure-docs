@@ -31,7 +31,7 @@ Yes, a customer can detect, mitigate, and monitor the risk of 'backdoor' account
 
 ## Where can customers access Permissions Management?
 
-Customers can access the Permissions Management interface with a link from the Azure AD extension in the Azure portal.
+Customers can access the Permissions Management interface from the [Microsoft Entra admin center](https://entra.microsoft.com/) .
 
 ## Can non-cloud customers use Permissions Management on-premises?
 
@@ -128,7 +128,7 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 ## Where can I find more information about Permissions Management?
 
-You can read our blog and visit our web page. You can also get in touch with your Microsoft point of contact to schedule a demo.
+You can read our [blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity) and visit our [web page](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-permissions-management). You can also get in touch with your Microsoft point of contact to schedule a demo.
 
 ## What is the data destruction/decommission process? 
 
@@ -152,7 +152,7 @@ Although Permissions Management supports all resources, Microsoft only requires 
 
 ## How do I figure out how many resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, view the Billable Resources tab in Permissions Management.
+To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon) and view the Billable Resources tab in Permissions Management.
 
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 

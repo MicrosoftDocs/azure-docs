@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 06/13/2023
 ms.author: lajanuar
 ---
 
@@ -239,7 +239,7 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
 version: "3.9"
 services:
-    azure-cognitive-service-document:
+  azure-cognitive-service-document:
     container_name: azure-cognitive-service-document
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/document-3.0
     environment:
@@ -247,15 +247,15 @@ services:
         - billing={FORM_RECOGNIZER_ENDPOINT_URI}
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
-  ports:
+   ports:
       - "5000:5050"
-    azure-cognitive-service-layout:
-      container_name: azure-cognitive-service-layout
-      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
-      environment:
-          - EULA=accept
-          - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-          - apiKey={FORM_RECOGNIZER_KEY}
+  azure-cognitive-service-layout:
+     container_name: azure-cognitive-service-layout
+     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+     environment:
+         - EULA=accept
+         - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+         - apiKey={FORM_RECOGNIZER_KEY}
 
 ```
 
@@ -303,7 +303,7 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
 version: "3.9"
 services:
-    azure-cognitive-service-invoice:
+  azure-cognitive-service-invoice:
     container_name: azure-cognitive-service-invoice
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0
     environment:
@@ -313,13 +313,13 @@ services:
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
   ports:
       - "5000:5050"
-    azure-cognitive-service-layout:
-      container_name: azure-cognitive-service-layout
-      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
-      environment:
-          - EULA=accept
-          - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-          - apiKey={FORM_RECOGNIZER_KEY}
+  azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
 
 ```
 
@@ -336,23 +336,23 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
 version: "3.9"
 services:
-    azure-cognitive-service-receipt:
-        container_name: azure-cognitive-service-receipt
-        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0
-        environment:
-            - EULA=accept
-            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-            - apiKey={FORM_RECOGNIZER_KEY}
-            - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-        ports:
-            - "5000:5050"
+  azure-cognitive-service-receipt:
+    container_name: azure-cognitive-service-receipt
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+        - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+    ports:
+          - "5000:5050"
     azure-cognitive-service-read:
-        container_name: azure-cognitive-service-read
-        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
-        environment:
-            - EULA=accept
-            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-            - apiKey={FORM_RECOGNIZER_KEY}
+      container_name: azure-cognitive-service-read
+      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
+      environment:
+          - EULA=accept
+          - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+          - apiKey={FORM_RECOGNIZER_KEY}
 
 
 ```
@@ -370,23 +370,23 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
     version: "3.9"
     services:
-        azure-cognitive-service-receipt:
-            container_name: azure-cognitive-service-id-document
-            image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
-            environment:
-                - EULA=accept
-                - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-                - apiKey={FORM_RECOGNIZER_KEY}
-                - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-            ports:
-                - "5000:5050"
-        azure-cognitive-service-read:
-            container_name: azure-cognitive-service-read
-            image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
-            environment:
-                - EULA=accept
-                - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-                - apiKey={FORM_RECOGNIZER_KEY}
+      azure-cognitive-service-receipt:
+          container_name: azure-cognitive-service-id-document
+          image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
+          environment:
+              - EULA=accept
+              - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+              - apiKey={FORM_RECOGNIZER_KEY}
+              - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+          ports:
+              - "5000:5050"
+      azure-cognitive-service-read:
+          container_name: azure-cognitive-service-read
+          image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
+          environment:
+              - EULA=accept
+              - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+              - apiKey={FORM_RECOGNIZER_KEY}
 
 
 ```

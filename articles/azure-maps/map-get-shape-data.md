@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Get shape data

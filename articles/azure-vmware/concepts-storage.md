@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
 ms.service: azure-vmware
-ms.date: 12/08/2022
+ms.date: 6/6/2023
 ---
 
 # Azure VMware Solution storage concepts
@@ -63,8 +63,6 @@ Microsoft provides alerts when capacity consumption exceeds 75%. In addition, yo
 ## Next steps
 
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
-
-- [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
 
 - [Configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
 

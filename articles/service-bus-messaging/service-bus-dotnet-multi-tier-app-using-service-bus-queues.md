@@ -4,7 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: csharp
 ms.topic: article
 ms.date: 04/30/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # .NET multi-tier application using Azure Service Bus queues

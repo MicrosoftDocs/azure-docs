@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 09/01/2022
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps

@@ -17,7 +17,7 @@ keywords:
 
 # Business Continuity and Disaster Recovery (BCDR) considerations with Azure OpenAI Service
 
-Azure OpenAI is available in two regions. Since subscription keys are region bound, when a customer acquires a key, they select the region in which their deployments will reside and from then on, all operations stay associated with that Azure server region.  
+Azure OpenAI is available in multiple regions. Since subscription keys are region bound, when a customer acquires a key, they select the region in which their deployments will reside and from then on, all operations stay associated with that Azure server region.  
 
 It's rare, but not impossible, to encounter a network issue that hits an entire region. If your service needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two OpenAI resources in different regions. This article provides general recommendations for how to implement  Business Continuity and Disaster Recovery (BCDR) for your Azure OpenAI applications.
 

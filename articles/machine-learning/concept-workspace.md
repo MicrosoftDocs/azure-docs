@@ -153,4 +153,3 @@ To get started with Azure Machine Learning, see:
 + [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
-+ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

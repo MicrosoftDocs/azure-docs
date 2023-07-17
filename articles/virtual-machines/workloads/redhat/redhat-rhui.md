@@ -165,6 +165,28 @@ To remove the version lock, use the following commands. Run the commands as `roo
    sudo yum update
    ```
 
+### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
+Run the following as root:
+1. Remove the `releasever` file:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Disable EUS repos:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+   ```
+
+1. Configure RHEL VM
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+
+1. Update your RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
 ## The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
