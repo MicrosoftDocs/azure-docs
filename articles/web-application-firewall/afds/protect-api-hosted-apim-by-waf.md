@@ -13,7 +13,7 @@ ms.date: 07/13/2023
 
 There are a growing number of enterprises adhering to API-first approach for their internal applications, and the number and complexity of security attacks against web applications is constantly evolving. This situation requires enterprises to adopt a strong security strategy to protect APIs from various web application attacks.
 
-[Azure Web Application Firewall (WAF)](../overview.md) is an Azure Networking product that protects APIs from various of [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
+[Azure Web Application Firewall (WAF)](../overview.md) is an Azure Networking product that protects APIs from various [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
 
 This article describes how to use [Azure Web Application Firewall on Azure Front Door](afds-overview.md) to protect APIs hosted on [Azure API Management](../../api-management/api-management-key-concepts.md)
 
