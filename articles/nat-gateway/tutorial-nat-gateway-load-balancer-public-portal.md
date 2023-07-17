@@ -30,6 +30,10 @@ In this tutorial, you learn how to:
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
 [!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
 
 [!INCLUDE [load-balancer-public-create-http.md](../../includes/load-balancer-public-create-http.md)]
