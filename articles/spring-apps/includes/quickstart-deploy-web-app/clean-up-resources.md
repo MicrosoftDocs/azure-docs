@@ -34,12 +34,11 @@ azd down
 The following list describes the command interactions:
 
 - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Press <kbd>y</kbd>.
-- **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Press <kbd>y</kbd>. Press <kbd>n</kbd> if you want to reuse the Key Vault.
 
 The console outputs messages similar to the following example:
 
 ```output
-SUCCESS: Your Azure resources have been deleted.
+SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
 ```
 
 ---

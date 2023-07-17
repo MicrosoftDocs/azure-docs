@@ -165,6 +165,12 @@ Use the following steps to connect your service instances:
    azd auth login
    ```
 
+1. Run the following command to enable Azure Spring Apps feature.
+
+   ```bash
+   azd config set alpha.springapp on
+   ```
+
 1. Run the following command to provision the template's infrastructure to Azure:
 
    ```bash
@@ -176,27 +182,16 @@ Use the following steps to connect your service instances:
    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
 
+   The console outputs messages similar to the ones below:
+
+   ```text
+   SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   ```
+
    > [!NOTE]
-   > You can use this template only with the following Azure locations:
-   >
-   > - Australia East
-   > - Brazil South
-   > - Canada Central
-   > - Central US
-   > - East Asia
-   > - East US
-   > - East US 2
-   > - Germany West Central
-   > - Japan East
-   > - Korea Central
-   > - North Central US
-   > - North Europe
-   > - South Central US
-   > - UK South
-   > - West Europe
-   > - West US
-   >
-   > If you attempt to use the template with an unsupported region, the provision step fails.
+   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
 
 ---
 
@@ -263,13 +258,18 @@ Use the following steps to package the app, provision the Azure resources requir
    The console outputs messages similar to the following example:
 
    ```output
-   |       | Deploying service simple-todo-webExecuting prepackage hook => /var/folders/m1/twqn055s7ll1bw0sstvkc0j40000gn/T/azd-prepackage-708945870.sh
-   (✓) Done: Deploying service simple-todo-web
-   - Endpoint: https://asa-2jqpw3tejrxdi-simple-todo-web.azuremicroservices.io/
-
-   SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<>your-subscription-id/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
+   Deploying services (azd deploy)
+   
+   WARNING: Feature 'springapp' is in alpha stage.
+   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
+   
+   (✓) Done: Deploying service boot-for-azure
+   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
+   
+   
+   SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    The output **Endpoint** is the endpoint to access the `todo` application.

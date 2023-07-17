@@ -32,7 +32,7 @@ The following diagram shows the architecture of the system:
 
 :::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Diagram that shows the architecture of a Spring web application." border="false":::
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 This article provides the following options for deploying to Azure Spring Apps:
 
@@ -43,7 +43,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -62,17 +62,12 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
+::: zone pivot="sc-enterprise"
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
@@ -101,25 +96,23 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ::: zone pivot="sc-consumption-plan"
 
-1. After the deployment has completed, use the following command to access the app with the URL retrieved:
+### [Azure portal](#tab/Azure-portal)
 
-   ```azurecli
-   az spring app show \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME} \
-       --query properties.url \
-       --output tsv
-   ```
+1. After the deployment has completed, open **simple-todo-web** app **Overview** page and select *Assign endpoint* to get the accessible URL of the app.
 
-   The page should appear as you saw in localhost.
+   :::image type="content" source="media/quickstart-deploy-web-app/assign-endpoint.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps assign endpoint page." lightbox="media/quickstart-deploy-web-app/assign-endpoint.png":::
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+   You can access the app with URL, the page should appear as you saw in localhost.
 
-   ```azurecli
-   az spring app logs \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME}
-   ```
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+1. Access the application with the output application endpoint in previous step. The page should appear as you saw in localhost.
+
+---
+
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+
+   :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
 
 ::: zone-end
 
@@ -149,13 +142,13 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ## 6. Clean up resources
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-standard, sc-consumption-plan"
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise, sc-consumption-plan"
+::: zone pivot="sc-enterprise"
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. Use the following command to delete the resource group:
 
