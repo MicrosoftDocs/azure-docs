@@ -102,6 +102,8 @@ items:
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
+        - name: Connect to Auto
+          href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
     - name: Connect to a Room call
       items:
       - name: Create a room 

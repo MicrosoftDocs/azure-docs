@@ -63,9 +63,9 @@ Here's the code:
         <button id="initialize-teams-call-agent" type="button">Initialize Call Agent</button>
         <br>
         <br>
-        <input id="call-queue-id"
+        <input id="application-object-id"
             type="text"
-            placeholder="Enter callee's Teams user identity in format: '28:orgid:USER_GUID'"
+            placeholder="Enter application objectId identity in format: '28:orgid:USER_GUID'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -119,7 +119,7 @@ let localVideoStream;
 let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
-let callQueueId = document.getElementById('call-queue-id');
+let applicationObjectId = document.getElementById('application-object-id');
 let initializeCallAgentButton = document.getElementById('initialize-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
@@ -170,7 +170,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = teamsCallAgent.startCall([{ botId: callQueueId.value.trim() }], { videoOptions: videoOptions });
+        call = teamsCallAgent.startCall([{ botId: applicationObjectId.value.trim() }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -400,4 +400,4 @@ Open your browser and navigate to http://localhost:8080/.
 
 Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 Click on the "Initialize Call Agent" buttons.
-Enter the Call Queue ObjectID, and select the "Start Call" button. Application will start the outgoing call and call queue will be connected. While introduction message and music will be played, call queue will try to reach and connect correspondent Teams user to the call.
+Enter the Auto Attendant ObjectID, and select the "Start Call" button. Application will start the outgoing call and call auto attendant will be connected. While introduction message and music will be played, call auto attendant will try to reach and connect correspondent Teams user to the call.
