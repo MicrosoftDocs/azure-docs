@@ -81,7 +81,7 @@ Clicking on **Switch Edge profile** opens a window listing their Work or school 
 
    ![Screenshot showing the popup in Microsoft Edge asking user to sign in.](./media/how-to-app-protection-policy-windows/browser-sign-in-continue-with-work-or-school-account.png)
 
-This opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
+This process opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
 > [!CAUTION]
 > You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
@@ -92,7 +92,9 @@ After selecting **OK** you may see a progress window while policy is applied, th
 
 ## Troubleshooting
 
-In some circumstances, after getting the "you're all set" page you may still be prompted to sign in with your work account. This may happen when: 
+### Common issues
+
+In some circumstances, after getting the "you're all set" page you may still be prompted to sign in with your work account. This prompt may happen when: 
 
 - Your profile has been added to Microsoft Edge, but MAM enrollment is still being processed.
 - Your profile has been added to Microsoft Edge, but you selected "this app only" on the heads up page.
@@ -103,6 +105,10 @@ To resolve these possible scenarios:
 - Wait a few minutes and try again in a new tab.
 - Go to **Settings** > **Accounts** > **Access work or school**, then add the account there.
 - Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
+
+### Existing account
+
+If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration permanently blocks the user from being properly enrolled in MAM.
 
 ## Next steps
 
