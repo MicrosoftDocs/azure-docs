@@ -42,7 +42,7 @@ Access monitoring features for all AKS clusters in your subscription from the **
  
  ## Monitoring data 
 
-AKS collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. Using [other Azure services and features](#integrations), 
+AKS collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data.
 
 
 
