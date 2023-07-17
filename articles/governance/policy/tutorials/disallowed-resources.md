@@ -52,7 +52,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 1. Select the **Parameters** tab at the top of the wizard. This tutorial skips the **Advanced** tab.
 
-1. For the **Not allowed resource types** parameter, use the drop down to search and select resource types that should not be allowed in your cloud environment.
+1. For the **Not allowed resource types** parameter, use the drop-down to search and select resource types that should not be allowed in your cloud environment.
 
 1. This policy definition does not have the `modify` or `deployIfNotExists` effects, so it does not support remediation tasks. For this tutorial, skip the **Remediation** tab.
 
@@ -79,10 +79,10 @@ Now that you've assigned a built-in policy definition, navigate to [All Services
 
 ## Create an exemption
 
-Now suppose that one sub-scope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there. 
+Now suppose that one subscope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there. 
 
 > [!WARNING]
-> If you assign this policy definition to your *root management group* scope, Portal is unable to detect exemptions at lower level scopes from the All Services list. Resources disallowed by the policy assignment will still show as disabled from this view even if an exemption is in place at a lower scope. However, if the user has permissions on the exempt sub-scope, they will not be prevented from navigating to the service and performing actions there. At this point the false disabled status should no longer be present.
+> If you assign this policy definition to your *root management group* scope, Portal is unable to detect exemptions at lower level scopes from the All Services list. Resources disallowed by the policy assignment will still show as disabled from this view even if an exemption is in place at a lower scope. However, if the user has permissions on the exempt subscope, they will not be prevented from navigating to the service and performing actions there. At this point the false disabled status should no longer be present.
 
 1. Select **Assignments** under **Authoring** in the left side of the Azure Policy page.
 
@@ -90,7 +90,7 @@ Now suppose that one sub-scope should be allowed to have the resource types disa
 
 1. Select the **Create exemption** button on the top of the page. 
 
-1. In the **Basics** tab, select the **Exemption scope**, which is the sub-scope that should be allowed to have resources restricted by this policy assignment.
+1. In the **Basics** tab, select the **Exemption scope**, which is the subscope that should be allowed to have resources restricted by this policy assignment.
 
 1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of *Waiver*. Do not switch the toggle for **Exemption expiration setting**, because this exemption will not be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
 
@@ -98,7 +98,7 @@ Now suppose that one sub-scope should be allowed to have the resource types disa
 
 1. To view the exemption, select **Exemptions** under **Authoring** in the left side of the Azure Policy page.
 
-Now your sub-scope can have the resource types disallowed by the policy.
+Now your subscope can have the resource types disallowed by the policy.
 
 ## Clean up resources
 
@@ -119,7 +119,7 @@ In this tutorial, you successfully accomplished the following tasks:
 
 > [!div class="checklist"]
 > - Assigned a built-in policy that denies creation of disallowed resource types.
-> - Created an exemption for a sub-scope
+> - Created an exemption for a subscope
 
 ## Next steps
 
