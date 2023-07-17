@@ -36,13 +36,13 @@ ms.author: xiaofanzhou
     ```
 
 For more information, see the following resources:
-* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
-* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
+* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
 
 ### [Spring](#tab/spring)
 
-For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datasource.password` configuration property if it was set before. Then add the dependencies to your Spring application, as explained in the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md#prepare-your-java-project).
+For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datasource.password` configuration property if it was set before. Then add the dependencies to your Spring application, as explained in the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/how-to-bind-postgres.md#prepare-your-java-project).
 
 ### [.NET](#tab/dotnet)
 

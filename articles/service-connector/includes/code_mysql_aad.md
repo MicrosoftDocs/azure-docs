@@ -34,7 +34,7 @@ ms.author: xiaofanzhou
 
 ### [Spring](#tab/spring)
 
-For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datasource.password` configuration property if it was set before. Then add the dependencies to your Spring application, as explained in the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md#prepare-your-java-project).
+For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datasource.password` configuration property if it was set before. Then add the dependencies to your Spring application, as explained in the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/how-to-bind-mysql.md#prepare-your-java-project).
 
 
 ### [.NET](#tab/dotnet)
@@ -76,10 +76,10 @@ await connection.OpenAsync();
 
 ### [Others](#tab/others)
 
-For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](./how-to-integrate-mysql.md).
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 For a tutorial, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
 
 ---
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
