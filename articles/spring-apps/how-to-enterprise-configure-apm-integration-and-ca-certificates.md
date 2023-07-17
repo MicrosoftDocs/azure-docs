@@ -49,6 +49,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
 | Web servers       |                     |           |             | ✔        |            |
 | Java Native Image |                     |           |             |           |            |
+| PHP               |                     | ✔         | ✔          | ✔         |            |
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
@@ -76,6 +77,7 @@ This section lists the supported languages and required environment variables fo
   - Go
   - Node.js
   - WebServers
+  - PHP
 
   Environment variables required for buildpack binding:
   - `api-url` or `environment-id` (used in build step)
@@ -92,6 +94,7 @@ This section lists the supported languages and required environment variables fo
   - Java
   - .NET
   - Node.js
+  - PHP
 
   Environment variables required for buildpack binding:
   - `license_key`
@@ -104,6 +107,7 @@ This section lists the supported languages and required environment variables fo
   Supported languages:
   - Java
   - Node.js
+  - PHP
 
   Environment variables required for buildpack binding:
   - `service_name`

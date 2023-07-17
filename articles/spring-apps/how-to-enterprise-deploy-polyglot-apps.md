@@ -38,6 +38,7 @@ When you create an instance of Azure Spring Apps Enterprise, you must choose a d
 - [Node.js Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-nodejs-buildpack)
 - [Python Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-python-buildpack/)
 - [Java Native Image Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-java-native-image-buildpack/)
+- [PHP Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tbs-dependencies/#/releases/1335849/artifact_references)
 
 For more information, see [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html).
 
