@@ -24,9 +24,9 @@ Packet core versions are supported until two subsequent versions have been relea
 
 - **UE (user equipment) to UE internal forwarding** - This release delivers the ability for AP5GC to internally forward UE data traffic destined to another UE in the same Data Network (without going via an external router).
 
-  If you are currently using the default service with allow-all SIM policy along with NAT enabled for the Data Network, or with an external router with deny rules for this traffic, you might have UE to UE traffic forwarding blocked. If you want to continue this blocking behavior with AP5GC 2305, see [Configure UE to UE internal forwarding](configure-internal-forwarding.md).
+  If you're currently using the default service with allow-all SIM policy along with NAT enabled for the Data Network, or with an external router with deny rules for this traffic, you might have UE to UE traffic forwarding blocked. If you want to continue this blocking behavior with AP5GC 2305, see [Configure UE to UE internal forwarding](configure-internal-forwarding.md).
 
-  If you are not using the default service with allow-all SIM policy and want to allow UE-UE internal forwarding, see [Configure UE to UE internal forwarding](configure-internal-forwarding.md).
+  If you're not using the default service with allow-all SIM policy and want to allow UE-UE internal forwarding, see [Configure UE to UE internal forwarding](configure-internal-forwarding.md).
 
 - **Event Hubs feed of UE Usage** - This feature enhances AP5GC to provide an Azure Event Hubs feed of UE Data Usage events. You can integrate with Event Hubs to build reports on how your private 4G/5G network is being used or carry out other data processing using the information in these events.  If you want to enable this feature for your deployment, contact your support representative.
 
