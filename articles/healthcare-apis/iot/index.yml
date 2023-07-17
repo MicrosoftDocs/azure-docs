@@ -57,6 +57,8 @@ landingContent:
             url: overview-of-device-mapping.md
           - text: Overview of the FHIR destination mapping
             url: overview-of-fhir-destination-mapping.md 
+          - text: Overview of The MedTech service scenario-based mappings samples
+            url: overview-of-samples.md
       - linkListType: how-to-guide
         links:
           - text: Mapping debugger
@@ -67,8 +69,6 @@ landingContent:
             url: how-to-use-iotjsonpathcontent-templates.md
           - text: Custom functions
             url: how-to-use-custom-functions.md
-          - text: Samples
-            url: overview-of-samples.md
           
   - title: Monitor the MedTech service
     linkLists:
