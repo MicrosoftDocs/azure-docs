@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/12/2023
+ms.date: 07/17/2023
 author: ericd-mst-github
 ms.author: nikhilpatel
 ms.reviewer: erd
@@ -111,11 +111,21 @@ The install/update/remove commands should be written assuming the application pa
 
 ## File naming
 
-When the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that is downloaded to the VM is also named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it's named `myApp_config`.
+When the application file gets downloaded to the VM, it's renamed as "MyVmApp" (no extension). This is because the VM isn't aware of your package's original name or extension. It utilizes the only name it has, which is the application name itself - "MyVmApp".
 
-For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name is `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like `myApp.exe`).
+Here are a few alternatives to navigate this issue:
 
-The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these other VM settings, see [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
+You can modify your script to include a command for renaming the file before execution:
+```azurepowershell
+move .\\MyVmApp .\\MyApp.exe & MyApp.exe /S
+```
+You can also use the `packageFileName` (and the corresponding `configFileName`) property to instruct us what to rename your file. For example, setting it to "MyApp.exe" will make your install script only need to be:
+```powershell
+MyAppe.exe /S
+```
+> [!TIP]
+> If your blob was originally named "myApp.exe" instead of "MyBlob", then the above script would have worked without setting the `packageFileName` property.
+
 
 ## Command interpreter  
 

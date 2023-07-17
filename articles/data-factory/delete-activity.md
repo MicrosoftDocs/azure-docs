@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 07/17/2023
 ---
 
 # Delete Activity in Azure Data Factory and Azure Synapse Analytics
