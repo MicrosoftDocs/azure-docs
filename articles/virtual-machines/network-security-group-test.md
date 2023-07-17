@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.date: 07/17/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -68,7 +68,7 @@ In this section, you test if RDP connections are allowed to your VM from a remot
 
     :::image type="content" source="./media/network-security-group-test/inbound-test-result.png" alt-text="Screenshot of inbound network security group test result." lightbox="./media/network-security-group-test/inbound-test-result.png":::
 
-    To allow the RDP connection to the VM from the remote IP address, add a security rule to the network security group that allows RDP connections from the remote IP address. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
+    To allow the RDP connection to the VM from the remote IP address, add to the network security group a security rule that allows RDP connections from the remote IP address. This security rule must have a higher priority than the one that's blocking the traffic. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
 
 ## Test outbound connections
 
@@ -115,7 +115,7 @@ In this section, you test your VM can have connect to the internet.
 
     :::image type="content" source="./media/network-security-group-test/outbound-test-result.png" alt-text="Screenshot of outbound network security group test result." lightbox="./media/network-security-group-test/outbound-test-result.png":::
 
-    To allow internet connections from the VM, add a security rule to the network security group that allows connections to the internet service tag. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
+    To allow internet connections from the VM, add to the network security group a security rule that allows connections to the internet service tag. This security rule must have a higher priority than the one that's blocking the traffic. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
 
 ## Next steps
 
