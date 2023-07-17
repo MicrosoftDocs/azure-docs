@@ -115,6 +115,8 @@ productDirectory:
         text: Add Advanced Messages SDK to your App
       - url: ./quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
         text: Register Whatsapp Business Account
+      - url: ./concepts/advancedmessaging/whatsapp/template-messages.md
+        text: Send Template Message
         
 #------------------------------------------------------------------
 additionalContent:
