@@ -71,12 +71,12 @@ You can now view the virtual machines configured to the DCR.
 
 To configure file content changes, follow these steps:
 
-1.In your virtual machine, under **Operations**, select **Change tracking** > **Settings**.
+1. In your virtual machine, under **Operations**, select **Change tracking** > **Settings**.
 1. In the **Data Collection Rule Configuration (Preview)** page, select **File Content** > **Link** to link the storage account.
 
-  :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+    :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
-1.  In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**, select **Upload file content for all settings**, and then select **Save**.
+1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**, select **Upload file content for all settings**, and then select **Save**.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
 
