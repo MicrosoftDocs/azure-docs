@@ -63,6 +63,8 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
       };
       ```
 
+      To learn more, see [How to use the Azure Maps map control npm package].
+
 ## Use the drawing manager directly
 
 Once the drawing tools module is loaded in your application, you can enable drawing and editing capabilities using the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). You can specify options for the drawing manager while instantiating it or alternatively use the `drawingManager.setOptions()` function.
@@ -219,3 +221,4 @@ Learn more about the classes and methods used in this article:
 [style-loader]: https://webpack.js.org/loaders/style-loader/
 [Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
 [drawing tools module]: https://www.npmjs.com/package/azure-maps-drawing-tools
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md
