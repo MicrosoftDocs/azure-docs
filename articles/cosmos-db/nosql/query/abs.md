@@ -38,9 +38,9 @@ Returns a numeric expression.
   
 The following example shows the results of using this function on three different numbers.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/absolute-value/query.sql" highlight="2-4":::  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/query.sql":::  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/absolute-value/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/result.json":::
 
 ## Remarks
 
