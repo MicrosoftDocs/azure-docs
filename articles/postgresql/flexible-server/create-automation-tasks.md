@@ -58,10 +58,8 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
 1. Each successfully authenticated connection looks similar to this example:
 1. After you authenticate all the connections, select Next: **Configure**.
-![Screenshot that shows successfully created connection.](media/create-automation-tasks/create-connection-success.png)
 
 1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
-![Screenshot that shows the required information for the selected task.](media/create-automation-tasks/provide-task-information.png)
 
 1. Tasks that send email notifications require an email address.
 
@@ -72,7 +70,7 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
 The task you've created, which is automatically live and running, will appear on the **Tasks** list.
 
-![aScreenshot that shows the automation tasks list.](media/create-automation-tasks/automation-tasks-list.png)
+![Screenshot that shows the automation tasks list.](media/create-automation-tasks/automation-tasks-list.png)
 
 ## Review task history
 
@@ -86,7 +84,7 @@ Here the possible statuses for a run:
 
    | Status | Description |
    |--------|-------------|
-   | **Cancelled** | The task was canceled while running. |
+   | **Canceled** | The task was canceled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
@@ -111,5 +109,6 @@ To change a task, you have these options:
 1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 1. To update other task properties, select **Next: Configure**.
 1. When you're done, select **Save**.
+
 
 
