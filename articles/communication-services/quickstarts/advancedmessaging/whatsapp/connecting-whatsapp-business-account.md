@@ -21,9 +21,9 @@ Getting started with the Azure Communication Services Advanced Message SDK which
 ## Prerequisites
 
 1.  [Facebook login account](https://www.facebook.com/index.php)
-2.  [Get Azure Communication Service Phonenumber](../..//telephony/get-phone-number?tabs=windows&pivots=platform-azp)
+2.  [Get Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
         -   With the ability to send and receive SMS messages
-        -   With an active Event subscription (SMS received and SMS delivery reports). [Learn how to handle SMS events.](../../telephony/get-phone-number?tabs=windows&pivots=platform-azp)
+        -   With an active Event subscription (SMS received and SMS delivery reports). [Learn how to handle SMS events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
         -   With an Event Grid viewer. [Learn how to deploy an Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
         -   That is not associated with a WhatsApp Business Account
 3.  Or [Bring Your Own Phoneumber]
