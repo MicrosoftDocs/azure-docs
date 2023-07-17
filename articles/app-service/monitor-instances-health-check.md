@@ -193,7 +193,7 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 
 ### What if all my instances are unhealthy?
 
-In the scenario where all instances of your application are unhealthy, App Service will not remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application, however the instances replacement will still be honored.
+In the scenario where all instances of your application are unhealthy, App Service will not remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application; however, the instances replacement will still be honored.
 
 ### Does Health check work on App Service Environments?
 
