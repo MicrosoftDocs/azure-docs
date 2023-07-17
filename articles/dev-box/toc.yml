@@ -59,7 +59,7 @@ items:
       href: how-to-generate-visual-studio-caches.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
-    - name: How to configure Dev Box Hibernation
+    - name: Configure Dev Box Hibernation
       href: how-to-configure-dev-box-hibernation.md
     - name: Hibernate your Dev Box
       href: how-to-hibernate-your-dev-box.md  
