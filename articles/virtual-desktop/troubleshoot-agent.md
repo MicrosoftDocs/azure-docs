@@ -94,9 +94,6 @@ To resolve this issue, check that you can reach the two endpoints referred to as
 
 1. Make note of the values for **BrokerResourceIdURI** and **BrokerResourceIdURIGlobal**.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](media/broker-uri.png)
-
 1. Open a web browser and enter your value for **BrokerResourceIdURI** in the address bar and add **/api/health** to the end, for example `https://rdbroker-g-us-r0.wvd.microsoft.com/api/health`.
 
 1. Open another tab in the browser and enter your value for **BrokerResourceIdURIGlobal** in the address bar and add **/api/health** to the end, for example `https://rdbroker.wvd.microsoft.com/api/health`.
