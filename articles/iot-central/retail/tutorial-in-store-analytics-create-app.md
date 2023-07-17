@@ -71,7 +71,7 @@ To create your IoT Central application:
     | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
     | Resource name | A valid Azure resource name. |
     | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
-    | Template | **SIn-store Analytics - Checkout** |
+    | Template | **In-store Analytics - Checkout** |
     | Region | The Azure region you want to use. |
     | Pricing plan | The pricing plan you want to use. |
 
