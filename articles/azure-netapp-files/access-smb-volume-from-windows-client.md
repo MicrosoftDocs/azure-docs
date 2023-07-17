@@ -50,7 +50,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 1. Sign on to Active Directory in your on-premises environment.
 2. Open PowerShell. 
-1. Install the [Hybrid Authentication Management module](/azure-sql/managed-instance/winauth-azuread-setup-incoming-trust-based-flow) for synchronizing passwords. 
+1. Install the [Hybrid Authentication Management module](/azure/azure-sql/managed-instance/winauth-azuread-setup-incoming-trust-based-flow) for synchronizing passwords. 
 
     ```powershell
     Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber -Force 
