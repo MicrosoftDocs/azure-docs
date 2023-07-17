@@ -244,7 +244,7 @@ items:
           href: app/availability-alerts.md
         - name: SLA report
           href: app/sla-report.md
-        - name: Migrate availability tests
+        - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
       - name: Transaction diagnostics

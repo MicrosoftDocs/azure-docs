@@ -1,6 +1,6 @@
 ---
-title:       Migrate Availability Tests - Azure Monitor Application Insights
-description: Migrate from Azure Monitor Application Insights classic availability tests
+title:       Migrate from Azure Monitor Application Insights classic URL ping tests to standard tests
+description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests
 ms.topic:    conceptual
 ms.date:     07/19/2023
 ms.reviewer: cogoodson
@@ -8,13 +8,13 @@ ms.reviewer: cogoodson
 
 # Migrate availability tests
 
-In this article, we guide you through the process of migrating from classic URL ping tests to the more modern and efficient standard tests.
+In this article, we guide you through the process of migrating from classic URL ping tests to the modern and efficient standard tests.
 
 We simplify this process by providing clear step-by-step instructions to ensure a seamless transition and equip your applications with the most up-to-date monitoring capabilities.
 
-## Migrate URL ping (classic) tests to standard tests
+## Migrate classic URL ping tests to standard tests
 
-The following steps walk you through the process of creating Standard tests that replicate the functionality of your URL ping tests. It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created URL ping tests.
+The following steps walk you through the process of creating standard tests that replicate the functionality of your URL ping tests. It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created URL ping tests.
 
 > [!NOTE]
 > A cost is associated with running standard tests. Once you create a standard test, you will be charged for test executions.
@@ -73,7 +73,7 @@ New-AzApplicationInsightsWebTest @dynamicParameters -ResourceGroupName $resource
 ```
 
 5. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
-6. Once you have validated the functionality of the new Standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the Standard test instead. Then you disable or delete the URL ping test.
+6. Once you have validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
 7. To delete a URL ping test with Azure PowerShell, you can use this command:
 
 ```azurepowershell
@@ -96,7 +96,7 @@ Yes, these commands work for both HTTP and HTTPS endpoints, which are used in yo
 
 ## More Information
 
-* [Standard tests](availability-standard-tests.md)
+* [standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Troubleshooting](troubleshoot-availability.md)
 * [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
