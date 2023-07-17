@@ -56,7 +56,7 @@ This table is used to satisfy [instance query requests from code](durable-functi
 The **Partitions** table stores the current status of partitions within the Durable Functions app. Detailed information for each column could be seen [here](https://github.com/Azure/durabletask/blob/main/src/DurableTask.AzureStorage/Partitioning/TableLease.cs). When a Durable Functions app is triggered, this table will be generated, and a specified number of partitions, configured as `PartitionCount`, will be added to the table. The workers will then utilize the information within the table to manage the partitions. The table will be updated each time the workers successfully modify it.
 
 [!Note]
-This table will be shown in the task hub only when `Table Partition Manager` is enabled. To apply it, configure `useTablePartitionManagement` setting in your app's [host.json](../../includes/functions-host-json-durabletask.md).
+This table will be shown in the task hub only when `Table Partition Manager` is enabled. To apply it, configure `useTablePartitionManagement` setting in your app's [host.json](/includes/functions-host-json-durabletask.md).
 
 ### Queues
 
