@@ -1,7 +1,7 @@
 ---
 title: AVG
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that
+description: An Azure Cosmos DB for NoSQL system function that returns the average of multiple numeric values.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
