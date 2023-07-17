@@ -24,7 +24,7 @@ For direct authentication using text message, you can [Configure and enable user
 Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). 
 
 > [!NOTES]
-> - Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial Microsoft Enterprise Mobility and Security license, phone call verification isn't available.
+> - Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial license Microsoft Enterprise Mobility and Security, phone call verification isn't available.
 > - Password reset and Azure AD Multi-Factor Authentication only support phone extensions for office phones.
 > - Phone numbers must be provided in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*. There must be a space between the country/region code and the phone number.
 
