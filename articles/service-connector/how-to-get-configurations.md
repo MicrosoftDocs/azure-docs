@@ -51,5 +51,5 @@ For more information, see the following articles in Azure Powershell reference d
 [Get-AzServiceLinkerConfigurationForSpringApp](https://learn.microsoft.com/en-us/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforspringcloud?view=azps-10.0.0)
 
 
-## Next Steps
+## Next steps
 [Explore connection configurations for specific target service type](./how-to-integrate-sql-database.md)
