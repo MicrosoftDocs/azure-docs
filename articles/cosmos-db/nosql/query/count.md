@@ -48,9 +48,9 @@ This next example assumes that there's a container with two items with a `/categ
 
 In this example, the function counts the number of times the specified scalar field occurs in the filtered data. Here, the function looks for the number of times the `/name` field occurs which is two out of three times.
 
-:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/query.sql" higlight="2":::
+:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/count/query.sql" highlight="2":::
 
-:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/result.json":::
+:::code language="" source="~/cosmos-db-nosql-query-samples/scripts/count/result.json":::
 
 ## Remarks
 
