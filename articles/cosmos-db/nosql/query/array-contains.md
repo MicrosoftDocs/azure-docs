@@ -21,7 +21,7 @@ Returns a boolean indicating whether the array contains the specified value. You
 ## Syntax
   
 ```sql
-ARRAY_CONTAINS (<array_expr>, <expr> [, <bool_expr>])  
+ARRAY_CONTAINS(<array_expr>, <expr> [, <bool_expr>])  
 ```  
   
 ## Arguments
