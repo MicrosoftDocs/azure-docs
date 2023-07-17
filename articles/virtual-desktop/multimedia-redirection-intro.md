@@ -84,7 +84,7 @@ The following sites work with video playback redirection:
 
 The following websites work with call redirection:
 
-- [WebRTC Sample Site](webrtc.github.io)
+- [WebRTC Sample Site](https://www.webrtc.github.io)
 
 Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
