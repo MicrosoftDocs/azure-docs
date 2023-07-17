@@ -28,7 +28,7 @@ Use the following command to clone the sample Java project for this article. The
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
-quarkus-azure
+cd quarkus-azure
 git checkout 2023-01-10
 cd functions-quarkus
 ```
