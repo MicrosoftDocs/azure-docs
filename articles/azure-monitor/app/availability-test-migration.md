@@ -96,7 +96,7 @@ Yes, these commands work for both HTTP and HTTPS endpoints, which are used in yo
 
 ## More Information
 
-* [standard tests](availability-standard-tests.md)
+* [Standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Troubleshooting](troubleshoot-availability.md)
 * [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
