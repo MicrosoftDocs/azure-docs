@@ -86,6 +86,8 @@
       href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: Require app protection policy for Windows
+      href: how-to-app-protection-policy-windows.md
     - name: No persistent browser session
       href: howto-policy-persistent-browser-session.md
     - name: Require compliant device, hybrid joined, or MFA for users
