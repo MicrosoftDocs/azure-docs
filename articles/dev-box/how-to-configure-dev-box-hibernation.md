@@ -23,7 +23,6 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 > Dev Box Hibernation is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
 ## Key concepts for hibernation-enabled images
 
 - The following SKUs support hibernation: 8, 16 vCPU SKUs. 32 vCPU SKUs do not support hibernation.
@@ -86,6 +85,8 @@ All new dev boxes created in dev box pools that use a dev box definition with hi
 
 Dev Box validates your image for hibernate support. Your dev box definition may fail validation if hibernation couldn't be successfully enabled using your image. 
 
+You can enable hibernation on a dev box definition by using the Azure portal or the CLI.
+
 ### Enable hibernation on an existing dev box definition by using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -115,6 +116,8 @@ az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDef
 ## Disable hibernation on a dev box definition
 
  If you have issues provisioning new VMs after enabling hibernation on a pool or you want to revert to shut down only dev boxes, you can disable hibernation on the dev box definition.
+
+You can disable hibernation on a dev box definition by using the Azure portal or the CLI.
 
 ### Disable hibernation on an existing dev box definition by using the Azure portal
 
