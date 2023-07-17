@@ -16,7 +16,7 @@ Learn about the key concepts and components of Azure Deployment Environments. Th
 
 ## Dev centers
 
-A dev center is a collection of projects that require similar settings. Dev centers enable development infrastructure (dev infra) managers to:
+A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
 
 - Use catalogs to manage infrastructure as code (IaC) templates that are available to the projects.
 - Use environment types to configure the types of environments that development teams can create.
@@ -25,7 +25,7 @@ A dev center is a collection of projects that require similar settings. Dev cent
 
 A project is the point of access for the development team. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
 
-Each project can be associated with only one dev center. Dev infra admins can configure environments for a project by specifying which environment types are appropriate for the development team.
+Each project can be associated with only one dev center. Platform engineers can configure environments for a project by specifying which environment types are appropriate for the development team.
 
 ## Environments
 
