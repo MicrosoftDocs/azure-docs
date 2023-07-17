@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 06/02/2023
+  ms.date: 07/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -67,6 +67,8 @@ landingContent:
             url: how-to-use-iotjsonpathcontent-templates.md
           - text: Custom functions
             url: how-to-use-custom-functions.md
+          - text: Samples
+            url: overview-of-samples.md
           
   - title: Monitor the MedTech service
     linkLists:
