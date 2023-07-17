@@ -37,11 +37,11 @@ You'll need the following things before you can use watermarking:
 
 ## Enable watermarking
 
-To enable watermarking, follow the steps below:
+To enable watermarking:
 
-1. Follow the steps to download and add the [Administrative template for Azure Virtual Desktop](administrative-template.md).
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available.
 
-1. Once you've verified that the Azure Virtual Desktop administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
+1. Once you've verified that the administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
 
 1. You can configure the following options:
 
@@ -57,7 +57,7 @@ To enable watermarking, follow the steps below:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session, where you should see QR codes appear. For any changes you make to the policy and apply to the session host, you'll need to disconnect and reconnect to your remote session to see the difference.
+1. Connect to a remote session with a supported client, where you should see QR codes appear. For any changes you make to the policy and apply to the session host, you'll need to disconnect and reconnect to your remote session to see the difference.
 
 ## Find session information
 
