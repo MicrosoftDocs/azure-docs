@@ -17,10 +17,10 @@ ms.author: pafarley
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
-* [Python 3.x](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
-[!INCLUDE [Create environment variavles](../env-vars.md)]
+[!INCLUDE [Create environment variables](../env-vars.md)]
 
 ## Analyze image content
 
@@ -49,27 +49,31 @@ The following section walks through a sample request with the Python SDK.
         # Create an Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
+        
         # Build request
         with open(image_path, "rb") as file:
-            my_file = file.read()
-    
+            request = AnalyzeImageOptions(image=ImageData(content=file.read()))
+
         # Analyze image
         try:
-            response = client.analyze_image(AnalyzeImageOptions(image=ImageData(content=my_file)))
-        except Exception as e:
-            print("Error code: {}".format(e.error.code))
-            print("Error message: {}".format(e.error.message))
-            return
-    
-        if response.hate_result is not None:
-            print("Hate severity: {}".format(response.hate_result.severity))
-        if response.self_harm_result is not None:
-            print("SelfHarm severity: {}".format(response.self_harm_result.severity))
-        if response.sexual_result is not None:
-            print("Sexual severity: {}".format(response.sexual_result.severity))
-        if response.violence_result is not None:
-            print("Violence severity: {}".format(response.violence_result.severity))
-    
+            response = client.analyze_image(request)
+        except HttpResponseError as e:
+            print("Analyze image failed.")
+            if e.error:
+                print(f"Error code: {e.error.code}")
+                print(f"Error message: {e.error.message}")
+                raise
+            print(e)
+            raise
+
+        if response.hate_result:
+            print(f"Hate severity: {response.hate_result.severity}")
+        if response.self_harm_result:
+            print(f"SelfHarm severity: {response.self_harm_result.severity}")
+        if response.sexual_result:
+            print(f"Sexual severity: {response.sexual_result.severity}")
+        if response.violence_result:
+            print(f"Violence severity: {response.violence_result.severity}")
     
     
     if __name__ == "__main__":

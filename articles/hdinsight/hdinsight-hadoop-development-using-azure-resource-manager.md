@@ -2,7 +2,7 @@
 title: Migrate to Azure Resource Manager tools for HDInsight 
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 ms.service: hdinsight
-ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-arm-template, devx-track-dotnet
 ms.topic: how-to
 ms.date: 12/23/2022
 ---

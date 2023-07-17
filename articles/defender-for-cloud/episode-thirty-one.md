@@ -35,4 +35,4 @@ ms.date: 05/16/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [API Security with Defender for APIs](episode-thirty-two.md)

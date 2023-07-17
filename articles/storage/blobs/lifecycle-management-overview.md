@@ -5,9 +5,9 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
-ms.service: storage
-ms.subservice: common
+ms.date: 06/23/2023
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23
@@ -29,7 +29,7 @@ With the lifecycle management policy, you can:
 - Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
 > [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+> The cold tier is currently in PREVIEW and is available in all public regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 

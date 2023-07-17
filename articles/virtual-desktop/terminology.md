@@ -21,6 +21,7 @@ A host pool is a collection of Azure virtual machines that register to Azure Vir
 A host pool can be one of two types:
 
 - Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktops to end-users that optimize environments for performance and data separation. 
+
 - Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple different users on a single session host at the same time. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs and greater efficiency. 
 
 The following table goes into more detail about the differences between each type of host pool:
@@ -55,13 +56,16 @@ Pooled host pools have a preferred application group type that dictates whether 
 To publish resources to users, you must assign them to application groups. When assigning users to application groups, consider the following things:
 
 - We don't support assigning both the RemoteApp and desktop application groups in a single host pool to the same user. Doing so will cause a single user to have two user sessions in a single host pool. Users aren't supposed to have two active user sessions at the same time, as this can cause the following things to happen:
+
     - The session hosts become overloaded
     - Users get stuck when trying to login
     - Connections won't work
     - The screen turns black
     - The application crashes
     - Other negative effects on end-user experience and session performance
+
 - A user can be assigned to multiple application groups within the same host pool, and their feed will be an accumulation of both application groups.
+
 - Personal host pools only allow and support Desktop application groups.
 
 >[!NOTE]

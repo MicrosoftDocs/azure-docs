@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java
 ms.devlang: azurecli
 ---
 

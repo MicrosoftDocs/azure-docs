@@ -12,7 +12,7 @@ In this quickstart, you learn how to start a call using the Azure Communication 
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
 
 ## Prerequisites
 

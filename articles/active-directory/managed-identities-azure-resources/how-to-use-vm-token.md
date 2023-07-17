@@ -11,6 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.workload: identity
 ms.date: 05/15/2023
 ms.author: barclayn

@@ -5,10 +5,9 @@ description: A checklist of proven practices for use with Table storage in devel
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.subservice: tables
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
@@ -63,7 +62,7 @@ For more information about scalability targets for the Table service, see [Scala
 
 ### Maximum number of storage accounts
 
-If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account.
 
 ### Capacity and transaction targets
 

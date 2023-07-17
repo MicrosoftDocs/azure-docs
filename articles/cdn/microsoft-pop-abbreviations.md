@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 06/01/2023
 ms.author: duau
 ms.custom: references_regions
 ---

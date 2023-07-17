@@ -4,7 +4,7 @@ description: Use the Java Message Service (JMS) with Azure Service Bus and the A
 ms.topic: article
 ms.date: 09/20/2021
 ms.devlang: java
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-extended-java
 ---
 
 # Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0

@@ -7,6 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: kengaderdus

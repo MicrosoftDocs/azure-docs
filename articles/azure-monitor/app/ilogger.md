@@ -4,7 +4,8 @@ description: Learn how to use Application Insights with the ILogger interface in
 ms.topic: conceptual
 ms.date: 04/24/2023
 ms.devlang: csharp
-ms.reviewer: casocha
+ms.custom: devx-track-dotnet
+ms.reviewer: mmcc
 ---
 
 # Application Insights logging with .NET

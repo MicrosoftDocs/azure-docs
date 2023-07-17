@@ -2,12 +2,12 @@
 title: Azure Container Apps image pull from Azure Container Registry with managed identity
 description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
 services: container-apps
-author: lanceleonard
+author: v-jaswel
 ms.service: container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: v-laleonard
+ms.author: v-wellsjason
 zone_pivot_groups: container-apps-interface-types
 ---
 

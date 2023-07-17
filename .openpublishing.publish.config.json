@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -411,12 +417,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-vj",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "vijetajo-patch-2",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-batch-pup",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "santiagxf/batch-pup",
@@ -653,6 +653,12 @@
     {
       "path_to_root": "cosmosdb-cassandra-python-sample",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-query-samples",
+      "url": "https://github.com/Azure-Samples/cosmos-db-nosql-query-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1045,7 +1051,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
   ".openpublishing.redirection.key-vault.json",
@@ -1076,6 +1081,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
@@ -1086,6 +1092,7 @@
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
+  "articles/machine-learning/v1/.openpublishing.redirection.machine-learning-v1.json",
   "articles/mariadb/.openpublishing.redirection.mariadb.json",
   "articles/marketplace/.openpublishing.redirection.marketplace.json",
   "articles/mysql/.openpublishing.redirection.mysql.json",
@@ -1103,6 +1110,7 @@
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
   "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
   "articles/dev-box/.openpublishing.redirection.dev-box.json",
-  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json"
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
+  "articles/network-watcher/.openpublishing.redirection.network-watcher.json"
 ]
 }
