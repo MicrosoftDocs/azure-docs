@@ -55,7 +55,7 @@ You can move an Azure Load Testing resource to a different resource group or sub
 
 1. Select **Next**.
 
-1. If the validation is successful, acknowledge the warning regarding moving resources.
+1. When the validation is completes, acknowledge the warning regarding moving resources.
 
 1. Select **OK**.
 
