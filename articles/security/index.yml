@@ -43,6 +43,9 @@ highlightedContent:
     - title: Use watchlists in Microsoft Sentinel
       itemType: concept
       url: ../sentinel/watchlists.md
+    - title: Azure Network Security
+      itemType: concept
+      url: ../networking/security/index.yml
 
 conceptualContent:
   items:
