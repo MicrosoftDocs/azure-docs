@@ -411,6 +411,17 @@ The following schemas are in use by Azure Machine Learning
 | AmlEnvironmentName | The name of the Azure Machine Learning environment configuration. |
 | AmlEnvironmentVersion | The name of the Azure Machine Learning environment configuration version. |
 
+### AMLOnlineEndpointTrafficLog table (preview)
+
+[!INCLUDE [endpoint-monitor-traffic-reference](includes/endpoint-monitor-traffic-reference.md)]
+
+### AMLOnlineEndpointConsoleLog
+
+[!INCLUDE [endpoint-monitor-console-reference](includes/endpoint-monitor-console-reference.md)]
+
+### AMLOnlineEndpointEventLog (preview)
+
+[!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
 
 ## See also
 
