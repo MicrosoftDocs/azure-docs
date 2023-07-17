@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 07/13/2023
 ---
 
-# Stop/Start an Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)
+# Manage Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
@@ -76,7 +76,7 @@ The task you've created, which is automatically live and running, will appear on
 
 ## Review task history
 
-To view a task's history of runs along with their statuses, inputs, outputs, and other information:
+To view a task's history of runs along with their status:
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
 2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
