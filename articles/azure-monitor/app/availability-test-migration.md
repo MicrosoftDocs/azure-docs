@@ -1,6 +1,6 @@
 ---
-title:       Migrate from Azure Monitor Application Insights classic URL ping tests to standard tests
-description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests
+title: Migrate from Azure Monitor Application Insights classic URL ping tests to standard tests
+description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests.
 ms.topic:    conceptual
 ms.date:     07/19/2023
 ms.reviewer: cogoodson
@@ -22,8 +22,8 @@ The following steps walk you through the process of creating [standard tests](av
 
 ### Prerequisites
 
-1. Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
-2. [Azure PowerShell](/powershell/azure/get-started-azureps) access
+- Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
+- [Azure PowerShell](/powershell/azure/get-started-azureps) access
 
 ### Steps
 
