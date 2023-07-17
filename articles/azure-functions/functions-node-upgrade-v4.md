@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Upgrade to version 4 of the Node.js programming model for Azure Functions
 
-This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article also highlights the most important concrete actions that you should take to upgrade your app.
+This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article also highlights the most important concrete actions that you should take to upgrade your app.
 
 Version 4 had the following design goals:
 
@@ -52,7 +52,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 # [VS Code](#tab/vs-code-set-indexing-flag)
 
-1. Make sure you have the [Azure Functions extension for Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
+1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
 1. Select the <kbd>F1</kbd> key to open the command palette. In the command palette, search for and select **Azure Functions: Add New Setting**.
 1. Choose your subscription and function app when prompted.
 1. For the name, type **AzureWebJobsFeatureFlags** and select the <kbd>Enter</kbd> key.
