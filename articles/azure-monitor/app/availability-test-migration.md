@@ -86,9 +86,6 @@ Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pin
 
 We recommend using these commands to migrate a URL ping test to a standard test and take advantage of the available capabilities. Remember, this migration is optional.
 
-#### Do these commands delete the existing test?
-
-No, these commands only create a new standard test and allow you to validate the standard test is performing as expected based on the existing URL ping test.  If you would like to remove the URL ping test later, you can use the [Web Test Rest API](/rest/api/application-insights/web-tests).
 
 #### Do these steps work for both HTTP and HTTPS endpoints?
 
