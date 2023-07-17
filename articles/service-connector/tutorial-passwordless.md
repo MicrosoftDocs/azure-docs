@@ -5,7 +5,7 @@ author: mcleanbyron
 ms.author: mcleans
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 05/20/2023
+ms.date: 07/17/2023
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
