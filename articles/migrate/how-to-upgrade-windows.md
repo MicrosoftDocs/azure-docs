@@ -70,8 +70,6 @@ To upgrade Windows during the test migration, follow these steps:
 
    The **Upgrade available** option changes to **Upgrade configured**.
 
-   :::image type="content" source="./media/how-to-upgrade-windows/upgrade-configured-inline.png" alt-text="Screenshot with the Upgrade configured option." lightbox="./media/how-to-upgrade-windows/upgrade-configured-expanded.png":::
-
 7. Select **Test migration** to initiate the test migration followed by the OS upgrade. 
 
 8. After the migration job is successful, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has the suffix *-Test*.  
