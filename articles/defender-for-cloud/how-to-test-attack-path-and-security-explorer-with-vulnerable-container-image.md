@@ -56,20 +56,20 @@ If there are no entries in the list of attack paths, you can still test this fea
 ```
 
 > [!NOTE]
-> After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
+> After completing the above flow, it can take up to 24 hours to see results in the cloud security explorer and attack path.
 
-## Investigate internet exposed Kubernetes pods through the Cloud Security Explorer
+## Investigate internet exposed Kubernetes pods
 
-You can build queries with cloud security explorer in one of two ways:
+You can build queries in one of the following ways:
 
-- [Find the security issue under attack paths](#find-this-security-issue-under-attack-paths)
-- [Create a query using the built-in templates](#create-a-query-using-the-built-in-templates)
+- [Find the security issue under attack paths](#find-the-security-issue-under-attack-paths)
+- [Explore risks with built-in cloud security explorer templates](#explore-risks-with-cloud-security-explorer-templates)
 - [Create custom queries with cloud security explorer](#create-custom-queries-with-cloud-security-explorer)
 
-### Find this security issue under attack paths
+### Find the security issue under attack paths
 
 1.Go to **Recommendations** in the Defender for Cloud menu.
-1. Select the **Attack Path** link to open the Attack Paths view.
+1. Select the **Attack Path** link to open the attack paths view.
 
     :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/how-to-test-attack-path/attack-path.png":::
 
@@ -77,14 +77,14 @@ You can build queries with cloud security explorer in one of two ways:
 
        :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png"::: 
 
-### Create a query using the built-in templates
+###  Explore risks with cloud security explorer templates
 
 1. From the Defender for Cloud overview page, open the cloud security explorer.
 
 1. Some out of the box templates for Kubernetes appear. Select one of the templates:
 
-  - **Azure Kubernetes pods running images with high severity vulnerabilities.**
-  - **Kubernetes namespaces contain vulnerable pods**
+    - **Azure Kubernetes pods running images with high severity vulnerabilities**
+     - **Kubernetes namespaces contain vulnerable pods**
   
     :::image type="content" source="media/how-to-test-attack-path/select-template.png" alt-text="Screenshot showing where to select templates." lightbox="media/how-to-test-attack-path/select-template.png"::: 
 
