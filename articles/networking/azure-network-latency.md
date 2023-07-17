@@ -74,8 +74,6 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 | **yt**     | 100 | 201 |  18 | 213 |  22 |
 | **yyy**    |  89 |  71 | 193 |  39 | 192 |
 
-
-
 #### [Europe](#tab/Europe)
 
 | **Source** | **am** | **chn** | **chw** | **db** | **den** | **dewc** | **mrs** | **noe** | **now** | **par** | **sec** |
@@ -129,18 +127,17 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 | **yt**     | 100    | 111     | 107     | 84     | 110     | 104      | 109     | 117     | 107     | 99      | 128     |
 | **yyy**    | 89     | 96      | 89      | 82     | 18      | 54       | 105     | 31      | 34      | 108     | 144     |
 
---- 
-
 #### [South America](#tab/SouthAmerica)
 
----
+blah blah blah
 
 #### [Middle East/Africa](#tab/MiddleEast)
 
----
+Blah blah blah
 
 ### [Asia Pacific](#tab/AsiaPacific)
 
+Blah blah blah
 
 ---
 
