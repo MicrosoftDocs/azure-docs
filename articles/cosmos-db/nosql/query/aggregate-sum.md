@@ -1,19 +1,22 @@
 ---
-title: SUM in Azure Cosmos DB query language
-description: Learn about the Sum (SUM) SQL system function in Azure Cosmos DB.
-author: seesharprun
+title: SUM
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that sums the specified values.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 12/02/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/17/2023
+ms.custom: query-reference
 ---
-# SUM (Azure Cosmos DB)
+
+# SUM (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This aggregate function returns the sum of the values in the expression.
+Returns the sum of the values in the expression.
   
 ## Syntax
   
@@ -22,9 +25,10 @@ SUM(<numeric_expr>)
 ```  
   
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
   
 ## Return types
   
@@ -32,18 +36,24 @@ Returns a numeric expression.
   
 ## Examples
   
-The following example returns the sum of `propertyA`:
+For this example, consider a container with multiple items that may contain a `quantity` field.
   
-```sql
-SELECT SUM(c.propertyA)
-FROM c
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sum/seed.json" range="1-2,4-8,10-13,15-19" higlight="5,16":::
+
+The `SUM` function is used to sum the values of the `quantity` field, when it exists, into a single aggregated value.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/sum/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sum/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy). If any arguments in `SUM` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will be not impact the `SUM` calculation.
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- If any arguments in `SUM` are string, boolean, or null; the entire aggregate system function returns `undefined`.
+- If any individual argument has an `undefined` value that value isn't included in the `SUM` calculation.
 
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)
+- [`AVG`](average.md)
