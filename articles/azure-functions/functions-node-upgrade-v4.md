@@ -32,7 +32,7 @@ Version 4 of the Node.js programming model requires the following minimum versio
 
 ## Enable the v4 programming model
 
-If you're running locally by using [Azure Functions Core Tools](functions-run-local.md), add `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing` to your *local.settings.json* file. If you're running in Azure, use the following instructions for the tool of your choice.
+To indicate that your function code is using the v4 model, you need to set the `EnableWorkerIndexing` flag on the `AzureWebJobsFeatureFlags` application setting. When you're running locally, add `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing` to your *local.settings.json* file. When you're running in Azure, you add this application setting by using the tool of your choice.
 
 # [Azure CLI](#tab/azure-cli-set-indexing-flag)
 
