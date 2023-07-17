@@ -97,20 +97,26 @@ Here the possible statuses for a run:
 
 ## Edit the task
 
-To change a task, you can either:
+To change a task, you have these options:
+
+* [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
+* [Edit the task's underlying workflow](#edit-task-workflow) in the workflow designer.
+
+### Edit the task inline
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
-2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
-3. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
+1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
+1. By default, the **Authenticate** tab appears and shows the existing connections.
+1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
+1. To update other task properties, select **Next: Configure**.
+1. When you're done, select **Save**.
 
-By default, the **Authenticate** tab appears and shows the existing connections.
+### Edit the task's underlying workflow
 
-4. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
-5. To update other task properties, select **Next: Configure**.
-6. When you're done, select **Save**.
+* For steps on how to edit the task's underlying workflow, refer
 
 ## Next steps
-
 * [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
 
 
