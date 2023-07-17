@@ -8,22 +8,22 @@ ms.reviewer: cogoodson
 
 # Migrate availability tests
 
-In this article, we guide you through the process of migrating from classic URL ping tests to the modern and efficient standard tests.
+In this article, we guide you through the process of migrating from [classic URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) to the modern and efficient [standard tests](availability-standard-tests.md) .
 
 We simplify this process by providing clear step-by-step instructions to ensure a seamless transition and equip your applications with the most up-to-date monitoring capabilities.
 
 ## Migrate classic URL ping tests to standard tests
 
-The following steps walk you through the process of creating standard tests that replicate the functionality of your URL ping tests. It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created URL ping tests.
+The following steps walk you through the process of creating [standard tests](availability-standard-tests.md) that replicate the functionality of your [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
 > [!NOTE]
-> A cost is associated with running standard tests. Once you create a standard test, you will be charged for test executions.
+> A cost is associated with running [standard tests](availability-standard-tests.md). Once you create a [standard test](availability-standard-tests.md), you will be charged for test executions.
 > Refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) before starting this process.
 
 ### Prerequisites
 
-1. Any URL ping test within Application Insights
-2. PowerShell access
+1. Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
+2. [Azure PowerShell](/powershell/azure/get-started-azureps) access
 
 ### Steps
 
