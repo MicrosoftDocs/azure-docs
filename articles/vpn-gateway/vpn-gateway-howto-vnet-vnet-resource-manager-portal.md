@@ -178,7 +178,7 @@ You can create either a bidirectional, or single direction connection. For this 
 
 1. On the **Create connection** page, fill in the connection values.
 
-    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity.png" alt-text="Screenshot showing the Create Connection page." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity":::
+    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity.png" alt-text="Screenshot showing the Create Connection page." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity.png":::
   
    * **Connection type**: Select **VNet-to-VNet** from the drop-down.
    * **Establish bidirectional connectivity**: Select this value
