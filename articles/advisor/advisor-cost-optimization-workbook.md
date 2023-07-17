@@ -1,1 +1,115 @@
-Understand and optimize your Azure costs with the new Azure Cost Optimization workbook
+---
+title: Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
+description: Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
+ms.topic: article
+ms.date: 07/17/2023
+---
+
+# Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
+The Azure Cost Optimization workbook is designed to provide a comprehensive understanding of the cost posture of your Azure environment and empower you to optimize your costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
+
+## Overview of the Azure Cost Optimization Workbook
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.
+
+Here’s how to get started:
+
+1.	Navigate to Workbooks gallery in Azure Advisor
+1.	Open Cost Optimization (Preview) workbook template.
+1.	Select a service from the list to display a detailed view of impacted resources.
+
+The workbook is organized into different tabs, each focusing on specific areas to help you reduce the cost of your Azure environment. Here are some key features:
+
+*	Flexible Filters: Utilize subscription, resource group, and tags filters to narrow down and focus on specific workloads or areas of interest.
+*	Export Recommendations: Easily export all the recommendations to a CSV file, allowing you to share the insights and collaborate with your team more effectively.
+*	Quick Fixes: For certain recommendations, you’ll find a “Quick Fix” button that enables you to apply the recommended optimization directly from the workbook page, streamlining the optimization process.
+
+:::image type=“content” source=“media/advisor-cost-optimization-workbook-overview.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template.” lightbox=“media/advisor-cost-optimization-workbook-overview.png”:::
+[!NOTE] It’s important to note that the workbook serves as guidance and does not guarantee cost reduction.
+
+In this section, we will provide an overview of the different queries covered by the Azure Cost Optimization Workbook. Each recommendation aims to help you optimize costs and improve efficiency within your Azure environment.
+
+*	Compute
+*	Azure Hybrid Benefit
+*	Storage
+*	Networking
+
+## Compute
+
+### Advisor Recommendations
+
+This query focuses on reviewing the advisor recommendations specifically related to Compute. Some of the recommendations available in this query could be “Optimize virtual machine spend by resizing or shutting down underutilized instances” or “Buy reserved virtual machine instances to save money over pay-as-you-go costs.”
+
+### Virtual Machines in a Stopped State
+
+This query identifies Virtual Machines that are not properly deallocated. If a Virtual Machine’s status is “Stopped” rather than “Stopped (Deallocated),” you are still billed for the resource as the hardware remains allocated for you. If no items are presented in this tab, it indicates that all your Virtual Machines are correctly in a “Stopped (Deallocated)” state.
+
+### Web Apps
+This query helps identify Azure App Services with and without Auto Scale, as well as App Services where the actual app might be stopped. I
+
+### Azure Kubernetes Clusters (AKS)
+
+This query focuses on cost optimization opportunities specific to Azure Kubernetes Clusters (AKS). It provides recommendations such as:
+
+*	Enabling cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints.
+*	Considering the use of Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions.
+*	Utilizing the Horizontal Pod Autoscaler to adjust the number of pods in a deployment based on CPU utilization or other selected metrics.
+*	Leveraging the Start/Stop feature in Azure Kubernetes Services (AKS) to optimize cost during off-peak hours.
+*	Using appropriate VM SKUs per node pool and considering reserved instances where long-term capacity is expected.
+
+### Azure Hybrid Benefit
+
+Windows VMs and VMSS not using Hybrid Benefit
+
+Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs. You can see potential savings using Azure Hybrid Benefit Calculator Check this link to learn more about the Azure Hybrid Benefit.
+
+NOTE If you have selected Dev/Test subscription(s) within the scope of this Workbook then they should already have discounts on Windows licenses so recommendations here don’t apply to this subscription(s)
+
+### Linux VM not using Hybrid Benefit
+
+Similar to Windows VMs, Azure Hybrid Benefit provides an excellent opportunity to save on Virtual Machine OS costs. The Azure Hybrid Benefit for Linux is a licensing benefit that significantly reduces the costs of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+
+### SQL HUB Licenses
+
+Azure Hybrid Benefit can also be applied to SQL services, such as SQL server on VMs, SQL Database or SQL Managed Instance.
+
+## Storage
+
+### Advisor Recommendations
+
+Review the Advisor recommendations for Storage. This section provides insights into various recommendations such as “Blob storage reserved capacity” or “Use lifecycle management.” These recommendations can help optimize your storage costs and improve efficiency.
+Unattached Managed Disks
+This query focuses on the list of managed unattached disks. It automatically ignores disks used by Azure Site Recovery. Use this information to identify and remove any unattached disks that are no longer needed.
+
+NOTE This query has a Quick Fix colunmn that helps you to remove the disk if not needed.
+
+### Disk snapshots older than 30 days
+This query identifies snapshots that are older than 30 days. Identifying and managing outdated snapshots can help you optimize storage costs and ensure efficient use of your Azure environment.
+
+## Networking
+
+### Advisor Recommendations
+Review the Advisor recommendations for Networking. This section provides insights into various recommendations, such as “Reduce costs by deleting or reconfiguring idle virtual network gateways” or “Reduce costs by eliminating unprovisioned ExpressRoute circuits.”
+
+### Application Gateway with empty backendpool
+
+Review the Application Gateways with empty backend pools. App gateways are considered idle if there isn’t any backend pool with targets.
+
+### Load Balancer with empty backendpool
+
+Review the Load Balancers with empty backend pools. Load Balancers are considered idle if there isn’t any backend pool with targets.
+
+### Unattached Public IPs
+
+Review the list of idle Public IP Addresses. This query will also show Public IP addresses attached to idle Network Interface Cards (NICs)
+
+### Idle Virtual Network Gateways
+Review the Idle Virtual Network Gateways. This query will show VPN Gateways without any active connection.
+
+:::image type=“content” source=“media/advisor-service-retirement-workbook-details.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template, detailed view.” lightbox=“media/advisor-service-retirement-workbook-details.png”:::
+
+For more information, see: 
+* Well-Architected cost optimization design principles
+* Cloud Adoption Framework manage cloud costs
+* Azure FinOps principles
+* Azure Advisor cost recommendations
+
