@@ -13,9 +13,9 @@ ms.service: azure-communication-services
 
 ## Verify Your WhatsApp Business Number
 
- On the next steps, you will need to add a phone umber to your WhatsApp for Business account. You can use a phone number that you purchased from Azure Communication Services or a number you have purchased elsewhere. This phone number cannot be used by another WhatsApp account. If you will be using an Azure Communication Services phone number, make sure that you have completed the [Prerequisites](#prerequisites) listed above and use the **Text message** option to verify the number.
+On the next steps, you will need to add a phone umber to your WhatsApp for Business account. You can use a phone number that you purchased from Azure Communication Services or a number you have purchased elsewhere. This phone number cannot be used by another WhatsApp account. If you will be using an Azure Communication Services phone number, make sure that you have completed the [Prerequisites](#prerequisites) listed above and use the **Text message** option to verify the number.
 
-    :::image type="content" source="../../media/register-whatsapp-account/adding-phonenumber-for-whatsapp.png" alt-text="Screenshot that shows Adding a phone number to your WhatsApp Business account.":::
+:::image type="content" source="../../media/register-whatsapp-account/adding-phonenumber-for-whatsapp.png" alt-text="Screenshot that shows Adding a phone number to your WhatsApp Business account.":::
 
 - Click the **Next** button to continue.
     

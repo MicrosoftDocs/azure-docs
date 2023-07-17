@@ -1,5 +1,5 @@
 ---
-title: Advanced Messaging for WhatsApp overview in Azure Communication Services
+title: Advanced Messaging for WhatsApp overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Service WhatsApp concepts.
 author: darmour

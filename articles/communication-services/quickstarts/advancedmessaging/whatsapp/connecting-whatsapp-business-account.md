@@ -9,7 +9,6 @@ ms.author: darmour
 ms.date: 06/26/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Register WhatsApp Business Account
@@ -51,7 +50,7 @@ Getting started with the Azure Communication Services Advanced Message SDK which
 
 :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows Providing WhatsApp Business account details.":::
 
-1. Once you have completed the form, click **Next** to continue.
+2. Once you have completed the form, click **Next** to continue.
 
 ::: zone pivot="verify-phonenumber"
 [!INCLUDE [Verify Whatsapp Business Phonenumber](./includes/register-whatsapp-account/verify-phonenumber.md)]
@@ -61,9 +60,9 @@ Getting started with the Azure Communication Services Advanced Message SDK which
 
 You will see the account and status listed in the Azure portal along with the other WhatsApp Business accounts that you have connected to Azure Communication Services. Once approved, you can use the WhatsApp Business account to send and receive messages. The status of your WhatsApp Business account is displayed in the Azure portal. Your business’s display name will be reviewed by Meta. You can learn more about this review process and how to update your business account’s display name in the article this article: [About WhatsApp Business display name](https://www.facebook.com/business/help/338047025165344).
 
-When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This will disconnect the account from Azure Communication Services but will not delete the account and the account can be re-connected later.
-
 :::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
+
+When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This will disconnect the account from Azure Communication Services but will not delete the account and the account can be re-connected later.
 
 ## Next Steps
 
