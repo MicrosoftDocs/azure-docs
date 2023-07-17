@@ -24,8 +24,48 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
+| [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
-### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled". 
+### Defender for Cloud plan and strategy for the Log Analytics agent deprecation
+
+**Estimated date for change: August 2024**
+
+The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) After that date, two Defender for Cloud plans that rely on features of the Log Analytics agent will be impacted and have updated strategies: Defender for Servers and Defender for SQL Server on machines.
+
+* Defender for Servers MMA-based features and capabilities will be deprecated in their Log Analytics version in August 2024, and delivered over alternative infrastructures, before the MMA deprecation date.
+
+* In addition, the Azure monitoring Agent (AMA) won’t be a requirement of the Defender for Servers offering, but will remain required as part of Defender for SQL Server on machines.
+
+* As a result, the Defender for Servers features and capabilities in the following table, as well as the autoprovisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted accordingly.  
+
+#### Defender for Servers
+
+The following table explains how each capability will be provided after the Log Analytics agent retirement:
+
+| **Feature**                                                  | **Support**                                                  | **Alternative**                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after October 2023. | Use the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. |
+| OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  We’ll provide a full list of deprecated detections. | OS detections are  provided by Defender for Endpoint  and are already GA. |
+| Adaptive application controls                                | The [current GA version](/defender-for-cloud/adaptive-application-controls) based on the  Log Analytics agent won’t be available after August 2024. | We’re evaluating the next generation of this feature.        |
+| Endpoint assessment and recommendations                      | Current [GA and preview recommendations](/defender-for-cloud/endpoint-protection-recommendations-technical) provided by the  Log Analytics agent won’t be available after August 2024. | A new agentless version of this feature will be  available in Defender for Servers P2 and Defender CSPM plans during 2023. The  new version won’t cover on-premises/Arc-connected machines. |
+| Missing OS patches (system  updates)                         | Recommendations based on the Log Analytics agent won’t be available after August 2024. | [New recommendations](/defender-for-cloud/release-notes#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga), based on integration  with Update Management Center, are already in GA, with no agent dependencies. |
+| OS misconfigurations (Azure Security Benchmark  recommendations) | The [current GA version](/defender-for-cloud/apply-security-baseline) based on the Log Analytics agent won’t be  available after August 2024.   The current preview version that uses the Guest  Configuration agent will be deprecated as the Microsoft Defender  Vulnerability Management integration becomes available. | A new version, based on integration with Premium  Microsoft Defender Vulnerability Management, will be available early in 2024,  as part of Defender for Servers plan 2. |
+| File integrity monitoring                                    | The [current GA version](/defender-for-cloud/file-integrity-monitoring-enable-log-analytics) based on the Log  Analytics agent won’t be available after August 2024. | A new version of this feature will be available by end of calendar year 2023  over Defender for Endpoint. |
+| The  [500-MB benefit](/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data  ingestion | The [500-MB benefit](/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-)  for data ingestion over  the defined tables will remain supported via the AMA agent for the machines  under subscriptions covered by Defender for Servers P2. Every machine is  eligible for the benefit only once, even if both Log Analytics agent and  Azure Monitor agent are installed on it. |                                                              |
+
+##### Log analytics and Azure Monitoring agents autoprovisioning experience
+
+* The MMA autoprovisioning mechanism and its related policy initiative will remain optional until August 2024.
+
+* In October 2023, the current shared Log Analytics agent/Azure Monitor agent autoprovisioning mechanism will be updated and applied to the Log Analytics agent only. The Azure Monitor agent related (Public Preview) policy initiatives will be deprecated.
+
+* The AMA autoprovisioning mechanism will still serve current customers with the Public Preview policy initiative enabled, but they won't be eligible for support. To disable the Azure Monitor agent provisioning, manually remove the policy initiative.
+
+* If MMA autoprovisioning is enabled and AMA agents are already installed on the machines, MMA won’t be provisioned, and AMA will remain functional.
+
+To ensure your servers are secured, receive all the security content of Defender for Servers, and are up-to-date with the alternative deliverables, verify that Defender for Endpoint integration and agentless disk scanning are enabled on your subscriptions. For more information about Defender for Endpoint integration enablement, see [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) and for information about Agentless scanning enablement, see [Learn about agentless scanning](concept-agentless-data-collection.md).
+
+### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled" 
 
 **Estimated date for change: June 2023**
 
@@ -45,6 +85,7 @@ The Security DevOps recommendations will be updated to align with the overall Mi
 
 
 Security DevOps recommendations impacted:
+
 -	Code repositories should have code scanning findings resolved (preview)
 -	Code repositories should have secret scanning findings resolved (preview)
 -	Code repositories should have dependency vulnerability scanning findings resolved (preview)
@@ -65,6 +106,7 @@ To:
 `Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
 
 As a part of the migration, source code management system specific recommendations will be created for security findings:
+
 -	GitHub repositories should have code scanning findings resolved (preview)
 -	GitHub repositories should have secret scanning findings resolved (preview)
 -	GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
@@ -117,9 +159,9 @@ Microsoft Defender for Cloud has three plans that offer service layer protection
 These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure. 
 
 **Business model and pricing changes summary**: 
- 
+
 Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price. 
- 
+
 - **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model. 
 
 - **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model 
@@ -132,7 +174,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
 
-Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types: 
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the following set of data types: 
 
 - WindowsEvent
 - SecurityAlert
