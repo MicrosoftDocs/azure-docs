@@ -40,11 +40,11 @@ Data export is available for various Azure account types, including [Enterprise 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
-- To export to storage accounts with configured firewalls, you need other privileges on the storage account. The required permissions to create an export are:
+- To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
   - Owner role on the storage account.  
   Or
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services)  to the storage account when you configure the firewall.
+  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
   >[!NOTE]
   > Export to storage accounts behind firewall is in preview. Enable the preview feature in Cost Management labs by selecting **Export behind firewall**. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features).  
@@ -263,10 +263,6 @@ A system-assigned managed identity is created for a new job export when it's cre
 > - Currently, firewalls are supported for storage accounts in the same tenant. However, firewalls on storage accounts aren't supported for cross-tenant exports.
 
 Add exports to the list of trusted services. For more information, see [Trusted access based on a managed identity](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
-
-| Service | Resource provider name | Purpose |
-|---|---|---|
-| Microsoft Cost Management | Microsoft.CostManagementExports | Enables export to storage accounts behind a firewall.|
 
 ### Export schedule
 
