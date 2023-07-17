@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 02/22/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, devx-track-extended-java
 ---
 
 # Quickstart: Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data

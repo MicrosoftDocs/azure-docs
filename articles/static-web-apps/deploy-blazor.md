@@ -56,6 +56,9 @@ Now that the repository is created, create a static web app from the Azure porta
     | _Repository_ | Select **my-first-static-blazor-app**. |
     | _Branch_ | Select **main**. |
 
+   > [!NOTE]
+   > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub. Then browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps,** select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 7. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and the following values are populated.
 
     | Property | Value | Description |

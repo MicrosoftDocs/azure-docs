@@ -5,6 +5,7 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 05/08/2023
 ms.custom: seodec18
+ms.author: msangapu
 
 ---
 # Scale up an app in Azure App Service

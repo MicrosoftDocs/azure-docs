@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 04/26/2022
 ms.topic: tutorial
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 

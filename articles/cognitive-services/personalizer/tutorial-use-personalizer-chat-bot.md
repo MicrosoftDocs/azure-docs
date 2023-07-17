@@ -9,7 +9,7 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Use Personalizer in .NET chat bot

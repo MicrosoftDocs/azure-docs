@@ -27,9 +27,10 @@ Use the Custom Vision client library for Python to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
-* Once you have your Azure subscription, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource</a> in the Azure portal to create a training and prediction resource and get your keys and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resources you create to connect your application to Custom Vision. You'll paste your keys and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource</a> in the Azure portal to create a training and prediction resource.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+[!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Setting up
 
@@ -54,14 +55,6 @@ Create variables for your resource's Azure endpoint and keys.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_creds)]
 
-
-> [!IMPORTANT]
-> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get the keys for both your training and prediction resources, along with the API endpoint for your training resource.
->
-> You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
-
-> [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ## Object model
 

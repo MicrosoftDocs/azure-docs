@@ -8,7 +8,7 @@ ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc, devx-track-js
+ms.custom: mvc
 ---
 
 # Tutorial: Search nearby points of interest using Azure Maps

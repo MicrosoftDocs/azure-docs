@@ -1,10 +1,11 @@
 ---
 title: Support for Hyper-V migration in Azure Migrate
 description: Learn about support for Hyper-V migration with Azure Migrate.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 05/23/2023
 ms.custom: engagement-fy23
 ---
@@ -24,7 +25,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | :-------------------       | :------------------- |
 | **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
-| **Host operating system** | Windows Server 2022, Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
+| **Host operating system** | Windows Server 2022, Windows Server 2019, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
 | **Other Software requirements** | .NET Framework 4.7 or later |
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
 
@@ -52,7 +53,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
-| **Azure Site Recovery** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery.|
+| **Azure Site Recovery and/or Hyper-V** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery or with Hyper-V replica.|
 | **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
 
 

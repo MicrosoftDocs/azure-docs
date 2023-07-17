@@ -3,7 +3,7 @@ title: View and manage log alert rules created in previous versions| Microsoft D
 description: Use the Azure Monitor portal to manage log alert rules created in earlier versions.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 06/20/2023
 ms.custom: devx-track-azurepowershell
 ms.reviewer: harelbr
 ---
@@ -81,7 +81,7 @@ Use the following PowerShell cmdlets to manage rules with the [Scheduled Query R
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule.
 
 > [!NOTE]
-> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
+> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](./alerts-log-api-switch.md).
 
 Example steps for creating a log alert rule by using PowerShell:
 

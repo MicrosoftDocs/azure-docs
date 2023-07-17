@@ -4,6 +4,7 @@ description: Learn about assessments in Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/24/2022
 ms.custom: engagement-fy23

@@ -91,6 +91,12 @@ items:
         href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
+      - name: Install Cloud Backup for Virtual Machines
+        href: install-cloud-backup-virtual-machines.md
+      - name: Backup Azure NetApp Files datastores and VMs
+        href: backup-azure-netapp-files-datastores-vms.md
+      - name: Restore VMs
+        href: restore-azure-netapp-files-vms.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -181,7 +187,7 @@ items:
       href: azure-vmware-solution-horizon.md
     - name: Deploy Citrix on Azure VMware Solution
       href: azure-vmware-solution-citrix.md
-  - name: Deploy vSAN stretched clusters (Preview)
+  - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Migrate Microsoft SQL Server workloads
     items:

@@ -11,7 +11,7 @@ ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other, build-2023
+ms.custom: mode-other, build-2023, devx-track-extended-java, devx-track-python
 ---
 
 # Use REST APIs programmatically

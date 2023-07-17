@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/12/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -24,7 +24,7 @@ ms.custom: it-pro
 
 ## Prerequisites
 
-- An Azure AD customer tenant (if you don't have a tenant, you can start a [free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl)).
+- An Azure AD customer tenant (if you don't have a tenant, you can start a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
 - A [sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 - An app that's registered in your customer tenant, added to the sign-up and sign-in user flow, and updated to point to the user flow for authentication.
 - An account with Conditional Access Administrator, Security Administrator, or Global Administrator privileges to configure Conditional Access policies and MFA.
@@ -35,7 +35,7 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon ![Icon for switching directories.](media/how-to-multifactor-authentication-customers/switch-directory.png) in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
 
 1. Browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
 

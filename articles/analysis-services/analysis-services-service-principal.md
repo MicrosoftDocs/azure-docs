@@ -61,7 +61,7 @@ $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -
 # Connect using Az module
 Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
 
-# Syncronize a database for query scale out
+# Synchronize a database for query scale out
 Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
 
 # Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.

@@ -8,7 +8,7 @@ ms.date: 12/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc, devx-track-js
+ms.custom: mvc
 ---
 
 # Tutorial: How to display route directions using Azure Maps Route service and Map control

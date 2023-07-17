@@ -7,7 +7,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.service: app-service
-ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devdivchpfy22, service-connector
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devdivchpfy22, service-connector, devx-track-dotnet
 ---
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service

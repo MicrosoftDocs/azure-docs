@@ -3,7 +3,7 @@ title: How to update alert rules or alert processing rules when their target res
 description: Background and instructions for how to update alert rules or alert processing rules when their target resource moves to a different Azure region. 
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 2/23/2022
+ms.date: 05/28/2023
 ms.reviewer: ofmanor
 ---
 # How to update alert rules or alert processing rules when their target resource moves to a different Azure region
@@ -16,7 +16,7 @@ Alert rules and alert processing rules reference other Azure resources. Examples
 
 There are two main reasons why your rules might stop working after moving the target resources:
 
-- The scope of your rule is explicitly referring the old resource.
+- The scope of your rule is explicitly referring to the old resource.
 - Your alert rule is based on metrics.
 
 ## Rule scope explicitly refers to the old resource

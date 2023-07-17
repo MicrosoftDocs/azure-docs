@@ -4,7 +4,7 @@ description: Store structured data in the cloud using the Azure Table client lib
 ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: golang 
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-go
 ms.topic: sample
 ms.date: 03/24/2022
 author: seesharprun

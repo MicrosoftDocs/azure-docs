@@ -29,7 +29,7 @@ You must have an Azure resource group in order to create an OpenAI resource. Whe
 
 ```azurecli
 az group create \
---name OAIResourceGroup\
+--name OAIResourceGroup \
 --location eastus
 ```
 

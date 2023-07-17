@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/18/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 

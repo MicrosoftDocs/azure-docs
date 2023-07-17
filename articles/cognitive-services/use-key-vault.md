@@ -4,6 +4,7 @@ description: Learn how to develop Cognitive Services applications securely by us
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 09/13/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
@@ -594,7 +595,7 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure key vault](../key-vault/general/index.yml).  
+* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
 * For additional information on secure application development, see:
     * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
     * [Cognitive Services security](cognitive-services-security.md)

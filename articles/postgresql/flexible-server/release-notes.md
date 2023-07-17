@@ -14,12 +14,27 @@ ms.date: 05/10/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL
+This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL
+
+
+## Release: July 2023
+* Support for [minor versions](./concepts-supported-versions.md) 15.3 (preview), 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
+* General Availability of PostgreSQL 15 for Azure Database for PostgreSQL – Flexible Server.
+
+## Release: June 2023
+* Support for [minor versions](./concepts-supported-versions.md) 15.2 (preview), 14.7, 13.10, 12.14, 11.19 <sup>$</sup>
+* General availability of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Restore a dropped server](how-to-restore-dropped-server.md) for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Storage auto-grow](./concepts-compute-storage.md#storage-auto-grow-preview) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: May 2023
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
-* Postgres 15 is now available in public preview for Azure Database for PostgreSQL – Flexible Server in limited regions.
+* PostgreSQL 15 is now available in public preview for Azure Database for PostgreSQL – Flexible Server in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).
 * General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
+* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#using-azure-key-vault-managed-hsm) with Azure Database for PostgreSQL- Flexible server
+* General availability  [32 TB Storage](./concepts-compute-storage.md) with Azure Database for PostgreSQL- Flexible server
+* Support for [Ddsv5 and Edsv5 SKUs](./concepts-compute-storage.md) with Azure Database for PostgreSQL- Flexible server.
 
 ## Release: April 2023
 * Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
@@ -36,7 +51,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [extension](concepts-extensions.md) server with new servers<sup>$</sup>
 * Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
 * Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-customer-managed-key-work) feature.
-* Support for [minor versions](./concepts-supported-versions.md) 14.6, 13.9, 12.13, 11.18. <sup>$</sup>
+* Support for [minor versions](./concepts-supported-versions.md) 14.6, 13.9, 12.13, 11.18 <sup>$</sup>
 
 ## Release: January 2023
 * General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions

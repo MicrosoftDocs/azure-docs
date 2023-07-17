@@ -1,13 +1,13 @@
 ---
 title: Access control and security for DPS with Azure AD
 titleSuffix: Azure IoT Hub Device Provisioning Service
-description: Control access to Azure IoT Hub Device Provisioning Service (DPS) (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
+description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
 author: jesusbar
 ms.author: jesusbar
 ms.service: iot-dps
 ms.topic: concept-article
 ms.date: 02/07/2022
-ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp, devx-track-azurecli]
+ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-csharp, devx-track-azurecli]
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Azure Active Directory (preview)
@@ -91,9 +91,8 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 - [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
 - [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSJavaSDKRBACSample)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-java/tree/preview/provisioning/provisioning-service-client-samples)
 - [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPScsharpSDKRBACSample)
 
 ## Azure AD access from the Azure portal
 
@@ -102,5 +101,5 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 
 ## Next steps
 
-- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md).
+- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md).
 - For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).

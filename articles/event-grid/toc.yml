@@ -24,7 +24,7 @@ items:
       - name: Route MQTT messages to Event Hubs using portal
         href: mqtt-routing-to-event-hubs-portal.md
     - name: Samples
-      href: /samples/browse/?term=MQTT+Application
+      href: https://github.com/Azure-Samples/MqttApplicationSamples
     - name: Concepts
       items:
       - name: Terminology
@@ -48,10 +48,14 @@ items:
           href: mqtt-routing-filtering.md
         - name: Routing enrichments
           href: mqtt-routing-enrichment.md
-      - name: MQTT support
+      - name: MQTT features support
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
+      - name: Use cases
+        items:
+        - name: Automotive Messaging
+          href: mqtt-automotive-connectivity-and-data-solution.md
     - name: How-to guides
       items:
       - name: Create and manage namespaces
@@ -66,6 +70,8 @@ items:
         href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -73,13 +79,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/eventgrid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Monitoring data reference (MQTT delivery)
@@ -122,6 +128,8 @@ items:
         href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -129,13 +137,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/eventgrid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md        
       - name: Monitoring data reference (pull delivery)
@@ -295,7 +303,7 @@ items:
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
-          - name: Azure Event Grid Namespace
+          - name: Azure Event Grid 
             href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
@@ -518,6 +526,8 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -525,13 +535,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/eventgrid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Monitoring data reference (push delivery)
@@ -544,8 +554,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/eventsubscriptions
         - name: Topics
           href: /azure/templates/microsoft.eventgrid/topics
-      - name: SDKs
-        href: sdk-overview.md
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
     - name: Resources

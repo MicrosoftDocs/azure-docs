@@ -95,13 +95,10 @@ These Microsoft applications support Azure AD's shared device mode:
 
 - [Microsoft Teams](/microsoftteams/platform/)
 - [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) app for Android Enterprise
-- [Microsoft Edge](/microsoft-edge) (in Public Preview)
-- [Outlook](/mem/intune/apps/app-configuration-policies-outlook) (in Public Preview)
-- [Microsoft Power Apps](/power-apps) (in Public Preview)
-- [Yammer](/yammer) (in Public Preview)
-
-> [!IMPORTANT]
-> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- [Microsoft Edge](/microsoft-edge)
+- [Outlook](/mem/intune/apps/app-configuration-policies-outlook)
+- [Microsoft Power Apps](/power-apps)
+- [Microsoft Viva Engage](/viva/engage/overview) (previously [Yammer](/yammer))
 
 ## Shared device sign-out and the overall app lifecycle
 

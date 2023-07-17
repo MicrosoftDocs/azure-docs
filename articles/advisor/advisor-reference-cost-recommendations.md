@@ -328,6 +328,12 @@ We've analyzed the usage patterns of your app service plan over the past 7 days 
 
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
+### Unused/Empty App Service plans
+
+Your App Service plan has no apps running for at least 3 days. Consider deleting the resource to save costs.
+
+Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
+
 ## Azure Monitor
 
 For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).

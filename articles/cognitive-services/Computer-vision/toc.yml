@@ -16,7 +16,7 @@ items:
     href: whats-new.md
   - name: Computer Vision FAQ
     href: FAQ.yml
-- name: Use cases
+- name: Scenario deep-dives
   items:
   - name: Generate alt text for images
     href: use-case-alt-text.md
@@ -304,7 +304,7 @@ items:
         href: how-to/find-similar-faces.md
       - name: Specify a face recognition model version
         href: how-to/specify-recognition-model.md
-      - name: Add faces to a group
+      - name: Add faces to a PersonGroup
         href: how-to/add-faces.md
       - name: Use the large-scale feature
         href: how-to/use-large-scale.md
@@ -337,7 +337,7 @@ items:
     - name: Face REST API
       href: identity-api-reference.md
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+      href: /dotnet/api/overview/azure/cognitiveservices/face
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js

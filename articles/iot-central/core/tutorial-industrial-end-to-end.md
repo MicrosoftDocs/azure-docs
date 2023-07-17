@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Explore an Azure IoT Central industrial scenario | Microsoft Docs
-description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
+title: Tutorial - Explore an Azure IoT Central industrial scenario
+description: This tutorial shows you how to deploy an end-to-end industrial IoT solution by using IoT Edge, IoT Central, and Azure Data Explorer.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/15/2022
+ms.date: 07/10/2023
 ms.topic: tutorial
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 services: iot-central
-
 #Customer intent: As a solution builder, I want to deploy a complete industrial IoT solution that uses IoT Central so that I understand how IoT Central enables industrial IoT scenarios.
 ---
 
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure subscription.
-- Local machine to run the **IoT Central Solution Builder** tool. Pre-built binaries are available for Windows and macOS.
-- If you need to build the **IoT Central Solution Builder** tool instead of using one of the pre-built binaries, you need a local Git installation.
+- Azure subscription that you access using a [work or school account](https://techcommunity.microsoft.com/t5/itops-talk-blog/what-s-the-difference-between-a-personal-microsoft-account-and-a/ba-p/2241897). Currently, you can't use a Microsoft account to deploy the solution with the **IoT Central Solution Builder** tool.
+- Local machine to run the **IoT Central Solution Builder** tool. Prebuilt binaries are available for Windows and macOS.
+- If you need to build the **IoT Central Solution Builder** tool instead of using one of the prebuilt binaries, you need a local Git installation.
 - Text editor. If you want to edit the configuration file to customize your solution.
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
@@ -158,7 +158,7 @@ The IoT Edge deployment manifest defines four custom modules:
 
 - [azuremetricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
 - [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) - generates simulated OPC-UA data.
-- [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
+- [opcpublisher](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
 - [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway to send OPC-UA data to your IoT Central app and handle commands sent from your IoT Central app.
 
 You can see the deployment manifest in the tool configuration file. The tool assigns the deployment manifest to the IoT Edge device it registers in your IoT Central application.
@@ -169,7 +169,7 @@ To learn more about how to use the REST API to deploy and configure the IoT Edge
 
 The [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) module on the IoT Edge device generates simulated OPC-UA data for the solution. This module implements an OPC-UA server with multiple nodes that generate random data and anomalies. The module also lets you configure user defined nodes.
 
-The [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
+The [opcpublisher](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
 
 ### IoT Central application
 
@@ -207,7 +207,7 @@ You can also use the IoT Central UI or CLI to manage the devices and gateways in
 
 ### Data export configuration
 
-The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
+The solution uses the IoT Central data export capability to export OPC-UA data. IoT Central data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
 
 ```jq
 {

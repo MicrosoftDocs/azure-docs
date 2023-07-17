@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Image Analysis 4.0 client library for Python"
-description: Get started with the Image Analysis 4.0 client library for Python with this quickstart.
+title: "Quickstart: Image Analysis 4.0 client SDK for Python"
+description: Get started with the Image Analysis 4.0 client SDK for Python with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for Python to analyze a remote image to read text and generate an image caption.
+Use the Image Analysis client SDK for Python to analyze a remote image to read text and generate an image caption.
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PyPi)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
@@ -30,15 +30,15 @@ Use the Image Analysis client library for Python to analyze a remote image to re
     * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Analyze Image
 
 1. Open a command prompt where you want the new project, and create a new file named *quickstart.py*.
-1. Run this command to install the Azure AI Vision client library:
+1. Run this command to install the Azure AI Vision client SDK:
 
     ```console
     python -m pip install azure-ai-vision
@@ -57,8 +57,7 @@ Use the Image Analysis client library for Python to analyze a remote image to re
     python quickstart.py
     ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -128,8 +127,7 @@ Text:
      Word: 'review', Bounding polygon {560, 371, 576, 371, 575, 376, 559, 376}, Confidence 0.0400
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Output" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 
@@ -141,7 +139,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
+In this quickstart, you learned how to install the Image Analysis client SDK and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
 > [!div class="nextstepaction"]
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
