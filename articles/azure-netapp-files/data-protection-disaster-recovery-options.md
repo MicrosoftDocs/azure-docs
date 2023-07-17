@@ -69,9 +69,33 @@ Cross-zone replication leverages [availability zones](use-availability-zones.md)
 
 To learn more, see [Understand cross-zone replication](cross-zone-replication-introduction.md). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
 
+## Select the appropriate data protection solution
+
+Choosing the best data protection option for your Azure NetApp Files deployment depends on your configuration and needs. The following table can help you choose the best option for your use case.  
+
+| Use case | In-region solution | Cross-region solution | 
+| --- | --- | --- | 
+| Ad hoc backup | On-demand snapshots | - | 
+| Application consistent data protection | AzAcSnap | - | 
+| Data corruption and ransomware protection | Scheduled snapshots | Cross-region replication | 
+| Disaster recovery | - | Cross-region replication |
+Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume from snapshot | 
+| Feed current production data to test or development environment | Restore snapshot to new volume (clone) | Restore snapshot to new volume (clone) |
+| High availability and resiliency | Cross-zone replication | - | 
+| Long-term data protection (greater than one week) | Azure NetApp Files backup | Azure NetApp Files backup | 
+| Move volume to different zone | Cross-zone replication | - | 
+| Primary data protection (up to one week) | Scheduled snapshots | - | 
+| Remote data access | - | Cross-region replication |
+| Selective (single-file) restore | Single-file snapshot restore | Single-file snapshot restore |
+| Selective (single-file) restore from backup | Restore backup to new volume | - |
+
 ## Next steps
 
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Understand cross-region replication](cross-region-replication-introduction.md)
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
+* [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md)
+* [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
+* [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)
+* [Restore a volume using snapshot revert](snapshots-revert-volume.md)
