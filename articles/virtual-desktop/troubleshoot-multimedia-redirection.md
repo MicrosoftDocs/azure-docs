@@ -56,13 +56,11 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - If you enabled the **Enable video playback for all sites** setting in the multimedia redirection extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
 
-## Call redirection
+## Getting help for call redirection and video playback
 
 If you can start a call with multimedia redirection enabled and can see the green phone icon on the extension icon while calling, but the call quality is low, you should contact the app provider for help.
 
 If calls aren't going through, certain features don't work as expected while multimedia redirection is enabled, or multimedia redirection won't enable at all, you must submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-## Video playback issues
 
 If you encounter any video playback issues that this guide doesn't address or resolve, submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
