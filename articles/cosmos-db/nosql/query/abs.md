@@ -37,24 +37,10 @@ Returns a numeric expression.
 ## Examples
   
 The following example shows the results of using this function on three different numbers.  
-  
-```sql
-SELECT VALUE {
-    absoluteNegativeOne: ABS(-1),
-    absoluteZero: ABS(0),
-    absoluteOne: ABS(1)
-} 
-```  
-  
-```json
-[
-  {
-    "absoluteNegativeOne": 1,
-    "absoluteZero": 0,
-    "absoluteOne": 1
-  }
-]
-```
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/query.sql":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/result.json":::
 
 ## Remarks
 
