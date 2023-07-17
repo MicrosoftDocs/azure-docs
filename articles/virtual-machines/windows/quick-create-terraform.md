@@ -6,19 +6,16 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 01/13/2023
+ms.date: 07/17/2023
 ms.author: erd
 ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Use Terraform to create a Windows VM
 
 **Applies to:** :heavy_check_mark: Windows VMs 
-
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 This article shows you how to create a complete Windows environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
 
@@ -27,18 +24,18 @@ This article shows you how to create a complete Windows environment and supporti
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Create a virtual network
-> * Create a subnet
-> * Create a public IP address
-> * Create a network security group and SSH inbound rule
-> * Create a virtual network interface card
-> * Connect the network security group to the network interface
-> * Create a storage account for boot diagnostics
-> * Create a virtual machine with an IIS web server
-> * View the web server page
-
-> [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+> * Create a virtual network (VNET) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network).
+> * Create a subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet).
+> * Create a public IP using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip).
+> * Create a network security group using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group).
+> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface).
+> * Create an association between the network security group and the network interface using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association).
+> * Generate a random value for a unique storage account name using [random_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id).
+> * Create a storage account for boot diagnostics using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account).
+> * Create a Windows VM with an IIS web server using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine).
+> * Create a Windows VM extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension).
 
 ## Prerequisites
 
@@ -47,6 +44,11 @@ In this article, you learn how to:
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-windows-vm-with-iis-server). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-windows-vm-with-iis-server/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
