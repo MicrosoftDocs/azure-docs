@@ -109,7 +109,7 @@ The following tables show the available metrics and details.
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
 >| jvm.gc.max.data.size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
->| jvm.gc.live.data.size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full Garbage Collection (GC). |
+>| jvm.gc.live.data.size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full garbage collection (GC). |
 >| jvm.gc.memory.promoted | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
 >| jvm.gc.memory.allocated | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
