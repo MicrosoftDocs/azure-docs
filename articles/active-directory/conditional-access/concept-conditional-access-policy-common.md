@@ -1,25 +1,25 @@
 ---
 title: Conditional Access templates
-description: Deploy commonly used Conditional Access policies with templates
+description: Deploy commonly used Conditional Access policies from a template
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 07/17/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, lhuangnorth
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access templates (Preview)
+# Conditional Access templates
 
 Conditional Access templates provide a convenient method to deploy new policies aligned with Microsoft recommendations. These templates are designed to provide maximum protection aligned with commonly used policies across various customer types and locations.
 
-:::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Azure portal." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
+:::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
 
 There are 14 Conditional Access policy templates, filtered by five different scenarios: 
 
@@ -30,12 +30,12 @@ There are 14 Conditional Access policy templates, filtered by five different sce
 - Emerging threats
 - All 
 
-Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **New policy from template (Preview)**. Select **Show more** to see all policy templates in each scenario.
+Find the templates in the **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each scenario.
 
-:::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Create a Conditional Access policy from a preconfigured template in the Azure portal." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
+:::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Create a Conditional Access policy from a preconfigured template in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
 > 
 > By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
 
@@ -59,7 +59,7 @@ Organizations can select individual policy templates and:
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
 - [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
-- [Require compliant or Hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
+- [Require compliant or hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
 - [Require multifactor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
 - [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
 - [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
