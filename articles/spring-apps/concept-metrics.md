@@ -22,7 +22,7 @@ In an Azure Spring Apps instance, you can view metrics on the following pages:
 
 * The application overview page, which shows quick status charts. To view this page, select **Apps** from the navigation pane, and then select an app.
 
-* The common metrics page, which shows common metrics available to all apps in the Azure Spring Apps instance. And for Enterprise tier, it also shows common metrics for Tanzu Spring Cloud Gateway. To view this page, select **Metrics** from the navigation pane. You can build your own charts in the common metrics page and pin them to your Dashboard.
+* The common metrics page, which shows common metrics available to all apps in the Azure Spring Apps instance. For the Enterprise tier, it also shows common metrics for Tanzu Spring Cloud Gateway. To view this page, select **Metrics** from the navigation pane. You can build your own charts in the common metrics page and pin them to your Dashboard.
 
 :::image type="content" source="media/concept-metrics/navigation-pane.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Overview page with Apps and Metrics highlighted in the navigation pane." lightbox="media/concept-metrics/navigation-pane.png":::
 
