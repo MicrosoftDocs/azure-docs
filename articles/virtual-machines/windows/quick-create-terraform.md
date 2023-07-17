@@ -54,19 +54,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-windows-vm-with-iis-server/providers.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-windows-vm-with-iis-server/main.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-windows-vm-with-iis-server/variables.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-windows-vm-with-iis-server/outputs.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/output.tf":::
 
 ## Initialize Terraform
 
@@ -87,9 +87,9 @@ In this article, you learn how to:
     echo $(terraform output -raw public_ip_address)
     ```
 
-2. With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained from the previous command. The following example shows the default IIS web site:
+1. With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained from the previous command. The following example shows the default IIS web site:
 
-    ![Screenshot showing the IIS default site.](./media/quick-create-powershell/default-iis-website.png)
+    :::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="Screenshot showing the IIS default site.":::
 
 ## Clean up resources
 
