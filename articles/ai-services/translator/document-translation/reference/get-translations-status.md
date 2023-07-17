@@ -14,6 +14,10 @@ ms.date: 07/18/2023
 
 # Get translations status
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get translations status method returns  a list of batch requests submitted and the status for each request. This list only contains batch requests submitted by the user (based on the resource).
 
 If the number of requests exceeds our paging limit, server-side paging is used. Paginated responses indicate a partial result and include a continuation token in the response. The absence of a continuation token means that no other pages are available.
@@ -35,7 +39,7 @@ When both $top and $skip are included, the server should first apply $skip and t
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
@@ -170,7 +174,7 @@ The following is an example of a successful response.
             }
         }
     ],
-    ""@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.0/operations/727BF148-F327-47A0-9481-ABAE6362F11E/documents?$top=5&$skip=15"
+    ""@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.1/operations/727BF148-F327-47A0-9481-ABAE6362F11E/documents?$top=5&$skip=15"
 }
 
 ```

@@ -27,6 +27,8 @@ Translator service supports language translation for more than 100 languages. If
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
+* Document Translation REST API v1.1 is now Generally Available (GA).
+
 ## June 2023
 
 **Documentation updates**

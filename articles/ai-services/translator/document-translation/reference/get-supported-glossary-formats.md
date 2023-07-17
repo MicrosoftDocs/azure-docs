@@ -14,13 +14,17 @@ ms.date: 07/18/2023
 
 # Get supported glossary formats
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/glossaries/formats
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).

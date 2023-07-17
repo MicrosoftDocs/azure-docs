@@ -14,13 +14,17 @@ ms.date: 07/18/2023
 
 # Get document status
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get Document Status method returns the status for a specific document. The method returns the translation status for a specific document based on the request ID and document ID.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}/documents/{documentId}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}/documents/{documentId}
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).

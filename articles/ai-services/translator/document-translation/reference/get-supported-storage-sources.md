@@ -14,13 +14,17 @@ ms.date: 07/18/2023
 
 # Get supported storage sources
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get supported storage sources method returns a list of storage sources/options supported by the Document Translation service.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/storagesources
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/storagesources
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).

@@ -14,13 +14,17 @@ ms.date: 07/18/2023
 
 # Get supported document formats
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get supported document formats method returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/documents/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/documents/formats
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).

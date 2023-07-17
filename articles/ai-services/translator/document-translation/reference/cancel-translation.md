@@ -14,6 +14,10 @@ ms.date: 07/18/2023
 
 # Cancel translation
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed, has failed, or is canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
 ## Request URL
@@ -21,7 +25,7 @@ Cancel a currently processing or queued operation. An operation won't be cancele
 Send a `DELETE` request to:
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
