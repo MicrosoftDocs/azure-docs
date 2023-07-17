@@ -10,7 +10,7 @@ ms.author: daknappe
 
 # Enable screen capture protection in Azure Virtual Desktop
 
-Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive information from being captured on client endpoints through a specific set of public operating system features and Application Programming Interfaces (APIs). When you enable screen capture protection, remote content will be automatically blocked or hidden in screenshots and screen sharing.
+Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive information from being captured on client endpoints through a specific set of operating system (OS) features and Application Programming Interfaces (APIs). When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing.
 
 There are two supported scenarios for screen capture protection, depending on the version of Windows you're using:
 
@@ -32,7 +32,7 @@ When screen capture protection is enabled, users can't share their Remote Deskto
    - **Block screen capture on client** is available with a [supported version of Windows 10 or Windows 11](prerequisites.md#operating-systems-and-licenses).
    - **Block screen capture on client and server** is available starting with Windows 11, version 22H2.
 
-- Users must connect to Azure Virtual Desktop with one of the following Remote Desktop clients to use screen capture protection. If a user tries to connect with a different client or version, the connection will be denied and show an error message with the code `0x1151`.
+- Users must connect to Azure Virtual Desktop with one of the following Remote Desktop clients to use screen capture protection. If a user tries to connect with a different client or version, the connection is denied and shows an error message with the code `0x1151`.
 
    | Client | Client version | Desktop session | RemoteApp session | 
    |--|--|--|--|
