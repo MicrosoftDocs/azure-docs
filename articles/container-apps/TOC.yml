@@ -253,6 +253,12 @@
       href: policy-reference.md
     - name: REST API
       href: /rest/api/containerapps/
+    - name: Compliance
+      items:
+        - name: Microsoft Azure Compliance Offerings
+          href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+        - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
+          href: https://learn.microsoft.com/azure/compliance/offerings/
     - name: Management SDKs
       items:
         - name: .NET
