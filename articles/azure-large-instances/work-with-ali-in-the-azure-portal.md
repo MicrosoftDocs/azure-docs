@@ -186,13 +186,13 @@ Tags have the same restrictions for ALI instances as for VMs.
 To add tags to an ALI instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
 
 ```azurecli
-az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+az baremetalinstance update --resource-group MyResourceGroup --instance-name MyALIinstanceName --set tags.Dept=Finance tags.Status=Normal
 ```
 
 Use the same command to remove a tag:
 
 ```azurecli
-az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+az baremetalinstance update --resource-group MyResourceGroup --instance-name MyALIinstanceName --remove tags.Dept
 ```
 
 ---
