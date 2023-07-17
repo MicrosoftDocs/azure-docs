@@ -1411,6 +1411,8 @@
         href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
+      - name: KanbanBOX
+        href: kanbanbox-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
