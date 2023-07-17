@@ -52,13 +52,13 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 1. Select the **Parameters** tab at the top of the wizard. This tutorial skips the **Advanced** tab.
 
-1. For the **Not allowed resource types** parameter, use the drop-down to search and select resource types that should not be allowed in your cloud environment.
+1. For the **Not allowed resource types** parameter, use the drop-down to search and select resource types that shouldn't be allowed in your cloud environment.
 
-1. This policy definition does not have the `modify` or `deployIfNotExists` effects, so it does not support remediation tasks. For this tutorial, skip the **Remediation** tab.
+1. This policy definition doesn't have the `modify` or `deployIfNotExists` effects, so it doesn't support remediation tasks. For this tutorial, skip the **Remediation** tab.
 
 1. Select the **Non-compliance messages** tab at the top of the wizard.
 
-1. Set the **Non-compliance message** to _This resource type is not allowed_. This custom message is displayed when a resource is denied or for non-compliant resources during regular evaluation.
+1. Set the **Non-compliance message** to _This resource type isn't allowed_. This custom message is displayed when a resource is denied or for non-compliant resources during regular evaluation.
 
 1. Select the **Review + create** tab at the top of the wizard.
 
@@ -92,7 +92,7 @@ Now suppose that one subscope should be allowed to have the resource types disab
 
 1. In the **Basics** tab, select the **Exemption scope**, which is the subscope that should be allowed to have resources restricted by this policy assignment.
 
-1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of *Waiver*. Do not switch the toggle for **Exemption expiration setting**, because this exemption will not be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
+1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of *Waiver*. Don't switch the toggle for **Exemption expiration setting**, because this exemption won't be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
 
 1. This tutorial bypasses the **Advanced** tab. From the **Review + create** tab, select **Create**.
 
