@@ -2,10 +2,10 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 07/18/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -28,7 +28,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
-- The destination server must be registered to the same vault as the source.
+- The destination server must be registered to the same vault as the source. If you want to restore backups to a different vault, enable **Cross Subscription Restore**.
 - If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
