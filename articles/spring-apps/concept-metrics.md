@@ -191,7 +191,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Apps to the clients                                                                                                                       |
 
 ### Gateway
-This is for Tanzu Spring Cloud Gateway in Enterprise tier only.
+The following table applies to the Tanzu Spring Cloud Gateway in Enterprise tier only.
 
 >[!div class="mx-tdCol2BreakAll"]
 >| Display Name             | Azure Metric Name                        | Unit         | Details |
