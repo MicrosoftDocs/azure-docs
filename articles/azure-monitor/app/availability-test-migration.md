@@ -14,18 +14,18 @@ We simplify this process by providing clear step-by-step instructions to ensure 
 
 ## Migrate URL ping (classic) tests to standard tests
 
-The following steps walk you through the process of creating Standard tests that replicate the functionality of your URL ping tests. It allows you to more easily start using the advanced features of [standard tests](standard-tests.md) using your previously created URL ping tests.
+The following steps walk you through the process of creating Standard tests that replicate the functionality of your URL ping tests. It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created URL ping tests.
 
 > [!NOTE]
 > A cost is associated with running standard tests. Once you create a standard test, you will be charged for test executions.
-> Refer to [Azure Monitor pricing](https://azure.microsoft.com/en-gb/pricing/details/monitor/#pricing) before starting this process.
+> Refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) before starting this process.
 
-# Prerequisites
+### Prerequisites
 
 1. Any URL ping test within Application Insights
 2. PowerShell access
 
-# Steps
+### Steps
 
 1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
 2.	List all URL ping tests in a resource group:
@@ -96,7 +96,7 @@ Yes, these commands work for both HTTP and HTTPS endpoints, which are used in yo
 
 ## More Information
 
-* [Standard tests](standard-tests.md)
+* [Standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Troubleshooting](troubleshoot-availability.md)
 * [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
