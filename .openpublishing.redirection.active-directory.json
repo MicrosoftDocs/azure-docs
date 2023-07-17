@@ -4376,6 +4376,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/customize-branding.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/certificate-authorities.md",
       "redirect_url": "/azure/security/fundamentals/azure-CA-details",
       "redirect_document_id": true
