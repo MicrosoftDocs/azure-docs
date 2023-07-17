@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/29/2023
+ms.date: 07/14/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -39,7 +39,7 @@ The key benefits of enhanced soft delete are:
   >The soft delete doesn't cost you for 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#pricing).
 - **Re-registration of soft deleted items**: You can now register the items in soft deleted state with another vault. However, you can't register the same item with two vaults for active backups. 
 - **Soft delete and reregistration of backup containers**: You can now unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can now register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
-- **Soft delete across workloads**: Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
+- **Soft delete across workloads**: Enhanced soft delete applies to all vaulted datasources alike and is supported for Recovery Services vaults and Backup vaults. Enhanced soft delete also applies to operational backups of disks and VM backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft delete period expires. Enhanced soft delete is currently not supported for operational backup for Blobs and Azure Files.
 - **Soft delete of recovery points**: This feature allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads. [Learn more](manage-recovery-points.md#impact-of-expired-recovery-points-for-items-in-soft-deleted-state).
 
 ## Supported regions
@@ -91,13 +91,15 @@ This feature helps to retain these recovery points for an additional duration, a
 
 ## Pricing
 
-There is no retention cost for the default duration of *14* days, after which, it incurs regular backup charges. For soft delete retention *>14* days, the default period applies to the *last 14 days* of the continuous retention configured in soft delete, and then backups are permanently deleted.
+There is no retention cost for the default soft delete duration of *14* days for vaulted backup, after which, it incurs regular backup charges. For soft delete retention *>14* days, the default period applies to the *last 14 days* of the continuous retention configured in soft delete, and then backups are permanently deleted.
 
 For example, you've deleted backups for one of the instances in the vault that has soft delete retention of *60* days. If you want to recover the soft deleted data after *52* days of deletion, the pricing is:
 
 - Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *46* days (*60* days of soft delete retention configured minus *14* days of default soft delete retention).
 
 - No charges for the last *6* days of soft delete retention.
+
+However, the above billing rule doesn't apply for soft deleted operational backups of disks and VM backup snapshots, and the billing will continue as per the cost of the resource. 
 
 ## Soft delete with multi-user authorization
 
