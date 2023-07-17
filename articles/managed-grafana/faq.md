@@ -15,7 +15,7 @@ This article answers frequently asked questions about Azure Managed Grafana.
 
 ## Do you use open source Grafana for Managed Grafana?
 
-No. Managed Grafana hosts a commercial version called [Grafana Enterprise](https://grafana.com/products/enterprise/grafana/) that Microsoft is licensing from Grafana Labs. While not all of the Enterprise features are available yet, Managed Grafana will continue to add support as these features are fully integrated with Azure.
+No. Managed Grafana hosts a commercial version called [Grafana Enterprise](https://grafana.com/products/enterprise/grafana/) that Microsoft is licensing from Grafana Labs. While not all of the Enterprise features are available yet, Managed Grafana continues to add support as these features are fully integrated with Azure.
 
 > [!NOTE]
 > [Grafana Enterprise plugins](https://grafana.com/grafana/plugins/?enterprise=1&orderBy=weight&direction=asc) aren't included in the base service. They're purchasable as a separately licensed [addon option](./how-to-grafana-enterprise.md) for Managed Grafana.
