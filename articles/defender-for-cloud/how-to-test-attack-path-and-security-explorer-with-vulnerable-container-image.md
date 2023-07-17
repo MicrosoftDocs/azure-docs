@@ -100,7 +100,7 @@ You can also create your own custom queries. The following example shows a searc
 
 The results are listed below the query.
 
-     ::image type="content" source="media/how-to-test-attack-path/custom-query-results.png" alt-text="Screenshot that shows the results from a custom query." lightbox="media/how-to-test-attack-path/custom-query-results.png":::
+    ::image type="content" source="media/how-to-test-attack-path/custom-query-results.png" alt-text="Screenshot that shows the results from a custom query." lightbox="media/how-to-test-attack-path/custom-query-results.png":::
 
 ## Next Steps 
 
