@@ -55,19 +55,26 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 ![Screen-4](media/create-automation-tasks/screen-5.png)
 
 1. When you're prompted, **sign in with your Azure account** credentials.
+![Screen-5](media/create-automation-tasks/screen-9.png)
+
 1. 
 Each successfully authenticated connection looks similar to this example:
-7. After you authenticate all the connections, select Next: **Configure**.
-8. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
+![Screen-6](media/create-automation-tasks/screen-10.png)
+
+1. After you authenticate all the connections, select Next: **Configure**.
+1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
 
 > [!NOTE]
 > You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
 >
 > For example, if you name your task `Stop-Instance-Weekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `Stop-Instance-Daily`.
 
-9. Tasks that send email notifications require an email address.
+1. Tasks that send email notifications require an email address.
+![Screen-7](media/create-automation-tasks/screen-11.png)
 
 The task you've created, which is automatically live and running, will appear on the **Tasks** list.
+
+![Screen-10](media/create-automation-tasks/screen-13.png)
 
 ## Review task history
 
