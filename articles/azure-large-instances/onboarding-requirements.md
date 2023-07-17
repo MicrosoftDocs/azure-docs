@@ -119,7 +119,10 @@ $GWName="VNET_Gateway_Name"
 $ConnectionName=”ER Gateway Connection Name”
 $Authkey="ExpressRoute Circuit Authorization Key" 
 ```
-  
+### Login into your account
+```azurecli
+Login-AzAccount 
+``` 
 ### Check the subscription for the account.
 ```azurecli
 Get-AzSubscription  

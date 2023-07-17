@@ -84,7 +84,7 @@ You're set to register your OS licenses (BYOL), configure the OS, and install th
 
 You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there. 
 
-Azure Large instances are ISO 27001, ISO 27017, ISO 27018, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
+ALI are ISO 27001, ISO 27017, ISO 27018, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
 
 As soon as you receive root access and full control, you assume responsibility for the following tasks:
 

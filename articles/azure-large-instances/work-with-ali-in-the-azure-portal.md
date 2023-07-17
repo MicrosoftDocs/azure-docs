@@ -231,7 +231,7 @@ As a result, after a restart, you can only log into the unit once the state swit
 To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
 
 ```azurecli
-az baremetalinstance restart --resource-group --instance-name MyALIinstanceName
+az baremetalinstance restart --resource-group MyResourceGroup --instance-name MyALIinstanceName
 ```
 
 ---
