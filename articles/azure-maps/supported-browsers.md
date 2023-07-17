@@ -86,4 +86,4 @@ Learn more about the Azure Maps Web SDK:
 [Render Azure Maps in Leaflet sample source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Third%20Party%20Map%20Controls/Render%20Azure%20Maps%20in%20Leaflet/Render%20Azure%20Maps%20in%20Leaflet.html
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=leaflet
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-partr-map-control-plugins
+[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins

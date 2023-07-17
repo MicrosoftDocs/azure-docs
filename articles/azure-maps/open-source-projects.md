@@ -59,6 +59,8 @@ The following table lists the open-source projects that extend the capabilities 
 | [Azure Maps .NET UWP IoT Remote Control] | A sample application that shows how to build a remotely controlled map using Azure Maps and IoT hub services. |
 | [Implement IoT spatial analytics using Azure Maps] | Tracking and capturing relevant events that occur in space and time is a common IoT scenario. |
 
+<a name="third-part-map-control-plugins"></a>
+
 ### Third party map control plugins
 
 | Project Name                   | Description |
