@@ -16,7 +16,9 @@ In this section, you create two VMs (**vm-1** and **vm-2**) in two different zon
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **+ Create** then **Azure Virtual Machine**.
    
 1. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
@@ -29,7 +31,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Virtual machine name | Enter **vm-1**. |
     | Region | Select **East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
-    | Security type | Leave the default of **Standard**. |
+    | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
@@ -43,16 +45,16 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-1. In the Networking tab, select or enter:
+1. In the Networking tab, enter or select the following infroamtion:
 
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **vnet-1** |
-    | Subnet | **subnet-1** |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **nsg-1** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> In **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **nsg-rule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **nsg-1** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box.|
     | **Load balancing settings** |

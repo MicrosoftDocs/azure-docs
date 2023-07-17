@@ -74,13 +74,11 @@ During the creation of the load balancer, you configure:
 
 1. Enter **backend-pool** for **Name** in **Add backend pool**.
 
-1. Select **vnet-1** in **Virtual network**.
+1. Select **vnet-1 (test-rg)** in **Virtual network**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-1. Select **IPv4** or **IPv6** for **IP version**.
-
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select the **Next: Inbound rules** button at the bottom of the page.
 
@@ -104,7 +102,7 @@ During the creation of the load balancer, you configure:
     | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select the blue **Review + create** button at the bottom of the page.
 

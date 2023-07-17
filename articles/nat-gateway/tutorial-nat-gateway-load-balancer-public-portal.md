@@ -71,6 +71,8 @@ In this section, you test the NAT gateway. You first discover the public IP of t
     20.7.200.36
     ```
 
+1. Close the bastion connection to **vm-1**.
+
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
