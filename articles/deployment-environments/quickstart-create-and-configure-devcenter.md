@@ -16,6 +16,19 @@ This quickstart shows you how to create and configure a dev center in Azure Depl
 
 A platform engineering team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications.
 
+The following graphic shows the steps you perform in this quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. 
+
+:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages-1a.png" alt-text="Graphic showing the stages required to configure a dev center for Deployment Environments.":::
+
+First, you create a dev center to organize your deployment environments resources. Next, you create a key vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Then, you attach an identity to the dev center and assign that identity access to the key vault. Then, you add a catalog that stores your IaC templates to the dev center. Finally, you create environment types to define the types of environments that development teams can create. 
+
+
+The following graphic shows the steps you perform in the [Create and configure a project quickstart](quickstart-create-and-configure-projects.md) to configure a project associated with a dev center for Deployment Environments in the Azure portal.
+
+:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages-1b.png" alt-text="Graphic showing the stages required to configure a project for Deployment Environments.":::
+
+You need to perform the steps in both quickstarts before you can create a deployment environment.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
