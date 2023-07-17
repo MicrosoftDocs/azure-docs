@@ -1,6 +1,6 @@
 ---
-title: Assign licenses to a group using the Microsoft 365 Admin center
-description: How to assign licenses to groups using the Microsoft 365 Admin center
+title: Assign licenses to a group using the Microsoft 365 admin center
+description: How to assign licenses to groups using the Microsoft 365 admin center
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/26/2023
+ms.date: 07/17/2023
 ms.author: barclayn
 ---
 
@@ -26,31 +26,31 @@ This article shows you how to use the Microsoft 365 license center to assign lic
 
 ## Assign a license
 
-1. Sign in to the [Microsoft 365 Admin center](https://admin.microsoft.com/) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
+1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com/) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
    
-      ![Microsoft Admin Center landing page](./media/licensing-admin-center/admin-center.png)
+      ![Screenshot of the Microsoft admin Center landing page](./media/licensing-admin-center/admin-center.png)
 
-1. Browse to **Billing** > **Licenses** to open a page where you can see all licenses avaialble in your organization.
+1. Browse to **Billing** > **Licenses** to open a page where you can see all licenses available in your organization.
 
-      ![Select products to assign licenses](./media/licensing-admin-center/choose-licenses.png)
+      ![screenshot of portal section allowing user to select products to assign licenses](./media/licensing-admin-center/choose-licenses.png)
 
 1. Under **Licenses**, select the license that you would like to assign. 
 1. In the License details section, choose **Groups** at the top of the page.
 1. Choose **+ Assign licenses**
 1. From the **+ Assign licenses** page search for the group that you would like to use for license assignment.
 
-   ![Choose the group to use for license assignment](./media/licensing-admin-center/assign-license-group.png)
+   ![Screenshot of portal allowing users to choose the group to use for license assignment](./media/licensing-admin-center/assign-license-group.png)
   
    >[!NOTE]
    >When assigning licenses to a group with service plans that have dependencies on other service plans, they must both be assigned together in the same group, otherwise the service plan with the dependency will be disabled.
   
 1. To complete the assignment, on the **Assign license** page, click **Assign** at the bottom of the page.
 
-   ![Choose assign after selecting the group](./media/licensing-admin-center/choose-assign.png)
+   ![Screenshot of the portal section that allows you to choose assign after selecting the group](./media/licensing-admin-center/choose-assign.png)
 
 When assign licenses to a group, Azure AD processes all existing members of that group. This process might take some time depending on the size of the group.
 
-   ![Message telling the administrator that they have assigned a license to a group](./media/licensing-admin-center/licenses-assignment-message.png)
+   ![Screenshot of message telling the administrator that they have assigned a license to a group](./media/licensing-admin-center/licenses-assignment-message.png)
 
 ## Verify that the initial assignment has finished
 
@@ -58,7 +58,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. On the **License details** page, you can view the status of the license assignment operation. For example, in the image show below, you can see that **Contoso marketing** shows a status of **All licenses assigned** while **Contoso human resources** shows a status of **In progress**.
 
-   ![license assignment progress](./media/licensing-admin-center/progress.png)
+   ![Screenshot showing you the license assignment progress](./media/licensing-admin-center/progress.png)
 
    [Read this section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) to learn more about how audit logs can be used to analyze changes made by group-based licensing.
 
