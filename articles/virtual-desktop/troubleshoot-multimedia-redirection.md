@@ -62,6 +62,10 @@ If you can start a call with multimedia redirection enabled and can see the gree
 
 If calls aren't going through, certain features don't work as expected while multimedia redirection is enabled, or multimedia redirection won't enable at all, you must submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+## Video playback issues
+
+If you encounter any video playback issues that this guide doesn't address or resolve, submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
 ## Log collection
 
 If you encounter any issues, you can collect logs from the extension and provide them to your IT admin or support.
