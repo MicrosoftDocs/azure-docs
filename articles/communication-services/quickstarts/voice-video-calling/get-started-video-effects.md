@@ -21,7 +21,7 @@ ms.custom: mode-other, devx-track-js
 [!INCLUDE [Video effects with JavaScript](./includes/video-effects/video-effects-javascript.md)]
 ::: zone-end
 
-::: zone pivot="platform-iOS"
+::: zone pivot="platform-ios"
 [!INCLUDE [Video effects with iOS](./includes/video-effects/video-effects-iOS.md)]
 ::: zone-end
 
