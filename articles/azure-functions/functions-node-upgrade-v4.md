@@ -153,7 +153,7 @@ module.exports = async function (context, req) {
 
 ---
 
-Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
+**What you need to do:** Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
 ## Review your usage of context
 
