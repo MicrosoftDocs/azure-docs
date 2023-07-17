@@ -1,19 +1,22 @@
 ---
-title: MAX in Azure Cosmos DB query language
-description: Learn about the Max (MAX) SQL system function in Azure Cosmos DB.
-author: seesharprun
+title: MAX 
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the maximum value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 12/02/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/17/2023
+ms.custom: query-reference
 ---
-# MAX (Azure Cosmos DB)
+
+# MAX (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This aggregate function returns the maximum of the values in the expression.
+Returns the maximum of the values in the expression.
   
 ## Syntax
   
@@ -23,34 +26,39 @@ MAX(<scalar_expr>)
   
 ## Arguments
 
-*scalar_expr*  
-   Is a scalar expression. 
+| | Description |
+| --- | --- |
+| **`scalar_expr`** | A scalar expression. |
   
 ## Return types
   
-Returns a scalar expression.  
+Returns a numeric scalar value.
   
 ## Examples
+
+This example uses a container with multiple items that each have a `/price` numeric field.
   
-The following example returns the maximum value of `propertyA`:
-  
-```sql
-SELECT MAX(c.propertyA)
-FROM c
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/max/seed.json" range="1-2,4-8,10-14" highlight="4,10":::
+
+For this example, the `MAX` function is used in a query that includes the numeric field that was mentioned.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/max/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/max/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy). The arguments in `MAX` can be number, string, boolean, or null. Any undefined values will be ignored.
-
-When comparing different types data, the following priority order is used (in descending order):
-
-- string
-- number
-- boolean
-- null
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- The arguments in `MAX` can be number, string, boolean, or null.
+- Any `undefined` values will be ignored.
+- When comparing different types of data, the following priority order is used (in descending order):
+   1. string
+   1. number
+   1. boolean
+   1. null
 
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)
+- [`MIN`](min.md)
