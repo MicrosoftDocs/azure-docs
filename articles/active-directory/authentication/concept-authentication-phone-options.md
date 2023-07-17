@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 07/17/2023
 
 ms.author: justinha
 author: justinha
@@ -21,17 +21,10 @@ ms.collection: M365-identity-device-management
 
 For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
-Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). 
+Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). Azure AD Multi-Factor Authentication and SSPR support phone extensions only for office phones.
 
-> [!NOTE]
-> Phone call verification is not available for Azure AD tenants with trial subscriptions.  For example, signing up for a trial EMS licenses, will not provide the capability for phone call verification.
-
-To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
-
-> [!NOTE]
-> There needs to be a space between the country/region code and the phone number.
->
-> Password reset and Azure AD Multi-Factor Authentication support phone extensions only in office phone.
+>[!NOTE]
+>Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial license Microsoft Enterprise Mobility and Security (EMS), phone call verification isn't available. Phone numbers must be provided in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*. There must be a space between the country/region code and the phone number.
 
 ## Mobile phone verification
 
@@ -44,7 +37,7 @@ If users don't want their mobile phone number to be visible in the directory but
 Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 > [!NOTE]
-> Starting July 2023, we apply delivery method optimization such that tenants with a free or trial subscription may receive an SMS message or voice call.
+> Starting July 2023, we will apply delivery method optimizations such that tenants with a free or trial subscription may receive an SMS message or voice call.
 
 ### SMS message verification
 
@@ -57,6 +50,8 @@ Android users can enable Rich Communication Services (RCS) on their devices. RCS
 ### Phone call verification
 
 With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad.
+
+The calling number that a user receives the voice call from differs for each country. See [phone call settings](howto-mfa-mfasettings.md#phone-call-settings) to view all possible voice call numbers.
 
 ## Office phone verification
 
