@@ -125,6 +125,13 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
 
+### Supported storage account types
+
+All geo-redundant storage account offerings support Microsoft-managed failover in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover. For more details, see [Support for customer-managed account failover](storage-redundancy.md#support-for-customer-managed-account-failover).
+
+> [!IMPORTANT]
+> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as Classic, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [upgraded to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+
 ### Storage account containing archived blobs
 
 Storage accounts containing archived blobs support account failover. After failover is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy.

@@ -250,7 +250,7 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 All geo-redundant offerings support Microsoft-managed failover in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table.
 
 > [!IMPORTANT]
-> [Supported account types](#supported-storage-account-types) must be of the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as Classic, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be upgraded to the ARM model. Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as Classic, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [upgraded to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
 
 For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
