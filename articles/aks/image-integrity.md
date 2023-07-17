@@ -96,7 +96,7 @@ You can enable Image Integrity on your AKS cluster by creating a policy assigmen
 For Image Integrity to properly verify the target signed image, you will need to set up `Ratify` configurations through K8s [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) using natively supported `kubectl` commands.
 
 > [!NOTE]
-> Set up Image Inetgrity configurations through CRD is a temporary behavior for public preview. It is likely to change once GA.
+> Set up Image Integrity configurations through CRD is a temporary behavior for public preview. It is likely to change once GA.
 
 Here's a sample CRD for you to try as a quickstart, see more examples at [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md)
 
