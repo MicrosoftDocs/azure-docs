@@ -138,7 +138,7 @@ Use the proximity placement group associated with the ALI instance to ensure the
 To see details of an ALI instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
-az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+az baremetalinstance show --resource-group MyResourceGroup --instance-name MyInstanceName
 ```
 
 If you're uncertain of the instance name, run the **az baremetalinstance list** command as previously described.
