@@ -29,7 +29,7 @@ Your choice of monitoring tools will depend on the requirements of your particul
 | [Network insights](../../network-watcher/network-insights-overview.md) | Feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to the network monitoring tools that are part of Network Watcher. |
 
 
-## Requied workspaces
+## Requried workspaces
 You require the following workspaces to support the different monitoring services. You may already have workspaces that you can use instead of creating new ones. There's no cost for the workspaces, but you do incur ingestion and retention costs when you collect data. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details.
 
 - [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) to support Azure Monitor managed service for Prometheus.   For information on design considerations for a workspace configuration, see [Azure Monitor workspace architecture](../essentials/azure-monitor-workspace-overview.md#azure-monitor-workspace-architecture).

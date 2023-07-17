@@ -481,14 +481,18 @@ items:
     items:
     - name: Monitor Kubernetes
       items:
-      - name: Configure monitoring
+      - name: Overview
         displayName: Kubernetes, containers
-        href: containers/monitor-kubernetes-configure.md
-      - name: Analyze monitoring data
+        href: containers/monitor-kubernetes.md
+      - name: Cluster administrator
         displayName: Kubernetes, containers
-        href: containers/monitor-kubernetes-analyze.md
-      - name: Monitoring scenarios
-        href: containers/monitor-kubernetes-scenarios.md
+        href: containers/monitor-kubernetes-cluster-administrator.md
+      - name: Developer
+        displayName: Kubernetes, containers
+        href: containers/monitor-kubernetes-developer.md
+      - name: Network engineer
+        displayName: Kubernetes, containers
+        href: containers/monitor-kubernetes-network-engineer.md
     - name: Container insights
       items:
       - name: Overview
