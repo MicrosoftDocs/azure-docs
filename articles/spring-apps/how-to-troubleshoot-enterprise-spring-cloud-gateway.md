@@ -96,17 +96,20 @@ Use the following steps to adjust the log levels:
 1. After the change is successful, you can find more detailed logs for troubleshooting, such as information about how requests are routed.
 
 ## Setup alert rules
-See [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) to create alert rules based on logs and metrics.
 
-You can also directly create alert rules from Portal for Azure Spring Apps.
-1. Go to Azure portal for Azure Spring Apps, and select your Azure Spring Apps instance.
-1. Go to Logs or Metrics.
-1. Write the log query in Logs blade or add a metrics chart.
-1. Select the "New alert rule", it will jump to the alert rule creation blade, and fill the log query or metrics automatically.
-1. You can configure alert rule details according to above document.
+You can create alert rules based on logs and metrics. For more information, see [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+Use the following steps to directly create alert rules from the Azure Portal for Azure Spring Apps:
+
+1. Go to the Azure Portal for Azure Spring Apps, and then select your Azure Spring Apps instance.
+1. Go to **Logs** or **Metrics**.
+1. Write the log query in the **Logs** pane, or add a metrics chart.
+1. Select the **New alert rule**. This action will take you to the **Create an alert rule** pane, and the log query or the metrics is filled automatically.
+1. You can now configure the alert rule details.
 
 ## Monitor Gateway with application performance monitor
-See [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) for supported application performance monitors and how to configure them.
+
+ For more information on supported application performance monitors and how to configure them, see the [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of the [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) article.
 
 ## Restart Gateway
 
