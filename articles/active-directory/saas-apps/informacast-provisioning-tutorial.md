@@ -1,57 +1,52 @@
 ---
-title: 'Tutorial: Configure Dagster Cloud for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Dagster Cloud.
+title: 'Tutorial: Configure InformaCast for automatic user provisioning with Azure Active Directory'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to InformaCast.
 services: active-directory
 author: twimmers
 writer: twimmers
 manager: jeedes
-ms.assetid: bb2db717-b16a-45f9-a76d-502bfc077e95
+ms.assetid: eeae199e-09a2-457f-b879-5af76aa3d23b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2023
+ms.date: 07/17/2023
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure Dagster Cloud for automatic user provisioning
+# Tutorial: Configure InformaCast for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Dagster Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Dagster Cloud](https://dagster.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both InformaCast and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [InformaCast](https://www.singlewire.com/informacast) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
 > [!div class="checklist"]
-> * Create users in Dagster Cloud.
-> * Remove users in Dagster Cloud when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and Dagster Cloud.
-> * Provision groups and group memberships in Dagster Cloud.
-> * [Single sign-on](dagster-cloud-tutorial.md) to Dagster Cloud (recommended).
+> * Create users in InformaCast.
+> * Remove users in InformaCast when they do not require access anymore.
+> * Keep user attributes synchronized between Azure AD and InformaCast.
+> * Provision groups and group memberships in InformaCast.
+> * [Single sign-on](informacast-tutorial.md) to InformaCast (recommended).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Dagster Cloud with Org Admin permissions.
-
+* A InformaCast tenant.
+* A user account in InformaCast with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Dagster Cloud](../app-provisioning/customize-application-attributes.md).
+1. Determine what data to [map between Azure AD and InformaCast](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Dagster Cloud to support provisioning with Azure AD
-1. Sign in to your Dagster Cloud account.
-1. Click the **user menu (your icon) > Cloud Settings**.
-1. Click the **Provisioning** tab.
-1. If SCIM provisioning isn't enabled, click the **Enable SCIM provisioning** button to enable it.
-1. Click **Create SCIM token** to create an API token. This token will be used to authenticate requests from Azure AD to Dagster Cloud.
-Keep the API token handy - you'll need it later in step 5.
+## Step 2. Configure InformaCast to support provisioning with Azure AD
+Contact InformaCast support to configure InformaCast to support provisioning with Azure AD.
 
-## Step 3. Add Dagster Cloud from the Azure AD application gallery
+## Step 3. Add InformaCast from the Azure AD application gallery
 
-Add Dagster Cloud from the Azure AD application gallery to start managing provisioning to Dagster Cloud. If you have previously setup Dagster Cloud for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add InformaCast from the Azure AD application gallery to start managing provisioning to InformaCast. If you have previously setup InformaCast for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -62,19 +57,19 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Dagster Cloud 
+## Step 5. Configure automatic user provisioning to InformaCast 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for Dagster Cloud in Azure AD:
+### To configure automatic user provisioning for InformaCast in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
-1. In the applications list, select **Dagster Cloud**.
+1. In the applications list, select **InformaCast**.
 
-	![Screenshot of the Dagster Cloud link in the Applications list.](common/all-applications.png)
+	![Screenshot of the InformaCast link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -84,7 +79,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Dagster Cloud Tenant URL and Secret Token. The Tenant URL is `https://*your-org-name*.dagster.cloud/scim/v2` and the Secret Token is the SCIM token you created in step 2 above. Click **Test Connection** to ensure Azure AD can connect to Dagster Cloud.
+1. Under the **Admin Credentials** section, input your InformaCast Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to InformaCast. If the connection fails, ensure your InformaCast account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -94,37 +89,51 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Dagster Cloud**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to InformaCast**.
 
-1. Review the user attributes that are synchronized from Azure AD to Dagster Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Dagster Cloud for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Dagster Cloud API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to InformaCast in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in InformaCast for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the InformaCast API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Dagster Cloud|
+   |Attribute|Type|Supported for filtering|Required by InformaCast|
    |---|---|---|---|
    |userName|String|&check;|&check;
-   |active|Boolean||
+   |active|Boolean|&check;|
    |displayName|String||
+   |title|String||
    |emails[type eq "work"].value|String||
+   |preferredLanguage|String||
    |name.givenName|String||
    |name.familyName|String||
+   |name.formatted|String||&check;
+   |addresses[type eq "work"].formatted|String||
+   |addresses[type eq "work"].streetAddress|String||
+   |addresses[type eq "work"].locality|String||
+   |addresses[type eq "work"].region|String||
+   |addresses[type eq "work"].postalCode|String||
+   |addresses[type eq "work"].country|String||
+   |phoneNumbers[type eq "work"].value|String||
+   |phoneNumbers[type eq "mobile"].value|String||
    |externalId|String||
+   |emails[type eq "home"].value|String||
+   |emails[type eq "other"].value|String||
+   |phoneNumbers[type eq "home"].value|String||
 
-1. If you'd like to synchronize Azure AD groups to Dagster Cloud then under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Dagster Cloud**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to InformaCast**.
 
-1. Review the group attributes that are synchronized from Azure AD to Dagster Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Dagster Cloud for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to InformaCast in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in InformaCast for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Dagster Cloud|
+   |Attribute|Type|Supported for filtering|Required by InformaCast|
    |---|---|---|---|
    |displayName|String|&check;|&check;
-   |externalId|String||
+   |externalId|String||&check;
    |members|Reference||
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Dagster Cloud, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for InformaCast, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Dagster Cloud by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to InformaCast by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 

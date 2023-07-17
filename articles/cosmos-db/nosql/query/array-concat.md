@@ -32,16 +32,10 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 ## Examples
   
   The following example how to concatenate two arrays.  
-  
-```sql
-SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
-```  
-  
- Here is the result set.  
-  
-```json
-[{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
-```  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/query.sql":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/result.json":::
   
 ## Remarks
 
