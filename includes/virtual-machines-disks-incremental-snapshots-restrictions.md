@@ -36,5 +36,5 @@ Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra
 
 Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in the following regions:
 
-- Incremental snapshots of Ultra Disks are currently only available in North Europe, West Europe, Sweden Central, East US, East US 2, South Central US, West US, and West US 2.
-- Incremental snapshots of Premium SSD v2 disks are currently only available in North Europe, West Europe, East US, East US 2, West US 2.
+- Incremental snapshots of Ultra Disks are currently only available in North Europe, West Europe, Sweden Central, East US, East US 2, South Central US, North Central US, Central US, West US, and West US 2.
+- Incremental snapshots of Premium SSD v2 disks are currently only available in North Europe, West Europe, East US, East US 2, West US 2, Central US.
