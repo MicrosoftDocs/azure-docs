@@ -42,8 +42,7 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
 1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
-![Screen-1](media/create-automation-tasks/screen-2.png)
-
+![Screenshot showing Azure portal and Azure PostgreSQL resource menu with "Tasks (preview)" selected.](media/create-automation-tasks/screen-2.png)
 
 1. On the **Tasks** pane, select **Add a task** to select a task template.
 ![Screen-2](media/create-automation-tasks/screen-3.png)
