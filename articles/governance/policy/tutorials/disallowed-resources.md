@@ -6,7 +6,7 @@ ms.topic: tutorial
 ---
 # Tutorial: Disallow resource types in your cloud environment
 
-One popular goal of cloud governance is restricting what resource types are allowed or disallowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types may be costly or may go against business standards and strategies. Rather than creating and assigning several individual policies to allow or disallow a single resource type, Azure Policy offers two built-in policies to achieve this goal:
+One popular goal of cloud governance is restricting what resource types are allowed or disallowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types may be costly or may go against business standards and strategies. Rather than creating and assigning several individual policies to allow or disallow individual resource types, Azure Policy offers two built-in policies to achieve this goal:
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -31,7 +31,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 1. Click the **Assign** button on the top of the page. 
 
 1. On the **Basics** tab, select the **Scope** by selecting the ellipsis
-   and choosing a management group, subscription, or resource group of choice. Learn more about [scope](../concepts/scope.md). Then select **Select** at the bottom of the **Scope** page.
+   and choosing a management group, subscription, or resource group of choice. Learn more about [scope](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription. Your subscription will differ.
 
@@ -50,7 +50,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 1. **Assigned by** is automatically filled based on who is logged in. This field is optional, so
    custom values can be entered.
 
-1. Select the **Parameters** tab at the top of the wizard.
+1. Select the **Parameters** tab at the top of the wizard. This tutorial skips the **Advanced** tab.
 
 1. For the **Not allowed resource types** parameter, use the drop down to search and select resource types which should not be allowed in your cloud environment.
 
@@ -66,11 +66,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 ## View results of your policy assignment in portal
 
-The unique part of the allowed and not allowed resource type policies is that Azure Portal is aware of their existence and disables them in **All Services**.
-
-Now that you've assigned a built-in policy definition, ...
-
-Try to create a disallowed resource...
+Now that you've assigned a built-in policy definition, navigate to [All Services](https://portal.azure.com/?feature.customportal=false#allservices/category/All).  Azure Portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** view accordingly.
 
 > [!NOTE]
 > If you assign this policy definition to your root management group, users will see the following notification when they log in for the first time or if the policy changes after they have logged in:
