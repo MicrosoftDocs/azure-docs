@@ -6084,6 +6084,11 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-avg.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/average",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-count.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/count",
+      "redirect_document_id": true
     }
   ]
 }
