@@ -157,7 +157,7 @@ To enable content sharing:
 You can disable desktop screen sharing for Teams on Azure Virtual Desktop. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 >[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remoteapp) before you can use this key.
 
 To disable desktop screen share:
 
