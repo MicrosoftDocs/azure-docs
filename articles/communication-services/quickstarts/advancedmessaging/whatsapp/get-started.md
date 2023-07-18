@@ -15,10 +15,8 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-- [Azure Communication Services resource](../../create-communication-resource.md)
+- [Azure Communication Services resource](/articles/communication-services/quickstarts/create-communication-resource.md)
 - [Connecting a WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 - Active PhoneNumber
 
-::: zone pivot="platform-net"
 [!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-get-started-net.md)]
-::: zone-end
