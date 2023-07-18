@@ -38,7 +38,7 @@ Returns a numeric expression.
 
 For this example, consider a container with multiple items that each contain a `price` field.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/seed.json" range="1,4-8,10-14,16-20" highlight="6,12,18":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/seed.json" range="1,4-8,10-14,16-20" highlight="5,10,15":::
 
 In this example, the function is used to average the values of a specific field into a single aggregated value.
 

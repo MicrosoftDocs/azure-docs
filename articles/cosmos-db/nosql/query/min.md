@@ -38,7 +38,7 @@ Returns a numeric scalar value.
 
 This example uses a container with multiple items that each have a `/price` numeric field.
   
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/min/seed.json" range="1-2,4-8,10-14" highlight="4,10":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/min/seed.json" range="1-2,4-8,10-14" highlight="3,8":::
 
 For this example, the `MIN` function is used in a query that includes the numeric field that was mentioned.
 

@@ -42,9 +42,9 @@ This first example passes in either a scalar value or a numeric expression to th
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/count-expression/result.json":::
 
-This next example assumes that there's a container with two items with a `/category` value of `socks`.
+This next example assumes that there's a container with two items with a `/name` field. There's one item without the same field.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/count/seed.json" range="1-2,4-7,9-12" highlight="5,10":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/count/seed.json" range="1-2,4-7,9-12,14-16" highlight="3,7":::
 
 In this example, the function counts the number of times the specified scalar field occurs in the filtered data. Here, the function looks for the number of times the `/name` field occurs which is two out of three times.
 
