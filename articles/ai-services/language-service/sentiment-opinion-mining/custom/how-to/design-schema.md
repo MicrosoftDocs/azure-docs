@@ -1,7 +1,7 @@
 ---
 title: How to prepare data and define a custom sentiment analysis schema
 titleSuffix: Azure AI services
-description: Learn about data selection, preparation, and creating a schema for custom sentient analysis projects.
+description: Learn about data selection and preparation for custom sentient analysis projects.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,24 +13,9 @@ ms.author: aahi
 ms.custom: language-service-custom-classification
 ---
 
-# How to prepare data and define a sentiment analysis schema
+# How to prepare data for custom sentiment analysis
 
 In order to create a Custom sentiment analysis model, you will need quality data to train it. This article covers how you should select and prepare your data, along with defining a schema. Defining the schema is the first step in the project development lifecycle, and it defines the classes that you need your model to classify your text into at runtime.
-
-## Schema design
-
-The schema defines the classes that you need your model to classify your text into at runtime.
-
-* **Review and identify**: Review documents in your dataset to be familiar with their structure and content, then identify how you want to classify your data. 
-
-    For example, if you are classifying support tickets, you might need the following classes: *login issue*, *hardware issue*, *connectivity issue*, and *new equipment request*.
-
-* **Avoid ambiguity in classes**: Ambiguity arises when the classes you specify share similar meaning to one another. The more ambiguous your schema is, the more labeled data you may need to differentiate between different classes.
-
-    For example, if you are classifying food recipes, they may be similar to an extent. To differentiate between *dessert recipe* and *main dish recipe*, you may need to label more examples to help your model distinguish between the two classes. Avoiding ambiguity saves time and yields better results. 
-
-* **Out of scope data**: When using your model in production, consider adding an *out of scope* class to your schema if you expect documents that don't belong to any of your classes. Then add a few documents to your dataset to be labeled as *out of scope*. The model can learn to recognize irrelevant documents, and predict their labels accordingly.
-
 
 ## Data selection
 
@@ -58,12 +43,10 @@ As a prerequisite for creating a Custom sentiment analysis project, your trainin
 
 You can only use `.txt`. documents for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
 
-<!--You can upload an annotated dataset, or you can upload an unannotated one and [label your data](../how-to/tag-data.md) in Language studio. -->
-
 ## Test set
 
 When defining the testing set, make sure to include example documents that are not present in the training set. Defining the testing set is an important step to calculate the model performance<!--[model performance](view-model-evaluation.md#model-details)-->. Also, make sure that the testing set include documents that represent all classes used in your project.
 
 ## Next steps
 
-If you haven't already, create a Custom sentiment analysis project. If it's your first time using Custom sentiment analysis, consider following the quickstart. <!--[quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/create-project.md) for more details on what you need to create a project.-->
+If you haven't already, create a Custom sentiment analysis project. If it's your first time using Custom sentiment analysis, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/create-project.md) for more details on what you need to create a project.

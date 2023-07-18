@@ -32,13 +32,12 @@ Use this article to get started with creating a Custom sentiment analysis projec
 
 ## Next steps
 
-* [Sentiment analysis overview](../overview.md)
-<!--After you've created a Custom sentiment analysis model, you can:
+After you've created a Custom sentiment analysis model, you can:
 * [Use the runtime API to classify text](how-to/call-api.md)
 
 When you start to create your own Custom sentiment analysis projects, use the how-to articles to learn more about developing your model in greater detail:
 
-* [Data selection and schema design](how-to/design-schema.md)
-* [Tag data](how-to/tag-data.md)
+* [Data selection](how-to/design-schema.md)
+* [Tag data](how-to/label-data.md)
 * [Train a model](how-to/train-model.md)
-* [View model evaluation](how-to/view-model-evaluation.md)-->
+<!--* [View the model's evaluation](how-to/view-model-evaluation.md)-->
