@@ -34,7 +34,7 @@ Ensure that the Webhook calls that trigger runbooks navigate on TLS 1.2 or highe
 
 For Linux Hybrid Workers, run the following Python script to upgrade to the latest TLS protocol.
 
-```powershell-interactive
+```python
 import os
 
 # Path to the OpenSSL configuration file
@@ -72,6 +72,7 @@ else:
     os.system("systemctl restart apache2")
     print("Default TLS version has been added as TLS 1.2.")
 ```
+
 > [!NOTE]
 > You must access Azure Log Analytics control plane partner security group and then [connect](https://dataexplorer.azure.com/?cluster=oibeftprd&workspace=empty) to the cluster.
 
