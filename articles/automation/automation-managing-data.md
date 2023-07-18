@@ -26,11 +26,11 @@ Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerabl
 
 For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
-### Upgrade TLS protocol for Hybrid Workers
+### Upgrade TLS protocol for Hybrid Workers and Webhook calls
 
 From **30 October 2023**, all agent-based and extension-based User Hybrid Runbook Workers using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation and all jobs running or scheduled on these machines would fail. 
 
-We recommend you to upgrade to a version of Agent and Extension-based workers that supports only on TLS 1.2 and above protocols. Learn how to [disable TLS 1.0/1.1 protocols on Windows Hybrid Worker and enable TLS 1.2 or above](https://learn.microsoft.com/system-center/scom/plan-security-tls12-config?view=sc-om-2022#configure-windows-operating-system-to-only-use-tls-12-protocol) on Windows machine. 
+Ensure that Webhook calls that trigger runbooks navigate on TLS 1.2 or higher. We recommend you to upgrade to a version of Agent and Extension-based workers that supports only on TLS 1.2 and above protocols. Learn how to [disable TLS 1.0/1.1 protocols on Windows Hybrid Worker and enable TLS 1.2 or above](https://learn.microsoft.com/system-center/scom/plan-security-tls12-config?view=sc-om-2022#configure-windows-operating-system-to-only-use-tls-12-protocol) on Windows machine. 
 
 For Linux Hybrid Workers, run the following Python script to upgrade to the latest TLS protocol.
 
