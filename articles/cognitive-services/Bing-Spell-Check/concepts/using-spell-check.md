@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Using the Bing Spell Check API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this article to learn about using the Bing Spell Check API to perform contextual grammar and spell checking. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
 

@@ -55,7 +55,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
 | Microsoft.ClassicStorage | Classic deployment model storage |
 | Microsoft.ClassicSubscription - [registered](#registration) | Classic deployment model |
-| Microsoft.CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
+| Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
 | Microsoft.Commerce - [registered](#registration) | core |
 | Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft.Consumption - [registered](#registration) | [Cost Management](/azure/cost-management/) |

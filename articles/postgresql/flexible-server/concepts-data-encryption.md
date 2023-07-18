@@ -167,6 +167,9 @@ Some of the reasons why server state can become *Inaccessible* are:
 - If you revoke  the Key Vault's list, get, wrapKey, and unwrapKey access policies from the [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that is used to retrieve a key from KeyVault, the Azure Database for PostgreSQL- Flexible Server will be unable to access the key and will move to *Inaccessible* state. [Add required access policies](../../key-vault/general/assign-access-policy.md) to the identity in KeyVault. 
 - If you set up overly restrictive Azure KeyVault firewall rules that cause Azure Database for PostgreSQL- Flexible Server inability to communicate with Azure KeyVault to retrieve keys. If you enable [KeyVault firewall](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), make sure you check an option to *'Allow Trusted Microsoft Services to bypass this firewall.'*
 
+> [!NOTE]
+> When a key is either disabled, deleted, expired, or not reachable server with data encrypted using that key will become **inaccessible** as stated above. Server will not become available until the key is enabled again, or you assign a new key.
+> Generally, server will become **inaccessible** within an 60 minutes after a key is either disabled, deleted,  expired, or cannot be reached. Similarly after key becomes available it may take up to 60 minutes until server becomes accessible again. 
 
 ## Using Data Encryption with Customer Managed Key (CMK) and Geo-redundant Business Continuity features, such as Replicas and Geo-redundant backup
 
