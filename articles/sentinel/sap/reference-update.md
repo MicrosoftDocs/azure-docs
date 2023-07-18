@@ -4,7 +4,7 @@ description: Description of command line options available with update deploymen
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 05/24/2023
 ---
 
 # Update script reference
@@ -90,7 +90,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

@@ -6,9 +6,9 @@ zone_pivot_groups: cache-redis-zone-pivot-group
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-extended-java, devx-track-python
 ms.topic: conceptual
 ms.date: 05/24/2023
-
 ---
 
 # Serverless event-based architectures with Azure Cache for Redis and Azure Functions (preview)
@@ -232,21 +232,22 @@ public static void PubSubTrigger(
 
 :::zone-end
 
-### RedisListsTrigger
+### RedisListTrigger
 
-The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
+The `RedisListTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
 
-#### Inputs for RedisListsTrigger
+#### Inputs for RedisListTrigger
 
-- `ConnectionString`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
-- `Keys`: Keys to read from, space-delimited.
+- `ConnectionStringSetting`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
+- `Key`: Key or keys to read from, space-delimited.
   - Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/).
   - Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.
+  - This field can be resolved using `INameResolver`
 - (optional) `PollingIntervalInMs`: How often to poll Redis in milliseconds.
   - Default: 1000
 - (optional) `MessagesPerWorker`: How many messages each functions worker "should" process. Used to determine how many workers the function should scale to.
   - Default: 100
-- (optional) `BatchSize`: Number of elements to pull from Redis at one time.
+- (optional) `Count`: Number of elements to pull from Redis at one time. These are processed in parallel.
   - Default: 10
   - Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).
 - (optional) `ListPopFromBeginning`: determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/).
@@ -257,9 +258,9 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
+[FunctionName(nameof(ListTrigger))]
+public static void ListTrigger(
+    [RedisListTrigger(ConnectionStringSetting = "127.0.0.1:6379", Key = "listTest")] RedisMessageModel model,
     ILogger logger)
 {
     logger.LogInformation(JsonSerializer.Serialize(model));
@@ -311,25 +312,25 @@ public static void ListsTrigger(
 
 :::zone-end
 
-### RedisStreamsTrigger
+### RedisStreamTrigger
 
-The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
+The `RedisStreamTrigger` pops elements from a stream and surfaces those elements to the function.
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
+The consumer group for all function instances will be the ID of the function. For example, for the StreamTrigger function in [this sample](https://github.com/Azure/azure-functions-redis-extension/blob/main/samples/dotnet/RedisSamples.cs), the consumer group would be `Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisSamples.StreamTrigger`. 
 Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
-#### Inputs for RedisStreamsTrigger
+#### Inputs for RedisStreamTrigger
 
-- `ConnectionString`: connection string to the redis cache, for example, `<cacheName>.redis.cache.windows.net:6380,password=...`.
-- `Keys`: Keys to read from, space-delimited.
+- `ConnectionStringSetting`: connection string to the redis cache, for example, `<cacheName>.redis.cache.windows.net:6380,password=...`.
+- `Key`: Key or keys to read from, space-delimited.
   - Uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/).
+  - This field can be resolved using `INameResolver`.
 - (optional) `PollingIntervalInMs`: How often to poll Redis in milliseconds.
   - Default: 1000
 - (optional) `MessagesPerWorker`: How many messages each functions worker "should" process. Used to determine how many workers the function should scale to.
   - Default: 100
-- (optional) `BatchSize`: Number of elements to pull from Redis at one time.
+- (optional) `Count`: Number of elements to pull from Redis at one time.
   - Default: 10
-- (optional) `ConsumerGroup`: The name of the consumer group that the function uses.
-  - Default: "AzureFunctionRedisExtension"
 - (optional) `DeleteAfterProcess`: If the listener will delete the stream entries after the function runs.
   - Default: false
 
@@ -338,9 +339,9 @@ The following sample polls the key `streamTest` at a localhost Redis instance at
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
+[FunctionName(nameof(StreamTrigger))]
+public static void StreamTrigger(
+    [RedisStreamTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
     ILogger logger)
 {
     logger.LogInformation(JsonSerializer.Serialize(model));

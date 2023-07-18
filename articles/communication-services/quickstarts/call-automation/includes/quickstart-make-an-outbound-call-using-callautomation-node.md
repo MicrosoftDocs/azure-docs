@@ -15,7 +15,7 @@ ms.custom: mode-other
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls
+- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
 - [Node.js](https://nodejs.org/en/) LTS installation.
 - [Visual Studio Code](https://code.visualstudio.com/download) installed

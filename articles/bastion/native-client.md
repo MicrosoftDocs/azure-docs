@@ -5,7 +5,7 @@ description: Learn how to configure Bastion for native client connections.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 06/23/2023
 ms.author: cherylmc
 ---
 
@@ -42,31 +42,28 @@ If you've already deployed Bastion to your VNet, modify the following configurat
 
     :::image type="content" source="./media/native-client/update-host.png" alt-text="Screenshot that shows settings for updating an existing host with Native Client Support box selected." lightbox="./media/native-client/update-host.png":::
 
-## <a name="secure "></a>Secure your native client connection
+## <a name="secure"></a>Secure your native client connection
 
 If you want to further secure your native client connection, you can limit port access by only providing access to port 22/3389. To restrict port access, you must deploy the following NSG rules on your AzureBastionSubnet to allow access to select ports and deny access from any other ports.
 
 :::image type="content" source="./media/native-client/network-security-group.png" alt-text="Screenshot that shows NSG configurations." lightbox="./media/native-client/network-security-group.png":::
 
-## Connecting to VMs
+## <a name="connect"></a>Connecting to VMs
 
-After you deploy this feature, there are different connection instructions, depending on the host computer you're connecting from.
+After you deploy this feature, there are different connection instructions, depending on the host computer you're connecting from, and the client VM to which you're connecting.
 
-* [Connect from the native client on a Windows computer](connect-vm-native-client-windows.md). This lets you do the following:
+Use the following table to understand how to connect from native clients. Notice that different supported combinations of native client and target VMs allow for different features and require specific commands.
 
-  * Connect using SSH or RDP.
-  * [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
-  * If you want to connect using SSH and need to upload files to your target VM, you can use the instructions for the [az network bastion tunnel](connect-vm-native-client-linux.md) command instead.
+| Client | Target VM | Method | Azure Active Directory authentication | File transfer | Concurrent VM sessions | Custom port |
+|---|---|---|---| --- |---|---|
+| Windows native client | Windows VM | [RDP](connect-vm-native-client-windows.md) | Yes | [Upload/Download](vm-upload-download-native.md#rdp) | Yes | Yes |
+|  | Linux VM | [SSH](connect-vm-native-client-windows.md) | Yes |No | Yes | Yes |
+| | Any VM|[az network bastion tunnel](connect-vm-native-client-windows.md)  |No |[Upload](vm-upload-download-native.md#tunnel-command)| No | No |
+| Linux native client | Linux VM |[SSH](connect-vm-native-client-linux.md#ssh)| Yes | No | Yes | Yes |
+| | Windows or any VM| [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |
+| Other native client (putty) | Any VM | [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |
 
-* [Connect using the **az network bastion tunnel** command](connect-vm-native-client-linux.md). This lets you do the following:
-
-  * Use native clients on *non*-Windows local computers (example: a Linux PC).
-  * Use the native client of your choice. (This includes the Windows native client.)
-  * Connect using SSH or RDP. (The bastion tunnel doesn't relay web servers or hosts.)
-  * Set up concurrent VM sessions with Bastion.
-  * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
-
-### Limitations
+**Limitations:**
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to a Linux VM using an SSH key pair, download your private key to a file on your local machine.
 * Connecting using a native client isn't supported on Cloud Shell.

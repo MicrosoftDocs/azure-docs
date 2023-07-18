@@ -35,12 +35,12 @@ sections:
              | El Salvador | Estonia | Ethiopia | Faroe Islands |
              | Fiji | Finland | France | Georgia |
              | Germany | Ghana | Greece | Guatemala |
-             | Honduras | Hong Kong | Hungary | Iceland |
+             | Honduras | Hong Kong Special Administrative Region| Hungary | Iceland |
              | Indonesia | Iraq | Ireland | Israel |
              | Italy | Jamaica | Japan | Jordan |
              | Kazakhstan | Kenya | Korea | Kuwait |
              | Kyrgyzstan | Lebanon | Libya | Lithuania |
-             | Macao | Macedonia (FYRO) | Malaysia | Malta |
+             | Macao Special Administrative Region| Macedonia (FYRO) | Malaysia | Malta |
              | Mauritius | Mexico | Moldova | Monaco |
              | Mongolia | Montenegro | Morocco | Namibia |
              | Nepal | Netherlands | New Zealand | Nicaragua |
@@ -163,7 +163,7 @@ sections:
           | Greece                              | Euro (€)                |
           | Guatemala                           | US Dollar (\$)          |
           | Honduras                            | US Dollar (\$)          |
-          | Hong Kong                           | US Dollar (\$)          |
+          | Hong Kong SAR                       | US Dollar (\$)          |
           | Hungary                             | Euro (€)                |
           | Iceland                             | Euro (€)                |
           | India                               | Indian Rupee (₹)        |
@@ -186,7 +186,7 @@ sections:
           | Liechtenstein                       | Swiss Franc. (chf)      |
           | Lithuania                           | Euro (€)                |
           | Luxembourg                          | Euro (€)                |
-          | Macao                               | US Dollar (\$)          |
+          | Macao SAR                              | US Dollar (\$)          |
           | Macedonia (FYRO)                    | US Dollar (\$)          |
           | Malaysia                            | US Dollar (\$)          |
           | Malta                               | Euro (€)                |

@@ -5,12 +5,12 @@ description: Configure a connection string for an Azure storage account. A conne
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Configure Azure Storage connection strings

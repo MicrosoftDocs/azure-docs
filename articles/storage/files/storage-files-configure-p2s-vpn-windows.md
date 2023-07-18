@@ -2,11 +2,10 @@
 title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
 description: How to configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/08/2022
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
 

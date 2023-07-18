@@ -14,7 +14,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Attach a Kubernetes cluster to Azure Machine Learning workspace
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Once Azure Machine Learning extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to Azure Machine Learning workspace and create compute targets for ML professionals to use. 
 

@@ -2,7 +2,7 @@
 title: Data Collection Basics of Azure Monitor Application Insights 
 description: This article provides an overview of how to collect telemetry to send to Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 07/07/2023
 ms.reviewer: mmcc
 ---
 
@@ -16,10 +16,13 @@ At a basic level, "instrumenting" is simply enabling an application to capture t
 
 There are two methods to instrument your application:
 
-- Automatic instrumentation (auto-instrumentation)
+- Automatic instrumentation (autoinstrumentation)
 - Manual instrumentation
 
-**Auto-instrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Auto-Instrumentation Supported Environments and Languages](codeless-overview.md). When auto-instrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
+**Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
+
+> [!TIP]
+> Currently, [Azure AD Authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require AAD Auth, you'll need to use manual instrumentation.
 
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 
@@ -80,7 +83,7 @@ Application Insights | OpenTelemetry
 ------ | ------
 Auto-collectors | Instrumentation libraries
 Channel | Exporter
-Codeless / Agent-based | Auto-instrumentation
+Codeless / Agent-based | Autoinstrumentation
 Traces | Logs
 Requests | Server Spans
 Dependencies | Other Span Types (Client, Internal, etc.)
@@ -89,7 +92,7 @@ Dependencies | Other Span Types (Client, Internal, etc.)
 
 Select your enablement approach:
 
-- [Auto-instrumentation](codeless-overview.md)
+- [Autoinstrumentation](codeless-overview.md)
 - Application Insights SDKs
     - [ASP.NET](./asp-net.md)
     - [ASP.NET Core](./asp-net-core.md)

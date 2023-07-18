@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: NGINXaaS 
-summary: NGINXaaS is part of Marketplace and combines the benefits of NGINX and the Azure cloud. You can learn how to create an NGINXaaS resource, manage it, and get support for your NGINXaaS deployment.
+title: NGINXaaS – An Azure Native ISV Service
+summary: NGINXaaS – An Azure Native ISV Service is part of Marketplace and combines the benefits of NGINX and the Azure cloud. You can learn how to create an NGINXaaS resource, manage it, and get support for your NGINXaaS deployment.
 
 metadata:
   title: NGINXaaS 
@@ -16,11 +16,11 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About NGINXaaS
+  - title: About NGINXaaS – An Azure Native ISV Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is NGINXaaS?
+          - text: What is NGINXaaS – An Azure Native ISV Service?
             url: nginx-overview.md
       - linkListType: how-to-guide
         links:
@@ -32,11 +32,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with NGINXaaS
+          - text: Get started with NGINXaaS – An Azure Native ISV Service
             url: nginx-create.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting NGINXaaS 
+          - text: Troubleshooting NGINXaaS – An Azure Native ISV Service 
             url: nginx-troubleshoot.md
 
   

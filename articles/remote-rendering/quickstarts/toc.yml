@@ -6,6 +6,8 @@
     href: deploy-to-hololens.md
   - name: Deploy Unity sample to Desktop
     href: deploy-to-desktop.md
+  - name: Deploy Unity sample to Quest 2 or Quest Pro
+    href: deploy-to-quest.md
 - name: Native C++
   items:
   - name: Deploy OpenXR-based native C++ sample to HoloLens
