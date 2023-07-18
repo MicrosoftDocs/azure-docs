@@ -1,3 +1,5 @@
+### YamlMime:Landing
+
 title: Aggregate functions in Azure Cosmos DB for NoSQL
 summary: Azure Cosmos DB for NoSQL provides many aggregate functions to perform a calculation on a set of values in the SELECT clause.
 
