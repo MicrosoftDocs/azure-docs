@@ -13,6 +13,7 @@ To help customers prevent, detect, and respond to threats, Microsoft Defender fo
 This article explains how data is managed and safeguarded in Defender for Cloud.
 
 ## Data sources
+
 Defender for Cloud analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
 
 - **Azure services**: Uses information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
@@ -22,7 +23,7 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 ## Data sharing
 
-Defender for Cloud shares data, including Customer Data, with Microsoft Defender for Endpoint. The data sharing to Microsoft Defender for Endpoint is only used by the Defender for Storage Antimalware capability which is turned off by default. Meaning, if you didn't turn the Defender for Storage Antimalware capability on, no data sharing would occur.
+When you enable Defender for Storage Malware Scanning, it may share data, including Customer Data, with Microsoft Defender for Endpoint.
 
 ## Data protection
 
