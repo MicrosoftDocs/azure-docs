@@ -37,9 +37,7 @@ landingContent:
             url: find-your-subscription-id.md
           - text: Configure Azure service health alerts
             url: configure-azure-service-health-alerts.md
-          - text: Azure Large Instances NETAPP storage data protection with Azure CVO
-            url: ali-netapp-with-cvo.md
-
+          
           
 # card 3
   - title: Workloads

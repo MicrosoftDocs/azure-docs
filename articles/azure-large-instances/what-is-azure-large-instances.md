@@ -96,7 +96,7 @@ Microsoft is responsible for:
 - Providing the hardware for specialized workloads.
 - Provisioning the OS.
 
-    :::image type="content" source="media/what-is-azure-large-instances/ali-support-model-2.png" alt-text="ALI support model." lightbox="media/what-is-azure-large-instances/ali-support-model-2.png" border="false":::
+    :::image type="content" source="media/what-is-azure-large-instances/ali-support-model.png" alt-text="ALI support model." lightbox="media/what-is-azure-large-instances/ali-support-model.png" border="false":::
 
 
 ## ALI stamp
