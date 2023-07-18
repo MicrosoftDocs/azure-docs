@@ -122,7 +122,7 @@ The deployment process will do the following things for you:
 - Register the application group, if you chose to do so.
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
-Once a user connects to a RemoteApp, any other RemoteApps that they connect to during the same session will be from the same session host.
+Once a user connects to a RemoteApp, any other RemoteApp that they connect to during the same session will be from the same session host.
 
 >[!IMPORTANT]
 >You can only create 500 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to application groups created in Azure Virtual Desktop (classic).
