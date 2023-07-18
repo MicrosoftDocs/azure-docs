@@ -94,7 +94,7 @@ The client app can subscribe to following events:
 
 ## Server Events
 
-This feature lets server applications listen to events for scenarios such as participants leaving the chats, messages being received that requires a follow up action, making sure the participant is part of the conversation and archiving chats. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json) 
+This feature lets server applications listen to events for scenarios such as participants leaving the chats, messages being received that requires a follow up action, making sure the **right** participants are part of the conversation and archiving chats. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json) 
 
 ## Push notifications 
 
