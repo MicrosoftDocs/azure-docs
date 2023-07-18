@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 07/18/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -349,6 +349,9 @@ To remove the Defender for Endpoint solution from your machines:
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
 
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
+
+## Manage automatic updates configuration for Linux
+
 
 ## Next steps
 

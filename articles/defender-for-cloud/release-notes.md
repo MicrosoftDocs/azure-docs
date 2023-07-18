@@ -26,10 +26,19 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
+| July 18 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux)
 | July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
 | July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
 
+
+### Management of automatic updates to Defender for Endpoint for Linux
+
+July 18, 2023
+
+By default, Defender for Cloud attempts to update your Defender for Endpoint for Linux agents onboarded with the `MDE.Linux` extension. With this release, you can manage this setting and opt-out from the default configuration to manage your update cycles manually. 
+
+Learn how to [manage automatic updates configuration for Linux] (integration-defender-for-endpoint.md).    
 
 ### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
 
