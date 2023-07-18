@@ -8,9 +8,8 @@ services: azure-communication-services
 
 ms.author: memontic
 ms.date: 07/12/2023
-ms.topic: concept
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: messages
 ---
 
 # Send WhatsApp Template Messages
