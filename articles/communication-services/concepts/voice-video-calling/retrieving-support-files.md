@@ -12,13 +12,13 @@ ms.date:     07/17/2023
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Log Sharing offers access to Log files, which helps in building more effective support channels.
+Log Sharing offers access to Log files, which help in building more effective support channels.
 
 Especially on mobile devices, the Application Sandbox poses challenges for an End User when they attempt to retrieve and transmit these files. This feature provides an application developer with a mechanism to implement enhanced support tools, making it easy for users to submit the necessary files and receive robust support.
 
-## Leveraging this Functionality
+## Applying this Functionality
 
-When designing a user interface for this feature, please keep the following tips in mind. The main objective is to simplify the process of reporting errors and sharing related log files for users.
+When designing a user interface for this feature, keep the following tips in mind. The main objective is to simplify the process of reporting errors and sharing related log files for users.
 
 Consider this scenario: "I'm using your app and encounter a problem. I want to report this error and send you the log files so your support team can investigate it."
 
@@ -36,7 +36,7 @@ You can encourage users to report issues during the end-of-call survey. This per
 
 ### Log Request via Push Notification
 
-For those who prefer not to rely on user-submitted logs and would like a more automated retrieval, push notifications can be used. In this flow, the application receives a push notification requesting the logs. Upon receiving the notification, the user can authorize the request and submit the logs. This approach is more proactive on the application developer's part, allowing them to actively request logs when necessary.
+For organizations that prefer not to rely on user-submitted logs and would like a more automated retrieval, push notifications can be used. In this flow, the application receives a push notification requesting the logs. Upon the application receiving the notification, the end user can authorize the request and submit the logs. This approach is more proactive on the application developer's part, allowing them to actively request logs when necessary.
 
 ### Auto-Detection of Failures
 
@@ -52,7 +52,7 @@ Every organization has different needs in relation to this feature. It may be us
 - Do you use any preview features?
 - Is your use-case complex?
 
-Answering these questions will help you decide the appropriate approach for support tools and log collection.
+Answering these questions help you decide the appropriate approach for support tools and log collection.
 
 ## Further Reading
 
