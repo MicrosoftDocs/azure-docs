@@ -122,12 +122,14 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 
 #### Convert to PAYG using the Azure CLI
 
-To return a VM to a PAYG model, use a `--license-type` value of `None`:
+If the system was originally a PAYG image and customer wants to return the VM to a PAYG model, use a `--license-type` value of `None` as shows the example below:
 
 ```azurecli
 # This will enable PAYG on a virtual machine using Azure Hybrid Benefit
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
+
+But if customer has a BYOS and wants to convert the VM to PAYG, use a `--license-type` value that covers the VM needs, those codes are described below in the document, for example for RHEL systems it could be any of the following:  RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASEAPAPPS or RHEL_BASESAPHA. 
 
 #### Convert multiple VM license models simultaneously using the Azure CLI
 
