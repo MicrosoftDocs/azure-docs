@@ -23,7 +23,7 @@ After the language end-of-life date, function apps that use retired language ver
 
 > [!IMPORTANT]
 >You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
->If you're running functions apps using an unsupported language version, you may encounter issues and performance implications and will be required to upgrade before receiving support for your function app.
+>If you're running functions apps using an unsupported runtime or language version, you may encounter issues and performance implications and will be required to upgrade before receiving support for your function app.
 
 
 ## Retirement policy exceptions
