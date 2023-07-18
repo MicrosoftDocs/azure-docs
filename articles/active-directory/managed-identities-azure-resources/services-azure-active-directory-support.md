@@ -22,7 +22,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure App Services              | [Configure your App Service or Azure Functions app to use Azure AD login](../../app-service/configure-authentication-provider-aad.md)    |
 | Azure Batch                     | [Authenticate Batch service solutions with Active Directory](../../batch/batch-aad-auth.md)         |
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
-| Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
+| Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../ai-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
 | Azure Communication Services    | [Authenticate to Azure Communication Services](../../communication-services/concepts/authentication.md)   |
 | Azure Cosmos DB                 | [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../../cosmos-db/how-to-setup-rbac.md) |
 | Azure Databricks                | [Authenticate using Azure Active Directory tokens](/azure/databricks/dev-tools/api/latest/aad/)

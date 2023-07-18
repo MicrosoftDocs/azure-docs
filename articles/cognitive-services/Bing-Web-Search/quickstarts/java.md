@@ -16,7 +16,7 @@ ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-septembe
 
 # Quickstart: Use Java to search the web with the Bing Web Search REST API, an Azure cognitive service
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 In this quickstart, you'll use a Java application to make your first call to the Bing Web Search API. This Java application sends a search request to the API, and shows the JSON response. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 The following code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Add this code to the `BingWebSearch` class described in the previous section:
 
-1. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+1. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 2. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. 
 
