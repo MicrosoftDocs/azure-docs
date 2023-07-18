@@ -14,7 +14,7 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 # Retrieval and Sharing of support file tutorial.
 

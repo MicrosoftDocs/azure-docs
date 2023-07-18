@@ -8,9 +8,8 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
 # Overview of Log File Access
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Log Sharing offers access to Log files, which help in building more effective support channels.
 
@@ -58,4 +57,4 @@ Answering these questions help you decide the appropriate approach for support t
 
 - [End of Call Survey Conceptual Document](../voice-video-calling/end-of-call-survey-concept.md)
 - [Troubleshooting Info](../troubleshooting-info.md)
-- [Log Sharing Tutorial](../../tutorials/log-sharing-tutorial.md)
+- [Log Sharing Tutorial](../../tutorials/log-file-retrieval-tutorial.md)
