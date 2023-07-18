@@ -32,7 +32,7 @@ ms.subservice: data
 
  
 
-Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource. 
+Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Azure Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Azure Communication Services resource. 
 
  
 
