@@ -24,11 +24,11 @@ Once the deadline arrives V1 gateways aren't supported. Any V1 SKU resources tha
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
-Customers who didn't have Application Gateway V1 SKU in their subscriptions in the month of June 2023 are considered as new customers. These customers won’t be able to create new V1 gateways from 1 July 2023.
+Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 1 July 2023 are considered as new customers. These customers won’t be able to create new V1 gateways going forward.
 
 ### What is the definition of an existing customer on Application Gateway V1 SKU?
 
-Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions in the month of June 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
+Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of 1 July 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
 
 ### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
 
