@@ -89,7 +89,7 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
-    _For Active/Acive gateways use the following to check the second public IP:_ <br>
+    _For Active/Active gateways use the following to check the second public IP:_ <br>
     `https://<YourVirtualNetworkGatewayIP2>:8083/healthprobe`
 
 2. Click through the certificate warning.
