@@ -69,6 +69,9 @@ You can configure the following logs for Azure Machine Learning:
 | AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 | AmlComputeCpuGpuUtilization | ML services compute CPU and GPU utilization logs. |
+| AmlOnlineEndpointTrafficLog | Logs for traffic to online endpoints. |
+| AmlOnlineEndpointConsoleLog | Logs that the containers for online endpoints write to the console. |
+| AmlOnlineEndpointEventLog | Logs for events regarding the life cycle of online endpoints. |
 | AmlRunStatusChangedEvent | ML run status changes. |
 | ModelsChangeEvent | Events when ML model is accessed created or deleted. |
 | ModelsReadEvent | Events when ML model is read. |
@@ -144,6 +147,9 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlPipelineEvent | Events when ML pipeline draft or endpoint or module are accessed (read, created, or deleted).Category includes:PipelineReadEvent,PipelineChangeEvent. |
 | AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
 | AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
+| AmlOnlineEndpointTrafficLog | Logs for traffic to online endpoints. |
+| AmlOnlineEndpointConsoleLog | Logs that the containers for online endpoints write to the console. |
+| AmlOnlineEndpointEventLog | Logs for events regarding the life cycle of online endpoints. |
 
 > [!NOTE]
 > Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.

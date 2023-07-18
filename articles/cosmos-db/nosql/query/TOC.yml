@@ -68,22 +68,22 @@
   items:
     - name: Aggregate functions
       displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-      href: aggregate-functions.md
-    - name: Avg
+      href: aggregate-functions.yml
+    - name: AVG
       displayName: functions, aggregate, avg, average
-      href: aggregate-avg.md
-    - name: Count
+      href: average.md
+    - name: COUNT
       displayName: functions, aggregate, count
-      href: aggregate-count.md
-    - name: Max
+      href: count.md
+    - name: MAX
       displayName: functions, aggregate, max, maximum
-      href: aggregate-max.md
-    - name: Min
+      href: max.md
+    - name: MIN
       displayName: functions, aggregate, min, minimum
-      href: aggregate-min.md
-    - name: Sum
+      href: min.md
+    - name: SUM
       displayName: functions, aggregate, sum
-      href: aggregate-sum.md
+      href: sum.md
 - name: System functions
   items:
     - name: System functions

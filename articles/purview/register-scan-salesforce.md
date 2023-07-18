@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/18/2023
 ms.custom: template-how-to
 ---
 
@@ -38,7 +38,7 @@ When object is deleted from the data source, currently the subsequent scan won't
 - You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 - A Salesforce connected app, which will be used to access your Salesforce information.
   - If you need to create a connected app, you can follow the [Salesforce documentation](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_basics.htm&type=5).
-  - You will need to [enable OAuth for you Salesforce application](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_api_integration.htm&type=5).
+  - You will need to [enable OAuth for your Salesforce application](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_api_integration.htm&type=5).
 
 > [!NOTE]
 > **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.), **you will need to configure a self hosted integration runtime to connect to it**.
@@ -130,6 +130,8 @@ To create and run a new scan, follow these steps:
         > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="scan Salesforce" border="true":::
+
+1. Select **Test connection** to validate the settings (available when using Azure Integration Runtime).
 
 1. Select **Continue**.
 
