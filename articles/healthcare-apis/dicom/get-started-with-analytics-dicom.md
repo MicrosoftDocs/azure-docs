@@ -35,6 +35,7 @@ This section details the steps for configuring an ADF pipeline that can write DI
 In this example, an Azure Data Factory [pipeline](../../data-factory/concepts-pipelines-activities.md) will be used to write DICOM attributes for instances, series, and studies into a storage account in a [Delta table](https://delta.io/) format.  
 
 ![Screenshot of Azure Data Factory Studio Launch studio button]()
+:::image type="content" source="media/data-factory-launch-studio.png" alt-text="View of Launch studio button in the Azure portal." lightbox="media/data-factory-launch-studio.png":::
 
 ### Create linked services
 Azure Data Factory pipelines read from data sources and write to data sinks, typically other Azure services. These connections to other services are managed as linked services. The pipeline in this example will read data from a DICOM service and write its output to a storage account, so a linked service must be created for each. 
@@ -86,12 +87,16 @@ Azure Data Factory pipelines are a collection of activities that perform a task,
 
 1.  Select **Author** from the navigation menu.  In the **Factory Resources** pane, select the plus (+) to add a new resource.  Select **Pipeline** and then **Template gallery** from the menu.  
 
-:::image type="content" source="media/data-factory-create-pipeline-menu.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-create-pipeline-menu.png":::
+:::image type="content" source="media/data-factory-create-pipeline-menu.png" alt-text="New Pipeline from Template Gallery." lightbox="media/data-factory-create-pipeline-menu.png":::
 
 2. In the Template gallery, search for "DICOM".  Select the **Copy DICOM Metadata Changes to ADLS Gen2 in Delta Format** tile and then **Continue**.
 
-:::image type="content" source="media/data-factory-gallery-dicom.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-gallery-dicom.png":::
+:::image type="content" source="media/data-factory-gallery-dicom.png" alt-text="DICOM template selected in Template gallery." lightbox="media/data-factory-gallery-dicom.png":::
 
 3. In the **Inputs** section, select the linked services previously created for the DICOM service and Azure Data Lake Storage Gen2 account.
 
-:::image type="content" source="media/data-factory-create-pipeline.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-create-pipeline.png":::
+:::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Create pipeline view with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
+
+4. Select **Use this template** to create the new pipeline.  
+
+### 
