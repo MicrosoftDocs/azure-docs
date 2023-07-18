@@ -36,8 +36,8 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 ### Prerequisites
 
-- An [Azure subscription][azure_sub].
-- An existing Web PubSub instance. [Create Web PubSub instance](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-create-instance)
+- An Azure subscription
+- An existing Web PubSub instance [Create Web PubSub instance](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-create-instance)
 
 ### Authenticate the client
 
