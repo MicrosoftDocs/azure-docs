@@ -117,7 +117,7 @@ In this section shows how to write a C app to send events to your event hub. The
    
     int main(int argc, char** argv) {
         printf("Press Ctrl-C to stop the sender process\n");
-    	signal(SIGINT, inthand);
+    	signal(SIGINT, interrupt_handler);
    
         pn_messenger_t *messenger = pn_messenger(NULL);
         pn_messenger_set_outgoing_window(messenger, 1);
