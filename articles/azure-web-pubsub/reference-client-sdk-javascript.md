@@ -20,6 +20,7 @@ The client-side SDK aims to speed up developer's workflow; more specifically,
 - **reliably** deliveries messages in number and in order after recovering from connection drops
 
 As shown in the diagram below, your clients establish WebSocket connections with your Web PubSub resource. 
+
 ![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
 
 ## Getting started
@@ -35,19 +36,23 @@ npm install @azure/web-pubsub-client
 ```
 
 ### 2. Connect with your Web PubSub resource
-A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick guide, you can copy and paste one from Azure Portal shown below. (For production, your clients usually get the Client Access URL genegrated on your application server. [See details below](#use-negotiation-server-to-generate-client-access-url) )
+A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick guide, you can copy and paste one from Azure Portal shown below. (For production, your clients usually get the Client Access URL genegrated on your application server. [See details below](#use-an-application-server-to-generate-client-access-url-programatically) )
 
 ![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
 
 As shown in the diagram above, the client has the permissions to send messages to and join a specific group named "_group1_". 
 
 ```js
-// Imports the client library
+// Imports the client libray
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object
-Expand All
-	@@ -68,9 +58,8 @@ await client.start();
+const client = new WebPubSubClient("<client-access-url>");
+
+// Starts the client connection with your Web PubSub resource
+await client.start();
+
+// ...
 // The client can join/leave groups, send/receive messages to and from those groups all in real-time
 ```
 
@@ -56,8 +61,16 @@ Note that a client can only receive messages from groups that it has joined and 
 
 ```js
 // ...continues the code snippet from above
-Expand All
-	@@ -87,7 +76,7 @@ client.on("group-message", (e) => {
+
+// Specifies the group to join
+let groupName = "group1";
+
+// Registers a listener for the event 'group-message' early before joining a group to not miss messages
+client.on("group-message", (e) => {
+  console.log(`Received message: ${e.message.data}`);
+});
+
+// A client needs to join the group it wishes to receive messages from
 await client.joinGroup(groupName);
 ```
 
@@ -65,10 +78,12 @@ await client.joinGroup(groupName);
 ```js
 // ...continues the code snippet from above
 
-Expand All
-	@@ -98,39 +87,37 @@ await client.sendToGroup(groupName, "hello world", "text");
+// Send a message to a joined group
+await client.sendToGroup(groupName, "hello world", "text");
+
+// In the Console tab of your developer tools found in your browser, you should see the message printed there.
 ```
----
+
 ## Examples
 ### Handle `connected`, `disconnected` and `stopped` events
 Azure Web PubSub fires system events like `connected`, `disconnected` and `stopped`. You can register event handlers to decide what the program should do when the events are fired. 
@@ -97,7 +112,7 @@ client.on("stopped", () => {
 ```
 
 ### Use an application server to generate Client Access URL programatically
-In production, clients usually fetch the Client Access URL from an application server. The server holds the `connection string` to your Web PubSub resource and generates the `Client Access URL` with the help from the server-side library `@azure/web-pubsub`.
+In production, clients usually fetch the Client Access URL from an application server. The server holds the `connection string` to your Web PubSub resource and generates the `Client Access URL` with help from the server-side library `@azure/web-pubsub`.
 
 #### 1. Application server 
 The code snippet below is an example of an application server exposes a `/negotiate` endpoint and returns the Client Access URL.
@@ -207,4 +222,4 @@ export AZURE_LOG_LEVEL=verbose
 For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/logger).
 
 ### Live Trace
-Use [Live Trace tool](./howto-troubleshoot-network-trace.md#capture-resource-logs-by-using-the-live-trace-tool) from Azure Portal to view live message traffic through your Web PubSub resource.
+Use [Live Trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) from Azure Portal to inspect live message traffic through your Web PubSub resource.
