@@ -172,11 +172,11 @@ Or, you can specify a tenant by URL to access security information.
 `https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
 
 > [!NOTE]
-> Customers attempting to register or manage security info through combined registration or the My Sign-ins page should utilize a modern browser such as Microsoft Edge. 
->
->Utilizing IE11 to create a webview or browser in applications will not work as expected in all scenarios and is not officially supported.
->
->Applications that have not been updated and are still utilzing Azure AD Authentication Library(ADAL) that rely on legacy webviews can fallback to older versions of IE. In these scenarios, users will experience a blank page when directed to the My Sign-ins page. In order to resolve this issue, a modern browser must be utilized.
+> Customers attempting to register or manage security info through combined registration or the My Sign-ins page should use a modern browser such as Microsoft Edge. 
+> 
+> IE11 is not officially supported for creating a webview or browser in applications as it will not work as expected in all scenarios.
+> 
+> Applications that have not been updated and are still using Azure AD Authentication Library (ADAL) that rely on legacy webviews can fallback to older versions of IE. In these scenarios, users will experience a blank page when directed to the My Sign-ins page. To resolve this issue, switch to a modern browser.
 
 ## Next steps
 
