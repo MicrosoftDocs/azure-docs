@@ -1,6 +1,6 @@
 # Integrating a Log Sharing Feature in a C#/Windows Application
 
-In this tutorial, we will guide you through the process of integrating a log sharing feature in your C#/Windows application using the CallingSDK.
+In this tutorial, we guide you through the process of integrating a log sharing feature in your C#/Windows application using the CallingSDK. Once complete you'll be able to zip the log files and export that zip to a desired folder on your PC.
 
 ## Prerequisites
 
@@ -11,9 +11,9 @@ In this tutorial, we will guide you through the process of integrating a log sha
 
 ### Step 1: Update your Layout
 
-First, we need to add a button to your XAML layout file that users will use to initiate the log sharing process.
+First, we need to add a button to your XAML layout file that users use to initiate the log sharing process.
 
-Here is a simple button with a tooltip named `exportLogsButton`. When clicked, it triggers the `ExportLogs_Click` function.
+Here's a simple button with a tooltip named `exportLogsButton`. When clicked, it triggers the `ExportLogs_Click` function.
 
 ```xml
 <AppBarToggleButton x:Name="exportLogsButton" Icon="Document" Click="ExportLogs_Click">
@@ -29,7 +29,7 @@ Now, let's define the `ExportLogs_Click` method. This method is triggered when t
 
 ```csharp
 private async void ExportLogs_Click(object sender, RoutedEventArgs e) {
-    // We will add Implementation in here
+    // We'll add Implementation in here
 }
 ```
 
@@ -47,7 +47,7 @@ if (files != null && files.Count > 0)
 
 #### Set Up Save Picker
 
-The next part sets up a save picker which prompts the user to choose a save location and filename for the ZIP file.
+The next part sets up a save picker, which prompts the user to choose a save location and filename for the ZIP file.
 
 ```csharp
 var savePicker = new FileSavePicker
