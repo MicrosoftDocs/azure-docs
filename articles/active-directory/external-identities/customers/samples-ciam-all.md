@@ -92,7 +92,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
 > | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](how-to-daemon-node-call-api-overview.md)  |
-> | .NET |  ---   |  &#8226; [Create and set up](tutorial-daemon-dotnet-call-api-prepare-tenant.md)  |
+> | .NET |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  |  &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)  |
 
 
 # [**By language/platform**](#tab/language)
@@ -103,7 +103,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
 > | Browserless | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](how-to-browserless-app-dotnet-sign-in-overview.md)   |
-> | Daemon |  ---   | &#8226; [Create and set up](tutorial-daemon-dotnet-call-api-prepare-tenant.md)   |
+> | Daemon |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  | &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)   |
 
 
 ### ASP.NET Core
@@ -119,8 +119,8 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Desktop | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | &#8226; [Create and set up](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)   |
-> | Mobile |  &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Create and set up](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)   |
+> | Desktop | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)   |
+> | Mobile |  &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)   |
 
 
 ### JavaScript, Vanilla
