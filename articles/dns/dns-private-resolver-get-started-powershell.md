@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/27/2022
+ms.date: 07/17/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -37,7 +37,7 @@ Install the Az.DnsResolver module.
 Install-Module Az.DnsResolver
 ```
 
-Confirm that the Az.DnsResolver module was installed. The current version of this module is 0.2.0.
+Confirm that the Az.DnsResolver module was installed. The current version of this module is 0.2.1.
 
 ```Azure PowerShell
 Get-InstalledModule -Name Az.DnsResolver
