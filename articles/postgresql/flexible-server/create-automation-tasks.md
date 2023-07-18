@@ -111,7 +111,7 @@ To change a task, you have these options:
 1. By default, the **Authenticate** tab appears and shows the existing connections.
 1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 1. To update other task properties, select **Next: Configure**.
-1. When you're done, select **Save**.
+1. When you're done, select **Save**
 
 ### Edit the task's underlying workflow
 
