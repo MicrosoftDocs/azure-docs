@@ -3,7 +3,7 @@ title: How to manage Azure Mover endpoints
 description: Learn how to manage Azure Storage Mover endpoints
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 07/17/2023
 ms.custom: template-how-to
