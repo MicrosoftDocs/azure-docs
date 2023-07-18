@@ -84,7 +84,7 @@ This process opens a window offering to allow Windows to remember your account a
 > [!CAUTION]
 > You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
-![Screenshot showing the stay signed in to you all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
+![Screenshot showing the stay signed in to all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
 After selecting **OK** you may see a progress window while policy is applied. After a few moments you should see a window saying "you're all set", app protection policies are applied.
 

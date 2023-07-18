@@ -89,7 +89,7 @@ Organizations can require that an approved client app is used  to access selecte
 
 To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 
-The following client apps support this setting, this list isn't exhaustive and is subject to change:
+The following client apps support this setting. This list isn't exhaustive and is subject to change:
 
 - Microsoft Azure Information Protection
 - Microsoft Cortana
@@ -138,7 +138,7 @@ To apply this grant control, Conditional Access requires that the device is regi
 
 Applications must meet certain requirements to support app protection policies. Developers can find more information about these requirements in the section [Apps you can manage with app protection policies](/mem/intune/apps/app-protection-policy#apps-you-can-manage-with-app-protection-policies). 
 
-The following client apps are confirmed to support these requirements, this list isn't exhaustive and is subject to change, if your app isn't in the list please check with the application vendor to confirm support:
+The following client apps support this setting. This list isn't exhaustive and is subject to change. If your app isn't in the list please check with the application vendor to confirm support:
 
 - Adobe Acrobat Reader mobile app
 - iAnnotate for Office 365
