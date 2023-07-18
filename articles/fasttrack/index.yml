@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: FastTrack for Azure Live
+title: FastTrack for Azure
 summary: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
 brand: azure 
 
 metadata:
-  title: FastTrack for Azure Live
+  title: FastTrack for Azure
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
   ms.prod: azure 
   ms.topic: hub-page

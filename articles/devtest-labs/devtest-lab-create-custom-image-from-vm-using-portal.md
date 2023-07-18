@@ -44,6 +44,6 @@ The custom image is created and stored in the lab's storage account. The image i
 ## Next steps
 
 - [Add a VM to your lab](devtest-lab-add-vm.md)
-- [Create a custom image from a VHD file](devtest-lab-create-template.md)
+- [Create a custom image from a VHD file for DevTest Labs](devtest-lab-create-template.md)
 - [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
 - [Create a custom image factory in Azure DevTest Labs](image-factory-create.md)

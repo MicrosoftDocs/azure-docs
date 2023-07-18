@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 06/19/2023
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./how-to-set-up-sensors-partner.md) to sign up being a sensor partner on the platform.
+Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments (sensorPartnerId: `DavisInstruments`). 
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 

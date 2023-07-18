@@ -2,7 +2,7 @@
 title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
 
@@ -41,7 +41,7 @@ Links are provided to more information for each supported scenario.
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
 > [!NOTE]
-> Auto-instrumentation was known as "codeless attach" before October 2021.
+> Autoinstrumentation was known as "codeless attach" before October 2021.
 
 ## JavaScript (Web) SDK Loader Script injection by configuration
 
@@ -54,6 +54,7 @@ If you’re using the following supported SDKs, you can configure the JavaScript
    |	:---	|	:---	|
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
    | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
+   | Java | [Browser SDK Loader](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 

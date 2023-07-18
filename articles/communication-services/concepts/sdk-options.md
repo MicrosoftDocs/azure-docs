@@ -31,7 +31,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Call Automation | [REST](/rest/api/communication/callautomation/server-calling) | Service| Build customized calling workflows for PSTN and VoIP calls|
+| Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service| Build customized calling workflows for PSTN and VoIP calls|
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
@@ -63,29 +63,30 @@ Publishing locations for individual SDK packages are detailed below.
 
 #### .NET
 
-Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
+Calling supports the platforms listed below.
 
-Support via .NET Framework 4.6.1
+- UWP with .NET Native or C++/WinRT
+  - Windows 10/11 10.0.17763 - 10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763 - 10.0.22621.0
+- WinUI3 with .NET 6
+  - Windows 10/11 10.0.17763.0 - net6.0-windows10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763.0 - net6.0-windows10.0.22621.0
+  
+All other Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
-- Windows 10, 8.1, 8 and 7
-- Windows Server 2012 R2, 2012 and 2008 R2 SP1
-
-Support via .NET Core 2.0:
-
-- Windows 10 (1607+), 7 SP1+, 8.1
-- Windows Server 2008 R2 SP1+
-- Max OS X 10.12+
-- Linux multiple versions/distributions
-- UWP 10.0.16299 (RS3) September 2017
-- Unity 2018.1
-- Mono 5.4
-- Xamarin iOS 10.14
-- Xamarin Mac 3.8
-
-The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
-
-- Windows 10 10.0.17763
-- Windows Server 2019 10.0.17763
+- Support via .NET Framework 4.6.1
+    - Windows 10, 8.1, 8 and 7
+    - Windows Server 2012 R2, 2012 and 2008 R2 SP1
+- Support via .NET Core 2.0:
+  - Windows 10 (1607+), 7 SP1+, 8.1
+  - Windows Server 2008 R2 SP1+
+  - Max OS X 10.12+
+  - Linux multiple versions/distributions
+  - UWP 10.0.16299 (RS3) September 2017
+  - Unity 2018.1
+  - Mono 5.4
+  - Xamarin iOS 10.14
+  - Xamarin Mac 3.8
 
 ## REST APIs
 

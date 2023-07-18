@@ -66,7 +66,7 @@ Before you grant tenant-wide admin consent, it's important to ensure that you tr
 
 When you're evaluating a request to grant admin consent, here are some recommendations to consider:
 
-- Understand the [permissions and consent framework](../develop/consent-framework.md) in the Microsoft identity platform.
+- Understand the [permissions and consent framework](../develop/permissions-consent-overview.md) in the Microsoft identity platform.
 
 - Understand the difference between [delegated permissions and application permissions](../develop/v2-permissions-and-consent.md#permission-types).
 

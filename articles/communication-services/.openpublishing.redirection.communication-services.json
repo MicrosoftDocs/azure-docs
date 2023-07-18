@@ -213,6 +213,11 @@
         "source_path_from_root": "/articles/communication-services/concepts/logging-and-diagnostics.md",
         "redirect_url": "/azure/communication-services/concepts/analytics/enable-logging",
         "redirect_document_id": true
+      },
+      {  
+        "source_path_from_root": "/articles/communication-services/samples/call-automation-appointment-reminder.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
       }
     ]
 }

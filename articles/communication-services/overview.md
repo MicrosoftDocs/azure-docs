@@ -79,6 +79,7 @@ Learn more about the Azure Communication Services SDKs with the resources listed
 |---                                    |---                                   |
 |**[SDK libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDK libraries to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
+|**[Call Automation overview](./concepts/call-automation/call-automation.md)**|Review the Communication Services Call Automation SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 |**[Email SDK overview](./concepts/email/sdk-features.md)**|Review the Communication Services SMS SDK overview.|

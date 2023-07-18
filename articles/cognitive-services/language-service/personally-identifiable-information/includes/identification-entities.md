@@ -992,7 +992,7 @@ The following entities are grouped and listed by country/region:
    :::column-end:::
 :::row-end:::
 
-### Hong Kong
+### Hong Kong Special Administrative Region
 
 :::row:::
     :::column span="":::

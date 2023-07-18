@@ -142,7 +142,9 @@
     items:
     - name: Assign licenses to users    
       href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Assign licenses to a group    
+    - name: Use Admin center to assign licenses to groups
+      href: licensing-admin-center.md
+    - name: Assign licenses to a group
       href: licensing-groups-assign.md
     - name: Resolve group license problems   
       href: licensing-groups-resolve-problems.md

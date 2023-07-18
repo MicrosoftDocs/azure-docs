@@ -5,8 +5,8 @@ description: Learn how to use Planned Maintenance to schedule and control cluste
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/17/2023
-ms.author: qpetraroia
-author: qpetraroia
+ms.author: nickoman
+author: nickomang
 ---
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
@@ -28,6 +28,8 @@ To configure Planned Maintenance using pre-created configurations, see [Use Plan
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+
+Be sure to upgrade Azure CLI to the latest version using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

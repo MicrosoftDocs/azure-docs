@@ -493,62 +493,54 @@ Learn more about Azure Maps REST services:
 > [!div class="nextstepaction"]
 > [Best practices for search](how-to-use-best-practices-for-search.md)
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[free account]: https://azure.microsoft.com/free/
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Route]: /rest/api/maps/route
-[Route Matrix]: /rest/api/maps/route/postroutematrixpreview
-[Search]: /rest/api/maps/search
-[Calculate routes and directions]: #calculate-routes-and-directions
-[Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
-[Render]: /rest/api/maps/render/getmapimage
-[Time Zone]: /rest/api/maps/timezone
-[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
-[Spatial operations]: /rest/api/maps/spatial
-[Traffic]: /rest/api/maps/traffic
-[Search for a location using Azure Maps Search services]: how-to-search-for-address.md
-[best practices for search]: how-to-use-best-practices-for-search.md
-
-[Localization support in Azure Maps]: supported-languages.md
-[Authentication with Azure Maps]: azure-maps-authentication.md
-[supported search categories]: supported-search-categories.md
-
-[Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
-[Structured address geocoding]: /rest/api/maps/search/getsearchaddressstructured
-[Batch address geocoding]: /rest/api/maps/search/postsearchaddressbatchpreview
-[Fuzzy search]: /rest/api/maps/search/getsearchfuzzy
-[Fuzzy batch search]: /rest/api/maps/search/postsearchfuzzybatchpreview
-
 [Address reverse geocoder]: /rest/api/maps/search/getsearchaddressreverse
-[Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
+[Batch address geocoding]: /rest/api/maps/search/postsearchaddressbatchpreview
 [Batch address reverse geocoder]: /rest/api/maps/search/postsearchaddressreversebatchpreview
-
-[POI search]: /rest/api/maps/search/getsearchpoi
-[POI category search]: /rest/api/maps/search/getsearchpoicategory
-[Nearby search]: /rest/api/maps/search/getsearchnearby
-[Search within geometry]: /rest/api/maps/search/postsearchinsidegeometry
-[Search along route]: /rest/api/maps/search/postsearchalongroute
-
-[supporting points]: /rest/api/maps/route/postroutedirections#supportingpoints
-[Calculate route]: /rest/api/maps/route/getroutedirections
 [Batch route]: /rest/api/maps/route/postroutedirectionsbatchpreview
-
-[calculating routable ranges]: /rest/api/maps/route/getrouterange
 [best practices for routing]: how-to-use-best-practices-for-routing.md
+[best practices for search]: how-to-use-best-practices-for-search.md
+[Calculate route]: /rest/api/maps/route/getroutedirections
+[Calculate routes and directions]: #calculate-routes-and-directions
+[calculating routable ranges]: /rest/api/maps/route/getrouterange
+[Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
+[documentation]: how-to-use-services-module.md
+[free account]: https://azure.microsoft.com/free/
+[Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
+[Fuzzy batch search]: /rest/api/maps/search/postsearchfuzzybatchpreview
+[Fuzzy search]: /rest/api/maps/search/getsearchfuzzy
+[GitHub project]: https://github.com/perfahlen/AzureMapsRestServices
+[Localization support in Azure Maps]: supported-languages.md
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
-[Render custom data on a raster map]: how-to-render-custom-data.md
-
-[Map tile]: /rest/api/maps/render/getmaptile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Upload pins and path data]: how-to-render-custom-data.md#upload-pins-and-path-data
+[Map tile]: /rest/api/maps/render/getmaptile
+[Nearby search]: /rest/api/maps/search/getsearchnearby
+[npm package]: https://www.npmjs.com/package/azure-maps-rest
+[NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
+[POI category search]: /rest/api/maps/search/getsearchpoicategory
+[POI search]: /rest/api/maps/search/getsearchpoi
+[Render custom data on a raster map]: how-to-render-custom-data.md
+[Render]: /rest/api/maps/render/getmapimage
+[Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
+[Route Matrix]: /rest/api/maps/route/postroutematrixpreview
+[Route]: /rest/api/maps/route
+[Search along route]: /rest/api/maps/search/postsearchalongroute
+[Search for a location using Azure Maps Search services]: how-to-search-for-address.md
+[Search within geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Search]: /rest/api/maps/search
+[Spatial operations]: /rest/api/maps/spatial
+[Structured address geocoding]: /rest/api/maps/search/getsearchaddressstructured
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[supported search categories]: supported-search-categories.md
+[supporting points]: /rest/api/maps/route/postroutedirections#supportingpoints
 [Time zone by ID]: /rest/api/maps/timezone/gettimezonebyid
 [Time zone Enum IANA]: /rest/api/maps/timezone/gettimezoneenumiana
 [Time zone Enum Windows]: /rest/api/maps/timezone/gettimezoneenumwindows
 [Time zone IANA version]: /rest/api/maps/timezone/gettimezoneianaversion
 [Time zone Windows to IANA]: /rest/api/maps/timezone/gettimezonewindowstoiana
-
-[documentation]: how-to-use-services-module.md
-[npm package]: https://www.npmjs.com/package/azure-maps-rest
-[GitHub project]: https://github.com/perfahlen/AzureMapsRestServices
-[NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
+[Time Zone]: /rest/api/maps/timezone
+[Traffic]: /rest/api/maps/traffic
+[Upload pins and path data]: how-to-render-custom-data.md#upload-pins-and-path-data

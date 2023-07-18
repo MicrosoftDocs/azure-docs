@@ -6,6 +6,7 @@ ms.author: troyhop
 ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Integrate IoT Central with Azure Pipelines for continuous integration and continuous delivery
