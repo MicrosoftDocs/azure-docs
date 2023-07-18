@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 07/17/2023
+ms.date: 07/18/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: python
@@ -19,7 +19,7 @@ This article shows you how to use Python to create and manage directories and fi
 
 To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Python to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md).
 
-[Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+[Package (PyPi)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## Prerequisites
 
@@ -51,9 +51,7 @@ from azure.identity import DefaultAzureCredential
 
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. This client object can be used to create
-
-You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
 
 ### [Azure AD](#tab/azure-ad)
 
@@ -101,8 +99,6 @@ You can create a directory reference in the container by using the following met
 
 - [FileSystemClient.create_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-create-directory)
 
-This example adds a directory named `my-directory` to a container.
-
 The following code example adds a directory to a container and returns a `DataLakeDirectoryClient` object for later use:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_CreateDirectory":::
@@ -137,7 +133,7 @@ You can upload data to be appended to a file by using the following method:
 
 - [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
 
-The following code example shows how to append data to a file and using these steps:
+The following code example shows how to append data to the end of a file using these steps:
 
 - Create a `DataLakeFileClient` object to represent the file resource you're working with.
 - Upload data to the file using the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
