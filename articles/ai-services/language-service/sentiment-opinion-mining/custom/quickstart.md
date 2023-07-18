@@ -40,4 +40,4 @@ When you start to create your own Custom sentiment analysis projects, use the ho
 * [Data selection](how-to/design-schema.md)
 * [Tag data](how-to/tag-data.md)
 * [Train a model](how-to/train-model.md)
-* [View model evaluation](how-to/view-model-evaluation.md)
+* [View the model's evaluation](how-to/view-model-evaluation.md)
