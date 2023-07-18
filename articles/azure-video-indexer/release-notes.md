@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Azure Video Indexer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
+Revisit this page to view the latest updates.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
@@ -54,7 +54,7 @@ Guidelines to customers: We're working on a new implementation without AMS and w
 
 ### API updates
 
-We're introducing a change in behavior that may requires a change to your existing query logic. The change is in the **List** and **Search** APIs, find a detailed change between the current and the new behavior in a table that follows. You may need to update your code to utilize the [new APIs](https://api-portal.videoindexer.ai/).
+We're introducing a change in behavior that may require a change to your existing query logic. The change is in the **List** and **Search** APIs, find a detailed change between the current and the new behavior in a table that follows. You may need to update your code to utilize the [new APIs](https://api-portal.videoindexer.ai/).
  
 |API	|Current|New|The update|
 |---|---|---|---|
@@ -63,7 +63,7 @@ We're introducing a change in behavior that may requires a change to your existi
 
 ### Support for HTTP/2
 
-Added support for HTTP/2 for our [Data Plane API](https://api-portal.videoindexer.ai/). [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) offers several benefits over HTTP/1.1, which continues to be supported for backwards compatibility. One of the main benefits of HTTP/2 is increased performance, better reliability and reduced system resource requirements over HTTP/1.1. With this change we now support HTTP/2 for both the Video Indexer [Portal](https://videoindexer.ai/) and our Data Plane API. We advise to update your code to take advantage of this change.
+Added support for HTTP/2 for our [Data Plane API](https://api-portal.videoindexer.ai/). [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) offers several benefits over HTTP/1.1, which continues to be supported for backwards compatibility. One of the main benefits of HTTP/2 is increased performance, better reliability and reduced system resource requirements over HTTP/1.1. With this change we now support HTTP/2 for both the Video Indexer [Portal](https://videoindexer.ai/) and our Data Plane API. We advise you to update your code to take advantage of this change.
 
 ### Topics insight improvements 
 
