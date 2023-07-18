@@ -21,14 +21,14 @@ Follow these steps to configure Service Health alerts:
     :::image type="content" source="media/health-alerts-step-2.png" alt-text="Screen shot of the health alert dashboard.":::
 
 1. In the Service Health Dashboard, select **Health Alerts**.
-    :::image type="content" source="media/health-alerts-step-3.png" alt-text="Screen shot of the health alert service issues.":::
+    :::image type="content" source="media/health-alerts-step-3.png" alt-text="Screenshot of the health alert service issues.":::
 
 1. Select **Create service health alert**.
 
-    :::image type="content" source="media/health-alerts-step-4.png" alt-text="Screen shot of create health service alert.":::
+    :::image type="content" source="media/health-alerts-step-4.png" alt-text="Screenshot of create health service alert.":::
 
 1. Deselect **Select all** under **Services**.
-    :::image type="content" source="media/health-alerts-step-5.png" alt-text="Screen shot of create health service alert rule.":::
+    :::image type="content" source="media/health-alerts-step-5.png" alt-text="Screenshot of create health service alert rule.":::
 
 1. Select **Azure Large Instances**.
 
@@ -36,7 +36,7 @@ Follow these steps to configure Service Health alerts:
 1. Under **Action Groups**, select **Create New**.
 1. Fill in the details and select the type of notification for the Action (Examples: Email, SMS, Voice).
 
-    :::image type="content" source="media/health-alerts-step-8.png" alt-text="Screen shot of create health service fill the details.":::
+    :::image type="content" source="media/health-alerts-step-8.png" alt-text="Screenshot of create health service fill the details.":::
 
 1. Click **OK** to add the Action.
 1. Click **OK** to add the Action Group.

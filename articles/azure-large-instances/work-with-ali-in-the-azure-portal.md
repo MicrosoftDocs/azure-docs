@@ -14,7 +14,7 @@ ms.date: 06/01/2023
 In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances (ALI).
 
 > [!Note]
-> For the time being, you will notice the BareMetal Infrastructure naming convention is still in use in the Azure portal. This will be replaced with ALI soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered synonyms with ALI.
+> For now, BareMetal Infrastructre or BareMetal Instances are being used synonyms with ALI.
 
 ## Register the resource provider
 
@@ -98,7 +98,7 @@ This new resource group lists the ALI you've deployed in that subscription.
 To see all your ALI instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
 ```azurecli
-az baremetalinstance list --resource-group DSM05A-T550 –output table
+az baremetalinstance list --resource-group MyResourceGroup –output table
 ```
 
 > [!TIP]
@@ -117,7 +117,7 @@ You can view the details of a single instance.
 
 In the list of ALI instances, select the single instance you want to view.
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot of the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
 
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
 On the left, you see the Resource group, Azure region, and subscription name and ID. 
@@ -156,7 +156,7 @@ The data listed includes:
 * Subscription ID
 * Azure user who triggered the activity
 
- :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
+ :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot of the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
 
 Changes to an instance's metadata in Azure also get recorded in the Activity log.
 Besides the restart, you can see the activity of **WriteBareMetalInstances**. 
@@ -210,7 +210,7 @@ Data collected includes:
 
 This information is important in support requests and when setting up a storage snapshot configuration.
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot showing how to restart the ALI instance.":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot of how to restart the ALI instance.":::
 
 ### Restart an ALI instance through the Azure portal
 
@@ -244,11 +244,11 @@ az baremetalinstance restart --resource-group MyResourceGroup --instance-name My
 You can submit support requests specifically for ALI instances.
 1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
  
-* **Issue type:** Select an issue type.
-* **Subscription:** Select your subscription.
-* **Service:** Select Epic on Azure
-* **Problem type:** Azure Large Instances (ALI) 
-* **Problem subtype:** Select a subtype for the problem.
+    * **Issue type:** Select an issue type.
+    * **Subscription:** Select your subscription.
+    * **Service:** Select Epic on Azure
+    * **Problem type:** Azure Large Instances (ALI) 
+    * **Problem subtype:** Select a subtype for the problem.
 
 1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.
 

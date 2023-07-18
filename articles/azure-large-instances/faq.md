@@ -4,6 +4,7 @@ description: Provides resolutions for common issues that arise in working with A
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
+ms.custom: references_regions
 ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---

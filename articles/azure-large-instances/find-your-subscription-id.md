@@ -13,19 +13,17 @@ This article explains how to find your ALI subscription ID.
 
 A *Subscription ID* is a unique identifier for your service in Azure. 
 You need it when interacting with the Microsoft Support team. 
+## Find subscription ID 
 To find your subscription ID, follow these steps:
 
 1. Go to [Azure support portal](https://portal.Azure.Com)
 2. From the left pane, select **Subscriptions**.
 3. A new blade called “Subscriptions” will open to display your subscriptions.
 
-    :::image type="content" source="media/subscription-id.png" alt-text="Screen shot of the subscriptions.":::
+    :::image type="content" source="media/subscription-id.png" alt-text="Screenshot of the subscriptions id.":::
 
 1. Choose the subscription you have used for ALI.
 
-## Next steps
-Learn how to identify and interact with ALI through the Azure portal.
 
-> [What is Azure Large Instances?](what-is-azure-large-instances.md)
 
 
