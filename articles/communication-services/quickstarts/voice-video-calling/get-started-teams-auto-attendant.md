@@ -18,7 +18,7 @@ ms.custom: mode-other, devx-track-js
 Teams Auto Attendant is system that provides an automated call handling system for incoming calls. It serves as a virtual receptionist, allowing callers to be automatically routed to the appropriate person or department without the need for a human operator.
 Description how to create Auto Attendant using Teams Admin portal [Instructions](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info).
 
-## Find ObjectID forAuto Attendant
+## Find ObjectID for Auto Attendant
 
 After Auto Attendant is created, we need to find correlated ObjectID to use it later for calls. ObjectID is connected to Resource Account that was attached to Auto Attendant - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email of account.
 :::image type="content" source="../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::

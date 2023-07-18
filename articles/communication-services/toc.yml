@@ -102,7 +102,7 @@ items:
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
-        - name: Connect to Auto
+        - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
     - name: Connect to a Room call
       items:
