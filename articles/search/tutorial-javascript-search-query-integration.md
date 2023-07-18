@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/30/2023
+ms.date: 07/18/2023
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
