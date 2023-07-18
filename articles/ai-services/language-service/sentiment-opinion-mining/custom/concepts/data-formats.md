@@ -15,11 +15,11 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # Accepted custom sentiment analysis data formats
 
-If you are trying to [import your data](../how-to/create-project.md#import-project) into custom sentiment analysis, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/tag-data.md).
+If you are trying to [import your data](../how-to/create-project.md#import-a-custom-sentiment-analysis-project) into custom sentiment analysis, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/label-data.md).
 
 ## Labels file format
 
-Your Labels file should be in the `json` format below to be used in [importing](../how-to/create-project.md#import-project) your labels into a project.
+Your Labels file should be in the `json` format below to be used in [importing](../how-to/create-project.md#import-a-custom-sentiment-analysis-project) your labels into a project.
 
 ```json
 {
@@ -83,7 +83,7 @@ Your Labels file should be in the `json` format below to be used in [importing](
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../../language-support.md#multi-lingual-option-custom-sentiment-analysis-only) to learn more about multilingual support. | `true`|
 |`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
 | storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | `sentimentSpans` | | Array containing all the sentiments and their locations in the document. |  |
@@ -95,10 +95,10 @@ Your Labels file should be in the `json` format below to be used in [importing](
 | `category` |  |  The sentiment associated with the span of text specified. | `positive`|
 | `offset` |  |  The start position for the entity text. | `25`|
 | `length` |  |  The length of the entity in terms of UTF16 characters. | `20`|
-| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../language-support.md) for more information about supported language codes. |`en-us`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../../language-support.md) for more information about supported language codes. |`en-us`|
 
 
 
 ## Next steps
-* You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
-* See the [how-to article](../how-to/tag-data.md)  more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  
+* You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-a-custom-sentiment-analysis-project)
+* See the [how-to article](../how-to/label-data.md)  more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  

@@ -38,6 +38,6 @@ After you've created a Custom sentiment analysis model, you can:
 When you start to create your own Custom sentiment analysis projects, use the how-to articles to learn more about developing your model in greater detail:
 
 * [Data selection](how-to/design-schema.md)
-* [Tag data](how-to/tag-data.md)
+* [Tag data](how-to/label-data.md)
 * [Train a model](how-to/train-model.md)
-* [View the model's evaluation](how-to/view-model-evaluation.md)
+<!--* [View the model's evaluation](how-to/view-model-evaluation.md)-->

@@ -1008,7 +1008,7 @@ items:
       - name: Concepts
         items:
           - name: Data formats
-            href: sentiment-opinion-mining/custom/data-formats.md
+            href: sentiment-opinion-mining/custom/concepts/data-formats.md
       - name: How-to guides
         items:
           - name: Data preparation
