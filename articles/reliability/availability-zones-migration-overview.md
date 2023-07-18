@@ -29,6 +29,7 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Functions](migrate-functions.md)|
 | [Azure Load Balancer](migrate-load-balancer.md)|
 | [Azure Service Fabric](migrate-service-fabric.md)  | 
+| [Azure SQL Database](migrate-sql-database.md) |
 | [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-vm.md)|
 | [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)|  

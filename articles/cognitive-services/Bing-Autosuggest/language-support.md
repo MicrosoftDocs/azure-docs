@@ -15,7 +15,7 @@ ms.date: 02/20/2019
 
 # Language and region support for the Bing Autosuggest API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The following lists the languages supported by Bing Autosuggest API.
 
