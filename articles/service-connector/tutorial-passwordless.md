@@ -14,7 +14,9 @@ zone_pivot_groups: passwordless
 
 # Tutorial: Create a passwordless connection to a database service via Service Connector
 
-Passwordless connections use managed identities to access Azure services. With this approach, you don't have to manually track and manage many different secrets for managed identities because these tasks are securely handled internally by Azure. Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database, to accept managed identities.
+Passwordless connections use managed identities to access Azure services. With this approach, you don't have to manually track and manage secrets for managed identities. These tasks are securely handled internally by Azure.
+
+Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database, to accept managed identities.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -27,13 +29,13 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.48.1 or higher.
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-* An app deployed to [Azure Web App](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
+* An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
 ### Setup environment
 
 #### Account
-Sign in with the Azure CLI via `az login`.
-If you're using Azure Cloud Shell or are already logged in, confirm your authenticated account with `az account show`.
+
+Sign in with the Azure CLI via `az login`. If you're using Azure Cloud Shell or are already logged in, confirm your authenticated account with `az account show`.
 
 #### Network connectivity
 
@@ -111,7 +113,7 @@ az webapp connection create postgres-flexible \
     --client-type java
 ```
 
-As for `--client-type`, you can use `az webapp connection create postgres-flexible -h` to get the supported client types and choose the one that matches your application.
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 
 ::: zone-end
