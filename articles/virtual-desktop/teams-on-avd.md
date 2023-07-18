@@ -141,9 +141,9 @@ To enable hardware encode:
 1. Set the value to **1** to enable the feature.
 1. Repeat these instructions for every client device.
 
-### Enable content sharing for Teams for Remote App
+### Enable content sharing for Teams for RemoteApp
 
-Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
+Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC Redirector Service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 To enable content sharing:
 
@@ -152,12 +152,12 @@ To enable content sharing:
 1. Add the **ShareClientDesktop** as a DWORD value.
 1. Set the value to **1** to enable the feature.
 
-### Disable desktop screen share for Teams for Remote App
+### Disable desktop screen share for Teams for RemoteApp
 
 You can disable desktop screen sharing for Teams on Azure Virtual Desktop. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 >[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remoteapp) before you can use this key.
 
 To disable desktop screen share:
 
@@ -166,12 +166,12 @@ To disable desktop screen share:
 1. Add the **DisableRAILScreensharing** as a DWORD value.
 1. Set the value to **1** to disable desktop screen share.
 
-### Disable application window sharing for Teams for Remote App
+### Disable application window sharing for Teams for RemoteApp
 
 You can disable application window sharing for Teams on Azure Virtual Desktop. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 >[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remoteapp) before you can use this key.
 
 To disable application window sharing:
 

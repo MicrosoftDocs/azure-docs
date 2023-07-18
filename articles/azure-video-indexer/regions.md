@@ -1,6 +1,6 @@
 ---
-title: Regions in which Azure Video Indexer is available  
-description: This article talks about Azure regions in which Azure Video Indexer is available.
+title: Regions in which Azure AI Video Indexer is available  
+description: This article talks about Azure regions in which Azure AI Video Indexer is available.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -8,17 +8,17 @@ ms.date: 09/14/2020
 ms.author: juliako
 ---
 
-# Azure regions in which Azure Video Indexer exists
+# Azure regions in which Azure AI Video Indexer exists
 
-Azure Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
+Azure AI Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Azure AI Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
 ## Locations
 
-The `location` parameter must be given the Azure region code name as its value. If you are using Azure Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can use the Azure portal or run a [Azure CLI](/cli/azure) command.
+The `location` parameter must be given the Azure region code name as its value. If you are using Azure AI Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can use the Azure portal or run a [Azure CLI](/cli/azure) command.
 
 ### Azure portal
 
-1. Sign in on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
+1. Sign in on the [Azure AI Video Indexer](https://www.videoindexer.ai/) website.
 1. Select **User accounts** from the top-right corner of the page.
 1. Find the location of your account in the top-right corner.  
 
