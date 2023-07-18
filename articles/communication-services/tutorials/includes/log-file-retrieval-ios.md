@@ -67,4 +67,3 @@ Here, `getSupportFiles()` is called from `debugInfo` of the `CallClient` object 
 ### Conclusion
 
 You have now integrated a basic log sharing feature in your iOS application. This feature enables users to easily share logs directly from the application, which can be crucial for debugging and support.
-

@@ -1,5 +1,5 @@
 ---
-title: Learn how to retrieve Log Files from the Calling SDK
+title: Log File Retrieval
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to retrieve Log Files from the Calling SDK for enhanced supportability.
 author: adamhammer
@@ -14,20 +14,22 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-# Log Sharing
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+# Retrieval and Sharing of support file tutorial.
 
 In this tutorial, you learn how to implement a basic log sharing mechanism.
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Android](./includes/log-sharing-android.md)]
+[!INCLUDE [Android](./includes/log-file-retrieval-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-[!INCLUDE [iOS](./includes/log-sharing-ios.md)]
+[!INCLUDE [iOS](./includes/log-file-retrieval-ios.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Windows](./includes/log-sharing-windows.md)]
+[!INCLUDE [Windows](./includes/log-file-retrieval-windows.md)]
 ::: zone-end
 
 ## Next steps

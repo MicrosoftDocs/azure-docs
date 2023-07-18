@@ -8,9 +8,9 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-# Overview of Log File Access
-
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+# Overview of Log File Access
 
 Log Sharing offers access to Log files, which help in building more effective support channels.
 
