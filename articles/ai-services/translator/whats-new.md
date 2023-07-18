@@ -27,6 +27,8 @@ Translator service supports language translation for more than 100 languages. If
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
+* Document Translation REST API v1.1 is now Generally Available (GA).
+
 ## June 2023
 
 **Documentation updates**
@@ -141,7 +143,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 * Translator service has added [text and document language support](language-support.md) for the following languages:
   * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three regional language groups: Southern, Eastern, and Northwestern.
-  * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island country of Maldives.
+  * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island nation of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
   * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It has approximately 2 million people.

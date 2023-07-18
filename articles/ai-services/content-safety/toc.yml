@@ -23,8 +23,10 @@ items:
     href: quickstart-image.md
 - name: Samples 
   items: 
-  - name: Content Safety samples
+  - name: Content Safety Python samples
     href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety/samples
+  - name: Content Safety C# samples
+    href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety/samples
 - name: Responsible use of AI
   items:
   - name: Transparency note
@@ -51,6 +53,8 @@ items:
     href: https://aka.ms/content-safety-api
   - name: Content Safety Python SDK
     href: https://aka.ms/content-safety-python-sdk
+  - name: Content Safety C# SDK
+    href: https://aka.ms/content-safety-csharp-sdk
   - name: Response codes
     href: concepts/response-codes.md
 - name: Resources
