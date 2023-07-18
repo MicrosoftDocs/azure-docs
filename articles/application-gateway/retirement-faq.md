@@ -16,7 +16,7 @@ On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers aren't allowed to create v1 from 4 July 2023. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers aren't allowed to create v1 from 1 July 2023. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
