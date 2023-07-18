@@ -208,8 +208,6 @@ You can use the `context` object to invoke other functions by name, pass paramet
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
 ```PowerShell
 param($Context)
 
@@ -224,8 +222,6 @@ You can use the `Invoke-DurableActivity` command to invoke other functions by na
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
 ```java
 @FunctionName("Chaining")
 public double functionChaining(
@@ -239,8 +235,6 @@ public double functionChaining(
 ```
 
 You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
-
----
 
 ::: zone-end
 
@@ -427,8 +421,6 @@ The automatic checkpointing that happens at the `yield` call on `context.task_al
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
 ```PowerShell
 param($Context)
 
@@ -454,8 +446,6 @@ The automatic checkpointing that happens at the `Wait-ActivityFunction` call ens
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
 ```java
 @FunctionName("FanOutFanIn")
 public Integer fanOutFanInOrchestrator(
@@ -477,8 +467,6 @@ public Integer fanOutFanInOrchestrator(
 The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `ctx.allOf(parallelTasks).await()` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and returned as the orchestrator function's output.
 
 The automatic checkpointing that happens at the `.await()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
-
----
 
 ::: zone-end
 
@@ -727,8 +715,6 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
 ```powershell
 param($Context)
 
@@ -759,8 +745,6 @@ $output
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
 ```java
 @FunctionName("Monitor")
 public String monitorOrchestrator(
@@ -787,7 +771,6 @@ public String monitorOrchestrator(
     return "done";
 }
 ```
----
 
 ::: zone-end
 
@@ -984,8 +967,6 @@ To create the durable timer, call `context.create_timer`. The notification is re
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
 ```powershell
 param($Context)
 
@@ -1016,8 +997,6 @@ To create the durable timer, call `Start-DurableTimer`. The notification is rece
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
 ```java
 @FunctionName("ApprovalWorkflow")
 public void approvalWorkflow(
@@ -1039,8 +1018,6 @@ public void approvalWorkflow(
 ```
 
 The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
-
----
 
 ::: zone-end
 
@@ -1150,8 +1127,6 @@ async def main(client: str):
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
 ```powershell
 
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
@@ -1160,8 +1135,6 @@ Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -Ev
 
 ::: zone-end
 ::: zone pivot="java"
-
-# [Java](#tab/java)
 
 ```java
 @FunctionName("RaiseEventToOrchestration")
@@ -1173,7 +1146,6 @@ public void raiseEventToOrchestration(
     client.raiseEvent(instanceId, "ApprovalEvent", true);
 }
 ```
----
 
 ::: zone-end
 
@@ -1339,18 +1311,14 @@ def entity_function(context: df.DurableOrchestrationContext):
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
-Durable entities are currently not supported in PowerShell.
+> [!NOTE]
+> Durable entities are currently not supported in PowerShell.
 
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
-Durable entities are currently not supported in Java.
-
----
+> [!NOTE]
+> Durable entities are currently not supported in Java.
 
 ::: zone-end
 ::: zone pivot="csharp"
@@ -1447,18 +1415,14 @@ async def main(req: func.HttpRequest, client) -> func.HttpResponse:
 ::: zone-end
 ::: zone pivot="powershell"
 
-# [PowerShell](#tab/powershell)
-
-Durable entities are currently not supported in PowerShell.
+> [!NOTE]
+> Durable entities are currently not supported in PowerShell.
 
 ::: zone-end
 ::: zone pivot="java"
 
-# [Java](#tab/java)
-
-Durable entities are currently not supported in Java.
-
----
+> [!NOTE]
+> Durable entities are currently not supported in Java.
 
 ::: zone-end
 
