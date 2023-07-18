@@ -14,7 +14,7 @@ ms.subservice: common
 ---
 # Failover Considerations for Storage Accounts with Private Endpoints
 
-Storage accounts work different than many other Azure services when it comes to high availability configurations.  They don't often use a secondary instance deployed by the customer for resiliency.  Instead,storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicates to another region, based on [regional pairs](/azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
+Storage accounts work different than many other Azure services when it comes to high availability configurations.  They don't often use a secondary instance deployed by the customer for resiliency.  Instead, storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicate to another region, based on [regional pairs](/azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
 
 This feature means that customers don't need to plan to have a second storage account already running in their second region. You could have multiple storage accounts and use customer managed operations to move data between them, but that is an uncommon pattern.
 
