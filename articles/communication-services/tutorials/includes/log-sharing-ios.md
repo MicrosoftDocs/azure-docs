@@ -1,6 +1,6 @@
 # Integration of Log Sharing Feature Using CallingSDK and SSZipArchive
 
-In this tutorial, we guide you through the process of integrating a log sharing feature into an iOS application. Once complete you will be able to collect the log files into a Zip File, and use the iOS built in ShareSheet to allow exporting from the device.
+In this tutorial, we guide you through the process of integrating a log sharing feature into an iOS application. Once complete you'll be able to collect the log files into a Zip File, and use the iOS built in ShareSheet to allow exporting from the device.
 
 ## Prerequisites
 
