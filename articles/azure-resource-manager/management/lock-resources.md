@@ -75,6 +75,10 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
+- A read-only lock on a **resource group** that contains a **virtual machine** prevents users from moving the the VM out of the resource group.
+
+- A read-only lock on a **resource group** prevents users from moving any new **resource** into that resource group.
+
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 
 - A cannot-delete lock on a **resource** or **resource group** prevents the deletion of Azure RBAC assignments.
