@@ -1,6 +1,20 @@
+---
+title: Failover Considerations for Storage Accounts with Private Endpoints
+titleSuffix: Azure Storage
+description: Learn how to architect highly available storage accounts using Private Endpoints
+services: storage
+author: brsteph
+
+ms.service: storage
+ms.topic: conceptual
+ms.date: 05/07/2021
+ms.author: brsteph
+ms.subservice: common 
+
+---
 # Failover Considerations for Storage Accounts with Private Endpoints
 
-Storage accounts work different than many other Azure services when it comes to high availability configurations.  They do not often use a secondary instance deployed by the customer for resiliency.  Instead,storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicates to another region, based on [regional pairs](azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
+Storage accounts work different than many other Azure services when it comes to high availability configurations.  They do not often use a secondary instance deployed by the customer for resiliency.  Instead,storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicates to another region, based on [regional pairs](azure/reliability/cross-region-replication-azure.md).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
 
 This feature means that customers don't need to plan to have a second storage account already running in their second region. You could have multiple storage accounts and use customer managed operations to move data between them, but that is an uncommon pattern.
 
@@ -127,8 +141,11 @@ While both regions are healthy, the service will operate as illustrated:
 
 As part of planning for your storage account resiliency, you can review the following for more information:
 
-- [Well-Architected Framework Reliability Pillar](azure/well-architected/resiliency/overview)
+- [Well-Architected Framework Reliability Pillar](/azure/well-architected/resiliency/overview)
 - [Storage Account Overview](./storage-account-overview.md)
 - [Azure Storage redundancy](./storage-redundancy.md)
-- [Cross region replication](azure/reliability/cross-region-replication-azure)
+- [Initiate Account Failover](./storage-initiate-account-failover.md)
+- [Cross region replication](/azure/reliability/cross-region-replication-azure)
 - [Private endpoint DNS](../../private-link/private-endpoint-dns.md)
+
+https://review.learn.microsoft.com/en-us/azure/storage/common/azure/reliability/cross-region-replication-azure?branch=pr-en-us-245199
