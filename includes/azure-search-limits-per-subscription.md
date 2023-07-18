@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-You can create multiple search services, limited only by the number of services allowed at each tier. For example, you could create up to 16 services at the Basic tier and another 16 services at the S1 tier within the same subscription. For more information about tiers, see [Choose an SKU or tier for Azure Cognitive Search](../articles/search/search-sku-tier.md).
+You can create multiple *billable* search services (Basic and higher), limited only by the number of services allowed at each tier. For example, you could create up to 16 services at the Basic tier and another 16 services at the S1 tier within the same subscription. For more information about tiers, see [Choose an SKU or tier for Azure Cognitive Search](../articles/search/search-sku-tier.md).
 
 Maximum service limits can be raised upon request. If you need more services within the same subscription, [file a support request](../articles/search/search-create-service-portal.md#add-more-services-to-a-subscription).
 
