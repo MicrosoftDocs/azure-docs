@@ -80,7 +80,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. Select **Access keys** from the Resource menu and write down/copy the Primary connection string field. This string is used to connect to the cache.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot showing the the primary access key highlighted with a red box.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot showing the primary access key highlighted with a red box.":::
 
 ### Set up the example code
 
