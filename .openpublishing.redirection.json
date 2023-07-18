@@ -24034,6 +24034,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
+            "redirect_url": "/azure/virtual-machines/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
             "redirect_document_id": false
