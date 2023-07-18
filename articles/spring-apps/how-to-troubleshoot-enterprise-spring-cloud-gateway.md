@@ -105,7 +105,7 @@ Use the following steps to directly create alert rules from the Azure portal for
 1. Open your Azure Spring Apps instance.
 1. Navigate to **Logs** or **Metrics**.
 1. Write the log query in the **Logs** pane, or add a metrics chart.
-1. Select the **New alert rule**. This action takes you to the **Create an alert rule** pane, and the log query or the metrics is filled out automatically.
+1. Select **New alert rule**. This action takes you to the **Create an alert rule** pane, and the log query or the metrics is filled out automatically.
 
 You can now configure the alert rule details.
 
