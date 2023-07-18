@@ -19,7 +19,7 @@ You can use any of the following resources for a training compute target for mos
 |----|:----:|:----:|:----:|
 |[Local computer](~/articles/machine-learning/v1/how-to-train-model.md#local-computer)| Yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](~/articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
-|[Azure Machine Learning compute instance](~/articles/machine-learning/how-to-create-manage-compute-instance.md) | Yes (through SDK)  | Yes | Yes |
+|[Azure Machine Learning compute instance](~/articles/machine-learning/how-to-create-compute-instance.md) | Yes (through SDK)  | Yes | Yes |
 |[Azure Machine Learning Kubernetes](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | | Yes | Yes |
 |[Remote VM](~/articles/machine-learning/v1/how-to-train-model.md#remote-virtual-machines) | Yes  | Yes | &nbsp; |
 |[Apache Spark pools (preview)](~/articles/machine-learning/v1/how-to-train-model.md#synapse)| Yes (SDK local mode only) | Yes | &nbsp; |
@@ -29,4 +29,4 @@ You can use any of the following resources for a training compute target for mos
 |[Azure Batch](~/articles/machine-learning/v1/how-to-train-model.md#azbatch) | &nbsp; | Yes | &nbsp; |
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](~/articles/machine-learning/how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](~/articles/machine-learning/how-to-create-manage-compute-instance.md#manage) the compute instance.
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](~/articles/machine-learning/how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](~/articles/machine-learning/how-to-manage-compute-instance.md#manage) the compute instance.

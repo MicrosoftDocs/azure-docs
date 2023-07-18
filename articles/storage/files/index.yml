@@ -7,8 +7,7 @@ metadata:
   title: Azure Files documentation
   description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
   services: storage
-  ms.service: storage
-  ms.subservice: files
+  ms.service: azure-file-storage
   ms.topic: landing-page
   ms.collection: collection
   author: khdownie

@@ -10,7 +10,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Quickstart: Back up SAP HANA System Replication on Azure VMs using Azure CLI (preview)
+# Quickstart: Back up SAP HANA System Replication on Azure VMs using Azure CLI
 
 This quickstart describes how to protect SAP HANA System Replication (HSR) using Azure CLI.
 

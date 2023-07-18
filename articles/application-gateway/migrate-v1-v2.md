@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/05/2023
 ms.author: greglin
 ---
 
@@ -23,6 +23,17 @@ There are two stages in a migration:
 2. Migrate the client traffic
 
 This article primarily helps with the configuration migration. The traffic migration would vary depending on customer’s needs and environment. But we have included some general recommendations further in this [article](#traffic-migration).
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An existing Application Gateway V1 Standard.
+* Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
+* If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Configuration migration 
 
@@ -111,9 +122,9 @@ To run the script:
    * **sslCertificates from Keyvault: Optional**.You can download the certificates stored in Azure Key Vault and pass it to migration script.To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
 
      ```azurepowershell
-      $vaultName = <kv-name>
-      $certificateName = <cert-name>
-      $password = <password>
+      $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
+      $certificateName = ConvertTo-SecureString <cert-name> -AsPlainText -Force
+      $password = ConvertTo-SecureString <password> -AsPlainText -Force
       
       $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
       $secretByte = [Convert]::FromBase64String($pfxSecret)

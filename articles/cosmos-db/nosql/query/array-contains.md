@@ -21,7 +21,7 @@ Returns a boolean indicating whether the array contains the specified value. You
 ## Syntax
   
 ```sql
-ARRAY_CONTAINS (<array_expr>, <expr> [, <bool_expr>])  
+ARRAY_CONTAINS(<array_expr>, <expr> [, <bool_expr>])  
 ```  
   
 ## Arguments
@@ -39,30 +39,10 @@ Returns a boolean value.
 ## Examples
   
 The following example illustrates how to check for specific values or objects in an array using this function.  
-  
-```sql
-SELECT VALUE {
-    containsItem: ARRAY_CONTAINS(["coats", "jackets", "sweatshirts"], "coats"),
-    missingItem: ARRAY_CONTAINS(["coats", "jackets", "sweatshirts"], "hoodies"),
-    containsFullMatchObject: ARRAY_CONTAINS([{ category: "shirts", color: "blue" }], { category: "shirts", color: "blue" }),
-    missingFullMatchObject: ARRAY_CONTAINS([{ category: "shirts", color: "blue" }], { category: "shirts" }),
-    containsPartialMatchObject: ARRAY_CONTAINS([{ category: "shirts", color: "blue" }], { category: "shirts" }, true),
-    missingPartialMatchObject: ARRAY_CONTAINS([{ category: "shirts", color: "blue" }], { category: "shorts", color: "blue" }, true)
-}
-```
-  
-```json
-[
-  {
-    "containsItem": true,
-    "missingItem": false,
-    "containsFullMatchObject": true,
-    "missingFullMatchObject": false,
-    "containsPartialMatchObject": true,
-    "missingPartialMatchObject": false
-  }
-]
-```
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-contains/query.sql" highlight="2-7":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-contains/result.json":::
 
 ## Remarks
 
