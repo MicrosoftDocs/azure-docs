@@ -1,25 +1,28 @@
 ---
-title: Require MFA for administrators with Conditional Access
-description: Create a custom Conditional Access policy to require administrators to perform multifactor authentication
+title: Require phishing-resistant multifactor authentication for Azure AD administrator roles
+description: Create a Conditional Access policy requiring stronger authentication methods for highly privileged roles in your organization.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, lhuangnorth
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Common Conditional Access policy: Require MFA for administrators
+# Common Conditional Access policy: Require phishing-resistant multifactor authentication for administrators
 
-Accounts that are assigned administrative rights are targeted by attackers. Requiring multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
+Accounts that are assigned highly privileged administrative rights are frequent targets of attackers. Requiring phishing-resistant multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
 
-Microsoft recommends you require MFA on the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
+> [!CAUTION]
+> Before creating a policy requiring phishing-resistant multifactor authentication, ensure your administrators have the appropriate methods registered. If you enable this policy without completing this step you risk locking yourself out of your tenant.
+
+Microsoft recommends you require phishing-resistant multifactor authentication on the following roles at a minimum:
 
 - Global Administrator
 - Application Administrator
@@ -44,8 +47,6 @@ Organizations can choose to include or exclude roles as they see fit.
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]
 
 ## Create a Conditional Access policy
-
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multifactor authentication.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
@@ -74,7 +75,7 @@ The following steps will help create a Conditional Access policy to require thos
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require authentication strength**, select **Phishing-resistant MFA**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 

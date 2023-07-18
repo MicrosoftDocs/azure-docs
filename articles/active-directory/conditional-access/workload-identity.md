@@ -42,14 +42,14 @@ Conditional Access for workload identities enables blocking service principals f
 
 Create a location based Conditional Access policy that applies to service principals.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **What does this policy apply to?**, select **Workload identities**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
-1. Under **Cloud apps or actions**, select **All cloud apps**. The policy applies only when a service principal requests a token.
+1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**. The policy applies only when a service principal requests a token.
 1. Under **Conditions** > **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access.
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
@@ -61,14 +61,14 @@ Create a risk-based Conditional Access policy that applies to service principals
 
 :::image type="content" source="media/workload-identity/conditional-access-workload-identity-risk-policy.png" alt-text="Creating a Conditional Access policy with a workload identity and risk as a condition." lightbox="media/workload-identity/conditional-access-workload-identity-risk-policy.png":::
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **What does this policy apply to?**, select **Workload identities**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
-1. Under **Cloud apps or actions**, select **All cloud apps**. The policy applies only when a service principal requests a token.
+1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**. The policy applies only when a service principal requests a token.
 1. Under **Conditions** > **Service principal risk**
    1. Set the **Configure** toggle to **Yes**.
    1. Select the levels of risk where you want this policy to trigger.

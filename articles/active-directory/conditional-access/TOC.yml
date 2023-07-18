@@ -68,6 +68,8 @@
     items: 
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require phishing-resistant MFA for administrators
+      href: how-to-policy-phish-resistant-admin-mfa.md
     - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
