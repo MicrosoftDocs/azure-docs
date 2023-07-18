@@ -181,12 +181,12 @@ AzureLogger.log = (...args) => {
 };
 ```
 
-# Beta: iOS/Windows/Android Log Filename Access
+# Accessing Support Files in the Calling SDK
 
 Calling SDK provides convenience methods to get access to the Log Locations. It's recommended to implement a user facing mechanism for error-reporting that includes these files when escalating support requests, as it can be difficult for an end-user to access or supply these files.
 
 [Log Sharing Tutorials](../tutorials/log-sharing-tutorial.md)
-[Log Sharing Conceptual Document](../concepts/voice-video-calling/log-sharing-concept.md)
+[Log Sharing Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
 
 # [iOS](#tab/ios)
 
