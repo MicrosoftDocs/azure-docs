@@ -1106,6 +1106,8 @@
       "searchScope": {
         "articles/advisor/**/*.md": ["Azure","Azure Advisor"],
         "articles/advisor/**/*.yml": ["Azure","Azure Advisor"],
+        "articles/aks/**/*.md": ["Azure", "Azure Kubernetes Service"],
+        "articles/aks/**/*.yml": ["Azure", "Azure Kubernetes Service"],
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
         "articles/azure-app-configuration/**/*.yml": ["Azure","AppConfig"],
