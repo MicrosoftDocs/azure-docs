@@ -1,8 +1,8 @@
 ---
-title: Azure Calling SDK    # Add a title for the browser tab
+title: Azure Calling SDK - Log File Access   # Add a title for the browser tab
 description: Learn how to access the Log Files to build support tooling
-author:      ahammer # GitHub alias
-ms.author:   adamhammer # Microsoft alias
+author:      ahammer
+ms.author:   adamhammer
 ms.service:  azure-communication-services
 ms.topic:    conceptual
 ms.date:     07/17/2023
@@ -20,46 +20,42 @@ In order to have effective support, occasionally log files will be requested. As
 
 The support files list includes all files that will enable Microsoft Support to thoroughly investigate a wide range of potential issues.
 
-## Integration Guidance
+## How to Utilize this functionality
 
-When creating a user-interface for this feature, the following suggestions can help guide direction.
+When designing a user-interface for the feature, keep these tips in mind. The key idea is to make it easy for users to report an error and share related log files.
 
-Ultimately, you'll want to address this user story *"As an end user, I'd like to be able to Report and error, and attach the Log Files at the time of error"*.
+Think about this scenario: "I'm using your app and encounter a problem. I want to report this error and send you the log files so your support team can look into it."
 
-While your approach may vary, the goal is to have your Support team have access to these files close to the time of issue, so that they can hand the files over to microsoft if requested.
+While every company is different, the aim is for your support team to receive these files as soon as possible. That way, if Microsoft asks for them, your team is ready.
 
-The following is a suggestion on how a typical organization with a Ticket System and access to online Storage Blob's may proceed, however depending on your organizations tooling/support processes and resources this may vary.
+## Common Use Cases
 
-### Backend Integration
+### Report an Issue Dialog
 
-It's sensible to create a back-end API that can be used to create Support Tickets, Upload files to a Bucket and link the Issues and files. It's important to encapsulate this on your back-end to help prevent resource abuse.
+Implementing the ability for the user to report an issue with a call, and including the logs is the most straightforward way to implement such a feature. When the user reports an issue, the log files can be retrieved and submitted to a ticketing system.
 
-1. Add Multi-part POST API endpoint for "createCallSupportTicket" in your applications backend
-1. Create Support Ticket (with customer data and call id's)
-1. Upload Logs to Blob Storage from Server
-1. Link URL of Logs to the Support Ticket
+### Collect via End of Call Survey
 
-### Frontend Integration
+You can actively request users to report issues during the end of call survey. This is a good time for the end user to volunteer any issues with the call and include logs for further diagnostics.
 
-Various options exist on how to integrate this into the UI of your applications. Any combination of approaches is valid, but remember it's best to collect this data as close to the issue as possible.
+### Request logs via Push Notification
 
-- Offer a "report issue" feature
-    1. Add a screen/dialog to report issues for the user to invoke
-    1. When submitting issue, call your API, and pass the log files to the Server
-- Extend post-call survey to include "report an issue"
-    1. Add "report an issue" checkbox
-    1. Add "more info" for issues.
-    1. When "report an issue" is checked, call your API to create the ticket and link the support files
-- Integrate via Push-Notification
-    1. Create a new Push-Type for requesting log files
-    1. Support initiates push request for support files
-    1. Present user with a notification requesting access to log files
-    1. On user confirmation, call your API to Create or Link a Ticket and Log files
-- Direct Sharing
-    1. Add an "Export Logs" function to the client application
-    1. Package files on the client device.
-    1. Use the systems built-in share functionality to transmit the files.
+For those that would not want to rely on User's providing logs, but a more automated retrieval push notifications can be used. In this flow, the application received a Push Notification that requests the logs. After the user receives the Push they can authorize the request and have the logs submitted. This approach is more pro-active on the application developers part, and allows them to actively request logs when required.
 
+### Auto-Detection of Failures
+
+When call issues/errors are detected, the Report an Issue prompt can be presented, or an automated collection of logs can occur. This is more pro-active versus relying on the users choice, however can lead to unnecessary log collection.
+
+# Deciding on the right approach
+
+Each organization will have varying needs in regards to this feature, it is useful to ask yourself some of the following questions: 
+- Have logs been requested in the past? 
+- Do you actively engage with Azure Support? 
+- What resources are available to your support services? 
+- Do you use any preview features?
+- Is your use-case complicated?
+
+Reflecting on these questions will help you decide the proper approach when it comes to support tools and the need to collect logs.
 
 ## More Reading
 
