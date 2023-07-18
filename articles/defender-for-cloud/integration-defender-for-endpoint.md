@@ -258,6 +258,16 @@ Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to ver
 
 Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
 
+##### Manage automatic updates configuration for Linux
+
+In Windows, Defender for Endpoint version updates are provided via continuous KB updates; in Linux you need to update the Defender for Endpoint package. When you use Defender for Servers with the  `MDE.Linux` extension, automatic updates for Microsoft Defender for Endpoint are enabled by default. If you wish to manage the Defender for Endpoint version updates manually, you can disable automatic updates on your machines. To do so, add the following tag for machines onboarded with the  `MDE.Linux` extension.
+
+- Tag name: 'ExcludeMdeAutoUpdate'
+- Tag value:  'true'
+
+This configuration is supported for Azure VMs and Azure Arc machines, where the `MDE.Linux` extension initiates auto-update.
+
+
 ### Enable the MDE unified solution at scale
 
 You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
@@ -349,9 +359,6 @@ To remove the Defender for Endpoint solution from your machines:
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
 
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
-
-## Manage automatic updates configuration for Linux
-
 
 ## Next steps
 
