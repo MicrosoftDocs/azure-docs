@@ -139,7 +139,7 @@ The following table summarizes the features of the hot, cool, cold, and archive 
 |  | **Hot tier** | **Cool tier** | **Cold tier (preview)** |**Archive tier** |
 |--|--|--|--|--|
 | **Availability** | 99.9% | 99% | 99% | 99% |
-| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.999% | 99.999% | 99.999% |
+| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.9% | 99.9% | 99.9% |
 | **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
 | **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 90 days<sup>1</sup> | 180 days |
 | **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Milliseconds | Hours<sup>2</sup> |
@@ -204,38 +204,7 @@ The cold tier is currently in PREVIEW and is available in all public regions.
 
 ### Enrolling in the preview 
 
-To get started, enroll in the preview by using this [form](https://forms.office.com/r/788B1gr3Nq).
-
-You'll receive an email notification when your application is approved and the `ColdTier` feature flag will be registered on your subscription.
-
-### Verifying that you enrolled in the preview
-
-If the `ColdTier` feature flag is registered on your subscription, then you are enrolled in the preview, and you can begin using the cold tier. Use the following steps to ensure that the feature is registered.
-
-#### [Portal](#tab/azure-portal)
-
-In the **Preview features** page of your subscription, locate the **ColdTier** feature, and then make sure that **Registered** appears in the **State** column.
-
-> [!div class="mx-imgBorder"]
-> ![Verify that the feature is registered in Azure portal](./media/access-tiers-overview/cold-tier-feature-registration.png)
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName ColdTier
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name ColdTier
-```
-
----
+You can validate cold tier on a general-purpose v2 storage account from any subscription in Azure public cloud. It's still recommended to share your scenario in the [preview form](https://forms.office.com/r/788B1gr3Nq).
 
 ### Limitations and known issues
 

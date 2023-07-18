@@ -116,6 +116,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tanium-cloud-sso-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tanium-sso-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/firstbird-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/radancys-employee-referrals-tutorial",
       "redirect_document_id": false
@@ -4368,6 +4373,11 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/user-token.md",
       "redirect_url": "/azure/active-directory/external-identities/user-token",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/customize-branding.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
       "redirect_document_id": true
     },
     {

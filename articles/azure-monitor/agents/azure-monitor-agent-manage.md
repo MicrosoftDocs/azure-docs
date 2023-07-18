@@ -2,8 +2,8 @@
 title: Manage Azure Monitor Agent
 description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 1/30/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth

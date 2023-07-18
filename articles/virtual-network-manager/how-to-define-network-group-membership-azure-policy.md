@@ -11,7 +11,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy
 
-In this article, you learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
+In this article, you learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. Also, you learn how to use the advanced editor to update conditional statements of an existing network group.
 
 [Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition continues to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
 
@@ -22,10 +22,10 @@ In this article, you learn how to use Azure Policy conditional statements to cre
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Pre-requisites
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported.
+- To modify dynamic network groups, you must be [granted access with role-based access control](concept-network-groups.md#network-groups-and-azure-policy). Classic Admin/legacy authorization isn't supported.
 ## <a name="parameters"></a> Parameters and operators
 
 Virtual networks with dynamic memberships are selected using conditional statements. You can define more than one conditional statement by using *logical operators* such as **AND** and **OR** for scenarios where you need to further narrow the selected virtual networks. 
@@ -66,10 +66,13 @@ List of supported operators:
 ## Basic editor
 
 Assume you have the following virtual networks in your subscription. Each virtual network has an associated tag named **environment** with the respective value of *Production* or *Test*. 
-* myVNet01-EastUS - *Production*
-* myVNet01-WestUS - *Production*
-* myVNet02-WestUS - *Test*
-* myVNet03-WestUS - *Test*
+
+| **Virtual Network** | **Tag** |
+| ------------------- | ------- |
+| myVNet01-EastUS | Production |
+| myVNet01-WestUS | Production |
+| myVNet02-WestUS | Test |
+| myVNet03-WestUS | Test |
 
 You only want to select virtual networks that contain **VNet-A** in the name. To begin using the basic editor to create your conditional statement, you need to create a new network group.
 
@@ -210,7 +213,7 @@ Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is
 
 ### Example 3: Using custom tag values with advanced editor
 
-In this example, a conditional statement is created that finds virtual networks where the name includes **myVNet** AND the **environment** tag equals **production**.
+In this example, a conditional statement is created that finds virtual networks where the name includes **myVNet** AND the **environment** tag includes **production**.
 
 * Advanced editor:
 
@@ -224,7 +227,7 @@ In this example, a conditional statement is created that finds virtual networks 
             },      
             {
                "field": "tags['environment']",
-               "equals": "production"
+               "contains": "production"
             }
           ]    
      }
