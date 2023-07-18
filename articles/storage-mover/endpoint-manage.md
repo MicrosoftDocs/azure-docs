@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 07/17/2023
 ms.custom: template-how-to
 ---
 
@@ -27,7 +27,9 @@ Current doc score: 100 (2032 words and 0 issues)
 
 # Manage Azure Storage Mover endpoints
 
-While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail. An endpoint resource contains the path to the storage location and other relevant information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
+While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail.
+
+A storage mover endpoint is a resource that contains the path to either a source or destination location and other relevant information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
 
 This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
@@ -35,28 +37,61 @@ After you complete the steps within this article, you'll be able to create and m
 
 ## Endpoint resource overview
 
-Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationship between a Storage Mover and its projects.
+Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationships between a Storage Mover, its endpoints, and its projects.
 
-Because migrations require well-defined source and target locations and can be independently reused, endpoint resources are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
+Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB (Server Message Block) shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
-Currently, endpoints support NFS (Network File System) and SMB (Server Message Block) protocols.
+Currently, endpoints support NFS and SMB protocols. The steps to create the endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.
+
+As previously mentioned, only certain types of endpoints may be used as a source or a target, respectively. The following table is used to identify the supported source:destination scenarios:
+
+|Protocol   |Source        |Destination                     |Agent version required |
+|-----------|--------------|--------------------------------|-----------------------|
+|SMB        |SMB mount     |Azure file share                |[agent version]        |
+|NFS        |NFS mount     |Azure blob storage container    |[agent version]        |
 
 ### SMB endpoints
 
  SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. During a migration, storage mover agent resources  connect to your SMB endpoints with Key Vault secrets rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked.
 
-After your local file share source is configured, add secrets for both `username` and `password` to your Key Vault. You need to supply both your Key Vault's name or URI, and the names of the credential secrets when creating your SMB endpoints.
+After your local file share source is configured, add secrets for both a username and a password to your Key Vault. You need to supply both your Key Vault's name or URI, and the names or URIs of the credential secrets when creating your SMB endpoints.
 
-Your agents require access to your Key Vault and target storage resources. Agent access is provided by the Azure RBAC (role-based access control) authorization system, which is used to assign roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Any endpoint created programmatically requires you to make the following assignments manually:
+Agent access to both your Key Vault and target storage resources is controlled through the Azure RBAC (role-based access control) authorization system. This system allows you to define access based on attributes associated with managed identities, security principals, and resources. It's important to note that the required RBAC role assignments are automatically applied when SMB endpoints are created within the Azure portal. However, any endpoint created programmatically requires you to make the following assignments manually:
 
 |Role                                        |Resource                                                            |
 |--------------------------------------------|--------------------------------------------------------------------|
 |*Key Vault Secrets User*                    | The Key Vault resource used to store your SMB source's credential  |
 |*Storage File Data Privileged Contributor*  | Your target file share resource                                    |
 
+There are many use cases that require preserving metadata values such as file and folder timestamps, ACLs, and file attributes. Storage Mover supports the same level of file fidelity as the underlying Azure fileshare. Azure Files in turn [supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). The following table represents common metadata that will be migratred:
+
+|Metadata property      |Outcome                                                                              |
+|-----------------------|-------------------------------------------------------------------------------------|
+|Directory structure    |The original directory structure of the source will be preserved on the target share.|
+|Access permissions     |Permissions on the source file or directory will be preserved on the target share.   |
+|Symbolic links         |Symbolic links on the source will be preserved and mapped on the target share.       |
+|Create timestamp       |The original create timestamp of the source file will be preserved on the target share.|
+|Change timestamp       |The original change timestamp of the source file will be preserved on the target share.|
+|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share.|
+|Last access timestamp  |This last access timestamp is neither supported for a file nor a directory on the target share.|
+|Other metadata         |Other metadata of the source item will be preserved if the target share is supporting it.|
+
 ### NFS endpoints
 
-This paragraph discusses the NFS-specific endpoints. Hostname/IP address and share name.
+Using the NFS protocol, you can transfer files between computers running Windows and other non-Windows operating systems, such as Linux or UNIX. The current Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container only.
+
+Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. This difference allows NFS endpoints to be accessed without Azure Key Vault integration. In addition, Storage Mover processes metadata differently for both NFS mount sources and their blob container target counterparts. The following table identifies outcomes for common metadata encountered during migration:
+
+|Metadata property      |Outcome                                                                              |
+|-----------------------|-------------------------------------------------------------------------------------|
+|Directory structure    |Blob containers don't have a traditional file system, but instead support "virtual folders". The paths of any file in a folder on the source are prepended to the file's name and placed in a flat list within the blob container. Empty folders will be represented as an empty blob in the target container. The metadata of the source folder will be persisted in the custom metadata field of this blob as they are with files.|
+|Access permissions     |Permissions on the source file will be preserved in custom blob metadata but won't work as they did within the source.|
+|Symbolic links         |A target file will be migrated if it's symbolic link can be resolved. A symbolic link which can't be resolved will be logged as a failed file.|
+|Create timestamp       |The original timestamp of the source file will be preserved as custom blob metadata. The blob-native timestamp will reflect the time at which the file was migrated.|
+|Change timestamp       |The original timestamp of the source file will be preserved as custom blob metadata. There is no blob-native timestamp of this type.|
+|Modified timestamp     |The original timestamp of the source file will be preserved as custom blob metadata. The blob-native timestamp will reflect the time at which the file was migrated.|
+|Last accessed timestamp|This timestamp will be preserved as custom blob metadata if it exists on the source file. There is no blob-native timestamp of this type.|
+|Other metadata         |Other metadata will be persisted in a custom metadata field of the target blob if it exists on source items. Only 4 KiB of metadata can be stored. Metadata of a larger size won't be migrated.|
 
 ## Creating endpoints
 
