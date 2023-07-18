@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
-Here are some use cases for telemetry processors:
+Some use cases:
  * Mask sensitive data.
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
@@ -52,7 +52,11 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 ## Telemetry processor types
 
-Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
+Currently, the four types of telemetry processors are
+* Attribute processors
+* Span processors
+* Log processors
+* Metric filters
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
