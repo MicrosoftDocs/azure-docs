@@ -13,8 +13,7 @@ ms.custom: template-how-to
 
 The Virtual Machine (VM) console service provides managed SSH access to a VM hosted in an Operator Nexus Instance. It relies on the Azure Private Link Service (PLS) to establish a private network connection between the user's network and the Azure Operator Nexus Cluster Manager's private network.
 
-<!--- IMG ![VM Console service overview](articles/operator-nexus/media/vm-console-service.png) IMG --->
-:::image type="content" source="media/vm-console-service.png" alt-text="VM Console service overview.":::
+:::image type="content" source="media/vm-console-service.png" alt-text="Diagram of VM Console service." lightbox="media/vm-console-service.png":::
 
 For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](https://learn.microsoft.com/training/modules/introduction-azure-private-link/).
 
@@ -75,8 +74,7 @@ The Cluster Manager automatically creates a PLS so that you can establish a priv
 
 This section provides a step-by-step guide to help you to establish a private network connectivity.
 
-<!--- IMG ![Private link networking overview](articles/operator-nexus/media/vm-console-private-link.png) IMG --->
-:::image type="content" source="media/vm-console-private-link.png" alt-text="Private link networking overview.":::
+:::image type="content" source="media/vm-console-private-link.png" alt-text="Diagram of Private Link networking." lightbox="media/vm-console-private-link.png":::
 
 1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Cluster Manager.
 
@@ -121,8 +119,7 @@ The Console resource provides the information about the VM such as VM name, publ
 
 This section provides step-by-step guide to help you to create a Console resource using Azure CLI commands.
 
-<!--- IMG ![VM Console Resource](articles/operator-nexus/media/vm-console-resource.png) IMG --->
-:::image type="content" source="media/vm-console-resource.png" alt-text="VM Console Resource.":::
+:::image type="content" source="media/vm-console-resource.png" alt-text="Diagram of VM Console Resource." lightbox="media/vm-console-resource.png":::
 
 1. The first thing before you can establish an SSH session with a VM is to create a ***Console*** resource in the Cluster Manager.
 
@@ -136,10 +133,10 @@ This section provides step-by-step guide to help you to create a Console resourc
            [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
-If you omit the `--expiration` parameter, the Cluster Manager will automatically set the expiration to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** comply with RFC3339 otherwise the creation of the Console resource fails.
+    If you omit the `--expiration` parameter, the Cluster Manager will automatically set the expiration to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** comply with RFC3339 otherwise the creation of the Console resource fails.
 
-> [!NOTE]
-> For a complete synopsis for this command, invoke `az networkcloud console create --help`.
+    > [!NOTE]
+    > For a complete synopsis for this command, invoke `az networkcloud console create --help`.
 
 1. Upon successful creation of the Console resource, retrieve the VM Access ID. You must use this unique identifier as `user` of the `ssh` session.
 
@@ -166,8 +163,7 @@ The VM Console service is a `ssh` server that "relays" the session to the design
 >    SSH [-i path-to-private-SSH-key] -p 2222 $virtual_machine_access_id@$sshmux_ple_ip
 > ```
 
-<!--- IMG ![VM Console SSH Session](articles/operator-nexus/media/vm-console-ssh-session.png) IMG --->
-:::image type="content" source="media/vm-console-ssh-session.png" alt-text="VM Console SSH Session.":::
+:::image type="content" source="media/vm-console-ssh-session.png" alt-text="Diagram of VM Console SSH Session." lightbox="media/vm-console-ssh-session.png":::
 
 The VM Console service was designed to allow **only** one `ssh` session per Virtual Machine. Anyone establishing a successful `ssh` session to a VM closes an existing session, if any.
 
