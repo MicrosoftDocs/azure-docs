@@ -43,28 +43,9 @@ During the creation of the load balancer, you configure:
 
 1. Enter **frontend** in **Name**.
 
-1. Select **IPv4** or **IPv6** for the **IP version**.
+1. Select **subnet-1 (10.0.0.0/24)** in **Subnet**.
 
-    > [!NOTE]
-    > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
-
-1. Select **IP address** for the **IP type**.
-
-    > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../articles/virtual-network/ip-services/public-ip-address-prefix.md).
-
-1. Select **Create new** in **Public IP address**.
-
-1. In **Add a public IP address**, enter **public-ip-load-balancer** for **Name**.
-
-1. Select **Zone-redundant** in **Availability zone**.
-
-    > [!NOTE]
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
-
-1. Leave the default of **Microsoft Network** for **Routing preference**.
-
-1. Select **OK**.
+1. Leave the rest of the options at the default values.
 
 1. Select **Add**.
 
@@ -73,8 +54,6 @@ During the creation of the load balancer, you configure:
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 
 1. Enter **backend-pool** for **Name** in **Add backend pool**.
-
-1. Select **vnet-1 (test-rg)** in **Virtual network**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
@@ -89,18 +68,17 @@ During the creation of the load balancer, you configure:
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **http-rule** |
-    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
+    | IP Version | Select **IPv4**. |
     | Frontend IP address | Select **front-end**. |
     | Backend pool | Select **backend-pool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **health-probe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
-    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 1. Select **Save**.
 

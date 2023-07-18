@@ -18,7 +18,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **+ Create** then **Azure Virtual Machine**.
+1. Select **+ Create** then **Azure virtual machine**.
    
 1. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
