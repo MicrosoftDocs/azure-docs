@@ -80,7 +80,7 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
 ```javascript
 const axios = require('axios').default;
 
-let endpoint = '{your-document-translation-endpoint}/translator/text/batch/v1.0';
+let endpoint = '{your-document-translation-endpoint}/translator/text/batch/v1.1';
 let route = '/batches';
 let key = '{your-key}';
 let sourceSASUrl = "{your-source-container-SAS-URL}";
