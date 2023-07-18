@@ -56,7 +56,22 @@ User detailed history information allows you to filter for specific information 
 - **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **on-demand**
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the user was processed in a workflow.
 
+### User history status details
+
+When viewing the status of user processing history, the status values correspond to the following information:
+
+
+|Status  |Details  |
+|---------|---------|
+|Completed     | This state is reported if all of the workflow's tasks processes successfully for a user.       |
+|In Progress     | This state is reported when a workflow begins running tasks for a user.. The status will remain in this state until all the workflow's tasks are processed for the user, or it fails.        |
+|Queued     | This state is reported when a user is identified by the Lifecycle Workflow engine that meets the execution conditions of a workflow. From here a user either enters a state of In progress if the workflow begins running for them, or canceled if the admin manually cancels the workflow.       |
+|Canceled     |  This state is reported for the following reasons: <br><br>**1.** If the workflow was deleted, all scheduled users it is set to run for are canceled.<br>**2.** If the workflow was disabled, all scheduled users it is set to run for are canceled.<br>**3**. If the workflow's schedule was disabled, all scheduled users it is set to run for are canceled.<br>**4.** If the workflow had a new version created and all tasks were disabled, all scheduled users it is set to run for are canceled.<br>**5.** If users don't meet the current execution conditions of the workflow's new version, the scheduled runs will be cancelled.      |
+|Completed with errors     | This state is reported if the workflow completed, but one or more tasks which are set as *true*  **continueOnError** have failed.       |
+|Failed     |  This state is reported if a task with **continueOnError** set as *false* fails.      |
+
 For a complete guide on getting user processed summary information, see: [User workflow history using the Azure portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
+
 
 
 ## Runs Summary
@@ -84,7 +99,22 @@ Runs detailed history information allows you to filter for specific information 
 - **Workflow execution type**: You can filter on workflow execution type such as **Scheduled** or **On-demand**.
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 
+### Runs history status details
+
+When viewing the status of run history, the status values correspond to the following information:
+
+
+|Status  |Details  |
+|---------|---------|
+|Queued      | This state is reported the first time a workflow is set to run.        |
+|In Progress     |  This state is reported as soon as the workflow begins processing its first task.       |
+|Canceled     |  This state is reported if it was *In Progress* at one point of time, and is now frozen in that state.       |
+|Completed with errors     | This state is reported if the workflow runs successfully for some, but not others. If a workflow enters the queued state, but all of its instances are canceled before executing, then it will also show a state as *Completed with errors* before ever entering a state of *In Progress*.        |
+|Completed     |  This state is reported if the workflow ran successfully for every user.       |
+|Failed     |  This state is reported if all tasks failed for all users the workflow runs for. Canceled users are not counted as failures in the report.      |
+
 For a complete guide on getting runs information, see: [Run workflow history using the Azure portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
+
 
 
 ## Tasks summary
@@ -112,6 +142,20 @@ Task detailed history information allows you to filter for specific information 
 - **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 - **Tasks**: You can filter based on specific task names.
+
+### Task history status details
+
+When viewing the status of task history, the status values correspond to the following information:
+
+
+|Status  |Details  |
+|---------|---------|
+|Queued      | Once a workflow instance is scheduled for execution, task reports for all of the tasks within the workflow are also created with this status with Run record. Each task report encompasses all users but represents it for only one task.        |
+|In Progress     |  This state is reported as soon as the first tasks begins being processed.       |
+|Canceled     |  This state is reported if no tasks is processed before the workflow is canceled. If a workflow that contains the tasks is deleted then the status will also show as canceled.      |
+|Completed with errors     | This state is reported if a task is processed for a user, but not every task succeeded.       |
+|Completed     |  This state is reported if all tasks ran successfully for every user.       |
+|Failed     |  This state is reported if all tasks failed.      |
 
 Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters).
 
