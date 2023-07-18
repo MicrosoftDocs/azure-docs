@@ -1791,6 +1791,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automanage/windows-server-azure-edition-vnext.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-hotpatch.md",
+            "redirect_URL": "/windows-server/get-started/hotpatch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-windows-server-services-overview.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/view-metrics.md",
             "redirect_url": "/azure/aks/monitor-aks",
             "redirect_document_id": false

@@ -4344,6 +4344,91 @@
       "source_path_from_root": "/articles/cognitive-services/language-service/summarization/custom/how-to/test-evaluate.md",
       "redirect_url": "/azure/ai-services/language-service/summarization/custom/how-to/test-evaluate",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/context/context.yml",
+      "redirect_url": "/azure/ai-services/anomaly-detector/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/content-moderator/context/context.yml",
+      "redirect_url": "/azure/ai-services/content-moderator/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/context/context.yml",
+      "redirect_url": "/azure/ai-services/computer-vision/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/content-safety/context/context.yml",
+      "redirect_url": "/azure/ai-services/content-safety/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/content-safety/faq.yml",
+      "redirect_url": "/azure/ai-services/content-safety/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/context/context.yml",
+      "redirect_url": "/azure/ai-services/custom-vision-service/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/context/context.yml",
+      "redirect_url": "/azure/ai-services/language-service/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/named-entity-recognition/concepts/entity-metadata.md",
+      "redirect_url": "/azure/ai-services/language-service/named-entity-recognition/concepts/entity-metadata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/named-entity-recognition/concepts/ga-preview-mapping.md",
+      "redirect_url": "/azure/ai-services/language-service/named-entity-recognition/concepts/ga-preview-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/context/context.yml",
+      "redirect_url": "/azure/ai-services/LUIS/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/openai/concepts/legacy-models.md",
+      "redirect_url": "/azure/ai-services/openai/concepts/legacy-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/openai/context/context.yml",
+      "redirect_url": "/azure/ai-services/openai/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/personalizer/context/context.yml",
+      "redirect_url": "/azure/ai-services/personalizer/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/context/context.yml",
+      "redirect_url": "/azure/ai-services/qnamaker/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/context/context.yml",
+      "redirect_url": "/azure/ai-services/speech-service/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Translator/context/context.yml",
+      "redirect_url": "/azure/ai-services/translator/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/enable-vnet-service-endpoint.md",
+      "redirect_url": "/azure/ai-services/translator/custom-translator/how-to/enable-vnet-service-endpoint",
+      "redirect_document_id": false
     }
   ]
 }

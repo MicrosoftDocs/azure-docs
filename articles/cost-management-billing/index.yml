@@ -67,6 +67,8 @@ productDirectory:
           text: Analyze unexpected charges
         - url: costs/cost-analysis-common-uses.md
           text: Use Cost analysis for common tasks
+        - url: reservations/view-amortized-costs.md
+          text: View amortized costs
         - url: /power-bi/desktop-connect-azure-cost-management
           text: Connect with Power BI
     - title: Monitoring

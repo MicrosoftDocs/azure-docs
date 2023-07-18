@@ -86,20 +86,17 @@ To resolve this issue, create a valid registration token:
 
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_FORM** in the description, the agent can't connect to the broker or reach a particular endpoint. This issue may be because of certain firewall or DNS settings.
 
-To resolve this issue, check that you can reach the two endpoints referred to as *BrokerURI* and *BrokerURIGlobal*:
+To resolve this issue, check that you can reach the two endpoints referred to as *BrokerResourceIdURI* and *BrokerResourceIdURIGlobal*:
 
 1. Open Registry Editor. 
 
 1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**. 
 
-1. Make note of the values for **BrokerURI** and **BrokerURIGlobal**.
+1. Make note of the values for **BrokerResourceIdURI** and **BrokerResourceIdURIGlobal**.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](media/broker-uri.png)
+1. Open a web browser and enter your value for **BrokerResourceIdURI** in the address bar and add **/api/health** to the end, for example `https://rdbroker-g-us-r0.wvd.microsoft.com/api/health`.
 
-1. Open a web browser and enter your value for *BrokerURI* in the address bar and add */api/health* to the end, for example `https://rdbroker-g-us-r0.wvd.microsoft.com/api/health`.
-
-1. Open another tab in the browser and enter your value for *BrokerURIGlobal* in the address bar and add */api/health* to the end, for example `https://rdbroker.wvd.microsoft.com/api/health`.
+1. Open another tab in the browser and enter your value for **BrokerResourceIdURIGlobal** in the address bar and add **/api/health** to the end, for example `https://rdbroker.wvd.microsoft.com/api/health`.
 
 1. If your network isn't blocking the connection to the broker, both pages should load successfully and show a message stating  **RD Broker is Healthy**, as shown in the following screenshots:
 

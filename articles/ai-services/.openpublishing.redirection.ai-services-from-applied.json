@@ -499,6 +499,46 @@
       "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/tutorials/write-a-valid-query.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/tutorials/write-a-valid-query",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/applied-ai-services-customer-spotlight-use-cases.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/faq.yml",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/index.yml",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/what-are-applied-ai-services.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/why-applied-ai-services.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/context/context.yml",
+      "redirect_url": "/azure/ai-services/metrics-advisor/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/context/context.yml",
+      "redirect_url": "/azure/ai-services/document-intelligence/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.yml",
+      "redirect_url": "/azure/ai-services/immersive-reader/context/context",
+      "redirect_document_id": false
     }
   ]
 }

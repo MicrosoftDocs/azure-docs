@@ -13,7 +13,7 @@ ms.date: 07/13/2023
 
 There are a growing number of enterprises adhering to API-first approach for their internal applications, and the number and complexity of security attacks against web applications is constantly evolving. This situation requires enterprises to adopt a strong security strategy to protect APIs from various web application attacks.
 
-[Azure Web Application Firewall (WAF)](../overview.md) is an Azure Networking product that protects APIs from various of [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
+[Azure Web Application Firewall (WAF)](../overview.md) is an Azure Networking product that protects APIs from various [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
 
 This article describes how to use [Azure Web Application Firewall on Azure Front Door](afds-overview.md) to protect APIs hosted on [Azure API Management](../../api-management/api-management-key-concepts.md)
 
@@ -74,7 +74,7 @@ All other settings remain at default values.
 Select the "bookwafpolicy" Azure WAF policy  and ensure the Policy mode is set to 
 ["Prevention" in the overview tab of the policy](waf-front-door-create-portal.md#change-mode)
 
-Azure WAF detection mode is used for testing and validating the policy. Detection doesn't block the call but logs all threats detected, while prevention mode blocks the call if an attack is detected. Typically, you test the scenario before switching to prevention model. For this exercise, we switch to prevention mode.  
+Azure WAF detection mode is used for testing and validating the policy. Detection doesn't block the call but logs all threats detected, while prevention mode blocks the call if an attack is detected. Typically, you test the scenario before switching to prevention mode. For this exercise, we switch to prevention mode.  
 [Azure Web Application Firewall on Azure Front Door](afds-overview.md#waf-modes) has more information about various WAF policy modes.
 
 
