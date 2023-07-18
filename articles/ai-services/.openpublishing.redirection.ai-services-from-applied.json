@@ -539,6 +539,21 @@
       "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.yml",
       "redirect_url": "/azure/ai-services/immersive-reader/context/context",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/context/context.json",
+      "redirect_url": "/azure/ai-services/metrics-advisor/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/context/context.json",
+      "redirect_url": "/azure/ai-services/document-intelligence/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.json",
+      "redirect_url": "/azure/ai-services/immersive-reader/context/context",
+      "redirect_document_id": false
     }
   ]
 }
