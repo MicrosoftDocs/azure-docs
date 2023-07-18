@@ -68,7 +68,7 @@ Different agent resource configurations are tested on SMB endpoints:
 
    |Test No.    |Execution time     |Scanning time       |Additional information                            |
    |------------|-------------------|--------------------|--------------------------------------------------|
-   |6           |16 min, 42 sec     | 1.2 sec            | <table><tr><td>foo</td></tr></table>             |
+   |6           |16 min, 42 sec     | 1.2 sec            | <table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td></td><td>Files Passed</td></tr><tr><td>1</td><td>5,941,572</td></tr><tr><td>2</td><td>5,491,810</td></tr><tr><td>3</td><td>514,613</td></tr><tr><td>4</td><td>47,107</td></tr><tr><td>5</td><td>4,459</td></tr><tr><td>6</td><td>406</td></tr><tr><td>7</td><td>30</td></tr><tr><td>8</td><td>2</td></tr><tr><td>9</td><td>1</td></tr></table>|
    |7           |55 min, 4 sec      | 1 min, 17 sec      |                                                  |
    |8           |                   |                    |                                                  |
    |9           |                   |                    |                                                  |
