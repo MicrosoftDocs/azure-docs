@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/26/2022
+ms.date: 07/18/2022
 ---
 
 <!-- 
@@ -25,31 +25,32 @@ Use the following steps to prepare the sample locally.
 Use AZD to initialize the event-driven application from the Azure Developer CLI templates.
 
 1. Open a terminal, create a new empty folder, and change into it.
-1. Run the following command to initialize the project.
+1. Run the following command to initialize the project:
 
-    ```bash
-    azd init --template Azure-Samples/ASA-Samples-Event-Driven-Application
-    ```
+   ```bash
+   azd init --template Azure-Samples/ASA-Samples-Event-Driven-Application
+   ```
 
-   Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
+   The following list describes the command interactions:
 
-   The console outputs messages similar to the ones below:
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
 
-    ```text
-    Initializing a new project (azd init)
-    
-    (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\event-driven-app
-    
-    ? Please enter a new environment name: [? for help] (event-driven-app-dev) wingtiptoy
-    
-    ? Please enter a new environment name: wingtiptoy
-    
-    SUCCESS: New project initialized!
-    You can view the template code in your directory: D:\samples\event-driven-app
-    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
-    ```
+   The console outputs messages similar to the following example:
+
+   ```output
+   Initializing a new project (azd init)
+   
+   (✓) Done: Initialized git repository
+   (✓) Done: Downloading template code to: D:\samples\event-driven-app
+
+   ? Please enter a new environment name: [? for help] (event-driven-app-dev) wingtiptoy
+
+   ? Please enter a new environment name: wingtiptoy
+
+   SUCCESS: New project initialized!
+   You can view the template code in your directory: D:\samples\event-driven-app
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/zd-third-party-code-notice
+   ```
 
 ---

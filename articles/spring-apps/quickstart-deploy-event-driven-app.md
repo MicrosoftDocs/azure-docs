@@ -4,7 +4,7 @@ description: Learn how to deploy an event-driven application to Azure Spring App
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 07/18/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
@@ -30,15 +30,14 @@ The sample project is an event-driven application that subscribes to a [Service 
 
 ::: zone pivot="sc-standard"
 
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which uses the following Azure resources:
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which uses the following Azure resources, as shown in the diagram:
+
+- Azure Spring Apps to host the Spring Boot app.
+- A Key Vault secret as a property source for securing a Service Bus connection string.
+- A subscription to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, which handles messages and sends message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase.
+- Azure Monitor for monitoring and logging.
 
 :::image type="content" source="media/quickstart-deploy-event-driven-app/diagram-v2.png" alt-text="Diagram showing the Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram-v2.png" border="false":::
-
-Diagram of Spring event-driven app architecture:
-- Use Azure Spring Apps to host the Spring Boot app.
-- Use Key Vault secret as property source for securing connection string of Service Bus.
-- Subscribe to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase.
-- Use Azure Monitor for monitoring and logging.
 
 ::: zone-end
 
@@ -61,8 +60,6 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone pivot="sc-standard"
 
-Select an option to set prerequisites:
-
 ### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -74,7 +71,7 @@ Select an option to set prerequisites:
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI(AZD)](https://aka.ms/azd-install), version 1.0.1 or higher.
+- [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.1 or higher.
 
 ---
 
@@ -108,11 +105,11 @@ Select an option to set prerequisites:
 
 ::: zone-end
 
-## 5. Validate the app 
+## 5. Validate the app
 
-Use the following steps to confirm that the event-driven app works correctly. You can validate the app by sending a message to the `lower-case` queue, then confirming that there's a message in the `upper-case` queue.
+Use the following steps to confirm that the event-driven app works correctly. You can validate the app by sending a message to the `lower-case` queue, then confirm that there's a message in the `upper-case` queue.
 
-1. Send a message to `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+1. Send a message to the `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 

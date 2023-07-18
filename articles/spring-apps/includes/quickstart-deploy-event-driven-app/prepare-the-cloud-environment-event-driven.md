@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/26/2022
+ms.date: 07/18/2022
 ---
 
 <!-- 
@@ -97,32 +97,32 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
+1. Run the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
    ```
 
-1. Run the following command to enable Azure Spring Apps feature.
+1. Run the following command to enable the Azure Spring Apps features:
 
    ```bash
    azd config set alpha.springapp on
    ```
 
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
+1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
 
    ```bash
    azd provision
    ```
 
-   Command interaction description:
+   The following list describes the command interactions:
 
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
-   The console outputs messages similar to the ones below:
+   The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
