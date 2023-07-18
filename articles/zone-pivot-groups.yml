@@ -2434,6 +2434,17 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owners: adamhammer
+- id: acs-programming-languages-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-java
+    title: Java
 # Owner: jorgegarc
 - id: acs-maui-xamarin-react
   title: Cross-platform pivots
