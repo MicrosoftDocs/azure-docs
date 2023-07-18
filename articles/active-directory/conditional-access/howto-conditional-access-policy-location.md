@@ -30,7 +30,7 @@ With the location condition in Conditional Access, you can control access to you
    1. **Countries location** or **IP ranges location**.
 1. Give your location a name.
 1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
-   - If you select IP ranges you can optionally **Mark as trusted location**.
+   - If you select IP ranges, you can optionally **Mark as trusted location**.
    - If you choose Countries/Regions, you can optionally choose to include unknown areas.
 1. Select **Create**
 
@@ -60,8 +60,8 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 ## Next steps
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+[Determine affect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

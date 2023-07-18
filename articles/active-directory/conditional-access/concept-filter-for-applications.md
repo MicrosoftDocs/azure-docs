@@ -122,8 +122,8 @@ Sign in as a user who the policy would apply to and test to see that MFA is requ
 
 ## Next steps
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+[Determine affect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

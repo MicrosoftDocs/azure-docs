@@ -57,4 +57,4 @@ Custom controls can't be used with Identity Protection's automation requiring Az
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Report-only mode](concept-conditional-access-report-only.md)
-- [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+- [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
