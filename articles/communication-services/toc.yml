@@ -173,7 +173,7 @@ items:
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md      
+      href: quickstarts/relay-token.md
 - name: Tutorials
   items:
   - name: SMS
@@ -477,6 +477,16 @@ items:
       href: how-tos/router-sdk/accept-decline-offer.md
     - name: Get wait time and job position
       href: how-tos/router-sdk/estimated-wait-time.md
+    - name: Escalate a job
+      href: how-tos/router-sdk/escalate-job.md  
+    - name: Target a Preferred Worker
+      href: how-tos/router-sdk/preferred-worker.md
+    - name: Scheduling a job
+      href: how-tos/router-sdk/scheduled-jobs.md
+    - name: Azure function rule engine
+      href: how-tos/router-sdk/azure-function.md
+    - name: Customize how worker ranking for best worker mode
+      href: how-tos/router-sdk/customize-worker-scoring.md  
     - name: Events
       items:
       - name: Subscribe to Job Router Events
@@ -828,6 +838,18 @@ items:
     items:
     - name: Overview
       href: concepts/router/concepts.md
+    - name: How jobs are matched to workers
+      href: concepts/router/matching-concepts.md
+    - name: How worker capacity is configured
+      href: concepts/router/worker-capacity-concepts.md
+    - name: Distribution modes
+      href: concepts/router/distribution-concepts.md
+    - name: Exception Policies
+      href: concepts/router/exception-policy.md
+    - name: Classification concepts
+      href: concepts/router/classification-concepts.md
+    - name: Router Rule concepts
+      href: concepts/router/router-rule-concepts.md
     - name: Events
       items:
       - name: Overview
