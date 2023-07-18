@@ -4386,6 +4386,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/named-entity-recognition/concepts/ga-preview-mapping.md",
+      "redirect_url": "/azure/ai-services/language-service/named-entity-recognition/concepts/ga-preview-mapping",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/context/context.yml",
       "redirect_url": "/azure/ai-services/LUIS/context/context",
       "redirect_document_id": false
