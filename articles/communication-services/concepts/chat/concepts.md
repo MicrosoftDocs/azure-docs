@@ -6,7 +6,7 @@ author: kperla97
 manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 07/14/2023
+ms.date: 07/18/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -74,7 +74,6 @@ Types of system messages:
 ## Real-time notifications
 
 JavaScript Chat SDK supports real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. 
-Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You need to validate(../../how-tos/event-grid/view-events-request-bin.md) and locally test events(../../how-tos/event-grid/local-testing-event-grid.md) once you set up the event grid resource to ensure that events are being sent.
 
 The client app can subscribe to following events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
@@ -93,11 +92,9 @@ The client app can subscribe to following events:
 > [!NOTE] 
 > Real time notifications are not to be used with server applications.
 
-For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
-
 ## Server Events
 
-Server events are events that are generated on the server side using Azure Event grid. There is no other cost to you to use these events. Common scenarios include participants leaving the chats, messages being received that requires a follow up action and archiving chats. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json)
+This feature lets server applications listen to events for scenarios such as participants leaving the chats, messages being received that requires a follow up action, making sure the participant is part of the conversation and archiving chats. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json) 
 
 ## Push notifications 
 
