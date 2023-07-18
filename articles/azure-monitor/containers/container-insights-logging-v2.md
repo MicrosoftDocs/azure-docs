@@ -6,15 +6,12 @@ ms.author: bwren
 ms.subservice: logs
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 07/18/2023
 ms.reviewer: aul
 ---
 
 # Enable the ContainerLogV2 schema 
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
-
->[!NOTE]
->For Windows containers the PodName is not currently collected with ContainerLogV2
 
 The new fields are:
 * `ContainerName`
@@ -37,8 +34,17 @@ The new fields are:
 > [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
 
 ## Enable the ContainerLogV2 schema
-Customers can enable the ContainerLogV2 schema at the cluster level. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
+Customers can enable the ContainerLogV2 schema at the cluster level through either the cluster's Data Collection Rule or ConfigMap. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
 Follow the instructions to configure an existing ConfigMap or to use a new one.
+
+### Configure via an existing Data Collection Rule
+
+## [Azure Portal](#tab/configure-Portal)
+
+1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
+2. Select **Edit collection settings** to open the advanced settings
+3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
+4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
 
 ### Configure an existing ConfigMap
 This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:
