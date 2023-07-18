@@ -9,6 +9,7 @@ ms.date: 06/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
+zone_pivot_groups: development-environment-functions
 ---
 
 ::: zone pivot="development-environment-vs"
@@ -19,7 +20,43 @@ ms.author: memontic
 [!INCLUDE [Setup project with VS Code](./messages-get-started-net-vscode-setup.md)]
 ::: zone-end
 
-3. Include the package in your C# project   
+3. Set up your Project.cs
+
+Open the *Program.cs* file in a text editor.   
+
+Add a `using` directive to include the `Azure.Communication.Messages` namespace.   
+
+```csharp
+using Azure.Communication.Messages;
+```
+
+Update the `Main` method declaration to support async code.   
+```csharp
+public static async Task Main(string[] args)
+```
+
+Or, you can replace your Program.cs with the following code:
+
+```csharp
+using System;
+using Azure;
+using Azure.Communication.Messages;
+
+namespace AdvancedMessagesQuickstart
+{
+    class Program
+    {
+        public static async Task Main(string[] args)
+        {
+            Console.WriteLine("Azure Communication Services - Send Advanced Messages");
+
+            // Quickstart code goes here
+        }
+    }
+}
+```
+
+4. Include the package in your C# project   
 Add the directive to include the Messages package.
 
 ```csharp
@@ -28,20 +65,57 @@ using Azure.Communication.Messages;
 
 ## Initalize APIs
 ### 1. Set Connection String   
-Get the Connection String from your ACS resource in the portal. From the `Keys` blade, copy the `Connection string` field for the `Primary key`.
+Get the connection string from your ACS resource in the Azure portal. From the `Keys` blade, copy the `Connection string` field for the `Primary key`.   
+The Connection string will be in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
 
 :::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Keys' blade. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
-```csharp
-string connectionString = "{your connection string}";
+Set the envrionment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
+For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).   
+To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
+
+#### [Windows](#tab/windows)
+
+Open a console window and enter the following command:
+
+```console
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
-For example:
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+#### [macOS](#tab/unix)
+
+Edit your **`.zshrc`**, and add the environment variable:
+
+```bash
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
+```
+
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+#### [Linux](#tab/linux)
+
+Edit your **`.bash_profile`**, and add the environment variable:
+
+```bash
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
+```
+
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+---
+
+Add the following code to retrieve the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
+
 ```csharp
-string connectionString = "endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}";
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 ```
 
 ### 2. Create NotificationMessagesClient   
+
+Initialize `NotificationMessagesClient` with your connection string. 
+
 Using connectionString, create a NotificationMessagesClient.
 ```csharp
 NotificationMessagesClient notificationMessagesClient = new NotificationMessagesClient(connectionString);
@@ -94,14 +168,14 @@ Here is MessageTemplate creation using a default template, sample_template.
 ```csharp
 string templateName = "sample_template";
 string templateLanguage = "en_us";
-MessageTemplate messageTemplate = new MessageTemplate(templateName, templateLanguage);
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ```
 
 #### 2. Send a Template Message   
 
 Assemble the template message:
 ```csharp
-SendMessageOptions sendTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, messageTemplate);
+var sendTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, messageTemplate);
 ```
 
 Then send the template message:
@@ -131,7 +205,7 @@ In the text message, provide text to send to the recipient. In this example, we 
 
 Assemble the text message:
 ```csharp
-SendMessageOptions sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, "Thank you for your feedback.");
+var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, "Thank you for your feedback.");
 ```
 
 Then send the text message:
@@ -145,12 +219,12 @@ Response<SendMessageResult> textResponse = await notificationMessagesClient.Send
 To send a media message, we will provide a URI to an image.
 As an example, create your URI:
 ```csharp
-Uri uri = new Uri("https://aka.ms/acsicon1");
+var uri = new Uri("https://aka.ms/acsicon1");
 ```
 
 Assemble the media message:
 ```csharp
-SendMessageOptions sendMediaMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, uri);
+var sendMediaMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, uri);
 ```
 
 Then send the media message:

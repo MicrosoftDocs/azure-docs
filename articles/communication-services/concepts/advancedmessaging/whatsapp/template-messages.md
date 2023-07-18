@@ -3,14 +3,15 @@ title: Concept: Send WhatsApp Template Messages
 titleSuffix: An Azure Communication Services Advanced Messaging concept
 description: In this concept, you'll learn the various ways to send WhatsApp template messages with Advanced Messaging.
 author: memontic-ms
-manager: 
-services: azure-communication-services
+manager: camilo.ramirez
 
 ms.author: memontic
 ms.date: 07/12/2023
 ms.topic: concept
 ms.service: azure-communication-services
 ms.subservice: messages
+
+zone_pivot_groups: acs-csharp-java
 ---
 
 # Send WhatsApp Template Messages
@@ -41,12 +42,12 @@ You can view your templates in the [WhatsApp Manager](https://business.facebook.
 
 You can also view your templates by listing all templates for your channelID:
 
-::: zone pivot="platform-net"
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [List templates with .NET](./includes/template-messages-list-templates-net.md)]
 ::: zone-end
 
 ## Examples
 
-::: zone pivot="platform-net"
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Template examples with .NET](./includes/template-messages-examples-net.md)]
 ::: zone-end
