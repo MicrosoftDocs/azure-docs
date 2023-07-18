@@ -35,9 +35,9 @@ Azure Storage Mover is tested with 100 million namespace items (files and folder
 
 Azure Storage Mover is a hybrid cloud service. Hybrid services have a cloud service component and an infrastructure component the administrator of the service runs in their corporate environment. For Storage Mover, that hybrid component is a migration agent. Agents are virtual machines, ran on a host near the source storage. 
 
-Only the agent is a relevant part of the service for performance testing. To omit privacy and performance concerns, data travels directly from the Storage Mover agent to the target storage in Azure. Only control and telemetry messages are sent to the cloud service.
-
 :::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow represents data traveling to a storage account from the source or agent and a second arrow represents only the management or control info to the storage mover resource or service." lightbox="media/across-articles/data-vs-management-path-large.png":::
+
+Only the agent is a relevant part of the service for performance testing. To omit privacy and performance concerns, data travels directly from the Storage Mover agent to the target storage in Azure. Only control and telemetry messages are sent to the cloud service.
 
 ## Performance baselines
 
