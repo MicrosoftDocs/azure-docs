@@ -1,6 +1,6 @@
 ---
 title: Conditional Access - Require app protection policy for Windows
-description: Create a Conditional Access policy to require app protection policy for Windows
+description: Create a Conditional Access policy to require app protection policy for Windows.
 
 services: active-directory
 ms.service: active-directory
@@ -71,11 +71,9 @@ The following steps help create a Conditional Access policy requiring an app pro
 
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
-## Signing in on Windows devices
+## Sign in to Windows devices
 
-When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: 
-
-> To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you are already signed in.
+When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you are already signed in.
 
 Clicking on **Switch Edge profile** opens a window listing their Work or school account along with an option to **Sign in to sync data**.
 
@@ -86,9 +84,9 @@ This process opens a window offering to allow Windows to remember your account a
 > [!CAUTION]
 > You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
-![Screenshot showing the stay signed in you all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
+![Screenshot showing the stay signed in to you all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
-After selecting **OK** you may see a progress window while policy is applied, then you should see a window saying "you're all set". At this point, app protection policies are applied.
+After selecting **OK** you may see a progress window while policy is applied. After a few moments you should see a window saying "you're all set", app protection policies are applied.
 
 ## Troubleshooting
 
@@ -108,7 +106,7 @@ To resolve these possible scenarios:
 
 ### Existing account
 
-If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue that is currently being worked on. 
+If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge, or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue that is currently being worked on. 
 
 ## Next steps
 
