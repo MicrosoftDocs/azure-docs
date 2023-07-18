@@ -45,7 +45,7 @@ For connections from a data center, a VPN connection would be made to the hub ne
 
 This architecture uses functionality of private endpoints that may not be commonly encountered when doing single region deployments.
 
-First, an individual service can have multiple private endpoints attached to it.  For example, a storage account could have a private endpoint for its blob containers located in multiple different virtual networks, and each one will function independently.
+First, an individual service can have multiple private endpoints attached to it.  For example, a storage account could have a private endpoint for its blob containers located in multiple different virtual networks, and each one functions independently.
 
 However, this pattern isn't used often in hub and spoke scenarios because a private DNS zone can only have one record for a private endpoint.  If you register your first private endpoint to your private DNS zone, other private endpoints would need to use other zones.
 
@@ -57,7 +57,7 @@ It's common to use private endpoints located in the same region to reduce costs.
 
 ### Cross Region Traffic Costs
 
-There are costs associated with having private endpoints in multiple regions.  First, there's a cost per private endpoint.  The above design would have two endpoints, and so would be charged twice.  In addition there's a cost for sending the traffic between regions.  For more information about private endpoint costs, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).  
+There are costs associated with having private endpoints in multiple regions.  First, there's a cost per private endpoint.  The above design would have two endpoints, and so would be charged twice.  In addition, there's a cost for sending the traffic between regions.  For more information about private endpoint costs, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).  
 
 Global virtual network peering is a service that connects virtual networks in multiple regions.  It also has a data transfer cost between regions.  This cost depends on the zone your networks are in.  For more information about network costs, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
@@ -129,7 +129,7 @@ In it, both services can communicate to the storage account through their region
 
 If there's a regional outage, the load balancing front end should redirect all application traffic to the active region.
 
-For connectivity from on-premises data center locations, if the outage impacts a region's DNS or storage account, then conditional forwarders from the data center need to be set to regions that are still available.  This change will not impact Azure services.
+For connectivity from on-premises data center locations, if the outage impacts a region's DNS or storage account, then conditional forwarders from the data center need to be set to regions that are still available.  This change doesn't impact Azure services.
 
 While both regions are healthy, the service operates as illustrated:
 
