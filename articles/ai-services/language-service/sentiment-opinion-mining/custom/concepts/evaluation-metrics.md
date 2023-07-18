@@ -1,6 +1,6 @@
 ---
 title: Custom sentiment analysis evaluation metrics
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about evaluation metrics in Custom sentiment analysis.
 services: cognitive-services
 author: aahill

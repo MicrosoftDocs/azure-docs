@@ -1,6 +1,6 @@
 ---
-title: How to train your Custom sentiment analysis model - Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
+title: How to train your Custom sentiment analysis model - Azure AI services
+titleSuffix: Azure AI services
 description: Learn about how to train your model for Custom sentiment analysis.
 services: cognitive-services
 author: aahill
