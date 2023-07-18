@@ -54,7 +54,7 @@ Open-source, third-party, or first-party code can be integrated into the pipelin
 
 ### Use-cases for built-in skills
 
-Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
+Built-in skills are based on the Azure AI services APIs: [Azure AI Vision](../ai-services/computer-vision/index.yml) and [Language Service](../ai-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
@@ -68,7 +68,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 [**Custom skills**](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
 
-+ [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md)
++ [Document Intelligence](../ai-services/document-intelligence/overview.md)
 + [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
 + [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 
@@ -104,13 +104,13 @@ In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assu
 
 ## Availability and pricing
 
-Enrichment is available in regions that have Azure Cognitive Services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Enrichment is available in all regions except:
+Enrichment is available in regions that have Azure AI services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Enrichment is available in all regions except:
 
 + Australia Southeast
 + China North 2
 + Germany West Central
 
-Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Cognitive Services key is specified in the skillset. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
+Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Azure AI services key is specified in the skillset. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
 
 ## Checklist: A typical workflow
 
@@ -120,7 +120,7 @@ Start with a subset of data in a [supported data source](search-indexer-overview
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
+1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
 
 1. [Create an index schema](search-how-to-create-search-index.md) that defines a search index.
 

@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Customize and suggest image search queries
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this article to learn how to customize queries and suggest search terms to send to the Bing Image Search API.
 
