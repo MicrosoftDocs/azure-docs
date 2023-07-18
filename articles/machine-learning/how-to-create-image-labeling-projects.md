@@ -294,9 +294,9 @@ You can export an image label as:
 * An [Azure MLTable data asset](./how-to-mltable.md).
 :::moniker-end
 
-When you export a CSV or COCO file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download. Select the **Download file** link to download your results. You'll also find the notification in the **Notification** section on the top bar:
 
-:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+:::image type="content" source="media/how-to-create-labeling-projects/download-file.png" alt-text="Screenshot that shows the notification for the file download.":::
 
 Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
