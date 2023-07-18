@@ -141,8 +141,8 @@ Use the following steps to connect your service instances:
 1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
     - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
     - **SPRING_DATASOURCE_USERNAME**: *myadmin*
-    - **SPRING_DATASOURCE_PASSWORD**: *<your database password>*
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal showing the Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
+    - **SPRING_DATASOURCE_PASSWORD**: *<database password>*
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal showing the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
 
 1. Select **Save** to save the connection properties.
 
@@ -199,7 +199,7 @@ Use the following steps to deploy the app:
     - **Runtime platform**: *java 17*
     - **JVM options**: *-Xms2048m -Xms2048m*
     - **JAR package**: upload the JAR package: *simple-todo-web-0.0.1-SNAPSHOT.jar* you built in the previous step.
-   :::image type="content" source="../../media/quickstart-deploy-web-app/deploy-app-consumption.png" alt-text="Screenshot of the Azure portal showing the Configuration page." lightbox="../../media/quickstart-deploy-web-app/deploy-app-consumption.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/deploy-app-consumption.png" alt-text="Screenshot of the Azure portal showing the deploy app configuration page." lightbox="../../media/quickstart-deploy-web-app/deploy-app-consumption.png":::
 
 1. Select **Deploy** to deploy the app.
 
