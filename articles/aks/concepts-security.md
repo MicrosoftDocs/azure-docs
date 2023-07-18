@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 author: miwithro
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 02/28/2023
+ms.date: 07/18/2023
 ms.author: miwithro
 ---
 
@@ -26,7 +26,7 @@ This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
+As the entry point for the supply chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
 
 ## Registry Security
 
@@ -50,9 +50,9 @@ AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
 > [!NOTE]
-> AKS clusters using:
-> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
-> * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
+> AKS clusters running:
+> * Kubernetes version 1.19 and higher - Linux node pools use `containerd` as its container runtime. Windows Server 2019 node pools use `containerd` as its container runtime, which is currently in preview. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> * Kubernetes version 1.19 and earlier - Linux node pools use Docker as its container runtime. Windows Server 2019 node pools use Docker for the default container runtime.
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
 
@@ -62,7 +62,7 @@ Node authorization is a special-purpose authorization mode that specifically aut
 
 ### Node deployment
 
-Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
+Nodes are deployed onto a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address. Disabling SSH is during cluster and node pool creation, or for an existing cluster or node pool is in preview. See [Manage SSH access][manage-ssh-access] for more information. 
 
 ### Node storage
 
@@ -178,3 +178,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [node-image-upgrade]: node-image-upgrade.md
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
+[manage-ssh-access]: manage-ssh-node-access.md
