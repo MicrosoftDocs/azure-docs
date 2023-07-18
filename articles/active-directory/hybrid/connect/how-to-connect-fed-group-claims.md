@@ -141,6 +141,8 @@ You can configure group claim to include the group display name for the cloud-on
 
    ![Screenshot that shows the configuration to emit on-premises group attribute for synced groups and display name for cloud groups.](media/how-to-connect-fed-group-claims/group-claims-ui-9.png)
 
+> [!Note]
+> You can only add cloud-group names of assigned groups to an application. The restriction to `groups assigned to the application` is because a group name is not unique, and display names can only be emitted for groups explicitly assigned to the application to reduce the security risks. Otherwise, any user could create a group with duplicate name and gain access in the application side.
 
 ### Set advanced options
 

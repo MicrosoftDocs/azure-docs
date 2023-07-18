@@ -159,7 +159,7 @@ sections:
       - question: |
           Is responsible AI supported by Azure OpenAI on your data?
         answer:
-          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
+          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
           Is there a token limit on the system message?
         answer: 
@@ -168,6 +168,11 @@ sections:
           Do the query language and the data source language need to be the same?
         answer:
           You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
+      - question: |
+          If Semantic Search is enabled for my Azure Cognitive Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
+        answer:
+          When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
+          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
 additionalContent: |
 
   ## Next steps

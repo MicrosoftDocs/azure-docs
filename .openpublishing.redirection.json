@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
+            "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storsimple/storsimple-configure-backup-target-using-backup-exec.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
@@ -1696,6 +1701,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sentinel/sap/configure-transport.md",
+            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/sap-hana-db-manage.md",
             "redirect_url": "/azure/backup/sap-hana-database-manage",
             "redirect_document_id": false
@@ -1778,6 +1788,21 @@
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
             "redirect_url": "/azure/automanage/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/windows-server-azure-edition-vnext.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-hotpatch.md",
+            "redirect_URL": "/windows-server/get-started/hotpatch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-windows-server-services-overview.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
             "redirect_document_id": false
         },
         {
@@ -13831,7 +13856,7 @@
         {
             "source_path_from_root": "/articles/load-balancer/use-existing-lb-vmss-cli.md",
             "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
@@ -22199,6 +22224,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/communication-services/how-tos/calling-sdk/lobby-admit-and-reject.md",
+            "redirect_url": "/azure/communication-services/how-tos/calling-sdk/lobby",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
             "redirect_document_id": false
@@ -23629,11 +23659,6 @@
           "redirect_document_id": true
         },
         {
-          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
-          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
-          "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
             "redirect_url": "/azure/nat-gateway/faq",
             "redirect_document_id": false
@@ -23986,6 +24011,26 @@
         {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/howto-hybrid-aks.md",
+            "redirect_url": "/azure/operator-nexus/howto-kubernetes-cluster-agent-pools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/template-virtualized-network-function-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-tenant-workload-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/template-cloud-native-network-function-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-kubernetes-cluster-deployment-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/github-action-scan.md",
+            "redirect_url": "/azure/developer/github/",
             "redirect_document_id": false
         }
     ]

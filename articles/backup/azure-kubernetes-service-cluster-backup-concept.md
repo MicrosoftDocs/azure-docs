@@ -4,8 +4,8 @@ description: This article explains the prerequisites for Azure Kubernetes Servic
 ms.topic: conceptual
 ms.service: backup
 ms.date: 03/27/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)

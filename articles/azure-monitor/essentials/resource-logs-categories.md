@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 06/27/2023
+ms.date: 07/18/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -336,6 +336,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Audit |MCVP Audit Logs |Yes |
 |Logs |MCVP Logs |Yes |
 
+## Microsoft.ContainerInstance/containerGroups  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ContainerEvent |Container events |Yes |
+|ContainerInstanceLog |Standard output logs |Yes |
+
 ## Microsoft.ContainerRegistry/registries  
 <!-- Data source : naam-->
 
@@ -580,7 +588,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AgentHealthStatus |AgentHealthStatus |No |
-|AutoscaleEvaluationPooled |Autoscale logs for pooled host pools - private preview |Yes |
+|AutoscaleEvaluationPooled |Autoscale logs for pooled host pools - private preview [Microsoft internal only] |Yes |
 |Checkpoint |Checkpoint |No |
 |Connection |Connection |No |
 |ConnectionGraphicsData |Connection Graphics Data Logs Preview |Yes |
@@ -892,8 +900,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AmlOnlineEndpointConsoleLog |AmlOnlineEndpointConsoleLog |Yes |
-|AmlOnlineEndpointEventLog |AmlOnlineEndpointEventLog (preview) |Yes |
-|AmlOnlineEndpointTrafficLog |AmlOnlineEndpointTrafficLog (preview) |Yes |
+|AmlOnlineEndpointEventLog |AmlOnlineEndpointEventLog |Yes |
+|AmlOnlineEndpointTrafficLog |AmlOnlineEndpointTrafficLog |Yes |
 
 ## Microsoft.ManagedNetworkFabric/networkDevices  
 <!-- Data source : naam-->
@@ -1117,6 +1125,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|DefenderSecurity |Security - Defender |Yes |
 |SecurityCritical |Security - Critical |Yes |
 |SecurityDebug |Security - Debug |Yes |
 |SecurityError |Security - Error |Yes |
@@ -1268,6 +1277,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |HybridConnectionsEvent |HybridConnections Events |No |
 |HybridConnectionsLogs |HybridConnectionsLogs |Yes |
+|VNetAndIPFilteringLogs |VNet/IP Filtering Connection Logs |Yes |
 
 ## Microsoft.Search/searchServices  
 <!-- Data source : naam-->
@@ -1314,7 +1324,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|TrafficControllerAccessLog |Traffic Controller Access Log |Yes |
+|TrafficControllerAccessLog |Application Gateway for Containers Access Log |Yes |
 
 ## Microsoft.SignalRService/SignalR  
 <!-- Data source : naam-->
@@ -1608,4 +1618,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Wed Jun 28 2023 02:42:02 GMT+0800 (China Standard Time)-->
+<!--Gen Date:  Tue Jul 18 2023 10:25:51 GMT+0300 (Israel Daylight Time)-->

@@ -54,6 +54,7 @@ To get started, enable one of these services to receive the data. To learn about
     * **Archive to a storage account**
     * **Stream to an event hub**
     * **Send to Log Analytics**
+    * **Send to partner solution**
 
 1. Choose which log category and metric category you want to monitor, and then specify the retention time (in days). The retention time applies only to the storage account.
 1. Select **Save**.

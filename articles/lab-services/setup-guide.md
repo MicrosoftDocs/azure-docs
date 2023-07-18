@@ -114,7 +114,7 @@ After you understand the requirements for your class's lab, you're ready to set 
    - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails)
    - [Manage Lab Services user lists in Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams)
 
-    For information about the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#user-account-types).
+    For information about the types of accounts that students can use, see [Student accounts](./how-to-access-lab-virtual-machine.md#user-account-types).
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
@@ -123,7 +123,7 @@ After you understand the requirements for your class's lab, you're ready to set 
         > [!NOTE]
         > Depending on the operating system you've installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start it 30 minutes in advance.
 
-   - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
+   - [Set quotas for users](./how-to-manage-lab-users.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-manage-lab-users.md#set-additional-quotas-for-specific-users)
   
    - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 
