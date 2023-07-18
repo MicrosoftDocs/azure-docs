@@ -64,7 +64,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
   - name: Configure an application security group
