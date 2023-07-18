@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Check access for a user to single Azure resource - Azure RBAC
-description: In this quickstart, you learn how to check the access for yourself or another user to a Azure resource using the Azure portal and Azure role-based access control (Azure RBAC).
+description: In this quickstart, you learn how to check the access for yourself or another user to an Azure resource using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 author: rolyon
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q2, mode-other
 
 # Quickstart: Check access for a user to a single Azure resource
 
-Sometimes you need to check what access a user has to a Azure resource. You check their access by listing their assignments. A quick way to check the access for a single user is to use the **Check access** feature on the **Access control (IAM)** page.
+Sometimes you need to check what access a user has to an Azure resource. You check their access by listing their assignments. A quick way to check the access for a single user is to use the **Check access** feature on the **Access control (IAM)** page.
 
 ## Step 1: Open the Azure resource
 
@@ -55,7 +55,7 @@ Follow these steps to check the access for a single user, group, service princip
 
 1. Click the user to open the **assignments** pane.
 
-    On this pane, you can see the access for the selected user at this scope and inherited to this scope. Assignments at child scopes are not listed. You see the following assignments:
+    On this pane, you can see the access for the selected user at this scope and inherited to this scope. Assignments at child scopes aren't listed. You see the following assignments:
 
     - Role assignments added with Azure RBAC.
     - Deny assignments added using Azure Blueprints or Azure managed apps.
@@ -71,7 +71,7 @@ Follow these steps to check your access to the previously selected Azure resourc
 
 1. On the **Check access** tab, click the **View my access** button.
 
-    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at child scopes are not listed.
+    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at child scopes aren't listed.
 
     ![Screenshot of role and deny assignments pane.](./media/check-access/rg-check-access-assignments.png)
 
