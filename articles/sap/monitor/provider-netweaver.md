@@ -71,8 +71,7 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
 1. Select **Profile** &gt; **Save** to save the changes.   
 1. Restart the **SAPStartSRV** service on each instance in the SAP system. Restarting the services doesn't restart the entire system. This process only restarts **SAPStartSRV** (on Windows) or the daemon process (in Unix or Linux).
 
-    You must restart **SAPStartSRV** on each instance of the SAP system for the SAP Control web methods to be unprotected. These read-only SOAP APIs are       required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods results in empty or missing 
-    visualizations on the NetWeaver metric workbook.
+    You must restart **SAPStartSRV** on each instance of the SAP system for the SAP Control web methods to be unprotected. These read-only SOAP APIs are required for the NetWeaver provider to fetch metric data from the SAP system. Failure to unprotect these methods results in empty or missing visualizations on the NetWeaver metric workbook.
 
     1. On Windows systems, use the SAP Microsoft Management Console (MMC) or SAP Management Console (MC) to restart the service. Right-click each instance. Then, choose **All Tasks** &gt; **Restart Service**.
   ![Screenshot of the MMC console, showing the Restart Service option being selected.](./media/provider-netweaver/azure-monitor-providers-netweaver-mmc-output.png)
@@ -82,7 +81,7 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
     ```Command to restart the service 
     sapcontrol -nr <instance number> -function RestartService
     ```    
-    3. Repeat the previous steps for each instance profile.
+    3. Repeat the previous steps for each instance profile (or) you can restart the SAP system in lower environments as another option.
     
 #### Powershell script to unprotect web methods
     
@@ -122,8 +121,8 @@ It's also recommended to check that you enabled the ICF ports.
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
     3. Recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute.
     4. If you notice empty visualization as part of the workbook tab "System Performance - CPU and Memory (/SDF/SMON)", please apply the below SAP note:     
-        1. Release 740 SAPKB74006-SAPKB74025 - Release 755 Until SAPK-75502INSAPBASIS - [SAP Note 2246160](https://launchpad.support.sap.com/#/notes/2246160).
-        1. Release 756 and above - [SAP Note 3268727](https://launchpad.support.sap.com/#/notes/3268727)       
+        1. Release 740 SAPKB74006-SAPKB74025 - Release 755 Until SAPK-75502INSAPBASIS. For specific support package versions please refer to the SAP NOTE.- [SAP Note 2246160](https://launchpad.support.sap.com/#/notes/2246160).
+        2. If the metric collection does not work with the above note then please try - [SAP Note 3268727](https://launchpad.support.sap.com/#/notes/3268727)       
 
 6. **To enable secure communication**
 
@@ -210,6 +209,7 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
     1. Review the output. Ensure in the output you see the name of methods **GetQueueStatistic ABAPGetWPTable EnqGetStatistic GetProcessList GetEnvironment ABAPGetSystemWPTable**
 
     1. Repeat the previous steps for each instance profile.
+       
 
     To validate the rules, run a test query against the web methods. Replace the `<hostname>` with your hostname, `<instance number>` with your SAP instance number, and the method name with the appropriate method.
 
@@ -264,7 +264,7 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
 
 4. SWNC metrics
 
-   In order to retrieve the SWNC metrics, it is important to ensure that the application servers, central instance, and database are consistently set to the same timezone.
+   To ensure a successful retrieval of the SWNC metrics, it is essential to confirm that both the SAP system and the operating system (OS) have synchronized times.
 
 ## Next steps
 
