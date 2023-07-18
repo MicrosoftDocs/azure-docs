@@ -286,7 +286,7 @@ With Cross Subscription Restore (CSR), you have the flexibility of restoring to 
 | --- | --- | --- | --- |
 | Restore database or restore as files | `Virtual Machine Contributor` | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
 |            | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
-|          | Backup Operator | Target Recovery Services vault |            |	
+|          | `Backup Operator` | Target Recovery Services vault |            |	
 
 By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
 

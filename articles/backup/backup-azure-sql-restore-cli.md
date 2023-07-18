@@ -24,11 +24,11 @@ In this article, you'll learn how to:
 
 This article assumes you've an SQL database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SQL database in Azure using CLI](backup-azure-sql-backup-cli.md) to back up your SQL database, then you're using the following resources:
 
-* A resource group named *SQLResourceGroup*
-* A vault named *SQLVault*
-* Protected container named *VMAppContainer;Compute;SQLResourceGroup;testSQLVM*
-* Backed-up database/item named *sqldatabase;mssqlserver;master*
-* Resources in the *westus2* region
+* A resource group named `SQLResourceGroup`.
+* A vault named `SQLVault`.
+* Protected container named `VMAppContainer;Compute;SQLResourceGroup;testSQLVM`.
+* Backed-up database/item named `sqldatabase;mssqlserver;master`.
+* Resources in the `westus` region.
 
 >[!Note]
 >See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
@@ -144,7 +144,7 @@ Name                                  Operation    Status      Item Name        
 be7ea4a4-0752-4763-8570-a306b0a0106f  Restore      InProgress  master [testSQLVM]  				  AzureWorkload             2022-06-21T03:51:06.898981+00:00  0:00:05.652967
 ```
 
-The response provides you the job name. You can use this job name to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 ## Restore and overwrite
 
@@ -199,7 +199,7 @@ Name                                  Operation    Status      Item Name        
 1730ec49-166a-4bfd-99d5-93027c2d8480  Restore      InProgress  master [testSQLVM]  				AzureWorkload             2022-06-21T04:04:11.161411+00:00  0:00:03.118076
 ```
 
-The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 ## Restore to a secondary region
 
@@ -359,7 +359,7 @@ The output appears as:
 }
 ```
 
-The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 > [!NOTE]
 > If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).

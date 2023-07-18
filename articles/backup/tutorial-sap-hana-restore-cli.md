@@ -23,11 +23,11 @@ Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
 
 This tutorial assumes you have an SAP HANA database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
 
-* A resource group named *saphanaResourceGroup*
-* A vault named *saphanaVault*
-* Protected container named `VMAppContainer;Compute;saphanaResourceGroup;saphanaVM`
-* Backed-up database/item named `saphanadatabase;hxe;hxe`
-* Resources in the *westus2* region
+* A resource group named `saphanaResourceGroup`.
+* A vault named `saphanaVault`.
+* Protected container named `VMAppContainer;Compute;saphanaResourceGroup;saphanaVM`.
+* Backed-up database/item named `saphanadatabase;hxe;hxe`.
+* Resources in the `westus2` region.
 
 For more information on the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
