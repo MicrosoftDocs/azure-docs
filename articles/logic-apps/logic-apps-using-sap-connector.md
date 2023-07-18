@@ -69,7 +69,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
 
-* No timeouts.
+* Longer timeout at 5 minutes compared to managed connector and ISE-versioned connector.
 
   The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
 
