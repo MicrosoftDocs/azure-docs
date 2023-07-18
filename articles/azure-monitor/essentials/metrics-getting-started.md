@@ -48,7 +48,7 @@ Create a metric chart using the following steps:
 
 1. Select the metric aggregation. Available aggregations include minimum, maximum, the average value of the metric, or a count of the number of samples. For more information on aggregations, see [Advanced features of Metrics Explorer](../essentials/metrics-charts.md#aggregation).  
 
-    > ![Screenshot that shows selecting a metric.](./media/metrics-getting-started/metrics-dropdown.png)
+     [ ![Screenshot that shows selecting a metric.](./media/metrics-getting-started/metrics-dropdown.png) ](./media/metrics-getting-started/metrics-dropdown.png#lightbox)
 
 
 
@@ -62,7 +62,7 @@ Create a metric chart using the following steps:
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart.
 
-![Screenshot that shows changing the time range panel.](./media/metrics-getting-started/time.png)
+[ ![Screenshot that shows changing the time range panel.](./media/metrics-getting-started/time.png) ](./media/metrics-getting-started/time.png#lightbox)
 
 > [!TIP]
 > Use the **time brush** to investigate an interesting area of the chart like a spike or a dip. Select an area on the chart and the chart zooms in to show more detail for the selected area.
@@ -87,7 +87,7 @@ Share your metric chart in any of the following ways: See the following instruct
 + Send to workbook Select **Share** > **Send to Workbook**. In the **Send to Workbook** window, you can send the metric chart to a new or existing workbook.
 + Pin to Grafana. Select **Share** > **Pin to Grafana**. In the **Pin to Grafana** window, you can send the metric chart to a new or existing Grafana dashboard.
 
-:::image type="content" source="media/metrics-getting-started/share.png" alt-text="Screenshot that shows the share dropdown menu.":::
+:::image type="content" source="media/metrics-getting-started/share.png" alt-text="Screenshot that shows the share dropdown menu." lightbox="media/metrics-getting-started/share.png" :::
 
 ## Advanced chart settings
 
