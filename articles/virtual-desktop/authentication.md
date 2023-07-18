@@ -104,7 +104,7 @@ Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for sessi
 
 ## In-session authentication
 
-Once you're connected to your remote app or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
+Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
 ### In-session passwordless authentication (preview)
 

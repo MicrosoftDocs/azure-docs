@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 08/03/2022
 ms.author: dacoelho 
-ms.reviewer: martinle
+ms.reviewer: wiassaf
 ---
 
 # The need for optimize write on Apache Spark

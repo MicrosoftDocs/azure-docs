@@ -3,8 +3,7 @@ title: Create an Azure snapshot of a virtual hard disk
 description: Learn how to create a copy of an Azure VM to use as a backup or for troubleshooting issues using the portal, PowerShell, or CLI.
 author: roygara
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/22/2022

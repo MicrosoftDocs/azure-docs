@@ -1,6 +1,6 @@
 ---
-title: Pull settings to App Configuration with Azure Pipelines
-description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
+title: Pull settings from App Configuration with Azure Pipelines
+description: Learn how to use Azure Pipelines to pull key-values from an App Configuration Store
 services: azure-app-configuration
 author: mcleanbyron
 ms.service: azure-app-configuration
@@ -9,7 +9,7 @@ ms.date: 11/17/2020
 ms.author: mcleans
 ---
 
-# Pull settings to App Configuration with Azure Pipelines
+# Pull settings from App Configuration with Azure Pipelines
 
 The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) task pulls key-values from your App Configuration store and sets them as Azure pipeline variables, which can be consumed by subsequent tasks. This task complements the [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) task that pushes key-values from a configuration file into your App Configuration store. For more information, see [Push settings to App Configuration with Azure Pipelines](push-kv-devops-pipeline.md).
 

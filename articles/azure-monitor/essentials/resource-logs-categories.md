@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 06/04/2023
+ms.date: 07/18/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -245,6 +245,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |Network Security Group Rule Flow Event |Network Security Group Rule Flow Event |No |
 
+## Microsoft.Cloudtest/hostedpools  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ProvisioningScriptLogs |Provisioning Script Logs |Yes |
+
 ## Microsoft.CodeSigning/codesigningaccounts  
 <!-- Data source : naam-->
 
@@ -328,6 +335,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |Audit |MCVP Audit Logs |Yes |
 |Logs |MCVP Logs |Yes |
+
+## Microsoft.ContainerInstance/containerGroups  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ContainerEvent |Container events |Yes |
+|ContainerInstanceLog |Standard output logs |Yes |
 
 ## Microsoft.ContainerRegistry/registries  
 <!-- Data source : naam-->
@@ -573,7 +588,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AgentHealthStatus |AgentHealthStatus |No |
-|AutoscaleEvaluationPooled |Do not use - internal testing |Yes |
+|AutoscaleEvaluationPooled |Autoscale logs for pooled host pools - private preview [Microsoft internal only] |Yes |
 |Checkpoint |Checkpoint |No |
 |Connection |Connection |No |
 |ConnectionGraphicsData |Connection Graphics Data Logs Preview |Yes |
@@ -606,7 +621,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |DataplaneAuditEvent |Dataplane audit logs |Yes |
-|ResourceLifecycle |Resource lifecycle |Yes |
+|ResourceOperation |Resource Operations |Yes |
 
 ## Microsoft.Devices/IotHubs  
 <!-- Data source : naam-->
@@ -733,13 +748,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |AuditLogs |Audit logs |No |
 |DiagnosticLogs |Diagnostic logs |Yes |
-
-## Microsoft.HealthcareApis/workspaces/analyticsconnectors  
-<!-- Data source : arm-->
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DiagnosticLogs |Diagnostic logs for Analytics Connector |Yes |
 
 ## Microsoft.HealthcareApis/workspaces/dicomservices  
 <!-- Data source : arm-->
@@ -892,8 +900,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AmlOnlineEndpointConsoleLog |AmlOnlineEndpointConsoleLog |Yes |
-|AmlOnlineEndpointEventLog |AmlOnlineEndpointEventLog (preview) |Yes |
-|AmlOnlineEndpointTrafficLog |AmlOnlineEndpointTrafficLog (preview) |Yes |
+|AmlOnlineEndpointEventLog |AmlOnlineEndpointEventLog |Yes |
+|AmlOnlineEndpointTrafficLog |AmlOnlineEndpointTrafficLog |Yes |
 
 ## Microsoft.ManagedNetworkFabric/networkDevices  
 <!-- Data source : naam-->
@@ -1117,6 +1125,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|DefenderSecurity |Security - Defender |Yes |
 |SecurityCritical |Security - Critical |Yes |
 |SecurityDebug |Security - Debug |Yes |
 |SecurityError |Security - Error |Yes |
@@ -1268,6 +1277,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |HybridConnectionsEvent |HybridConnections Events |No |
 |HybridConnectionsLogs |HybridConnectionsLogs |Yes |
+|VNetAndIPFilteringLogs |VNet/IP Filtering Connection Logs |Yes |
 
 ## Microsoft.Search/searchServices  
 <!-- Data source : naam-->
@@ -1308,6 +1318,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |OperationalLogs |Operational Logs |No |
 |RuntimeAuditLogs |Runtime Audit Logs |Yes |
 |VNetAndIPFilteringLogs |VNet/IP Filtering Connection Logs |No |
+
+## Microsoft.ServiceNetworking/trafficControllers  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|TrafficControllerAccessLog |Application Gateway for Containers Access Log |Yes |
 
 ## Microsoft.SignalRService/SignalR  
 <!-- Data source : naam-->
@@ -1426,6 +1443,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |StorageRead |StorageRead |Yes |
 |StorageWrite |StorageWrite |Yes |
 
+## Microsoft.StorageCache/amlFilesystems  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AmlfsAuditEvent |Azure Managed Lustre audit event |Yes |
+
 ## Microsoft.StorageCache/caches  
 <!-- Data source : naam-->
 
@@ -1487,13 +1511,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Command |Synapse Data Explorer Command |Yes |
-|FailedIngestion |Synapse Data Explorer Failed Ingestion |Yes |
-|IngestionBatching |Synapse Data Explorer Ingestion Batching |Yes |
-|Query |Synapse Data Explorer Query |Yes |
-|SucceededIngestion |Synapse Data Explorer Succeeded Ingestion |Yes |
-|TableDetails |Synapse Data Explorer Table Details |Yes |
-|TableUsageStatistics |Synapse Data Explorer Table Usage Statistics |Yes |
+|Command |Command |Yes |
+|FailedIngestion |Failed ingestion |Yes |
+|IngestionBatching |Ingestion batching |Yes |
+|Journal |Journal |Yes |
+|Query |Query |Yes |
+|SucceededIngestion |Succeeded ingestion |Yes |
+|TableDetails |Table details |Yes |
+|TableUsageStatistics |Table usage statistics |Yes |
 
 ## Microsoft.Synapse/workspaces/scopePools  
 <!-- Data source : naam-->
@@ -1593,4 +1618,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Sun Jun 04 2023 10:14:09 GMT+0300 (Israel Daylight Time)-->
+<!--Gen Date:  Tue Jul 18 2023 10:25:51 GMT+0300 (Israel Daylight Time)-->

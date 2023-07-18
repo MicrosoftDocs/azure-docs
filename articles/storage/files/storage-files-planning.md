@@ -2,11 +2,10 @@
 title: Planning for an Azure Files deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file shares on-premises with Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 06/09/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -121,7 +120,7 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
 ## Data protection
-Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats. See [Azure Files data protection overview](files-data-protection-overview.md).
 
 ### Soft delete
 Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
@@ -168,6 +167,10 @@ ZRS for premium file shares is available for a [subset of Azure regions](redunda
 ### Standard GZRS availability
 
 GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
+
+## Disaster recovery and failover
+
+In the case of an unplanned regional service outage, you should have a disaster recovery (DR) plan in place for your Azure file shares. To understand the concepts and processes involved with DR and storage account failover, see [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
 ## Migration
 In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 

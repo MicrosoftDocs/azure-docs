@@ -14,6 +14,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # What is Azure AD Connect cloud sync?
+
+> [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
+
 Azure AD Connect cloud sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD.  It accomplishes this by using the Azure AD cloud provisioning agent instead of the Azure AD Connect application.  However, it can be used alongside Azure AD Connect sync and it provides the following benefits:
     
 - Support for synchronizing to an Azure AD tenant from a multi-forest disconnected Active Directory forest environment: The common scenarios include merger & acquisition (where the acquired company's AD forests are isolated from the parent company's AD forests), and companies that have historically had multiple AD forests.

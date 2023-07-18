@@ -68,7 +68,7 @@ productDirectory:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
   # Card 8
-    - title: New Relic Preview
+    - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md

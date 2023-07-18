@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 07/11/2023
 ms.author: jasteppe
 ---
 
@@ -25,11 +25,11 @@ No. The Azure Health Data Services Events feature only currently supports the Az
 
 Events are generated from the following FHIR service types:
 
-- **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+* **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 
-- **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
+* **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 
-- **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+* **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 
 For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
 
@@ -39,9 +39,9 @@ Yes. The Events feature is designed to emit notifications of data changes at the
 
 Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-type.html) in the following ways:
 
-- **Batch**: An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
+* **Batch**: An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
 
-- **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there are any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
+* **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there are any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
 
 > [!NOTE]
 > Events are not sent in the sequence of the data operations in the FHIR bundle.
@@ -50,11 +50,11 @@ Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-
 
 Events are generated from the following DICOM service types:
 
-- **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
+* **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
 
-- **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
+* **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 
-- **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
+* **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
 
 ## What is the payload of an Events message? 
 
@@ -62,7 +62,7 @@ For a detailed description of the Events message structure and both required and
 
 ## What is the throughput for the Events messages?
 
-The throughput of the FHIR or DICOM service and the Event Grid govern the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per a workspace for all FHIR or DICOM service instances in it. 
+The throughput of the FHIR or DICOM service and the Event Grid govern the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per workspace for all FHIR or DICOM service instances in the workspace. 
 
 ## How am I charged for using Events?
 
@@ -76,7 +76,7 @@ You can use the Event Grid filtering feature. There are unique identifiers in th
 
 ## Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?
 
-Yes. We recommend that you use different subscribers for each individual FHIR or DICOM account to process in isolated scopes.
+Yes. We recommend that you use different subscribers for each individual FHIR or DICOM service to process in isolated scopes.
 
 ## Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
 

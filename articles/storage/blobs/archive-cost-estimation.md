@@ -7,7 +7,6 @@ author: normesta
 ms.author: normesta
 ms.date: 05/30/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ---
 
