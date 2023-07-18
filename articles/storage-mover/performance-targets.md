@@ -47,27 +47,61 @@ These test results are created under ideal conditions. They're meant as a baseli
 
 Migration from SMB mount to Azure fileshare tests were executed as follows:
 
-1. **Test Scenario 1: Plenty of Files**<br/>
-   *(gives a sense of IOPS/Transactions per sec/Files per sec)*
-   - *Number of files:* 12 million files
-   - *Total file weight:* 12 GB
-   - *File size:* 1 KB each
-   - *Folder structure:* 12 folders, each with 100 subfolders containing 10,000 files
+The following table describes the characteristics of the test environments that produced the performance test results from an SMB mount to an Azure fileshare.
 
-1. **Test Scenario 2: Small Standard Job**
-   - *Number of files:* 30 files
-   - *Total files weight:* 20 GB
-   - *Folder structure:* 1 folder
+|Test No.        |No. of files    |Total files weight    |File size    |Folder structure                                               |
+|----------------|----------------|----------------------|-------------|---------------------------------------------------------------|
+|1               |12 million      |12 GB                 |1 KB each    |12 folders, each with 100 sub-folders containing 10,000 files  |
+|2               |30              |20 GB                 |             |1 folder                                                       |
+|3               |1 million       |100 GB                |100 KB each  |1,000 folders, each with 1,000 files                           |
+|4               |1               |                      |4 TB         |                                                               |
+|5               |117 million     |117 GB                |1 KB each    |117 folders, each with 100 sub-folders containing 10,000 files |
+|6               |1               |                      |1 TB         |                                                               |
+|7               |3.3 million     |45 GB                 |13 KB each   |200,000 folders, each contains 16\17 files                     |
+|8               |50 million      |1 TB                  |20 KB each   |2,940,000 folders, each contains 17 files                      |
+|9               |100 million     |2 TB                  |20 KB each   |5,880,000 folders, each contains 17 files                      |
 
-1. **Test Scenario 3: Standard Job**
-   - *Number of files:* 1 million files
-   - *Total files weight:* 100 GB
-   - *File size:* 100 KB each
-   - *Folder structure:* 1,000 folders, each with 1,000 files
+Different agent resource configurations are tested on SMB endpoints:
 
-1. **Test Scenario 4: Large File**
-   - *Number of files:* 1 file
-   - *File size:* 4 TB
+1. **Minspec: 4 CPU / 8 GB RAM**
+   4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
+
+   |Test No.    |Execution time     |Scanning time       |Additional information                            |
+   |------------|-------------------|--------------------|--------------------------------------------------|
+   |6           |16 min, 42 sec     | 1.2 sec            | <table><tr><td>foo</td></tr></table>             |
+   |7           |55 min, 4 sec      | 1 min, 17 sec      |                                                  |
+   |8           |                   |                    |                                                  |
+   |9           |                   |                    |                                                  |
+
+1. **Bootspec: 8 CPU / 16 GiB RAM**
+   8 virtual CPU cores at 2.7 GHz each and 16 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
+
+   *Results: Standard storage account*
+
+   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |------------|------------------------|------------------------|--------------------------------------------------|
+   |1           |15 hr, 59 min           |2 hr, 36 min, 34 sec    |                                                  |
+   |2           |1 min, 54 sec           |3.34 sec                |                                                  |
+   |3           |1 hr, 19 min, 27 sec    |57.62 sec               |                                                  |
+   |4           |1 hr, 5 min, 57 sec     |2.89 sec                |                                                  |
+
+   *Results: Standard storage account with large files enabled*
+
+   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |------------|------------------------|------------------------|--------------------------------------------------|
+   |1           |3 hr, 51 min, 31 sec    |41 min and 45 sec       |                                                  |
+   |5           |25 hr, 47 min           |23 hr, 35 min           |                                                  |
+   |6           |11 min, 11 sec          |0.7 sec                 |                                                  |
+   |7           |55 min, 10 sec          |1 min, 3 sec            |                                                  |
+   |8           |                        |                        |                                                  |
+   |9           |                        |                        |                                                  |
+
+   *Results: Premium storage account*
+
+   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |------------|------------------------|------------------------|--------------------------------------------------|
+   |1           |2 hr, 35 min, 14 sec    |24 min, 46 sec          |                                                  |
+   |5           |23 hr, 34 min           |21 hr, 34 minutes       |                                                  |
 
 ### [NFS mount : Azure blob container](#tab/nfs)
 
@@ -82,12 +116,12 @@ The following table describes the characteristics of the test environment that p
 
 Different agent resource configurations are tested on NFS endpoints:
 
-1. **Minspec: 4 CPU / 8-GiB RAM**
+1. **Minspec: 4 CPU / 8 GB RAM**
    4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-   |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
+   |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200 K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
    |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
-   |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 Hours, 28 Min                                  |
+   |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 hr, 28 Min                                  |
    |Items* per Second         | -                 | 3548                                                 | 2860                                             |
    |Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                              | 1.4 GiB                                          |
    |Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                              | *result missing*                                 |
