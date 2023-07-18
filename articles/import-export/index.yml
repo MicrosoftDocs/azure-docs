@@ -7,7 +7,7 @@ metadata:
   title: Azure Import/Export documentation
   description: Azure Import/Export Documentation to securely import/export large amounts of data to and from Azure datacenters by shipping physical disks. # < 160 chars.
   services: storage
-  ms.service: storage
+  ms.service: azure-storage
   ms.subservice: storage
   ms.topic: landing-page 
   ms.collection: collection

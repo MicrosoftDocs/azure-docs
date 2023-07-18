@@ -143,4 +143,3 @@ As the preceding examples show, UDFs integrate the power of JavaScript language 
 
 - [Introduction to Azure Cosmos DB](../../introduction.md)
 - [System functions](system-functions.yml)
-- [Aggregates](aggregate-functions.md)

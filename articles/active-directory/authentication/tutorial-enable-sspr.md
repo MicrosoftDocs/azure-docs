@@ -94,6 +94,9 @@ An administrator can manually provide this contact information, or users can go 
 
 1. To apply the registration settings, select **Save**.
 
+> [!NOTE]
+> The interruption to request to register contact information during signing in, will only occur, if the conditions configured on the settings are met, and will only apply to users and admin accounts that are enabled to reset passwords using Azure Active Directory self-service password reset. 
+
 ## Set up notifications and customizations
 
 To keep users informed about account activity, you can set up Azure AD to send email notifications when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides another layer of awareness when a privileged administrator account password is reset using SSPR. Azure AD will notify all global admins when someone uses SSPR on an admin account.

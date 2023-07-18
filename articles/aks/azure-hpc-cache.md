@@ -15,8 +15,7 @@ ms.date: 06/22/2023
 
 ## Before you begin
 
-* This article assumes you have an existing AKS cluster. If you need an AKS cluster, you can create one using[Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [Azure portal][aks-quickstart-portal].
-
+* This article assumes you have an existing AKS cluster. If you need an AKS cluster, you can create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [Azure portal][aks-quickstart-portal].
     > [!IMPORTANT]
     > Your AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
 
@@ -319,29 +318,57 @@ If you need to run an application as a non-root user, you may need to disable ro
 * For more information on using NFS with AKS, see [Manually create and use a Network File System (NFS) Linux Server volume with AKS][aks-nfs].
 
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+
 [aks-nfs]: azure-nfs-volume.md
+
 [hpc-cache]: ../hpc-cache/hpc-cache-overview.md
+
 [hpc-cache-access-policies]: ../hpc-cache/access-policies.md
+
 [hpc-cache-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache&regions=all
+
 [hpc-cache-cli-prerequisites]: ../hpc-cache/az-cli-prerequisites.md
+
 [hpc-cache-prereqs]: ../hpc-cache/hpc-cache-prerequisites.md
+
 [az-hpc-cache-create]: /cli/azure/hpc-cache#az_hpc_cache_create
+
 [az-aks-show]: /cli/azure/aks#az_aks_show
+
 [install-azure-cli]: /cli/azure/install-azure-cli
+
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+
 [persistent-volume]: concepts-storage.md#persistent-volumes
+
 [persistent-volume-claim]: concepts-storage.md#persistent-volume-claims
+
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+
 [az-provider-register]: /cli/azure/provider#az_provider_register
+
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
+
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+
 [az-storage-container-create]: /cli/azure/storage/container#az_storage_container_create
+
 [az-hpc-cache-blob-storage-target-add]: /cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add
+
 [az-network-private-dns-zone-create]: /cli/azure/network/private-dns/zone#az_network_private_dns_zone_create
+
 [az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
+
 [az-network-private-dns-record-set-a-create]: /cli/azure/network/private-dns/record-set/a#az_network_private_dns_record_set_a_create
+
+

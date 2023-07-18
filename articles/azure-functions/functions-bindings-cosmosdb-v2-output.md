@@ -669,15 +669,11 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
-
-[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
-
 # [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
@@ -685,13 +681,17 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-[!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
+[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
 # [Extension 4.x+](#tab/functionsv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-output-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
 ---
 ::: zone-end  
@@ -707,7 +707,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
 |`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
+|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
 |`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 
@@ -742,26 +742,60 @@ _Applies only to the Python v1 programming model._
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
-# [Functions 2.x+](#tab/functionsv2)
-
-[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
-
 # [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
 
+# [Functions 2.x+](#tab/functionsv2)
+
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
+
 ---
+
 ::: zone-end  
+
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the id property in the JSON object passed to the output parameter.
+By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
 
-[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]    
+::: zone pivot="programming-language-csharp"  
+
+The parameter type supported by the Cosmos DB output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [Extension 4.x+](#tab/extensionv4/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
+
+[!INCLUDE [functions-bindings-cosmosdb-v2-output-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-output-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+---
+
+::: zone-end  
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
 ## Exceptions and return codes
 

@@ -44,6 +44,8 @@
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
+      - name: Azure SQL Database
+        href: migrate-sql-database.md
       - name: Azure Storage accounts
         href: migrate-storage.md
       - name: Azure SQL managed instance

@@ -6079,6 +6079,31 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/type-checking-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-avg.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/average",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-count.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/count",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-sum.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/sum",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-max.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/max",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-min.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/min",
+      "redirect_document_id": true
     }
   ]
 }
