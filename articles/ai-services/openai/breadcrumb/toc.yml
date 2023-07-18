@@ -1,0 +1,22 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: Azure OpenAI Service
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/openai/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /legal/cognitive-services/openai    # Destination doc set route
+    topicHref: /azure/ai-services/openai/index    # Original doc set route
+    items:
+    - name: Azure OpenAI Service      # Destination doc set name
+      tocHref: /legal/cognitive-services/openai      # Destination doc set route
+      topicHref: /azure/ai-services/openai/index    # Original doc set route
