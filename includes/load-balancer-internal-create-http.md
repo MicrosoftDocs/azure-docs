@@ -11,7 +11,7 @@
 ---
 ## Create load balancer
 
-In this section, you create a zone redundant load balancer that load balances virtual machines. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
+In this section, you create a internal load balancer that load balances virtual machines. An internal load balancer is used to load balance traffic inside a virtual network with a private IP address.
 
 During the creation of the load balancer, you configure:
 

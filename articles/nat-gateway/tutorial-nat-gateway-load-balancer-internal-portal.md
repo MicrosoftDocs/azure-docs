@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Integrate a NAT gateway with an internal load balancer using the Azure portal
 
-In this tutorial, you'll learn how to integrate a NAT gateway with an internal load balancer.
+In this tutorial, you learn how to integrate a NAT gateway with an internal load balancer.
 
 By default, an Azure Standard Load Balancer is secure. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation). 
 
