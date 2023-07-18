@@ -189,7 +189,7 @@ sections:
       - question: |
           Does Cognitive Search send customer data to other services for processing?
         answer: |
-          Yes, if you use the built-in skills based on Cognitive Services, the indexer sends requests to Cognitive Services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
+          Yes, if you use the built-in skills based on Azure AI services, the indexer sends requests to Azure AI services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
 
       - question: |
           Can I control access to search results based on user identity?

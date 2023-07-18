@@ -705,6 +705,8 @@ groups:
   pivots:
   - id: programming-language-rest
     title: REST
+  - id: programming-language-csharp
+    title: C#
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-two-with-js-spx
@@ -826,6 +828,23 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
@@ -1412,6 +1431,20 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
+- id: acs-plat-web-ios-android-windows-unity
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
+  - id: platform-unity
+    title: Unity
 - id: acs-plat-android-web-ios
   title: Platform
   prompt: Choose a platform
@@ -2276,7 +2309,7 @@ groups:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
 ## template without azure AD PowerShell
-- id: enterprise-apps-minus-aad-powershell
+- id: enterprise-apps-minus-former-powershell
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:

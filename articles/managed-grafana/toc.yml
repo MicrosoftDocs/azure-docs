@@ -106,6 +106,8 @@ items:
     href: grafana-app-ui.md
 - name: Resources
   items:
+  - name: FAQ
+    href: faq.md
   - name: Q&A
     href: https://aka.ms/managed-grafana/q-n-a
   - name: Feature request

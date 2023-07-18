@@ -961,7 +961,6 @@ To return a specific entity by key, use a binding parameter that derives from [T
 
 To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
 
-
 # [Functions 1.x](#tab/functionsv1/in-process)
 
 To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
@@ -970,9 +969,7 @@ To execute queries that return multiple entities, bind to an [`IQueryable<T>`] o
 
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
-To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
-
-To execute queries that return multiple entities, bind to a [TableClient] object. You can then use this object to create and execute queries against the bound table. Note that [TableClient] and related APIs belong to the [Azure.Data.Tables](/dotnet/api/azure.data.tables) namespace.
+[!INCLUDE [functions-bindings-table-input-dotnet-isolated-types](../../includes/functions-bindings-table-input-dotnet-isolated-types.md)]
 
 # [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
 

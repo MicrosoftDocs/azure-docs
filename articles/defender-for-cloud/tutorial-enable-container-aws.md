@@ -10,14 +10,6 @@ ms.date: 06/29/2023
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
-Defender for Containers assists you with the three core aspects of container security:
-
-- [**Environment hardening**](defender-for-containers-introduction.md#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
-
-- [**Vulnerability assessment**](defender-for-containers-introduction.md#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in ACR registries and running in Azure Kubernetes Service.
-
-- [**Run-time threat protection for nodes and clusters**](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities.
-
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 You can learn more about Defender for Container's pricing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
@@ -60,9 +52,9 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
     :::image type="content" source="media/tutorial-enable-containers-aws/aws-containers-enabled.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector." lightbox="media/tutorial-enable-containers-aws/aws-containers-enabled.png":::
 
-1. (Optional) To change the retention period for your audit logs, select **Settings**, enter the required timeframe, and select **Save**.
+1. (Optional) To change the retention period for your audit logs, select **Settings**, enter the required time frame, and select **Save**.
 
-    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="media/tutorial-enable-containers-aws/retention-period.png":::    
+    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="media/tutorial-enable-containers-aws/retention-period.png":::
 
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
@@ -90,7 +82,7 @@ Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy exten
 
 1. Select **Fix**.
 
-1. Defender for Cloud generates a script in the language of your choice: 
+1. Defender for Cloud generates a script in the language of your choice:
     - For Linux, select **Bash**.
     - For Windows, select **PowerShell**.
 
