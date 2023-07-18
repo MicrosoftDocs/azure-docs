@@ -75,7 +75,7 @@ Here's what changed in April 2023:
 
 ### Azure Virtual Desktop Store app for Windows in public preview
 
-The [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) is now in public preview for Windows 10 and 11. With the Store App, you can now automatically update the client, unlike with the Remote Desktop client. You can also pin remote apps to your Start menu to personalize your desktop and reduce clutter.
+The [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) is now in public preview for Windows 10 and 11. With the Store App, you can now automatically update the client, unlike with the Remote Desktop client. You can also pin a RemoteApp to your Start menu to personalize your desktop and reduce clutter.
 
 For more information about the public preview release version, check out [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop (preview)](users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json), [What's new in the Azure Virtual Desktop Store App (preview)](whats-new-client-windows-azure-virtual-desktop-app.md), or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-app/ba-p/3785698).
 
@@ -107,7 +107,7 @@ Windows 10 and 11 22H2 Enterprise and Enterprise multi-session images are now vi
 
 ### Uniform Resource Identifier Schemes in public preview
 
-Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or Remote App using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
+Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or RemoteApp using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
 
 ### Azure Virtual Desktop Insights at Scale now generally available
 
@@ -229,7 +229,7 @@ The ability to collect graphics data for your Azure Virtual Desktop connections 
 
 ### Multimedia redirection enhancements now in public preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, remote app browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
 
 ### Grouping costs by Azure Virtual Desktop host pool now in public preview
 
@@ -560,11 +560,10 @@ This feature offers a streamlined onboarding experience in the Azure portal to s
 
 The start VM on connect feature is now generally available. This feature helps you optimize costs by letting you turn off deallocated or stopped VMs, letting your deployment be flexible with user demands. For more information, see [Start Virtual Machine on Connect](start-virtual-machine-connect.md).
 
-### Remote app streaming documentation
+### RemoteApp streaming
 
-We recently announced a new pricing option for remote app streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use remote app streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about remote app streaming, check out [our documentation](./remote-app-streaming/overview.md).
+We recently announced a new pricing option for RemoteApp streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use RemoteApp streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about RemoteApp streaming, check out [our documentation](./remote-app-streaming/overview.md).
 
-From July 14, 2021 to December 31, 2021, we're giving customers who use remote app streaming a promotional offer that lets their business partners and customers access Azure Virtual Desktop for no charge. This offer only applies to external user access rights. Regular billing will resume on January 1, 2022. In the meantime, you can continue to use your existing Windows license entitlements found in licenses like Microsoft 365 E3 or Windows E3. To learn more about this offer, see the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ### New Azure Virtual Desktop handbooks
 
@@ -581,7 +580,7 @@ Here's what changed in June 2021:
 
 ### Windows Virtual Desktop is now Azure Virtual Desktop
 
-To better align with our vision of a flexible cloud desktop and remote application platform, we've renamed Windows Virtual Desktop to Azure Virtual Desktop. Learn more at [the announcement post in our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
+To better align with our vision of a flexible cloud desktop and application platform, we've renamed Windows Virtual Desktop to Azure Virtual Desktop. Learn more at [the announcement post in our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
 
 ### EU, UK, and Canada geographies are now generally available
 
@@ -994,7 +993,7 @@ Here's what this change does for you:
 
 - Azure Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required. To get started, check out our tutorial at [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
-- Before this update, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
+- Before this update, you could only publish desktops and applications to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
 - The earlier version of Azure Virtual Desktop had four built-in admin roles that you could assign to a tenant or host pool. These roles are now in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). You can apply these roles to every Azure Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
 

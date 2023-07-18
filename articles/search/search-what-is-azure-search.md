@@ -21,7 +21,7 @@ Search is foundational to any app that surfaces text to users, where common scen
 + Rich indexing, with [lexical analysis](search-analyzers.md) and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, fuzzy search, autocomplete, geo-search and more
 + Programmability through REST APIs and client libraries in Azure SDKs
-+ Azure integration at the data layer, machine learning layer, and AI (Cognitive Services)
++ Azure integration at the data layer, machine learning layer, and AI (Azure AI services)
 
 > [!div class="nextstepaction"]
 > [Create a search service](search-create-service-portal.md)
@@ -32,7 +32,7 @@ Architecturally, a search service sits between the external data stores that con
 
 In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, semantic ranking, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
-Across the Azure platform, Cognitive Search can integrate with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and natural language processing, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
+Across the Azure platform, Cognitive Search can integrate with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Azure AI services, such as image and natural language processing, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
 
 ## Inside a search service
 
@@ -103,7 +103,7 @@ Among cloud providers, Azure Cognitive Search is strongest for full text search 
 Key strengths include:
 
 + Data integration (crawlers) at the indexing layer.
-+ AI and machine learning integration with Azure Cognitive Services, useful if you need to make unsearchable content full text-searchable.
++ AI and machine learning integration with Azure AI services, useful if you need to make unsearchable content full text-searchable.
 + Security integration with Azure Active Directory for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
 + Linguistic and custom text analysis in 56 languages.
 + [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.

@@ -2,7 +2,6 @@
 title: Analyzers for linguistic and text processing
 titleSuffix: Azure Cognitive Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
