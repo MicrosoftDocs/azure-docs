@@ -15,13 +15,16 @@ Log Sharing offers access to Log files, which help in building more effective su
 
 Especially on mobile devices, the Application Sandbox poses challenges for an End User when they attempt to retrieve and transmit these files. This feature provides an application developer with a mechanism to implement enhanced support tools, making it easy for users to submit the necessary files and receive robust support.
 
-## Applying this Functionality
+## Designing Effective Support Tools
 
-When designing a user interface for this feature, keep the following tips in mind. The main objective is to simplify the process of reporting errors and sharing related log files for users.
+Consider the following when implementing support tools:
 
-Consider this scenario: "I'm using your app and encounter a problem. I want to report this error and send you the log files so your support team can investigate it."
+1. **Time**: Retrieving logs close to the time of impact will yield the most relevant data.
+1. **End User**: How would you like a user to escalate and report issues?
+1. **Your Support**: How would they like to support the users and track these files?
+1. **Azure Support**: Can you provide a Link or another quick way to access these files on request?
 
-Despite differences across companies, the goal is for your support team to receive these files promptly. This way, if Microsoft requires them, your team is prepared.
+By thinking about these requirements you can implement an effective way of communicate support requests.
 
 ## Common Use Cases
 
