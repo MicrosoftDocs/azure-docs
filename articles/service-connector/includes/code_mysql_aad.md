@@ -39,7 +39,7 @@ For a Spring application, if you create a connection with option `--client-type 
 
 ### [.NET](#tab/dotnet)
 
-For other languages, there's not a plugin or library to support passwordless connections. You can get access token for the managed identity or service principal and use it as the password to connect to the database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get an access token for the managed identity or service principal.
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. For example, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get an access token for the managed identity or service principal:
 
 ```csharp
 using Azure.Core;

@@ -36,6 +36,7 @@ ms.author: xiaofanzhou
     ```
 
 For more information, see the following resources:
+
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
 * [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
@@ -46,7 +47,7 @@ For a Spring application, if you create a connection with option `--client-type 
 
 ### [.NET](#tab/dotnet)
 
-For other languages, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get an access token for the managed identity or service principal:
+For .NET, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. For example, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get an access token for the managed identity or service principal:
 
 ```csharp
 using Npgsql;
@@ -64,7 +65,7 @@ var sqlServerTokenProvider = new DefaultAzureCredential(
 //var sqlServerTokenProvider = new DefaultAzureCredential();
 
 // service principal: tenantId, clientId, clientSecret can be retrieved from environment variables
-// var sqlServerTokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
+//var sqlServerTokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
     new TokenRequestContext(scopes: new string[]
