@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following command:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}

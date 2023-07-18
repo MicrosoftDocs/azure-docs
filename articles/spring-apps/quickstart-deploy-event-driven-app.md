@@ -130,7 +130,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone pivot="sc-standard"
 
-3. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
+3. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
@@ -147,7 +147,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 > [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
->Fal [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
 > [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
