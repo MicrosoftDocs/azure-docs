@@ -73,7 +73,7 @@ These samples and how-to guides demonstrate how to write a desktop application t
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md) | ---   |
-> | ASP.NET (MAUI) | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) |&#8226; [Create and set up](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)|
+> | ASP.NET (MAUI) | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) |&#8226; [Sign in users](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)|
 
 ### Mobile
 
