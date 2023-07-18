@@ -18,7 +18,7 @@ ms.custom: template-concept; references_regions
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
-> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
+> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it, not even while creating new vrtual machine from snapshot of exisitng virtual machine's OS disk. Option to change security type will be greyed out.
 
 ## Benefits
 
