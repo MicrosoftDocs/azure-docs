@@ -137,7 +137,7 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
 ## Export test results using JMeter Backend Listeners
 You can use [JMeter Backend Listeners](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL or monitoring tools like AppInsights. 
 
-You can use the backend listeners available by default in JMeter, backend listeners from https://jmeter-plugins.org, or a custom backend listener in the form of a Java archive (JAR) file. 
+You can use the backend listeners available by default in JMeter, backend listeners from [jmeter-plugins.org](https://jmeter-plugins.org), or a custom backend listener in the form of a Java archive (JAR) file. 
 
 A sample JMeter script that uses a [backend listener for Azure Application Insights](https://github.com/adrianmo/jmeter-backend-azure) is available [here](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
 
