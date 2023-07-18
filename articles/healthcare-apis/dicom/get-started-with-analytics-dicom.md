@@ -34,7 +34,8 @@ This section details the steps for configuring an ADF pipeline that can write DI
 
 In this example, an Azure Data Factory [pipeline](../../data-factory/concepts-pipelines-activities.md) will be used to write DICOM attributes for instances, series, and studies into a storage account in a [Delta table](https://delta.io/) format.  
 
-![Screenshot of Azure Data Factory Studio Launch studio button]()
+From the Azure portal, open the Azure Data Factory instance and select **Launch Studio** to begin.  
+
 :::image type="content" source="media/data-factory-launch-studio.png" alt-text="View of Launch studio button in the Azure portal." lightbox="media/data-factory-launch-studio.png":::
 
 ### Create linked services
@@ -99,4 +100,11 @@ Azure Data Factory pipelines are a collection of activities that perform a task,
 
 4. Select **Use this template** to create the new pipeline.  
 
-### 
+## Scheduling a pipeline
+Pipelines are scheduled by triggers. There are different types of triggers, including schedule (which allows pipelines to be triggered on a wall-clock schedule) and manual triggers (which triggers pipelines on-demand). In this example, a tumbling window trigger is used to periodically run the pipeline given a starting point and regular interval. For more information about triggers, see [pipeline execution and triggers article](../../data-factory/concepts-pipeline-execution-triggers.md). 
+
+### Create a new tumbling window trigger
+1. Select **Author** from the navigation menu.  Select the pipeline for the DICOM service and select **Add trigger** from the menu bar.
+
+:::image type="content" source="media/data-factory-add-trigger.png" alt-text="Select Add trigger from the menu bar in the pipeline view." lightbox="media/data-factory-add-trigger.png":::
+
