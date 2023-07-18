@@ -16,28 +16,26 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 
 # Log Sharing
 
-In these tutorial's, you will learn how to add features to export and share logs across platforms.
+In this tutorial, you learn how to implement a basic log sharing mechanism.
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Directly share logs with Android](./includes/log-sharing-android.md)]
+[!INCLUDE [Android](./includes/log-sharing-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-[!INCLUDE [Directly share on iOS with Swift UI](./includes/log-sharing-ios.md)]
+[!INCLUDE [iOS](./includes/log-sharing-ios.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Export logs with C# on windows](./includes/log-sharing-windows.md)]
+[!INCLUDE [Windows](./includes/log-sharing-windows.md)]
 ::: zone-end
-
-
 
 ## Next steps
 
-From here, you'll want to consider creating a more robust error reporting flow to ensure the correct issues are escalated in a low-friction way. For ideas on how to implement further, please refer to the conceptual document.
+From here, you want to consider creating a more robust error reporting flow to ensure the correct issues are escalated in a low-friction way. For ideas on how to implement further, refer to the conceptual document.
 
 ## You may also like
 
-- [Log Sharing Conceptual Document](../concepts/voice-video-calling/log-sharing-concept.md)
+- [Retrieve log files Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
 - [End of call Survey](./end-of-call-survey-tutorial.md)
 - [User Facing Diagnostics](../concepts/voice-video-calling/user-facing-diagnostics.md)
