@@ -22,7 +22,7 @@ To get Custom sentiment analysis project details, submit a **GET** request using
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2023-04-15-preview` |
 
 ### Headers
 
