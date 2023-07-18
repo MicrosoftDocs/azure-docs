@@ -17,7 +17,7 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
 
 1. Create a new HTML file and [implement the map as usual](./how-to-use-map-control.md).
 2. Load the Azure Maps drawing tools module. You can load it in one of two ways:
-    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
+    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS Style Sheet in the `<head>` element of the file:
 
         ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
