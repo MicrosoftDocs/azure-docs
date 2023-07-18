@@ -1,6 +1,6 @@
 # Integrating a Log Sharing Feature in a C#/Windows Application
 
-In this tutorial, we guide you through the process of integrating a log sharing feature in your C#/Windows application using the CallingSDK. Once complete you'll be able to zip the log files and export that zip to a desired folder on your PC.
+In this tutorial, we guide you through the process of integrating a log sharing feature in your C#/Windows application using the CallingSDK. Once complete, you'll be able to zip the log files and export that zip to a desired folder on your PC.
 
 ## Prerequisites
 
