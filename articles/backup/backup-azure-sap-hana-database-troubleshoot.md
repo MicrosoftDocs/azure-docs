@@ -2,10 +2,10 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 11/02/2022
+ms.date: 07/18/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot backup of SAP HANA databases on Azure
@@ -202,8 +202,15 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | Found invalid hdbbackint executable.
 --- | ---
-**Possible case** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
+**Possible cause** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
 **Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
+
+### UserErrorHanaSQLQueryFailed
+
+**Error message** | Operation failed while running query on HANA Server.     <br><br>     All operations which fail with this user error is due to an issue caused at Hana side while running the query. Additional details have the clear message of the error.
+--- | ---
+**Possible causes** | - Disk corruption issue. <br> - Memory allocation issues. <br> - Too many databases in use. <br> - Topology update issue.
+**Recommended action** | Work with the SAP HANA team to fix this issue. However, if the issue persists, you can contact Microsoft support for further assistance.
 
 ## Restore checks
 
