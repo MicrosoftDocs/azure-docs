@@ -54,7 +54,7 @@ Next, select the aggregation type for each metric:
 
 :::image type="content" source="media/concept-metrics/aggregation-dropdown.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with the Aggregation dropdown menu open." lightbox="media/concept-metrics/aggregation-dropdown.png":::
 
-The aggregation type indicates how to aggregate metric points in the chart by time. There is one raw metric point every minute, and the pre-aggregation type within a minute is pre-defined by metrics type.
+The aggregation type indicates how to aggregate metric points in the chart by time. There's one raw metric point every minute, and the pre-aggregation type within a minute is pre-defined by metrics type.
 
 * Sum: Sum all values as target output.
 * Average: Use the Average value in the period as target output.
@@ -74,7 +74,7 @@ You can use two kinds of filters (properties):
 
 :::image type="content" source="media/concept-metrics/add-filter.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Add filter controls highlighted." lightbox="media/concept-metrics/add-filter.png":::
 
-You can also use the **Apply splitting** option, which will draw multiple lines for one app:
+You can also use the **Apply splitting** option, which draws multiple lines for one app:
 
 :::image type="content" source="media/concept-metrics/apply-splitting.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Apply splitting option highlighted." lightbox="media/concept-metrics/apply-splitting.png"::::
 
