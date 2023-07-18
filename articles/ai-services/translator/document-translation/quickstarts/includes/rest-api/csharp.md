@@ -83,7 +83,7 @@ using System.Text;
 
 class Program
 {
-    private static readonly string endpoint = "{your-document-translator-endpoint}/translator/text/batch/v1.0";
+    private static readonly string endpoint = "{your-document-translator-endpoint}/translator/text/batch/v1.1";
 
     private static readonly string key = "{your-key}";
 

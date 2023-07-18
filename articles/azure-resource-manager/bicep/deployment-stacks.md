@@ -251,7 +251,7 @@ az stack group create \
 ```
 
 > [!NOTE]
-> Azure CLI doesn't have a deployment stack set command.  Use the new command instead.
+> Azure CLI doesn't have a deployment stack set command.  Use the New command instead.
 
 # [Portal](#tab/azure-portal)
 
@@ -321,7 +321,7 @@ Currently not implemented.
 
 ---
 
-### Use the new command
+### Use the New command
 
 You get a warning similar to the following:
 
