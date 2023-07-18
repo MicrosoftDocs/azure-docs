@@ -18,7 +18,7 @@ Reference</br>
 Service: **Azure AI Document Translation**</br>
 API Version: **v1.1**</br>
 
-The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request.
+The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request. 
 
 ## Request URL
 
