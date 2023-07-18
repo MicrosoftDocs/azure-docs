@@ -69,7 +69,7 @@ Migration from SMB mount to Azure fileshare tests were executed as follows:
    - *Number of files:* 1 file
    - *File size:* 4 TB
 
-### [NFS mount : Azure blob container](#tab/smb)
+### [NFS mount : Azure blob container](#tab/nfs)
 
 The following table describes the characteristics of the test environment that produced the performance test results.
 
