@@ -81,7 +81,8 @@ Use [az network application-gateway create](/cli/azure/network/application-gatew
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
  ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you'll see these new features:
