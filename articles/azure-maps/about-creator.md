@@ -48,7 +48,8 @@ see the [Drawing package guide].
 ### Dataset
 
 A collection of the indoor map [features] of a facility. Update your facility dataset
-through a visual editor and query for features real time using the [Feature State] service. For more information, see [Work with datasets using the QGIS plugin].
+through a visual editor and query for features real time using the [Feature State]
+service. For more information, see [Work with datasets using the QGIS plugin].
 
 > [!TIP]
 > You can search for features in a dataset using the [Features API].
