@@ -1,7 +1,7 @@
 ---
 title: Cancel translation method
 titleSuffix: Azure AI services
-description: The cancel translation method cancels a currently processing or queued operation.
+description: The cancel translation method cancels a current processing or queued operation.
 services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
@@ -18,7 +18,7 @@ Reference</br>
 Service: **Azure AI Document Translation**</br>
 API Version: **v1.1**</br>
 
-Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed, has failed, or is canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
+Cancel a current processing or queued operation. An operation isn't canceled if it's already completed, has failed, or is canceling. A bad request is returned. Documents that have completed translation aren't canceled and are charged. All pending documents are canceled if possible.
 
 ## Request URL
 
@@ -41,7 +41,7 @@ Request parameters passed on the query string are:
 
 |Query parameter|Required|Description|
 |-----|-----|-----|
-|id|True|The operation-ID.|
+|`id`|True|The operation-ID.|
 
 ## Request headers
 
@@ -59,7 +59,7 @@ The following are the possible HTTP status codes that a request returns.
 |-----|-----|
 |200|OK. Cancel request has been submitted|
 |401|Unauthorized. Check your credentials.|
-|404|Not found. Resource is not found. 
+|404|Not found. Resource isn't found. 
 |500|Internal Server Error.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
@@ -71,11 +71,11 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|id|string|ID of the operation.|
+|`id`|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
-|summary|StatusSummary|Summary containing the details listed below.|
+|summary|StatusSummary|Summary containing a list of details.|
 |summary.total|integer|Count of total documents.|
 |summary.failed|integer|Count of documents failed.|
 |summary.success|integer|Count of documents successfully translated.|
@@ -90,11 +90,11 @@ The following information is returned in a successful response.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (this can be nested).|
+|target|string|Gets the source of the error. For example, it would be "documents" or `document id` for an invalid document.|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example, it would be "documents" or "document ID" if there was an invalid document.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if there was an invalid document.|
 
 ## Examples
 

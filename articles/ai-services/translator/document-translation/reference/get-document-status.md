@@ -41,7 +41,7 @@ Request parameters passed on the query string are:
 |Query parameter|Required|Description|
 |--- |--- |--- |
 |documentId|True|The document ID.|
-|id|True|The batch ID.|
+|`id`|True|The batch ID.|
 ## Request headers
 
 Request headers are:
@@ -56,9 +56,9 @@ The following are the possible HTTP status codes that a request returns.
 
 |Status Code|Description|
 |--- |--- |
-|200|OK. Successful request and it is accepted by the service. The operation details are returned.HeadersRetry-After: integerETag: string|
+|200|OK. Successful request accepted by the service. The operation details are returned.HeadersRetry-After: integerETag: string|
 |401|Unauthorized. Check your credentials.|
-|404|Not Found. Resource is not found.|
+|404|Not Found. Resource isn't found.|
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
@@ -75,7 +75,7 @@ The following are the possible HTTP status codes that a request returns.
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |to|string|Two letter language code of To Language. [See the list of languages](../../language-support.md).|
 |progress|number|Progress of the translation if available|
-|id|string|Document ID.|
+|`id`|string|Document ID.|
 |characterCharged|integer|Characters charged by the API.|
 
 ### Error response
@@ -84,10 +84,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` for an invalid document.|
 
 ## Examples
 

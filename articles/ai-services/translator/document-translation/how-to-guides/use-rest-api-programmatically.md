@@ -299,10 +299,10 @@ gradle run
 * Create a new Go project.
 * Add the provided Go code sample.
 * Set your endpoint, key, and container URL values.
-* Save the file with a '.go' extension.
+* Save the file with a `.go` extension.
 * Open a command prompt on a computer with Go installed.
-* Build the file. For example: 'go build example-code.go'.
-* Run the file, for example: 'example-code'.
+* Build the file. For example: `go build example-code.go`.
+* Run the file, for example: `example-code`.
 
  ---
 

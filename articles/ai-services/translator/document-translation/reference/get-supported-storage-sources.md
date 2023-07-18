@@ -55,12 +55,12 @@ The following are the possible HTTP status codes that a request returns.
 ## Get supported storage sources response
 
 ### Successful get supported storage sources response
+
 Base type for list return in the Get supported storage sources API.
 
 |Name|Type|Description|
 |--- |--- |--- |
 |value|string []|List of objects.|
-
 
 ### Error response
 
@@ -68,16 +68,16 @@ Base type for list return in the Get supported storage sources API.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if there was invalid document.|
 
 ## Examples
 
 ### Example successful response
 
-The following is an example of a successful response.
+The  following JSON object is an example of a successful response.
 
 ```JSON
 {
@@ -88,7 +88,7 @@ The following is an example of a successful response.
 ```
 
 ### Example error response
-The following is an example of an error response. The schema for other error codes is the same.
+The following Json object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 

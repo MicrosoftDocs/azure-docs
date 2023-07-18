@@ -1,5 +1,5 @@
 ---
-title: Document Translation SDKs 
+title: Document Translation SDKs
 titleSuffix: Azure AI services
 description: Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
@@ -133,7 +133,11 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ### [C#/.NET](#tab/csharp)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
+The Document Translation interface requires the following input:
+
+1. Upload your files to an Azure Blob Storage source container (sourceUri).
+1. Provide a target container where the translated documents can be written (targetUri).
+1. Include the target language code (targetLanguage).
 
 ```csharp
 
@@ -146,7 +150,11 @@ DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetU
 
 ### [Python](#tab/python)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
+The Document Translation interface requires the following input:
+
+1. Upload your files to an Azure Blob Storage source container (sourceUri).
+1. Provide a target container where the translated documents can be written (targetUri).
+1. Include the target language code (targetLanguage).
 
 ```python
 sourceUrl = "<your-source container-url>"
