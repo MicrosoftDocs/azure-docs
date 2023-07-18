@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Azure Video Indexer release notes
 
->Revisit this page to view the latest updates.
+Revisit this page to view the latest updates.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
