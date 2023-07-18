@@ -40,7 +40,6 @@ Use the following steps to create a storage account and container. Some of these
 
 The steps in this section direct you to deploy WLS on AKS in the simplest possible way. WLS on AKS offers a broad and deep selection of Azure integrations. For more information, see [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 
-:::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of Azure portal showing WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
 
 The following steps show you how to find the WLS on AKS offer and fill out the **Basics** pane.
 
@@ -52,18 +51,25 @@ The following steps show you how to find the WLS on AKS offer and fill out the *
 
 1. On the offer page, select **Create**.
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0723wls`.
+
+   :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of Azure portal showing WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
+
+1. You must deploy the offer in an **empty resource group**. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0723wls`.
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where AKS is available, see [AKS region availability](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 1. Under **Credentials for WebLogic**, leave the default value for **Username for WebLogic Administrator**.
 1. Fill in `wlsAksCluster2022` for the **Password for WebLogic Administrator**. Use the same value for the confirmation and **Password for WebLogic Model encryption** fields.
 1. Scroll to the bottom of the **Basics** pane and notice the helpful links for documentation, community support, and how to report problems.
-1. Select **Next: Configure AKS cluster**.
+1. Select **Next: AKS**.
 
 The following steps show you how to start the deployment process.
 
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-sso.png" alt-text="Screenshot of Azure portal showing configure sso." lightbox="media/howto-deploy-java-wls-app/configure-sso.png":::
+
 1. Scroll to the section labeled **Provide an Oracle Single Sign-On (SSO) account**. Fill in your Oracle SSO credentials from the preconditions.
-1. Accurately answer the question **Is the specified SSO account associated with an active Oracle support contract?** by selecting **Yes** or **No** accordingly. If you answer this question incorrectly, the steps in this quickstart won't work. If in doubt, select **No**.
-1. In the section **Java EE Application**, next to **Deploy your application package**, select **Yes**.
+
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-application.png" alt-text="Screenshot of Azure portal showing configure applications." lightbox="media/howto-deploy-java-wls-app/configure-application.png":::
+
+1. In the section **Application**, next to **Deploy an application?**, select **Yes**.
 1. Next to **Application package (.war,.ear,.jar)**, select **Browse**.
 1. Start typing the name of the storage account from the preceding section. When the desired storage account appears, select it.
 1. Select the storage container from the preceding section.
@@ -71,8 +77,11 @@ The following steps show you how to start the deployment process.
 
 The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Kubernetes `LoadBalancer` service. For a more secure and scalable way to expose functionality to the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
 
-1. Select the **Networking** pane.
-1. Next to the question **Create Standard Load Balancer services for Oracle WebLogic Server?**, select **Yes**.
+:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of Azure portal showing the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
+
+1. Select the **Load balancing** pane.
+1. Next to the option **Load Balancing Options
+**, select **Standard Load Balancer Service**.
 1. In the table that appears, under **Service name prefix**, fill in the values as shown in the following table. The port values of *7001* for the admin server and *8001* for the cluster must be filled in exactly as shown.
 
    | Service name prefix | Target       | Port |
@@ -80,7 +89,6 @@ The following steps make it so the WLS admin console and the sample app are expo
    | console             | admin-server | 7001 |
    | app                 | cluster-1    | 8001 |
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/load-balancer-minimal-config.png" alt-text="Screenshot of Azure portal showing the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/load-balancer-minimal-config.png":::
 
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If it doesn't, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
