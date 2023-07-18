@@ -657,6 +657,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-query-samples",
+      "url": "https://github.com/Azure-Samples/cosmos-db-nosql-query-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "main",
@@ -1054,15 +1060,17 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
   "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
-  "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
   "articles/confidential-computing/.openpublishing.redirection.json",
   "articles/container-apps/.openpublishing.redirection.container-apps.json",
