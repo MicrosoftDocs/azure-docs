@@ -41,6 +41,8 @@ New-AzRestorePointCollection -ResourceGroupName ExampleRG -Name ExampleRPC -VmId
 
 ## Step 2: Create a VM restore point
 Create a VM restore point with the [New-AzRestorePoint](/powershell/module/az.compute/new-azrestorepoint) cmdlet as shown below:
+To create a crash consistent restore point set the optional parameter "ConsistencyMode" to "CrashConsistent". This feature is currently in preview.
+
 ```
 New-AzRestorePoint -ResourceGroupName ExampleRG -RestorePointCollectionName ExampleRPC -Name ExampleRP
 ```
