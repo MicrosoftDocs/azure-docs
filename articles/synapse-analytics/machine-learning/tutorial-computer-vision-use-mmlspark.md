@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Computer Vision with Cognitive Service'
-description: Learn how to use computer vision in Azure Synapse Analytics.
+title: 'Tutorial: Vision with Azure AI services'
+description: Learn how to use Azure AI Vision in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -11,9 +11,9 @@ ms.author: ruxu
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Computer Vision with Cognitive Service
+# Tutorial: Vision with Azure AI services
 
-[Computer Vision](../../cognitive-services/computer-vision/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Computer Vision](../../cognitive-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
+[Azure AI Vision](../../ai-services/computer-vision/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](../../ai-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -37,9 +37,9 @@ df = spark.createDataFrame([
         ("<replace with your file path>/dog.jpg", )
     ], ["image", ])
 
-# Run the Computer Vision service. Analyze Image extracts infortmation from/about the images.
+# Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
 analysis = (AnalyzeImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
     .setImageUrlCol("image")
@@ -67,7 +67,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 ri = (ReadImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setImageUrlCol("url")
     .setOutputCol("ocr"))
 
@@ -77,7 +77,7 @@ display(ri.transform(df))
 ![Screenshot of the expected results from the example OCR analysis.](./media/tutorial-computer-vision-use-mmlspark/ocr-output.png)
 
 ## Generate thumbnails
-Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the area of interest. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.
+Analyze the contents of an image to generate an appropriate thumbnail for that image. The Vision service first generates a high-quality thumbnail and then analyzes the objects within the image to determine the area of interest. Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.
 
 ### Example input
 ![Photograph of the face of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/satya.jpeg)
@@ -88,7 +88,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 gt =  (GenerateThumbnails()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setHeight(50)
     .setWidth(50)
     .setSmartCropping(True)
@@ -118,7 +118,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 ti = (TagImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setImageUrlCol("url")
     .setOutputCol("tags"))
 
@@ -130,7 +130,7 @@ display(ti.transform(df))
 ![Screenshot of the expected output of the tags generated from the image of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/tag-image-output.png)
 
 ## Describe image
-Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
+Generate a description of an entire image in human-readable language, using complete sentences. The Vision service's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
 
 Let continue using Satya's image as an example.
 
@@ -140,7 +140,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 di = (DescribeImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setMaxCandidates(3)
     .setImageUrlCol("url")
     .setOutputCol("descriptions"))
@@ -151,7 +151,7 @@ display(di.transform(df))
 ![Screenshot of the expected output of the description of the image of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/describe-image-output.png)
 
 ## Recognize domain-specific content
-Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.
+Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.
 
 Let continue using Satya's image as an example.
 
@@ -162,7 +162,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 celeb =  (RecognizeDomainSpecificContent()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setModel("celebrities")
     .setImageUrlCol("url")
     .setOutputCol("celebs"))
