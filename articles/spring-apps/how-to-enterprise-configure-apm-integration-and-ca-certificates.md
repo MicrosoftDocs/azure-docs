@@ -147,7 +147,7 @@ You can create an APM configuration and bind to app builds and deployments, as e
 
 #### Manage APM configuration in Azure Spring Apps
 
-You can manage APM integration by configuring properties or secrets in the APM configuration via Azure portal or Azure CLI.
+You can manage APM integration by configuring properties or secrets in the APM configuration using the Azure portal or the Azure CLI.
 
 > [!NOTE]
 > When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.

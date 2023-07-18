@@ -254,7 +254,7 @@ The following environment variables aren't supported.
 
 ## Use a customized server configuration file
 
-You can configure web server by using a customized server configuration file. The following table shows configuration file path:
+You can configure web server by using a customized server configuration file. The following table shows the configuration file path:
 
 | Web server  | Default configuration file path                        | How to customize server configuration file path                                                                            |
 |-------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|

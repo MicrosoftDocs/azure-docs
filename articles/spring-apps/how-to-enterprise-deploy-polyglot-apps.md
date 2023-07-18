@@ -482,7 +482,7 @@ The following features aren't supported in Azure Spring Apps due to the limitati
 | Managed identity                                  | Azure SDKs doesn't support native image.                          |
 | Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump. |
 | Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging.            |
-| Passwordless connection via Service Connector     | Azure Java SDK doesn't support native image.                      |
+| Passwordless connection using Service Connector     | Azure Java SDK doesn't support native image.                      |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
