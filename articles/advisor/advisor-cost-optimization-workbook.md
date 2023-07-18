@@ -29,7 +29,7 @@ Each tab supports the following capabilities:
 *	**Export** - export the recommendations to share the insights and collaborate with your team more effectively.
 *	**Quick Fix** - apply the recommended optimization directly from the workbook page, streamlining the optimization process.
 
-:::image type=“content” source=“media/advisor-cost-optimization-workbook-overview.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template.” lightbox=“media/advisor-cost-optimization-workbook-overview.png”:::
+:::image type="content" source="media/advisor-cost-optimization-workbook-overview.png" alt-text="Screenshot of the Azure Advisor cost optimization workbook template." lightbox="media/advisor-cost-optimization-workbook-overview.png":::
 
 > [!NOTE]
 > It’s important to note that the workbook serves as guidance and does not guarantee cost reduction.
@@ -105,9 +105,8 @@ Review the Load Balancers with empty backend pools. Load Balancers are considere
 Review the list of idle Public IP Addresses. This query will also show Public IP addresses attached to idle Network Interface Cards (NICs)
 
 ### Idle Virtual Network Gateways
-Review the Idle Virtual Network Gateways. This query will show VPN Gateways without any active connection.
 
-:::image type=“content” source=“media/advisor-service-retirement-workbook-details.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template, detailed view.” lightbox=“media/advisor-service-retirement-workbook-details.png”:::
+Review the Idle Virtual Network Gateways. This query will show VPN Gateways without any active connection.
 
 For more information, see: 
 * [Well-Architected cost optimization design principles](https://learn.microsoft.com/azure/well-architected/cost/principles)
