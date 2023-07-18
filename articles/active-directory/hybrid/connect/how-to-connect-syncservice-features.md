@@ -103,10 +103,10 @@ If you need to match on-premises AD accounts with existing accounts created in t
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
-# Using the MSOnline module
+## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 
-# Using the Graph Powershell module
+## Using the Graph Powershell module
 $Config = Get-MgDirectoryOnPremisSynchronization
 $Config.Features.SoftMatchOnUpnEnabled
 ```
@@ -142,10 +142,10 @@ Enabling this feature allows the sync engine to update the userPrincipalName whe
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
-# Using the MSOnline module
+## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 
-# Using the Graph Powershell module
+## Using the Graph Powershell module
 $config = Get-MgDirectoryOnPremisSynchronization
 $config.Features.SynchronizeUpnForManagedUsersEnabled
 ```
