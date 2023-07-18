@@ -159,7 +159,7 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 ## Accessing Support Files in the Calling SDK
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-section.md)]
+[!INCLUDE [Public Preview](../includes/public-preview-include-section.md)]
 
 Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
 

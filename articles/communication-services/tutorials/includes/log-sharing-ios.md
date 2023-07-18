@@ -1,8 +1,8 @@
-# Integration of Log Sharing Feature Using CallingSDK and SSZipArchive
+## Integration of Log Sharing Feature Using CallingSDK and SSZipArchive
 
 In this tutorial, we guide you through the process of integrating a log sharing feature into an iOS application. Once complete you'll be able to collect the log files into a Zip File, and use the iOS built in ShareSheet to allow exporting from the device.
 
-## Prerequisites
+### Prerequisites
 
 Ensure that you have:
 
@@ -10,9 +10,9 @@ Ensure that you have:
 - Access to a `CallClient` object.
 - `SSZipArchive` for creating ZIP archives on the device.
 
-## Steps
+### Steps
 
-### Step 1: Define Required Variables
+#### Step 1: Define Required Variables
 
 Declare the following variables in your SwiftUI View:
 
@@ -43,7 +43,7 @@ Button("Share Logs") {
 
 In the above code, when the button is clicked, the `shareLogs()` function is called and `isSharing` is set to `true`. This binding enables the presentation of a sheet containing a `ShareSheet` populated with the ZIP file containing the logs.
 
-### Step 3: Implement the Log Dumping Function
+#### Step 3: Implement the Log Dumping Function
 
 Next, define the `shareLogs()` function:
 
@@ -64,7 +64,7 @@ func shareLogs() {
 
 Here, `getSupportFiles()` is called from `debugInfo` of the `CallClient` object to fetch the log files. The `SSZipArchive.createZipFile` method is then used to create a ZIP archive at `zipFilePath`. If the zipping operation succeeds, `isSharing` is set to `true` on the main thread, thus triggering the display of the sharing sheet. If an error occurs, a message is printed to the console.
 
-## Conclusion
+### Conclusion
 
 You have now integrated a basic log sharing feature in your iOS application. This feature enables users to easily share logs directly from the application, which can be crucial for debugging and support.
 

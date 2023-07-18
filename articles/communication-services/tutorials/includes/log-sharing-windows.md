@@ -1,15 +1,15 @@
-# Integrating a Log Sharing Feature in a C#/Windows Application
+## Integrating a Log Sharing Feature in a C#/Windows Application
 
 In this tutorial, we guide you through the process of integrating a log sharing feature in your C#/Windows application using the CallingSDK. Once complete, you'll be able to zip the log files and export that zip to a desired folder on your PC.
 
-## Prerequisites
+### Prerequisites
 
 - A working integration of CallingSDK in your application.
 - Access to a `CallClient` object.
 
-## Steps
+### Steps
 
-### Step 1: Update your Layout
+#### Step 1: Update your Layout
 
 First, we need to add a button to your XAML layout file that users use to initiate the log sharing process.
 
@@ -23,7 +23,7 @@ Here's a simple button with a tooltip named `exportLogsButton`. When clicked, it
 </AppBarToggleButton>
 ```
 
-### Step 2: Implement the Log Export Method
+#### Step 2: Implement the Log Export Method
 
 Now, let's define the `ExportLogs_Click` method. This method is triggered when the user clicks the "Export Logs" button. It creates a ZIP file containing the logs and prepares them for sharing.
 
@@ -33,7 +33,7 @@ private async void ExportLogs_Click(object sender, RoutedEventArgs e) {
 }
 ```
 
-#### Collect Support Files
+##### Collect Support Files
 
 Next, it collects the support files to be zipped.
 
@@ -45,7 +45,7 @@ if (files != null && files.Count > 0)
 }
 ```
 
-#### Set Up Save Picker
+##### Set Up Save Picker
 
 The next part sets up a save picker, which prompts the user to choose a save location and filename for the ZIP file.
 
@@ -61,7 +61,7 @@ savePicker.SuggestedFileName = "acs_logs"; // Suggest a default filename
 StorageFile zipFile = await savePicker.PickSaveFileAsync();
 ```
 
-#### Create ZIP File
+##### Create ZIP File
 
 This section of the method creates the ZIP file.
 
@@ -89,7 +89,7 @@ if (zipFile != null)
 }
 ```
 
-#### Inform User of Successful ZIP Creation
+##### Inform User of Successful ZIP Creation
 
 The final part of the method informs the user that the files have been successfully zipped. It also offers to open the folder containing the zipped file.
 
