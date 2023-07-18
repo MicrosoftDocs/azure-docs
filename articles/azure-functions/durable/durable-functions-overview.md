@@ -7,6 +7,7 @@ ms.date: 02/13/2023
 ms.author: cgillum
 ms.custom: devdivchpfy22
 ms.reviewer: azfuncdf
+zone_pivot_groups: df-languages
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -28,10 +29,13 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
+::: zone pivot="node"
 > [!NOTE]
-> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, this new experience is designed to be more flexible and intuitive for Node developers. Learn more about the differences between the models in the [Node.js upgrade guide](../functions-node-upgrade-v4.md).
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more flexible and intuitive for JavaScript/TypeScript developers. Learn more about the differences between the models in the [Node.js upgrade guide](../functions-node-upgrade-v4.md).
 >
-> In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
+> In the following code snippets, JavaScript (V4 model) denotes programming model V4, the new experience.
+::: zone-end
+
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -56,6 +60,8 @@ In the function chaining pattern, a sequence of functions executes in a specific
 You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example.
 
 In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -103,7 +109,10 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -125,7 +134,7 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -147,7 +156,10 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="python"
+
+# [Python](#tab/v1-model)
 
 ```python
 import azure.functions as func
@@ -170,7 +182,7 @@ You can use the `context` object to invoke other functions by name, pass paramet
 > [!NOTE]
 > The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import azure.functions as func
@@ -193,6 +205,9 @@ You can use the `context` object to invoke other functions by name, pass paramet
 > [!NOTE]
 > The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 ```PowerShell
@@ -205,6 +220,9 @@ Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
 You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+::: zone-end
+::: zone pivot="java"
 
 # [Java](#tab/java)
 
@@ -224,6 +242,8 @@ You can use the `ctx` object to invoke other functions by name, pass parameters,
 
 ---
 
+::: zone-end
+
 ### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
 
 In the fan out/fan in pattern, you execute multiple functions in parallel and then wait for all functions to finish. Often, some aggregation work is done on the results that are returned from the functions.
@@ -233,6 +253,8 @@ In the fan out/fan in pattern, you execute multiple functions in parallel and th
 With normal functions, you can fan out by having the function send multiple messages to a queue. Fanning back in is much more challenging. To fan in, in a normal function, you write code to track when the queue-triggered functions end, and then store function outputs.
 
 The Durable Functions extension handles this pattern with relatively simple code:
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -292,7 +314,10 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -318,7 +343,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -344,8 +369,10 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
+::: zone-end
+::: zone pivot="python"
 
-# [Python](#tab/python)
+# [Python](#tab/v1-model)
 
 ```python
 import azure.durable_functions as df
@@ -371,7 +398,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.task_all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import azure.functions as func
@@ -397,6 +424,9 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.task_all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 ```PowerShell
@@ -420,6 +450,9 @@ Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without waiting for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
 The automatic checkpointing that happens at the `Wait-ActivityFunction` call ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+::: zone-end
+::: zone pivot="java"
 
 # [Java](#tab/java)
 
@@ -446,6 +479,8 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 The automatic checkpointing that happens at the `.await()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
 
 ---
+
+::: zone-end
 
 > [!NOTE]
 > In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
@@ -500,6 +535,8 @@ An example of the monitor pattern is to reverse the earlier async HTTP API scena
 In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or another function can use the durable orchestration client to terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
 
 The following code implements a basic monitor:
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -560,7 +597,10 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -588,7 +628,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -618,7 +658,10 @@ df.app.orchestration("monitorDemo", function* (context) {
 });
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="python"
+
+# [Python](#tab/v1-model)
 
 ```python
 import azure.durable_functions as df
@@ -649,7 +692,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import json
@@ -681,6 +724,9 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # Perform more work here, or let the orchestration end.
 ```
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -710,6 +756,9 @@ while ($Context.CurrentUtcDateTime -lt $expiryTime) {
 $output
 ```
 
+::: zone-end
+::: zone pivot="java"
+
 # [Java](#tab/java)
 
 ```java
@@ -738,8 +787,10 @@ public String monitorOrchestrator(
     return "done";
 }
 ```
-
 ---
+
+::: zone-end
+
 
 When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until either a condition is met or until a timeout expires. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end.
 
@@ -754,6 +805,8 @@ An approval process is an example of a business process that involves human inte
 You can implement the pattern in this example by using an orchestrator function. The orchestrator uses a [durable timer](durable-functions-timers.md) to request approval. The orchestrator escalates if timeout occurs. The orchestrator waits for an [external event](durable-functions-external-events.md), such as a notification that's generated by a human interaction.
 
 These examples create an approval process to demonstrate the human interaction pattern:
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -813,7 +866,10 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -838,7 +894,7 @@ module.exports = df.orchestrator(function*(context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -863,8 +919,10 @@ df.app.orchestration("humanInteractionDemo", function* (context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+::: zone-end
+::: zone pivot="python"
 
-# [Python](#tab/python)
+# [Python](#tab/v1-model)
 
 ```python
 import azure.durable_functions as df
@@ -893,7 +951,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import json
@@ -922,6 +980,9 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 ```
 
 To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+::: zone-end
+::: zone pivot="powershell"
 
 # [PowerShell](#tab/powershell)
 
@@ -952,6 +1013,9 @@ $output
 ```
 To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+::: zone-end
+::: zone pivot="java"
+
 # [Java](#tab/java)
 
 ```java
@@ -978,6 +1042,8 @@ The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration
 
 ---
 
+::: zone-end
+
 > [!NOTE]
 > There is no charge for time spent waiting for external events when running in the Consumption plan.
 
@@ -988,6 +1054,8 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 ```
 
 An event can also be raised using the durable orchestration client from another function in the same function app:
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -1015,7 +1083,10 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1027,7 +1098,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1041,7 +1112,10 @@ app.get("raiseEventToOrchestration", async function (request, context) {
 });
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="python"
+
+# [Python](#tab/v1-model)
 
 ```python
 import azure.functions as func
@@ -1058,7 +1132,7 @@ async def main(client):
 ```
 
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import azure.functions as func
@@ -1073,6 +1147,9 @@ async def main(client: str):
     await client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -1080,6 +1157,9 @@ async def main(client: str):
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
 
 ```
+
+::: zone-end
+::: zone pivot="java"
 
 # [Java](#tab/java)
 
@@ -1093,8 +1173,9 @@ public void raiseEventToOrchestration(
     client.raiseEvent(instanceId, "ApprovalEvent", true);
 }
 ```
-
 ---
+
+::: zone-end
 
 ### <a name="aggregator"></a>Pattern #6: Aggregator (stateful entities)
 
@@ -1105,6 +1186,8 @@ The sixth pattern is about aggregating event data over a period of time into a s
 The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
 
 You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
+
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -1153,7 +1236,10 @@ public class Counter
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1175,7 +1261,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1197,7 +1283,10 @@ df.app.entity("entityDemo", function (context) {
 });
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="python"
+
+# [Python](#tab/v1-model)
 
 ```python
 import azure.functions as func
@@ -1222,7 +1311,7 @@ def entity_function(context: df.DurableOrchestrationContext):
 main = df.Entity.create(entity_function)
 ```
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import azure.functions as func
@@ -1247,9 +1336,15 @@ def entity_function(context: df.DurableOrchestrationContext):
     context.set_state(current_value)
 ```
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 Durable entities are currently not supported in PowerShell.
+
+::: zone-end
+::: zone pivot="java"
 
 # [Java](#tab/java)
 
@@ -1257,7 +1352,12 @@ Durable entities are currently not supported in Java.
 
 ---
 
+::: zone-end
+::: zone pivot="csharp"
+
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
+
+
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -1283,7 +1383,10 @@ public static async Task Run(
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+::: zone-end
+::: zone pivot="node"
+
+# [JavaScript (V3 model)](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1296,7 +1399,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+# [JavaScript (V4 model)](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1309,7 +1412,10 @@ app.get("signalEntityDemo", async function (request, context) {
 });
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="python"
+
+# [Python](#tab/v1-model)
 
 ```python
 import azure.functions as func
@@ -1322,7 +1428,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     return func.HttpResponse("Entity signaled")
 ```
 
-# [Python (PM2)](#tab/python-v2)
+# [Python (V2 model)](#tab/v2-model)
 
 ```python
 import azure.functions as func
@@ -1338,15 +1444,23 @@ async def main(req: func.HttpRequest, client) -> func.HttpResponse:
     return func.HttpResponse("Entity signaled")
 ```
 
+::: zone-end
+::: zone pivot="powershell"
+
 # [PowerShell](#tab/powershell)
 
 Durable entities are currently not supported in PowerShell.
+
+::: zone-end
+::: zone pivot="java"
 
 # [Java](#tab/java)
 
 Durable entities are currently not supported in Java.
 
 ---
+
+::: zone-end
 
 Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
 
