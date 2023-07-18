@@ -24032,6 +24032,11 @@
             "source_path_from_root": "/articles/container-registry/github-action-scan.md",
             "redirect_url": "/azure/developer/github/",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
+            "redirect_url": "/azure/private-link/create-private-endpoint-portal",
+            "redirect_document_id": false
         }
     ]
 }
