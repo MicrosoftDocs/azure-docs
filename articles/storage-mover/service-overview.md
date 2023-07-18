@@ -5,7 +5,7 @@ author: stevenmatthew
 
 ms.service: storage-mover
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 07/17/2023
 ms.author: shaas
 ---
 
@@ -29,7 +29,7 @@ Azure Storage Mover is a new, fully managed migration service that enables you t
 
 ## Supported sources and targets
 
-The current Azure Storage Mover release supports migrations from NFS or SMB shares on a NAS or server device within your network to an Azure blob container.
+The current Azure Storage Mover release supports migrations from NFS or SMB source shares on a NAS or server device within your network. Data from SMB source shares can be migrated to Azure file shares, while files hosted on NFS shares can be migrated to Azure blob containers.
 
 > [!IMPORTANT]
 > Storage accounts with the [hierarchical namespace service (HNS)](../storage/blobs/data-lake-storage-namespace.md) feature enabled are not supported at this time.
