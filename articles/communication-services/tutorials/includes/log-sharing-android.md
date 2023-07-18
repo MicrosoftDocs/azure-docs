@@ -1,17 +1,17 @@
-# Integrating a Log Sharing Feature in an Android Application
+## Integrating a Log Sharing Feature in an Android Application
 
-In this tutorial, we're going to walk you through the process of integrating a log sharing feature into your Android application using the CallingSDK.
+In this tutorial, we're going to walk you through the process of integrating a log sharing feature into your Android application using the CallingSDK. In the end you'll be able to create a .zip file of your log files, and share it with Androids built in Share Mechanisms.
 
-## Prerequisites
+### Prerequisites
 
 - A working integration of CallingSDK in your application.
 - Access to a `CallClient` object.
 
-## Steps
+### Steps
 
-### Step 1: Update your Layout
+#### Step 1: Update your Layout
 
-First, we need to add a button to your layout file that users will use to initiate the log sharing process.
+First, we need to add a button to your layout file that users use to initiate the log sharing process.
 
 ```xml
 <Button
@@ -23,9 +23,9 @@ First, we need to add a button to your layout file that users will use to initia
 
 The `android:onClick="dumpLogs"` attribute tells Android to call the `dumpLogs()` method in your Activity or Fragment when the button is clicked.
 
-### Step 2: Define Provider Paths
+#### Step 2: Define Provider Paths
 
-We'll define the paths of the files we want to share in a new XML file named `provider_paths.xml` in the `res/xml` directory.
+We define the paths of the files we want to share in a new XML file named `provider_paths.xml` in the `res/xml` directory.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -34,9 +34,9 @@ We'll define the paths of the files we want to share in a new XML file named `pr
 </paths>
 ```
 
-### Step 3: Add a FileProvider to your Manifest
+#### Step 3: Add a FileProvider to your Manifest
 
-We need to add a `<provider>` inside the `<application>` tag in your `AndroidManifest.xml` file. This allows the sharing of files through a FileProvider.
+We need to add a `<provider>` inside the `<application>` tag in your `AndroidManifest.xml` file. The provider registration allows the sharing of files through a FileProvider.
 
 ```xml
 <provider
@@ -50,11 +50,11 @@ We need to add a `<provider>` inside the `<application>` tag in your `AndroidMan
 </provider>
 ```
 
-Note that the `android:authorities` must be unique across all apps installed on a user's device.
+The `android:authorities` must be unique across all apps installed on a user's device.
 
-### Step 4: Implement the Log Sharing Method
+#### Step 4: Implement the Log Sharing Method
 
-Finally, let's define the `dumpLogs()` method. This will be triggered when the user clicks the "Dump Logs" button. It creates a ZIP file containing the logs and prepares them for sharing.
+Finally, let's define the `dumpLogs()` method. The method is bound to clicking the "Dump Logs" button. It creates a ZIP file containing the logs and prepares them for sharing.
 
 ```java
 public void dumpLogs(View view) {
@@ -73,6 +73,7 @@ public void dumpLogs(View view) {
         // Define the output file
         File outputFile = new File(view.getContext().getExternalFilesDir(null), "log-files-" + date + ".zip");
 
+        // Create the .zip file
         try {
             BufferedInputStream origin;
             FileOutputStream dest = new FileOutputStream(outputFile);
@@ -89,9 +90,7 @@ public void dumpLogs(View view) {
                 
                 // Read data from the file and write it to the ZIP file
                 int count;
-                while ((count = origin.read(data, 0, 2048)) != -1)
-
- {
+                while ((count = origin.read(data, 0, 2048)) != -1) {
                     out.write(data, 0, count);
                 }
                 origin.close();
@@ -119,4 +118,4 @@ public void dumpLogs(View view) {
 }
 ```
 
-And there you have it! You've now added a basic log sharing feature to your Android app. This feature will make it easier for users to share log files directly from your app, which can be incredibly helpful for debugging and support.
+And there you have it! You've now added a basic log sharing feature to your Android app. This feature makes it easier for users to share log files directly from your app, which can be incredibly helpful for debugging and support.

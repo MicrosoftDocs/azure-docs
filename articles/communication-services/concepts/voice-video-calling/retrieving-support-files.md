@@ -42,7 +42,7 @@ For organizations that prefer not to rely on user-submitted logs and would like 
 
 When the system detects call issues/errors, it can present the Report an Issue prompt or initiate an automated collection of logs. This approach is more proactive as it doesn't rely on the user's choice, although it may lead to unnecessary log collection.
 
-# Choosing the Right Approach
+## Choosing the Right Approach
 
 Every organization has different needs in relation to this feature. It may be useful to consider some of the following questions: 
 

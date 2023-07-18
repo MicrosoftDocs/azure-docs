@@ -157,6 +157,15 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 ```
 ---
 
+## Accessing Support Files in the Calling SDK
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-section.md)]
+
+Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
+
+[Log Sharing Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
+[Log Sharing Tutorials](../tutorials/log-sharing-tutorial.md)
+
 ## Enable and access call logs
 
 # [JavaScript](#tab/javascript)
@@ -180,13 +189,6 @@ AzureLogger.log = (...args) => {
   console.log(...args); // to console, file, buffer, REST API, etc...
 };
 ```
-
-# Accessing Support Files in the Calling SDK
-
-Calling SDK provides convenience methods to get access to the Log Locations. It's recommended to implement a user facing mechanism for error-reporting that includes these files when escalating support requests, as it can be difficult for an end-user to access or supply these files.
-
-[Log Sharing Tutorials](../tutorials/log-sharing-tutorial.md)
-[Log Sharing Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
 
 # [iOS](#tab/ios)
 
