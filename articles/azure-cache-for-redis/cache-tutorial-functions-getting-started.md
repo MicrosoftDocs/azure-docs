@@ -195,7 +195,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. You should see the triggers activating in the terminal:
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
 
 ### Deploy code to an Azure function
 
