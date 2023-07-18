@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Move a Log Analytics workspace to a different subscription or resource group
 
-In this article, you'll learn the steps to move a Log Analytics workspace. 
+In this article, you'll learn the steps to move a Log Analytics workspace to another resource group or subscription in the same region. 
 
 > [!TIP] 
 > To learn more about how to move Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
