@@ -34,7 +34,7 @@ To track the status of the copy operation, follow the guidance in the [Get resto
 
 ## Get restore point copy or replication status
 
-Creation of a cross-region VM restore point is a long running operation. The VM restore point can be used to restore a VM only after the operation is completed for all disk restore points. To track the operation's status, call the [Restore Point - Get](/rest/api/compute/restore-points/get) API on the target VM restore point and include the `instanceView` parameter. The return will include the percentage of data that has been copied at the time of the request.
+Copying the first VM restore point to  another region is a long running operation. The VM restore point can be used to restore a VM only after the operation is completed for all disk restore points. To track the operation's status, call the [Restore Point - Get](/rest/api/compute/restore-points/get) API on the target VM restore point and include the `instanceView` parameter. The return will include the percentage of data that has been copied at the time of the request.
 
 During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` is set to `Failed`.
 
