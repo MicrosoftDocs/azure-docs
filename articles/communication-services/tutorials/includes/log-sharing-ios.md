@@ -1,6 +1,6 @@
 # Integration of Log Sharing Feature Using CallingSDK and SSZipArchive
 
-In this tutorial, we'll guide you through the process of integrating a log sharing feature into an iOS application. We'll leverage the CallingSDK and use `SSZipArchive` for creating a ZIP archive of log files directly on the device. We'll also use SwiftUI to create a button that users can tap to share the logs.
+In this tutorial, we guide you through the process of integrating a log sharing feature into an iOS application. We leverage the CallingSDK and use `SSZipArchive` for creating a ZIP archive of log files directly on the device. We also use SwiftUI to create a button that users can tap to share the logs.
 
 ## Prerequisites
 
@@ -21,8 +21,8 @@ Declare the following variables in your SwiftUI View:
 let zipFilePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("logs.zip")
 ```
 
-`isSharing` is a state variable that will be used to control the visibility of the sharing sheet in SwiftUI. 
-The `zipFilePath` is the path where the ZIP file containing the logs will be stored in a temporary directory.
+`isSharing` is a state variable that is used to control the visibility of the sharing sheet in SwiftUI. 
+The `zipFilePath` is the path where the ZIP file containing the logs is stored in a temporary directory.
 
 ### Step 2: Add a Button to Trigger Log Sharing
 
@@ -41,7 +41,7 @@ Button("Share Logs") {
 }
 ```
 
-In the above code, when the button is clicked, the `shareLogs()` function is called and `isSharing` is set to `true`. This triggers the presentation of a sheet containing a `ShareSheet` populated with the ZIP file containing the logs.
+In the above code, when the button is clicked, the `shareLogs()` function is called and `isSharing` is set to `true`. This binding enables the presentation of a sheet containing a `ShareSheet` populated with the ZIP file containing the logs.
 
 ### Step 3: Implement the Log Dumping Function
 
