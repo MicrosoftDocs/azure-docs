@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 07/18/2023
 
 ---
 
@@ -238,7 +238,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
-    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu.":::
+    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
 
 ## Next steps
 
