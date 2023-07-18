@@ -249,7 +249,7 @@
                   href: how-to-configure-service-fabric-backend.md
                 - name: Import OData API
                   href: import-api-from-odata.md
-                - name: Import SAP OData metadata
+                - name: Import SAP OData metadata from OpenAPI specification
                   href: sap-api.md
                 - name: Configure API for SSE
                   href: how-to-server-sent-events.md

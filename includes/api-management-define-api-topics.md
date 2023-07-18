@@ -20,5 +20,5 @@ ms.author: danlep
 * [Import an Azure Logic App](../articles/api-management/import-logic-app-as-api.md)
 * [Import a Service Fabric service](../articles/service-fabric/service-fabric-tutorial-deploy-api-management.md)
 * [Import an OData API](../articles/api-management/import-api-from-odata.md)
-* [Import SAP OData metadata](../articles/api-management/sap-api.md)
+* [Import SAP OData metadata from an OpenAPI specification](../articles/api-management/sap-api.md)
 * [Edit an API](../articles/api-management/edit-api.md)
