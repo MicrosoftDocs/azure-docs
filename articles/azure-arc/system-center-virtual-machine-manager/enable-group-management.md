@@ -17,7 +17,7 @@ The article provides information about how to enable guest management and includ
 
 ## Supported environments
 
-- **VMM version**: VMs managed by VMM 2019 UR5 or later.
+- **VMM version**: VMs managed by VMM 2019 UR5 or later and VMM 2022 UR1 or later.
 
 - **Host version OS version**: VMs running on Windows Server 2016, 2019, 2022, Azure Stack HCI 21H2 and Azure Stack HCI 22H2.  
 
