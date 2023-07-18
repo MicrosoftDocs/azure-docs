@@ -24,7 +24,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs using VMSS Flex](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs using Azure Virtual Machine Scale Sets(VMSS) Flex](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-2: Deploy VMs across availability zones or use VMSS Flex with zones](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: Migrate VMs using availability sets to VMSS Flex](#-vm-3-migrate-vms-using-availability-sets-to-vmss-flex) | 
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-5: Use managed disks for VM disks](#-vm-5-use-managed-disks-for-vm-disks)|
@@ -342,7 +342,7 @@ It’s important to keep your virtual machine (VM) secure for the applications t
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VM-20: Enable VM Insights** 
 
-Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview) to get more visibility into the health and performance of your virtual machine. VM Insights gives you information on the performance and health of your VMs and Virtual Machine Scale Sets (VMSS), by monitoring their running processes and dependencies on other resources. VM Insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. Insights can also help you understand whether an issue is related to other dependencies.
+Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview) to get more visibility into the health and performance of your virtual machine. VM Insights gives you information on the performance and health of your VMs and virtual machine scale sets, by monitoring their running processes and dependencies on other resources. VM Insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. Insights can also help you understand whether an issue is related to other dependencies.
 
 
 # [Azure Resource Graph](#tab/graph)
