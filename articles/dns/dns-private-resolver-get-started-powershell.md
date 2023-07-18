@@ -124,7 +124,7 @@ New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinbounde
 
 Use the following commands to specify a static IP address. Do not use both the dynamic and static sets of commands. 
 
-You must specify an IP address in the subnet that was created previously. The IP address that you choose can't be a [reserved IP address in the subnet](https://../virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+You must specify an IP address in the subnet that was created previously. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 The following commands provision a static IP address:
 ```Azure PowerShell
