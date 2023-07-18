@@ -190,18 +190,43 @@ You can now deploy the app to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to deploy the app:
+Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
 
-1. Go to your Azure Spring Apps instance in the Azure portal.
+1. Navigate to the sample project directory and run the following command to configure the app in Azure Spring Apps:
 
-1.  Open the **Apps** pane from the navigation pane, select **Not deployed** to open a page for deploying and using the following information to configure.
-    - **App name**: *simple-todo-web*
-    - **Runtime platform**: *java 17*
-    - **JVM options**: *-Xms2048m -Xms2048m*
-    - **JAR package**: upload the JAR package: *simple-todo-web-0.0.1-SNAPSHOT.jar* you built in the previous step.
-   :::image type="content" source="../../media/quickstart-deploy-web-app/deploy-app-consumption.png" alt-text="Screenshot of the Azure portal showing the deploy app configuration page." lightbox="../../media/quickstart-deploy-web-app/deploy-app-consumption.png":::
+   ```bash
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   ```
 
-1. Select **Deploy** to deploy the app.
+   The following list describes the command interactions:
+
+    - **Select Maven child module**: Select the module to configure, then enter the number for the web module.
+    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
+    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
+    - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
+    - **Expose public access for this app?**: Press <kbd>y</kbd>.
+    - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
+
+1. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ```
+
+   The following list describes the command interactions:
+
+    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see output similar to the following example, which indicates that the deployment was successful:
+
+   ```output
+   [INFO] Deployment(default) is successfully updated.
+   [INFO] Deployment Status: Running
+   [INFO] Getting public url of app(simple-todo-web)...
+   [INFO] Application url: https://<your-azure-spring-apps-name>-simple-todo-web.azuremicroservices.io
+   ```
+
+   The output **Application url** is the endpoint to access the `todo` application.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
