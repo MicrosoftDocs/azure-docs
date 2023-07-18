@@ -1,6 +1,6 @@
 ## Integrating a Log Sharing Feature in an Android Application
 
-In this tutorial, we're going to walk you through the process of integrating a log sharing feature into your Android application using the CallingSDK. In the end you'll be able to create a .zip file of your log files, and share it with Androids built in Share Mechanisms.
+In this tutorial, we're going to walk you through the process of integrating a log sharing feature into your Android application using the CallingSDK. Once completed, your users will be able to create a .zip file of support files, and share it with Android's built in sharing features.
 
 ### Prerequisites
 
