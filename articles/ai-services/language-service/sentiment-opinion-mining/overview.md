@@ -1,5 +1,5 @@
 ---
-title: What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
+title: What is sentiment analysis and opinion mining in the Language service?
 titleSuffix: Azure AI services
 description: An overview of the sentiment analysis feature in Azure AI services, which helps you find out what people think of a topic by mining text for clues.
 services: cognitive-services
@@ -13,9 +13,9 @@ ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
 
-# What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
+# What is sentiment analysis and opinion mining?
 
-Sentiment analysis and opinion mining are features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
+Sentiment analysis and opinion mining are features offered by [the Language service](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
@@ -62,7 +62,7 @@ Follow these steps to get the most out of your model:
 
 ## Reference documentation
 
-As you use Custom sentiment analysis, see the following reference documentation and samples for Azure Cognitive Service for Language:
+As you use Custom sentiment analysis, see the following reference documentation and samples for the Language service:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
