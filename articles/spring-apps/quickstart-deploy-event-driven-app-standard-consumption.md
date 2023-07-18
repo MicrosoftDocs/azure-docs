@@ -265,9 +265,12 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### [Optional Step] Create an app with the dedicated workload profile
+### Create an app with the dedicated workload profile
 
-Dedicated workload profiles support running apps with customized hardware and increased cost predictability. Optional to the consumption workload profile, if you wish to create apps in the dedicated workload profile, use the following command to create a dedicated workload profile:
+>[!NOTE]
+> This step is optional. Use this step only if you wish to create apps in the dedicated workload profile.
+
+Dedicated workload profiles support running apps with customized hardware and increased cost predictability. Use the following command to create a dedicated workload profile:
 
 ```azurecli
 az containerapp env workload-profile set \
