@@ -66,7 +66,6 @@ To achieve this you can use:
 
 ----
 
-
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-2: Deploy VMs across availability zones or use VMSS Flex with zones** 
     
 When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
