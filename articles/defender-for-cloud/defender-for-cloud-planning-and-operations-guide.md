@@ -1,18 +1,18 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
-description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
+description: This document is intended to help you plan before adopting Defender for Cloud with considerations regarding daily operations.
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 02/06/2023
 ---
 
-# Planning and operations guide
+# Planning and Operations Guide
 
 This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
 
 ## Planning guide
 
-This guide provides the background for how Defender for Cloud fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
+This guide provides a detailed explanation of how Defender for Cloud fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
 
 - Security Roles and Access Controls
 - Security Policies and Recommendations
@@ -26,33 +26,27 @@ In the next section, you'll learn how to plan for each one of those areas and ap
 > [!NOTE]
 > Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
 
-## Security roles and access controls
+## Security Roles and Access Controls
 
-Depending on the size and structure of your organization, multiple individuals and teams may use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
+Depending on the size and structure of your organization, multiple individuals and teams may use Defender for Cloud to perform different security-related tasks. In the following diagram, you will see an example of fictitious personas in an organization, and their respective roles and security responsibilities. Following the diagram we explain how Microsoft Defender for Cloud is useful for each role and responsibility:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Roles.":::
 
-Defender for Cloud enables these individuals to meet these various responsibilities. For example:
+Defender for Cloud enables these individuals to meet their respective security responsibilities. 
 
-**Jeff (Workload Owner)**
+**Cloud Workload Owner**:
 
-- Manage a cloud workload and its related resources.
+- Cloud Visibility: Microsoft Defender for Cloud offers deep visibility into your cloud environment, enabling you to gain insights into your cloud workloads, applications, and data. It provides a unified view of your cloud resources, allowing you to understand the usage patterns, user behavior, and potential security risks, enabling you to better manage your cloud workload and its related resources. 
 
 - Responsible for implementing and maintaining protections in accordance with company security policy.
 
-**Ellen (CISO/CIO)**
+**Chief Information Security Officer (CISO)/Chief Information Officer (CIO)**
 
-- Responsible for all aspects of security for the company.
+As the person responsible for all aspects of security within a company, understanding the company's security posture across cloud workloads and being informed of major attacks and risks takes a critical role in the life of a CISO or CIO. Microsoft Defender Cloud Security Posture Management (MDCSM) prioritizes remediation and helps you gain resource insights. Defender for Cloud highlights why some security recommendations are more important than others, allowing you to focus on the biggest risks in your organization. By using curated paths to conduct attack path analysis on your environment, the system reveals connections across your assets and lets you know how one vulnerability can open multiple doors to your cloud environment, allowing you to take action to mitigate risks and prevent attacks.  
 
-- Wants to understand the company's security posture across cloud workloads.
+**IT Security**
 
-- Needs to be informed of major attacks and risks.
-
-**David (IT Security)**
-
-- Sets company security policies to ensure the appropriate protections are in place.
-
-- Monitors compliance with policies.
+Setting company security policies to ensure the appropriate protections is no simple task, as the security environment is constantly subject to change. Microsoft Defender for Cloud helps to maintain compliance with various industry regulations and security standards. It also offers a set of predefined policies and controls that can be customized to align with your specific compliance and policy requirements. It provides continuous monitoring, alerts, and reports to ensure that your cloud resources adhere to the necessary security and governance guidelines.
 
 - Generates reports for leadership or auditors.
 
