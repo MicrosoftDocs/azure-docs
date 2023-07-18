@@ -76,7 +76,7 @@ To configure file content changes, follow these steps:
 
     :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
-1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**, select **Upload file content for all settings**, and then select **Save**.
+1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. Select **Upload file content for all settings**, and then select **Save**.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
 
@@ -84,11 +84,11 @@ When the storage account is linked using the system assigned managed identity, a
 
 1. From [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
 1. In the storage account page, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
-1. In **Changetrackingblob | Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+1. In the **Changetrackingblob | Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
 
     :::image type="content" source="media/manage-change-tracking-monitoring-agent/blob-add-role-inline.png" alt-text="Screenshot of selecting to add role." lightbox="media/manage-change-tracking-monitoring-agent/blob-add-role-expanded.png":::
 
-1. In the **Add role assignment** page, use the search to find **Blob Data contributor** to assign a storage Blob contributor role for the specific VM. This permission provides access to read, write, and delete storage blob containers and data.
+1. In the **Add role assignment** page, use the search for **Blob Data contributor** to assign a storage Blob contributor role for the specific VM. This permission provides access to read, write, and delete storage blob containers and data.
 
     :::image type="content" source="media/manage-change-tracking-monitoring-agent/blob-contributor-inline.png" alt-text="Screenshot of selecting the contributor role for storage blog." lightbox="media/manage-change-tracking-monitoring-agent/blob-contributor-expanded.png":::
 
@@ -106,7 +106,8 @@ For user-assigned managed identity, follow these steps to assign the user assign
     
      :::image type="content" source="media/manage-change-tracking-monitoring-agent/user-assigned-add-role-inline.png" alt-text="Screenshot of adding the role to user-assigned managed identity." lightbox="media/manage-change-tracking-monitoring-agent/user-assigned-add-role-expanded.png":::
 
-1. Go to your virtual machine, under **Settings**, select **Identity**, under **User assigned**tab, select **+Add**.
+1. Go to your virtual machine, under **Settings**, select **Identity**, under **User assigned** tab, select **+Add**.
+
 1. In the **Add user assigned managed identity**, select the **Subscription** and add the user-assigned managed identity.
      :::image type="content" source="media/manage-change-tracking-monitoring-agent/user-assigned-assign-role-inline.png" alt-text="Screenshot of assigning the role to user-assigned managed identity." lightbox="media/manage-change-tracking-monitoring-agent/user-assigned-assign-role-expanded.png":::
 ---
@@ -114,7 +115,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 #### Upgrade the extension version
 
 > [!NOTE]
-> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to 2.13.
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to 2.13
 
 Use the following command to upgrade the extension version:
 
