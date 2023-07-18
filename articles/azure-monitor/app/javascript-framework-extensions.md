@@ -262,6 +262,9 @@ This section covers configuration settings for the framework extensions for Appl
 
 [React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an exception occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the exception when it occurs.
 
+> [!NOTE]
+> The Microsoft Azure Monitor Application Insights JavaScript SDK already tracks most exceptions, so the React plug-in captures both caught and uncaught exceptions by default.  
+
 ```javascript
 import React from "react";
 import { reactPlugin } from "./AppInsights";
@@ -281,6 +284,9 @@ The `AppInsightsErrorBoundary` requires two props to be passed to it. They're th
 #### [React Native](#tab/reactnative)
 
 Exception tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
+
+> [!NOTE]
+> The Microsoft Azure Monitor Application Insights JavaScript SDK already tracks most exceptions, so the React plug-in captures both caught and uncaught exceptions by default.  
 
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
