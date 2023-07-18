@@ -82,7 +82,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | ASP.NET Core MAUI | &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Create and set up](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)|
+> | ASP.NET Core MAUI | &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)|
 
 ### Daemon
 
