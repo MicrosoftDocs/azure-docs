@@ -1,8 +1,8 @@
 ---
-title: Manage secrets with agentless secret scanning
+title: Manage secrets with agentless secret scanning in Microsoft Defender for Cloud
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 07/10/2023
+ms.date: 07/18/2023
 ---
 
 # Manage secrets with agentless secret scanning
