@@ -34,42 +34,43 @@ Ensure that the Webhook calls that trigger runbooks navigate on TLS 1.2 or highe
 
 For Linux Hybrid Workers, run the following Python script to upgrade to the latest TLS protocol.
 
-**Regular subscriptions using TLS<1.2:101**
+```powershell-interactive
+import os
 
-```kusto
-EtwWebRequestsInfo
-| where TIMESTAMP > ago(10d)
-| where protocol contains "1.1" or protocol contains "1.0"
-| where Role contains "Agent" or Role contains "JobRuntimeData"
-| parse EventMessage with *"Accounts/"accountId"/"*
-| project accountId, protocol
-| join kind=inner
-(
-EtwSubscriptionIdAccountNameAccountId
-| distinct subscriptionId, accountId
-| where subscriptionId != 'bd6150e6-82f7-4279-9577-508b16388abb'
-) on accountId
-| distinct subscriptionId, protocol
-```
-**OMS node subscriptions with TLS<1.2 in Agent service:196**
+# Path to the OpenSSL configuration file
+openssl_conf_path = "/etc/ssl/openssl.cnf"
 
-```kusto
-EtwWebRequestsInfo
-| where TIMESTAMP > ago(10d)
-| where protocol contains "1.1" or protocol contains "1.0"
-| where Role contains "Agent" or Role contains "JobRuntimeData"
-| parse EventMessage with *"Accounts/"accountId"/"*
-| project accountId, protocol
-| join kind=inner
-(
-EtwSubscriptionIdAccountNameAccountId
-| distinct subscriptionId, accountId
-) on accountId
-| where subscriptionId == 'bd6150e6-82f7-4279-9577-508b16388abb'
-| join kind=inner (
-cluster("Oibeftprd").database("AMSTelemetry").WorkspaceSnapshot
-| distinct WorkspaceId, SubscriptionId) on $left.accountId == $right.WorkspaceId
-| distinct SubscriptionId, protocol   
+# Open the configuration file for reading
+with open(openssl_conf_path, "r") as f:
+    openssl_conf = f.read()
+
+# Check if a default TLS version is already defined
+if "DEFAULT@SECLEVEL" in openssl_conf:
+    # Update the default TLS version to TLS 1.2
+    openssl_conf = openssl_conf.replace("CipherString = DEFAULT@SECLEVEL", "CipherString = DEFAULT@SECLEVEL:TLSv1.2")
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been updated to TLS 1.2.")
+else:
+    # Add the default TLS version to the configuration file
+    openssl_conf += """
+    Options = PrioritizeChaCha,EnableMiddleboxCompat
+    CipherString = DEFAULT@SECLEVEL:TLSv1.2
+    MinProtocol = TLSv1.2
+    """
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been added as TLS 1.2.")
 ```
 > [!NOTE]
 > You must access Azure Log Analytics control plane partner security group and then [connect](https://dataexplorer.azure.com/?cluster=oibeftprd&workspace=empty) to the cluster.
