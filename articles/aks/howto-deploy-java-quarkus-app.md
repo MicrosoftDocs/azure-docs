@@ -7,7 +7,7 @@ ms.service: azure-kubernetes-service
 ms.topic: how-to 
 ms.date: 07/16/2023
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, devx-track-extended-java
-#CustomerIntent: As a developer, I want deploy a simple CRUD Quarkus App on AKS so that can start iterating it into a proper LOB app.
+#CustomerIntent: As a developer, I want deploy a simple CRUD Quarkus app on AKS so that can start iterating it into a proper LOB app.
 ---
 
 # Deploy a Java application with Quarkus on an Azure Kubernetes Service (AKS) cluster
@@ -43,9 +43,11 @@ cd aks-quarkus
 
 If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
 
-## Test your Quarkus App locally.
+## Test your Quarkus app locally
 
-Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as [Dev Services](https://quarkus.io/guides/dev-services#databases). Let's say you include a Quarkus feature, such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it.
+The steps in this section show you how to run the app locally.
+
+Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as dev services. Let's say you include a Quarkus feature, such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it. For more on dev services see the Quarkus guide [Dev Services](https://quarkus.io/guides/dev-services#databases).
 
 Make sure your container environment, Docker or Podman, is running and execute the following command to enter Quarkus dev mode.
 
@@ -148,9 +150,9 @@ The output should look like:
 
 Press `q` to exit Quarkus dev mode.
 
-## Deploy the Quarkus App to Azure Kubernetes Service (AKS)
+## Create the Azure resources to run the Quarkus app
 
-The steps in this section direct you to create the Azure resources to run the Quarkus sample app.
+The steps in this section show you how to create the Azure resources to run the Quarkus sample app.
 
 - Azure Database for PostgreSQL
 - Azure Container Registry
@@ -252,7 +254,7 @@ docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 
 If using Podman instead of Docker, make the necessary changes to the command.
 
-You should see `Login Succeeded` at the end of command output if you've logged into the Azure Container Registry instance successfully.
+You should see `Login Succeeded` at the end of command output if you've signed into the Azure Container Registry instance successfully.
 
 ### Create an AKS cluster
 
@@ -275,11 +277,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
+To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
+
+For more on `kubectl` see the [Kubernetes reference](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -299,7 +303,7 @@ You might find it useful to alias `k` to `kubectl`. If so, use this command.
 alias k=kubectl
 ```
 
-To verify the connection to your cluster, use the [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
+To verify the connection to your cluster, use the `kubectl get` command to return a list of the cluster nodes.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -325,6 +329,7 @@ The output should look like:
 ```azurecli-interactive
 namespace/<your namespace> created
 ```
+
 
 ### Customize cloud native configuration
 
@@ -445,7 +450,11 @@ d13845d85ee5: Pushed
 
 Now that you have pushed the app to Azure Container Registry, you can tell AKS to run the app.
 
-### Deploy a Quarkus App to AKS
+## Deploy the Quarkus app to Azure Kubernetes Service (AKS)
+
+The steps in this section show you how to run the Quarkus sample app on the Azure resources you've created.
+
+### Use kubectl apply to deploy the Quarkus app to AKS
 
 Deploy the Kubernetes resources using `kubectl` command line.
 
