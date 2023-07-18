@@ -60,7 +60,7 @@ Rule-based anomalies identify recent activity in Permissions Management that is 
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
-       - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval
+      - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval.
 1. Select **Next**.
 1. On the **Authorization Systems** tab, select the available authorization systems and folders, or select **All**.
 
