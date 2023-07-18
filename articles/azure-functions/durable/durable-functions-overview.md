@@ -1321,11 +1321,10 @@ def entity_function(context: df.DurableOrchestrationContext):
 > Durable entities are currently not supported in Java.
 
 ::: zone-end
-::: zone pivot="csharp"
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
-
+::: zone pivot="csharp"
 
 # [C# (InProc)](#tab/csharp-inproc)
 
