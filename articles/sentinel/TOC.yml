@@ -207,6 +207,10 @@
     items:
     - name: Dynamics 365 Finance and Operations solution overview
       href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
+  - name: Integrate Microsoft business apps
+    items:
+    - name: Microsoft Power Platform solution overview
+      href: business-applications/power-platform-solution-overview.md 
 - name: How-tos
   items:    
   - name: Migrate to Microsoft Sentinel
@@ -1046,6 +1050,10 @@
     items:
     - name: Deploy Dynamics 365 Finance and Operations
       href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+  - name: Integrate Microsoft business apps
+    items:
+    - name: Deploy Microsoft Power Platform solution
+      href: business-applications/deploy-power-platform-solution.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -1084,6 +1092,10 @@
     items:
     - name: Dynamics 365 Finance and Operations content overview
       href: dynamics-365/dynamics-365-finance-operations-security-content.md
+  - name: Microsoft business apps  
+    items:
+    - name: Microsoft Power Platform content overview
+      href: business-applications/power-platform-solution-security-content.md
   - name: Service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
