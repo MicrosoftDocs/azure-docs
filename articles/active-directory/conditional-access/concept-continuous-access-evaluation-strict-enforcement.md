@@ -52,7 +52,7 @@ If you haven't already, create a new Azure Workbook using the public template "C
 - Investigate and identify any IP addresses identified in the CAE Workbook.
 - Add public IP addresses associated with known organizational egress points to their defined [named locations](location-condition.md#named-locations).
 
-     [ ![Screenshot of cae-workbook with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/CAE-Workbook.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/CAE-Workbook.png#lightbox)
+     [ ![Screenshot of cae-workbook with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png#lightbox)
 
 The following screenshot shows an example of a client’s access to a resource being blocked. This block is due to policies requiring CAE strict location enforcement being triggered revoking the client’s session. 
 
