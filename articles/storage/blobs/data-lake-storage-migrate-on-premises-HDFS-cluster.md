@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 03/09/2023
 ms.author: normesta
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 

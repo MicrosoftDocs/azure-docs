@@ -134,3 +134,4 @@ After the maintenance configuration is created, it has to be attached to the SFM
 >Known issues:
 >* There should be atmost one maintenance config resource assigned to a Service Fabric managed cluster. There is work underway to prevent assignment of more than one maintenance config. Until then, users are expected to not do multiple config assignments for the same cluster.
 >* Deleting just the maintenance config resource will not disable MaintenanceControl. To disable MaintenanceControl, you have to specifically delete the configAssignment for the cluster first, before deleting the maintenance config resource.
+>* The work for Azure Portal experience for maintenance control with SFMC is currently underway, so customers shouldn't rely just on the portal. Issues with maintenance resources like SFMC cluster appearing as a Virtual Machine resource and not able to search/assign an SFMC cluster from the portal are known.

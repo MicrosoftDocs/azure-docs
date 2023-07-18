@@ -954,7 +954,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
 
 > [!IMPORTANT]
 > Previously, this document described the use of resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events.in). New resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) fully supports Azure environments deployed in different availability zones.
@@ -1023,12 +1023,11 @@ Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.m
    First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
 
    > [!NOTE]
-   >
    > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:
    >
-   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'
-   > WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'
-   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'
+   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'  
+   > WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
+   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'  
    > These warning messages can be ignored.
 
 ## Next steps

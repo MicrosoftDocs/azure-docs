@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 06/28/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -448,7 +448,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Invoke-MgInstantiateApplicationTemplate -ApplicationTemplateId "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7" -DisplayName "Fabrikam"
     ```
 
-1. Use the [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?branch=main) command to get the service principal ID.
+1. Use the [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?branch=main) command to get the service principal ID and app role ID.
 
     ```powershell
     Get-MgServicePrincipal -Filter "DisplayName eq 'Fabrikam'" | Format-List
@@ -466,7 +466,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     AppRoleAssignedTo                   :
     AppRoleAssignmentRequired           : True
     AppRoleAssignments                  :
-    AppRoles                            : {<AppRolesId>}
+    AppRoles                            : {<AppRoleId>}
     ApplicationTemplateId               : 518e5f48-1fc8-4c48-9387-9fdf28b0dfe7
     ClaimsMappingPolicies               :
     CreatedObjects                      :
@@ -487,6 +487,20 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     LicenseDetails                      :
     
     ...
+    ```
+
+1. Initialize a variable for the service principal ID.
+
+    Be sure to use the service principal ID instead of the application ID.
+
+    ```powershell
+    $ServicePrincipalId = "<ServicePrincipalId>"
+    ```
+
+1. Initialize a variable for the app role ID.
+
+    ```powershell
+    $AppRoleId= "<AppRoleId>"
     ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -513,57 +527,157 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     {
         "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.applicationServicePrincipal",
         "application": {
-            "objectId": "{objectId}",
+            "id": "{id}",
             "appId": "{appId}",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
+            "createdDateTime": "2023-06-18T23:26:24Z",
+            "deletedDateTime": null,
             "displayName": "Fabrikam",
-            "homepage": "{homepage}",
-            "identifierUris": [],
-            "publicClient": null,
-            "replyUrls": [],
-            "logoutUrl": null,
-            "samlMetadataUrl": null,
-            "errorUrl": null,
+            "description": null,
             "groupMembershipClaims": null,
-            "availableToOtherTenants": false,
-            "requiredResourceAccess": []
+            "identifierUris": [],
+            "isFallbackPublicClient": false,
+            "signInAudience": "AzureADMyOrg",
+            "tags": [],
+            "tokenEncryptionKeyId": null,
+            "defaultRedirectUri": null,
+            "optionalClaims": null,
+            "addIns": [],
+            "api": {
+                "acceptMappedClaims": null,
+                "knownClientApplications": [],
+                "requestedAccessTokenVersion": null,
+                "oauth2PermissionScopes": [
+                    {
+                        "adminConsentDescription": "Allow the application to access Fabrikam on behalf of the signed-in user.",
+                        "adminConsentDisplayName": "Access Fabrikam",
+                        "id": "{id}",
+                        "isEnabled": true,
+                        "type": "User",
+                        "userConsentDescription": "Allow the application to access Fabrikam on your behalf.",
+                        "userConsentDisplayName": "Access Fabrikam",
+                        "value": "user_impersonation"
+                    }
+                ],
+                "preAuthorizedApplications": []
+            },
+            "appRoles": [
+                {
+                    "allowedMemberTypes": [
+                        "User"
+                    ],
+                    "displayName": "msiam_access",
+                    "id": "{appRoleId}",
+                    "isEnabled": true,
+                    "description": "msiam_access",
+                    "value": null,
+                    "origin": "Application"
+                }
+            ],
+            "info": {
+                "logoUrl": null,
+                "marketingUrl": null,
+                "privacyStatementUrl": null,
+                "supportUrl": null,
+                "termsOfServiceUrl": null
+            },
+            "keyCredentials": [],
+            "parentalControlSettings": {
+                "countriesBlockedForMinors": [],
+                "legalAgeGroupRule": "Allow"
+            },
+            "passwordCredentials": [],
+            "publicClient": {
+                "redirectUris": []
+            },
+            "requiredResourceAccess": [],
+            "verifiedPublisher": {
+                "displayName": null,
+                "verifiedPublisherId": null,
+                "addedDateTime": null
+            },
+            "web": {
+                "homePageUrl": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z",
+                "redirectUris": [],
+                "logoutUrl": null
+            }
         },
         "servicePrincipal": {
-            "objectId": "{objectId}",
-            "deletionTimestamp": null,
+            "id": "{servicePrincipalId}",
+            "deletedDateTime": null,
             "accountEnabled": true,
             "appId": "{appId}",
-            "appDisplayName": "Fabrikam",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "{targetTenantId}",
-            "appRoleAssignmentRequired": true,
+            "appDisplayName": "Fabrikam",
+            "alternativeNames": [],
+            "appOwnerOrganizationId": "{appOwnerOrganizationId}",
             "displayName": "Fabrikam",
-            "errorUrl": null,
+            "appRoleAssignmentRequired": true,
             "loginUrl": null,
             "logoutUrl": null,
-            "homepage": "{homepage}",
-            "samlMetadataUrl": null,
-            "microsoftFirstParty": null,
-            "publisherName": "{tenantDisplayName}",
+            "homepage": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z",
+            "notificationEmailAddresses": [],
             "preferredSingleSignOnMode": null,
             "preferredTokenSigningKeyThumbprint": null,
-            "preferredTokenSigningKeyEndDateTime": null,
             "replyUrls": [],
             "servicePrincipalNames": [
                 "{appId}"
             ],
+            "servicePrincipalType": "Application",
             "tags": [
                 "WindowsAzureActiveDirectoryIntegratedApp"
             ],
-            "notificationEmailAddresses": [],
+            "tokenEncryptionKeyId": null,
             "samlSingleSignOnSettings": null,
+            "addIns": [],
+            "appRoles": [
+                {
+                    "allowedMemberTypes": [
+                        "User"
+                    ],
+                    "displayName": "msiam_access",
+                    "id": "{appRoleId}",
+                    "isEnabled": true,
+                    "description": "msiam_access",
+                    "value": null,
+                    "origin": "Application"
+                }
+            ],
+            "info": {
+                "logoUrl": null,
+                "marketingUrl": null,
+                "privacyStatementUrl": null,
+                "supportUrl": null,
+                "termsOfServiceUrl": null
+            },
             "keyCredentials": [],
-            "passwordCredentials": []
+            "oauth2PermissionScopes": [
+                {
+                    "adminConsentDescription": "Allow the application to access Fabrikam on behalf of the signed-in user.",
+                    "adminConsentDisplayName": "Access Fabrikam",
+                    "id": "{id}",
+                    "isEnabled": true,
+                    "type": "User",
+                    "userConsentDescription": "Allow the application to access Fabrikam on your behalf.",
+                    "userConsentDisplayName": "Access Fabrikam",
+                    "value": "user_impersonation"
+                }
+            ],
+            "passwordCredentials": [],
+            "verifiedPublisher": {
+                "displayName": null,
+                "verifiedPublisherId": null,
+                "addedDateTime": null
+            }
         }
     }
     ```
+    
+1. Save the servicePrincipalId.
 
-1. Save the service principal object ID.
+    Be sure to use the service principal ID instead of the application ID.
+
+1. Save the appRoleId.
 
 ---
 
@@ -572,14 +686,6 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 # [PowerShell](#tab/ms-powershell)
-
-1. Initialize a variable with the service principal ID from the previous step.
-
-    Be sure to use the service principal ID instead of the application ID.
-
-    ```powershell
-    $ServicePrincipalId = "<ServicePrincipalId>"
-    ```
 
 1. In the source tenant, use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to test the connection to the target tenant and validate the credentials.
 
@@ -602,10 +708,6 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 
 # [Microsoft Graph](#tab/ms-graph)
-
-1. Get the service principal object ID from the previous step.
-
-    Be sure to use the service principal object ID instead of the application ID.
 
 1. In the source tenant, use the [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?branch=main) API to test the connection to the target tenant and validate the credentials.
 
@@ -668,7 +770,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
                                  nization/jobs/$entity]}
     ```
 
-1. Initialize the job ID for a later step.
+1. Initialize a variable for the job ID.
 
     ```powershell
     $JobId = "<JobId>"
@@ -688,7 +790,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs
     Content-type: application/json
     
-    { 
+    {
         "templateId": "Azure2Azure"
     }
     ```
@@ -735,6 +837,8 @@ In the source tenant, to enable provisioning, create a provisioning job.
     }
     ```
 
+1. Save the jobId.
+
 ---
 
 ## Step 9: Save your credentials
@@ -771,15 +875,15 @@ In the source tenant, to enable provisioning, create a provisioning job.
     PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
     Content-Type: application/json
     
-    { 
-        "value": [ 
+    {
+        "value": [
             {
                 "key": "AuthenticationType",
                 "value": "SyncPolicy"
             },
-            { 
-                "key": "CompanyId", 
-                "value": "{targetTenantId}" 
+            {
+                "key": "CompanyId",
+                "value": "{targetTenantId}"
             },
             {
                 "key": "SyncNotificationSettings",
@@ -815,7 +919,7 @@ For cross-tenant synchronization to work, at least one internal user must be ass
     $Params = @{
         PrincipalId = "<PrincipalId>"
         ResourceId = $ServicePrincipalId
-        AppRoleId = "<AppRoleId>"
+        AppRoleId = $AppRoleId
     }
     New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $ServicePrincipalId -BodyParameter $Params | Format-List
     ```
@@ -878,7 +982,34 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 # [PowerShell](#tab/ms-powershell)
 
-1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
+1. In the source tenant, use the [Get-MgServicePrincipalSynchronizationJobSchema](/powershell/module/microsoft.graph.applications/get-mgserviceprincipalsynchronizationjobschema?view=graph-powershell-beta&preserve-view=true&branch=main) command to get the schema rule ID.
+
+    ```powershell
+    $SynchronizationSchema = Get-MgServicePrincipalSynchronizationJobSchema -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId
+    $SynchronizationSchema.SynchronizationRules | Format-List
+    ```
+
+    ```Output
+    ContainerFilter      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphContainerFilter
+    Editable             : True
+    GroupFilter          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphGroupFilter
+    Id                   : <RuleId>
+    Metadata             : {defaultSourceObjectMappings, supportsProvisionOnDemand}
+    Name                 : USER_INBOUND_USER
+    ObjectMappings       : {Provision Azure Active Directory Users, , , …}
+    Priority             : 1
+    SourceDirectoryName  : Azure Active Directory
+    TargetDirectoryName  : Azure Active Directory (target tenant)
+    AdditionalProperties : {}
+    ```
+
+1. Initialize a variable for the rule ID.
+
+    ```powershell
+    $RuleId = "<RuleId>"
+    ```
+
+1. Use the [New-MgServicePrincipalSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
 
     ```powershell
     $Params = @{
@@ -890,7 +1021,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
                         ObjectTypeName = "User"
                     }
                 )
-                RuleId = "<RuleId>"
+                RuleId = $RuleId
             }
         )
     }
@@ -908,6 +1039,36 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 # [Microsoft Graph](#tab/ms-graph)
 
+1. In the source tenant, use the [Get synchronizationSchema](/graph/api/synchronization-synchronizationschema-get?branch=main) API to get the schema rule ID.
+
+    **Request**
+
+    ```http
+    GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
+    ```
+    
+    **Response**
+
+    ```http
+    {
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('{servicePrincipalId}')/synchronization/jobs('{jobId}')/schema/$entity",
+        "id": "{jobId}",
+        "version": "v1.2",
+        "synchronizationRules": [
+            {
+                "containerFilter": null,
+                "editable": true,
+                "groupFilter": null,
+                "id": "{ruleId}",
+                "name": "USER_INBOUND_USER",
+                "priority": 1,
+                "sourceDirectoryName": "Azure Active Directory",
+                "targetDirectoryName": "Azure Active Directory (target tenant)",
+                "metadata": [
+    
+                ...
+    ```
+    
 1. In the source tenant, use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?branch=main) API to provision a test user on demand.
 
     **Request**
@@ -929,6 +1090,17 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             }
         ]
     }
+    ```
+
+    **Response**
+
+    ```http
+    {
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#microsoft.graph.stringKeyStringValuePair",
+        "key": "Microsoft.Identity.Health.CPP.Common.DataContracts.SyncFabric.StatusInfo",
+        "value": "[{\"provisioningSteps\":[{\"name\":\"EntryImport\",\"type\":\"Import\",\"status\":\"Success\",\"description\":\"Retrieved User 'user1@fabrikam.com' from Azure Active Directory\",\"timestamp\":\"2023-06-19T00:00:16.7866324Z\",\"details\":{\"objectId\":\"{userObjectId}\",\"accountEnabled\":\"True\",\"displayName\":\"User1\",\"mailNickname\":\"user1\",\"userPrincipalName\":\"user1@fabrikam.com\",}
+    
+        ...
     ```
 
 ---

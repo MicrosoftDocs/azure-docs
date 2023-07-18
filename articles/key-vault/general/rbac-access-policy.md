@@ -8,7 +8,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/08/2023
 ms.author: mbaldwin
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
+ms.custom:
 ---
 # Azure role-based access control (Azure RBAC) vs. access policies (legacy)
 

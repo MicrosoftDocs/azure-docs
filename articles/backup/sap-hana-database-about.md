@@ -104,7 +104,7 @@ As per SAP recommendation, it's mandatory to have weekly full snapshots for all 
 Learn how to:
 
 - [Back up SAP HANA databases on Azure VMs](backup-azure-sap-hana-database.md).
-- [Back up SAP HANA System Replication databases on Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- [Back up SAP HANA database snapshot instances on Azure VMs](sap-hana-database-instances-backup.md).
+- [Back up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-with-hana-system-replication-backup.md).
+- [Back up SAP HANA database snapshot instances on Azure VMs (preview)](sap-hana-database-instances-backup.md).
 - [Restore SAP HANA databases on Azure VMs](./sap-hana-db-restore.md).
 - [Manage SAP HANA databases that are backed up by using Azure Backup](./sap-hana-db-manage.md).

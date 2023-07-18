@@ -2,7 +2,7 @@
 title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
 
@@ -41,7 +41,7 @@ Links are provided to more information for each supported scenario.
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
 > [!NOTE]
-> Auto-instrumentation was known as "codeless attach" before October 2021.
+> Autoinstrumentation was known as "codeless attach" before October 2021.
 
 ## JavaScript (Web) SDK Loader Script injection by configuration
 

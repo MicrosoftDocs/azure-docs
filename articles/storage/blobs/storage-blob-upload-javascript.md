@@ -7,7 +7,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/20/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -94,7 +93,7 @@ You can set a blob's access tier on upload by using the [BlockBlobParallelUpload
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js" id="Snippet_UploadAccessTier":::
 
-Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 

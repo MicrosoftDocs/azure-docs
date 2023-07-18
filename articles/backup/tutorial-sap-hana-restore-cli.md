@@ -11,11 +11,9 @@ ms.author: jsuri
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
 
-This tutorial describes how to restore SAP HANA database and SAP HANA System Replication (HSR) instances using Azure CLI.
+This tutorial describes how to restore SAP HANA database instance and SAP HANA System Replication (HSR) instance (preview) using Azure CLI.
 
 Azure CLI is used to create and manage Azure resources from the command line or through scripts. This documentation details how to restore a backed-up SAP HANA database on an Azure VM - using Azure CLI. You can also perform these steps using the [Azure portal](./sap-hana-db-restore.md).
-
-Azure Backup also supports backup and restore of SAP HANA System Replication (HSR).
 
 >[!Note]
 >- Original Location Recovery (OLR) is currently not supported for HSR.
@@ -63,7 +61,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
 
-# [HSR database](#tab/hsr-database)
+# [HSR (preview)](#tab/hsr)
 
 To view the available recovery points, run the following command:
 
@@ -169,7 +167,7 @@ Name                                  Resource
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-# [HSR database](#tab/hsr-database)
+# [HSR (preview)](#tab/hsr)
 
 To start the restore operation, run the following command:
 

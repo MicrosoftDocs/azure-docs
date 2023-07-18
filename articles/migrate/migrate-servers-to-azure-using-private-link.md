@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
 ---
