@@ -63,13 +63,14 @@ The following steps show you how to find the WLS on AKS offer and fill out the *
 
 The following steps show you how to start the deployment process.
 
+1. Scroll to the section labeled **Provide an Oracle Single Sign-On (SSO) account**. Fill in your Oracle SSO credentials from the preconditions.
+
    :::image type="content" source="media/howto-deploy-java-wls-app/configure-sso.png" alt-text="Screenshot of Azure portal showing configure sso." lightbox="media/howto-deploy-java-wls-app/configure-sso.png":::
 
-1. Scroll to the section labeled **Provide an Oracle Single Sign-On (SSO) account**. Fill in your Oracle SSO credentials from the preconditions.
+1. In the section **Application**, next to **Deploy an application?**, select **Yes**.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/configure-application.png" alt-text="Screenshot of Azure portal showing configure applications." lightbox="media/howto-deploy-java-wls-app/configure-application.png":::
 
-1. In the section **Application**, next to **Deploy an application?**, select **Yes**.
 1. Next to **Application package (.war,.ear,.jar)**, select **Browse**.
 1. Start typing the name of the storage account from the preceding section. When the desired storage account appears, select it.
 1. Select the storage container from the preceding section.
@@ -80,8 +81,7 @@ The following steps make it so the WLS admin console and the sample app are expo
 :::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of Azure portal showing the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
 
 1. Select the **Load balancing** pane.
-1. Next to the option **Load Balancing Options
-**, select **Standard Load Balancer Service**.
+1. Next to the option **Load Balancing Options**, select **Standard Load Balancer Service**.
 1. In the table that appears, under **Service name prefix**, fill in the values as shown in the following table. The port values of *7001* for the admin server and *8001* for the cluster must be filled in exactly as shown.
 
    | Service name prefix | Target       | Port |
