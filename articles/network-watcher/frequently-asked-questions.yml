@@ -6,7 +6,7 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 07/18/2023
+  ms.date: 07/19/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: "Azure Network Watcher frequently asked questions (FAQ)"
@@ -85,7 +85,8 @@ sections:
       - question: |
           What are the resource limits on Network Watcher?
         answer: |
-          See [Network Watcher limits](network-watcher-monitoring-overview.md#network-watcher-limits).
+          Network Watcher has the following limits:
+          [!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
           
   - name: Network Watcher Agent
     questions:
