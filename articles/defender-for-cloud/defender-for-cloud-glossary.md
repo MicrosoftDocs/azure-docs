@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 07/16/2023
+ms.date: 07/18/2023
 ms.topic: article
 ---
 
@@ -200,7 +200,7 @@ Threat and Vulnerability Management, a built-in module in Microsoft Defender for
 ## W
 
 ### **WAF**
-Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Learn more about [WAF](https://learn.microsoft.com/azure/web-application-firewall/overview).
+Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Learn more about [WAF](../web-application-firewall/overview.md).
 
 ## Z
 
