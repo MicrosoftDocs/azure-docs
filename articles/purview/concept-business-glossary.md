@@ -24,9 +24,9 @@ A business glossary is a collection of terms. Each term represents an object in 
 
 The same term can also imply multiple business objects. It's important that each term is well-defined and clearly understood within the organization.
 
-## Custom attributes
+## Custom attributes and relationships
 
-Microsoft Purview supports these out-of-the-box attributes for any business glossary term:
+Microsoft Purview supports these out-of-the-box attributes and relationships for any business glossary term:
 - Name (mandatory)
 - Nickname
 - Status
@@ -71,5 +71,8 @@ Sensitivity labels are a type of annotation that allows you to classify and prot
 
 ## Next steps
 
-- [Manage Term Templates](how-to-manage-term-templates.md)
+- [Create and manage glossaries](how-to-create-manage-glossary.md)
+- [Create and manage terms](how-to-create-manage-glossary-term.md)
+- [Manage term templates](how-to-manage-term-templates.md)
+- [Best practices for describing data with terms, tags, managed attributes, and business assets](concept-best-practices-annotating-data.md)
 - [Browse the data catalog in Microsoft Purview](how-to-browse-catalog.md)
