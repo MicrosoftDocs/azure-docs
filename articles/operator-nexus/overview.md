@@ -82,9 +82,9 @@ Operator Nexus includes [Network Fabric Automation (NFA)](./howto-configure-netw
 
 Network Packet Broker (NPB) is an integral part of the network fabric in Operator Nexus. NPB enables multiple scenarios from network performance monitoring to security intrusion detection. Operators can monitor every single packet in Operator Nexus and replicate it. They can apply packet filters dynamically and send filtered packets to multiple destinations for further processing.
 
-### Azure Hybrid Kubernetes Service
+### Nexus Kubernetes
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets users focus on developing and deploying their workloads while letting Azure handle the management and operational overheads. In [AKS-Hybrid](/azure/aks/hybrid/) the Kubernetes cluster is deployed on-premises. Azure still performs the traditional operational management activities such as updates, certificate rotations, etc.
+Nexus Kubernetes cluster is an Operator Nexus version of AKS for on-premises use. It is optimized to automate creation of containers to run tenant network function workloads. A Nexus Kubernetes cluster is deployed on-premises and the traditional operational management activities (CRUD) are managed via Azure.
 
 ### Network functions virtualization infrastructure capabilities
 
