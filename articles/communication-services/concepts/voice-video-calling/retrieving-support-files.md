@@ -8,11 +8,14 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-# Log Sharing overview
+# Log File Access Overview
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Log Sharing provides access to Log files, to help facilitate the creation of more effective support channels.
+
+Especially on mobile devices, the Application Sandbox makes it difficult for an End User to retrieve and transmit these files. This feature provides a mechanism for the application developer to implement enhanced support mechanisms to make it easy for the user to Submit the necessary files to receive robust support.
+
 
 ## Accessing Log Files with Azure Calling SDK
 
@@ -49,8 +52,9 @@ When call issues/errors are detected, the Report an Issue prompt can be presente
 # Deciding on the right approach
 
 Each organization will have varying needs in regards to this feature, it is useful to ask yourself some of the following questions: 
+
 - Have logs been requested in the past? 
-- Do you actively engage with Azure Support? 
+- Do you actively engage with Azure Support or Developers? 
 - What resources are available to your support services? 
 - Do you use any preview features?
 - Is your use-case complicated?
