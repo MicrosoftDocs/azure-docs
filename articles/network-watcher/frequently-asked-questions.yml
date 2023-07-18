@@ -102,8 +102,8 @@ sections:
       - question: |
           What ports does the Network Watcher agent use?
         answer: |
-          - Linux: The Network Watcher agent uses available ports starting from port 50000 and above until it reaches port 65535.
-          - Windows: The Network Watcher agent uses ports that Windows responds with when queried for available ports.
+          - **Linux**: the Network Watcher agent uses available ports starting from port 50000 and above until it reaches port 65535.
+          - **Windows**: the Network Watcher agent uses ports that Windows responds with when queried for available ports.
 
   - name: Service availability and redundancy 
     questions:
@@ -174,7 +174,7 @@ sections:
           NSG flow logs are compatible with Service Endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
           
       - question: |
-          What is the difference between flow logs versions 1 & 2?
+          What is the difference between flow logs versions 1 and 2?
         answer: |
           Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [NSG flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
