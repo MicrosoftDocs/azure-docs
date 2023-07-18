@@ -78,7 +78,7 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 3. Set up ALI solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
 5. Set up volume groups. For more information, see [Create a volume group](./workloads/epic/create-a-volume-group.md).  
-6. Set up a storage snapshot, backup, and data offload. For more information, see [Azure Large Instances NETAPP storage data protection with Azure CVO](ali-netapp-with-cvo.md).
+6. Set up a storage snapshot, backup, and data offload. 
 
 > [!Note]
 > A storage snapshot should only be set up after all data-intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
