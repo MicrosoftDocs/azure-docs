@@ -82,6 +82,8 @@ items:
         href: concept-best-practices-security.md
   - name: Permissions and access
     href: catalog-permissions.md
+  - name: Business glossary
+      href: concept-business-glossary.md
   - name: Data map
     items:
     - name: Classification
@@ -98,8 +100,6 @@ items:
       href: concept-scans-and-ingestion.md
   - name: Data catalog
     items:
-    - name: Business glossary
-      href: concept-business-glossary.md
     - name: Asset normalization
       href: concept-asset-normalization.md
     - name: Workflows
