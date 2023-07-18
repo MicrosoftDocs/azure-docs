@@ -85,8 +85,8 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
 - Restore points don't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
 - Restore points don't back up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
-- 
-- ## Operating system support for crash consistency (in preview)
+ 
+## Operating system support for crash consistency (in preview)
 
 - All Operating systems are supported.
 
