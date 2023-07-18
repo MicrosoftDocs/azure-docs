@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour 
 ms.service: data-manager-for-agri 
 ms.topic: conceptual 
-ms.date: 06/09/2023 
+ms.date: 06/25/2023 
 ms.custom: template-concept 
 ---
 
@@ -21,10 +21,15 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 
  We provide information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Agriculture Preview monthly.
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). See Azure Data Manager for Agriculture specific terms of use [**here**](supplemental-terms-azure-data-manager-for-agriculture.md). 
->
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+
+## June 2023
+
+### Use your license keys via key vault
+Azure Data Manager for Agriculture supports a range of data ingress connectors. These connections require customer keys in a Bring Your Own License (BYOL) model. You can use your license keys safely by storing your secrets in the Azure Key Vault, enabling system identity and providing read access to our Data Manager. Details are available [here](concepts-byol-and-credentials.md).
+
+### Sensor integration as both partner and customer
+Now you can start pushing data from your own sensors into Data Manager for Agriculture. It's useful in case your sensor provider doesn't want to take steps to onboard their sensors or if you don't have such support from your sensor provider. Details are available [here](how-to-set-up-sensor-as-customer-and-partner.md).
 
 ## May 2023
 
@@ -37,7 +42,7 @@ Azure Data Manager for Agriculture implements API throttling to ensure consisten
 In Azure Data Manager for Agriculture Preview, you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. [Audit Logs](how-to-set-up-audit-logs.md) are now available for your use.  
 
 ### Private links
-You can connect to Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses. [Private Links](how-to-set-up-private-links.md) are now available for your use.  
+You can connect to Azure Data Manager for Agriculture service from your virtual network via a private endpoint. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses. [Private Links](how-to-set-up-private-links.md) are now available for your use.  
 
 ### BYOL for satellite imagery
 To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. Read more about our satellite connector [here](concepts-ingest-satellite-imagery.md). 

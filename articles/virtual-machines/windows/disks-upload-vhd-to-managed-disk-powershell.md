@@ -5,9 +5,8 @@ author: roygara
 ms.author: rogarana
 ms.date: 03/31/2023
 ms.topic: how-to
-ms.service: storage
+ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
-ms.subservice: disks 
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 

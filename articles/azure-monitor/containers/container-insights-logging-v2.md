@@ -6,7 +6,7 @@ ms.author: bwren
 ms.subservice: logs
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 06/06/2023
 ms.reviewer: aul
 ---
 
@@ -71,12 +71,13 @@ This applies to the scenario where you have already enabled container insights f
 >* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
-## Multi-line logging in Container Insights 
+## Multi-line logging in Container Insights (preview)
 Azure Monitor - Container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
 Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
 
 ### Pre-requisites 
-Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](/containers/container-insights-logging-v2#enable-the-containerlogv2-schema) in Container Insights. 
+
+Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) in Container Insights. 
 
 ### How to enable - This is currently a preview feature
 Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “true” in [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml#L49) 
@@ -86,3 +87,4 @@ Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
+* Learn how [query data](./container-insights-log-query.md#container-logs) from ContainerLogV2

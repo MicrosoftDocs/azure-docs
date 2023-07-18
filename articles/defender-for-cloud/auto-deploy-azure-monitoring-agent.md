@@ -26,7 +26,7 @@ Before you deploy AMA with Defender for Cloud, you must have the following prere
   - AWS and GCP machines
     - [Onboard your AWS connector](quickstart-onboard-aws.md) and auto provision Azure Arc.
     - [Onboard your GCP connector](quickstart-onboard-gcp.md) and auto provision Azure Arc.
-  - Other clouds and on-premises machines
+  - On-premises machines
     - [Install Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Make sure the Defender plans that you want the Azure Monitor Agent to support are enabled:
   - [Enable Defender for Servers Plan 2 on Azure and on-premises VMs](enable-enhanced-security.md)

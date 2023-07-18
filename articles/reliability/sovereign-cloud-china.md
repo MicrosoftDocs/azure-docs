@@ -26,8 +26,8 @@ This section outlines variations and considerations when using Azure Bot Service
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 |Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
-| Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=china).|
+| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+| Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md?tabs=china).|
 
 ### Azure AD External Identities
 
@@ -76,6 +76,18 @@ This section outlines variations and considerations when using Azure Container A
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
+#### Azure Retail Rates API for China
+
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure China. The preview API is available only in Azure China and isn't available in Azure Global.
+
+#### Markup - China
+
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China. The Markup feature is available only in Azure China and isn't available in Azure Global.
 
 ## Azure in China Account Sign in
 

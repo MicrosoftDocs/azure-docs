@@ -85,6 +85,6 @@ Detailed **Version information** are as follows:
 ## Next steps
 
 - [workflowVersion resource type](/graph/api/resources/identitygovernance-workflowversion?view=graph-rest-beta&preserve-view=true)
-- [Manage workflow Properties (Preview)](manage-workflow-properties.md)
-- [Manage workflow versions (Preview)](manage-workflow-tasks.md)
+- [Manage workflow Properties](manage-workflow-properties.md)
+- [Manage workflow versions](manage-workflow-tasks.md)
 
