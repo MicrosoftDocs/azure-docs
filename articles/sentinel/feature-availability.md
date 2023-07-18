@@ -76,11 +76,11 @@ This article describes feature availability in Microsoft Sentinel across differe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Bookmarks](bookmarks.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Hunts](hunts.md) |Public Preview|&#x2705; |&#10060; |&#10060; |
 |[Livestream](livestream.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Queries](hunts.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Restore historical data](restore.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Search large datasets](search-jobs.md) |GA |&#x2705; |&#x2705; |&#x2705; |
-|[Hunts](hunts.md) |Public Preview|&#x2705; |&#10060; |&#10060; |
 
 ## Incidents
 
