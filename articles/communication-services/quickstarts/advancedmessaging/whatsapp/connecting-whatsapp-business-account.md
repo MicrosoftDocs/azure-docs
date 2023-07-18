@@ -7,7 +7,7 @@ manager: sundraman
 services: azure-communication-services
 ms.author: darmour
 ms.date: 06/26/2023
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 

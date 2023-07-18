@@ -17,9 +17,9 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Register Event Grid Resource Provider. If your Azure subscription does not yet have the Event Grid resource provider registered, you can follow the steps in the "Register an EventGrid resource provider" section on [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
-- A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../../create-communication-resource.md).
+- [Azure account with an active subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
+- [Create an Azure Communication Services resource](../../create-communication-resource.md).
 
 ## About Event Grid
 
