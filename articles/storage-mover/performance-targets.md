@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 07/17/2023
 ---
 
 <!-- 
@@ -16,6 +16,9 @@ CONTENT: final
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
+
+Initial doc score: 83
+Current doc score: 93 (1201 words and 10 false-positive issues)
 
 !########################################################
 -->
@@ -36,48 +39,75 @@ Only the agent is a relevant part of the service for performance testing. To omi
 
 :::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow represents data traveling to a storage account from the source or agent and a second arrow represents only the management or control info to the storage mover resource or service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
-The following table describes the characteristics of the test environment that produced the performance test results shared later in this article.
+## Performance baselines
+
+These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance varies.
+
+### [SMB Mount : Azure fileshare](#tab/smb)
+
+Migration from SMB mount to Azure fileshare tests were executed as follows:
+
+1. **Test Scenario 1: Plenty of Files**<br/>
+   *(gives a sense of IOPS/Transactions per sec/Files per sec)*
+   - *Number of files:* 12 million files
+   - *Total file weight:* 12 GB
+   - *File size:* 1 KB each
+   - *Folder structure:* 12 folders, each with 100 subfolders containing 10,000 files
+
+1. **Test Scenario 2: Small Standard Job**
+   - *Number of files:* 30 files
+   - *Total files weight:* 20 GB
+   - *Folder structure:* 1 folder
+
+1. **Test Scenario 3: Standard Job**
+   - *Number of files:* 1 million files
+   - *Total files weight:* 100 GB
+   - *File size:* 100 KB each
+   - *Folder structure:* 1,000 folders, each with 1,000 files
+
+1. **Test Scenario 4: Large File**
+   - *Number of files:* 1 file
+   - *File size:* 4 TB
+
+### [NFS mount : Azure blob container](#tab/smb)
+
+The following table describes the characteristics of the test environment that produced the performance test results.
 
 |Test               | Result                                                                                                                        |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|
 |Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders                        |
 |Test source device | Linux server VM <br />16 virtual CPU cores<br />64-GiB RAM                                                                    |
-|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios, add disk recall times.          |
-|Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.) |
+|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios, add disk recall times.         |
+|Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.  |
 
-## Performance baselines
+Different agent resource configurations are tested on NFS endpoints:
 
-These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance varies.
+1. **Minspec: 4 CPU / 8-GiB RAM**
+   4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-Different agent resource configurations are tested:
+   |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
+   |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
+   |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 Hours, 28 Min                                  |
+   |Items* per Second         | -                 | 3548                                                 | 2860                                             |
+   |Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                              | 1.4 GiB                                          |
+   |Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                              | *result missing*                                 |
 
-### [4 CPU / 8-GiB RAM](#tab/minspec)
+   *A namespace item is either a file or a folder.
 
-4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
+1. **Boot spec: 8 CPU / 16 GiB RAM**
+   8 virtual CPU cores at 2.7 GHz each and 16 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-|Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
-|--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
-|Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 Hours, 28 Min                                  |
-|Items* per Second         | -                 | 3548                                                 | 2860                                             |
-|Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                              | 1.4 GiB                                          |
-|Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                              | *result missing*                                 |
+   |Test                      | Single file, 1 TiB| &tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB  |
+   |--------------------------|-------------------|--------------------------------------------------------|
+   |Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                          |
+   |Items* per Second         | -                 | 6298                                                   |
+   |Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                                |
+   |Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                                |
 
-*A namespace item is either a file or a folder.
-
-### [8 CPU / 16 GiB RAM](#tab/boostspec)
-
-8 virtual CPU cores at 2.7 GHz each and 16 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
-
-|Test                      | Single file, 1 TiB| &tilde;3.3M files, &tilde;200 K folders, &tilde;45 GiB  |
-|--------------------------|-------------------|--------------------------------------------------------|
-|Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                          |
-|Items* per Second         | -                 | 6298                                                   |
-|Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                                |
-|Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                                |
-
-*A namespace item is either a file or a folder.
+   *A namespace item is either a file or a folder.
 
 ---
+
 
 [Review recommended agent resources](agent-deploy.md#recommended-compute-and-memory-resources) for your migration scope in the [agent deployment article](agent-deploy.md).
 
