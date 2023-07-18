@@ -142,7 +142,7 @@ sections:
       - question: |
           When migrating an existing connection monitor (classic) to the latest connection monitor, what happens if the external endpoint tests are migrated with the TCP protocol only?
         answer: |
-          There is no protocol selection option in connection monitor (classic). Tests in connection monitor (classic) only use the TCP protocol, and that's why, during the migration, we create a TCP configuration in tests in the new connection monitor.
+          There's no protocol selection option in connection monitor (classic). Tests in connection monitor (classic) only use the TCP protocol, and that's why, during the migration, we create a TCP configuration in tests in the new connection monitor.
 
   - name: NSG flow logs
     questions:
