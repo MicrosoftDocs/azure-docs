@@ -15,11 +15,8 @@ ms.custom: UpdateFrequency5, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (SDK v1, part 1 of 3)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-hello-world.md)
-> * [v2](../tutorial-1st-experiment-hello-world.md?view=azureml-api-2&preserve-view=true)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -157,7 +154,7 @@ Here's a description of how the control script works:
 
 1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../../../includes/machine-learning-py38-ignore.md)]
+    [!INCLUDE [amlinclude-info](../includes/machine-learning-py38-ignore.md)]
 
 ## View the output
 

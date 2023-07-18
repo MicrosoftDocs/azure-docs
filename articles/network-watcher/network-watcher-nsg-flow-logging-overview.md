@@ -404,7 +404,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 For more information about enabling flow logs, see the following guides:
 
-- [Azure portal](./network-watcher-nsg-flow-logging-portal.md)
+- [Azure portal](./nsg-flow-logging.md)
 - [PowerShell](./network-watcher-nsg-flow-logging-powershell.md)
 - [Azure CLI](./network-watcher-nsg-flow-logging-cli.md)
 - [REST API](./network-watcher-nsg-flow-logging-rest.md)
@@ -425,7 +425,7 @@ To update parameters via command-line tools, use the same command that you used 
 
 ### Read and export flow logs
 
-- [Download and view flow logs from the portal](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
+- [Download and view flow logs from the portal](./nsg-flow-logging.md#download-a-flow-log)
 - [Read flow logs by using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
@@ -453,7 +453,7 @@ For steps to disable and enable NSG flow logs, see [Configure NSG flow logs](./n
 
 When you delete an NSG flow log, you not only stop the flow logging for the associated network security group but also delete the flow log resource (with all its settings and associations). To begin flow logging again, you must create a new flow log resource for that network security group.
 
-You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete). At this time, you can't delete flow logs from the Azure portal.
+You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete).
 
 When you delete a network security group, the associated flow log resource is deleted by default.
 
@@ -544,13 +544,13 @@ Currently, these Azure services don't support NSG flow logs:
 
 ### I can't enable NSG flow logs
 
-If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you might not have enabled the **Microsoft.Insights** resource provider on your subscription. For more information, see [Register Insights provider](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider).
+If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you might not have enabled the **Microsoft.Insights** resource provider on your subscription. For more information, see [Register Insights provider](./nsg-flow-logging.md#register-insights-provider).
 
 ### I enabled NSG flow logs but don't see data in my storage account
 
 This problem might be related to:
 
-- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file appears. For more information, see [Download flow log](./network-watcher-nsg-flow-logging-portal.md#download-flow-log).
+- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file appears. For more information, see [Download flow log](./nsg-flow-logging.md#download-a-flow-log).
 
 - **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
 

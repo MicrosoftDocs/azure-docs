@@ -40,7 +40,7 @@ try {
     const callCaptionsApi = call.feature(Features.Captions);
     callCaptionsApi.on('captionsReceived', captionsHandler);
     if (!callCaptionsApi.isCaptionsActive) {
-        await callCaptionsApi.startCaptions({ language: 'en-us' });
+        await callCaptionsApi.startCaptions({ spokenLanguage: 'en-us' });
     }
 } catch (e) {
     console.log('Internal error occurred when Starting Captions');

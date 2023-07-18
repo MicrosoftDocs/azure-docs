@@ -5,12 +5,12 @@ description: Through these samples and walkthroughs, learn how to handle common 
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-python
 
 author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-
 ---
 
 

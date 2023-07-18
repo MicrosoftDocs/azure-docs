@@ -3,7 +3,9 @@ title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.date: 04/24/2023
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, ai-gen-docs
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Move resources to a new resource group or subscription
@@ -15,8 +17,6 @@ Both the source group and the target group are locked during the move operation.
 If your move requires setting up new dependent resources, you'll experience an interruption in those services until they've been reconfigured.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Changed resource ID
 

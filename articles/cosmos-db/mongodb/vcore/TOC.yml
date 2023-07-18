@@ -30,6 +30,12 @@
       href: security.md
 - name: How to
   items:
+    - name: Use developer tools
+      items:
+        - name: Community tools
+          items:
+            - name: Connect using Studio 3T
+              href: connect-using-robomongo.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster

@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: banders

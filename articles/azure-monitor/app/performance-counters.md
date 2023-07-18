@@ -4,7 +4,7 @@ description: Monitor system and custom .NET performance counters in Application 
 ms.topic: conceptual
 ms.date: 01/06/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.reviewer: rijolly
 ---
 

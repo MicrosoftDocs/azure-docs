@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2023
+ms.date: 05/31/2023
 ms.author: davidmu
 ms.custom: has-adal-ref
 ---
@@ -26,6 +26,8 @@ If you need an answer to a question or help in solving a problem not covered in 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits you. There are two options to create and manage support requests in the Azure portal:
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+- If you're using Azure AD for customers (preview), the support request feature is currently unavailable in customer tenants. However, you can use the **Give Feedback** link on the **New support request** page to provide feedback. Or, you can switch to your Azure AD workforce tenant and [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 

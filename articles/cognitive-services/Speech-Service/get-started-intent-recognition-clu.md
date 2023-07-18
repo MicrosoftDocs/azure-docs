@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 02/22/2023
 ms.author: eur

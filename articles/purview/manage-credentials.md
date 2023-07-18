@@ -43,7 +43,7 @@ If you're using the Microsoft Purview system-assigned managed identity (SAMI) to
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
-- [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
+- [Azure Synapse Workspace](register-scan-synapse-workspace.md#register)
 - [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## Grant Microsoft Purview access to your Azure Key Vault
@@ -240,6 +240,22 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
 
 1. After all the information is filled in, select **Create**.
 
+### Delete a user-assigned managed identity
+
+1. In the [Azure portal](https://portal.azure.com/) navigate to your Microsoft Purview account.
+
+1. In the **Managed identities** section on the left menu, select the identity you want to delete.
+
+1. Select the **Remove** button.
+
+1. Once the managed identity is successfully removed, navigate to the [Microsoft Purview governance portal](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview governance portal** button.
+
+1. Navigate to the Management Center in the studio and then navigate to the Credentials section.
+
+1. Select the identity you want to delete, and then select the **Delete** button.
+
+>[!NOTE]
+>If you have deleted a user-assigned managed identity in the Azure portal, you need to delete the original identiy and create a new one in the Microsoft Purview governance portal.
 
 ## Next steps
 

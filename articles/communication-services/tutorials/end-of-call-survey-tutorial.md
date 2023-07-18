@@ -31,7 +31,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. See [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
--	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
+-	To conduct a survey with custom questions using free form text, you need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
 
 > [!IMPORTANT]
@@ -93,21 +93,44 @@ call.feature(Features.CallSurvey).submitSurvey({
 
 
 
-<!-- ## Find different types of errors
+## Find different types of errors
+
+ 
 
 ### Failures while submitting survey:
 
-API will return the error messages when data validation failed or unable to submit the survey.
--	At least one survey rating is required.
--	In default scale X should be 1 to 5. - where X is either of
-- overallRating.score
-- 	audioRating.score
-- videoRating.score
-- ScreenshareRating.score
--	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
--	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
--	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
--	event discarded [ACS failed to submit survey, due to network or other error] -->
+The API will return the following error messages if data validation fails or the survey can't be submitted.
+
+- At least one survey rating is required.
+
+- In default scale X should be 1 to 5. - where X is either of:
+  - overallRating.score
+  - audioRating.score
+  - videoRating.score
+  - ScreenshareRating.score
+
+- \{propertyName\}: \{rating.score\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
+
+- \{propertyName\}: \{rating.scale?.lowScoreThreshold\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
+
+- \{propertyName\} lowerBound: \{rating.scale?.lowerBound\} and upperBound: \{rating.scale?.upperBound\} should be between 0 and 100.
+
+- Please try again [ACS failed to submit survey, due to network or other error].
+
+### We will return any error codes with a message.
+
+- Error code 400 (bad request) for all the error messages except one.
+
+```
+{ message: validationErrorMessage, code: 400 }
+```
+
+- One 408 (timeout) when event discarded:
+ 
+```
+{ message: "Please try again.", code: 408 }
+```
+
 
 ## All possible values
 
@@ -162,7 +185,7 @@ Screenshare. However, each API value can be customized from a minimum of
 ## Custom questions
 In addition to using the End of Call Survey API you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
--  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
+-  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-configuration.md).
 -  Build a UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
 -  Submit survey results to ACS and send user response using App Insights:
@@ -182,12 +205,12 @@ In addition to using the End of Call Survey API you can create your own survey q
 	});
 	appInsights.flush();
 	```
-User responses that were sent using AppInsights will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+User responses that were sent using AppInsights are available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
 -  Create new [Workbooks](../../update-center/workbooks.md) (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
--  Please be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
+-  Be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
    ```KQL
    ACSCallSurvey
    | where TimeGenerated > now(-24h)

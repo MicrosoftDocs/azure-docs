@@ -11,6 +11,7 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devplatv2, event-tier1-build-2022, build-2023
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up Visual Studio Code desktop with the Azure Machine Learning extension (preview)
@@ -25,7 +26,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 - Debug machine learning experiments locally
 - Schema-based language support, autocompletion and diagnostics for specification file authoring
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -76,4 +77,4 @@ Alternatively, use the `> Azure ML: Set Default Workspace` command in the comman
 - [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
 - [Develop on a remote compute instance locally](how-to-launch-vs-code-remote.md)
 - [Train an image classification model using the Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
-- [Run and debug machine learning experiments locally](how-to-debug-visual-studio-code.md)
+- [Run and debug machine learning experiments locally (CLI v1)](./v1/how-to-debug-visual-studio-code.md)

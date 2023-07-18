@@ -1,7 +1,7 @@
 ---
 title: Activate and set up an OT network sensor - Microsoft Defender for IoT 
 description: Learn how to activate and set up a Microsoft Defender for IoT OT network sensor.
-ms.date: 01/22/2023
+ms.date: 05/17/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -71,7 +71,7 @@ The first time you sign in to your OT network sensors, you're prompted to confir
 
 ## Activate the OT sensor
 
-Activate your OT sensor to connect it to your [Azure subscription and OT plan](../how-to-manage-subscriptions.md) and enforce the configured number of committed devices.
+Activate your OT sensor to connect it to your [OT plan](../how-to-manage-subscriptions.md) and track the number of licensed devices.
 
 **In the deployment wizard's *Sensor Activation* screen**:
 

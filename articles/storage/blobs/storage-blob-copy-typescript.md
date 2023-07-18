@@ -7,10 +7,9 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 05/08/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: typescript
-ms.custom: devx-track-ts, devguide-ts
+ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Copy a blob with TypeScript

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra Identity Governance documentation
-summary: Microsoft Entra Identity Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
+title: Microsoft Entra ID Governance documentation
+summary: Microsoft Entra ID Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
 
 metadata: 
   author: owinfreyatl
@@ -18,11 +18,11 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Identity Governance
+  - title: About ID Governance
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Identity Governance?
+          - text: What is ID Governance?
             url: identity-governance-overview.md
       - linkListType: video
         links:
@@ -66,7 +66,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Lifecycle Workflows (Preview)?
+          - text: What are Lifecycle Workflows?
             url: what-are-lifecycle-workflows.md
       - linkListType: tutorial
         links:

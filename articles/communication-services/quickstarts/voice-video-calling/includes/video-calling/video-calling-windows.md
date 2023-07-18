@@ -837,7 +837,7 @@ this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a video call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement`, we can see the preview of the local video. 
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement`, we can see the preview of the local video. 
 ```C#
 var startCallOptions = new StartCallOptions();
 

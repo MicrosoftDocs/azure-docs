@@ -65,12 +65,6 @@
     items:
     - name: Set up DNS failover using private resolvers
       href: tutorial-dns-private-resolver-failover.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    items:
-    - name: Find unhealthy DNS records
-      href: ./scripts/find-unhealthy-dns-records.md
 - name: Concepts
   items:
   - name: Security
@@ -105,6 +99,8 @@
       href: private-dns-scenarios.md
     - name: DNS resolution in virtual networks
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
+    - name: Private DNS resiliency
+      href: private-dns-resiliency.md
     - name: FAQ
       href: dns-faq-private.yml
   - name: Private Resolver
