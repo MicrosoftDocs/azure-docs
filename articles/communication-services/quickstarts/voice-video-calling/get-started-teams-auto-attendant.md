@@ -7,8 +7,7 @@ ms.author: ruslanzdor
 ms.date: 07/14/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: teams-auto-attendant
-zone_pivot_groups: acs-plat-web
+ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 ---
 
