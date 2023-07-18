@@ -228,6 +228,8 @@ To create and run a new scan, follow these steps:
 
         :::image type="content" source="media/register-scan-snowflake/scan.png" alt-text="scan Snowflake" border="true":::
 
+1. Select **Test connection** to validate the settings (available when using Azure Integration Runtime).
+
 1. Select **Continue**.
 
 1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
