@@ -177,7 +177,7 @@ the network to your own service, do not send a request per log line because this
 ```javascript
 // Redirect log output
 AzureLogger.log = (...args) => {
-    // to console, file, buffer, REST API, etc...
+    // To console, file, buffer, REST API, etc...
     console.log(...args); 
 };
 ```
