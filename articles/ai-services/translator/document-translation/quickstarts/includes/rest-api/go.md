@@ -62,7 +62,7 @@ import (
 
 func main() {
 
-    httpposturl := "{your-document-translation-endpoint}/translator/text/batch/v1.0/batches"
+    httpposturl := "{your-document-translation-endpoint}/translator/text/batch/v1.1/batches"
     fmt.Println("Response", httpposturl)
 
     var jsonData = []byte(`{

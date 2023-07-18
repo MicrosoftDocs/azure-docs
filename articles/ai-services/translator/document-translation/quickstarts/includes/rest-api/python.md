@@ -51,7 +51,7 @@ import requests
 
 endpoint = '{your-document-translation-endpoint}'
 key =  '{your-key}'
-path = 'translator/text/batch/v1.0/batches'
+path = 'translator/text/batch/v1.1/batches'
 constructed_url = endpoint + path
 
 sourceSASUrl = '{your-source-container-SAS-URL}'
