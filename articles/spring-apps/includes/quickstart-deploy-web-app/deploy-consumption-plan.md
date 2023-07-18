@@ -141,7 +141,7 @@ Use the following steps to connect your service instances:
 1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
     - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
     - **SPRING_DATASOURCE_USERNAME**: *myadmin*
-    - **SPRING_DATASOURCE_PASSWORD**: *<database password>*
+    - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal showing the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
 
 1. Select **Save** to save the connection properties.
