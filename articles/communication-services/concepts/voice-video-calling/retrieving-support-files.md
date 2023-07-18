@@ -17,14 +17,14 @@ Especially on mobile devices, the Application Sandbox poses challenges for an En
 
 ## Designing Effective Support Tools
 
-Consider the following when implementing support tools:
+Consider the following factors when implementing support tools:
 
-1. **Time**: Retrieving logs close to the time of impact will yield the most relevant data.
+1. **Time**: Retrieving logs close to the time of impact yields the most relevant data.
 1. **End User**: How would you like a user to escalate and report issues?
 1. **Your Support**: How would your support like to have access to these files?
 1. **Azure Support**: Can you provide a Link or another quick way to access these files on request?
 
-By thinking about these requirements you can implement an effective way of communicate support requests.
+By thinking about these requirements, you can implement an effective way of communicate support requests.
 
 ## Common Use Cases
 
