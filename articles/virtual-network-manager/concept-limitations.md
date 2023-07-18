@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 07/18/2023
 ms.custom: template-concept
 #CustomerIntent: As a network administration, I want undertand the limitations in Azure Virtual Network Manager so that I can properly deploy a virtual manager in my environment.
 ---
@@ -20,6 +20,17 @@ This article provides an overview of the current limitations when using [Azure V
 > Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## General limitations
+
+* Azure Virtual Network Manager doesn't have [cross-tenant support](concept-cross-tenant.md) in the public preview.
+
+* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the [subscription and resource group scopes](concept-network-manager-scope.md). Management groups can't be applied over the 15 k subscription limit.
+   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15,000 subscriptions.
+
+* Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
+
+* Azure Virtual Network Manager policies don't support the standard policy compliance evaluation cycle. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Connected group limitations
 
@@ -41,17 +52,6 @@ This article provides an overview of the current limitations when using [Azure V
 * The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 1000. 
 
 * The maximum number of admin rules in one level of Azure Virtual Network Manager is 100. 
-
-## General limitations
-
-* Azure Virtual Network Manager doesn't have [cross-tenant support](concept-cross-tenant.md) in the public preview.
-
-* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the [subscription and resource group scopes](concept-network-manager-scope.md). Management groups can't be applied over the 15 k subscription limit.
-   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15,000 subscriptions.
-
-* Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
-
-* Azure Virtual Network Manager policies don't support the standard policy compliance evaluation cycle. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Related content
 
