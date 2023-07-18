@@ -1,5 +1,5 @@
 ---
-title:  "Customer responsibilities developing Azure Spring Apps"
+title:  "Version support for Java, Spring Boot and more"
 description: This article describes customer responsibilities developing Azure Spring Apps.
 author: zhiyongli
 ms.author: zhiyongli
@@ -19,31 +19,31 @@ This article specifies the support policy of Java, Spring Boot and Spring Cloud 
 
 Azure Spring Apps provides and maintains the SDKs and base OS images necessary to run your apps. To make sure your applications are compatible with such managed components, we will describe in this article the version support policy for the components that you may be interested in.
 
-# Version support for all tiers
+## Version support for all tiers
 
-## Java runtime version
+### Java runtime version
 
-You may choose any LTS Java version as the major version, as long as it is still within official support, and we will regularly upgrade the minor version as described in our [maintenance policy](./concept-maintanence-policy).
+You may choose any LTS Java version as the major version, as long as it is still within official support, and we will regularly upgrade the minor version as described in our [maintenance policy](concept-maintenance-policy.md).
 
 For details, see the [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
-## Spring Boot and Spring Cloud versions
+### Spring Boot and Spring Cloud versions
 
 You may choose any version of Spring Boot or Spring Cloud as long as it is compatible with your Java version.
 
 For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it is released.
 
-For old versions, Azure Spring Apps does not require you to upgrade Spring Boot or Spring Cloud to keep pace with the official support. However, with the officially supported versions, you are guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard Tier, [Tanzu components](./vmware-tanzu-components) for Enterprise Tier, and metric collection for all tiers.
+For old versions, Azure Spring Apps does not require you to upgrade Spring Boot or Spring Cloud to keep pace with the official support. However, with the officially supported versions, you are guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard Tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise Tier, and metric collection for all tiers.
 
 You may check the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview) for more information. The Enterprise Tier provides commercial support for Spring Boot, while the other tiers provides OSS support.
 
-# Version support for Enterprise Tier
+## Version support for Enterprise Tier
 
-## Polyglot SDKs
+### Polyglot SDKs
 
 Polyglot applications can be deployed in Enterprise Tier with source code. To enjoy the best stability, we recommend you to use SDKs with LTS versions within official support in your source code.
 
-When you [deploy your polyglot applications to Enterprise Tier](./how-to-enterprise-deploy-polyglot-apps), we recommend assigning specific LTS versions for the SDKs. Otherwise the default SDK version may change during our regular upgrades for builder components.
+When you [deploy your polyglot applications to Enterprise Tier](how-to-enterprise-deploy-polyglot-apps.md), we recommend assigning specific LTS versions for the SDKs. Otherwise the default SDK version may change during our regular upgrades for builder components.
 
 | Type                 | Support Policy            |
 |---------------------|----------------------------|
@@ -54,7 +54,7 @@ When you [deploy your polyglot applications to Enterprise Tier](./how-to-enterpr
 |Go|[Go Release History](https://go.dev/doc/devel/release)
 |NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)
 
-## Stack Image Support
+### Stack Image Support
 
 You may choose your stack image during builder configuration, and we recommend using a LTS image within official support. Please refer to [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for more information.
 
