@@ -115,15 +115,15 @@ workflow.
 
 ## Azure Maps Creator documentation
 
-### ![Concepts](./media/creator-indoor-maps/about-creator/Concepts.png) Concepts
+### ![Concept articles](./media/creator-indoor-maps/about-creator/Concepts.png) Concepts
 
 - [Indoor map concepts]
 
-### ![Tutorials](./media/creator-indoor-maps/about-creator/tutorials.png) Tutorials
+### ![Creator tutorial](./media/creator-indoor-maps/about-creator/tutorials.png) Tutorials
 
 - [Use Azure Maps Creator to create indoor maps]
 
-### ![How-to guides](./media/creator-indoor-maps/about-creator/how-to-guides.png) How-to guides
+### ![How-to articles](./media/creator-indoor-maps/about-creator/how-to-guides.png) How-to guides
 
 - [Manage Creator]
 - [Implement Dynamic styling for indoor maps]
@@ -134,7 +134,7 @@ workflow.
 - [Create dataset using GeoJson package]
 - [Create a feature stateset]
 
-### ![Reference](./media/creator-indoor-maps/about-creator/reference.png) Reference
+### ![Reference articles](./media/creator-indoor-maps/about-creator/reference.png) Reference
 
 - [Drawing package requirements]
 - [Facility Ontology]
