@@ -24,7 +24,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Content and content management		
 
-|Feature  |Feature stage |Azure commercial  |Azure government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Content hub](sentinel-solutions.md) and [solutions](sentinel-solutions-catalog.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Repositories](ci-cd.md?tabs=github) |Public preview |&#x2705; |&#10060; |&#10060; |
@@ -75,7 +75,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Hunting blade](hunting.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Hunting page](hunting.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Restore historical data](restore.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Search large datasets](search-jobs.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Hunts](hunts.md) |Public Preview|&#x2705; |&#10060; |&#10060; |
@@ -103,12 +103,10 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 |Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
 |---------|---------|---------|---------|
-|[Anomalous RDP login detection - built-in ML detection](configure-connector-login-detection.md) |Public Preview |&#x2705; |&#x2705; |
-|[Anomalous SSH login detection - built-in ML detection](connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection) |Public Preview |&#x2705; |&#x2705; |
-|[Bring Your Own ML (BYO-ML)](bring-your-own-ml.md) |Public Preview |&#x2705; |&#10060; |
+|[Anomalous RDP login detection - built-in ML detection](configure-connector-login-detection.md) |Public Preview |&#x2705; |&#10060; |
+|[Anomalous SSH login detection - built-in ML detection](connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection) |Public Preview |&#x2705; |&#10060; |
 |[Fusion](fusion.md) - advanced multistage attack detections <sup>[1](#partialga)</sup> |GA |&#x2705; |&#x2705; |
-|[Fusion detection for ransomware](fusion.md#fusion-for-ransomware) |Public Preview |&#x2705; |&#x2705; |
-|[Fusion for emerging threats](fusion.md#fusion-for-emerging-threats) |Public Preview |&#x2705; |&#x2705; |
+
 
 <sup><a name="partialga"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
@@ -140,7 +138,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 |[GeoLocation and WhoIs data enrichment](work-with-threat-indicators.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
 |[Import TI from flat file](indicators-bulk-file-import.md) |Public Preview |&#x2705; |&#x2705; |&#x2705; |
 |[Threat Intelligence Platform data connector](understand-threat-intelligence.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
-|[Threat Intelligence Research blade](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Threat Intelligence Research page](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Threat Intelligence - TAXII data connector](understand-threat-intelligence.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Microsoft Defender for Threat Intelligence connector](connect-mdti-data-connector.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
 |[Microsoft Defender Threat intelligence matching analytics](use-matching-analytics-to-detect-threats.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
