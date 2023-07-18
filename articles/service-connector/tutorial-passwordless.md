@@ -74,6 +74,8 @@ If you use Azure Container Apps, use `az containerapp connection create` instead
 
 ::: zone pivot="postgresql"
 
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
+
 ### [User-assigned managed identity](#tab/user)
 
 ```azurecli
@@ -113,9 +115,6 @@ az webapp connection create postgres-flexible \
     --client-type java
 ```
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
-
-
 ::: zone-end
 
 
@@ -142,6 +141,8 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
+
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create mysql-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -182,14 +183,14 @@ az webapp connection create mysql-flexible \
     --client-type java
 ```
 
-As for `--client-type`, you can use `az webapp connection create mysql-flexible -h` to get the supported client types and choose the one that matches your application.
-
 ::: zone-end
 
 
 ::: zone pivot="sql"
 
 ### [User-assigned managed identity](#tab/user)
+
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
 
 ```azurecli
 az webapp connection create sql \
@@ -228,18 +229,18 @@ az webapp connection create sql \
     --client-type dotnet
 ```
 
-As for `--client-type`, you can use `az webapp connection create sql -h` to get the supported client types and choose the one which matches your application.
-
 ::: zone-end
 
 This Service Connector command completes the following tasks in the background:
 
-- Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+- Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
 - Set the Azure Active Directory admin to the current signed-in user.
 - Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
-- Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` based on the database type.
+- Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type. 
+  - For App Service, the configurations are set to App Settings.
+  - For Spring Apps, the configurations are set when application launched.
+  - For Container Apps, the configurations are set to the environment variables. You can get all configurations and their value in Service Connector Blade in the Azure portal.
 
-For Azure Spring Apps and Azure Container Apps, the operations are similar.
 
 ### Troubleshooting
 
