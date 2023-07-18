@@ -3,45 +3,46 @@ title: Understand and optimize your Azure costs with the new Azure Cost Optimiza
 description: Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
 ms.topic: article
 ms.date: 07/17/2023
+
 ---
 
 # Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
 The Azure Cost Optimization workbook is designed to provide a comprehensive understanding of the cost posture of your Azure environment and empower you to optimize your costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
 
-## Overview of the Azure Cost Optimization Workbook
+## Overview
 The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.
 
 Here’s how to get started:
 
-1.	Navigate to Workbooks gallery in Azure Advisor
-1.	Open Cost Optimization (Preview) workbook template.
+1.	Navigate to [Workbooks gallery](https://aka.ms/advisorworkbooks) in Azure Advisor 
+1.	Open **Cost Optimization (Preview)** workbook template.
 1.	Select a service from the list to display a detailed view of impacted resources.
 
-The workbook is organized into different tabs, each focusing on specific areas to help you reduce the cost of your Azure environment. Here are some key features:
+The workbook is organized into different tabs, each focusing on a specific area to help you reduce the cost of your Azure environment. 
+* Compute
+* Azure Hybrid Benefit
+* Storage
+* Networking
 
-*	Flexible Filters: Utilize subscription, resource group, and tags filters to narrow down and focus on specific workloads or areas of interest.
-*	Export Recommendations: Easily export all the recommendations to a CSV file, allowing you to share the insights and collaborate with your team more effectively.
-*	Quick Fixes: For certain recommendations, you’ll find a “Quick Fix” button that enables you to apply the recommended optimization directly from the workbook page, streamlining the optimization process.
+Each tab supports the following capabilities:
+*	**Filters** - use subscription, resource group and tag filters to focus on a specific workload.
+*	**Export** - export the recommendations to share the insights and collaborate with your team more effectively.
+*	**Quick Fix** - apply the recommended optimization directly from the workbook page, streamlining the optimization process.
 
 :::image type=“content” source=“media/advisor-cost-optimization-workbook-overview.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template.” lightbox=“media/advisor-cost-optimization-workbook-overview.png”:::
-[!NOTE] It’s important to note that the workbook serves as guidance and does not guarantee cost reduction.
 
-In this section, we will provide an overview of the different queries covered by the Azure Cost Optimization Workbook. Each recommendation aims to help you optimize costs and improve efficiency within your Azure environment.
-
-*	Compute
-*	Azure Hybrid Benefit
-*	Storage
-*	Networking
+> [!NOTE]
+> It’s important to note that the workbook serves as guidance and does not guarantee cost reduction.
 
 ## Compute
 
 ### Advisor Recommendations
 
-This query focuses on reviewing the advisor recommendations specifically related to Compute. Some of the recommendations available in this query could be “Optimize virtual machine spend by resizing or shutting down underutilized instances” or “Buy reserved virtual machine instances to save money over pay-as-you-go costs.”
+This query focuses on reviewing the advisor recommendations specifically related to Compute. Some of the recommendations available in this query could be *Optimize virtual machine spend by resizing or shutting down underutilized instances* or *Buy reserved virtual machine instances to save money over pay-as-you-go costs*.
 
 ### Virtual Machines in a Stopped State
 
-This query identifies Virtual Machines that are not properly deallocated. If a Virtual Machine’s status is “Stopped” rather than “Stopped (Deallocated),” you are still billed for the resource as the hardware remains allocated for you. If no items are presented in this tab, it indicates that all your Virtual Machines are correctly in a “Stopped (Deallocated)” state.
+This query identifies Virtual Machines that are not properly deallocated. If a Virtual Machine’s status is *Stopped* rather than *Stopped (Deallocated)*, you are still billed for the resource as the hardware remains allocated for you. If no items are presented in this tab, it indicates that all your Virtual Machines are correctly in a *Stopped (Deallocated)* state.
 
 ### Web Apps
 This query helps identify Azure App Services with and without Auto Scale, as well as App Services where the actual app might be stopped. I
@@ -49,7 +50,6 @@ This query helps identify Azure App Services with and without Auto Scale, as wel
 ### Azure Kubernetes Clusters (AKS)
 
 This query focuses on cost optimization opportunities specific to Azure Kubernetes Clusters (AKS). It provides recommendations such as:
-
 *	Enabling cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints.
 *	Considering the use of Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions.
 *	Utilizing the Horizontal Pod Autoscaler to adjust the number of pods in a deployment based on CPU utilization or other selected metrics.
@@ -62,7 +62,8 @@ Windows VMs and VMSS not using Hybrid Benefit
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs. You can see potential savings using Azure Hybrid Benefit Calculator Check this link to learn more about the Azure Hybrid Benefit.
 
-NOTE If you have selected Dev/Test subscription(s) within the scope of this Workbook then they should already have discounts on Windows licenses so recommendations here don’t apply to this subscription(s)
+> [!NOTE]
+> If you have selected Dev/Test subscription(s) within the scope of this Workbook then they should already have discounts on Windows licenses so recommendations here don’t apply to this subscription(s)
 
 ### Linux VM not using Hybrid Benefit
 
@@ -80,7 +81,8 @@ Review the Advisor recommendations for Storage. This section provides insights i
 Unattached Managed Disks
 This query focuses on the list of managed unattached disks. It automatically ignores disks used by Azure Site Recovery. Use this information to identify and remove any unattached disks that are no longer needed.
 
-NOTE This query has a Quick Fix colunmn that helps you to remove the disk if not needed.
+> [!NOTE]
+> This query has a Quick Fix column that helps you to remove the disk if not needed.
 
 ### Disk snapshots older than 30 days
 This query identifies snapshots that are older than 30 days. Identifying and managing outdated snapshots can help you optimize storage costs and ensure efficient use of your Azure environment.
@@ -108,8 +110,8 @@ Review the Idle Virtual Network Gateways. This query will show VPN Gateways with
 :::image type=“content” source=“media/advisor-service-retirement-workbook-details.png” alt-text=“Screenshot of the Azure Advisor cost optimizaiton workbook template, detailed view.” lightbox=“media/advisor-service-retirement-workbook-details.png”:::
 
 For more information, see: 
-* Well-Architected cost optimization design principles
-* Cloud Adoption Framework manage cloud costs
-* Azure FinOps principles
-* Azure Advisor cost recommendations
+* [Well-Architected cost optimization design principles](https://learn.microsoft.com/azure/well-architected/cost/principles)
+* [Cloud Adoption Framework manage cloud costs](https://learn.microsoft.com/azure/cloud-adoption-framework/get-started/manage-costs)
+* [Azure FinOps principles](https://learn.microsoft.com/azure/cost-management-billing/finops/overview-finops)
+* [Azure Advisor cost recommendations](advisor-reference-cost-recommendations.md)
 
