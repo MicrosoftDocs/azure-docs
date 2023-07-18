@@ -84,7 +84,7 @@ Network Packet Broker (NPB) is an integral part of the network fabric in Operato
 
 ### Nexus Kubernetes
 
-Nexus Kubernetes cluster is an Operator Nexus version of AKS for on-premises use. It is optimized to automate creation of containers to run tenant network function workloads. A Nexus Kubernetes cluster is deployed on-premises and the traditional operational management activities (CRUD) are managed via Azure.
+Nexus Kubernetes cluster is an Operator Nexus version of AKS (Azure Kubernetes Service) for on-premises use. It is optimized to automate creation of containers to run tenant network function workloads. A Nexus Kubernetes cluster is deployed on-premises and the traditional operational management activities (CRUD) are managed via Azure.
 
 ### Network functions virtualization infrastructure capabilities
 
