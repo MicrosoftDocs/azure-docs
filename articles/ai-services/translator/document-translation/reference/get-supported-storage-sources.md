@@ -88,7 +88,7 @@ The  following JSON object is an example of a successful response.
 ```
 
 ### Example error response
-The following Json object is an example of an error response. The schema for other error codes is the same.
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 

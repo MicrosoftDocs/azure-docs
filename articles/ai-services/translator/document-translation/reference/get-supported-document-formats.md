@@ -305,7 +305,7 @@ Status code: 200
 
 ### Example error response
 
-The following JSOn object is an example of an error response. The schema for other error codes is the same.
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 
