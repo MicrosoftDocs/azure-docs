@@ -6,7 +6,7 @@ ms.date: 07/17/2023
 
 ---
 
-# Understand and optimize your Azure costs with the new Azure Cost Optimization workbook.
+# Understand and optimize your Azure costs using the Cost Optimization workbook
 The Azure Cost Optimization workbook is designed to provide a comprehensive understanding of the cost posture of your Azure environment and empower you to optimize your costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
 
 ## Overview
