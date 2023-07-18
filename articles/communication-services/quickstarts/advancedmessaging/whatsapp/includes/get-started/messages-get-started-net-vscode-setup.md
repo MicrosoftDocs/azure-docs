@@ -11,7 +11,6 @@ ms.custom: include file
 ms.author: memontic
 ---
 
-
 ## Setup C# Project with VS Code
 
 1. [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0)

@@ -9,7 +9,7 @@ ms.date: 06/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
-zone_pivot_groups: development-environment-functions
+zone_pivot_groups: acs-dev-environment-vs-vscode
 ---
 
 ::: zone pivot="development-environment-vs"
@@ -71,7 +71,7 @@ The Connection string will be in the format `endpoint=https://{your ACS resource
 :::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Keys' blade. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
 Set the envrionment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).   
+For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](/articles/communication-services/quickstarts/create-communication-resource.md).   
 To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
 
 #### [Windows](#tab/windows)
