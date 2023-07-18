@@ -22,7 +22,7 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 ## Data sharing
 
-Defender for Cloud shares data, including Customer Data, with Microsoft Defender for Endpoint.
+Defender for Cloud shares data, including Customer Data, with Microsoft Defender for Endpoint. The data sharing to Microsoft Defender for Endpoint is only used by the Defender for Storage Antimalware capability which is turned off by default. Meaning, if you didn't turn the Defender for Storage Antimalware capability on, no data sharing would occur.
 
 ## Data protection
 
