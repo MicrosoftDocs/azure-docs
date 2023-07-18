@@ -40,7 +40,7 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Remarks
   
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate functions](aggregate-functions.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
+  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is aggregate functions, which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
 
   The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You cannot use GROUP BY with an ORDER BY clause.
   
@@ -61,7 +61,7 @@ GROUP BY f.lastName
 ) AS UniqueLastNames
 ```
 
-Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 [aggregate system functions](aggregate-functions.md). 
+Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 aggregate system functions.
 
 ## Examples
 
@@ -193,4 +193,3 @@ The results are:
 
 - [Getting started](getting-started.md)
 - [SELECT clause](select.md)
-- [Aggregate functions](aggregate-functions.md)
