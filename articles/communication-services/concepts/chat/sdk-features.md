@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 07/18/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -20,7 +20,7 @@ Azure Communication Services Chat SDKs can be used to add rich, real-time chat t
 
 ## Chat SDK capabilities
 
-The following list presents the set of features that are currently available in the Communication Services chat SDKs.
+The following table presents the set of features that are currently available in the Communication Services chat SDKs.
 
 | Group of features | Capability | Azure CLI | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|---|-----|----|-----|----|----|
@@ -36,7 +36,7 @@ The following list presents the set of features that are currently available in 
 |                   | Update the content of your sent message                                                          | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Delete a message you previously sent                                                             | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Read receipts for messages that have been read by other participants in a chat                   | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
-|                   | Get notified when participants are actively typing a message in a chat thread                    | ❌   | ✔️   | ❌ | ❌    | ❌ | ✔️     | ✔️   |	
+|                   | Get notified when participants are actively typing a message in a chat thread                    | ❌   | ✔️   | ❌  | ❌    | ❌  | ✔️     | ✔️   |	
 |                   | Get all messages in a chat thread                                                                | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Send Unicode emojis as part of message content                                                   | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Add metadata to chat messages                                                                    | ❌   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
@@ -46,17 +46,19 @@ The following list presents the set of features that are currently available in 
 | Reporting </br>(This info is available under Monitoring tab for your Communication Services resource on Azure portal)      | Understand API traffic from your chat app by monitoring the published metrics in Azure Metrics Explorer and set alerts to detect abnormalities     | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Monitor and debug your Communication Services solution by enabling diagnostic logging for your resource    | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 
-**The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.
+> [!NOTE] 
+>The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.
 
 ## JavaScript Chat SDK support by OS and browser
 
-The following table represents the set of supported browsers and versions which are currently available.
+The following table represents the set of supported browsers and versions, which are currently available.
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
 | **Chat SDK** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
-*Note that the latest version is supported in addition to the previous two releases.<br/>
+> [!NOTE] 
+> The latest version is supported in addition to the previous two releases.
 
 ## Next steps
 
