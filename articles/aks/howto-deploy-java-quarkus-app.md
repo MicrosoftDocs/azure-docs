@@ -12,12 +12,12 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, de
 
 # Deploy a Java application with Quarkus on an Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes Service (AKS) with a simple CRUD application. The application is a to do list with a JavaScript front end and a REST endpoint. The app is backed by Azure Database for PostgreSQL. The article shows you how to test your app locally and deploy it to AKS.
+This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes Service (AKS) with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to AKS.
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Azure Cloud Shell has all of these prerequisites pre-installed. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If running the commands in this guide locally (instead of Azure Cloud Shell):
    - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
    - Install a Java SE implementation (for example, [Microsoft build of OpenJDK](/java/openjdk)).
@@ -26,7 +26,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
    - Install [jq](https://jqlang.github.io/jq/download/).
    - Install [cURL](https://curl.se/download.html).
    - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
-- Azure CLI for Unix like environments. This article requires only the **Bash** variant below.
+- Azure CLI for Unix like environments. This article requires only the **Bash** variant of Azure CLI.
    - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
    - This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -41,11 +41,11 @@ git checkout 2023-07-17
 cd aks-quarkus
 ```
 
-If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article does not require any commits, detached HEAD state is appropriate.
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
 
 ## Test your Quarkus App locally.
 
-Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as [Dev Services](https://quarkus.io/guides/dev-services#databases). If you include a quarkus feature, such as connecting to a database service, but haven't yet fully configured the connection, then Quarkus will automatically start a stub version of the relevant service and wire up your application to use it.
+Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as [Dev Services](https://quarkus.io/guides/dev-services#databases). Let's say you include a Quarkus feature, such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it.
 
 Make sure your container environment, Docker or Podman, is running and execute the following command to enter Quarkus dev mode.
 
@@ -57,7 +57,7 @@ Instead of `quarkus dev`, you can accomplish the same thing with Maven by invoki
 
 You may be asked if you want to send telemetry of your usage of Quarkus dev mode. If so, answer as you like.
 
-Quarkus dev mode enables live reload with background compilation. If you modify your app source code, Java files or your resource files, and refresh your browser, these changes will automatically take effect. If there are any issues with compilation or deployment an error page will let you know.  Quarkus dev mode will also listen for a debugger on port 5005. If you want to wait for the debugger to attach before running you can pass `-Dsuspend` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
+Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you'll see the changes. If there are any issues with compilation or deployment an error page lets you know.  Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
 
 The output should look like:
 
@@ -76,7 +76,7 @@ Tests paused
 Press [e] to edit command line args (currently ''), [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>
 ```
 
-Press the `w` key on the terminal where Quarkus dev mode is running. This opens your default web browser to show the **Todo** application. You can also access the application GUI at http://localhost:8080 directly.
+Press the `w` key on the terminal where Quarkus dev mode is running. The `w` key opens your default web browser to show the **Todo** application. You can also access the application GUI at http://localhost:8080 directly.
 
 :::image type="content" source="media/howto-deploy-java-quarkus-app/aks-demo-gui.png" alt-text="TODO app screen shot" lightbox="media/howto-deploy-java-quarkus-app/aks-demo-gui.png":::
 
@@ -153,10 +153,10 @@ Press `q` to exit Quarkus dev mode.
 The steps in this section direct you to create the Azure resources to run the Quarkus sample app.
 
 - Azure Database for PostgreSQL
-- Azure Conatiner Registry
+- Azure Container Registry
 - Azure Kubernetes Service (AKS)
 
-Some of these resources must be unique within the scope of the Azure subscription. Let's ensure this uniqueness by adopting unique value for our resource names. One easy solution is to use the **initials, sequence, date, suffix** pattern. To apply this pattern name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix. For example, **rg** for "resource group". Let's define some environment variables now that we'll use later.
+Some of these resources must be unique within the scope of the Azure subscription. Let's ensure this uniqueness by adopting unique value for our resource names. One easy solution is to use the **initials, sequence, date, suffix** pattern. To apply this pattern name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix. For example, **rg** for "resource group". Define some environment variables so we can use them later.
 
 ```azurecli-interactive
 export UNIQUE_VALUE=<your unique value, such as ejb010717>
@@ -170,14 +170,14 @@ export AKS_NS=${UNIQUE_VALUE}ns
 
 ### Create an Azure Database for PostgreSQL
 
-**Azure Database for PostgreSQL** is a managed service to run, manage, and scale highly available PostgreSQL databases in the Azure cloud. This section will reference a quickstart that shows you how to create a single Azure Database for PostgreSQL server and connect to it.  Before executing the steps in the quickstart, let's define some substitutions to customize the database deployment for the sample Quarkus app.
+**Azure Database for PostgreSQL** is a managed service to run, manage, and scale highly available PostgreSQL databases in the Azure cloud. This section references a quickstart that shows you how to create a single Azure Database for PostgreSQL server and connect to it.  Before executing the steps in the quickstart, let's define some substitutions to customize the database deployment for the sample Quarkus app.
 
 Now we can state the substitutions to use when following the database quickstart. Replace the environment variables with their actual values when filling out the fields in the portal.
 
 |Setting|Value|Description|
 |:---|:---|:---|
-|Resource group|`${RESOURCE_GROUP_NAME}`| Select **Create new** . The deployment will create this new resource group.|
-|Server name |`${DB_SERVER_NAME}`|This value will form part of the hostname for the database server.|
+|Resource group|`${RESOURCE_GROUP_NAME}`| Select **Create new** . The deployment creates this new resource group.|
+|Server name |`${DB_SERVER_NAME}`|This value forms part of the hostname for the database server.|
 |Location|`${LOCATION}`| Select a location from the dropdown list. Take note of the location. You must use this same location for other Azure resources you create.|
 |Admin username |*quarkus*|The sample code assumes this value.|
 |Password |Secret123456|The sample code assumes this value.|
@@ -204,7 +204,7 @@ az postgres db create \
 
 You must use `todo` as the name of the database because the sample code assumes that database name.
 
-If successful, the outpul will look similar to the following.
+If successful, the output looks similar to the following.
 
 ```bash
 {
@@ -238,7 +238,7 @@ After a short time, you should see a JSON output that contains:
 
 ### Connect your docker to the Azure Container Registry instance
 
-You'll need to sign in to the Azure Container Registry instance before you can push an image to it. Run the following commands to verify the connection:
+Sign in to the Azure Container Registry instance. Signing in lets you push an image. Run the following commands to verify the connection:
 
 ```azurecli-interactive
 export LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
@@ -256,7 +256,7 @@ You should see `Login Succeeded` at the end of command output if you've logged i
 
 ### Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named with the value of your environment variable `${CLUSTER_NAME}` with one node. The cluster is connected to the Azure Container Registry created in a preceding step. This command will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named with the value of your environment variable `${CLUSTER_NAME}` with one node. The cluster is connected to the Azure Container Registry created in a preceding step. This command takes several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group $RESOURCE_GROUP_NAME --location ${LOCATION} \
@@ -287,7 +287,7 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing --admin
 ```
 
-Successful output will include text similar to the following.
+Successful output includes text similar to the following.
 
 ```bash
 Merged "ejb010718aks-admin" as current context in /Users/edburns/.kube/config
@@ -314,7 +314,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 ### Create a new namespace in AKS
 
-Create a new namespace in your Kubernetes service. This namespace will host 
+Create a new namespace in your Kubernetes service for your Quarkus app.
 
 ```azurecli-interactive
 kubectl create namespace ${AKS_NS}
@@ -328,7 +328,7 @@ namespace/<your namespace> created
 
 ### Customize cloud native configuration
 
-As a cloud native technology, Quarkus offers the ability to automatically configure resources for standard Kubernetes, Red Hat OpenShift, and Knative.  For more details see the [Quarkus Kubernetes guide](https://quarkus.io/guides/deploying-to-kubernetes#kubernetes), [Quarkus OpenShift guide](https://quarkus.io/guides/deploying-to-kubernetes#openshift) and [Quarkus Knative guide](https://quarkus.io/guides/deploying-to-kubernetes#knative). Developers can deploy the application to a target Kubernetes cluster by applying the generated manifests.
+As a cloud native technology, Quarkus offers the ability to automatically configure resources for standard Kubernetes, Red Hat OpenShift, and Knative.  For more details, see the [Quarkus Kubernetes guide](https://quarkus.io/guides/deploying-to-kubernetes#kubernetes), [Quarkus OpenShift guide](https://quarkus.io/guides/deploying-to-kubernetes#openshift) and [Quarkus Knative guide](https://quarkus.io/guides/deploying-to-kubernetes#knative). Developers can deploy the application to a target Kubernetes cluster by applying the generated manifests.
 
 To generate the appropriate Kubernetes resources, add the `quarkus-kubernetes` and `container-image-jib` extensions in your local terminal:
 
@@ -336,7 +336,7 @@ To generate the appropriate Kubernetes resources, add the `quarkus-kubernetes` a
 quarkus ext add kubernetes container-image-jib
 ```
 
-This will modify the POM to ensure these these extensions are listed as `<dependencies>`. If asked to install something called `JBang`, answer yes and allow it to be installed. 
+Quarkus modifies the POM to ensure these extensions are listed as `<dependencies>`. If asked to install something called `JBang`, answer yes and allow it to be installed. 
 
 The output should look like:
 
@@ -345,17 +345,17 @@ The output should look like:
 [SUCCESS] ✅  Extension io.quarkus:quarkus-container-image-jib has been installed
 ```
 
-To verify the extensions have successfully be added, you can run `git diff` and examine the output.
+To verify the extensions are added, you can run `git diff` and examine the output.
 
 As a cloud native technology, Quarkus supports the notion of configuration profiles. Quarkus has three built-in profiles.
 
-* **dev** - Activated when in development mode (i.e. _quarkus:dev_)
+* **dev** - Activated when in development mode
 * **test** - Activated when running tests
 * **prod** - The default profile when not running in development or test mode
 
-Quarkus supports an arbirtary number of additional profiles, as needed.
+Quarkus supports any number of named profiles, as needed.
 
-The remaining steps in this section direct you to uncomment and customize values in the `src/main/resources/application.properties` file. Ensure all lines starting with `# %prod.` are un-commented by removing the leading `#`.
+The remaining steps in this section direct you to uncomment and customize values in the `src/main/resources/application.properties` file. Ensure all lines starting with `# %prod.` are uncommented by removing the leading `#`.
 
 The `prod.` prefix indicates these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
@@ -398,7 +398,7 @@ As a cloud native technology, Quarkus supports generating OCI container images c
 
 ### Build the container image and push it to Azure Container Registry
 
-Now that Now let’s build the application itself. Run the following *Quarkus CLI* which will build and deploy using the Kubernetes and Jib extensions:
+Now that Now let’s build the application itself. This command uses the Kubernetes and Jib extensions to build the container image.
 
 ```azurecli-interactive
 quarkus build --no-tests
@@ -415,7 +415,7 @@ target/kubernetes
 0 directories, 2 files
 ```
 
-You can verify if the container image is generated as well using `docker` or `podman` command line (CLI). Output will look similar to the following.
+You can verify if the container image is generated as well using `docker` or `podman` command line (CLI). Output looks similar to the following.
 
 ```azurecli-interactive
 docker images | grep todo
@@ -599,4 +599,4 @@ You may also want to use `docker rmi` to delete the container images for postgre
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
 * [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
 * [Quarkus](https://quarkus.io/)
-* [Jakarta EE on AZure](/azure/developer/java/ee)
+* [Jakarta EE on Azure](/azure/developer/java/ee)
