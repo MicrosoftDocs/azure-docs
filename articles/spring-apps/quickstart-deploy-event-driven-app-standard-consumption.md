@@ -265,7 +265,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### Create an app with the dedicated workload profile
+### (Optional) Create an app with the dedicated workload profile
 
 >[!NOTE]
 > This step is optional. Use this step only if you wish to create apps in the dedicated workload profile.
