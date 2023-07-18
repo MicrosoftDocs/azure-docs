@@ -122,7 +122,7 @@ import okhttp3.*;
 public class DocumentTranslation {
     String key = "{your-key}";
 
-    String endpoint = "{your-document-translation-endpoint}/translator/text/batch/v1.0";
+    String endpoint = "{your-document-translation-endpoint}/translator/text/batch/v1.1";
 
     String path = endpoint + "/batches";
 
