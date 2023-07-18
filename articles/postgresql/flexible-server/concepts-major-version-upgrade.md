@@ -40,7 +40,7 @@ Here are some of the important considerations with in-place major version upgrad
 
 -	In-place major version upgrade process for Flexible Server automatically deploys the latest supported minor version. 
 
--	In-place major version upgrade process is an offline operation and it involves a short downtime.  
+-	The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved
 
 -	Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time. 
 

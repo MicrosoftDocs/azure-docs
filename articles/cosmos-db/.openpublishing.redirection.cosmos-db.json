@@ -6104,6 +6104,16 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-min.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/min",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/getting-started.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-functions.yml",
+      "redirect_url": "/azure/cosmos-db/nosql/query/",
+      "redirect_document_id": false
     }
   ]
 }

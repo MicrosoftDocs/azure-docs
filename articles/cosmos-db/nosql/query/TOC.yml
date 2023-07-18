@@ -1,6 +1,6 @@
-- name: Getting started
+- name: NoSQL query documentation
   displayName: sql query, query basics
-  href: getting-started.md
+  href: index.yml
 - name: Clauses
   items:
     - name: SELECT
@@ -66,9 +66,6 @@
       href: udfs.md
 - name: Aggregate functions
   items:
-    - name: Aggregate functions
-      displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-      href: aggregate-functions.yml
     - name: AVG
       displayName: functions, aggregate, avg, average
       href: average.md
