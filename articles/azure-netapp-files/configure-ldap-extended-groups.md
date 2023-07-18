@@ -82,6 +82,9 @@ The following information is passed to the server in the query:
 
     The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 
+    >[!NOTE]
+    >If the POSIX attributes are not set up correctly, user and group lookup operations may fail, and users may be squashed to `nobody` when accessing NFS volumes. 
+
     ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
     You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor. See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
@@ -90,7 +93,7 @@ The following information is passed to the server in the query:
 
 4. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-in-nfs-clients) to configure the `/etc/idmapd.conf` file.
+5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 ID domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-in-nfs-clients) to configure the `/etc/idmapd.conf` file.
 
     You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in the Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
