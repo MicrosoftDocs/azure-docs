@@ -71,10 +71,10 @@ The workspace source and destination subscriptions must exist within the same Az
 
 ### [REST API](#tab/rest-api)
 
-To fetch the tenant ID for the source and destination subscriptions, call the [Directory Tenants - List API](/rest/api/azurestack/directory-tenants/list):
+To fetch the tenant ID for the source and destination subscriptions, call the [Subscriptions - Get API](/rest/api/resources/subscriptions/get):
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Subscriptions.Admin/directoryTenants?api-version=2015-11-01
+GET https://management.azure.com/subscriptions/{subscriptionId}?api-version=2020-01-01
 ```
 
 ### [CLI](#tab/cli)
