@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Get images from the web with the Bing Image Search API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 When you use the Bing Image Search REST API, you can get images from the web that are related to your search term by sending the following GET request:
 

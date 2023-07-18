@@ -125,20 +125,26 @@ Create a file and provide values for _interval_, _namespaceFilteringMode_, and _
 
 ## Onboarding to a new AKS cluster
 
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
+
 Use the following command to enable monitoring of your AKS cluster
 
 ```azcli
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
 ```
 
 ## Onboarding to an existing AKS Cluster
 
 ## [Azure CLI](#tab/create-CLI)
 
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
+
 ### Onboard to a cluster without the monitoring addon
 
 ```azcli
-az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
+az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
 ```
 
 ### Onboard to a cluster with an existing monitoring addon
@@ -151,7 +157,7 @@ az aks show -g <clusterResourceGroup> -n <clusterName> | grep -i "logAnalyticsWo
 az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>
 
 # enable monitoring with data collection settings
-az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --workspace-resource-id <logAnalyticsWorkspaceResourceId> --data-collection-settings dataCollectionSettings.json
+az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --workspace-resource-id <logAnalyticsWorkspaceResourceId> --data-collection-settings dataCollectionSettings.json
 ```
 
 ## [Azure portal](#tab/create-portal)

@@ -1,6 +1,6 @@
 ---
 title: Enable featured clothing of an observed person
-description: When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. 
+description: When indexing a video using Azure AI Video Indexer advanced video settings, you can view the featured clothing of an observed person. 
 ms.topic: how-to
 ms.date: 10/10/2022
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Enable featured clothing of an observed person (preview)
 
-When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
+When indexing a video using Azure AI Video Indexer advanced video settings, you can view the featured clothing of an observed person. The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
 
 This article discusses how to view the featured clothing insight and how the featured clothing images are ranked.
 
