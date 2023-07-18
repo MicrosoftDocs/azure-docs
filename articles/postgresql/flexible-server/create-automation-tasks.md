@@ -25,7 +25,7 @@ In addition, you can also setup automation tasks for other routine tasks such as
 
 ## How do automation tasks differ from Azure Automation?
 
-Automation tasks are more basic and lightweight than [Azure Automation](../../automation/). Currently, you can create an automation task only at the Azure resource level. An automation task is actually a logic app resource that runs a workflow, powered by the [*multi-tenant* Azure Logic Apps service](../../logic-apps/logic-apps-overview.md). You can view and edit the underlying workflow by opening the task in the workflow designer after it has completed at least one run.
+Automation tasks are more basic and lightweight than [Azure Automation](../../automation/overview.md). Currently, you can create an automation task only at the Azure resource level. An automation task is actually a logic app resource that runs a workflow, powered by the [*multi-tenant* Azure Logic Apps service](../../logic-apps/logic-apps-overview.md). You can view and edit the underlying workflow by opening the task in the workflow designer after it has completed at least one run.
 
 In contrast, Azure Automation is a comprehensive cloud-based automation and configuration service that provides consistent management across your Azure and non-Azure environments. 
 
@@ -119,6 +119,6 @@ To change a task, you have these options:
 
 ## Next steps
 
-* [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
+* [Manage logic apps in the Azure portal](../../logic-apps/manage-logic-apps-with-azure-portal.md)
 
 
