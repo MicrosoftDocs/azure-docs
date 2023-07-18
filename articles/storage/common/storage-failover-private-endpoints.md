@@ -14,7 +14,7 @@ ms.subservice: common
 ---
 # Failover Considerations for Storage Accounts with Private Endpoints
 
-Storage accounts work different than many other Azure services when it comes to high availability configurations.  They don't often use a secondary instance deployed by the customer for resiliency.  Instead, storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicate to another region, based on [regional pairs](/azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
+Storage accounts work differently than many other Azure services when it comes to high availability configurations.  They don't often use a secondary instance deployed by the customer for resiliency.  Instead, storage accounts configured to be [geo-redundant](./storage-account-overview.md#types-of-storage-accounts) replicate to another region, based on [regional pairs](/azure/reliability/cross-region-replication-azure).  When necessary, the storage account can fail over to this replicated copy, and operate in the secondary region.
 
 This feature means that customers don't need to plan to have a second storage account already running in their second region. You could have multiple storage accounts and use customer managed operations to move data between them, but that is an uncommon pattern.
 
@@ -47,11 +47,11 @@ This architecture uses functionality of private endpoints that may not be common
 
 First, an individual service can have multiple private endpoints attached to it.  For example, a storage account could have a private endpoint for its blob containers located in multiple different virtual networks, and each one functions independently.
 
-However, this pattern isn't used often in hub and spoke scenarios because a private DNS zone can only have one record for a private endpoint.  If you register your first private endpoint to your private DNS zone, other private endpoints would need to use other zones.
+However, this pattern isn't used often in hub and spoke scenarios because a Private DNS Zone can only have one record for a private endpoint.  If you register your first private endpoint to your Private DNS Zone, other private endpoints would need to use other zones.
 
 In addition, the private endpoints aren't required to be in the same region as the resource they're connecting to.  A storage account in East US 2 can have a private endpoint deployed in Central US, to give one example.
 
-So long as there's an alternate private DNS zone for that region, resources in the second can resolve and interact with the storage account.
+So long as there's an alternate Private DNS Zone for that region, resources in the second can resolve and interact with the storage account.
 
 It's common to use private endpoints located in the same region to reduce costs.  But when considering failover, this functionality can allow regional private networking to work despite failures in one region.
 
