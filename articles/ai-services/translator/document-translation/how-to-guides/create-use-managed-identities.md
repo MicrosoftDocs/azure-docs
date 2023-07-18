@@ -149,7 +149,7 @@ The following headers are included with each Document Translation API request:
 
 ### POST request body
 
-* The request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`.
+* The request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`.
 * The request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL` container addresses for your source and target language pairs. With system assigned managed identity, you use a plain Storage Account URL (no SAS or other additions). The format is `https://<storage_account_name>.blob.core.windows.net/<container_name>`.
 * The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.

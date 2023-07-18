@@ -14,13 +14,17 @@ ms.date: 07/18/2023
 
 # Get supported document formats
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 The Get supported document formats method returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/documents/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/documents/formats
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
@@ -56,7 +60,7 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|value|FileFormat []|FileFormat[] contains the details listed below.|
+|value|FileFormat []|FileFormat[] contains the listed details.|
 |value.contentTypes|string[]|Supported Content-Types for this format.|
 |value.defaultVersion|string|Default version if none is specified.|
 |value.fileExtensions|string[]|Supported file extension for this format.|
@@ -69,15 +73,16 @@ The following information is returned in a successful response.
 |--- |--- |--- |
  |code|string|Enums containing high-level error codes. Possible values:<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` for an invalid document.|
 
 ## Examples
 
 ### Example successful response
-The following is an example of a successful response.
+
+The following JSON object is an example of a successful response.
 
 Status code: 200
 
@@ -300,7 +305,7 @@ Status code: 200
 
 ### Example error response
 
-The following is an example of an error response. The schema for other error codes is the same.
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 
