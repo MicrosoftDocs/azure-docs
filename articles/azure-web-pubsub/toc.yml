@@ -162,25 +162,6 @@
       href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
-    - name: WebSocket subprotocols
-      expanded: false
-      items:
-        - name: JSON WebSocket subprotocol
-          href: reference-json-webpubsub-subprotocol.md
-        - name: Protobuf WebSocket subprotocol
-          href: reference-protobuf-webpubsub-subprotocol.md
-        - name: Reliable JSON WebSocket subprotocol
-          href: reference-json-reliable-webpubsub-subprotocol.md
-        - name: Reliable Protobuf WebSocket subprotocol
-          href: reference-protobuf-reliable-webpubsub-subprotocol.md
-    - name: CloudEvents HTTP extension for event handler
-      href: reference-cloud-events.md
-    - name: CloudEvents AMQP extension for Event Hubs listener
-      href: reference-cloud-events-amqp.md
-    - name: Functions trigger and bindings
-      href: reference-functions-bindings.md
-    - name: Azure policy definitions
-      href: policy-definitions.md
     - name: Client-side API
       items: 
         - name: Client SDK - JavaScript
@@ -211,6 +192,25 @@
       href: /rest/api/webpubsub/
     - name: Azure CLI webpubsub extension
       href: /cli/azure/webpubsub
+    - name: WebSocket subprotocols
+      expanded: false
+      items:
+        - name: JSON WebSocket subprotocol
+          href: reference-json-webpubsub-subprotocol.md
+        - name: Protobuf WebSocket subprotocol
+          href: reference-protobuf-webpubsub-subprotocol.md
+        - name: Reliable JSON WebSocket subprotocol
+          href: reference-json-reliable-webpubsub-subprotocol.md
+        - name: Reliable Protobuf WebSocket subprotocol
+          href: reference-protobuf-reliable-webpubsub-subprotocol.md
+    - name: CloudEvents HTTP extension for event handler
+      href: reference-cloud-events.md
+    - name: CloudEvents AMQP extension for Event Hubs listener
+      href: reference-cloud-events-amqp.md
+    - name: Functions trigger and bindings
+      href: reference-functions-bindings.md
+    - name: Azure policy definitions
+      href: policy-definitions.md
     - name: Web PubSub client specification
       href: reference-client-specification.md
 - name: Resources
