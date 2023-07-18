@@ -51,57 +51,57 @@ The following table describes the characteristics of the test environments that 
 
 |Test No.        |No. of files    |Total files weight    |File size    |Folder structure                                               |
 |----------------|----------------|----------------------|-------------|---------------------------------------------------------------|
-|1               |12 million      |12 GB                 |1 KB each    |12 folders, each with 100 sub-folders containing 10,000 files  |
-|2               |30              |20 GB                 |             |1 folder                                                       |
-|3               |1 million       |100 GB                |100 KB each  |1,000 folders, each with 1,000 files                           |
-|4               |1               |                      |4 TB         |                                                               |
-|5               |117 million     |117 GB                |1 KB each    |117 folders, each with 100 sub-folders containing 10,000 files |
-|6               |1               |                      |1 TB         |                                                               |
-|7               |3.3 million     |45 GB                 |13 KB each   |200,000 folders, each contains 16\17 files                     |
-|8               |50 million      |1 TB                  |20 KB each   |2,940,000 folders, each contains 17 files                      |
-|9               |100 million     |2 TB                  |20 KB each   |5,880,000 folders, each contains 17 files                      |
+|**1**           |12 million      |12 GB                 |1 KB each    |12 folders, each with 100 sub-folders containing 10,000 files  |
+|**2**           |30              |20 GB                 |             |1 folder                                                       |
+|**3**           |1 million       |100 GB                |100 KB each  |1,000 folders, each with 1,000 files                           |
+|**4**           |1               |                      |4 TB         |                                                               |
+|**5**           |117 million     |117 GB                |1 KB each    |117 folders, each with 100 sub-folders containing 10,000 files |
+|**6**           |1               |                      |1 TB         |                                                               |
+|**7**           |3.3 million     |45 GB                 |13 KB each   |200,000 folders, each contains 16\17 files                     |
+|**8**           |50 million      |1 TB                  |20 KB each   |2,940,000 folders, each contains 17 files                      |
+|**9**           |100 million     |2 TB                  |20 KB each   |5,880,000 folders, each contains 17 files                      |
 
 Different agent resource configurations are tested on SMB endpoints:
 
 1. **Minspec: 4 CPU / 8 GB RAM**
    4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-   |Test No.    |Execution time     |Scanning time       |Additional information                            |
+   |Test No.    |Execution time     |Scanning time       |No. files passed per attempt                      |
    |------------|-------------------|--------------------|--------------------------------------------------|
-   |6           |16 min, 42 sec     | 1.2 sec            | <table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>5,941,572</td></tr><tr><td>2</td><td>5,491,810</td></tr><tr><td>3</td><td>514,613</td></tr><tr><td>4</td><td>47,107</td></tr><tr><td>5</td><td>4,459</td></tr><tr><td>6</td><td>406</td></tr><tr><td>7</td><td>30</td></tr><tr><td>8</td><td>2</td></tr><tr><td>9</td><td>1</td></tr></table>|
-   |7           |55 min, 4 sec      | 1 min, 17 sec      |                                                  |
-   |8           |                   |                    |                                                  |
-   |9           |                   |                    |                                                  |
+   |**6**       |16 min, 42 sec     | 1.2 sec            |                                                  |
+   |**7**       |55 min, 4 sec      | 1 min, 17 sec      |                                                  |
+   |**8**       |                   |                    |                                                  |
+   |**9**       |                   |                    |                                                  |
 
 1. **Bootspec: 8 CPU / 16 GiB RAM**
    8 virtual CPU cores at 2.7 GHz each and 16 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
    *Results: Standard storage account*
 
-   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |Test No.    |Execution time          |Scanning time           |No. files passed per attempt                      |
    |------------|------------------------|------------------------|--------------------------------------------------|
-   |1           |15 hr, 59 min           |2 hr, 36 min, 34 sec    |                                                  |
-   |2           |1 min, 54 sec           |3.34 sec                |                                                  |
-   |3           |1 hr, 19 min, 27 sec    |57.62 sec               |                                                  |
-   |4           |1 hr, 5 min, 57 sec     |2.89 sec                |                                                  |
+   |**1**       |15 hr, 59 min           |2 hr, 36 min, 34 sec    |<table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>5,941,572</td></tr><tr><td>2</td><td>5,491,810</td></tr><tr><td>3</td><td>514,613</td></tr><tr><td>4</td><td>47,107</td></tr><tr><td>5</td><td>4,459</td></tr><tr><td>6</td><td>406</td></tr><tr><td>7</td><td>30</td></tr><tr><td>8</td><td>2</td></tr><tr><td>9</td><td>1</td></tr></table>|
+   |**2**       |1 min, 54 sec           |3.34 sec                |                                                  |
+   |**3**       |1 hr, 19 min, 27 sec    |57.62 sec               |                                                  |
+   |**4**       |1 hr, 5 min, 57 sec     |2.89 sec                |                                                  |
 
    *Results: Standard storage account with large files enabled*
 
-   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |Test No.    |Execution time          |Scanning time           |No. files passed per attempt                      |
    |------------|------------------------|------------------------|--------------------------------------------------|
-   |1           |3 hr, 51 min, 31 sec    |41 min and 45 sec       |                                                  |
-   |5           |25 hr, 47 min           |23 hr, 35 min           |                                                  |
-   |6           |11 min, 11 sec          |0.7 sec                 |                                                  |
-   |7           |55 min, 10 sec          |1 min, 3 sec            |                                                  |
-   |8           |                        |                        |                                                  |
-   |9           |                        |                        |                                                  |
+   |**1**       |3 hr, 51 min, 31 sec    |41 min and 45 sec       |<table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>11,999,129 </td></tr><tr><td>2</td><td>867</td></tr><tr><td>3</td><td>4</td></tr></table>|
+   |**5**       |25 hr, 47 min           |23 hr, 35 min           |<table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>116,993,886 </td></tr><tr><td>2</td><td>6113</td></tr><tr><td>1</td><td>4</td></tr></table>|
+   |**6**       |11 min, 11 sec          |0.7 sec                 |                                                  |
+   |**7**       |55 min, 10 sec          |1 min, 3 sec            |                                                  |
+   |**8**       |                        |                        |                                                  |
+   |**9**       |                        |                        |                                                  |
 
    *Results: Premium storage account*
 
-   |Test No.    |Execution time          |Scanning time           |Additional information                            |
+   |Test No.    |Execution time          |Scanning time           |No. files passed per attempt                      |
    |------------|------------------------|------------------------|--------------------------------------------------|
-   |1           |2 hr, 35 min, 14 sec    |24 min, 46 sec          |                                                  |
-   |5           |23 hr, 34 min           |21 hr, 34 minutes       |                                                  |
+   |**1**       |2 hr, 35 min, 14 sec    |24 min, 46 sec          |<table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>11,999,990 </td></tr><tr><td>2</td><td>10</td></tr></table>|
+   |**5**       |23 hr, 34 min           |21 hr, 34 minutes       |<table><tr><th>Attempt</th><th>Files Passed</th></tr><tr><td>1</td><td>116,999,673 </td></tr><tr><td>2</td><td>327</td></tr></table>|
 
 ### [NFS mount : Azure blob container](#tab/nfs)
 
