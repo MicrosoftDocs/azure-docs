@@ -358,14 +358,14 @@ The secondary region restore user experience is similar to the primary region re
 
 ## Cross Subscription Restore
 
-Azure Backup now allows you to restore SAP HANA Database to any subscription (using the Azure RBAC capabilities) from the restore point. By default, Azure Backup restores to the same subscription where the restore points are available. 
+Azure Backup now allows you to restore SAP HANA Database to any subscription (as per the following Azure RBAC requirements) from the restore point. By default, Azure Backup restores to the same subscription where the restore points are available. 
 
 With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
 
 >[!Note]
 >- You can trigger Cross Subscription Restore from Recovery Services vault.
->- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup. 
-Cross Regional Restore (CRR) with CSR is not supported.
+>- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
 
 **Azure RBAC  requirements**
 
@@ -377,9 +377,9 @@ Cross Regional Restore (CRR) with CSR is not supported.
 
 By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
 
-:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-hana.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for HANA database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-hana.png":::
+:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for HANA database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
 
-**Related CLI command**
+**Cross Subscription Restore using Azure CLI**
 
 ```azurecli
 az backup vault create

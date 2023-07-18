@@ -2,11 +2,11 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 07/18/2023
 ms.service: backup
 ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SQL databases in an Azure VM using Azure CLI
@@ -363,6 +363,38 @@ The response provides you the job name. You can use this job name to track the j
 
 > [!NOTE]
 > If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
+
+## Cross Subscription Restore
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming based backup and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+
+```azurecli
+az backup vault create
+
+```
+
+Add the parameter `cross-subscription-restore-state`` that enables you to set the CSR state of the vault during vault creation and updating.
+
+```azurecli
+az backup recoveryconfig show
+
+```
+
+Add the parameter `--target-subscription-id`` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+
+**Example**:
+
+```azurecli
+   az backup vault create -g {rg_name} -n {vault_name} -l {location} --cross-subscription-restore-state Disable
+   az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
+
+```
 
 ## Next steps
 
