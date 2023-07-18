@@ -379,14 +379,14 @@ az backup vault create
 
 ```
 
-Add the parameter `cross-subscription-restore-state`` that enables you to set the CSR state of the vault during vault creation and updating.
+Add the parameter `cross-subscription-restore-state` that enables you to set the CSR state of the vault during vault creation and updating.
 
 ```azurecli
 az backup recoveryconfig show
 
 ```
 
-Add the parameter `--target-subscription-id`` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+Add the parameter `--target-subscription-id` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
 
 **Example**:
 
