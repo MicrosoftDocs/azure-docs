@@ -49,7 +49,7 @@ The following table lists [dimensions](../azure-monitor/essentials/data-platform
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Collection and routing](monitor-aks.md#collection-and-routing) for information on creating a diagnostic setting to collect these logs and [Sample Kusto queries](monitor-aks.md#sample-kusto-queries) for query examples.
+The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Collection and routing](monitor-aks.mdcontrol-plane-logs) for information on creating a diagnostic setting to collect these logs and [Sample Kusto queries](monitor-aks.md#sample-kusto-queries) for query examples.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
 

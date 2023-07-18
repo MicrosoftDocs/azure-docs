@@ -9,6 +9,9 @@ ms.date: 07/07/2023
 ---
 
 # Monitor Kubernetes environment - developer
+This article is part of the guide [Monitor Kubernetes clusters using Azure services and cloud native tools](monitor-kubernetes.md). It describes the role of the developer, including choice and configuration of monitoring tools and how to use those tools for common monitoring scenarios.
+
+
 
 In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
 

@@ -9,6 +9,8 @@ ms.date: 07/07/2023
 ---
 
 # Monitor Kubernetes environment - network engineer
+This article is part of the guide [Monitor Kubernetes clusters using Azure services and cloud native tools](monitor-kubernetes.md). It describes the role of the network engineer including choice and configuration of monitoring tools and how to use those tools for common monitoring scenarios.
+
 
 The Network Engineer is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
