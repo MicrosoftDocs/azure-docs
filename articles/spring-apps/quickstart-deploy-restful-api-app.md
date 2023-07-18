@@ -127,7 +127,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo`.
 1. Define the following variables for HTTP requests:
    
    ```shell
-   export EXPOSED_APPLICATION_URL=<your-app-exposed-application-url>
+   export EXPOSED_APPLICATION_URL=<your-app-exposed-application-url-or-endpoint>
    export BEARER_TOKEN=<access-token-from-previous-step>
    ```
    

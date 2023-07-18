@@ -56,11 +56,8 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
     Initializing a new project (azd init)
 
     (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: <your-local-path>
 
-    ? Please enter a new environment name: [? for help] (<your-local-path>-dev) <your-env-name>
-
-    ? Please enter a new environment name: <your-env-name>
+    ? Enter a new environment name: [? for help] (<your-local-path>-dev) <your-env-name>
 
     SUCCESS: New project initialized!
     You can view the template code in your directory: <your-local-path>
@@ -168,14 +165,14 @@ Use the following steps to connect your service instances:
    azd provision
    ```
    Command interaction description:
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
    
    The console outputs messages similar to the ones below:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name>> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
    ```
    
@@ -220,7 +217,7 @@ This section provides the steps to expose your RESTful APIs in Azure AD.
 
 1. Repeat the previous step to add two other scopes: `ToDo.Write` and `ToDo.Delete`.
 
-:::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
 
 ### Update the application configuration
 
@@ -285,7 +282,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    [INFO] Deployment Status: Running
    [INFO]   InstanceName:simple-todo-api--default-xxxxxxx-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
    [INFO] Getting public url of app(simple-todo-api)...
-   [INFO] Application url: https://simple-todo-api.xxxxx.eastus2.azurecontainerapps.io
+   [INFO] Application url: https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io
    ```
 
    The output **Application url** is the base endpoint to access the ToDo API application.
@@ -314,16 +311,18 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
+   ...
+   
    Deploying service simple-todo-api (Fetching endpoints for spring app service)
-   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-api.azuremicroservices.io/
+   - Endpoint: https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io
    
    
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
-   The output **Application url** is the base endpoint to access the ToDo API application.
+   The output **Endpoint** is the base endpoint to access the ToDo API application.
 
 > [!NOTE]
 > You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [Azure-Samples/ASA-Samples-API-Application](https://github.com/Azure-Samples/ASA-Samples-API-Application).
