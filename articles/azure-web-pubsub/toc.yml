@@ -7,6 +7,10 @@
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/web-pubsub/
+    - name: Region availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
 - name: Quickstarts
   expanded: true
   items:
@@ -177,7 +181,19 @@
       href: reference-functions-bindings.md
     - name: Azure policy definitions
       href: policy-definitions.md
-    - name: Data plane REST API and SDKs
+    - name: Client-side API
+      items: 
+        - name: Client SDK - JavaScript
+          href: reference-client-sdk-javascript.md
+        - name: Client SDK - C#
+          href: reference-client-sdk-csharp.md
+        - name: Client SDK - Python
+          href: reference-client-sdk-python.md
+        - name: Client SDK - Java
+          href: reference-client-sdk-java.md
+        - name: WebSocket API
+          href: reference-client-api-websocket.md
+    - name: Server-side API
       items:
         - name: REST API
           href: reference-rest-api-data-plane.md
@@ -191,9 +207,9 @@
           href: reference-server-sdk-python.md
         - name: OData filter syntax reference
           href: reference-odata-filter.md
-    - name: Control plane
+    - name: API for resource management 
       href: /rest/api/webpubsub/
-    - name: Azure CLI
+    - name: Azure CLI webpubsub extension
       href: /cli/azure/webpubsub
     - name: Web PubSub client specification
       href: reference-client-specification.md
@@ -203,10 +219,6 @@
       href: https://aka.ms/awps/samples
     - name: Solutions
       href: /azure/architecture/
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: FAQs
       href: resource-faq.md
     - name: Microsoft Q&A
