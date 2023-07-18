@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: workload-identities
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

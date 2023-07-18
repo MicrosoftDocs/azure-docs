@@ -4,7 +4,7 @@ description: Use filter for devices in Conditional Access to enhance security po
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 07/18/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino

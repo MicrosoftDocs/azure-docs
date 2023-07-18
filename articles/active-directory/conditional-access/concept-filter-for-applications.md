@@ -4,7 +4,7 @@ description: Use filter for applications in Conditional Access to manage conditi
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

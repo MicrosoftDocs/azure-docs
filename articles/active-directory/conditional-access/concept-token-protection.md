@@ -4,7 +4,7 @@ description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

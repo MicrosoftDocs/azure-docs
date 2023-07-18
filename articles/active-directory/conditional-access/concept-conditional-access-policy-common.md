@@ -55,6 +55,7 @@ Organizations can select individual policy templates and:
 
 > \* These four policies when configured together, provide similar functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
 
+- [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
 - [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
