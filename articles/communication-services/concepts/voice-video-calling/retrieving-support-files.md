@@ -59,5 +59,3 @@ Answering these questions help you decide the appropriate approach for support t
 - [End of Call Survey Conceptual Document](../voice-video-calling/end-of-call-survey-concept.md)
 - [Troubleshooting Info](../troubleshooting-info.md)
 - [Log Sharing Tutorial](../../tutorials/log-sharing-tutorial.md)
-- [Creating Tickets in Azure Devops](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/create?view=azure-devops-rest-7.0&tabs=HTTP)
-- [Attaching Files in Azure Devops](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/attachments/create?view=azure-devops-rest-7.0&tabs=HTTP)
