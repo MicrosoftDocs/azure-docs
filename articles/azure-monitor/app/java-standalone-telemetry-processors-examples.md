@@ -200,6 +200,46 @@ These spans don't match the include properties, and processor actions aren't app
 }
 ```
 
+The following sample shows how to process spans that have a span name that matches regex patterns.
+This processor removes the `token` attribute. It obfuscates the `password` attribute in spans where the span name matches `auth.*`
+and where the span name doesn't match `login.*`.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "regexp",
+          "spanNames": [
+            "auth.*"
+          ]
+        },
+        "exclude": {
+          "matchType": "regexp",
+          "spanNames": [
+            "login.*"
+          ]
+        },
+        "actions": [
+          {
+            "key": "password",
+            "value": "obfuscated",
+            "action": "update"
+          },
+          {
+            "key": "token",
+            "action": "delete"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Attribute processor samples
 
 ### Insert
@@ -394,6 +434,11 @@ and where the span name doesn't match `login.*`.
   }
 }
 ```
+
+### Mask
+
+For example, given `http.url = http://example.com/user/12345622` is updated to `http.url = http://example.com/user/****` based on the below configuration.
+
 
 
 ## Span processor samples
