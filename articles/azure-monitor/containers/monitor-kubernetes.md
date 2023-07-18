@@ -30,6 +30,29 @@ Responsibility for the [different layers of a a Kubernetes environment and the a
 | [Developer](monitor-kubernetes-developer.md) | Develop and maintain the application running on the cluster. Responsible for application specific traffic including application performance and failures. Maintains reliability of the application according to SLAs. |
 | [Network engineer](monitor-kubernetes-network-engineer.md) | Responsible for traffic between workloads and any ingress/egress with the cluster. Analyzes network traffic and performs threat analysis. |
 
+## Analyze log data with Log Analytics
+
+Select **Logs** to use the Log Analytics tool to analyze resource logs or dig deeper into data used to create the views in Container Insights. Log Analytics allows you to perform custom analysis of your log data.
+
+For more information on Log Analytics and to get started with it, see:
+
+- [How to query logs from Container Insights](container-insights-log-query.md)
+- [Using queries in Azure Monitor Log Analytics](../logs/queries.md)
+- [Monitoring AKS data reference logs](../../aks/monitor-aks-reference.md#azure-monitor-logs-tables)
+- [Log Analytics tutorial](../logs/log-analytics-tutorial.md)
+
+You can also use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](../../aks/monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Collect control plane logs for AKS clusters](monitor-kubernetes-configure.md#collect-control-plane-logs-for-aks-clusters) before the data can be collected.
+
+## Analyze metric data with the Metrics explorer
+
+Use the **Metrics** explorer to perform custom analysis of metric data collected for your containers. It allows you plot charts, visually correlate trends, and investigate spikes and dips in your metrics values. You can create metrics alert to proactively notify you when a metric value crosses a threshold and pin charts to dashboards for use by different members of your organization.
+
+For more information, see [Getting started with Azure Metrics Explorer](..//essentials/metrics-getting-started.md). For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics). When Container Insights is enabled for a cluster, [addition metric values](container-insights-update-metrics.md) are available.
+
+:::image type="content" source="media/monitor-containers/metrics-explorer.png" alt-text="Metrics explorer" lightbox="media/monitor-containers/metrics-explorer.png":::
+
+
+
 ## See also
 
 - See [Monitoring AKS](../../aks/monitor-aks.md) for guidance on monitoring specific to Azure Kubernetes Service (AKS).
