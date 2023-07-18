@@ -90,7 +90,7 @@ Create a DNS resolver in the virtual network that you created.
 New-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup -Location westcentralus -VirtualNetworkId "/subscriptions/<your subs id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
 ```
 
-Verify that the DNS resolver was created successfully and the state is connected (optional).
+Verify that the DNS resolver was created successfully and the state is connected (optional). In output, the **dnsResolverState** is **Connected**.
 
 ```Azure PowerShell
 $dnsResolver = Get-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
@@ -112,8 +112,23 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 Create an inbound endpoint to enable name resolution from on-premises or another private location using an IP address that is part of your private virtual network address space.
 
+> [!TIP]
+> Using PowerShell, you can specify the inbound endpoint IP address to be dynamic or static.<br> 
+> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. If the endpoint IP address is specified as static, it can be retained during reprovisioning.
+
+The following commands provision a dynamic IP address:
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
+New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
+```
+
+Use the following commands to specify a static IP address. Do not use both the dynamic and static sets of commands. 
+
+You must specify an IP address in the subnet that was created previously. The IP address that you choose can't be a [reserved IP address in the subnet](https://../virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
+The following commands provision a static IP address:
+```Azure PowerShell
+$ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAddress 10.0.0.4 -PrivateIPAllocationMethod Static -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
 New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
 ```
 
