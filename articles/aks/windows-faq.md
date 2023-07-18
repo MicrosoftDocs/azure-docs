@@ -69,7 +69,7 @@ Yes. For the implications of making a change and the options that are available,
 
 ## What is the default TCP timeout in Windows OS?
 
-The default TCP timeout in Windows OS is 4 minutes. AKS does not change or update this value. When a user's application uses a longer timeout, the TCP connections between different containers in the same node will be closed after 4 minutes.
+The default TCP timeout in Windows OS is 4 minutes. This value is not configurable. When a user's application uses a longer timeout, the TCP connections between different containers in the same node will be closed after 4 minutes.
 
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
@@ -88,7 +88,16 @@ To fix this error:
 
 If you have specified a value in `--max-pods` that is less than the number of pods you want to create, you may see the error "No available addresses".
 
-To fix this error:
+To fix this error, use the `az aks nodepool add` command with a high enough `--max-pods` value:
+
+```azurecli
+az aks nodepool add \
+    --cluster-name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --name $NODEPOOL_NAME \
+    --max-pods 3
+```
+See [documentation](https://learn.microsoft.com/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number) on `--max-pods` for more details.
 
 ## Why is there an unexpected user named "sshd" on my VM node?
 
