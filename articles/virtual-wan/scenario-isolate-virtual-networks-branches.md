@@ -25,14 +25,14 @@ In order to figure out how many route tables will be needed, you can build a con
 
 | From | To:| *Blue VNets* | *Red VNets* | *Red Branches*| *Blue Branches*| 
 |---|---|---|---|---|---|
-| **Blue VNets** |   &#8594;|   Direct     |           |   |  AzFW|
-| **Red VNets**  |   &#8594;|              |   Direct  |  AzFW  | 
-| **Red Branches**   |   &#8594;|   |   AzFW  |  Direct | Direct
-| **Blue Branches**| &#8594;| AzFW  |   |Direct   | Direct
+| **Blue VNets** |   &#8594;|   Direct     |           |  |  AzFW|
+| **Red VNets**  |   &#8594;|              |   Direct  |  AzFW  |  |
+| **Red Branches**   |   &#8594; |   |   AzFW  |  Direct | Direct
+| **Blue Branches**| &#8594;| AzFW  |  |Direct   | Direct
 
 Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) communicates with a destination (the "To" side of the flow, the column headers in italics). **Direct** implies the traffic flows directly through Virtual WAN while **AzFW** implies that the traffic is inspected by Azure Firewall before being forwarded to the destination. A blank entry means that flow is blocked in the setup.
 
-In this case, the two route tables for the VNets are required to achieve the goal of VNet isolation without Azure Firewall in the path. We will call these routes tables **RT_BLUE** and **RT_RED**.
+There are 4 connectivity patterns in this matrix. However, since branches in Virtual WAN must be associated to the default route table, we only need 1 connectivity profile for branches (we will forward traffic from the branches to Azure Firewall to achieve custom routing for branches). As a result, we need 3 route tables: 1 for Blue VNets, 1 for Red VNets, and 1 for branches. The 2 custom route tables for the VNets are required to achieve the goal of VNet isolation without Azure Firewall in the path. We will call these routes tables **RT_BLUE** and **RT_RED**. 
 
 In addition, branches must always be associated to the  **Default** Route Table. To ensure that traffic to and from the branches is inspected by Azure Firewall,  we add static routes in the **Default**, **RT_RED** and **RT_BLUE** route tables pointing traffic to Azure Firewall and set up Network Rules to allow desired traffic. We also ensure that the branches do **not** propagate to **RT_BLUE** and **RT_RED**.
 
@@ -55,8 +55,6 @@ As a result, this is the final design:
     * **ALLOW RULE** **Source Prefix**: Blue Branch Address Prefixes **Destination Prefix**: Blue VNet Prefixes 
     * **ALLOW RULE**  **Source Prefix**: Red Branch Address Prefixes **Destination Prefix**: Red VNet Prefixes
 
-> [!NOTE]
-> Since all branches need to be associated to the Default route table, as well as to propagate to the same set of routing tables, all branches will have the same connectivity profile. In other words, the Red/Blue concept for VNets cannot be applied to branches. However, to achieve custom routing for branches, we can forward traffic from the branches to Azure Firewall.
 
 > [!NOTE]
 > Azure Firewall by default denies traffic in a zero-trust model. If there is no explicit **ALLOW** rule that matches the inspected packet, Azure Firewall will drop the packet.
@@ -80,7 +78,7 @@ Consider the following steps when setting up routing.
    * **Propagation**: Select all Blue VNets.
 3. Repeat the same steps for **RT_RED** route table for Red VNets.
 4. Provision an Azure Firewall in Virtual WAN. For more information about Azure Firewall in the Virtual WAN hub, see [Configuring Azure Firewall in Virtual WAN hub](howto-firewall.md).
-5. Add a static route to the **Default** Route Table of the Virtual Hub directing all traffic destined for the VNet address spaces (both blue and red) to Azure Firewall. This step ensures any packets from your branches will be sent to Azure Firewall for inspection.
+5. Add a static route to the **Default** Route Table of the Virtual Hub directing all traffic destined for the VNet address spaces (both blue and red) to Azure Firewall. This step ensures any packets from your branches will be sent to Azure Firewall for inspection. 
     * Example: **Destination Prefix**:  10.0.0.0/8 **Next Hop**: Azure Firewall
     >[!NOTE]
     > This step can also be done via Firewall Manager by selecting the "Secure Private Traffic" option. This will add a route for all RFC1918 private IP addresses applicable to VNets and branches. You will need to manually add in any branches or virtual networks that are not compliant with RFC1918. 
