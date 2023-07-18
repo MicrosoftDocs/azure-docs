@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 07/17/2023
 ms.custom: template-how-to
 ---
 
@@ -37,13 +37,18 @@ When scanning Snowflake source, Microsoft Purview supports:
     - Tasks
     - Sequences
 
-- Fetching static lineage on assets relationships among tables, views, and streams.
+- Fetching static lineage on assets relationships among tables, views, streams, and stored procedures.
 
-When setting up scan, you can choose to scan one or more Snowflake database(s) entirely, or further scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+For stored procedures, you can choose the level of details to extract on [scan settings](#scan). Stored procedure lineage is supported for Snowflake Scripting (SQL) and JavaScript languages, and generated based on the procedure definition.
+
+When setting up scan, you can choose to scan one or more Snowflake database(s) entirely based on the given name(s) or name pattern(s), or further scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ### Known limitations
 
-When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+- When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+- Stored procedure lineage is not supported for the following patterns:
+    - Stored procedure defined in Java, Python and Scala languages.
+    - Stored procedure using SQL [EXECUTE IMMEDIATE](https://docs.snowflake.com/en/sql-reference/sql/execute-immediate) with static SQL query as variable.
 
 ## Prerequisites
 
@@ -145,7 +150,7 @@ On the **Register sources (Snowflake)** screen, follow these steps:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **server** URL used to connect to the Snowflake account in the form of `<account_identifier>.snowflakecomputing.com`, for example, `xy12345.east-us-2.azure.snowflakecomputing.com`. Learn more about Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#).
+1. Enter the **server** URL used to connect to the Snowflake account in the form of `<account_identifier>.snowflakecomputing.com`, for example, `orgname-accountname.snowflakecomputing.com`. Learn more about Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#).
 
 1. Select a collection or create a new one (Optional)
 
@@ -208,10 +213,13 @@ To create and run a new scan, follow these steps:
 
     1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
-        - Signature: The name and parameters of stored procedures.
+        - Signature (default): The name and parameters of stored procedures.
         - Code, signature: The name, parameters and code of stored procedures.
         - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
         - None: Stored procedure details aren't included.
+
+        > [!Note]
+        > If you use Self-hosted Integration Runtime for scan, customized setting other than the default Signature is supported since version 5.30.8541.1. The earlier versions always extract the name and parameters of stored procedures.
 
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. It's dependent on the size of Snowflake source to be scanned.
 
@@ -219,6 +227,8 @@ To create and run a new scan, follow these steps:
         > As a rule of thumb, please provide 1GB memory for every 1000 tables.
 
         :::image type="content" source="media/register-scan-snowflake/scan.png" alt-text="scan Snowflake" border="true":::
+
+1. Select **Test connection** to validate the settings (available when using Azure Integration Runtime).
 
 1. Select **Continue**.
 
