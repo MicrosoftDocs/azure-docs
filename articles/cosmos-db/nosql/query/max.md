@@ -60,5 +60,4 @@ For this example, the `MAX` function is used in a query that includes the numeri
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
-- [Aggregate functions in Azure Cosmos DB](aggregate-functions.yml)
 - [`MIN`](min.md)

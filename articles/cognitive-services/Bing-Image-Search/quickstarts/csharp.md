@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to learn how to send search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 
@@ -36,7 +36,7 @@ Use this quickstart to learn how to send search requests to the Bing Image Searc
     using Newtonsoft.Json.Linq;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term. For `uriBase`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search term. For `uriBase`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     //...

@@ -198,7 +198,7 @@ In this release, we've made the following changes:
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
+   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
    - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
@@ -570,7 +570,7 @@ In this release, we've made the following changes:
 - Added the auto-update feature, which allows the client to install the latest updates automatically.
 - The client now distinguishes between different feeds in the Connection Center.
 - Fixed an issue where the subscription account doesn't match the account the user signed in with.
-- Fixed an issue where some users couldn't access remote apps through a downloaded file.
+- Fixed an issue where some users couldn't access a RemoteApp through a downloaded file.
 - Fixed an issue with Smartcard redirection.
 
 ## Updates for version 1.2.1364
@@ -595,7 +595,7 @@ In this release, we've made the following changes:
 - Added functionality to enable custom URL subscriptions for all users.
 - Fixed an issue with app pinning on the feed taskbar.
 - Fixed a crash when subscribing with URL.
-- Improved experience when dragging remote app windows with touch or pen.
+- Improved experience when dragging a RemoteApp window with touch or pen.
 - Fixed an issue with localization.
 
 ## Updates for version 1.2.1186
