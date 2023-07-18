@@ -262,9 +262,6 @@ This section covers configuration settings for the framework extensions for Appl
 
 [React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an exception occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the exception when it occurs.
 
-> [!NOTE]
-> The Microsoft Azure Monitor Application Insights JavaScript SDK already tracks most exceptions, so the React plug-in captures both caught and uncaught exceptions by default.  
-
 ```javascript
 import React from "react";
 import { reactPlugin } from "./AppInsights";
@@ -284,9 +281,6 @@ The `AppInsightsErrorBoundary` requires two props to be passed to it. They're th
 #### [React Native](#tab/reactnative)
 
 Exception tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
-
-> [!NOTE]
-> The Microsoft Azure Monitor Application Insights JavaScript SDK already tracks most exceptions, so the React plug-in captures both caught and uncaught exceptions by default.  
 
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -447,7 +441,7 @@ customMetrics
 
 #### Use Application Insights with React Context
 
-We provide general hooks to allow you to customize the change tracking for individual components. Alternatively, you can use [useTrackMetric](#usetrackmetric) or [useTrackEvent](#usetrackevent), which are pre-defined contacts provided by us to track the components change.
+We provide general hooks to allow you to customize the change tracking for individual components. Alternatively, you can use [useTrackMetric](#usetrackmetric) or [useTrackEvent](#usetrackevent), which are pre-defined contacts we provide for tracking the changes to components.
 
 The React Hooks for Application Insights are designed to use [React Context](https://react.dev/learn/passing-data-deeply-with-context) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
