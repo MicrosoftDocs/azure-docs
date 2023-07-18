@@ -15,7 +15,7 @@ ms.reviewer: calebb, jebeckha, grtaylor
 
 ms.collection: M365-identity-device-management
 ---
-# Block legacy authentication with Azure AD with Conditional Access   
+# Block legacy authentication with Azure AD Conditional Access   
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication doesn't support things like multifactor authentication (MFA). MFA is a common requirement to improve security posture in organizations. 
 
@@ -85,7 +85,7 @@ For more information about these authentication protocols and services, see [Sig
 
 ### Identify legacy authentication use
 
-Before you can block legacy authentication in your directory, you need to first understand if your users have clients that use legacy authentication. Below, you'll find useful information to identify and triage where clients are using legacy authentication.
+Before you can block legacy authentication in your directory, you need to first understand if your users have clients that use legacy authentication.
 
 #### Indicators from Azure AD
 
@@ -94,9 +94,9 @@ Before you can block legacy authentication in your directory, you need to first 
 1. Select **Add filters** > **Client App** > choose all of the legacy authentication protocols and select **Apply**.
 1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
-Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you more details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
+Filtering shows you sign-in attempts made by legacy authentication protocols. Clicking on each individual sign-in attempt shows you more details. The **Client App** field under the **Basic Info** tab indicates which legacy authentication protocol was used.
 
-These logs will indicate where users are using clients that are still depending on legacy authentication. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
+These logs indicate where users are using clients that are still depending on legacy authentication. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
 Additionally, to help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
 
@@ -135,7 +135,7 @@ The easiest way to block legacy authentication across your entire organization i
 
 ### Indirectly blocking legacy authentication
 
-If your organization isn't ready to block legacy authentication across the entire organization, you should ensure that sign-ins using legacy authentication aren't bypassing policies that require grant controls such as requiring multifactor authentication or compliant/hybrid Azure AD joined devices. During authentication, legacy authentication clients don't support sending MFA, device compliance, or join state information to Azure AD. Therefore, apply policies with grant controls to all client applications so that legacy authentication based sign-ins that can’t satisfy the grant controls are blocked. With the general availability of the client apps condition in August 2020, newly created Conditional Access policies apply to all client apps by default.
+If your organization isn't ready to block legacy authentication completely, you should ensure that sign-ins using legacy authentication aren't bypassing policies that require grant controls like multifactor authentication. During authentication, legacy authentication clients don't support sending MFA, device compliance, or join state information to Azure AD. Therefore, apply policies with grant controls to all client applications so that legacy authentication based sign-ins that can’t satisfy the grant controls are blocked. With the general availability of the client apps condition in August 2020, newly created Conditional Access policies apply to all client apps by default.
 
 ## What you should know
 
