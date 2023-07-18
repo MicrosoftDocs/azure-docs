@@ -39,7 +39,7 @@ You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-creat
 
 ### Roles
 
-You must have the appropriate roles for the Azure Monitor *and* Azure AD. For more information on Azure subscription roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md).
+You must have the appropriate roles for Azure Monitor *and* Azure AD. Roles are largely group be read access and read/write access, so find the combination of roles that grants the least privilege for the task you need.
 
 #### Azure Monitor roles
 
@@ -61,7 +61,7 @@ For more information on the Log Analytics RBAC roles, see [Azure built-in roles]
 
 The following Azure AD roles are required to set up the diagnostic settings to send Azure AD data to a Log Analytics workspace or to view the workbooks in the Azure portal:
 
-- **View/read a workspace**:
+- **View a workspace**:
     - Reports Reader
     - Security Reader
     - Global Reader
@@ -69,9 +69,7 @@ The following Azure AD roles are required to set up the diagnostic settings to s
 - **Update a workspace**:
     - Security Administrator
 
-
-
-
+For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ## How to access Azure Workbooks for Azure AD
 
