@@ -122,7 +122,7 @@ JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(con
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfter**, and a distribution **mode**.
 
 ```java
 DistributionPolicy distributionPolicy = routerAdminClient.createDistributionPolicy(
@@ -139,7 +139,7 @@ Create the Queue by specifying an **ID**, **name**, and provide the **Distributi
 
 ```java
 RouterQueue queue = routerAdminClient.createQueue(
-    new CreateQueueOptions("queue-1",distributionPolicy.getId())
+    new CreateQueueOptions("queue-1", distributionPolicy.getId())
         .setName("My queue")
 );
 ```
@@ -149,11 +149,12 @@ RouterQueue queue = routerAdminClient.createQueue(
 Now, we can submit a job directly to that queue, with a worker selector that requires the worker to have the label `Some-Skill` greater than 10.
 
 ```java
-RouterJob job = routerClient.createJob(
-    new CreateJobOptions("job-1", "voice", queue.getId())
-        .setPriority(1)
-        .setRequestedWorkerSelectors(List.of(
-            new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
+RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
+    .setPriority(1)
+    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
+        .setKey("Some-Skill")
+        .setLabelOperator(LabelOperator.GREATER_THAN)
+        .setValue(new LabelValue(10)))));
 ```
 
 ## Create a worker
@@ -163,15 +164,9 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```java
 RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
-        .setQueueIds(new HashMap<String, QueueAssignment>() {{
-            put(queue.getId(), new QueueAssignment());
-        }})
-        .setLabels(new HashMap<String, LabelValue>() {{
-            put("Some-Skill", new LabelValue(11));
-        }})
-        .setChannelConfigurations(new HashMap<String, ChannelConfiguration>() {{
-            put("voice", new ChannelConfiguration(1));
-        }}));
+        .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
+        .setLabels(Map.of("Some-Skill", new LabelValue(11)))
+        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration().setCapacityCostPerJob(1))));
 ```
 
 ## Receive an offer

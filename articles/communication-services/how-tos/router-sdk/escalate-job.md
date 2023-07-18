@@ -43,7 +43,9 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
         Name = "Classify XBOX Voice Jobs",
         QueueSelectors =
         {
-            new ConditionalQueueSelectorAttachment(condition: new ExpressionRouterRule("job.Escalated = true"), labelSelectors: new List<QueueSelector>
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRouterRule("job.Escalated = true"),
+                labelSelectors: new List<RouterQueueSelector>
             {
                 new (key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_Escalation_Queue"))
             })
@@ -88,13 +90,13 @@ classification_policy: ClassificationPolicy = administration_client.create_class
         name = "Classify XBOX Voice Jobs",
         queue_selectors = [
             ConditionalQueueSelectorAttachment(
-                condition = ExpressionRule(expression = 'job.Escalated = true'),
+                condition = ExpressionRouterRule(expression = 'job.Escalated = true'),
                 label_selectors = [
-                    QueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_Escalation_Queue")
+                    RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_Escalation_Queue")
                 ]
             )
         ],
-        prioritization_rule = ExpressionRule(expression = "If(job.Escalated = true, 10, 1)")))
+        prioritization_rule = ExpressionRouterRule(expression = "If(job.Escalated = true, 10, 1)")))
 ```
 
 ::: zone-end
@@ -106,11 +108,11 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
     new CreateClassificationPolicyOptions("Classify_XBOX_Voice_Jobs")
         .setName("Classify XBOX Voice Jobs")
         .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment()
-            .setCondition(new ExpressionRule().setExpression("job.Escalated = true"))
+            .setCondition(new ExpressionRouterRule().setExpression("job.Escalated = true"))
             .setLabelSelectors(List.of(
-                new QueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_Escalation_Queue"))
+                new RouterQueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_Escalation_Queue"))
             )))
-        .setPrioritizationRule(new ExpressionRule().setExpression("If(job.Escalated = true, 10, 1)")));
+        .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Escalated = true, 10, 1)")));
 ```
 
 ::: zone-end
@@ -133,10 +135,7 @@ var exceptionPolicy = await administrationClient.CreateExceptionPolicyAsync(new 
                 ["EscalateReclassifyExceptionAction"] =
                     new ReclassifyExceptionAction(classificationPolicyId: classificationPolicy.Value.Id)
                     {
-                        LabelsToUpsert = new Dictionary<string, LabelValue>
-                        {
-                            ["Escalated"] = new(true)
-                        }
+                        LabelsToUpsert = { ["Escalated"] = new LabelValue(true) }
                     }
             }
         )
@@ -193,7 +192,7 @@ administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("Esc
         .setTrigger(new WaitTimeExceptionTrigger().setThresholdSeconds(5 * 60))
         .setActions(Map.of("EscalateReclassifyExceptionAction", new ReclassifyExceptionAction()
             .setClassificationPolicyId(classificationPolicy.getId())
-            .setLabelsToUpsert(Map.of("Escalated", new LabelValue().setValue(true))))))
+            .setLabelsToUpsert(Map.of("Escalated", new LabelValue(true))))))
 ).setName("Add escalated label and reclassify XBOX Job requests after 5 minutes"));
 ```
 
@@ -247,14 +246,14 @@ await administrationClient.createQueue("XBOX_Escalation_Queue", {
 ```python
 administration_client.create_queue(
     queue_id = "XBOX_Queue",
-    queue = JobQueue(
+    queue = RouterQueue(
         distribution_policy_id = "Round_Robin_Policy",
         exception_policy_id = exception_policy.id,
         name = "XBOX Queue"))
 
 administration_client.create_queue(
     queue_id = "XBOX_Escalation_Queue",
-    queue = JobQueue(
+    queue = RouterQueue(
         distribution_policy_id = "Round_Robin_Policy",
         name = "XBOX Escalation Queue"))
 ```
@@ -283,7 +282,7 @@ When you submit the Job, it is added to the queue `XBOX_Queue` with the `voice` 
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voice", queueId: defaultQueue.Value.Id)
 {
-    RequestedWorkerSelectors = new List<WorkerSelector>
+    RequestedWorkerSelectors = new List<RouterWorkerSelector>
     {
         new(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
     }
@@ -313,7 +312,7 @@ administration_client.create_job(
         channel_id = "voice",
         queue_id = default_queue.id,
         requested_worker_selectors = [
-            WorkerSelector(key = "XBOX_Hardware", label_operator = LabelOperator.GreaterThanEqual, value = 7)
+            RouterWorkerSelector(key = "XBOX_Hardware", label_operator = LabelOperator.GreaterThanEqual, value = 7)
         ]))
 ```
 
@@ -323,10 +322,10 @@ administration_client.create_job(
 
 ```java
 administrationClient.createJob(new CreateJobOptions("job1", "voice", defaultQueue.getId())
-    .setRequestedWorkerSelectors(List.of(new WorkerSelector()
+    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
         .setKey("XBOX_Hardware")
         .setLabelOperator(LabelOperator.GREATER_THAN_EQUAL)
-        .setValue(new LabelValue().setValue(7)))));
+        .setValue(new LabelValue(7)))));
 ```
 
 ::: zone-end

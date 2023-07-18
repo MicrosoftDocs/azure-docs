@@ -87,7 +87,7 @@ const routerClient = new JobRouterClient(connectionString);
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfter**, and a distribution **mode**.
 
 ```javascript
 const distributionPolicy = await routerAdminClient.createDistributionPolicy("distribution-policy-1", {
@@ -128,7 +128,7 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```javascript
 const worker = await routerClient.createWorker("worker-1", {
     totalCapacity: 1,
-    queueIds: { [queue.id]: {} },
+    queueAssignments: { [queue.id]: {} },
     labels: { "Some-Skill": 11 },
     channelConfigurations: { "voice": { capacityCostPerJob: 1 } }
 });

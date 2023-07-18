@@ -62,7 +62,7 @@ await client.createWorker("worker1", {
 client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
     total_capacity = 100,
     queue_assignments = {
-        "queue1": QueueAssignment()
+        "queue1": {}
     },
     channel_configurations = {
         "voice": ChannelConfiguration(capacity_cost_per_job = 100),
@@ -77,7 +77,7 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 
 ```java
 client.createWorker(new CreateWorkerOptions("worker1", 100)
-    .setQueueAssignments(Map.of("queue1", new QueueAssignment()))
+    .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
         "voice", new ChannelConfiguration().setCapacityCostPerJob(100),
         "chat", new ChannelConfiguration().setCapacityCostPerJob(20))))
@@ -129,7 +129,7 @@ await client.createWorker("worker1", {
 client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
     total_capacity = 100,
     queue_assignments = {
-        "queue1": QueueAssignment()
+        "queue1": {}
     },
     channel_configurations = {
         "voice": ChannelConfiguration(capacity_cost_per_job = 60),
@@ -145,7 +145,7 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 
 ```java
 client.createWorker(new CreateWorkerOptions("worker1", 100)
-    .setQueueAssignments(Map.of("queue1", new QueueAssignment()))
+    .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
         "voice", new ChannelConfiguration().setCapacityCostPerJob(60),
         "chat", new ChannelConfiguration().setCapacityCostPerJob(10).setMaxNumberOfJobs(2),

@@ -38,7 +38,7 @@ The following rule engine types exist in Job Router to provide flexibility in ho
 
 ### Example: Use a static rule to set the priority of a job
 
-In this example a `StaticRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
+In this example a `StaticRouterRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -67,7 +67,7 @@ await administrationClient.createClassificationPolicy("my-policy-id", {
 ```python
 administration_client.create_classification_policy(
     classification_policy_id = "my-policy-id",
-    classification_policy = ClassificationPolicy(prioritization_rule = StaticRule(value = 5)))
+    classification_policy = ClassificationPolicy(prioritization_rule = StaticRouterRule(value = 5)))
 ```
 
 ::: zone-end
@@ -76,14 +76,14 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("my-policy-id")
-    .setPrioritizationRule(new StaticRule(new LabelValue(5))));
+    .setPrioritizationRule(new StaticRouterRule(new LabelValue(5))));
 ```
 
 ::: zone-end
 
 ### Example: Use an expression rule to set the priority of a job
 
-In this example an `ExpressionRule` which is a subtype of `RouterRule`, evaluates a PowerFX expression to set the priority of all jobs that use this classification policy.
+In this example an `ExpressionRouterRule` which is a subtype of `RouterRule`, evaluates a PowerFX expression to set the priority of all jobs that use this classification policy.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -91,7 +91,7 @@ In this example an `ExpressionRule` which is a subtype of `RouterRule`, evaluate
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
-        PrioritizationRule = new ExpressionRouterRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
+        PrioritizationRule = new ExpressionRouterRule(expression: "If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
     });
 ```
 
@@ -116,7 +116,7 @@ await administrationClient.createClassificationPolicy("my-policy-id", {
 administration_client.create_classification_policy(
     classification_policy_id = "my-policy-id",
     classification_policy = ClassificationPolicy(
-        prioritization_rule = ExpressionRule(expression = "If(job.Urgent = true, 10, 5)")))
+        prioritization_rule = ExpressionRouterRule(expression = "If(job.Urgent = true, 10, 5)")))
 ```
 
 ::: zone-end
@@ -126,7 +126,7 @@ administration_client.create_classification_policy(
 ```java
 administrationClient.createClassificationPolicy(
     new CreateClassificationPolicyOptions("my-policy-id")
-        .setPrioritizationRule(new ExpressionRule("If(job.Urgent = true, 10, 5)")));
+        .setPrioritizationRule(new ExpressionRouterRule("If(job.Urgent = true, 10, 5)")));
 ```
 
 ::: zone-end

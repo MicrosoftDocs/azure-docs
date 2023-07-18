@@ -86,7 +86,7 @@ distribution_policy = administration_client.create_distribution_policy(
 
 queue = administration_client.create_queue(
     queue_id = "XBOX_DEFAULT_QUEUE",
-    queue = JobQueue(
+    queue = RouterQueue(
         name = "XBOX Default Queue",
         distribution_policy_id = distribution_policy.id
     ))
@@ -100,7 +100,7 @@ queue = administration_client.create_queue(
 DistributionPolicy distributionPolicy = administrationClient.createDistributionPolicy(new CreateDistributionPolicyOptions(
     "Longest_Idle_45s_Min1Max10",
     Duration.ofSeconds(45),
-    new LongestIdleMode(1, 10))
+    new LongestIdleMode().setMinConcurrentOffers(1).setMaxConcurrentOffers(10))
     .setName("Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"));
 ```
 
@@ -116,10 +116,7 @@ The Job Router SDK will update an existing queue when the `UpdateQueueAsync` met
 await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.Id)
 {
     Name = "XBOX Updated Queue",
-    Labels =
-    {
-        ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
-    }
+    Labels = { ["Additional-Queue-Label"] = new LabelValue("ChatQueue") }
 });
 ```
 
@@ -130,9 +127,7 @@ await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.I
 ```typescript
 await administrationClient.updateQueue(queue.id, {
     name: "XBOX Updated Queue",
-    labels: {
-        "Additional-Queue-Label": "ChatQueue"
-    }
+    labels: { "Additional-Queue-Label": "ChatQueue" }
 });
 ```
 
@@ -143,11 +138,9 @@ await administrationClient.updateQueue(queue.id, {
 ```python
 administration_client.update_queue(
     queue_id = queue.id,
-    queue = JobQueue(
+    queue = RouterQueue(
         name = "XBOX Updated Queue",
-        labels = {
-            "Additional-Queue-Label": "ChatQueue"
-        }
+        labels = { "Additional-Queue-Label": "ChatQueue" }
     ))
 ```
 

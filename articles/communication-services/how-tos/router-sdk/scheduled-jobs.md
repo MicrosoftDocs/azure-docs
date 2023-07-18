@@ -53,6 +53,7 @@ await client.createJob("job1", {
     channelId: "Voice",
     queueId: "Callback",
     matchingMode: {
+        modeType: "scheduleAndSuspendMode",
         scheduleAndSuspendMode: {
             scheduleAt: new Date(Date.now() + 3 * 60000)
         }
@@ -68,8 +69,9 @@ await client.createJob("job1", {
 client.create_job(job_id = "job1", router_job = RouterJob(
     channel_id = "Voice",
     queue_id = "Callback",
-    matching_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3))
-))
+    matching_mode = JobMatchingMode(
+        mode_type = "scheduleAndSuspendMode",
+        schedule_and_suspend_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3)))))
 ```
 
 ::: zone-end
@@ -114,7 +116,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
     // Perform required actions here
 
     await client.updateJob(eventGridEvent.data.jobId, {
-        matchingMode: { queueAndMatchMode: {}},
+        matchingMode: { modeType: "queueAndMatchMode", queueAndMatchMode: {} },
         priority: 100
     });
 }
@@ -131,7 +133,7 @@ if (eventGridEvent.event_type == "Microsoft.Communication.RouterJobWaitingForAct
     # Perform required actions here
 
     client.update_job(job_id = eventGridEvent.data.job_id,
-        matching_mode = QueueAndMatchMode(),
+        matching_mode = JobMatchingMode(mode_type = queueAndMatchMode, queue_and_match_mode = {}),
         priority = 100)
 }
 ```

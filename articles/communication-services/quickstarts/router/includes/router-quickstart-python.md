@@ -94,8 +94,8 @@ Create the Queue by specifying an **ID**, **name**, and provide the **Distributi
 
 ```python
 queue = router_admin_client.create_queue(
-    queue_id="queue-1",
-    queue = JobQueue(
+    queue_id = "queue-1",
+    queue = RouterQueue(
         name = "My Queue",
         distribution_policy_id = distribution_policy.id
     ))
@@ -113,7 +113,7 @@ job = router_client.create_job(
         queue_id = queue.id,
         priority = 1,
         requested_worker_selectors = [
-            WorkerSelector(
+            RouterWorkerSelector(
                 key = "Some-Skill",
                 label_operator = LabelOperator.GreaterThan,
                 value = 10
@@ -129,10 +129,10 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```python
 worker = router_client.create_worker(
     worker_id = "worker-1",
-    worker = RouterWorker(
+    router_worker = RouterWorker(
         total_capacity = 1,
-        queue_ids = {
-            queue.id: QueueAssignment()
+        queue_assignments = {
+            "queue-1": {}
         },
         labels = {
             "Some-Skill": LabelValue(11)

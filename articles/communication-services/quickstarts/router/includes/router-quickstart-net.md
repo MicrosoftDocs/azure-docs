@@ -65,7 +65,7 @@ var routerClient = new JobRouterClient(connectionString);
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfter**, and a distribution **mode**.
 
 ```csharp
 var distributionPolicy = await routerAdminClient.CreateDistributionPolicyAsync(
@@ -115,18 +115,9 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 var worker = await routerClient.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds =
-        {
-            [queue.Value.Id] = new RouterQueueAssignment()
-        },
-        Labels =
-        {
-            ["Some-Skill"] = new LabelValue(11)
-        },
-        ChannelConfigurations =
-        {
-            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1)
-        }
+        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        Labels = { ["Some-Skill"] = new LabelValue(11) },
+        ChannelConfigurations = { ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1) }
     });
 ```
 

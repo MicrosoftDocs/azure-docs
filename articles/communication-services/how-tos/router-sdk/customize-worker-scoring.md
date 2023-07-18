@@ -106,19 +106,19 @@ Sample input for **Worker 1**
       "key": "English",
       "operator": "GreaterThanEqual",
       "value": 7,
-      "ttl": null
+      "expiresAfterSeconds": null
     },
     {
       "key": "ChatSupport",
       "operator": "Equal",
       "value": true,
-      "ttl": null
+      "expiresAfterSeconds": null
     },
     {
       "key": "XboxSupport",
       "operator": "Equal",
       "value": true,
-      "ttl": null
+      "expiresAfterSeconds": null
     }
   ],
   "worker": {
@@ -202,7 +202,7 @@ var distributionPolicy = await administrationClient.CreateDistributionPolicyAsyn
     new CreateDistributionPolicyOptions(
         distributionPolicyId: "BestWorkerDistributionMode",
         offerExpiresAfter: TimeSpan.FromMinutes(5),
-        mode: new BestWorkerMode { ScoringRule = new FunctionRouterRule(new Uri("<insert function url>")) }
+        mode: new BestWorkerMode(scoringRule: new FunctionRouterRule(new Uri("<insert function url>")))
     ) { Name = "XBox hardware support distribution" });
 
 // Setup Queue

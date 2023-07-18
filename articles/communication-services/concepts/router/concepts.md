@@ -92,7 +92,7 @@ The ringing serves as a tangible example of an offer extended to a worker, and i
 #### Offer expiry flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
-1. The Offer is not accepted or declined within the TTL period defined by the Distribution Policy.
+1. The Offer is not accepted or declined within the ExpiresAfter period defined by the Distribution Policy.
 1. Job Router will expire the Offer and an [OfferExpired Event][offer_expired_event] will be sent.
 1. The worker is considered unavailable and will be automatically deregistered.
 1. A [WorkerDeregistered Event][worker_deregistered_event] will be sent.
@@ -139,7 +139,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - Let's get started with Job Router, check out the [Job Router Quickstart](../../quickstarts/router/get-started-router.md)
 
 #### Learn more about these key Job Router concepts:
- 
+
 - [How jobs are matched to workers](matching-concepts.md)
 - [How worker capacity is configured](worker-capacity-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)

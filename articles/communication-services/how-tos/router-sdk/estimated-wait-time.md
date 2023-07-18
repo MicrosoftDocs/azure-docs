@@ -66,7 +66,7 @@ System.out.println("Queue statistics: " + new GsonBuilder().toJson(queueStatisti
 
 ::: zone-end
 
-Executing the above code should print a message similar to the following snippet:
+Executing the above code should print a message similar to the following snippet (Note: the `EstimatedWaitTimeMinutes` property is grouped by job priority):
 
 ```json
 Queue statistics: { "QueueId":"queue1", "Length": 15, "EstimatedWaitTimeMinutes": { "1": 10 }, "LongestJobWaitTimeMinutes": 4.724 }

@@ -39,7 +39,7 @@ await client.CreateJobAsync(
     {
         RequestedWorkerSelectors =
         {
-            new WorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("<preferred_worker_id>")) {
+            new RouterWorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("<preferred_worker_id>")) {
                 Expedite = true,
                 ExpireAfterSeconds = 45
             }
@@ -75,7 +75,7 @@ client.create_job(job_id = "job1", router_job = RouterJob(
     channel_id = "Xbox_Chat_Channel",
     queue_id = queue1.id,
     requested_worker_selectors = [
-        WorkerSelector(
+        RouterWorkerSelector(
             key = "Id",
             label_operator = LabelOperator.EQUAL,
             value = "<preferred worker id>",
@@ -91,7 +91,7 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 
 ```java
 client.createJob(new CreateJobOptions("job1", "Xbox_Chat_Channel", queue.getId())
-    .setRequestedWorkerSelectors(List.of(new WorkerSelector().setKey("Id")
+    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector().setKey("Id")
         .setLabelOperator(LabelOperator.EQUAL)
         .setValue(new LabelValue("<preferred_worker_id>"))
         .setExpireAfterSeconds(45.0)

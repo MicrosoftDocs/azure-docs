@@ -139,7 +139,7 @@ await client.CreateJobAsync(new CreateJobOptions("job1", "chat", "queue1")
     {
         new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
         new RouterWorkerSelector(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
-            { Ttl = TimeSpan.FromMinutes(5) }
+            { ExpiresAfter = TimeSpan.FromMinutes(5) }
     },
     Labels = { ["name"] = new LabelValue("John") }
 });
@@ -155,7 +155,7 @@ await client.createJob("job1", {
   queueId: "queue1",
   requestedWorkerSelectors: [
       { key: "English", labelOperator: "equal", value: true },
-      { key: "Skill", labelOperator: "greaterThan", value: 10, ttlSeconds: 60 },        
+      { key: "Skill", labelOperator: "greaterThan", value: 10, expiresAfterSeconds: 60 },        
   ],
   labels: {
       name: "John"
@@ -172,12 +172,12 @@ client.create_job(job_id = "job1", router_job = RouterJob(
     channel_id = "chat",
     queue_id = "queue1",
     requested_worker_selectors = [
-        WorkerSelector(
+        RouterWorkerSelector(
           key = "English",
           label_operator = LabelOperator.EQUAL,
           value = True
         ),
-        WorkerSelector(
+        RouterWorkerSelector(
           key = "Skill",
           label_operator = LabelOperator.GREATER_THAN,
           value = True
@@ -194,11 +194,11 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 ```java
 client.createJob(new CreateJobOptions("job1", "chat", "queue1")
     .setRequestedWorkerSelectors(List.of(
-        new WorkerSelector()
+        new RouterWorkerSelector()
           .setKey("English")
           .setLabelOperator(LabelOperator.EQUAL)
           .setValue(new LabelValue(true)),
-        new WorkerSelector()
+        new RouterWorkerSelector()
           .setKey("Skill")
           .setLabelOperator(LabelOperator.GREATER_THAN)
           .setValue(new LabelValue(10))))

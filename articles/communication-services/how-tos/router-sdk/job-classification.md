@@ -39,12 +39,12 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
         QueueSelectors =
         {
             new ConditionalQueueSelectorAttachment(condition: new ExpressionRouterRule("job.Region = \"NA\""),
-                labelSelectors: new List<QueueSelector>
+                queueSelectors: new List<RouterQueueSelector>
                 {
                     new(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_NA_QUEUE"))
                 })
         },
-        FallbackQueueId = "XBOX_DEFAULT_QUEUE"
+        FallbackQueueId = "XBOX_DEFAULT_QUEUE",
         PrioritizationRule = new ExpressionRouterRule("If(job.Hardware_VIP = true, 10, 1)"),
     });
 ```
@@ -62,7 +62,7 @@ var classificationPolicy = await administrationClient.createClassificationPolicy
             kind: "expression-rule",
             expression: 'job.Region = "NA"'
         },
-        labelSelectors: [{
+        queueSelectors: [{
             key: "Id",
             labelOperator: "equal",
             value: "XBOX_NA_QUEUE"
@@ -86,14 +86,14 @@ classification_policy: ClassificationPolicy = administration_client.create_class
         name = "Select XBOX Queue and set priority to 1 or 10",
         queue_selectors = [
             ConditionalQueueSelectorAttachment(
-                condition = ExpressionRule(expression = 'job.Region = "NA"'),
-                label_selectors = [
-                    QueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_NA_QUEUE")
+                condition = ExpressionRouterRule(expression = 'job.Region = "NA"'),
+                queue_selectors = [
+                    RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_NA_QUEUE")
                 ]
             )
         ],
         fallback_queue_id = "XBOX_DEFAULT_QUEUE",
-        prioritization_rule = ExpressionRule(expression = "If(job.Hardware_VIP = true, 10, 1)")))
+        prioritization_rule = ExpressionRouterRule(expression = "If(job.Hardware_VIP = true, 10, 1)")))
 ```
 
 ::: zone-end
@@ -105,12 +105,12 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
     new CreateClassificationPolicyOptions("XBOX_NA_QUEUE_Priority_1_10")
         .setName("Select XBOX Queue and set priority to 1 or 10")
         .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment()
-            .setCondition(new ExpressionRule().setExpression("job.Region = \"NA\""))
-            .setLabelSelectors(List.of(
-                new QueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_NA_QUEUE"))
+            .setCondition(new ExpressionRouterRule().setExpression("job.Region = \"NA\""))
+            .setQueueSelectors(List.of(
+                new RouterQueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_NA_QUEUE"))
             )))
         .setFallbackQueueId("XBOX_DEFAULT_QUEUE")
-        .setPrioritizationRule(new ExpressionRule().setExpression("If(job.Hardware_VIP = true, 10, 1)")));
+        .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Hardware_VIP = true, 10, 1)")));
 ```
 
 ::: zone-end
@@ -203,7 +203,7 @@ await administrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors =
         {
-            new StaticWorkerSelectorAttachment(new WorkerSelector(
+            new StaticWorkerSelectorAttachment(new RouterWorkerSelector(
                 key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar")))
         }
     });
@@ -217,7 +217,7 @@ await administrationClient.CreateClassificationPolicyAsync(
 await administrationClient.createClassificationPolicy("policy-1", {
     workerSelectors: [{
         kind: "static",
-        labelSelector: { key: "Foo", labelOperator: "equal", value: "Bar" }
+        workerSelector: { key: "Foo", labelOperator: "equal", value: "Bar" }
     }]
 });
 ```
@@ -232,7 +232,7 @@ administration_client.create_classification_policy(
     classification_policy = ClassificationPolicy(
         worker_selectors = [
             StaticWorkerSelectorAttachment(
-                label_selector = WorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
+                worker_selector = RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
             )
         ]))
 ```
@@ -244,7 +244,7 @@ administration_client.create_classification_policy(
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
     .setWorkerSelectors(List.of(new StaticWorkerSelectorAttachment()
-        .setLabelSelector(new WorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar")))));
+        .setWorkerSelector(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar")))));
 ```
 
 ::: zone-end
@@ -261,9 +261,9 @@ await administrationClient.CreateClassificationPolicyAsync(
     {
         WorkerSelectors =
         {
-            new ConditionalWorkerSelectorAttachment(
-                condition: new ExpressionRule("job.Urgent = true"),
-                labelSelectors: new List<WorkerSelector>
+            new ConditionalRouterWorkerSelectorAttachment(
+                condition: new ExpressionRouterRule("job.Urgent = true"),
+                workerSelectors: new List<RouterWorkerSelector>
                 {
                     new(key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar"))
                 })
@@ -280,7 +280,7 @@ await administrationClient.createClassificationPolicy("policy-1", {
     workerSelectors: [{
         kind: "conditional",
         condition: { kind: "expression-rule", expression: "job.Urgent = true" },
-        labelSelectors: [{ key: "Foo", labelOperator: "equal", value: "Bar" }]
+        workerSelectors: [{ key: "Foo", labelOperator: "equal", value: "Bar" }]
     }]
 });
 
@@ -296,9 +296,9 @@ administration_client.create_classification_policy(
     classification_policy = ClassificationPolicy(
         worker_selectors = [
             ConditionalWorkerSelectorAttachment(
-                condition = ExpressionRule(expression = "job.Urgent = true"),
-                label_selectors = [
-                    WorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
+                condition = ExpressionRouterRule(expression = "job.Urgent = true"),
+                worker_selectors = [
+                    RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
                 ]
             )
         ]))
@@ -310,9 +310,9 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new ConditionalWorkerSelectorAttachment()
-        .setCondition(new ExpressionRule().setExpression("job.Urgent = true"))
-        .setLabelSelectors(List.of(new WorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar"))))));
+    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment()
+        .setCondition(new ExpressionRouterRule().setExpression("job.Urgent = true"))
+        .setWorkerSelectors(List.of(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar"))))));
 ```
 
 ::: zone-end
@@ -389,11 +389,11 @@ await administrationClient.CreateClassificationPolicyAsync(new CreateClassificat
         {
             new WeightedAllocationWorkerSelectorAttachment(new List<WorkerWeightedAllocation>
             {
-                new (weight: 0.3, labelSelectors: new List<WorkerSelector>
+                new (weight: 0.3, workerSelectors: new List<RouterWorkerSelector>
                 {
                     new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new LabelValue("A"))
                 }),
-                new (weight: 0.7, labelSelectors: new List<WorkerSelector>
+                new (weight: 0.7, workerSelectors: new List<RouterWorkerSelector>
                 {
                     new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new LabelValue("B"))
                 })
@@ -413,11 +413,11 @@ await administrationClient.createClassificationPolicy("policy-1", {
         allocations: [
         { 
             weight: 0.3,
-            labelSelectors: [{ key: "Vendor", labelOperator: "equal", value: "A" }]
+            workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "A" }]
         },
         { 
             weight: 0.7,
-            labelSelectors: [{ key: "Vendor", labelOperator: "equal", value: "B" }]
+            workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "B" }]
         }]
     }]
 });
@@ -433,11 +433,11 @@ administration_client.create_classification_policy(
     classification_policy = ClassificationPolicy(
         worker_selectors = [ 
             WeightedAllocationWorkerSelectorAttachment(allocations = [
-                WorkerWeightedAllocation(weight = 0.3, label_selectors = [
-                    WorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "A")
+                WorkerWeightedAllocation(weight = 0.3, worker_selectors = [
+                    RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "A")
                 ]),
-                WorkerWeightedAllocation(weight = 0.7, label_selectors = [
-                    WorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "B")
+                WorkerWeightedAllocation(weight = 0.7, worker_selectors = [
+                    RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "B")
                 ])
             ])
         ]))
@@ -450,9 +450,9 @@ administration_client.create_classification_policy(
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
     .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment()
-        .setAllocations(List.of(new WorkerWeightedAllocation().setWeight(0.3).setLabelSelectors(List.of(
-            new WorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("A"),
-            new WorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("B")
+        .setAllocations(List.of(new WorkerWeightedAllocation().setWeight(0.3).setWorkerSelectors(List.of(
+            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("A"),
+            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("B")
         )))))));
 ```
 
@@ -467,10 +467,7 @@ Once the Job Router has received, and classified a Job using a policy, you have 
 ```csharp
 await client.UpdateJobAsync(new UpdateJobOptions("job1") {
     ClassificationPolicyId = classificationPolicy.Value.Id,
-    Labels =
-    {
-        ["Hardware_VIP"] = new LabelValue(true)
-    }});
+    Labels = { ["Hardware_VIP"] = new LabelValue(true) }});
 ```
 
 ::: zone-end
@@ -480,9 +477,7 @@ await client.UpdateJobAsync(new UpdateJobOptions("job1") {
 ```typescript
 await client.updateJob("job1", {
     classificationPolicyId: classificationPolicy.Value.Id,
-    labels: {
-        Hardware_VIP: true
-    }});
+    labels: { Hardware_VIP: true }});
 ```
 
 ::: zone-end

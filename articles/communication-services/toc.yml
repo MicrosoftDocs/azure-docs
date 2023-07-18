@@ -833,7 +833,7 @@ items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
       - name: Job Router events
-        href: ../event-grid/communication-services-router.md
+        href: ../event-grid/communication-services-router-events.md
     - name: Analytics
       items:
       - name: Job Router logs

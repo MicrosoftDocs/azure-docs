@@ -120,7 +120,7 @@ await client.DeclineJobOfferAsync(new DeclineJobOfferOptions(
     workerId: offerIssuedEvent.Data.WorkerId,
     offerId: offerIssuedEvent.Data.OfferId)
 {
-    RetryOfferAt = DateTime.UtcNow.AddMinutes(5)
+    RetryOfferAt = DateTimeOffset.UtcNow.AddMinutes(5)
 });
 ```
 
