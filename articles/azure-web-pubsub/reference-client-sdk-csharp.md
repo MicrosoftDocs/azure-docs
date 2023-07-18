@@ -8,3 +8,176 @@ ms.custom: devx-track-js
 ms.topic: conceptual 
 ms.date: 07/17/2023
 ---
+
+# Azure Web PubSub client library for .NET
+
+> [!NOTE]
+> Details about the terms used here are described in [key concepts](./key-concepts.md) article.
+
+The client-side SDK aims to speed up developer's workflow; more specifically,
+- simplifies managing client connections
+- simplifies sending messages among clients
+- automatically retries after unintended drops of client connection
+- **reliably** deliveries messages in number and in order after recovering from connection drops
+
+As shown in the diagram below, your clients establish WebSocket connections with your Web PubSub resource. 
+
+![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
+
+## Getting started
+
+### Install the package
+
+Install the client library from [NuGet](https://www.nuget.org/):
+
+```dotnetcli
+dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
+```
+
+### Prerequisites
+
+- An [Azure subscription][azure_sub].
+- An existing Web PubSub instance. [Create Web PubSub instance](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-create-instance)
+
+### Authenticate the client
+
+A Client uses a `Client Access URL` to connect and authenticate with the service. The Uri follow the patten as `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. There're multiple ways to get a `Client Access URL`. As a quick start, you can copy and paste from Azure Portal, and for production, you usually need a negotiation server to generate the Uri. [See details below](#use-negotiation-server-to-generate-client-access-url)
+
+#### Use Client Access URL from Azure Portal
+
+As a quick start, you can go to the Portal and copy the **Client Access URL** from **Key** blade.
+
+![get_client_url](https://camo.githubusercontent.com/77f1e3e39a5deef7ced866eea73684ecf844f9809dc25111006436a379f8238a/68747470733a2f2f6c6561726e2e6d6963726f736f66742e636f6d2f617a7572652f617a7572652d7765622d7075627375622f6d656469612f686f77746f2d776562736f636b65742d636f6e6e6563742f67656e65726174652d636c69656e742d75726c2e706e67)
+
+As shown in the diagram, the client will be granted permission of sending messages to the specific group and joining the specific group. Learn more about client permission, see [permissions](https://learn.microsoft.com/azure/azure-web-pubsub/reference-json-reliable-webpubsub-subprotocol#permissions)
+
+```C# Snippet:WebPubSubClient_Construct
+var client = new WebPubSubClient(new Uri("<client-access-uri>"));
+```
+
+#### Use negotiation server to generate Client Access URL
+
+In production, a client usually fetches the `Client Access URL` from a negotiation server. The server holds the connection string and generates the Client Access URL through `WebPubSubServiceClient`. As a sample, the code snippet below just demonstrates how to generate the Client Access URL inside a single process.
+
+```C# Snippet:WebPubSubClient_Construct2
+var client = new WebPubSubClient(new WebPubSubClientCredential(token =>
+{
+    // In common practice, you will have a negotiation server for generating token. Client should fetch token from it.
+    return FetchClientAccessTokenFromServerAsync(token);
+}));
+```
+
+```C# Snippet:WebPubSubClient_GenerateClientAccessUri
+public async ValueTask<Uri> FetchClientAccessTokenFromServerAsync(CancellationToken token)
+{
+    var serviceClient = new WebPubSubServiceClient("<< Connection String >>", "hub");
+    return await serviceClient.GetClientAccessUriAsync();
+}
+```
+
+Features to differentiate `WebPubSubClient` and `WebPubSubServiceClient`.
+
+|Class Name|WebPubSubClient|WebPubSubServiceClient|
+|------|---------|---------|
+|Nuget Package Name|Azure.Messaging.WebPubSub.Client |Azure.Messaging.WebPubSub|
+|Features|Usually used on client side. Publish messages and subscribe to messages.|Usually used on server side. Generate Client Access Uri and manage clients|
+
+Find more details in [Azure.Messaging.WebPubSub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub)
+
+## Examples
+
+### Consume messages from the server and groups
+
+A client can add callbacks to consume messages from the server and groups. Please note, clients can only receive group messages that it has joined.
+
+```C# Snippet:WebPubSubClient_Subscribe_ServerMessage
+client.ServerMessageReceived += eventArgs =>
+{
+    Console.WriteLine($"Receive message: {eventArgs.Message.Data}");
+    return Task.CompletedTask;
+};
+```
+
+```C# Snippet:WebPubSubClient_Subscribe_GroupMessage
+client.GroupMessageReceived += eventArgs =>
+{
+    Console.WriteLine($"Receive group message from {eventArgs.Message.Group}: {eventArgs.Message.Data}");
+    return Task.CompletedTask;
+};
+```
+
+### Add callbacks for `connected`, `disconnected`, and `stopped` events
+
+When a client connection is connected to the service, the `connected` event is triggered once it received the connected message from the service.
+
+```C# Snippet:WebPubSubClient_Subscribe_Connected
+client.Connected += eventArgs =>
+{
+    Console.WriteLine($"Connection {eventArgs.ConnectionId} is connected");
+    return Task.CompletedTask;
+};
+```
+
+When a client connection is disconnected and fails to recover, the `disconnected` event is triggered.
+
+```C# Snippet:WebPubSubClient_Subscribe_Disconnected
+client.Disconnected += eventArgs =>
+{
+    Console.WriteLine($"Connection is disconnected");
+    return Task.CompletedTask;
+};
+```
+
+When a client is stopped, which means the client connection is disconnected and the client stops trying to reconnect, the `stopped` event will be triggered. This usually happens after the `client.StopAsync()` is called, or disabled `AutoReconnect`. If you want to restart the client, you can call `client.StartAsync()` in the `Stopped` event.
+
+```C# Snippet:WebPubSubClient_Subscribe_Stopped
+client.Stopped += eventArgs =>
+{
+    Console.WriteLine($"Client is stopped");
+    return Task.CompletedTask;
+};
+```
+
+### Auto rejoin groups and handle rejoin failure
+
+When a client connection has dropped and fails to recover, all group contexts will be cleaned up on the service side. That means when the client reconnects, it needs to rejoin groups. By default, the client enabled `AutoRejoinGroups` options. However, this feature has limitations. The client can only rejoin groups that it's originally joined by the client rather than joined by the server side. And rejoin group operations may fail due to various reasons, e.g. the client doesn't have permission to join groups. In such cases, users need to add a callback to handle the failure.
+
+```C# Snippet:WebPubSubClient_Subscribe_RestoreFailed
+client.RejoinGroupFailed += eventArgs =>
+{
+    Console.WriteLine($"Restore group failed");
+    return Task.CompletedTask;
+};
+```
+
+### Operation and retry
+
+By default, the operation such as `client.JoinGroupAsync()`, `client.LeaveGroupAsync()`, `client.SendToGroupAsync()`, `client.SendEventAsync()` has three reties. You can use `WebPubSubClientOptions.MessageRetryOptions` to change. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries, thus the service can help to deduplicate the operation with the same `ackId`
+
+```C# Snippet:WebPubSubClient_JoinGroupAndRetry
+// Send message to group "testGroup"
+try
+{
+    await client.JoinGroupAsync("testGroup");
+}
+catch (SendMessageFailedException ex)
+{
+    if (ex.AckId != null)
+    {
+        await client.JoinGroupAsync("testGroup", ackId: ex.AckId);
+    }
+}
+```
+
+## Troubleshooting
+### Enable logs
+You can set the following environment variable to get the debug logs when using this library.
+
+```bash
+export AZURE_LOG_LEVEL=verbose
+```
+
+For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/logger).
+
+### Live Trace
+Use [Live Trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) from Azure Portal to inspect live message traffic through your Web PubSub resource.
