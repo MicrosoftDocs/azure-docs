@@ -104,15 +104,19 @@ Now you can access the deployed app to see whether it works. Use the following s
 
    You can access the app with URL, the page should appear as you saw in localhost.
 
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+
+   :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
+
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 1. Access the application with the output application endpoint in previous step. The page should appear as you saw in localhost.
 
----
-
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
+
+---
 
 ::: zone-end
 

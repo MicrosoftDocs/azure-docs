@@ -109,8 +109,8 @@ Use the following steps to create a service instance:
 
 1. (Optional) Create Container Apps Environment to select, Fill out the **Basics** tab with the following information:
       - **Environment name**: *mycontainerappsenvironment*
-      - **Plan**: *Consumption*
-      - **Zone redundancy**: *Disabled*
+      - **Plan**: **Consumption**
+      - **Zone redundancy**: **Disabled**
     :::image type="content" source="../../media/quickstart-deploy-web-app/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment." lightbox="../../media/quickstart-deploy-web-app/create-container-apps-environment.png":::
     Then select **Create** to create the Container Apps Environment.
 
