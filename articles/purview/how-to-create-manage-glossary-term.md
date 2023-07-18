@@ -93,9 +93,10 @@ To create a glossary term, follow these steps:
                                                                           
 1. Add **Resources** and **Acronym** information. If the term is part of a hierarchy, you can add parent terms at **Parent** on the **Overview** tab.
 
-1. Add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
+1. To establish relationships with other terms, add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of tab for related terms and the box for adding synonyms." border="true":::
+
 
 1. Optionally, select the **Contacts** tab to add experts and stewards to your term.
 

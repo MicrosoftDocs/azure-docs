@@ -24,23 +24,32 @@ A business glossary is a collection of terms. Each term represents an object in 
 
 The same term can also imply multiple business objects. It's important that each term is well-defined and clearly understood within the organization.
 
-## Custom attributes and relationships
+## Custom attributes
 
-Microsoft Purview supports these out-of-the-box attributes and relationships for any business glossary term:
+Microsoft Purview supports these out-of-the-box attributes for any business glossary term:
 - Name (mandatory)
 - Nickname
 - Status
 - Definition
 - Stewards
 - Experts
-- Acronym
-- Synonyms
-- Related terms
 - Resources
-- Parent term
 
 These attributes can't be edited or deleted, but only the Name is mandatory to create a glossary term. 
 However, these attributes aren't sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
+
+## Relationships between terms
+
+Microsoft Purview supports these out-of-the-box relationships for terms:
+
+- Parent/child term
+- Acronym
+- Synonyms
+- Related terms
+
+**Relationship definitions in the glossary are bi-directional:** Every relationship between terms is a two-way relationship. This means that if term A is related to term B, then term B is also related to term A. 
+
+Any time you populate a relationship in one direction, Purview automatically adds the reverse relationship for you. For example, if you add term A as a synonym for term B, Purview automatically adds term B as a synonym for term A. 
 
 ## Term templates
 
