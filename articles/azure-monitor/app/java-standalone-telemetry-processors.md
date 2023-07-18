@@ -115,6 +115,7 @@ The attribute processor modifies attributes of a `span` or a `log`. It can suppo
 - `delete`
 - `hash`
 - `extract`
+- `mask`
 
 ### `insert`
 
@@ -230,6 +231,34 @@ The `extract` action requires the following settings:
 * `key`
 * `pattern`
 * `action`: `extract`
+
+### `mask`
+
+> [!NOTE]
+> The `mask` feature is available only in version 3.2.5 and later.
+
+The `mask` action masks attribute values by using a regular expression rule specified in the `pattern` and `replace`.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "pattern": "<regular expression pattern with named matchers>",
+        "replace": "<value to be replaced with named matchers>",
+        "action": "mask"
+      }
+    ]
+  }
+]
+```
+The `mask` action requires the following settings:
+* `key`
+* `pattern`
+* `replace`
+* `action`: `mask`
 
 ### Include criteria and exclude criteria
 
