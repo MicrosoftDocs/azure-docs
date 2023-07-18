@@ -1,14 +1,15 @@
 ---
-title: Cloud feature availability in Microsoft Sentinel
+title: Microsoft Sentinel feature support for Azure clouds
 description: This article describes feature availability in Microsoft Sentinel across different Azure environments.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: feature-availability
 ms.custom: references_regions
-ms.date: 02/02/2023
+ms.service: microsoft-sentinel
+ms.date: 07/18/2023
 ---
 
-# Cloud feature availability in Microsoft Sentinel
+# Microsoft Sentinel feature support for Azure clouds
 
 This article describes feature availability in Microsoft Sentinel across different Azure environments.
 
