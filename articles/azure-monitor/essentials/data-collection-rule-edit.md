@@ -6,7 +6,7 @@ ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
-ms.date: 05/31/2022
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Editing Data Collection Rules
