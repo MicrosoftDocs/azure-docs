@@ -14,9 +14,8 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
 # Retrieval and Sharing of support file tutorial.
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 In this tutorial, you learn how to implement a basic log sharing mechanism.
 
