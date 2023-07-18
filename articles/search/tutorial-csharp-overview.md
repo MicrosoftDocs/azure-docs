@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/01/2022
+ms.date: 07/18/2023
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.devlang: csharp
 ---
@@ -16,7 +16,8 @@ ms.devlang: csharp
 
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
-The application is available: 
+The application is available:
+
 * [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
