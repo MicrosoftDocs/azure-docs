@@ -2,7 +2,7 @@
 title: Azure Hybrid Benefit for Linux virtual machines
 description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
-author: mathapli
+author: Dhiraj3030
 manager: gachandw
 ms.service: virtual-machines
 ms.subservice: billing
@@ -10,7 +10,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/02/2023
-ms.author: mattmcinnes
+ms.author: dkulkarni
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -122,14 +122,14 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 
 #### Convert to PAYG using the Azure CLI
 
-If the system was originally a PAYG image and customer wants to return the VM to a PAYG model, use a `--license-type` value of `None` as shows the example below:
+If the system was originally a PAYG image and you want to return the VM to a PAYG model, use a `--license-type` value of `None`. For example:
 
 ```azurecli
 # This will enable PAYG on a virtual machine using Azure Hybrid Benefit
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-But if customer has a BYOS and wants to convert the VM to PAYG, use a `--license-type` value that covers the VM needs, those codes are described below in the document, for example for RHEL systems it could be any of the following:  RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASEAPAPPS or RHEL_BASESAPHA. 
+If you have a BYOS and want to convert the VM to PAYG, use a `--license-type` value that covers the VM needs as described futher in this article. For example, for RHEL systems you can use any of the following:  RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASEAPAPPS or RHEL_BASESAPHA. 
 
 #### Convert multiple VM license models simultaneously using the Azure CLI
 
