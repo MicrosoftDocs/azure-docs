@@ -276,7 +276,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
 
 1. In the resource drop-down menu, select the virtual machine scale set you created.  
 
-1. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
+1. In the namespaces drop-down menu, select **azure.vm.windows.guestmetrics**. 
 
 1. In the metrics drop-down menu, select **Memory\%Committed Bytes in Use**.  
 
