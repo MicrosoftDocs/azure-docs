@@ -7384,7 +7384,7 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 
 ### Cognitive Services Contributor
 
-Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../cognitive-services/cognitive-services-virtual-networks.md)
+Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../ai-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7457,7 +7457,7 @@ Lets you create, read, update, delete and manage keys of Cognitive Services. [Le
 
 ### Cognitive Services Custom Vision Contributor
 
-Full access to the project, including the ability to view, create, edit, or delete projects. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Full access to the project, including the ability to view, create, edit, or delete projects. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7498,7 +7498,7 @@ Full access to the project, including the ability to view, create, edit, or dele
 
 ### Cognitive Services Custom Vision Deployment
 
-Publish, unpublish or export models. Deployment can view the project but can't update. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Publish, unpublish or export models. Deployment can view the project but can't update. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7553,7 +7553,7 @@ Publish, unpublish or export models. Deployment can view the project but can't u
 
 ### Cognitive Services Custom Vision Labeler
 
-View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7606,7 +7606,7 @@ View, edit training images and create, add, remove, or delete the image tags. La
 
 ### Cognitive Services Custom Vision Reader
 
-Read-only actions in the project. Readers can't create or update the project. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Read-only actions in the project. Readers can't create or update the project. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7651,7 +7651,7 @@ Read-only actions in the project. Readers can't create or update the project. [L
 
 ### Cognitive Services Custom Vision Trainer
 
-View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7792,7 +7792,7 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 
 ### Cognitive Services Metrics Advisor Administrator
 
-Full access to the project, including the system level configuration. [Learn more](../applied-ai-services/metrics-advisor/how-tos/alerts.md)
+Full access to the project, including the system level configuration. [Learn more](../ai-services/metrics-advisor/how-tos/alerts.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7943,7 +7943,7 @@ Read access to view files, models, deployments. The ability to create completion
 
 ### Cognitive Services QnA Maker Editor
 
-Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8064,7 +8064,7 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 
 ### Cognitive Services QnA Maker Reader
 
-Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+Let's you read and test a KB only. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8143,7 +8143,7 @@ Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/r
 
 ### Cognitive Services User
 
-Lets you read and list keys of Cognitive Services. [Learn more](../cognitive-services/authentication.md)
+Lets you read and list keys of Cognitive Services. [Learn more](../ai-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

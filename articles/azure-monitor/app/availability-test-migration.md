@@ -30,55 +30,55 @@ The following steps walk you through the process of creating [standard tests](av
 1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
 2.	List all URL ping tests in a resource group:
 
-```azurepowershell
-$resourceGroup = "myResourceGroup";
-Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup | `
-    Where-Object { $_.WebTestKind -eq "ping" };
-```
+    ```azurepowershell
+    $resourceGroup = "myResourceGroup";
+    Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup | `
+        Where-Object { $_.WebTestKind -eq "ping" };
+    ```
 3.	Find the URL ping Test you want to migrate and record its name.
 4.	The following commands create a standard test with the same logic as the URL ping test:
 
-```azurepowershell
-$appInsightsComponent = "componentName";
-$pingTestName = "pingTestName";
-$newStandardTestName = "newStandardTestName";
-
-$componentId = (Get-AzApplicationInsights -ResourceGroupName $resourceGroup -Name $appInsightsComponent).Id;
-$pingTest = Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
-$pingTestRequest = ([xml]$pingTest.ConfigurationWebTest).WebTest.Items.Request;
-$pingTestValidationRule = ([xml]$pingTest.ConfigurationWebTest).WebTest.ValidationRules.ValidationRule;
-
-$dynamicParameters = @{};
-
-if ($pingTestRequest.IgnoreHttpStatusCode -eq [bool]::FalseString) {
-
-$dynamicParameters["RuleExpectedHttpStatusCode"] = [convert]::ToInt32($pingTestRequest.ExpectedHttpStatusCode, 10);
-
-}
-
-if ($pingTestValidationRule -and $pingTestValidationRule.DisplayName -eq "Find Text" `
-
--and $pingTestValidationRule.RuleParameters.RuleParameter[0].Name -eq "FindText" `
--and $pingTestValidationRule.RuleParameters.RuleParameter[0].Value) {
-$dynamicParameters["ContentMatch"] = $pingTestValidationRule.RuleParameters.RuleParameter[0].Value;
-$dynamicParameters["ContentPassIfTextFound"] = $true;
-}
-
-New-AzApplicationInsightsWebTest @dynamicParameters -ResourceGroupName $resourceGroup -Name $newStandardTestName `
--Location $pingTest.Location -Kind 'standard' -Tag @{ "hidden-link:$componentId" = "Resource" } -TestName $newStandardTestName `
--RequestUrl $pingTestRequest.Url -RequestHttpVerb "GET" -GeoLocation $pingTest.PropertiesLocations -Frequency $pingTest.Frequency `
--Timeout $pingTest.Timeout -RetryEnabled:$pingTest.RetryEnabled -Enabled:$pingTest.Enabled `
--RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
-
-```
+    ```azurepowershell
+    $appInsightsComponent = "componentName";
+    $pingTestName = "pingTestName";
+    $newStandardTestName = "newStandardTestName";
+    
+    $componentId = (Get-AzApplicationInsights -ResourceGroupName $resourceGroup -Name $appInsightsComponent).Id;
+    $pingTest = Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
+    $pingTestRequest = ([xml]$pingTest.ConfigurationWebTest).WebTest.Items.Request;
+    $pingTestValidationRule = ([xml]$pingTest.ConfigurationWebTest).WebTest.ValidationRules.ValidationRule;
+    
+    $dynamicParameters = @{};
+    
+    if ($pingTestRequest.IgnoreHttpStatusCode -eq [bool]::FalseString) {
+    
+    $dynamicParameters["RuleExpectedHttpStatusCode"] = [convert]::ToInt32($pingTestRequest.ExpectedHttpStatusCode, 10);
+    
+    }
+    
+    if ($pingTestValidationRule -and $pingTestValidationRule.DisplayName -eq "Find Text" `
+    
+    -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Name -eq "FindText" `
+    -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Value) {
+    $dynamicParameters["ContentMatch"] = $pingTestValidationRule.RuleParameters.RuleParameter[0].Value;
+    $dynamicParameters["ContentPassIfTextFound"] = $true;
+    }
+    
+    New-AzApplicationInsightsWebTest @dynamicParameters -ResourceGroupName $resourceGroup -Name $newStandardTestName `
+    -Location $pingTest.Location -Kind 'standard' -Tag @{ "hidden-link:$componentId" = "Resource" } -TestName $newStandardTestName `
+    -RequestUrl $pingTestRequest.Url -RequestHttpVerb "GET" -GeoLocation $pingTest.PropertiesLocations -Frequency $pingTest.Frequency `
+    -Timeout $pingTest.Timeout -RetryEnabled:$pingTest.RetryEnabled -Enabled:$pingTest.Enabled `
+    -RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
+    
+    ```
 
 5. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
 6. Once you have validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
 7. To delete a URL ping test with Azure PowerShell, you can use this command:
 
-```azurepowershell
-Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
-```
+    ```azurepowershell
+    Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
+    ```
 
 ## FAQ
 
