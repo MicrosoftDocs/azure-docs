@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
 ms.topic: overview
-ms.date: 04/02/2023
+ms.date: 07/18/2023
 ms.author: pafarley
 keywords: content safety, Azure AI Content Safety, online content safety, content filtering software, content moderation service, content moderation
 ms.custom: references_regions, build-2023, build-2023-dataai
@@ -85,9 +85,11 @@ The maximum size for image submissions is 4 MB, and image dimensions must be bet
 
 ## Security
 
-### Use Azure Active Directory to manage access
+### Use Azure Active Directory or Managed Identity to manage access
 
-For enhanced security, you can use Azure Active Directory (Azure AD) to manage access to your resources. You can grant access to other users within your organization by assigning them the roles of **Azure AI services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure Portal, please refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+For enhanced security, you can use Azure Active Directory (Azure AD) or Managed Identity (MI) to manage access to your resources.
+* Managed Identity is automatically enabled when you create a Content Safety resource.
+* Azure Active Directory is supported in both API and SDK scenarios. Refer to the general AI services guideline of [Authenticating with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory). You can also grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure portal, refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### Encryption of data at rest
 

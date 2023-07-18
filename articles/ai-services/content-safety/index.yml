@@ -74,6 +74,8 @@ landingContent:
             url: https://aka.ms/content-safety-api
           - text: Content Safety Python SDK
             url: https://aka.ms/content-safety-python-sdk
+          - text: Content Safety C# SDK
+            url: https://aka.ms/content-safety-csharp-sdk
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
