@@ -115,15 +115,15 @@ workflow.
 
 ## Azure Maps Creator documentation
 
-### ![](./media/creator-indoor-maps/about-creator/Concepts.png) Concepts
+### ![Concepts](./media/creator-indoor-maps/about-creator/Concepts.png) Concepts
 
 - [Indoor map concepts]
 
-### ![](./media/creator-indoor-maps/about-creator/tutorials.png) Tutorials
+### ![Tutorials](./media/creator-indoor-maps/about-creator/tutorials.png) Tutorials
 
 - [Use Azure Maps Creator to create indoor maps]
 
-### ![](./media/creator-indoor-maps/about-creator/how-to-guides.png) How-to guides
+### ![How-to guides](./media/creator-indoor-maps/about-creator/how-to-guides.png) How-to guides
 
 - [Manage Creator]
 - [Implement Dynamic styling for indoor maps]
@@ -134,7 +134,7 @@ workflow.
 - [Create dataset using GeoJson package]
 - [Create a feature stateset]
 
-### ![](./media/creator-indoor-maps/about-creator/reference.png) Reference
+### ![Reference](./media/creator-indoor-maps/about-creator/reference.png) Reference
 
 - [Drawing package requirements]
 - [Facility Ontology]
@@ -149,7 +149,7 @@ workflow.
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md
 [Custom styling for indoor maps]: how-to-create-custom-styles.md
-[custom styling]: creator-indoor-maps#custom-styling-preview
+[custom styling]: creator-indoor-maps.md#custom-styling-preview
 [Data Upload API]: /rest/api/maps/data-v2/upload
 [dataset]: creator-indoor-maps.md#datasets
 [Drawing error visualizer]: drawing-error-visualizer.md
