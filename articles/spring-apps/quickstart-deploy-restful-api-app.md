@@ -41,7 +41,7 @@ The following diagram shows the architecture of the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 
-[!INCLUDE [deploy-rest-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-rest-api-with-consumption-plan.md)]
+[!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
 
 ## 5. Validate the app
 

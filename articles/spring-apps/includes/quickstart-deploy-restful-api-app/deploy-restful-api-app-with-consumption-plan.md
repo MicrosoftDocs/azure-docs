@@ -9,7 +9,7 @@ ms.date: 06/9/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Consumption plan.
 
-[!INCLUDE [deploy-microservice-apps-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-rest-api-with-consumption-plan.md)]
+[!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
 
 -->
 
