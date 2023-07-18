@@ -50,11 +50,11 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 > [!NOTE]
 > - ***Up to 500 entities collectively* can be identified in a single alert, divided equally across all entity mappings defined in the rule**.
->   - For example, if two entity mappings are defined in the rule, each mapping can identify up to 250 entities; if five mappings are defined, each one can identify 100 entities, and so on.
+>   - For example, if two entity mappings are defined in the rule, each mapping can identify up to 250 entities; if five mappings are defined, each one can identify up to 100 entities, and so on.
 >   - Multiple mappings of a single entity type (say, source IP and destination IP) each count separately.
 >   - If an alert contains items in excess of this limit, those excess items will not be recognized and extracted as entities.
 >
-> - **The size limit for the entire *entities* field of an alert is *64 KB***.
+> - **The size limit for the entire *entities* area of an alert (the *Entities* field) is *64 KB***.
 >   - *Entities* fields that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the field size reaches 64 KB, and any entities yet unidentified are dropped from the alert.
 
 ## Notes on the new version
@@ -69,5 +69,6 @@ In this document, you learned how to map data fields to entities in Microsoft Se
 
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).
+
 
 
