@@ -107,7 +107,7 @@ productDirectory:
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
   - title: Advanced Messaging
-    imageSrc: ./media/icons/whatsapp-icon.svg
+    imageSrc: ./media/icons/sms-icon.svg
     links:
       - url: ./concepts/advancedmessaging/whatsapp/whatsapp-overview.md
         text: AdvancedMessaging for Whatsapp concepts
