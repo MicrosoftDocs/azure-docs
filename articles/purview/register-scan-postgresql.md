@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/18/2023
 ms.custom: template-how-to
 ---
 
@@ -138,6 +138,8 @@ To create and run a new scan, follow these steps:
         > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-postgresql/scan.png" alt-text="scan PostgreSQL" border="true":::
+
+1. Select **Test connection** to validate the settings (available when using Azure Integration Runtime).
 
 1. Select **Continue**.
 
