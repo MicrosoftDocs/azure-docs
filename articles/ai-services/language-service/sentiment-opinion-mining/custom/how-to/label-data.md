@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 # Label text data for training your model for Custom sentiment analysis
 
-Before training your model you need to label your documents with the classes you want to categorize them into. Data labeling  is a crucial step in development lifecycle; in this step you can create the classes you want to categorize your data into and label your documents with these classes. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project. <!--Be sure that your data follows the [accepted data format](../concepts/data-formats.md).-->
+Before training your model you need to label your documents with the sentiments you want to categorize them into. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project. Be sure that your data follows the [accepted data format](../concepts/data-formats.md).
 
 Before creating a Custom sentiment analysis model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
 
@@ -30,13 +30,13 @@ See the [project development lifecycle](../../overview.md#project-development-li
 
 ## Data labeling guidelines
 
-After [preparing your data, designing your schema](design-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which documents will be associated with the classes you need. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON file in your storage container that you've connected to this project. 
+After [preparing your data](design-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which documents will be associated with the sentiments you need. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON file in your storage container that you've connected to this project. 
 
 As you label your data, keep in mind:
 
 * In general, more labeled data leads to better results, provided the data is labeled accurately.
 
-* There is no fixed number of labels that can guarantee your model will perform the best. Model performance on possible ambiguity in your [schema](design-schema.md), and the quality of your labeled data. Nevertheless, we recommend 50 labeled documents per class.
+* There is no fixed number of labels that can guarantee your model will perform the best. Model performance on possible ambiguity in your [data](design-schema.md), and the quality of your labeled data.
 
 ## Label your data
 
@@ -48,7 +48,7 @@ Use the following steps to label your data:
 
     >[!TIP]
     > You can use the filters in top menu to view the unlabeled files so that you can start labeling them.
-    > You can also use the filters to view the documents that are labeled with a specific class.
+    > You can also use the filters to view the documents that are labeled with a specific sentiment.
 
 3. Change to a single file view from the left side in the top menu or select a specific file to start labeling. You can find a list of all `.txt` files available in your projects to the left. You can use the **Back** and **Next** button from the bottom of the page to navigate through your documents.
 
@@ -66,18 +66,10 @@ Use the following steps to label your data:
     > If you are planning on using **Automatic** data splitting use the default option of assigning all the documents into your training set.
 
 8. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
-   * *Total instances* where you can view count of all labeled instances of a specific class.
-   * *Documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
+   * *Total instances* where you can view count of all labeled instances of a specific sentiment.
+   * *Documents with at least one label* where each document is counted if it contains at least one labeled instance of this sentiment.
 
 9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
-
-## Remove labels
-
-If you want to remove a label, uncheck the button next to the class.
-
-## Delete or classes
-
-To delete a class, click on the delete icon next to the class you want to remove. Deleting a class will remove all its labeled instances from your dataset.
 
 ## Next steps
 

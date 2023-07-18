@@ -1007,11 +1007,11 @@ items:
         href: sentiment-opinion-mining/custom/quickstart.md
       - name: Concepts
         items:
-          - name: Evaluation metrics
-            href: sentiment-opinion-mining/custom/concepts/evaluation-metrics.md
+          - name: Data formats
+            href: sentiment-opinion-mining/custom/data-formats.md
       - name: How-to guides
         items:
-          - name: Design schema
+          - name: Data preparation
             href: sentiment-opinion-mining/custom/how-to/design-schema.md
           - name: Label data
             href: sentiment-opinion-mining/custom/how-to/label-data.md

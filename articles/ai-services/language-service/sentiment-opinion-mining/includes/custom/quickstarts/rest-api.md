@@ -87,7 +87,7 @@ Generally after training a model you would review its evaluation details and mak
 
 
 
-<!--## Classify text
+## Classify text
 
 After your model is deployed successfully, you can start using it to classify your text via [Prediction API](https://aka.ms/ct-runtime-swagger). In the sample dataset you downloaded earlier you can find some test documents that you can use in this step.
 
@@ -106,6 +106,6 @@ After your model is deployed successfully, you can start using it to classify yo
 
 ## Clean up resources
 
-[!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]-->
+[!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]
 
 
