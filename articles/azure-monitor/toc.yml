@@ -128,10 +128,10 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Get started
+          - name: Get Started with JavaScript SDK
             displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK configuration
+          - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
           - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
