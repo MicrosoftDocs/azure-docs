@@ -52,7 +52,7 @@ Customers are responsible for any additional third-party agents that they would 
 
 It’s also recommended to rerun Azure Large Instances GenIO test post third-party agents are installed to check for any performance variations.
 
-## How does Microsoft communicates unplanned issues?
+## How does Microsoft communicate unplanned issues?
 
 Microsoft sends service health notification only through the Azure portal.
 We always recommend customers to configure alerts for service health notifications.  
