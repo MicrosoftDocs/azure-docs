@@ -41,7 +41,7 @@ Use these tasks if you're deploying Azure AD Connect to integrate with Active Di
 
 |Task|Description|
 |-----|-----|
-|[Determine which sync tool is correct for you](https://setup.microsoft.com/azure/add-or-sync-users-to-microsoft-365) |Use the wizard to determine whether cloud sync or Azure AD Connect is the right tool for you.|
+|[Determine which sync tool is correct for you](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad) |Use the wizard to determine whether cloud sync or Azure AD Connect is the right tool for you.|
 |[Review the Azure AD Connect prerequisites](connect/how-to-connect-install-prerequisites.md)|Review the necessary prerequisites before getting started.|
 |[Review and choose an installation type](connect/how-to-connect-install-select-installation.md)|Determine whether you'll use express or custom installation.|
 |[Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)|Download Azure AD Connect.|

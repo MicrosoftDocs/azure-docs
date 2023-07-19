@@ -1,6 +1,6 @@
 ---
 title: Microsoft Defender for Storage - the benefits and features
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 06/15/2023
 author: dcurwin

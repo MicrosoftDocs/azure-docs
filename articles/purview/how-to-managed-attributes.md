@@ -97,7 +97,7 @@ Once you have created managed attributes, you can refine your [data catalog sear
 
 Below are the known limitations of the managed attribute feature as it currently exists in Microsoft Purview.
 
-- Managed attributes can only be expired, not deleted.
+- Managed attributes can only be deleted if they have not been applied to any assets.
 - Managed attributes can't be applied via the bulk edit experience.
 - After creating an attribute group, you can't edit the name of the attribute group.
 - After creating a managed attribute, you can't update the attribute name, attribute group or the field type.
