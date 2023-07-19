@@ -4,8 +4,8 @@ description: This article explains about the concept of private endpoints for Az
 ms.topic: conceptual
 ms.service: backup
 ms.date: 05/24/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup

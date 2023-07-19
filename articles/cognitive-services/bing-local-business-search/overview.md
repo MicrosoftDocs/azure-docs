@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What is Bing Local Business Search?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 The Bing Local Business Search API is a RESTful service that enables your applications to find information about local businesses based on search queries. For example, `q=<business-name> in Redmond, Washington`, or `q=Italian restaurants near me`. 
 
 ## Features

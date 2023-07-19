@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 05/23/2022
 ms.service: backup
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Delete an Azure Backup Recovery Services vault
 

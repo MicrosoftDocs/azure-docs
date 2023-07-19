@@ -2,7 +2,6 @@
 title: Set up an indexer connection to Azure Cosmos DB via a managed identity
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to an Azure Cosmos DB account via a managed identity
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
@@ -148,6 +147,6 @@ Check to see if the Azure Cosmos DB account has its access restricted to select 
 
 ## See also
 
-* [Indexing via Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
-* [Indexing via Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
-* [Indexing via Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)
+* [Indexing via an Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
+* [Indexing via an Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
+* [Indexing via an Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)
