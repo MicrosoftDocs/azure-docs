@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Join a Teams meeting from a web app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript
-author: chpalm
-ms.author: rifox
-ms.date: 03/10/2021
+title: Quickstart - Make a call to Teams user from a web app
+description: In this tutorial, you learn how to make a call to Teams user using the Azure Communication Services Calling SDK for JavaScript
+author: ruslanzdor
+ms.author: ruslanzdor
+ms.date: 07/19/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -83,7 +83,7 @@ let localVideoStream;
 let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
-let callQueueId = document.getElementById('call-queue-id');
+let teamsUserId = document.getElementById('teams-user-id');
 let initializeCallAgentButton = document.getElementById('initialize-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
@@ -123,7 +123,7 @@ initializeCallAgentButton.onclick = async () => {
     }
 }
 /**
- * Place a 1:1 outgoing video call to a Teams Call Queue
+ * Place a 1:1 outgoing video call to a Teams user
  * Add an event listener to initiate a call when the `startCallButton` is selected.
  * Enumerate local cameras using the deviceManager `getCameraList` API.
  * In this quickstart, we're using the first camera in the collection. Once the desired camera is selected, a
@@ -134,7 +134,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = teamsCallAgent.startCall([{ botId: callQueueId.value.trim() }], { videoOptions: videoOptions });
+        call = teamsCallAgent.startCall([{ microsoftTeamsUserId: teamsUserId.value.trim() }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {

@@ -1,17 +1,16 @@
 ---
-title: Quickstart - Join a Teams meeting from an Android app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Android
-author: chpalm
-ms.author: rifox
-ms.date: 03/10/2021
+title: Quickstart - How to call to Teams user from an Android app
+description: In this tutorial, you learn how to make a call to Teams user using the Azure Communication Services Calling SDK for Android
+author: ruslanzdor
+ms.author: ruslanzdor
+ms.date: 07/19/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Android.
-
 ## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/join-call-to-teams-meeting).
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## Prerequisites
 
@@ -33,12 +32,12 @@ Replace code in activity_main.xml with following snippet. The text box will be u
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/teams_meeting_link"
+        android:id="@+id/callee_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Teams meeting link"
-        android:inputType="textUri"
+        android:hint="Callee Id"
+        android:inputType="textPersonName"
         android:layout_marginTop="100dp"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,17 +47,17 @@ Replace code in activity_main.xml with following snippet. The text box will be u
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="46dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/join_meeting_button"
+            android:id="@+id/call_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Join Meeting" />
+            android:text="Call" />
 
         <Button
             android:id="@+id/hangup_button"
@@ -69,23 +68,13 @@ Replace code in activity_main.xml with following snippet. The text box will be u
     </LinearLayout>
 
     <TextView
-        android:id="@+id/call_status_bar"
+        android:id="@+id/status_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/recording_status_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
@@ -103,6 +92,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -112,20 +102,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import com.azure.android.communication.common.CommunicationIdentifier;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.calling.Call;
 import com.azure.android.communication.calling.CallAgent;
 import com.azure.android.communication.calling.CallClient;
 import com.azure.android.communication.calling.HangUpOptions;
-import com.azure.android.communication.calling.JoinCallOptions;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.android.communication.calling.TeamsMeetingLinkLocator;
+import com.azure.android.communication.calling.StartCallOptions;
 
 public class MainActivity extends AppCompatActivity {
     private static final String[] allPermissions = new String[] { Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE };
     private static final String UserToken = "<User_Access_Token>";
 
-    TextView callStatusBar;
-    TextView recordingStatusBar;
+    TextView statusBar;
 
     private CallAgent agent;
     private Call call;
@@ -138,50 +128,50 @@ public class MainActivity extends AppCompatActivity {
         getAllPermissions();
         createAgent();
 
-        Button joinMeetingButton = findViewById(R.id.join_meeting_button);
-        joinMeetingButton.setOnClickListener(l -> joinTeamsMeeting());
+        Button callButton = findViewById(R.id.call_button);
+        callButton.setOnClickListener(l -> startCall());
 
         Button hangupButton = findViewById(R.id.hangup_button);
-        hangupButton.setOnClickListener(l -> leaveMeeting());
+        hangupButton.setOnClickListener(l -> endCall());
 
-        callStatusBar = findViewById(R.id.call_status_bar);
-        recordingStatusBar = findViewById(R.id.recording_status_bar);
+        statusBar = findViewById(R.id.status_bar);
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**
-     * Join Teams meeting
+     * Start a call
      */
-    private void joinTeamsMeeting() {
+    private void startCall() {
         if (UserToken.startsWith("<")) {
             Toast.makeText(this, "Please enter token in source code", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        EditText calleeIdView = findViewById(R.id.teams_meeting_link);
-        String meetingLink = calleeIdView.getText().toString();
-        if (meetingLink.isEmpty()) {
-            Toast.makeText(this, "Please enter Teams meeting link", Toast.LENGTH_SHORT).show();
+        EditText calleeIdView = findViewById(R.id.callee_id);
+        String calleeId = calleeIdView.getText().toString();
+        if (calleeId.isEmpty()) {
+            Toast.makeText(this, "Please enter callee", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        JoinCallOptions options = new JoinCallOptions();
-        TeamsMeetingLinkLocator teamsMeetingLinkLocator = new TeamsMeetingLinkLocator(meetingLink);
-        call = agent.join(
+        ArrayList<CommunicationIdentifier> participants = new ArrayList<>();
+        participants.add(new CommunicationUserIdentifier(calleeId));
+        StartCallOptions options = new StartCallOptions();
+        call = agent.startCall(
                 getApplicationContext(),
-                teamsMeetingLinkLocator,
+                participants,
                 options);
-        call.addOnStateChangedListener(p -> setCallStatus(call.getState().toString()));
-        call.addOnIsRecordingActiveChangedListener(p -> setRecordingStatus(call.isRecordingActive()));
+        call.addOnStateChangedListener(p -> setStatus(call.getState().toString()));
     }
 
     /**
-     * Leave from the meeting
+     * Ends the call previously started
      */
-    private void leaveMeeting() {
+    private void endCall() {
         try {
             call.hangUp(new HangUpOptions()).get();
         } catch (ExecutionException | InterruptedException e) {
-            Toast.makeText(this, "Unable to leave meeting", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Unable to hang up call", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -228,22 +218,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows call status in status bar
+     * Shows message in the status bar
      */
-    private void setCallStatus(String status) {
-        runOnUiThread(() -> callStatusBar.setText(status));
-    }
-
-    /**
-     * Shows recording status status bar
-     */
-    private void setRecordingStatus(boolean status) {
-        if (status == true) {
-            runOnUiThread(() -> recordingStatusBar.setText("This call is being recorded"));
-        }
-        else {
-            runOnUiThread(() -> recordingStatusBar.setText(""));
-        }
+    private void setStatus(String status) {
+        runOnUiThread(() -> statusBar.setText(status));
     }
 }
 
@@ -251,8 +229,6 @@ public class MainActivity extends AppCompatActivity {
 
 ## Launch the app and join Teams meeting
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). You should see the following:
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you're able to place calls by calling `8:echo123`. A pre-recorded message plays then repeat your message back to you.
 
-:::image type="content" source="../../media/android/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
-
-Insert the Teams context into the text box and press *Join Meeting* to join the Teams meeting from within your Communication Services application.
+:::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::

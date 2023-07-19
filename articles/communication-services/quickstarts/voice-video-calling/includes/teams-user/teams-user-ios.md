@@ -1,21 +1,19 @@
 ---
-title: Quickstart - Join a Teams meeting from an iOS app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS
-author: chpalm
-ms.author: rifox
-ms.date: 03/10/2021
+title: Quickstart - Make a call to Teams user from an iOS app
+description: In this tutorial, you learn how to make a call to Teams user using the Azure Communication Services Calling SDK for iOS
+author: ruslanzdor
+ms.author: ruslanzdor
+ms.date: 07/19/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
-
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS.
 
 ## Prerequisites
 
 - A working [Communication Services calling iOS app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
-We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again. 
+We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again.
 
 Replace your podfile with the following code to the Podfile and save (make sure that "target" matches the name of your project):
 
@@ -31,145 +29,175 @@ Delete your Pods folder, Podfile.lock and the `.xcworkspace.` file.
 
 Run `pod install` and open the `.xcworkspace` with Xcode.
 
-## Add the Teams UI controls and Enable the Teams UI controls
+### Request access to the microphone and camera
 
-Replace code in ContentView.swift with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
+To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that includes the dialog the system uses to request access from the user.
 
-```swift
+Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
 
-import SwiftUI
+```xml
+<key>NSMicrophoneUsageDescription</key>
+<string>Need microphone access for VOIP calling.</string>
+<key>NSCameraUsageDescription</key>
+<string>Need camera access for video calling</string>
+```
+
+### Set up the app framework
+
+Open your project's `ContentView.swift` file and add an import declaration to the top of the file to import the `AzureCommunicationCalling` library and `AVFoundation`. AVFoundation is used to capture audio permission from code.
+
+```Swift
 import AzureCommunicationCalling
 import AVFoundation
+```
 
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
+
+| Name                         | Description                                                                                                                                                                        |
+| :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CallClient`                   | The `CallClient` is the main entry point to the Calling SDK.                                                                                                                         |
+| `CallAgent`                  | The `CallAgent` is used to start and manage calls.                                                                                                                                   |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.                                                                                     |
+| `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
+
+## Create the Call Agent
+
+Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
+
+```Swift
 struct ContentView: View {
-    @State var meetingLink: String = ""
-    @State var callStatus: String = ""
-    @State var message: String = ""
-    @State var recordingStatus: String = ""
+    @State var callee: String = ""
     @State var callClient: CallClient?
     @State var callAgent: CallAgent?
     @State var call: Call?
-    @State var callObserver: CallObserver?
+    @State var deviceManager: DeviceManager?
+    @State var localVideoStream:[LocalVideoStream]?
+    @State var incomingCall: IncomingCall?
+    @State var sendingVideo:Bool = false
+    @State var errorMessage:String = "Unknown"
+
+    @State var remoteVideoStreamData:[Int32:RemoteVideoStreamData] = [:]
+    @State var previewRenderer:VideoStreamRenderer? = nil
+    @State var previewView:RendererView? = nil
+    @State var remoteRenderer:VideoStreamRenderer? = nil
+    @State var remoteViews:[RendererView] = []
+    @State var remoteParticipant: RemoteParticipant?
+    @State var remoteVideoSize:String = "Unknown"
+    @State var isIncomingCall:Bool = false
+    
+    @State var callObserver:CallObserver?
+    @State var remoteParticipantObserver:RemoteParticipantObserver?
 
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("Teams meeting link", text: $meetingLink)
-                    Button(action: joinTeamsMeeting) {
-                        Text("Join Teams Meeting")
-                    }.disabled(callAgent == nil)
-                    Button(action: leaveMeeting) {
-                        Text("Leave Meeting")
-                    }.disabled(call == nil)
-                    Text(callStatus)
-                    Text(message)
-                    Text(recordingStatus)
-                }
-            }
-            .navigationBarTitle("Calling Quickstart")
-        }.onAppear {
-            // Initialize call agent
-            var userCredential: CommunicationTokenCredential?
-            do {
-                userCredential = try CommunicationTokenCredential(token: "<USER ACCESS TOKEN>")
-            } catch {
-                print("ERROR: It was not possible to create user credential.")
-                self.message = "Please enter your token in source code"
-                return
-            }
-
-            self.callClient = CallClient()
-
-            // Creates the call agent
-            self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, error) in
-                if error != nil {
-                    self.message = "Failed to create CallAgent."
-                    return
-                } else {
-                    self.callAgent = agent
-                    self.message = "Call agent successfully created."
-                }
-            }
-        }
-    }
-
-    func joinTeamsMeeting() {
-        // Ask permissions
-        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
-            if granted {
-                let joinCallOptions = JoinCallOptions()
-                let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink)
-                self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) {(call, error) in
-                    if (error == nil) {
-                        self.call = call
-                        self.callObserver = CallObserver(self)
-                        self.call!.delegate = self.callObserver
-                        self.message = "Teams meeting joined successfully"
-                    } else {
-                        print("Failed to get call object")
-                        return
+            ZStack{
+                Form {
+                    Section {
+                        TextField("Who would you like to call?", text: $callee)
+                        Button(action: startCall) {
+                            Text("Start Call")
+                        }.disabled(callAgent == nil)
+                        Button(action: endCall) {
+                            Text("End Call")
+                        }.disabled(call == nil)
+                        Button(action: toggleLocalVideo) {
+                            HStack {
+                                Text(sendingVideo ? "Turn Off Video" : "Turn On Video")
+                            }
+                        }
                     }
                 }
-            }
-        }
-    }
-
-    func leaveMeeting() {
-        if let call = call {
-            call.hangUp(options: nil, completionHandler: { (error) in
-                if error == nil {
-                    self.message = "Leaving Teams meeting was successful"
-                } else {
-                    self.message = "Leaving Teams meeting failed"
+                // Show incoming call banner
+                if (isIncomingCall) {
+                    HStack() {
+                        VStack {
+                            Text("Incoming call")
+                                .padding(10)
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                        }
+                        Button(action: answerIncomingCall) {
+                            HStack {
+                                Text("Answer")
+                            }
+                            .frame(width:80)
+                            .padding(.vertical, 10)
+                            .background(Color(.green))
+                        }
+                        Button(action: declineIncomingCall) {
+                            HStack {
+                                Text("Decline")
+                            }
+                            .frame(width:80)
+                            .padding(.vertical, 10)
+                            .background(Color(.red))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                    .padding(10)
+                    .background(Color.gray)
                 }
-            })
-        } else {
-            self.message = "No active call to hangup"
+                ZStack{
+                    VStack{
+                        ForEach(remoteViews, id:\.self) { renderer in
+                            ZStack{
+                                VStack{
+                                    RemoteVideoView(view: renderer)
+                                        .frame(width: .infinity, height: .infinity)
+                                        .background(Color(.lightGray))
+                                }
+                            }
+                            Button(action: endCall) {
+                                Text("End Call")
+                            }.disabled(call == nil)
+                            Button(action: toggleLocalVideo) {
+                                HStack {
+                                    Text(sendingVideo ? "Turn Off Video" : "Turn On Video")
+                                }
+                            }
+                        }
+                        
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    VStack{
+                        if(sendingVideo)
+                        {
+                            VStack{
+                                PreviewVideoStream(view: previewView!)
+                                    .frame(width: 135, height: 240)
+                                    .background(Color(.lightGray))
+                            }
+                        }
+                    }.frame(maxWidth:.infinity, maxHeight:.infinity,alignment: .bottomTrailing)
+                }
+            }
+     .navigationBarTitle("Video Calling Quickstart")
+        }.onAppear{
+            // Authenticate the client
+            
+            // Initialize the CallAgent and access Device Manager
+            
+            // Ask for permissions
         }
     }
 }
 
-class CallObserver : NSObject, CallDelegate {
-    private var owner:ContentView
-    init(_ view:ContentView) {
-        owner = view
-    }
+//Functions and Observers
 
-    public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
-        owner.callStatus = CallObserver.callStateToString(state: call.state)
-        if call.state == .disconnected {
-            owner.call = nil
-            owner.message = "Left Meeting"
-        } else if call.state == .inLobby {
-            owner.message = "Waiting in lobby !!"
-        } else if call.state == .connected {
-            owner.message = "Joined Meeting !!"
-        }
+struct PreviewVideoStream: UIViewRepresentable {
+    let view:RendererView
+    func makeUIView(context: Context) -> UIView {
+        return view
     }
-    
-    public func call(_ call: Call, didChangeRecordingState args: PropertyChangedEventArgs) {
-        if (call.isRecordingActive == true) {
-            owner.recordingStatus = "This call is being recorded"
-        }
-        else {
-            owner.recordingStatus = ""
-        }
-    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
 
-    private static func callStateToString(state: CallState) -> String {
-        switch state {
-        case .connected: return "Connected"
-        case .connecting: return "Connecting"
-        case .disconnected: return "Disconnected"
-        case .disconnecting: return "Disconnecting"
-        case .earlyMedia: return "EarlyMedia"
-        case .none: return "None"
-        case .ringing: return "Ringing"
-        case .inLobby: return "InLobby"
-        default: return "Unknown"
-        }
+struct RemoteVideoView: UIViewRepresentable {
+    let view:RendererView
+    func makeUIView(context: Context) -> UIView {
+        return view
     }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -177,13 +205,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 ```
 
-## Launch the app and join Teams meeting
+## Run the code
 
-You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
-
-:::image type="content" source="../../media/ios/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
-
-Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.
+You can build and run your app on iOS simulator by selecting Product > Run or by using the (⌘-R) keyboard shortcut.

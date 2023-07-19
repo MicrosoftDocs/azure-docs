@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make a call to Teams user with the Azure Communication Calling SDK.
 author: ruslanzdor
 ms.author: ruslanzdor
-ms.date: 00/19/2023
+ms.date: 07/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -36,7 +36,7 @@ In results we'll are able to find "ID" field
 ```
 
 Or the same ID could be found in [Azure Portal](https://aka.ms/portal) in Users tab:
-![portal-user-id](/includes/teams-user/portal-user-id.png)
+![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-user/teams-user-javascript.md)]
