@@ -36,15 +36,21 @@ Integer identifying an item within a physical partition.
 
 ## Examples
 
-For this example, consider a container with multiple items that exist in the same logical partition.
+This example illustrates using this function to extract and return the integer identifier relative to a physical partition.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/seed.json" highlight="5,10":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/seed.novalidate.json" highlight="3":::
 
-This example illustrates using this function as a filter to get specific items from a container.
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid/query.novalidate.sql" highlight="4":::  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid/query.sql" highlight="9-10":::  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/result.novalidate.json":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/result.json":::
+This function can also be used as a filter.
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/seed.novalidate.json" highlight="3":::
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/query.novalidate.sql" highlight="3,7-8":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/result.novalidate.json":::
 
 ## Remarks
 
