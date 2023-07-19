@@ -23,7 +23,7 @@ This article provides an overview of the current limitations when using [Azure V
 
 ## General limitations
 
-* Azure Virtual Network Manager doesn't have [cross-tenant support](concept-cross-tenant.md) in the public preview.
+* [Cross-tenant support](concept-cross-tenant.md) is only available when virtual networks are assigned to network groups with static membership.
 
 * Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the [subscription and resource group scopes](concept-network-manager-scope.md). Management groups can't be applied over the 15 k subscription limit.
    * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15,000 subscriptions.
