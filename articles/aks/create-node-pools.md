@@ -173,7 +173,7 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 
 ## Node pools with unique subnets
 
-A workload may require splitting a cluster nodes into separate pools for logical isolation. Separate subnets dedicated to each node pool in the cluster can help support this isolation, which can address requirements such as having noncontiguous virtual network address space to split across node pools.
+A workload may require splitting cluster nodes into separate pools for logical isolation. Separate subnets dedicated to each node pool in the cluster can help support this isolation, which can address requirements such as having noncontiguous virtual network address space to split across node pools.
 
 > [!NOTE]
 > Make sure to use Azure CLI version `2.35.0` or later.

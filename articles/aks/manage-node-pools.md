@@ -25,7 +25,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * [System pools][use-system-pool] must contain at least one node, and user node pools may contain zero or more nodes.
 * You can't change the VM size of a node pool after you create it.
-* When you create multiple node pools at cluster creation time, all Kubernetes versions used by node pools must match the version set for the control plane. You can update this after provisioning the cluster using per node pool operations.
+* When you create multiple node pools at cluster creation time, all Kubernetes versions used by node pools must match the version set for the control plane. You can make updates after provisioning the cluster using per node pool operations.
 * You can't simultaneously run upgrade and scale operations on a cluster or node pool. If you attempt to run them at the same time, you receive an error. Each operation type must complete on the target resource prior to the next request on that same resource. For more information, see the [troubleshooting guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
 ## Upgrade a single node pool
@@ -185,7 +185,7 @@ For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use
 
 ## Associate capacity reservation groups to node pools (preview)
 
-As your application workload demands change, you can associate existing capacity reservation groups to node pools, which guarantees allocated capacity for your node pools.  
+As your workload demands change, you can associate existing capacity reservation groups to node pools to guarantee allocated capacity for your node pools.  
 
 For more information, see [capacity reservation groups][capacity-reservation-groups].
 
@@ -575,3 +575,5 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [create-node-pools]: create-node-pools.md
 [use-labels]: use-labels.md
 [use-tags]: use-tags.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
