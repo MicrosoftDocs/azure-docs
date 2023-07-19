@@ -16,13 +16,12 @@ Emotions detection is an Azure AI Video Indexer AI feature that automatically de
 
 The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
 
-
 ## General principles 
 
 There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying emotions detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
-- Are we equipped to identify and respond to errors? AI-powered products and features are not 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
+- Are we equipped to identify and respond to errors? AI-powered products and features are not 100% accurate, consider how you identify and respond to any errors that may occur. 
 
 ## General Transparency Note overview
 
