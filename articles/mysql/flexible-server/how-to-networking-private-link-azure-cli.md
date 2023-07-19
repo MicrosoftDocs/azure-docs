@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 05/23/2023
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ---
 
