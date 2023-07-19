@@ -92,9 +92,9 @@ The client app can subscribe to following events:
 > [!NOTE] 
 > Real time notifications are not to be used with server applications.
 
-## Server Events
+## Server events
 
-This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis and many other scenarios for orchestration. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json) 
+This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see what kinds of chat events can be used by developers, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
 
