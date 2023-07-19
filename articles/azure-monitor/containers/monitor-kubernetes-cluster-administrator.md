@@ -199,6 +199,7 @@ The following table describes the different types of custom alert rules that you
 
 
 ### Additional scenarios
+This section provides solutions to a variety of common scenarios that may be encountered by the cluster administrator using the configuration described above.
 
 **How can I monitor if my cluster upgrade was successful?**
 
