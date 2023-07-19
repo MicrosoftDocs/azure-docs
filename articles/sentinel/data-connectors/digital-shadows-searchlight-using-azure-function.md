@@ -116,7 +116,7 @@ Set the `DigitalShadowsURL` value to: `https://api.searchlight.app/v1`
 Set the `HighVariabilityClassifications` value to: `exposed-credential,marked-document`
 Set the `ClassificationFilterOperation` value to: `exclude` for exclude function app or `include` for include function app 
 >Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://CustomerId.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: ``` https://CustomerId.ods.opinsights.azure.us ```. 
 4. Once all application settings have been entered, click **Save**.
 
 
