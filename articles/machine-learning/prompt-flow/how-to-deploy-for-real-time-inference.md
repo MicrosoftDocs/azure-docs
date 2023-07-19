@@ -95,7 +95,7 @@ If the checkbox is selected, the first row of your input data will be used as sa
 
 ### Outputs
 
-In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy.
+In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
 
@@ -143,7 +143,7 @@ For **System-assigned** identity:
 |Resource|Role|Why it's needed|
 |---|---|---|
 |Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections. |
-|(Optional) Workspace default storage|* Storage Blob Data Contributor<br> * Storage Table Data Contributor| Enable tracing data including node level outputs/trace/logs when performing inference. Currently it's not required.|
+
 
 For **User-assigned** identity:
 
@@ -153,7 +153,7 @@ For **User-assigned** identity:
 |Workspace container registry |Acr pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
-|(Optional) Workspace default storage|Storage Blob Data Contributor<br>  Storage Table Data Contributor| Enable tracing data including node level outputs/trace/logs when performing inference. Currently it's not required.|
+
 
 To grant permissions to the endpoint identity, there are two ways:
 
