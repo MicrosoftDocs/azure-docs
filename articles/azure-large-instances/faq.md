@@ -52,8 +52,7 @@ Customers are responsible for any additional third-party agents that they would 
 
 It’s also recommended to rerun Azure Large Instances GenIO test post third-party agents are installed to check for any performance variations.
 
-For more information, see “Shared Responsibility Model"
-## How will I get notified if there's any issue with our Azure Large Instances resource? How Microsoft communicates unplanned issues?
+## How will I get notified if there's any issue with our Azure Large Instances resource? How does Microsoft communicate unplanned issues?
 
 Microsoft sends service health notification only through the Azure portal.
 We always recommend customers to configure alerts for service health notifications.  
