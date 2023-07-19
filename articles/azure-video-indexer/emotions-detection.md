@@ -32,7 +32,7 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 Introduction: This model is designed to help detect emotions in the transcript of a video. However, it is not suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
 
-Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. As such, it should not be used for assessing employee performance or the emotional state of any other person.  
+Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. It should not be used for assessing employee performance or the emotional state of any other person.  
 
 Information requirements: To increase the accuracy of this model, it is recommended that input data be in a clear and unambiguous format. Users should also note that this model does not have context about input data, which can impact its accuracy.  
 
