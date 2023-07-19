@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure
+## <a name="create-storage-account-with-a-private-endpoint"></a> Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -39,7 +39,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
 > If you choose to use an existing storage account, it's recommended that you disable public access to the storage account. For more information, see [Change the default network access rule - Azure storage](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule).
-
 
 ## Create private endpoint
 
@@ -112,7 +111,7 @@ The private endpoint is created in virtual network created in the previous steps
 
 [!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
 
-### Storage access key
+## Storage access key
 
 The storage access key is required for the later steps. You'll go to the storage account you created previously and copy the connection string with the access key for the storage account.
 
@@ -124,7 +123,7 @@ The storage access key is required for the later steps. You'll go to the storage
 
 4. Select **Show**, then select copy on the **Connection string** for **key1**.
 
-### Add a blob container
+## Add a blob container
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
