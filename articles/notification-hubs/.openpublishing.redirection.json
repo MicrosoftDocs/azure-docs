@@ -16,7 +16,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "notification-hubs-windows-mobile-push-notifications-mpns.md",
+            "source_path": "/articles/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md",
             "redirect_url": "/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md",
             "redirect_document_id": true
         },
