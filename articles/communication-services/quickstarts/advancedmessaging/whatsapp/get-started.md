@@ -9,6 +9,7 @@ ms.author: memontic
 ms.date: 06/20/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+zone_pivot_groups: acs-dev-environment-vs-vscode
 ---
 
 # Quickstart: Add Advanced Messages SDK to your App
