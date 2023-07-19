@@ -1,6 +1,6 @@
 ---
 title: Agentless Container Posture Management | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about Agentless Container Posture Management
 ms.topic: reference
 ms.date: 06/13/2023

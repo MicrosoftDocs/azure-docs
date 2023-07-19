@@ -1,5 +1,5 @@
 ---
-title: Prioritize security actions by data sensitivity - Microsoft Defender for Cloud
+title: Prioritize security actions by data sensitivity 
 description: Use Microsoft Purview's data sensitivity classifications in Microsoft Defender for Cloud
 author: dcurwin
 ms.author: dacurwin
