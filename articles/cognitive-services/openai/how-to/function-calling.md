@@ -22,7 +22,7 @@ At a high level you can break down working with functions into three steps:
 2. Use the model’s response to call your API or function 
 3. Call the chat completions API again, including the response from your function to get a final response
 
-## Using functions in the Chat Completions API
+## Using functions in the chat completions API
 
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 
