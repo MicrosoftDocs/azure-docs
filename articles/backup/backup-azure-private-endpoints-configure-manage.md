@@ -4,8 +4,8 @@ description: This article explains how to configure and manage private endpoints
 ms.topic: how-to
 ms.service: backup
 ms.date: 04/26/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create and use private endpoints (v2 experience) for Azure Backup
