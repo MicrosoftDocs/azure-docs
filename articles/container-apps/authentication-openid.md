@@ -68,3 +68,6 @@ Use the following guides for details on working with authenticated users.
 
 > [!div class="nextstepaction"]
 > [Authentication and authorization overview](authentication.md)
+
+<!-- URLs. -->
+[Azure portal]: https://portal.azure.com/
