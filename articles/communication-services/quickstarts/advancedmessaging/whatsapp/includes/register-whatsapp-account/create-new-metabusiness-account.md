@@ -11,8 +11,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-## Creating a new Meta Business Account
-
  - After WhatsApp Business Account signup, select **Create a Business Account** or you can optionally select an existing account. Then click on the **Continue** button.
 
     :::image type="content" source="../../media/register-whatsapp-account/select-existing-whatsapp-account.png" alt-text="Screenshot that shows Creating new of selecting existing Meta Business Account.":::

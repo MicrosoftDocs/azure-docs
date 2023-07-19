@@ -36,13 +36,11 @@ Getting started with the Azure Communication Services Advanced Message SDK which
     -  Business phone number: The phone number that customers can use to contact you. You can use the phone number described in the step above.
 5.  [Active WhatsApp Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
-::: zone pivot="whatsapp-signup"
+## WhatsApp Business Account Sign-up
 [!INCLUDE [Whatsapp Signup](./includes/register-whatsapp-account/whatsapp-signup.md)]
-::: zone-end
 
-::: zone pivot="create-new-metabusiness-account"
+## Creating a new Meta Business Account
 [!INCLUDE [Add Whatsapp Business Account](./includes/register-whatsapp-account/create-new-metabusiness-account.md)]
-::: zone-end
 
 ## Creating a WhatsApp Business Profile
 
@@ -52,9 +50,8 @@ Getting started with the Azure Communication Services Advanced Message SDK which
 
 2. Once you have completed the form, click **Next** to continue.
 
-::: zone pivot="verify-phonenumber"
+## Verify Your WhatsApp Business Number
 [!INCLUDE [Verify Whatsapp Business Phonenumber](./includes/register-whatsapp-account/verify-phonenumber.md)]
-::: zone-end
 
 ## Viewing your WhatsApp Account in the Azure Communication Services Portal
 

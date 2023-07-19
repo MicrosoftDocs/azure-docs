@@ -179,6 +179,8 @@ items:
           href: quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
         - name: Get Started With Advanced Messages
           href: quickstarts/advancedmessaging/whatsapp/get-started.md
+        - name: Try AdvancedMessaging For Whatsapp Sandbox
+          href: quickstarts/advancedmessaging/whatsapp/whatsapp-sandbox-quickstart.md
 - name: Tutorials
   items:
   - name: SMS

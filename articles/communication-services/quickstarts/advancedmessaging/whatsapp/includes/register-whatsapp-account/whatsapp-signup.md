@@ -11,8 +11,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-## WhatsApp Business Account Sign-up
-
 To get started, you will connect a new or existing WhatsApp Business Account with your Azure Communication Services resource in the Azure portal. The process is initiated in the Azure portal. This will open a new browser window for you to complete a signup process using Facebook’s signup wizard. 
 
 - On the left navigation bar, click on the **WhatsApp** channel under the **Channels** header. To add a new WhatsApp Business Account, click on the **Connect** button.
