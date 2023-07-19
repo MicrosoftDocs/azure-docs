@@ -200,7 +200,7 @@ else:
 
 In the example above, we don't do any validation or error handling so you'll want to make sure to add that to your code.
 
-For a full example of working with functions, see the (sample notebook on function calling)[]. You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
+For a full example of working with functions, see the (sample notebook on function calling)[https://aka.ms/oai/function-samples]. You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
 
 ## Using function calling responsibly
 Like any AI system, using function calling to integrate language models with other tools and systems presents potential risks. It’s important to understand the risks that function calling could present and take measures to ensure you use the capabilities responsibly.
