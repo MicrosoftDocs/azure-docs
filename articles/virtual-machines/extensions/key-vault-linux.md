@@ -20,8 +20,7 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 
 The Key Vault VM extension supports these Linux distributions:
 
-- Ubuntu 18.04
-- SUSE   15 
+- Ubuntu 20.04, 22.04 
 - [Azure Linux](../../azure-linux/intro-azure-linux.md)
 
 > [!NOTE]
@@ -76,7 +75,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KVVMExtensionForLinux",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-11-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -86,6 +85,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       "type": "KeyVaultForLinux",
       "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "settings": {
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
@@ -120,7 +120,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2022-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 2.0 | int |
@@ -147,7 +147,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KeyVaultForLinux",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-11-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -157,6 +157,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "type": "KeyVaultForLinux",
       "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "settings": {
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
@@ -202,7 +203,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -222,7 +223,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -241,6 +242,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
          --version 2.0 `
+         --enable-auto-upgrade true `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -253,6 +255,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
         --version 2.0 `
+        --enable-auto-upgrade true `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Please be aware of the following restrictions/requirements:
