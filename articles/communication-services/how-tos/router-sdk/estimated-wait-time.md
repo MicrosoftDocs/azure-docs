@@ -74,7 +74,7 @@ Queue statistics: { "QueueId":"queue1", "Length": 15, "EstimatedWaitTimeMinutes"
 
 ## Get estimated wait time and position of a job in a queue
 
-Estimated wait time for a job with Id `job1` is retrieved by calling `GetQueuePositionAsync` and checking the `EstimatedWaitTimeMinutes` property.  Job Router also returns the position of the job in the queue.
+Estimated wait time for a job with ID `job1` is retrieved by calling `GetQueuePositionAsync` and checking the `EstimatedWaitTimeMinutes` property.  Job Router also returns the position of the job in the queue.
 
 ::: zone pivot="programming-language-csharp"
 

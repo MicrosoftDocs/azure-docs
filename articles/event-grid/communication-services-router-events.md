@@ -26,8 +26,8 @@ Azure Communication Services emits the following job router event types:
 | [`RouterJobCancelled`](#microsoftcommunicationrouterjobcancelled) | `Job` | A job was canceled |
 | [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
 | [`RouterJobWorkerSelectorsExpired`](#microsoftcommunicationrouterjobworkerselectorsexpired)  | `Job` |  One or more worker selectors on a job have expired  |
-| [`RouterJobUnassigned`](#microsoftcommunicationrouterjobunassigned)  | `Job` |  An already assigned job  has been uassigned from a worker |
-| [`RouterJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrive, Router is waiting on contoso to act on the job |
+| [`RouterJobUnassigned`](#microsoftcommunicationrouterjobunassigned)  | `Job` |  An already assigned job  has been unassigned from a worker |
+| [`RouterJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrived, Router is waiting on contoso to act on the job |
 | [`RouterJobSchedulingFailed`](#microsoftcommunicationrouterjobschedulingfailed)  | `Job` |  A scheduled job was requested however, Router failed to create one |
 | [`RouterJobDeleted`](#microsoftcommunicationrouterjobdeleted)  | `Job` |  A job has been deleted |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
@@ -91,11 +91,12 @@ This section contains an example of what that data would look like for each even
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values PendingClassification, Queued | When a this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
+| jobStatus| `enum` | ❌ | Possible values PendingClassification, Queued | When this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
 | queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
@@ -159,6 +160,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
@@ -224,6 +226,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -280,6 +283,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -327,6 +331,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -376,6 +381,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -425,6 +431,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | note| `string` | ✔️ | | Based on user input
@@ -472,6 +479,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -533,6 +541,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -580,6 +589,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -644,6 +654,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -711,6 +722,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -758,6 +770,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -804,6 +817,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -856,6 +870,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -896,6 +911,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -932,6 +948,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -967,6 +984,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1025,6 +1043,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1056,6 +1075,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1108,6 +1128,7 @@ _**Attribute list**_
 ```
 
 _**Attribute list**_
+
 | Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |

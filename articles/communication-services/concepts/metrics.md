@@ -53,7 +53,7 @@ The following operations are available on Chat API request metrics:
 | AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
 | RemoveChatThreadParticipant   | Remove a member from a thread. |
 
-:::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
+:::image type="content" source="./media/chat-metric.png" alt-text="Screenshot of Chat API Request Metric.":::
 
 If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 
@@ -67,7 +67,7 @@ The following operations are available on SMS API request metrics:
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
 
-:::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Screenshot of SMS API Request Metric.":::
 
 ### Authentication API requests
 
@@ -81,7 +81,7 @@ The following operations are available on Authentication API request metrics:
 | RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
 | ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
-:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Screenshot of authentication Request Metric.":::
 
 ### Call Automation API requests
 
@@ -114,34 +114,34 @@ The following operations are available on Job Router API request metrics:
 | Operation / Route  | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | UpsertClassificationPolicy | Creates or updates a classification policy.
-| GetClassificationPolicy | Retrieves an existing classification policy by Id. |
+| GetClassificationPolicy | Retrieves an existing classification policy by ID. |
 | ListClassificationPolicies | Retrieves existing classification policies |
-| DeleteDistributionPolicy | Delete a classification policy by Id. |
+| DeleteDistributionPolicy | Delete a classification policy by ID. |
 | UpsertDistributionPolicy | Creates or updates a distribution policy.
-| GetDistributionPolicy | Retrieves an existing distribution policy by Id. |
-| ListDistributionPolicies | Retrieves existing distributionpolicies |
-| DeleteDistributionPolicy | Delete a distribution policy by Id. |
+| GetDistributionPolicy | Retrieves an existing distribution policy by ID. |
+| ListDistributionPolicies | Retrieves existing distribution policies |
+| DeleteDistributionPolicy | Delete a distribution policy by ID. |
 | UpsertExceptionPolicy | Creates or updates an exception policy. |
-| GetExceptionPolicy | Retrieves an existing exception policy by Id. |
+| GetExceptionPolicy | Retrieves an existing exception policy by ID. |
 | ListExceptionPolicies | Retrieves existing exception policies |
-| DeleteExceptionPolicy | Delete an exception policy by Id. |
+| DeleteExceptionPolicy | Delete an exception policy by ID. |
 | UpsertQueue| Creates or updates a queue.
-| GetQueue | Retrieves an existing queue by Id. |
+| GetQueue | Retrieves an existing queue by ID. |
 | GetQueues | Retrieves existing queues |
-| DeleteQueue | Delete a queue by Id. |
+| DeleteQueue | Delete a queue by ID. |
 | GetQueueStatistics | Retrieves a queue's statistics. |
 | UpsertJob | Creates or updates a job.
-| GetJob | Retrieves an existing job by Id. |
+| GetJob | Retrieves an existing job by ID. |
 | GetJobs | Retrieves existing jobs |
-| DeleteJob | Delete a queue policy by Id. |
+| DeleteJob | Delete a queue policy by ID. |
 | ReclassifyJob | Reclassify a job.
-| CancelJob | Submits request to cancel an existing job by Id while supplying free-form cancellation reason. |
+| CancelJob | Submits request to cancel an existing job by ID while supplying free-form cancellation reason. |
 | CompleteJob | Completes an assigned job. |
 | CloseJob | Closes a completed job. |
 | AcceptJobOffer | Accepts an offer to work on a job and returns a 409/Conflict if another agent accepted the job already. |
 | DeclineJobOffer| Declines an offer to work on a job. |
 | UpsertWorker | Creates or updates a worker.
-| GetWorker | Retrieves an existing worker by Id. |
+| GetWorker | Retrieves an existing worker by ID. |
 | GetWorkers | Retrieves existing workers. |
 | DeleteWorker | Deletes a worker and all of its traces. |
 
@@ -153,7 +153,7 @@ The following operations are available on Network Traversal API request metrics:
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
-:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
+:::image type="content" source="./media/acs-turn-metrics.png" alt-text="Screenshot of TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
 
 ### Rooms API requests
 
@@ -171,7 +171,7 @@ The following operations are available on Rooms API request metrics:
 | GetParticipants               | Gets list of participants for a Room. |
 | UpdateParticipants            | Updates list of participants for a Room. |
 
-:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
+:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Screenshot of Rooms Request Metric.":::
 
 ## Next steps
 
