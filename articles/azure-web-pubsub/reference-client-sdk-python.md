@@ -28,8 +28,8 @@ As shown in the diagram below, your clients establish WebSocket connections with
 
 ### Prerequisites
 - [Python 3.7+](https://www.python.org/downloads/)
-- An [Azure subscription][azure_sub].
-- A [Web PubSub resource][create_instance]
+- An Azure subscription
+- A Web PubSub resource
 
 ### 1. Install the `azure-messaging-webpubsubclient` package
 
@@ -43,7 +43,7 @@ A client uses a `Client Access URL` to connect and authenticate with the service
 
 ![get_client_url](https://learn.microsoft.com/azure/azure-web-pubsub/media/howto-websocket-connect/generate-client-url.png)
 
-As shown in the diagram above, the client has the permissions to send messages to and join a specific group named "_group1_". 
+As shown in the diagram above, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
 ```python
 from azure.messaging.webpubsubclient import WebPubSubClient
@@ -81,7 +81,7 @@ client.send_to_group(group_name, "hello world", "text");
 ```
 
 ## Examples
-### Add callbacks for connected, disconnected and stopped events
+### Add callbacks for `connected`, `disconnected` and `stopped` events
 #### 
 1. When a client is successfully connected to your Web PubSub resource, the `connected` event is triggered.
 
@@ -95,7 +95,7 @@ client.on("connected", lambda e: print(f"Connection {e.connection_id} is connect
 client.on("disconnected", lambda e: print(f"Connection disconnected: {e.message}"))
 ```
 
-3. The `stopped` event will be triggered when the client is disconnected *and* the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `auto_reconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
+3. The `stopped` event will be triggered when the client is disconnected **and** the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `auto_reconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
 
 ```python
 client.on("stopped", lambda : print("Client has stopped"))
@@ -118,7 +118,7 @@ client.on("group-message", lambda e: print(f"Received message from {e.group}: {e
 When a client is disconnected and fails to recover, all group contexts will be cleaned up in your Web PubSub resource. This means when the client reconnects, it needs to rejoin groups. By default, the client has `auto_rejoin_groups` option enabled. 
 
 However, you should be aware of `auto_rejoin_groups`'s limitations. 
-- The client can only rejoin groups that it's originally joined by the client code _not_ by the server side code. 
+- The client can only rejoin groups that it's originally joined **by the client code _not_ by the server side code**. 
 - "rejoin group" operations may fail due to various reasons, e.g. the client doesn't have permission to join the groups. In such cases, you need to add a callback to handle this failure.
 
 ```python

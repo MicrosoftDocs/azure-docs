@@ -41,23 +41,23 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 ### Authenticate the client
 
-A Client uses a `Client Access URL` to connect and authenticate with the service. The Uri follow the patten as `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. There're multiple ways to get a `Client Access URL`. As a quick start, you can copy and paste from Azure Portal, and for production, you usually need a negotiation server to generate the Uri. [See details below](#use-negotiation-server-to-generate-client-access-url)
+A Client uses a `Client Access URL` to connect and authenticate with the service. `Client Access URL` follows the patten as `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. There're multiple ways to get a `Client Access URL`. As a quick start, you can copy and paste from Azure Portal, and for production, you usually need a negotiation server to generate `Client Access URL`. [See details below.](#use-negotiation-server-to-generate-client-access-url)
 
 #### Use Client Access URL from Azure Portal
 
-As a quick start, you can go to the Portal and copy the **Client Access URL** from **Key** blade.
+As a quick start, you can go to Azur Portal and copy the **Client Access URL** from **Keys** blade.
 
 ![get_client_url](https://camo.githubusercontent.com/77f1e3e39a5deef7ced866eea73684ecf844f9809dc25111006436a379f8238a/68747470733a2f2f6c6561726e2e6d6963726f736f66742e636f6d2f617a7572652f617a7572652d7765622d7075627375622f6d656469612f686f77746f2d776562736f636b65742d636f6e6e6563742f67656e65726174652d636c69656e742d75726c2e706e67)
 
-As shown in the diagram, the client will be granted permission of sending messages to the specific group and joining the specific group. Learn more about client permission, see [permissions](https://learn.microsoft.com/azure/azure-web-pubsub/reference-json-reliable-webpubsub-subprotocol#permissions)
+As shown in the diagram, the client will be granted permission of sending messages to specific groups and joining specific groups. Learn more about client permission, see [permissions.](https://learn.microsoft.com/azure/azure-web-pubsub/reference-json-reliable-webpubsub-subprotocol#permissions)
 
 ```C# Snippet:WebPubSubClient_Construct
 var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 ```
 
-#### Use negotiation server to generate Client Access URL
+#### Use negotiation server to generate `Client Access URL`
 
-In production, a client usually fetches the `Client Access URL` from a negotiation server. The server holds the connection string and generates the Client Access URL through `WebPubSubServiceClient`. As a sample, the code snippet below just demonstrates how to generate the Client Access URL inside a single process.
+In production, a client usually fetches the `Client Access URL` from a negotiation server. The server holds the `connection string` and generates the `Client Access URL` through `WebPubSubServiceClient`. As a sample, the code snippet below just demonstrates how to generate the `Client Access URL` inside a single process.
 
 ```C# Snippet:WebPubSubClient_Construct2
 var client = new WebPubSubClient(new WebPubSubClientCredential(token =>
@@ -81,8 +81,6 @@ Features to differentiate `WebPubSubClient` and `WebPubSubServiceClient`.
 |------|---------|---------|
 |Nuget Package Name|Azure.Messaging.WebPubSub.Client |Azure.Messaging.WebPubSub|
 |Features|Usually used on client side. Publish messages and subscribe to messages.|Usually used on server side. Generate Client Access Uri and manage clients|
-
-Find more details in [Azure.Messaging.WebPubSub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub)
 
 ## Examples
 
@@ -140,7 +138,7 @@ client.Stopped += eventArgs =>
 
 ### Auto rejoin groups and handle rejoin failure
 
-When a client connection has dropped and fails to recover, all group contexts will be cleaned up on the service side. That means when the client reconnects, it needs to rejoin groups. By default, the client enabled `AutoRejoinGroups` options. However, this feature has limitations. The client can only rejoin groups that it's originally joined by the client rather than joined by the server side. And rejoin group operations may fail due to various reasons, e.g. the client doesn't have permission to join groups. In such cases, users need to add a callback to handle the failure.
+When a client connection has dropped and fails to recover, all group contexts will be cleaned up on the service side. That means when the client reconnects, it needs to rejoin groups. By default, the client enabled `AutoRejoinGroups` options. However, this feature has limitations. The client can only rejoin groups that it's originally joined **by the client** rather than joined **by the server side**. And rejoin group operations may fail due to various reasons, e.g. the client doesn't have permission to join groups. In such cases, users need to add a callback to handle such failure.
 
 ```C# Snippet:WebPubSubClient_Subscribe_RestoreFailed
 client.RejoinGroupFailed += eventArgs =>
@@ -152,7 +150,7 @@ client.RejoinGroupFailed += eventArgs =>
 
 ### Operation and retry
 
-By default, the operation such as `client.JoinGroupAsync()`, `client.LeaveGroupAsync()`, `client.SendToGroupAsync()`, `client.SendEventAsync()` has three reties. You can use `WebPubSubClientOptions.MessageRetryOptions` to change. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries, thus the service can help to deduplicate the operation with the same `ackId`
+By default, the operation such as `client.JoinGroupAsync()`, `client.LeaveGroupAsync()`, `client.SendToGroupAsync()`, `client.SendEventAsync()` has three reties. You can use `WebPubSubClientOptions.MessageRetryOptions` to change. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries, thus the service can help to deduplicate the operation with the same `ackId`.
 
 ```C# Snippet:WebPubSubClient_JoinGroupAndRetry
 // Send message to group "testGroup"

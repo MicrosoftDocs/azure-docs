@@ -172,8 +172,8 @@
           href: reference-client-sdk-python.md
         - name: Client SDK - Java
           href: reference-client-sdk-java.md
-        - name: WebSocket API
-          href: reference-client-api-websocket.md
+        # - name: WebSocket API
+        #   href: reference-client-api-websocket.md
     - name: Server-side API
       items:
         - name: REST API

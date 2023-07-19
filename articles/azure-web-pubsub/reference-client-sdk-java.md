@@ -46,15 +46,15 @@ As shown in the diagram below, your clients establish WebSocket connections with
 
 ### Authenticate the client
 
-A Client uses a Client Access URL to connect and authenticate with the service. The URL pattern is `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. There're multiple ways to get a Client Access URL. As a quick start, you can copy and paste from Azure Portal, and for production, you usually need a negotiation server to generate the URL. [See details below](#use-negotiation-server-to-generate-client-access-url)
+A client uses a `Client Access URL` to connect and authenticate with the service. The URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. There're multiple ways to get a `Client Access URL`. As a quick start, you can copy and paste from Azure Portal, and for production, you usually need a negotiation server to generate the URL. [See details below.](#use-negotiation-server-to-generate-client-access-url)
 
-#### Use Client Access URL from Azure Portal
+#### Use `Client Access URL` from Azure Portal
 
-As a quick start, you can go to the Portal and copy the **Client Access URL** from **Key** blade.
+As a quick start, you can go to the Portal and copy the **Client Access URL** from **Keys** blade.
 
 ![get_client_url](https://camo.githubusercontent.com/77f1e3e39a5deef7ced866eea73684ecf844f9809dc25111006436a379f8238a/68747470733a2f2f6c6561726e2e6d6963726f736f66742e636f6d2f617a7572652f617a7572652d7765622d7075627375622f6d656469612f686f77746f2d776562736f636b65742d636f6e6e6563742f67656e65726174652d636c69656e742d75726c2e706e67)
 
-As shown in the diagram, the client will be granted permission of sending messages to the specific group and joining the specific group. Learn more about client permission, see [permissions](https://learn.microsoft.com/azure/azure-web-pubsub/reference-json-reliable-webpubsub-subprotocol#permissions)
+As shown in the diagram, the client will be granted permission of sending messages to specific groups and joining specific groups. Learn more about client permission, see [permissions.](https://learn.microsoft.com/azure/azure-web-pubsub/reference-json-reliable-webpubsub-subprotocol#permissions)
 
 ```java readme-sample-createClientFromUrl
 WebPubSubClient client = new WebPubSubClientBuilder()
@@ -62,9 +62,9 @@ WebPubSubClient client = new WebPubSubClientBuilder()
     .buildClient();
 ```
 
-#### Use negotiation server to generate Client Access URL
+#### Use negotiation server to generate `Client Access URL`
 
-In production, a client usually fetches the Client Access URL from a negotiation server. The server holds the connection string and generates the Client Access URL through `WebPubSubServiceClient`. As a sample, the code snippet below just demonstrates how to generate the Client Access URL inside a single process.
+In production, a client usually fetches the `Client Access URL` from a negotiation server. The server holds the `connection string` and generates the `Client Access URL` through `WebPubSubServiceClient`. As a sample, the code snippet below just demonstrates how to generate the `Client Access URL` inside a single process.
 
 ```java readme-sample-createClientFromCredential
 // WebPubSubServiceAsyncClient is from com.azure:azure-messaging-webpubsub
@@ -93,7 +93,7 @@ Features to differentiate `WebPubSubClient` and `WebPubSubServiceClient`.
 |Class Name|WebPubSubClient|WebPubSubServiceClient|
 |------|---------|---------|
 |Package Name|azure-messaging-webpubsub-client|azure-messaging-webpubsub|
-|Features|Usually used on client side. Publish messages and subscribe to messages.|Usually used on server side. Generate Client Access Uri and manage clients.|
+|Features|Usually used on client side. Publish messages and subscribe to messages.|Usually used on server side. Generate `Client Access URL` and manage clients.|
 
 ## Examples
 
@@ -114,7 +114,7 @@ client.addOnServerMessageEventHandler(event -> {
 
 ### Add callbacks for `connected`, `disconnected`, and `stopped` events
 
-When a client connection is connected to the service, the `connected` event is triggered once it received the connected message from the service.
+When a client connection is connected to the service, the `connected` event is triggered.
 
 When a client connection is disconnected and fails to recover, the `disconnected` event is triggered.
 
@@ -134,7 +134,7 @@ client.addOnStoppedEventHandler(event -> {
 
 ### Operation and retry
 
-By default, the operation such as `client.joinGroup()`, `client.leaveGroup()`, `client.sendToGroup()`, `client.sendEvent()` has three reties. You can use `WebPubSubClientBuilder.retryOptions()` to change. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries, thus the service can help to deduplicate the operation with the same `ackId`
+By default, the operation such as `client.joinGroup()`, `client.leaveGroup()`, `client.sendToGroup()`, `client.sendEvent()` has three reties. You can use `WebPubSubClientBuilder.retryOptions()` to change. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries, thus the service can help to deduplicate the operation with the same `ackId`.
 
 ```java readme-sample-sendAndRetry
 try {
