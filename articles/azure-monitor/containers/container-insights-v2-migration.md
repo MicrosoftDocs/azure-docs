@@ -48,4 +48,4 @@ resources
 ```
 
 ## Next steps
-- [Enable ContainerLogV2](./containers/container-insights-logging-v2.md)
+- [Enable ContainerLogV2](container-insights-logging-v2.md)
