@@ -8,7 +8,7 @@ ms.service: cognitive-search
 
 Create a new search resource from the command line using either the Azure CLI or Azure PowerShell. You also retrieve a query key used for read-access to the index, and get the built-in admin key used for adding objects.
 
-You must have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azps-windows) installed on your device. If you aren't a local admin on your device, choose Azure PowerShell and use Scope parameter to run as current users.
+You must have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azps-windows) installed on your device. If you aren't a local admin on your device, choose Azure PowerShell and use the `Scope` parameter to run as the current user.
 
 > [!NOTE]
 > This task doesn't require the Visual Studio Code extensions for Azure CLI and Azure PowerShell. Visual Studio Code recognizes the command line tools without the extensions.
@@ -75,7 +75,7 @@ You must have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/p
    Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
-1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas. The following statement uses the "cognitive-search-demo-rg" resource group created in a previous step and specifies the "free" tier. If your Azure subscription already has a free search service, specify a billable tier such as "basic" instead. For more information about this cmdlet, see [Manage your Azure Cognitive Search service with PowerShell](search-manage-powershell).
+1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas. The following statement uses the "cognitive-search-demo-rg" resource group created in a previous step and specifies the "free" tier. If your Azure subscription already has a free search service, specify a billable tier such as "basic" instead. For more information about this cmdlet, see [Manage your Azure Cognitive Search service with PowerShell](search-manage-powershell.md).
 
    ```powershell
    New-AzSearchService -ResourceGroupName "cognitive-search-demo-rg"  -Name "my-cog-search-demo-svc" -Sku "free" -Location "West US" -PartitionCount 1 -ReplicaCount 1 -HostingMode Default
