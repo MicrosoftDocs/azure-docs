@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 02/19/2023
+ms.date: 06/21/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -10,104 +10,157 @@ ms.date: 02/19/2023
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
+On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
-If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/mdc/upcoming-rss`
+
+If you're looking for the latest release notes, you can find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 ## Planned changes
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
-| [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
-| [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | August 2023 |
+| [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
+| [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
+| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
+| [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
-### Three alerts in Defender for Azure Resource Manager plan will be deprecated
+### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
-**Estimated date for change: March 2023**
+**Estimated date for change: June 2023**
 
-As we continue to improve the quality of our alerts, the following three alerts from the Defender for Azure Resource Manager plan will be deprecated:
-1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
-1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
-1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
+The `Key Vaults should have purge protection enabled` recommendation is deprecated from the (regulatory compliance dashboard/Azure security benchmark initiative) and replaced with a new combined recommendation `Key Vaults should have deletion protection enabled`.
 
-You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
+| Recommendation name | Description | Effect(s) | Version |
+|--|--|--|--|
+| [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
-In the scenario where an activity from a suspicious IP address is detected, one of the following Defender for Azure Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
+See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
 
-### Alerts automatic export to Log Analytics workspace will be deprecated
+### Changes to the Defender for DevOps recommendations environment source and resource ID
 
-**Estimated date for change: March 2023**
+**Estimated date for change: July 2023**
 
-Currently, Defenders for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
+The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
-You can export your security alerts to a dedicated Log Analytics workspace with the [Continuous Export](continuous-export.md#set-up-a-continuous-export) feature. 
-If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
+Security DevOps recommendations impacted:
 
-### Deprecation and improvement of selected alerts for Windows and Linux Servers
+- Code repositories should have code scanning findings resolved (preview)
+- Code repositories should have secret scanning findings resolved (preview)
+- Code repositories should have dependency vulnerability scanning findings resolved (preview)
+- Code repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
 
-**Estimated date for change: April 2023**
+The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`.
 
-The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
+The format for resource IDs will be changed from:
 
-If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
+`Microsoft.SecurityDevOps/githubConnectors/owners/repos/`
 
-If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
+To:
 
-All Defender for Server customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
+`Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos`
+`Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
 
-You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+As a part of the migration, source code management system specific recommendations will be created for security findings:
 
-You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
+- GitHub repositories should have code scanning findings resolved (preview)
+- GitHub repositories should have secret scanning findings resolved (preview)
+- GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
+- GitHub repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
+- Azure DevOps repositories should have code scanning findings resolved (preview)
+- Azure DevOps repositories should have secret scanning findings resolved (preview)
+- Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
 
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
+Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud.
 
-### Multiple changes to identity recommendations
+Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.
+
+Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations.
+
+The recommendations page's experience will have minimal impact and deprecated assessments may continue to show for a maximum of 14 days if new scan results aren't submitted.  
+
+### DevOps Resource Deduplication for Defender for DevOps
+
+**Estimated date for change: July 2023**
+
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
+
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
+
+Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
+
+### General Availability (GA) release of Agentless Container Posture in Defender CSPM
+
+**Estimated date for change: July 2023**
+
+The new Agentless Container Posture capabilities are set for General Availability (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+
+### Business model and pricing updates for Defender for Cloud plans
 
 **Estimated date for change: August 2023**
 
-We announced previously the [availability of identity recommendations V2 (preview)](release-notes.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
+Microsoft Defender for Cloud has three plans that offer service layer protection:
 
-As part of these changes, the following recommendations will be released as General Availability (GA) and replace the V1 recommendations that are set to be deprecated.
+- Defender for Key Vault
 
-#### General Availability (GA) release of identity recommendations V2 
+- Defender for Azure Resource Manager
 
-The following security recommendations will be released as GA and replace the V1 recommendations:
- 
-|Recommendation | Assessment Key|
-|--|--|
-|Accounts with owner permissions on Azure resources should be MFA enabled | 6240402e-f77c-46fa-9060-a7ce53997754 |
-|Accounts with write permissions on Azure resources should be MFA enabled | c0cb17b2-0607-48a7-b0e0-903ed22de39b |
-| Accounts with read permissions on Azure resources should be MFA enabled | dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c |
-| Guest accounts with owner permissions on Azure resources should be removed | 20606e75-05c4-48c0-9d97-add6daa2109a |
-| Guest accounts with write permissions on Azure resources should be removed | 0354476c-a12a-4fcc-a79d-f0ab7ffffdbb |
-| Guest accounts with read permissions on Azure resources should be removed | fde1c0c9-0fd2-4ecc-87b5-98956cbc1095 |
-| Blocked accounts with owner permissions on Azure resources should be removed | 050ac097-3dda-4d24-ab6d-82568e7a50cf |
-| Blocked accounts with read and write permissions on Azure resources should be removed | 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+- Defender for DNS
 
-#### Deprecation of identity recommendations V1
+These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
 
-The following security recommendations will be deprecated as part of this change:
+**Business model and pricing changes summary**:
 
-The following security recommendations will be deprecated as part of this change:
- 
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-| Recommendation | Assessment Key |
-|--|--|
-| MFA should be enabled on accounts with owner permissions on subscriptions | 94290b00-4d0c-d7b4-7cea-064a9554e681 |
-| MFA should be enabled on accounts with write permissions on subscriptions | 57e98606-6b1e-6193-0e3d-fe621387c16b |
-| MFA should be enabled on accounts with read permissions on subscriptions | 151e82c5-5341-a74b-1eb0-bc38d2c84bb5 |
-| External accounts with owner permissions should be removed from subscriptions | c3b6ae71-f1f0-31b4-e6c1-d5951285d03d |
-| External accounts with write permissions should be removed from subscriptions | 04e7147b-0deb-9796-2e5c-0336343ceb3d |
-| External accounts with read permissions should be removed from subscriptions | a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b |
-| Deprecated accounts with owner permissions should be removed from subscriptions | e52064aa-6853-e252-a11e-dffc675689c2 |
-| Deprecated accounts should be removed from subscriptions | 00c6d40b-e990-6acf-d4f3-471e747a27c4 |
+- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
 
-We recommend updating custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
+- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model
 
-We've improved the coverage of the V2 identity recommendations by scanning all Azure resources (rather than just subscriptions) which allows security administrators to view role assignments per account. These changes may result in changes to your Secure Score throughout the GA process.
+- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan.
+
+For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
+
+### Change to the Log Analytics daily cap
+
+Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
+
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types:
+
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Update
+- UpdateSummary
+- CommonSecurityLog
+- Syslog
+
+At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
+
+Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud).
 
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+

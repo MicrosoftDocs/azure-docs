@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Wúru App | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Wúru App'
 description: Learn how to configure single sign-on between Azure Active Directory and Wúru App.
 services: active-directory
 author: jeevansd

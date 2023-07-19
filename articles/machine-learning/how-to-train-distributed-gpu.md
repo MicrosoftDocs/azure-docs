@@ -6,7 +6,7 @@ author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 11/30/2022
 ms.custom: sdkv2, event-tier1-build-2022
@@ -14,7 +14,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Distributed GPU training guide (SDK v2)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
 
@@ -109,7 +109,7 @@ Beyond these, many applications will also need the following environment variabl
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
-1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal `# GPUs per node x # nodes`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
+1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal to `# of GPUs per node`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
 
 Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 
@@ -121,14 +121,14 @@ Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, 
 
 ## DeepSpeed
 
-[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalabibility in terms of 
+[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalability in terms of 
 
 * Increase in model size
 * Increase in number of GPUs
 
 `DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
+You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
 
 ### DeepSpeed example
 

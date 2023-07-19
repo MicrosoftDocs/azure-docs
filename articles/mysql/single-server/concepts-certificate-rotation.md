@@ -9,13 +9,13 @@ ms.author: sumuth
 ms.date: 06/20/2022
 ---
 
-# Understanding the changes in the Root CA change for Azure Database for MySQL Single Server
+# Understanding the changes in the Root CA change for Azure Database for MySQL single server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Azure Database for MySQL Single Server as part of standard maintenance and security best practices will complete the root certificate change starting October 2022. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for MySQL single server as part of standard maintenance and security best practices will complete the root certificate change starting October 2022. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 > [!NOTE]
 > This article applies to [Azure Database for MySQL - Single Server](single-server-overview.md) ONLY. For [Azure Database for MySQL - Flexible Server](../flexible-server/overview.md), the certificate needed to communicate over SSL is [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
@@ -181,7 +181,7 @@ To verify if you're using SSL connection to connect to the server refer [SSL ver
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
 #### Why do I need to update my root certificate if I am using PHP driver with [enableRedirect](./how-to-redirection.md) ?
-To address compliance requirements, the CA certificates of the host server were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2. With this update, database connections using the PHP Client driver with enableRedirect can no longer connect to the server, as the client devices are unaware of the certificate change and the new root CA details. Client devices that use PHP redirection drivers connect directly to the host server, bypassing the gateway. Refer this [link](single-server-overview.md#high-availability) for more on architecture of Azure Database for MySQL Single Server.
+To address compliance requirements, the CA certificates of the host server were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2. With this update, database connections using the PHP Client driver with enableRedirect can no longer connect to the server, as the client devices are unaware of the certificate change and the new root CA details. Client devices that use PHP redirection drivers connect directly to the host server, bypassing the gateway. Refer this [link](single-server-overview.md#high-availability) for more on architecture of Azure Database for MySQL single server.
 
 #### What if I have further questions?
 

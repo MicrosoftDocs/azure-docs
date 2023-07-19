@@ -228,11 +228,11 @@ For more information, see [Configure reboot settings](../update-management/con
 
 ### WSUS server configuration
 
-If the environment is set to get updates from WSUS, ensure that it is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](../update-management/configure-wuagent.md#make-wsus-configuration-settings). If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows update component](https://learn.microsoft.com/windows/deployment/update/windows-update-resources#how-do-i-reset-windows-update-components).
+If the environment is set to get updates from WSUS, ensure that it is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](../update-management/configure-wuagent.md#make-wsus-configuration-settings). If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows update component](/windows/deployment/update/windows-update-resources#how-do-i-reset-windows-update-components).
 
 ### Automatically download and install
 
-To fix the issue, disable the **AutoUpdate** feature. Set it to Disabled in the local group policy Configure Automatic Updates. For more information, see [Configure automatic updates](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
+To fix the issue, disable the **AutoUpdate** feature. Set it to Disabled in the local group policy Configure Automatic Updates. For more information, see [Configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
 
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
@@ -256,7 +256,7 @@ CheckResultMessageArguments : {}
 
 RuleId                      : DotNetFrameworkInstalledCheck 
 RuleGroupId                 : prerequisites 
-RuleName                    : .Net Framework 4.6.2+ 
+RuleName                    : .NET Framework 4.6.2+
 RuleGroupName               : Prerequisite Checks 
 RuleDescription             : .NET Framework version 4.6.2 or higher is required 
 CheckResult                 : Passed 

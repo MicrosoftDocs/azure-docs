@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with MOBI | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MOBI'
 description: Learn how to configure single sign-on between Azure Active Directory and MOBI.
 services: active-directory
 author: jeevansd

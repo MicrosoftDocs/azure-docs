@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zenya | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zenya'
 description: Learn how to configure single sign-on between Azure Active Directory and Zenya.
 services: active-directory
 author: jeevansd

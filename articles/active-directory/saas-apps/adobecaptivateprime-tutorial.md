@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Adobe Captivate Prime | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Adobe Captivate Prime'
 description: Learn how to configure single sign-on between Azure Active Directory and Adobe Captivate Prime.
 services: active-directory
 author: jeevansd

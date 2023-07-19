@@ -1,25 +1,24 @@
 ---
 title: "Azure Operator Nexus: Install CLI extensions"
 description: Learn to install the needed Azure CLI extensions for Operator Nexus
-author: Travisivart #Required
-ms.author: travisneely #Required
-ms.service: azure #Required
+author: Travisivart
+ms.author: travisneely
+ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/27/2023
-# ms.custom: template-include #Required;
+ms.date: 05/26/2023
+# ms.custom: template-include
 ---
 
-# Install Azure CLI extensions
+# Prepare to install Azure CLI extensions
+This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Install the following CLI extensions:
+Installations of the following CLI extensions are required:
+`networkcloud` (for Microsoft.NetworkCloud APIs), `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs) and `hybridaks` (for AKS-Hybrid APIs).
 
-- `networkcloud` (for Microsoft.NetworkCloud APIs)
-- `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs)
-- `hybridaks` (for AKS-Hybrid APIs)
+If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
 
-- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
-
-- Install `networkcloud` CLI extension
+## Install `networkcloud` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -27,30 +26,23 @@ Install the following CLI extensions:
     az extension remove --name networkcloud
     ```
 
-- Download the `networkcloud` python wheel
 
-# [Linux / macOS / WSL](#tab/linux+macos+wsl)
-
-```sh
-    curl -L "https://aka.ms/nexus-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
-```
-
-# [PowerShell](#tab/powershell)
-
-```ps
-    curl "https://aka.ms/nexus-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
-```
-
----
-
-- Install and test the `networkcloud` CLI extension
+- Install and test the latest version of `networkcloud` CLI extension
 
     ```azurecli
-    az extension add --source networkcloud-0.0.0-py3-none-any.whl
+    az extension add --name networkcloud
     az networkcloud --help
     ```
 
-- Install `managednetworkfabric` CLI extension
+For list of available versions, see [the extension release history][az-cli-networkcloud-cli-versions].
+
+To install a specific version of the networkcloud CLI extension, add `--version` parameter to the command. For example, below installs 0.4.1
+
+```azurecli
+az extension add --name networkcloud --version 0.4.1
+```
+
+## Install `managednetworkfabric` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -58,30 +50,14 @@ Install the following CLI extensions:
     az extension remove --name managednetworkfabric
     ```
 
-- Download the `managednetworkfabric` python wheel
-
-# [Linux / macOS / WSL](#tab/linux+macos+wsl)
-
-```sh
-    curl -L "https://aka.ms/nexus-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
-```
-
-# [PowerShell](#tab/powershell)
-
-```ps
-    curl "https://aka.ms/nexus-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
-```
-
----
-
 - Install and test the `managednetworkfabric` CLI extension
 
     ```azurecli
-    az extension add --source managednetworkfabric-0.0.0-py3-none-any.whl
-    az nf --help
+    az extension add --name managednetworkfabric
+    az networkfabric --help
     ```
 
-- Install AKS-Hybrid (`hybridaks`) CLI extension
+## Install AKS-Hybrid (`hybridaks`) CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -112,7 +88,7 @@ Install the following CLI extensions:
     az hybridaks --help
     ```
 
-- Install other needed extensions
+## Install other Azure extensions
 
    ```azurecli
    az extension add --yes --upgrade --name customlocation
@@ -138,22 +114,20 @@ Example output:
 ```output
 Name                     Version
 -----------------------  -------------
-arcappliance             0.2.29
+arcappliance             0.2.31
 monitor-control-service  0.2.0
 connectedmachine         0.5.1
-connectedk8s             1.3.8
-k8s-extension            1.3.7
-networkcloud             0.1.6.post209
+connectedk8s             1.3.20
+k8s-extension            1.4.2
+networkcloud             0.4.0.post94
 k8s-configuration        1.7.0
-managednetworkfabric     0.1.0.post24
+managednetworkfabric     0.1.0.post45
 customlocation           0.1.3
-hybridaks                0.1.6
-ssh                      1.1.3
+hybridaks                0.2.1
+ssh                      1.1.6
 ```
-
-<!-- LINKS - Internal -->
-[howto-configure-network fabric]: ./howto-configure-network fabric.md
-[quickstarts-tenant-workload-deployment]: ./quickstarts-tenant-workload-deployment.md
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
+
+[az-cli-networkcloud-cli-versions]: https://github.com/Azure/azure-cli-extensions/blob/main/src/networkcloud/HISTORY.rst

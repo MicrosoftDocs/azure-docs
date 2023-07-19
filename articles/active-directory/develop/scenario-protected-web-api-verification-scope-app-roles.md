@@ -156,7 +156,7 @@ You can also verify the scopes for the whole controller
 
 The following code snippet shows the usage of the `[RequiredScope]` attribute with hardcoded scopes on the controller. To use the RequiredScopeAttribute, you'll need to either:
 
-- Use `AddMicrosoftIdentitWebApi` in the Startup.cs, as seen in [Code configuration](scenario-protected-web-api-app-configuration.md)
+- Use `AddMicrosoftIdentityWebApi` in the Startup.cs, as seen in [Code configuration](scenario-protected-web-api-app-configuration.md)
 - or otherwise add the `ScopeAuthorizationRequirement` to the authorization policies as explained in [authorization policies](https://github.com/AzureAD/microsoft-identity-web/wiki/authorization-policies).
 
 ```csharp
@@ -191,7 +191,7 @@ Like on action, you can also declare these required scopes in the configuration,
 using Microsoft.Identity.Web
 
 [Authorize]
-[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")
+[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
 public class TodoListController : Controller
 {
     // GET: api/values

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Implementation | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Implementation'
 description: Learn how to configure single sign-on between Azure Active Directory and EAB Implementation.
 services: active-directory
 author: jeevansd

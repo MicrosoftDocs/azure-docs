@@ -9,8 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/04/2022
 ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell, engagement-fy23
-
+ms.custom: engagement-fy23
 ---
 
 # Manage packet captures in Virtual machine scale set with Azure Network Watcher using Azure REST API

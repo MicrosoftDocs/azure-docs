@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Private 5G Core?
 description: Discover what's new in Azure Private 5G Core
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 10/24/2022
+ms.date: 05/31/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -21,6 +21,100 @@ To help you stay up to date with the latest developments, this article covers:
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
+
+## June 2023
+
+### Packet core 2306
+
+**Type:** New release
+
+**Date available:** July 10, 2023
+
+The 2306 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2306 release notes](azure-private-5g-core-release-notes-2306.md).
+### Configuration changes to Packet Core without a reinstall and changes to MCC, MNC
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+It is now possible to:
+- attach a new or existing data network
+- modify an attached data network's configuration
+  
+followed by a few minutes of downtime, but not a packet core reinstall.
+
+For details, see [Modify a packet core instance](modify-packet-core.md).
+
+### PLMN configuration
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+You can now change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), on an existing private mobile network. Previously, this required recreating the network with the new configuration.
+
+To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+
+
+## May 2023
+
+### Packet core 2305
+
+**Type:** New release
+
+**Date available:** May 31, 2023
+
+The 2305 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2305 release notes](azure-private-5g-core-release-notes-2305.md).
+
+### Easier creation of a site using PowerShell
+
+**Type:** New feature
+
+**Date available:** May 31, 2023
+
+New-MobileNetworkSite now supports an additional parameter that makes it easier to create a site and its dependant resources.
+
+For details, see [Create additional Packet Core instances for a site using the Azure portal](create-additional-packet-core.md).
+ 
+### Multiple Packet Cores under the same Site
+
+**Type:** New feature
+
+**Date available:** May 1, 2023
+
+It is now possible to add multiple packet cores in the same site using the Azure portal. 
+
+For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
+
+## March 2023
+
+### Packet core 2303
+
+**Type:** New release
+
+**Date available:** March 30, 2023
+
+The 2303 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2303 release notes](azure-private-5g-core-release-notes-2303.md).
+
+## February 2023
+
+### Packet core 2302
+
+**Type:** New release
+
+**Date available:** March 6, 2023
+
+The 2302 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2302 release notes](azure-private-5g-core-release-notes-2302.md).
+
+### Rollback
+
+**Type:** New feature
+
+**Date available:** February 16, 2023
+
+This feature allows you to easily revert to a previous packet core version if you encounter issues after upgrading the packet core. 
+
+For details, see [Rollback (portal)](upgrade-packet-core-azure-portal.md#rollback) or [Rollback (ARM)](upgrade-packet-core-arm-template.md#rollback).
 
 ## January 2023
 
@@ -56,7 +150,7 @@ The Azure Private 5G Core online service now reports the provisioning status of 
 
 **Date available:** January 31, 2023
 
-You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
+You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared with AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
 
 ### West Europe region
 

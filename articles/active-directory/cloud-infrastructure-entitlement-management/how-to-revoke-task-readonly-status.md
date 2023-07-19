@@ -1,6 +1,6 @@
 ---
-title: Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Permissions Management
-description: How to revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Permissions Management.
+title: Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard
+description: How to revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -99,7 +99,7 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 - For information on how to create a role/policy, see [Create a role/policy](how-to-create-role-policy.md).
 - For information on how to clone a role/policy, see [Clone a role/policy](how-to-clone-role-policy.md).
 - For information on how to delete a role/policy, see [Delete a role/policy](how-to-delete-role-policy.md).
-- For information on how to modify a role/policy, see Modify a role/policy](how-to-modify-role-policy.md).
+- For information on how to modify a role/policy, see [Modify a role/policy](how-to-modify-role-policy.md).
 - To view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md).
 - For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](how-to-attach-detach-permissions.md).
 - For information on how to add and remove roles and tasks for Azure and GCP identities, see [Add and remove roles and tasks for Azure and GCP identities](how-to-attach-detach-permissions.md).

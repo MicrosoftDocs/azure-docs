@@ -32,16 +32,6 @@ module and connect to your Azure account using the
 about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
-
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription ID using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
-
-```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-```
-
 ## Limitations
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
@@ -53,6 +43,19 @@ The following additional limitations apply to Windows Server node pools:
 * The AKS cluster can have a maximum of 10 node pools.
 * The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
+
+> [!NOTE]
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+
+If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
+should be billed. Select a specific subscription ID using the
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+
+```azurepowershell-interactive
+Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+```
 
 ## Create a resource group
 
@@ -308,11 +311,12 @@ Kubernetes cluster tutorial.
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md

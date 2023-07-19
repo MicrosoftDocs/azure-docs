@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 07/13/2023
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -41,7 +41,7 @@ The three activities work on all Azure Database for PostgreSQL deployment option
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Azure database for PostgreSQL using UI
+## Create a linked service to Azure Database for PostgreSQL using UI
 
 Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
 

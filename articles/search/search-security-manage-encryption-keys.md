@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: references_regions, devx-track-azurepowershell 
+ms.custom: references_regions
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -24,6 +24,9 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 
+> [!NOTE]
+> If an index is CMK encrypted, it is only accessible if the search service has access the key. If access to the key is revoked, the index is unusable and the service cannot be scaled until the index is deleted or access to the key is restored.
+
 ## CMK encrypted objects
 
 Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
@@ -32,7 +35,7 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
 
 ## Full double encryption
 

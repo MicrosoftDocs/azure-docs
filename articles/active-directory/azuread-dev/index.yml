@@ -7,14 +7,14 @@ summary: |
   IMPORTANT: This content is for the older Azure AD v1.0 endpoint, use the Microsoft identity platform (https://aka.ms/identityplatform) for new projects.
 
 metadata:
-   ms.topic: landing-page
-   ms.date: 01/06/2023
-   author: CelesteDG
-   ms.author: celested
-   ms.service: active-directory
-   ms.subservice: azuread-dev
-   ms.workload: identity
-   ROBOTS: NOINDEX
+  ms.topic: landing-page
+  ms.date: 01/06/2023
+  author: CelesteDG
+  ms.author: celested
+  ms.service: active-directory
+  ms.subservice: azuread-dev
+  ms.workload: identity
+  ROBOTS: NOINDEX
 
 landingContent:
   - title: Azure Active Directory for developers

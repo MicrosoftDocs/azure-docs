@@ -2,13 +2,11 @@
 title: include file
 description: include file
 services: backup
-author: v-amallick
-manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 12/14/2022
-ms.author: v-amallick
-ms.custom: include file
+ms.date: 02/17/2023
+author: jyothisuri
+ms.author: jsuri
 ---
 
 ## Create a Recovery Services vault
@@ -50,3 +48,6 @@ To create a Recovery Services vault:
    It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper right. After the vault is created, it appears in the list of Recovery Services vaults. If the vault doesn't appear, select **Refresh**.
 
     ![Screenshot that shows the button for refreshing the list of backup vaults.](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!Note]
+>Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy. You can make the immutability irreversible for maximum protection to your backup data from various threats, including ransomware attacks and malicious actors. [Learn more](/azure/backup/backup-azure-immutable-vault-concept).

@@ -1,5 +1,5 @@
 ---
-title: Windows smart card sign-in using Azure Active Directory certificate-based authentication - Azure Active Directory
+title: Windows smart card sign-in using Azure Active Directory certificate-based authentication
 description: Learn how to enable Windows smart card sign-in using Azure Active Directory certificate-based authentication
 
 services: active-directory

@@ -2,12 +2,12 @@
 title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 services: azure-resource-manager
-documentationcenter: ''
 author: mumian
 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 09/28/2022
 ms.topic: tutorial
 ms.author: jgao

@@ -7,7 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy a Cloud Service (extended support) using Azure PowerShell

@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated worker process to run your C# func
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 01/16/2023
-ms.custom: template-concept 
+ms.custom: template-concept, devx-track-dotnet
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -25,7 +25,7 @@ For a comprehensive comparison between isolated worker process and in-process .N
 
 ## Why .NET Functions isolated worker process?
 
-When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions](#supported-versions). 
+When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions][supported-versions]. 
 
 Because these functions run in a separate process, there are some [feature and functionality differences](./dotnet-isolated-in-process-differences.md) between .NET isolated function apps and .NET class library function apps.
 
@@ -196,7 +196,7 @@ A function can have zero or more input bindings that can pass data to a function
 
 ### Output bindings
 
-To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `myqueue-output` by using an output binding:
+To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
@@ -212,33 +212,92 @@ The response from an HTTP trigger is always considered an output, so a return va
 
 For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage.
 
-To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version] and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.15.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1) and [Microsoft.Azure.Functions.Worker.Sdk 1.11.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0-preview1). Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
 
 The following service-specific bindings are currently included in the preview:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported | 
+| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
+[tables-sdk-types]: ./functions-bindings-storage-table.md?tabs=isolated-process%2Ctable-api&pivots=programming-language-csharp#binding-types
+[eventgrid-sdk-types]: ./functions-bindings-event-grid.md?tabs=isolated-process%2Cextensionv3&pivots=programming-language-csharp#binding-types
+[queue-sdk-types]: ./functions-bindings-storage-queue.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
+
+<sup>2</sup> The preview for the Service Bus trigger does not yet support message settlement scenarios.
+
+<sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
 
 > [!NOTE]
-> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself are not supported.
-
-[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
-[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
 
 ### HTTP trigger
 
-HTTP triggers translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optional a message `Body`. This object is a representation of the HTTP request object and not the request itself. 
+[HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
+
+- A [built-in model](#built-in-http-model) which does not require additional dependencies and uses custom types for HTTP requests and responses
+- An [ASP.NET Core integration model (Preview)](#aspnet-core-integration-preview) that uses concepts familiar to ASP.NET Core developers
+
+#### Built-in HTTP model
+
+In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
 
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
-The following code is an HTTP trigger 
+The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+
+#### ASP.NET Core integration (preview)
+
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5198 or later](./functions-run-local.md). This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+
+> [!NOTE]
+> Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
+
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview2) to your project.
+
+  You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.16.0).
+
+2. In your `Program.cs` file, update the host builder configuration to use `ConfigureFunctionsWebApplication()` instead of `ConfigureFunctionsWorkerDefaults()`. The following example shows a minimal setup without other customizations:
+
+    ```csharp
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.Azure.Functions.Worker;
+    
+    var host = new HostBuilder()
+        .ConfigureFunctionsWebApplication()
+        .Build();
+    
+    host.Run();
+    ```
+
+3. You can then update your HTTP-triggered functions to use the ASP.NET Core types. The following example shows `HttpRequest` and an `IActionResult` used for a simple "hello, world" function:
+
+    ```csharp
+    [Function("HttpFunction")]
+    public IActionResult Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+    {
+        return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+    }
+    ```
+
+4. Enable the feature by setting `AzureWebJobsFeatureFlags` to include "EnableHttpProxying". When hosted in a function app, configure this as an application setting. When running locally, set this value in `local.settings.json`.
 
 ## Logging
 
@@ -304,12 +363,14 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 ## Remote Debugging using Visual Studio
 
 Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
+
 ## Next steps
 
 + [Learn more about triggers and bindings](functions-triggers-bindings.md)
 + [Learn more about best practices for Azure Functions](functions-best-practices.md)
 
 
+[supported-versions]: #supported-versions
 [HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
 [IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
 [ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
@@ -326,5 +387,6 @@ Because your isolated worker process app runs outside the Functions runtime, you
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
-[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult
+[HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions

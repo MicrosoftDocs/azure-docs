@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with In Case of Crisis - Online Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with In Case of Crisis - Online Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and In Case of Crisis - Online Portal.
 services: active-directory
 author: jeevansd
@@ -136,7 +136,5 @@ When you click the In Case of Crisis - Online Portal tile in the Access Panel, y
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try In Case of Crisis - Online Portal with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

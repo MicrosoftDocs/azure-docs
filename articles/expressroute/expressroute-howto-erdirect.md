@@ -4,10 +4,10 @@ description: Learn how to use Azure PowerShell to configure Azure ExpressRoute D
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: duau
-
 ---
 
 # How to configure ExpressRoute Direct

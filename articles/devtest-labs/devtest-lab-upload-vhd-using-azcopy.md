@@ -71,6 +71,19 @@ To upload a VHD file by using AzCopy:
 
 The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
 
+## Automate uploading VHD files
+To automate uploading VHD files to create custom images, use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy or upload VHD files to the storage account that's associated with the lab.
+      
+To find the destination storage account that's associated with your lab:
+          
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+2.	On the left menu, select **Resource Groups**.
+3.	Find and select the resource group that's associated with your lab.
+4.	Under **Overview**, select one of the storage accounts.
+5.	Select **Blobs**.
+6.	Look for uploads in the list. If none exists, return to step 4 and try another storage account.
+7.	Use the **URL** as the destination in your AzCopy command.
+
 ## Next steps
 
 - Learn how to [create a custom image in Azure DevTest Labs from a VHD file by using the Azure portal](devtest-lab-create-template.md).

@@ -30,7 +30,7 @@ Our [Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/
 1. [Assess compliance with chosen standards and policies](update-regulatory-compliance-packages.md)
 1. [Harden configuration](recommendations-reference.md) wherever gaps are found
 1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.md) VM access
-1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&view=azuresql)
+1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure)
 1. Automatically block and flag risky behavior and take protective actions
 
 There's a clear mapping from the goals we've described in the [infrastructure deployment guidance](/security/zero-trust/deploy/infrastructure) to the core aspects of Defender for Cloud.
@@ -41,7 +41,7 @@ There's a clear mapping from the goals we've described in the [infrastructure de
 | Harden configuration | [Review your security recommendations](review-security-recommendations.md) and [track your secure score improvement overtime](secure-score-access-and-track.md). You can also prioritize which recommendations to remediate based on potential attack paths, by leveraging the [attack path](how-to-manage-attack-path.md) feature. |
 |Employ hardening mechanisms | Least privilege access is one of the three principles of Zero Trust. Defender for Cloud can assist you to harden VMs and network using this principle by leveraging features such as:<br>[Just-in-time (JIT) virtual machine (VM) access](just-in-time-access-overview.md)<br>[Adaptive network hardening](adaptive-network-hardening.md)<br>[Adaptive application controls](adaptive-application-controls.md). |
 |Set up threat detection  | Defender for Cloud offers an integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud.<br>Microsoft Defender for Cloud provides advanced, intelligent, protection of Azure and hybrid resources and workloads.<br>One of the Microsoft Defender plans, Microsoft Defender for servers, includes a native integration with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/).<br>Learn more in [Introduction to Microsoft Defender for Cloud](/azure/security-center/azure-defender). |
-|Automatically block suspicious behavior | Many of the hardening recommendations in Defender for Cloud offer a *deny* option. This feature lets you prevent the creation of resources that don't satisfy defined hardening criteria. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](/azure/defender-for-cloud/prevent-misconfigurations).  |
+|Automatically block suspicious behavior | Many of the hardening recommendations in Defender for Cloud offer a *deny* option. This feature lets you prevent the creation of resources that don't satisfy defined hardening criteria. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](./prevent-misconfigurations.md).  |
 |Automatically flag suspicious behavior | Microsoft Defenders for Cloud's security alerts are triggered by advanced detections. Defender for Cloud prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Defender for Cloud also provides detailed steps to help you remediate attacks. For a full list of the available alerts, see [Security alerts - a reference guide](alerts-reference.md).|
 
 ### Protect your  Azure PaaS services with Defender for Cloud
@@ -49,7 +49,8 @@ There's a clear mapping from the goals we've described in the [infrastructure de
 With Defender for Cloud enabled on your subscription, and Microsoft Defender for Cloud enabled for all available resource types, you'll have a layer of intelligent threat protection - powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) - protecting  resources in Azure Key Vault, Azure Storage, Azure DNS, and other Azure PaaS services. For a full list, see [What resource types can Microsoft Defender for Cloud secure?](defender-for-cloud-introduction.md).
 
 ### Azure Logic Apps
-Use [Azure Logic Apps](/azure/logic-apps/) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
+
+Use [Azure Logic Apps](../logic-apps/index.yml) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
 
 Defender for Cloud's [workflow automation](workflow-automation.md) feature lets you automate responses to Defender for Cloud triggers. 
 
@@ -71,7 +72,7 @@ There are Azure-native tools for ensuring you can view your alert data in all of
 
 #### Microsoft Sentinel
 
-Defender for Cloud natively integrates with [Microsoft Sentinel](/azure/sentinel/overview), Microsoft's cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
+Defender for Cloud natively integrates with [Microsoft Sentinel](../sentinel/overview.md), Microsoft's cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
 
 There are two approaches to ensuring your Defender for Cloud data is represented in Microsoft Sentinel:
 
@@ -86,7 +87,7 @@ There are two approaches to ensuring your Defender for Cloud data is represented
 - **Stream your audit logs** - An alternative way to investigate Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
 
   - [Connect Windows security events](/azure/sentinel/connect-windows-security-events)
-  - [Collect data from Linux-based sources using Syslog](/azure/sentinel/connect-syslog)
+  - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
   - [Connect data from Azure Activity log](/azure/sentinel/connect-azure-activity)
 
 #### Stream alerts with Microsoft Graph Security API
@@ -145,7 +146,7 @@ Microsoft Defender for Cloud protects workloads wherever they're running: in Azu
 
 #### Integrate Defender for Cloud with on-premises machines
 
-To secure hybrid cloud workloads, you can extend Defender for Cloud's protections by connecting  on-premises machines to [Azure Arc enabled servers](/azure/azure-arc/servers/overview).
+To secure hybrid cloud workloads, you can extend Defender for Cloud's protections by connecting  on-premises machines to [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 Learn about how to connect machines in [Connect your non-Azure machines to Defender for Cloud](quickstart-onboard-machines.md).
 

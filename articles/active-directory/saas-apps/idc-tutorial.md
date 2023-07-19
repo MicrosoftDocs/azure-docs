@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IDC | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IDC'
 description: Learn how to configure single sign-on between Azure Active Directory and IDC.
 services: active-directory
 author: jeevansd

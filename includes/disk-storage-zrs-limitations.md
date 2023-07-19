@@ -10,8 +10,4 @@
  ms.custom: include file
 ---
 
-ZRS for managed disks have the following restrictions:
-
-- Only supported with Premium solid-state drives (SSD) managed disks and Standard SSDs. Not supported with Premium SSD v2 managed disks.
-- Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
-
+ZRS for managed disks is only supported with Premium SSD and Standard SSD managed disks. ZRS for managed disks isn't supported with Premium SSD v2 managed disks.

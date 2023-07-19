@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -93,7 +93,7 @@ You can view an example import file and a sample project for creating these file
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Get data for a digital twin
 
@@ -117,7 +117,7 @@ Only properties that have been set at least once are returned when you retrieve 
 
 To retrieve multiple twins using a single API call, see the Query API examples in [Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 

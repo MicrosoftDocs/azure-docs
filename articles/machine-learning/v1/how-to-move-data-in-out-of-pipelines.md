@@ -10,13 +10,13 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 08/18/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 
 # Moving data into and between ML pipeline steps (Python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](../concept-ml-pipelines.md)
 

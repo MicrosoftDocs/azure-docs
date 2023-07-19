@@ -4,8 +4,8 @@ description: Use Azure Backup to back up and recover Azure Stack files and appli
 ms.topic: conceptual
 ms.date: 11/11/2021
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up files and applications on Azure Stack

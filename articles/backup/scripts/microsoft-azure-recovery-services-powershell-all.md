@@ -2,9 +2,10 @@
 title: Script Sample - Configuring Backup for on-premises Windows server
 description: Learn how to use a script to configure Backup for on-premises Windows server.
 ms.topic: sample
+ms.custom: devx-track-azurepowershell
 ms.date: 06/23/2021
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # PowerShell Script to configure Backup for on-premises Windows server

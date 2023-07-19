@@ -2,14 +2,14 @@
 title: Data retention and storage in Application Insights | Microsoft Docs
 description: Retention and privacy policy statement for Application Insights.
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.date: 07/10/2023
+ms.custom: devx-track-csharp
 ms.reviewer: saars
 ---
 
 # Data collection, retention, and storage in Application Insights
 
-When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the cloud. As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
+When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the [cloud](create-workspace-resource.md). As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
 
 First, the short answer:
 
@@ -25,7 +25,7 @@ The rest of this article discusses these points more fully. The article is self-
 
 [Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you informative metrics. For example, you might see what times of day you get most users, how responsive the app is, and how well it's served by any external services that it depends on. If there are failures or performance issues, you can search through the telemetry data to diagnose the cause. The service sends you emails if there are any changes in the availability and performance of your app.
 
-To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to Application Insights, which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
+To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to an [Application Insights Log Analytics workspace](create-workspace-resource.md), which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
 
 Application Insights stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
@@ -45,7 +45,7 @@ They all send telemetry to the same service.
 
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./status-monitor-v2-overview.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./application-insights-asp-net-agent.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
   
   * Each SDK has many [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
@@ -71,13 +71,13 @@ For more information, see the section [Data sent by Application Insights](#data-
 
 If you're developing an app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the **Output** window. From there, you can copy it and format it as JSON for easy inspection.
 
-![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
+:::image type="content" source="./media/data-retention-privacy/06-vs.png" lightbox="./media/data-retention-privacy/06-vs.png" alt-text="Screenshot that shows running the app in debug mode in Visual Studio.":::
 
 There's also a more readable view in the **Diagnostics** window.
 
 For webpages, open your browser's debugging window. Select F12 and open the **Network** tab.
 
-![Screenshot that shows the open Network tab.](./media/data-retention-privacy/08-browser.png)
+:::image type="content" source="./media/data-retention-privacy/08-browser.png" lightbox="./media/data-retention-privacy/08-browser.png" alt-text="Screenshot that shows the open Network tab.":::
 
 ### Can I write code to filter the telemetry before it's sent?
 
@@ -85,7 +85,7 @@ You'll need to write a [telemetry processor plug-in](./api-filtering-sampling.md
 
 ## How long is the data kept?
 
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion.
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 Data kept longer than 90 days incurs extra charges. For more information about Application Insights pricing, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -321,10 +321,6 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
-## Credits
-
-This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com).
-
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
@@ -335,5 +331,5 @@ This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com
 [java]: ./opentelemetry-enable.md?tabs=java
 [platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./status-monitor-v2-overview.md
+[redfield]: ./application-insights-asp-net-agent.md
 [start]: ./app-insights-overview.md

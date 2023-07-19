@@ -24,7 +24,7 @@ Builder PowerShell module.
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Azure PowerShell
-module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powershellgallery.com/packages/Az.ImageBuilder) module. Install separately by using the following command.
 
@@ -51,9 +51,10 @@ If you haven't already done so, register the following resource providers to use
 - Microsoft.Storage
 - Microsoft.Network
 - Microsoft.VirtualMachineImages
+- Microsoft.ManagedIdentity
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network |
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network, Microsoft.ManagedIdentity |
   Where-Object RegistrationState -ne Registered |
     Register-AzResourceProvider
 ```
@@ -109,7 +110,7 @@ Grant Azure image builder permissions to create images in the specified resource
 1. Create a user identity.
 
    ```azurepowershell-interactive
-   New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+   New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
    ```
 
 1. Store the identity resource and principal IDs in variables.
@@ -125,7 +126,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
    ```azurepowershell-interactive
    $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
-   $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
+   $myRoleImageCreationPath = "myRoleImageCreation.json"
 
    Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
 
@@ -230,7 +231,7 @@ Grant Azure image builder permissions to create images in the specified resource
    ```azurepowershell-interactive
    $ImgCustomParams02 = @{
      FileCustomizer = $true
-     CustomizerName = 'downloadBuildArtifacts'
+     Name = 'downloadBuildArtifacts'
      Destination = 'c:\\buildArtifacts\\index.html'
      SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
    }

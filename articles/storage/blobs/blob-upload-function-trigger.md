@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 3/11/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
@@ -108,7 +108,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 
 ## Create the Computer Vision service
 
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../ai-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/azure-portal)
 

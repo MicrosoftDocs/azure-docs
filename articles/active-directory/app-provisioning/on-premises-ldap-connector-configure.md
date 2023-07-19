@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/08/2022
+ms.date: 02/08/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 The following documentation provides configuration and tutorial information demonstrating how to provision users from Azure AD into an LDAP directory.  
 
 
-[!INCLUDE [active-directory-app-provisioning-ldap.md](../../../includes/active-directory-app-provisioning-ldap.md)]
+[!INCLUDE [app-provisioning-ldap.md](../../../includes/app-provisioning-ldap.md)]
 
 ## Next steps
 

@@ -6,9 +6,8 @@ author: normesta
 
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 10/06/2021
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.date: 03/07/2023
+ms.service: azure-data-lake-storage
 ---
 
 # Tutorials that use Azure services with Azure Data Lake Storage Gen2

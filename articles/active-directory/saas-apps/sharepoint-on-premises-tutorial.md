@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises'
 description: Learn how to implement federated authentication between Azure Active Directory and SharePoint on-premises.
 services: active-directory
 author: jeevansd
@@ -39,8 +39,8 @@ To configure the federation in Azure AD, you need to create a dedicated Enterpri
 
 ### Create the enterprise application
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/).
-1. Go to **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**, and then select **All applications**.
 1. To add a new application, select **New application** at the top of the dialog box.
 1. In the search box, enter **SharePoint on-premises**. Select **SharePoint on-premises** from the result pane.
 1. Specify a name for your application (in this tutorial, it is `SharePoint corporate farm`), and click **Create** to add the application.
@@ -94,7 +94,7 @@ In this section, you configure the SAML authentication and define the claims tha
 In this step, you create a SPTrustedLoginProvider to store the configuration that SharePoint needs to trust Azure AD. For that, you need the information from Azure AD that you copied above. Start the SharePoint Management Shell and run the following script to create it:
 
 ```powershell
-# Path to the public key of the Azure AD SAML signing certificate (self-signed), downloaded from the Enterprise application in the Azure AD portal
+# Path to the public key of the Azure AD SAML signing certificate (self-signed), downloaded from the Enterprise application in the Azure portal
 $signingCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2("C:\AAD app\SharePoint corporate farm.cer")
 # Unique realm (corresponds to the "Identifier (Entity ID)" in the Azure AD Enterprise application)
 $realm = "urn:sharepoint:federation"
@@ -348,7 +348,7 @@ $t.Update()
 ### Configure the lifetime of the security token
 
 By default, Azure AD creates a SAML token that is valid for 1 hour.  
-This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](../develop/active-directory-configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
+This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](../develop/configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
 To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
 
 1. Install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):

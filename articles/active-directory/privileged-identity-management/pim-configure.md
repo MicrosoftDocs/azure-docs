@@ -1,9 +1,9 @@
 ---
-title: What is Privileged Identity Management? - Azure AD | Microsoft Docs
+title: What is Privileged Identity Management?
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 ms.date: 11/4/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: ilyal
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal, content-engagement
 ms.collection: M365-identity-device-management
@@ -34,8 +34,8 @@ Organizations want to minimize the number of people who have access to secure in
 However, users still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps. Organizations can give users just-in-time privileged access to Azure and Azure AD resources and can oversee what those users are doing with their privileged access.
 
 ## License requirements
+[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -167,7 +167,7 @@ Privileged Identity Management supports the following scenarios:
 In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of PIM for Groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 >[!Important]
-> To assign a PIM for Groups to a role for administrative access to Exchange, Security & Compliance Center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the PIM for Groups experience to make the user or group eligible for activation into the group.
+> To assign a PIM for Groups to a role for administrative access to Exchange, Security & Compliance Center, or SharePoint, use the Azure portal **Roles and Administrators** experience and not in the PIM for Groups experience to make the user or group eligible for activation into the group.
 
 ### Different just-in-time policies for each group
 
@@ -179,7 +179,7 @@ With the PIM for Groups preview, you can give workload-specific administrators q
 
 ## Invite guest users and assign Azure resource roles in Privileged Identity Management
 
-Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests such as assigning access to specific Azure resources, specifying assignment duration and end date, or requiring two-step verification on active assignment or activation. For more information on how to invite a guest to your organization and manage their access, see [Add B2B collaboration users in the Azure AD portal](../external-identities/add-users-administrator.md).
+Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests such as assigning access to specific Azure resources, specifying assignment duration and end date, or requiring two-step verification on active assignment or activation. For more information on how to invite a guest to your organization and manage their access, see [Add B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 ### When would you invite guests?
 

@@ -3,9 +3,10 @@ title: Use Planned Maintenance to schedule and control upgrades for your Azure K
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/17/2023
-ms.author: qpetraroia
-author: qpetraroia
+ms.author: nickoman
+author: nickomang
 ---
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
@@ -22,9 +23,13 @@ There are currently three available configuration types: `default`, `aksManagedA
 
 We recommend using `aksManagedAutoUpgradeSchedule` for all cluster upgrade scenarios and `aksManagedNodeOSUpgradeSchedule` for all node image upgrade scenarios, while `default` is meant exclusively for weekly releases. You can port `default` configurations to `aksManagedAutoUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
 
+To configure Planned Maintenance using pre-created configurations, see [Use Planned Maintenance pre-created configurations to schedule AKS weekly releases][pm-weekly].
+
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+
+Be sure to upgrade Azure CLI to the latest version using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -321,4 +326,3 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 [auto-upgrade]: auto-upgrade-cluster.md
 [node-image-auto-upgrade]: auto-upgrade-node-image.md
 [pm-weekly]: ./aks-planned-maintenance-weekly-releases.md
-

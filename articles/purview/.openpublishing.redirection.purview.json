@@ -81,6 +81,11 @@
         "redirect_document_id": true
       },
       {
+        "source_path_from_root": "/articles/purview/troubleshoot-policy-distribution.md",
+        "redirect_url": "/rest/api/purview/pdsdataplane/policy-elements",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
         "redirect_url": "/azure/purview/catalog-permissions",
         "redirect_document_id": true
@@ -248,6 +253,11 @@
       {
         "source_path_from_root": "/articles/purview/how-to-monitor-scan-runs.md",
         "redirect_url": "/azure/purview/how-to-monitor-data-map-population",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-spark-atlas-connector.md",
+        "redirect_url": "/azure/purview/catalog-lineage-user-guide",
         "redirect_document_id": true
       }
 ]

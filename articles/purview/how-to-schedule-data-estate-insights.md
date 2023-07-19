@@ -62,6 +62,11 @@ Yes. You're billed when Microsoft Purview Data Estate Insights checks for update
 
 1. If updates have been made, you'll be billed to generate your insights report. If no updates were made since the last report, you'll not be billed to generate a report.
 
+    >[!NOTE]
+    > An asset is considered to be **updated** if it's updated in Microsoft Purview. 
+    > An update in Microsoft Purview means a change in the following properties: asset name, description, schema, classifications, experts, owners, etc...
+    > New rows in a data asset and a re-scan will not result in an update to your insights reports if the metadata properties have not changed.
+
 For more information about billing for Data Estates Insights, see our [pricing guidelines](concept-guidelines-pricing-data-estate-insights.md).
 
 ## Schedule options
@@ -89,7 +94,15 @@ Select the time zone you'd like to align your refresh schedule with. If the time
 
 ### Recurrence
 
-You can select weekly or monthly refresh recurrence.
+You can select a daily, weekly, or monthly refresh recurrence.
+
+>[!IMPORTANT]
+> No matter what you set your refresh recurreance to, Data Estate Insights will run a check before refreshing to see if any updates have been made to the assets.
+> If no update has been made, the reports will not refresh.
+>
+> An asset is considered to be **updated** only if it is updated in Microsoft Purview. 
+> An update in Microsoft Purview means a change in the following properties: asset name, description, schema, classifications, experts, owners, etc...
+> New rows in a data asset and a re-scan will not result in an update to your insights reports if the metadata properties of the asset have not changed.
 
 - **Daily recurrence** - schedule daily recurrence by setting recurrence to every (1-5) days(s), and choosing the time of day you would like to refresh the report. For example, the below report will refresh every other day at 12 AM UTC.
 

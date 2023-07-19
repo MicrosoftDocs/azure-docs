@@ -1,5 +1,5 @@
 ---
-title: Characteristics of multi-tenant interaction - Azure AD | Microsoft Docs
+title: Characteristics of multi-tenant interaction
 description: Understanding the data independence of your Azure Active Directory organizations
 services: active-directory
 documentationcenter: ''

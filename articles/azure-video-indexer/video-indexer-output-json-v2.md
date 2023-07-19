@@ -1,6 +1,6 @@
 ---
-title: Examine the Azure Video Indexer output
-description: This topic examines the Azure Video Indexer output produced by the Get Video Index API.
+title: Examine the Azure AI Video Indexer output
+description: This topic examines the Azure AI Video Indexer output produced by the Get Video Index API.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -8,11 +8,11 @@ ms.date: 05/19/2022
 ms.author: juliako
 ---
 
-# Examine the Azure Video Indexer output
+# Examine the Azure AI Video Indexer output
 
-When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure AI Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-For information, see [Azure Video Indexer insights](insights-overview.md).
+For information, see [Azure AI Video Indexer insights](insights-overview.md).
 
 ## Root elements of the insights
 
@@ -70,7 +70,7 @@ This section shows a summary of the insights.
 |`duration`|The time when an insight occurred, in seconds.|
 |`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.|
 |`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it `thumbnailVideoId` and `thumbnailId`.|
-|`faces/animatedCharacters`|Contains zero or more faces. For more information, see [faces/animatedCharacters](#facesanimatedcharacters).|
+|`faces`|Contains zero or more faces. For more information, see [faces](#faces).|
 |`keywords`|Contains zero or more keywords. For more information, see [keywords](#keywords).|
 |`sentiments`|Contains zero or more sentiments. For more information, see [sentiments](#sentiments).|
 |`audioEffects`| Contains zero or more audio effects. For more information, see [audioEffects](#audioeffects-preview).|
@@ -146,7 +146,7 @@ A face might have an ID, a name, a thumbnail, other metadata, and a list of its 
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
 |`transcripts`|Might contain one or more [transcript](#transcript).|
-|`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
+|`faces`|The [faces](#faces) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
 |`brands`|The [brands](#brands) insight.|
@@ -294,11 +294,9 @@ Example:
 }
 ```
 
-#### faces/animatedCharacters
+#### faces
 
-The `animatedCharacters` element replaces `faces` if the video was indexed with an animated characters model. This indexing is done through a custom model in Custom Vision. Azure Video Indexer runs it on keyframes.
-
-If faces (not animated characters) are present, Azure Video Indexer uses the Face API on all the video's frames to detect faces and celebrities.
+If faces are present, Azure AI Video Indexer uses the Face API on all the video's frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
@@ -485,7 +483,7 @@ If faces (not animated characters) are present, Azure Video Indexer uses the Fac
 
 #### brands
 
-Azure Video Indexer detects business and product brand names in the speech-to-text transcript and/or video OCR. This information does not include visual recognition of brands or logo detection.
+Azure AI Video Indexer detects business and product brand names in the speech-to-text transcript and/or video OCR. This information does not include visual recognition of brands or logo detection.
 
 |Name|Description|
 |---|---|
@@ -495,7 +493,7 @@ Azure Video Indexer detects business and product brand names in the speech-to-te
 |`referenceUrl` | The brand's Wikipedia URL, if exists. For example: [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |`description`|The brand's description.|
 |`tags`|A list of predefined tags that were associated with this brand.|
-|`confidence`|The confidence value of the Azure Video Indexer brand detector (`0`-`1`).|
+|`confidence`|The confidence value of the Azure AI Video Indexer brand detector (`0`-`1`).|
 |`instances`|A list of time ranges for this brand. Each instance has a `brandType` value, which indicates whether this brand appeared in the transcript or in an OCR.|
 
 ```json
@@ -634,7 +632,7 @@ Sentiments are aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 #### visualContentModeration
 
-The `visualContentModeration` transcript contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
+The `visualContentModeration` transcript contains time ranges that Azure AI Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
 Videos that contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
 
@@ -682,7 +680,7 @@ Videos that contain adult or racy content might be available for private view on
 
 #### emotions
 
-Azure Video Indexer identifies emotions based on speech and audio cues. 
+Azure AI Video Indexer identifies emotions based on speech and audio cues. 
 
 |Name|Description|
 |---|---|
@@ -772,7 +770,7 @@ Azure Video Indexer identifies emotions based on speech and audio cues.
 
 #### topics
 
-Azure Video Indexer makes an inference of main topics from transcripts. When possible, the second-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+Azure AI Video Indexer makes an inference of main topics from transcripts. When possible, the second-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
 
 |Name|Description|
 |---|---|
@@ -782,7 +780,7 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
 |`confidence`|The confidence score in the range `0`-`1`. Higher is more confident.|
 |`language`|The language used in the topic.|
 |`iptcName`|The IPTC media code name, if detected.|
-|`instances` |Currently, Azure Video Indexer does not index a topic to time intervals. The whole video is used as the interval.|
+|`instances` |Currently, Azure AI Video Indexer does not index a topic to time intervals. The whole video is used as the interval.|
 
 ```json
 "topics": [{
@@ -854,7 +852,7 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
 
 ## Next steps
 
-Explore the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai).
+Explore the [Azure AI Video Indexer API developer portal](https://api-portal.videoindexer.ai).
 
-For information about how to embed widgets in your application, see [Embed Azure Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
+For information about how to embed widgets in your application, see [Embed Azure AI Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

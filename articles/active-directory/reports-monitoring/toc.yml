@@ -105,6 +105,10 @@ items:
     href: /graph/api/resources/directoryaudit
   - name: Azure AD recommendations API reference
     href: /graph/api/resources/recommendations-api-overview
+  - name: Application credential activity API reference
+    href: /graph/api/resources/appcredentialsigninactivity
+  - name: Application sign-in activity API reference
+    href: /graph/api/resources/serviceprincipalsigninactivity
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities
@@ -140,12 +144,29 @@ items:
         href: workbook-mfa-gaps.md
 
 - name: Azure AD Recommendations
+  expanded: false
   items:
-    - name: Switch to Conditional Access MFA
-      href: recommendation-turn-off-per-user-mfa.md
-    - name: Migrate to Microsoft authenticator
-      href: recommendation-migrate-to-authenticator.md
-    - name: Migrate apps from AD FS to Azure AD
-      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
-    - name: Minimize MFA prompts from known devices
-      href: recommendation-mfa-from-known-devices.md
+    - name: How to use Azure AD recommendations
+      href: howto-use-recommendations.md
+    - name: Recommendation details
+      expanded: true
+      items:
+        - name: Migrate ADAL to MSAL
+          href: recommendation-migrate-from-adal-to-msal.md
+        - name: Migrate apps from AD FS to Azure AD
+          href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+        - name: Migrate to Microsoft authenticator
+          href: recommendation-migrate-to-authenticator.md
+        - name: Switch to Conditional Access MFA
+          href: recommendation-turn-off-per-user-mfa.md
+        - name: Minimize MFA prompts from known devices
+          href: recommendation-mfa-from-known-devices.md
+        - name: Remove unused apps (preview)
+          href: recommendation-remove-unused-apps.md
+        - name: Remove unused credentials from apps (preview)
+          href: recommendation-remove-unused-credential-from-apps.md
+        - name: Renew expiring application credentials (preview)
+          href: recommendation-renew-expiring-application-credential.md
+        - name: Renew expiring service principal credentials (preview)
+          href: recommendation-renew-expiring-service-principal-credential.md
+

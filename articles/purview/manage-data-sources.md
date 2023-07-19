@@ -1,5 +1,5 @@
 ---
-title: How to manage multicloud data sources
+title: How to manage data sources
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
 author: linda33wj
 ms.author: jingwang
@@ -90,7 +90,7 @@ After you've registered your source, you can move it to another collection that 
 
    :::image type="content" source="media/manage-data-sources/select-collection.png" alt-text="Screenshot of the Move collection window, showing the drop down selection of collections.":::
 
-1. Your collection has been moved. It can take up to an hour for results to be fully seen across your Microsoft Purview environment. Your scans will move with your resource, but assets will remain in their original collection until your next scan, then they'll move to the new collection.
+1. Your data source has been moved. It can take up to an hour for results to be fully seen across your Microsoft Purview environment. Your scans will move with your resource, but assets will remain in their original collection until your next scan, then they'll move to the new collection.
 
 >[!NOTE]
 >If any of the assets from your source were moved manually to a different collection before the source was migrated, the scan won't take them to the new collection. They will remain in the collection you moved them to.

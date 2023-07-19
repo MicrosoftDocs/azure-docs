@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Uberflip | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Uberflip'
 description: Learn how to configure single sign-on between Azure Active Directory and Uberflip.
 services: active-directory
 author: jeevansd

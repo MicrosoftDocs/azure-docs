@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Freedcamp | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Freedcamp'
 description: Learn how to configure single sign-on between Azure Active Directory and Freedcamp.
 services: active-directory
 author: jeevansd
@@ -123,15 +123,10 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure Freedcamp SSO
 
-1. To automate the configuration within Freedcamp, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Freedcamp** will direct you to the Freedcamp application. From there, provide the admin credentials to sign into Freedcamp. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Freedcamp manually, open a new web browser window and sign into your Freedcamp company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Freedcamp company site as an administrator
 
 4. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
 

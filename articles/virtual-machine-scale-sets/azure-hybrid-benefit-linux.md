@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/22/2022
 ms.author: mathapli
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-azurecli
 ---
 
 # Explore Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
@@ -103,7 +103,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Scale sets have an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determines how virtual machines are brought up to date with the latest scale set model. 
+> Scale sets have an [upgrade policy](./virtual-machine-scale-sets-upgrade-policy.md) that determines how virtual machines are brought up to date with the latest scale set model. 
 >
 > If your scale sets have an **Automatic** upgrade policy, Azure Hybrid Benefit will be applied automatically as virtual machines are updated. If your scale sets have a **Rolling** upgrade policy, based on the scheduled updates, Azure Hybrid Benefit will be applied. 
 >

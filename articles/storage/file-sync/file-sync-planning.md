@@ -2,12 +2,11 @@
 title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 02/03/2023
 ms.author: kendownie
-ms.subservice: files
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment
@@ -117,7 +116,7 @@ In the following table, we have provided both the size of the namespace as well 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
@@ -325,7 +324,7 @@ Azure File Sync does not interoperate with NTFS Encrypted File System (NTFS EFS)
 ### Encryption in transit
 
 > [!NOTE]
-> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](file-sync-troubleshoot-cloud-tiering.md#tls-12-required-for-azure-file-sync).
+> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#tls-12-required-for-azure-file-sync).
 
 Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP. 
 

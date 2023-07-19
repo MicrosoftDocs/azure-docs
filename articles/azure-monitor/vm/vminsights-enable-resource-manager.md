@@ -2,10 +2,10 @@
 title: Enable VM insights using Resource Manager templates
 description: This article describes how you enable VM insights for one or more Azure virtual machines or Virtual Machine Scale Sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
+author: guywi-ms
+ms.author: guywild
 ms.date: 06/08/2022
-
 ---
 
 # Enable VM insights using Resource Manager templates

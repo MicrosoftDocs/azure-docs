@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) Application Proxy natively supports single sig
 
 * **No additional software or changes to your apps** - You can use your existing Application Proxy connectors and it doesn't require any additional software to be installed.  
 
-* **Wide list of attributes and transformations available** - All header values available are based on standard claims that are issued by Azure AD. All attributes and transformations available for [configuring claims for SAML or OIDC applications](../develop/active-directory-saml-claims-customization.md#attributes) are also available to be used as header values. 
+* **Wide list of attributes and transformations available** - All header values available are based on standard claims that are issued by Azure AD. All attributes and transformations available for [configuring claims for SAML or OIDC applications](../develop/saml-claims-customization.md#attributes) are also available to be used as header values. 
 
 ## Pre-requisites
 Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
-1. The Admin customizes the attribute mappings required by the application in the Azure AD portal. 
+1. The Admin customizes the attribute mappings required by the application in the Azure portal. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
 3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 
@@ -72,8 +72,8 @@ Before you get started with single sign-on for header-based applications, you sh
 3. In Basic Configuration, **Azure Active Directory**, will be selected as the default. 
 4. Select the edit pencil, in Headers to configure headers to send to the application. 
 5. Select **Add new header**. Provide a **Name** for the header and select either **Attribute** or **Transformation** and select from the drop-down which header your application needs.  
-    - To learn more about the list of attribute available, see [Claims Customizations- Attributes](../develop/active-directory-saml-claims-customization.md#attributes). 
-    - To learn more about the list of transformation available, see [Claims Customizations- Claim Transformations](../develop/active-directory-saml-claims-customization.md#claim-transformations). 
+    - To learn more about the list of attribute available, see [Claims Customizations- Attributes](../develop/saml-claims-customization.md#attributes). 
+    - To learn more about the list of transformation available, see [Claims Customizations- Claim Transformations](../develop/saml-claims-customization.md#claim-transformations). 
     - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
 6. Select Save. 
 

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4, engagement-fy23
-ms.date: 02/07/2023
+ms.date: 05/24/2023
 ---
 
 # What is Azure Logic Apps?
@@ -69,7 +69,7 @@ To access and run operations on resources in services such as Azure, Microsoft, 
 
 For more information, review the following documentation:
 
-* [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
+* [About connectors in Azure Logic Apps](../connectors/introduction.md)
 
 * [Managed connectors](../connectors/managed.md)
 
@@ -151,7 +151,7 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 ## How logic apps work
 
-In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
+In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step. Azure Logic Apps implements and uses the "at-least-once" message delivery semantic. Rarely does the service deliver a message more than one time, but no messages are lost. If your business doesn't or can't handle duplicate messages, you need to implement idempotence, so that repeating the same exact operation doesn't change the result after the first execution.
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
@@ -181,17 +181,17 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 
 When you're ready, try one or more of the following quickstart guides for Azure Logic Apps. Learn how to create a basic workflow that monitors an RSS feed and sends an email for new content.
 
-* [Create a multi-tenant based logic app in the Azure portal](quickstart-create-first-logic-app-workflow.md)
+* [Create a multi-tenant based logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-* [Create a multi-tenant based logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Create a multi-tenant based logic app workflow in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 
-* [Create a multi-tenant based logic app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+* [Create a multi-tenant based logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 You might also want to explore other quickstart guides for Azure Logic Apps:
 
-* [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app workflow using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
 
-* [Create a multi-tenant based logic app using the Azure CLI](quickstart-logic-apps-azure-cli.md)
+* [Create a multi-tenant based logic app workflow using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 ## Other resources
 
@@ -201,4 +201,4 @@ Learn more about the Azure Logic Apps platform with these introductory videos:
 
 ## Next steps
 
-* [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)

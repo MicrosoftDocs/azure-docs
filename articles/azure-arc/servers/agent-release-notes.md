@@ -1,12 +1,12 @@
 ---
-title: What's new with Azure Arc-enabled servers agent
-description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
+title: What's new with Azure Connected Machine agent
+description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 07/11/2023
 ms.custom: references_regions
 ---
 
-# What's new with Azure Arc-enabled servers agent
+# What's new with Azure Connected Machine agent
 
 The Azure Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -14,77 +14,84 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Known issues
 - Bug fixes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
-## Version 1.27 - February 2023
+## Version 1.32 - July 2023
 
-### Fixed
-
-- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
-- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
-- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
-- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
-- Tenant IDs are better validated when connecting the server
-
-## Version 1.26 - January 2023
-
-> [!NOTE]
-> Version 1.26 is only available for Linux operating systems.
-
-### Fixed
-
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
-
-## Version 1.25 - January 2023
+Download for [Windows](https://download.microsoft.com/download/7/e/5/7e51205f-a02e-4fbe-94fe-f36219be048c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
-- Red Hat Enterprise Linux (RHEL) 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
+- Added support for the Debian 12 operating system
+- [azcmagent show](azcmagent-show.md) now reflects the "Expired" status when a machine has been disconnected long enough for the managed identity to expire. Previously, the agent only showed "Disconnected" while the Azure portal and API showed the correct state, "Expired."
 
 ### Fixed
 
-- Reliability improvements in the machine (guest) configuration policy engine
-- Improved error messages in the Windows MSI installer
-- Additional improvements to the detection logic for machines running on Azure Stack HCI
+- Fixed an issue that could result in high CPU usage if the agent was unable to send telemetry to Azure.
+- Improved local logging when there are network communication errors
 
-## Version 1.24 - November 2022
+## Version 1.31 - June 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-1364-41ed-90b0-1340a44ba409/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issue
+
+The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue is indicated by the  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
+
+To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
+
+| Package type | Version number with proxy issue | Version number of patched agent |
+| ------------ | ------------------------------- | ------------------------------- |
+| Windows | 1.31.02347.1069 | 1.31.02356.1083 |
+| RPM-based Linux | 1.31.02347.957 | 1.31.02356.970 |
+| DEB-based Linux | 1.31.02347.939 | 1.31.02356.952 |
 
 ### New features
 
-- `azcmagent logs` improvements:
-  - Only the most recent log file for each component is collected by default. To collect all log files, use the new `--full` flag.
-  - Journal logs for the agent services are now collected on Linux operating systems
-  - Logs from extensions are now collected
-- Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
-- Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
+- Added support for Amazon Linux 2023
+- [azcmagent show](azcmagent-show.md) no longer requires administrator privileges
+- You can now filter the output of [azcmagent show](azcmagent-show.md) by specifying the properties you wish to output
 
 ### Fixed
 
-- Improved logic for detecting machines running on Azure Stack HCI to reduce false positives
-- Auto-registration of required resource providers only happens when they are unregistered
-- Agent will now detect drift between the proxy settings of the command line tool and background services
-- Fixed a bug with proxy bypass feature that caused the agent to incorrectly use the proxy server for bypassed URLs
-- Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
+- Added an error message when a pending reboot on the machine affects extension operations
+- The scheduled task that checks for agent updates no longer outputs a file
+- Improved formatting for clock skew calculations
+- Improved reliability when upgrading extensions by explicitly asking extensions to stop before trying to upgrade.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Management Center extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
+- [azcmagent disconnect](azcmagent-disconnect.md) now closes any active SSH or Windows Admin Center connections
+- Improved output of the [azcmagent check](azcmagent-check.md) command
+- Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)
 
-## Version 1.23 - October 2022
+## Version 1.30 - May 2023
+
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
-- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
-- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
-- Added support for Rocky Linux 8 and Debian 11.
+- Introduced a scheduled task that checks for agent updates on a daily basis. Currently, the update mechanism is inactive and no changes are made to your server even if a newer agent version is available. In the future, you'll be able to schedule updates of the Azure Connected Machine agent from Azure. For more information, see [Automatic agent upgrades](manage-agent.md#automatic-agent-upgrades).
 
 ### Fixed
 
-- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
-- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
-- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
-- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
-- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
-- Improved logging during the installation process.
-- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
+- Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
+- `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
+
+## Version 1.29 - April 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a nonblocking error is shown. You may encounter TLS connection errors if the time of your computer doesn't match the time in Azure.
+- `azcmagent show` now supports an `--os` flag to print extra OS information to the console
+
+### Fixed
+
+- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
+- Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
+- Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
+- Reduced how long network checks wait before determining a network endpoint is unreachable
+- Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
 ## Next steps
 

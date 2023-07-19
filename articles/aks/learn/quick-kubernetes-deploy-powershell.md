@@ -119,7 +119,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
+    
 1. Copy in the following YAML definition:
 
     ```yaml
@@ -276,7 +276,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - external -->
 [azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

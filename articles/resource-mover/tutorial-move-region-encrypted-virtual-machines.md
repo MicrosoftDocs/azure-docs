@@ -5,9 +5,9 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/21/2022
+ms.date: 02/10/2023
 ms.author: ankitadutta
-ms.custom: mvc engagement-fy23
+ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 ---
 
@@ -193,7 +193,7 @@ To select the resources, do the following:
 
 To resolve dependencies before the move, follow these steps:
 
-1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button.
+1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Screenshot showing the 'Validate dependencies' button." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
@@ -212,7 +212,7 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Screenshot of the dependencies list and the 'Add dependencies' button." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
-1. Validate the dependencies again. 
+1. Dependencies are automatically validated in the background after you add them. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Screenshot of the pane for revalidating the dependencies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 

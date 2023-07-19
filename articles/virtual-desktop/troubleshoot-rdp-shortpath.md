@@ -9,7 +9,7 @@ ms.author: daknappe
 # Troubleshoot RDP Shortpath for public networks
 
 > [!IMPORTANT]
-> RDP Shortpath for public networks using TURN for Azure Virtual Desktop is currently in PREVIEW. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Using RDP Shortpath for public networks with TURN for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you're having issues when using RDP Shortpath for public networks, use the information in this article to help troubleshoot.
 

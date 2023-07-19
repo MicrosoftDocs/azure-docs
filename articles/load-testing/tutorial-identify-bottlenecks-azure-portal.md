@@ -96,21 +96,21 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 > [!NOTE]
 > The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
 
-### Create the Azure Load Testing resource
+### Create the Azure load testing resource
 
-The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
+The Azure load testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
 
-If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
+If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
 
-If you don't yet have a Load Testing resource, create one now:
+If you don't yet have an Azure load testing resource, create one now:
 
-[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
-### <a name="create_test"></a> Create a load test
+### Create a load test
 
-To create a load test in the Load Testing resource for the sample app:
+Next, you create a load test in your load testing resource for the sample app. You create the load test by using an existing JMeter script in the sample app repository.
 
-1. Go to the Load Testing resource and select **Create new test** on the command bar.
+1. Go to your load testing resource, and select **Create** on the **Overview** page.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
 

@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 08/12/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Join Azure-SSIS integration runtime to a virtual network

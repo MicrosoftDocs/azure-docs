@@ -2,8 +2,8 @@
 title: Defender for Cloud Planning multicloud security determine multicloud dependencies CSPM CWPP guidance cloud workload protection
 description: Learn about determining multicloud dependencies when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
@@ -62,10 +62,10 @@ Enabling Defender for Servers on your AWS or GCP connector allows Defender for C
 Defender for Servers offers two different plans:
 
 - **Plan 1:**
-  - **MDE integration:** Plan 1 integrates with [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2?view=o365-worldwide) to provide a full endpoint detection and response (EDR) solution for machines running a [range of operating systems](/microsoft-365/security/defender-endpoint/minimum-requirements?view=o365-worldwide). Defender for Endpoint features include:
-    - [Reducing the attack surface](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction?view=o365-worldwide) for machines.
-    - Providing [antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection?view=o365-worldwide) capabilities.
-    - Threat management, including [threat hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview?view=o365-worldwide), [detection](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response?view=o365-worldwide), [analytics](/microsoft-365/security/defender-endpoint/threat-analytics?view=o365-worldwide), and [automated investigation and response](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response?view=o365-worldwide).
+  - **MDE integration:** Plan 1 integrates with [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2) to provide a full endpoint detection and response (EDR) solution for machines running a [range of operating systems](/microsoft-365/security/defender-endpoint/minimum-requirements). Defender for Endpoint features include:
+    - [Reducing the attack surface](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) for machines.
+    - Providing [antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection) capabilities.
+    - Threat management, including [threat hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), [detection](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), [analytics](/microsoft-365/security/defender-endpoint/threat-analytics), and [automated investigation and response](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
   - **Provisioning:** Automatic provisioning of the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.
   - **Licensing:** Charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they are in use.
 - **Plan 2:** Includes all the components of Plan 1 along with additional capabilities such as File Integrity Monitoring (FIM), Just-in-time (JIT) VM access, and more.
@@ -80,7 +80,7 @@ The following components and requirements are needed to receive full protection 
   - The Azure Arc agent is needed to read security information on the host level and allow Defender for Cloud to deploy the agents/extensions required for complete protection.
 To auto-provision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
 - **Defender for Endpoint capabilities**: The [Microsoft Defender for Endpoint](./integration-defender-for-endpoint.md?tabs=linux) agent provides comprehensive endpoint detection and response (EDR) capabilities.
-- **Vulnerability assessment**: Using either the integrated [Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md), or the [Microsoft threat and vulnerability management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide) solution.
+- **Vulnerability assessment**: Using either the integrated [Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md), or the [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management) solution.
 - **Log Analytics agent/[Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) (in preview)**: Collects security-related configuration information and event logs from machines.
 
 #### Check networking requirements

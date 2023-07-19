@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Virtual Desktop remote app streaming
-summary: With Azure Virtual Desktop remote app streaming, you can deliver apps as software as a service (SaaS) for users inside and outside your organization.
+title: Azure Virtual Desktop RemoteApp streaming
+summary: With Azure Virtual Desktop RemoteApp streaming, you can deliver apps as software as a service (SaaS) for users inside and outside your organization.
 
 metadata:
-  title: Azure Virtual Desktop remote app streaming
-  description: How to use Azure Virtual Desktop remote app streaming to deliver apps to customers inside and outside of your organization.
+  title: Azure Virtual Desktop RemoteApp streaming
+  description: How to use Azure Virtual Desktop RemoteApp streaming to deliver apps to customers inside and outside of your organization.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -18,7 +18,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: Remote app streaming with Azure Virtual Desktop
+  - title: RemoteApp streaming with Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links: 
@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: 1. Create a host pool with the Azure portal
             url: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-          - text: 2. Manage app groups
+          - text: 2. Manage application groups
             url: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
           - text: 3. Create a host pool to validate service updates
             url: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json

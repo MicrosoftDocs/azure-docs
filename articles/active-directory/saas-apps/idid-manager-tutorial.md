@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with iDiD Manager | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with iDiD Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and iDiD Manager.
 services: active-directory
 author: jeevansd

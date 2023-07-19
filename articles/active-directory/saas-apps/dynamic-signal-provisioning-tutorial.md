@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Dynamic Signal for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Dynamic Signal for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Dynamic Signal.
 services: active-directory
 author: twimmers

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Apptio | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Apptio"
 description: Learn how to configure single sign-on between Azure Active Directory and Apptio.
 services: active-directory
 author: jeevansd

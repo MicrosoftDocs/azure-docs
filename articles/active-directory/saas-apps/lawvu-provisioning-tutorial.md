@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure LawVu for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure LawVu for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LawVu.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 37a258fe-b435-4bd8-88a8-8e93bb6f6b6b
 ms.service: active-directory

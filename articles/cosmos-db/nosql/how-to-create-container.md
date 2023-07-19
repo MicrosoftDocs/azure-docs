@@ -9,7 +9,7 @@ ms.date: 01/03/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL
@@ -70,4 +70,4 @@ Container container = await database.CreateContainerIfNotExistsAsync(containerPr
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../resource-model.md)

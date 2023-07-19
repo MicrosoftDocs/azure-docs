@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 04/28/2023
 ms.custom: mode-other
 ---
 
@@ -18,6 +18,9 @@ Azure Web PubSub service helps you build real-time messaging web applications. T
 Here are some important terms used by the service:
 
 [!INCLUDE [Terms](includes/terms.md)]
+
+> [!IMPORTANT]
+> `Hub`, `Group`, `UserId` are important roles when you manage clients and send messages. They will be required parameters in different REST API calls as plain text. So __DO NOT__ put sensitive information in these fields. For example, credentials or bearer tokens which will have high leak risk.
 
 ## Workflow
 

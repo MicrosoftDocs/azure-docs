@@ -5,6 +5,7 @@ author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/10/2022
 ---

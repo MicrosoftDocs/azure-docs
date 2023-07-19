@@ -22,6 +22,8 @@ items:
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
     href: elastic-san-connect-linux.md
+  - name: Connect to an Elastic SAN volume - AKS
+    href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
   - name: Configure virtual networks

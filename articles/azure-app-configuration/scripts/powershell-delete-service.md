@@ -3,12 +3,12 @@ title: PowerShell script sample - Delete an Azure App Configuration store
 titleSuffix: Azure App Configuration
 description: Delete an Azure App Configuration store using a sample PowerShell script. See reference article links to commands used in the script.
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/02/2023
-ms.author: malev 
-ms.custom: devx-track-azurepowershell
+ms.author: mcleans 
+ms.custom:
 ---
 
 # Delete an Azure App Configuration store with PowerShell

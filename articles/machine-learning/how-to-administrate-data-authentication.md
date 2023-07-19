@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: xunwan
-author: xunwan
+author: SturgeonMi
 ms.reviewer: larryfr
 ms.date: 01/20/2023
 ms.custom: engagement-fy23
@@ -17,13 +17,10 @@ ms.custom: engagement-fy23
 
 # Data administration
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/concept-network-data-access.md)
-> * [v2 (current version)](how-to-administrate-data-authentication.md)
 
 Learn how to manage data access and how to authenticate in Azure Machine Learning
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
 
 > [!IMPORTANT]
 > The information in this article is intended for Azure administrators who are creating the infrastructure required for an Azure Machine Learning solution.
@@ -96,7 +93,7 @@ When an Azure Storage account is behind a virtual network, the storage firewall 
 When the workspace uses a private endpoint and the storage account is also in the VNet, there are extra validation requirements when using studio:
 
 * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ## Azure Data Lake Storage Gen1
 

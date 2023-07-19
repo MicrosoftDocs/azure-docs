@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api, devx-track-extended-java
 ---
 # Quickstart: Use the Bing Video Search client library
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 

@@ -31,10 +31,10 @@ You receive events from a partner in a [partner topic](concepts.md#partner-topic
 3. After the partner creates a partner topic in your Azure subscription and resource group, [activate](subscribe-to-partner-events.md#activate-a-partner-topic) your partner topic. 
 4. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating one or more event subscriptions on the partner topic.
 
-:::image type="content" source="./media/partner-events-overview/receive-events-from-partner.png" alt-text="Steps to receive events from a partner":::
+    :::image type="content" source="./media/partner-events-overview/receive-events-from-partner.svg" alt-text="Diagram showing the steps to receive events from a partner.":::
 
-> [!NOTE]
-> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
+    > [!NOTE]
+    > You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
 
 
 ## Why should I use Partner Events?
@@ -55,7 +55,7 @@ A partner must go through an [onboarding process](onboard-partner.md) before a c
 Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
 
 ### Auth0
-[Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md).
+[Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auth0](auth0-how-to.md).
 
 ### SAP
 You can configure your SAP system to send events to Azure Event Grid. For more information, see [Subscribe to SAP events](subscribe-to-sap-events.md).

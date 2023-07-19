@@ -6,7 +6,7 @@ author: whhender
 ms.author: whhender
 ms.service: purview
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 02/17/2023
 ---
  
 # Manage and increase quotas for resources with Microsoft Purview
@@ -27,7 +27,7 @@ This article highlights the limits that currently exist in the Microsoft Purview
 |Maximum length of an asset name and classification name|4 KB|4 KB|
 |Maximum length of asset property name and value|32 KB|32 KB|
 |Maximum length of classification attribute  name and value|32 KB|32 KB|
-|Maximum number of glossary terms, per account|100K|100K|
+|Maximum number of glossary terms, per glossary|100K|100K|
 |Maximum number of self-service policies, per account|3K|3K|
 
 \* Self-hosted integration runtime scenarios aren't included in the limits defined in the above table.

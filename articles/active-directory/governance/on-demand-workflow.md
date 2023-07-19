@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 01/30/2023
+ms.date: 05/31/2023
 ms.custom: template-how-to 
 ---
 
 
-# Run a workflow on-demand (Preview)
+# Run a workflow on-demand
 
 Scheduled workflows by default run every 3 hours, but can also run on-demand so that they can be applied to specific users whenever you see fit. A workflow can be run on demand for any user, and doesn't take into account whether or not a user meets the workflow's execution conditions. Running a workflow on-demand allows you to test workflows before their scheduled run. This testing, on a set of users up to 10 at a time, allows you to see how a workflow will run before it processes a larger set of users. Testing your workflow before their scheduled runs helps you proactively solve potential lifecycle issues more quickly.
 
@@ -27,11 +27,11 @@ Use the following steps to run a workflow on-demand.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
-1. On the left menu, select **Lifecycle workflows (Preview)**.
+1. On the left menu, select **Lifecycle workflows**.
 
-1. select **Workflows (Preview)**
+1. select **Workflows**
 
 1. On the workflow screen, select the specific workflow you want to run.
 

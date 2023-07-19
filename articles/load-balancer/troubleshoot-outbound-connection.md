@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot SNAT exhaustion and connection timeouts
+title: Troubleshoot common outbound connectivity issues with Azure Load Balancer 
 titleSuffix: Azure Load Balancer
-description: Resolutions for common problems with outbound connectivity with Azure Load Balancer. 
+description: In this article, learn to troubleshoot for common problems with outbound connectivity with Azure Load Balancer. This includes most common issues of SNAT exhaustion and connection timeouts.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 04/21/2022
+ms.date: 05/22/2023
 ms.author: mbender
 ---
 
-# Troubleshoot SNAT exhaustion and connection timeouts
+# Troubleshoot common outbound connectivity issues with Azure Load Balancer
 
-This article is intended to provide guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
+This article provides troubleshooting guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
 
 To learn more about SNAT ports, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
@@ -27,21 +27,21 @@ It's important to optimize your Azure deployments for outbound connectivity. Opt
 
 ### Use a NAT gateway for outbound connectivity to the Internet
 
-Virtual network NAT gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure Virtual Network NAT, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+Azure NAT Gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md).
 
 * **How does a NAT gateway reduce the risk of SNAT port exhaustion?**
 
     Azure Load Balancer allocates fixed amounts of SNAT ports to each virtual machine instance in a backend pool. This method of allocation can lead to SNAT exhaustion, especially if uneven traffic patterns result in a specific virtual machine sending a higher volume of outgoing connections. Unlike load balancer, a NAT gateway dynamically allocates SNAT ports across all VM instances within a subnet. 
 
-    A NAT gateway makes available SNAT ports accessible to every instance in a subnet. This dynamic allocation allows VM instances to use the number of SNAT ports each needs from the available pool of ports for new connections. The dynamic allocation reduces the risk of SNAT exhaustion.
+    A NAT gateway makes available SNAT ports accessible to every instance in a subnet. This dynamic allocation allows VM instances to use the number of SNAT ports each need from the available pool of ports for new connections. The dynamic allocation reduces the risk of SNAT exhaustion.
 
-    :::image type="content" source="./media/troubleshoot-outbound-connection/load-balancer-vs-nat.png" alt-text="Diagram of Azure Load Balancer vs. Azure Virtual Network NAT.":::
+    :::image type="content" source="./media/troubleshoot-outbound-connection/load-balancer-vs-nat.png" alt-text="Diagram of Azure Load Balancer vs. Azure NAT Gateway.":::
 
 * **Port selection and reuse behavior.**
     
-    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports will be reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
+    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports are reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
 
-    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions in which you won't be able to use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [Virtual Network NAT limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
+    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions in which you won't be able to use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
 
     If you're unable to use a NAT gateway for outbound connectivity, refer to the other migration options described in this article.
 
@@ -51,7 +51,7 @@ If you’re using a public standard load balancer and experience SNAT exhaustion
 
 To learn more about default outbound access and default port allocation, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
-To increase the number of available SNAT ports per VM, configure outbound rules with manual port allocation on your load balancer. For example, if you know you'll have a maximum of 10 VMs in your backend pool, you can allocate up to 6,400 SNAT ports per VM rather than the default 1,024. If you need more SNAT ports, you can add multiple frontend IP addresses for outbound connections to multiply the number of SNAT ports available. Make sure you understand why you're exhausting SNAT ports before adding more frontend IP addresses. 
+To increase the number of available SNAT ports per VM, configure outbound rules with manual port allocation on your load balancer. For example, if you know you have a maximum of 10 VMs in your backend pool, you can allocate up to 6,400 SNAT ports per VM rather than the default 1,024. If you need more SNAT ports, you can add multiple frontend IP addresses for outbound connections to multiply the number of SNAT ports available. Make sure you understand why you're exhausting SNAT ports before adding more frontend IP addresses. 
 
 For detailed guidance, see [Design your applications to use connections efficiently](#design-your-applications-to-use-connections-efficiently) later in this article. To add more IP addresses for outbound connections, create a frontend IP configuration for each new IP. When outbound rules are configured, you're able to select multiple frontend IP configurations for a backend pool. It's recommended to use different IP addresses for inbound and outbound connectivity. Different IP addresses isolate traffic for improved monitoring and troubleshooting.
 

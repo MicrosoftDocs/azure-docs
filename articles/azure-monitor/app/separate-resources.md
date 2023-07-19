@@ -52,7 +52,7 @@ Be aware that:
 
 To make it easier to change the instrumentation key as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded or static value.
 
-Set the key in an initialization method, such as `global.aspx.cs`, in an ASP.NET service:
+Set the key in an initialization method, such as `global.asax.cs`, in an ASP.NET service:
 
 ```csharp
 protected void Application_Start()

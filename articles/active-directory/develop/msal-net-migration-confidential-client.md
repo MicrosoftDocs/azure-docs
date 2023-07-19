@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/08/2021
 ms.author: dmwendia
 ms.reviewer: jmprieur, saeeda, shermanouko
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref, kr2b-contr-experiment"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, kr2b-contr-experiment, devx-track-dotnet
 #Customer intent: As an application developer, I want to migrate my confidential client app from ADAL.NET to MSAL.NET.
 ---
 
@@ -134,12 +134,21 @@ public partial class AuthWrapper
 
  public async Task<AuthenticationResult> GetAuthenticationResult()
  {
-  if (app == null)
-  {
-   app = ConfidentialClientApplicationBuilder.Create(ClientId)
+
+   var app = ConfidentialClientApplicationBuilder.Create(ClientId)
            .WithCertificate(certificate)
            .WithAuthority(authority)
            .Build();
+
+  // Setup token caching https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet
+  // For example, for an in-memory cache with 1GB limit, use  
+  app.AddInMemoryTokenCache(services =>
+  {
+      // Configure the memory cache options
+      services.Configure<MemoryCacheOptions>(options =>
+      {
+          options.SizeLimit = 1024 * 1024 * 1024; // in bytes (1 GB of memory)
+      });
   }
 
   var authResult = await app.AcquireTokenForClient(
@@ -158,9 +167,9 @@ public partial class AuthWrapper
 
 #### Benefit from token caching
 
-To benefit from the in-memory cache, the instance of `IConfidentialClientApplication` must be kept in a member variable. If you re-create the confidential client app each time you request a token, you won't benefit from the token cache.
+If you don't setup token caching, the token issuer will throttle you, resulting in errors. It also takes a lot less to get a token from the cache (10-20ms) than it is from ESTS (500-30000ms).
 
-You'll need to serialize `AppTokenCache` if you don't use the default in-memory app token cache. Similarly, If you want to implement a distributed token cache, serialize `AppTokenCache`. For details, see [Token cache for a web app or web API (confidential client application)](msal-net-token-cache-serialization.md?tabs=aspnet) and the sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
+If you want to implement a distributed token cache, see [Token cache for a web app or web API (confidential client application)](msal-net-token-cache-serialization.md?tabs=aspnet) and the sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
 [Learn more about the daemon scenario](scenario-daemon-overview.md) and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
@@ -255,14 +264,22 @@ public partial class AuthWrapper
   string resourceId,
   string tokenUsedToCallTheWebApi)
  {
-  if (app == null)
-  {
-   app = ConfidentialClientApplicationBuilder.Create(ClientId)
+ 
+  var app = ConfidentialClientApplicationBuilder.Create(ClientId)
            .WithCertificate(certificate)
            .WithAuthority(authority)
            .Build();
-  }
 
+  // Setup token caching https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet
+  // For example, for an in-memory cache with 1GB limit. For OBO, it is recommended to use a distributed cache like Redis.
+  app.AddInMemoryTokenCache(services =>
+  {
+      // Configure the memory cache options
+      services.Configure<MemoryCacheOptions>(options =>
+      {
+          options.SizeLimit = 1024 * 1024 * 1024; // in bytes (1 GB of memory)
+      });
+  }
 
   var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
 

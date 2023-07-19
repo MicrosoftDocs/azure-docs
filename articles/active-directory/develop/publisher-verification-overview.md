@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2022
+ms.date: 04/27/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, brianokoyo, jesakowi
+ms.reviewer: xurobert
 ---
 
 # Publisher verification
@@ -66,7 +66,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
   - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or Global Administrator (a shared role that's mastered in Azure AD).
   
-- The user who initiates verification must sign in by using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
+- The user who initiates verification must sign in by using [Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md).
 
 - The publisher must consent to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 

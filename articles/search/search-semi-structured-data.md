@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 + [Azure Storage](../storage/common/storage-account-create.md)
-+ [Postman desktop app](https://www.getpostman.com/)
++ [Postman app](https://www.postman.com/downloads/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
@@ -59,7 +59,7 @@ If possible, create both in the same region and resource group for proximity and
 
    + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Azure AI services. A single location voids bandwidth charges.
 
    + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 

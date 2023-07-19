@@ -75,7 +75,14 @@ items:
     expanded: false
     items:
     - name: $convert-data
-      href: convert-data.md
+      expanded: false
+      items:
+      - name: Overview of $convert-data
+        href: overview-of-convert-data.md
+      - name: Configure settings for $convert-data
+        href: configure-settings-convert-data.md
+      - name: FAQs - $convert-data
+        href: frequently-asked-questions-convert-data.md     
     - name: $export
       expanded: false
       items:

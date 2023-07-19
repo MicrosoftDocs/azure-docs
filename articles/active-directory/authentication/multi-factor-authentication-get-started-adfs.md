@@ -1,5 +1,5 @@
 ---
-title: Two-step verification Azure AD MFA and ADFS - Azure Active Directory
+title: Two-step verification Azure AD MFA and ADFS
 description: This is the Azure AD Multi-Factor Authentication page that describes how to get started with Azure AD MFA and AD FS.
 
 services: multi-factor-authentication

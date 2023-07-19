@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Consent2Go | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Consent2Go'
 description: Learn how to configure single sign-on between Azure Active Directory and Consent2Go.
 services: active-directory
 author: jeevansd

@@ -12,9 +12,11 @@ ms.custom: references_regions
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently not supported for the following cases:
-> - Workspaces with [customer-managed keys](customer-managed-keys.md). 
-> - Workspaces in the China East 2 region.
+> The search job feature is currently not supported for workspaces with [customer-managed keys](customer-managed-keys.md). 
+
+## Permissions
+
+To run a search job, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
 
 ## When to use search jobs
 
@@ -267,13 +269,11 @@ You can use all functions and binary operators within these operators.
 ## Pricing model
 The charge for a search job is based on: 
 
-- Search job execution - the amount of data the search job needs to scan.
-- Search job results - the amount of data ingested in the results table, based on the regular log data ingestion prices.
+- Search job execution - the amount of data the search job scans.
+- Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
 
-For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
-
-> [!NOTE]
-> Search job execution is free until early 2023. In other words, until early 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
+For example, if your table holds 500 GB per day, for a search over 30 days, you'll be charged for 15,000 GB of scanned data. 
+If the search job finds 1,000 records that match the search query, you'll be charged for ingesting these 1,000 records into the results table. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

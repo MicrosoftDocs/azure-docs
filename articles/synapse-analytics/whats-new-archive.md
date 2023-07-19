@@ -4,7 +4,7 @@ description: Archive of the new features and documentation improvements for Azur
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 01/06/2023
+ms.date: 04/04/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -20,6 +20,8 @@ The following table lists a past history of the features of Azure Synapse Analyt
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- | 
+| July 2022 | **Apache Spark&trade; 3.2 for Synapse Analytics** | Apache Spark&trade; 3.2 for Synapse Analytics is now generally available. Review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) and [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md). Highlights of what got better in Spark 3.2 in the [Azure Synapse Analytics July Update 2022](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-july-update-2022/ba-p/3535089#TOCREF_1).|
+| July 2022 | **Apache Spark in Azure Synapse Intelligent Cache feature** | Intelligent Cache for Spark automatically stores each read within the allocated cache storage space, detecting underlying file changes and refreshing the files to provide the most recent data. To learn more, see how to [Enable/Disable the cache for your Apache Spark pool](./spark/apache-spark-intelligent-cache-concept.md).|
 | June 2022 | **Map Data tool** | The Map Data tool is a guided process to help you create ETL mappings and mapping data flows from your source data to Synapse without writing code. To learn more about the Map Data tool, read [Map Data in Azure Synapse Analytics](./database-designer/overview-map-data.md).|
 | June 2022 | **User Defined Functions** | User defined functions (UDFs) are now generally available. To learn more, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628). |
 | May 2022 | **Azure Synapse Data Explorer connector for Power Automate, Logic Apps, and Power Apps** | The Azure Data Explorer connector for Power Automate enables you to orchestrate and schedule flows, send notifications, and alerts, as part of a scheduled or triggered task. To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow) and [Usage examples for Azure Data Explorer connector to Power Automate](/azure/data-explorer/flow-usage). |
@@ -123,7 +125,7 @@ This section is an archive of guidance and sample project resources for Azure Sy
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
-| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
+| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../ai-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
 | June 2022 | **Migration guides for Oracle** | A new Microsoft-authored migration guide for Oracle to Azure Synapse Analytics is now available. [Design and performance for Oracle migrations](migration-guides/oracle/1-design-performance-migration.md). |
 | June 2022 | **Azure Synapse success by design** | The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. |
 | June 2022 | **Migration guides for Teradata** | A new Microsoft-authored migration guide for Teradata to Azure Synapse Analytics is now available. [Design and performance for Teradata migrations](migration-guides/teradata/1-design-performance-migration.md). |
@@ -187,7 +189,7 @@ What follows are the previous format of monthly news updates for Synapse Analyti
 
 ### General
 
-* **Azure Orbital analytics with Synapse Analytics** - We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](overview-what-is.md). The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models.
+* **Azure Orbital analytics with Synapse Analytics** - We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](overview-what-is.md). The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../ai-services/index.yml) models, AI models from partners, and bring-your-own-data models.
 
 * **Azure Synapse success by design** - Project success is no accident and requires careful planning and execution. The Synapse Analytics' Success by Design playbooks are now available. The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. These guides contain best practices from the most challenging and complex solution implementations incorporating Azure Synapse. To learn more about the Azure Synapse proof of concept playbook, read [Success by Design](./guidance/success-by-design-introduction.md).
 

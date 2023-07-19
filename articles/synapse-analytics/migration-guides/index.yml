@@ -3,15 +3,15 @@
 title: Azure Synapse Analytics migration guides  # < 60 chars
 summary: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse. # < 160 chars
 metadata:
-  title: Azure Synapse Analytics Migration Guides  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
+  title: Azure Synapse Analytics Migration Guides
+  description: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse.
+  ms.service: synapse-analytics
   ms.subservice: overview 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
-  ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/09/2022 #Required; mm/dd/yyyy format.
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
+  ms.date: 08/09/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,12 +51,6 @@ landingContent:
             url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
           - text: "Customer story: Neogrid"
             url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
-          - text: "Customer story: Walgreens"
-            url: https://customers.microsoft.com/en-us/story/778746-walgreens-retailers-azure-analytics
-      - linkListType: deploy
-        links:
-          - text: "Preferred migration accelerator: Next Pathway"
-            url: https://www.nextpathway.com/
   - title: From IBM Netezza
     linkLists: 
       - linkListType: overview

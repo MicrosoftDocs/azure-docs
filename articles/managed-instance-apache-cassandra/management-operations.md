@@ -15,9 +15,8 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Compaction
 
-* The system currently doesn't perform a major compaction.
-* Repair (see [Maintenance](#maintenance)) performs a Merkle tree compaction, which is a special kind of compaction.
-* Depending on the compaction strategy on the keyspace, Cassandra automatically compacts when the keyspace reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
+* There are different [types of compaction](https://cassandra.apache.org/doc/latest/cassandra/operating/compaction/index.html#types-of-compaction). We currently perform a minor compaction via repair (see [Maintenance](#maintenance)). This performs a Merkle tree compaction, which is a special kind of compaction.
+* Depending on the [compaction strategy](https://cassandra.apache.org/doc/latest/cassandra/operating/compaction/index.html) that was set on the table using CQL (for example `WITH compaction = { 'class' : 'LeveledCompactionStrategy' }`), Cassandra automatically compacts when the table reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
 
 ## Patching
 
@@ -30,7 +29,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 * The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically.
 
 >[!NOTE]
-> The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+> The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ## Maintenance
 
@@ -39,14 +38,27 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 * Node health monitoring consists of:
 
   * Actively monitoring each node's membership in the Cassandra ring.
-  * Actively monitoring virtual machines to identify and fix problems with Azure, Virtual Machines, storage, Linux, and the support software.
+  * Auto-detecting, and auto-mitigating infrastructure issues like virtual machine, network, storage, Linux, and support software failures.
+  * Pro-actively monitoring CPU, disk, quorum loss, and other resource issues.
+  * Automatically bringing up failed nodes where possible, and manually bringing up nodes in response to auto-generated warnings.
+
 
 ## Support
 
-Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the availability of data centers in a managed cluster. If you encounter any issues with using the service, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the availability of data centers in a managed cluster. If you encounter any issues with using the service, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. 
+
+Our support benefits include:
+
+- Single point of contact for Cassandra infrastructure issues - no need to raise support cases with IaaS teams (disk, compute, networking) separately.
+- Pro-active advise via email on performance bottle necks, sizing, and other resource constraint issues.
+- 24x7 support coverage, including auto-generated incidents for any severe outage issues.
+- Community approved patch support (see [Patching](#patching)).
+- In-house Java JDK/JVM engineering team support.
+- Linux Operating System support with software supply chain security.
 
 >[!IMPORTANT]
-> We will attempt to investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. However, you are ultimately responsible for any Apache Cassandra configuration level usage which causes CPU, disk, or network problems.
+> We will investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. 
+> However, you are ultimately responsible for any Apache Cassandra configuration level usage which causes CPU, disk, or network problems.
 >
 > Examples of such issues include:
 >
@@ -56,14 +68,16 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 >  * Incorrect keyspace configuration settings.
 >  * Poor data model or partition key strategy.
 >
-> In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), the case may be closed. Where possible, we will also provide recommendations and guidance on remediation. We therefore recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
+> In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), we will still provide recommendations and guidance on remediation, or mitigation (when possible), before closing the case. 
+> 
+> We recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
 
 >[!WARNING]
 > Azure Managed Instance for Apache Cassandra also let's you run `nodetool` and `sstable` commands for routine DBA administration - see article [here](dba-commands.md). Some of these commands can destabilize the cassandra cluster and should only be run carefully and after being tested in non-production environments. Where possible, a `--dry-run` option should be deployed first. Microsoft cannot offer any SLA or support on issues with running commands which alter the default database configuration and/or tables.
 
 ## Backup and restore
 
-Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups will be charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, or to restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
 > Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).

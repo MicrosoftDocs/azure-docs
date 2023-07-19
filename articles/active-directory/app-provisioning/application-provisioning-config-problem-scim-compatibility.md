@@ -1,5 +1,5 @@
 ---
-title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance - Azure AD
+title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
@@ -96,40 +96,39 @@ Below are sample requests to help outline what the sync engine currently sends v
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-    {
+      {
         "op": "Add",
         "path": "nickName",
         "value": "Babs"
-     }
-   ]
-}
-
+      }
+    ]
+  }
   ```
 
 **With feature flag**
   ```json
-{
-  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-  "Operations": [
-    {
-      "op": "add",
-      "path": "nickName",
-      "value": "Babs"
-    }
-  ]
-}
+  {
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
+      {
+        "op": "add",
+        "path": "nickName",
+        "value": "Babs"
+      }
+    ]
+  }
   ```
 
 **Requests to replace multiple attributes:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -165,12 +164,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "Eqpj"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -190,14 +189,14 @@ Below are sample requests to help outline what the sync engine currently sends v
             }
         }
     ]
-} 
+  }
   ```
 
 **Requests made to remove a group member:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -212,12 +211,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             ]
         }
     ]
-} 
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -227,9 +226,8 @@ Below are sample requests to help outline what the sync engine currently sends v
             "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
         }
     ]
-}
+  }
   ```
-
 
   * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
 
@@ -269,7 +267,7 @@ Following the steps below will delete your existing customappsso job and create 
 
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `PUT https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
 
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.

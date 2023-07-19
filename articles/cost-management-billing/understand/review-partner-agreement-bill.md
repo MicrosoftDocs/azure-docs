@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/07/2021
+ms.date: 04/26/2023
 ms.author: banders
 ---
 
@@ -114,7 +114,7 @@ You can also filter the **customerName** column in the Azure usage and charges C
 
 ## Pay your bill
 
-Instructions for paying your bill are shown at the bottom of the invoice. You can pay by wire or by check within 60 days of your invoice date.
+Instructions for paying your bill are shown at the bottom of the invoice. You can pay by wire transfer within 60 days of your invoice date.
 
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
 

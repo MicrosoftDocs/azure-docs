@@ -7,7 +7,7 @@ ms.author: drichards
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Provision new SIMs for Azure Private 5G Core - ARM template
@@ -56,9 +56,12 @@ Each IP address must come from the pool you assigned for static IP address alloc
 | The network slice that the SIM will use. | `staticIpConfiguration.sliceId` |
 | The static IP address to assign to the SIM.  | `staticIpConfiguration.staticIpAddress` |
 
-## Prepare an array for your SIMs
+## Prepare one or more arrays for your SIMs
 
-Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create a JSON array containing properties for each of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
+Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create one or more JSON arrays containing properties for up to 500 of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
+
+> [!IMPORTANT]
+> Bulk SIM provisioning is limited to 500 SIMs. If you want to provision more that 500 SIMs, you must create multiple SIM arrays with no more than 500 SIMs in any one array and repeat the provisioning process for each SIM array.
 
 If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
@@ -131,11 +134,11 @@ The following Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select the region in which you deployed the private mobile network.
-    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*.
+    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Sim Policy Name:** enter the name of the SIM policy you want to assign to the SIMs.
     - **Sim Group Name:** enter the name for the new SIM group.
-    - **Sim Resources:** paste in the JSON array you prepared in [Prepare an array for your SIMs](#prepare-an-array-for-your-sims).
+    - **Sim Resources:** paste in one of the JSON arrays you prepared in [Prepare one or more arrays for your SIMs](#prepare-one-or-more-arrays-for-your-sims).
 
     :::image type="content" source="media/provision-sims-arm-template/sims-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the SIMs ARM template.":::
 
@@ -145,6 +148,7 @@ The following Azure resources are defined in the template.
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 4. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
+5. If you are provisioning more than 500 SIMs, repeat this process for each of your JSON arrays.
 
 ## Review deployed resources
 

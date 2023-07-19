@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 03/10/2023
 ms.author: jodowns
 ---
 
@@ -93,8 +93,6 @@ For more information on how Azure Front Door works with TLS, see [End-to-end TLS
 
 Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
 
-Azure Front Door's certificates are issued by our partner certification authority, DigiCert.
-
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
 
 #### Domain types
@@ -108,6 +106,12 @@ The following table summarizes the features available with managed TLS certifica
 
 When you use Azure Front Door-managed TLS certificates with apex domains, the automated certificate rotation might require you to revalidate your domain ownership. For more information, see [Apex domains in Azure Front Door](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).
 
+#### Managed certificate issuance
+
+Azure Front Door's certificates are issued by our partner certification authority, DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+
+Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at any time. These changes are outside your control. Make sure to avoid hard dependencies on any aspect of a managed certificate, such as checking the certificate thumbprint, or pinning to the managed certificate or any part of the certificate hierarchy. If you need to pin certificates, you should use a customer-managed TLS certificate, as explained in the next section.
+
 ### Customer-managed TLS certificates
 
 Sometimes, you might need to provide your own TLS certificates. Common scenarios for providing your own certificates include:
@@ -120,11 +124,12 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 
 #### Certificate requirements
 
-When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+To use your certificate with Azure Front Door, it must meet the following requirements:
 
-The common name (CN) of the certificate must match the domain configured in Azure Front Door.
-
-Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+- **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
+- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **File (content) type:** Your certificate must be uploaded to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
 
 #### Import a certificate to Azure Key Vault
 

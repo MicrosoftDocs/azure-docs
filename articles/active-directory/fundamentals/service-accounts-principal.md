@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Securing service principals in Azure Active Directory 
 
-An Azure Active Directory (Azure AD) service principals are the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define application access, and resources the application accesses. A service principal is created in each tenant where the application is used, and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
+An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a tenant or directory. It's the identity of the application instance. Service principals define application access and resources the application accesses. A service principal is created in each tenant where the application is used and references the globally unique application object. The tenant secures the service principal sign-in and access to resources. 
 
 Learn more: [Application and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
 
@@ -48,13 +48,13 @@ You can create an application and its service principal object (ObjectID) in a t
 * The Azure portal
 * Other tools
 
-![Screenshot of Application or Client ID and Object ID on the New App page.](./media/securing-service-accounts/secure-principal-image-1.png)
+![Screenshot of Application or Client ID and Object ID on the New App page.](./media/govern-service-accounts/secure-principal-image-1.png)
 
 ## Service principal authentication
 
 There are two mechanisms for authentication, when using service principals—client certificates and client secrets.
 
-![Screenshot of Certificates and Client secrets under New App, Certificates and secrets.](./media/securing-service-accounts/secure-principal-certificates.png)
+![Screenshot of Certificates and Client secrets under New App, Certificates and secrets.](./media/govern-service-accounts/secure-principal-certificates.png)
 
 Because certificates are more secure, it's recommended you use them, when possible. Unlike client secrets, client certificates can't be embedded in code, accidentally. When possible, use Azure Key Vault for certificate and secrets management to encrypt assets with keys protected by hardware security modules:
 
@@ -124,9 +124,9 @@ Learn more about service principals:
 
 Secure service accounts:
 
-* [Securing cloud-based service accounts](service-accounts-introduction-azure.md)
+* [Securing cloud-based service accounts](secure-service-accounts.md)
 * [Securing managed identities in Azure AD](service-accounts-managed-identities.md)
-* [Governing Azure AD service accounts](service-accounts-governing-azure.md)
+* [Governing Azure AD service accounts](govern-service-accounts.md)
 * [Securing on-premises service accounts](service-accounts-on-premises.md)
 
 Conditional Access:

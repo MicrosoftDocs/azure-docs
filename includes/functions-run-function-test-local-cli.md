@@ -17,18 +17,7 @@ ms.custom: devdivchpfy22
 
     Toward the end of the output, the following lines must appear:
 
-    <pre>
-    ...
-
-    Now listening on: http://0.0.0.0:7071
-    Application started. Press Ctrl+C to shut down.
-
-    Http Functions:
-    
-            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-    ...
-    
-    </pre>
+    ![Screenshot of terminal window output when running function locally.](../articles/azure-functions/media/functions-create-first-azure-function-azure-cli/functions-test-local-terminal.png)
     
     >[!NOTE]  
     > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, go to the project's root folder, and run the previous command again.

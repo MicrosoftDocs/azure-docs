@@ -2,11 +2,10 @@
 title: Disk metrics
 description: Examples of disk bursting metrics
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 10/12/2022
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: ignite-2022
 ---
 # Disk performance metrics
@@ -64,9 +63,7 @@ The following metrics provide insight on VM-level bursting:
 - **VM Cached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s cached throughput burst used. Emitted on a 5 minute interval.
 
 ## Storage IO utilization metrics
-The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available with the following configuration:
-- Only available on VM series that support premium storage.
-- Not available for ultra disks, all other disk types on these VM series can utilize these metrics.
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available on VM series that support premium storage.
 
 Metrics that help diagnose disk IO capping:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Banyan Security Zero Trust Remote Access Platform | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Banyan Security Zero Trust Remote Access Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and Banyan Security Zero Trust Remote Access Platform.
 services: active-directory
 author: jeevansd

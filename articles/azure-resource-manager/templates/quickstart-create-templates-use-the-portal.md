@@ -5,7 +5,7 @@ author: mumian
 ms.date: 08/22/2022
 ms.topic: quickstart
 ms.author: jgao
-ms.custom: contperf-fy21q3, mode-ui
+ms.custom: contperf-fy21q3, mode-ui, devx-track-arm-template
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 

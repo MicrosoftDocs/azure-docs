@@ -101,7 +101,7 @@ items:
       - name: Data discovery & classification
         href: /azure/azure-sql/database/data-discovery-and-classification-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Vulnerability assessment
-        href: /azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview
+        href: ../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md
       - name: Advanced Threat Protection
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Auditing
@@ -378,7 +378,7 @@ items:
         href: sql-data-warehouse-query-ssms.md
       - name: sqlcmd
         href: sql-data-warehouse-get-started-connect-sqlcmd.md
-      - name: .Net with Visual Sutdio
+      - name: .NET with Visual Studio
         href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Use C# .NET to query a database
         href: /azure/azure-sql/database/connect-query-dotnet-core?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json

@@ -6,19 +6,15 @@ ms.service: data-science-vm
 author: jeff-shepherd
 ms.author: jeffshep
 ms.topic: quickstart
-ms.date: 03/10/2020
+ms.date: 04/18/2023
 ms.custom: mode-other
+ms.reviewer: mattmcinnes
 #Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Get up and running with the Ubuntu 20.04 Data Science Virtual Machine and Azure DSVM for PyTorch (preview).
+Get up and running with the Ubuntu 20.04 Data Science Virtual Machine and Azure DSVM for PyTorch.
 
 ## Prerequisites
 
@@ -32,7 +28,7 @@ To create an Ubuntu 20.04 Data Science Virtual Machine or an Azure DSVM for PyTo
 Here are the steps to create an instance of the Ubuntu 20.04 Data Science Virtual Machine or the Azure DSVM for PyTorch:
 
 1. Go to the [Azure portal](https://portal.azure.com). You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 20.04" or "Azure DSVM for PyTorch (preview)"
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 20.04" or "Azure DSVM for PyTorch"
 
 1. On the next window, select **Create**.
 
@@ -69,20 +65,23 @@ Here are the steps to create an instance of the Ubuntu 20.04 Data Science Virtua
 
 ## How to access the Ubuntu Data Science Virtual Machine
 
-You can access the Ubuntu DSVM in one of three ways:
+You can access the Ubuntu DSVM in one of four ways:
 
   * SSH for terminal sessions
+  * xrdp for graphical sessions
   * X2Go for graphical sessions
   * JupyterHub and JupyterLab for Jupyter notebooks
 
 ### SSH
 
-If you configured your VM with SSH authentication, you can log on using the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY.
+If you configured your VM with SSH authentication, you can log on using the account credentials that you created in the **Basics** section of step 3 for the text shell interface. [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect.md).
 
-> [!NOTE]
-> The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
+### xrdp
+xrdp is the standard tool for accessing Linux graphical sessions. While this isn't included in the distro by default, you can [install it by following these instructions](../../virtual-machines/linux/use-remote-desktop.md).
 
 ### X2Go
+> [!NOTE]
+> The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 
 The Linux VM is already provisioned with X2Go Server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 

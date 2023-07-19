@@ -248,7 +248,6 @@ Most connectors in Azure Logic Apps are either a built-in connector or managed c
 
 For more information, see the following documentation:
 
-- [About connectors in Azure Logic Apps](../connectors/apis-list.md)
 - [Built-in connectors overview](../connectors/built-in.md)
 - [Managed connectors overview](../connectors/managed.md)
 - [Managed connectors available in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
@@ -936,7 +935,7 @@ To help address BizTalk customers' needs in migrating their workloads and interf
 | Timeframe | Functionality investments |
 |-----------|---------------------------|
 | Short term | - [XSLT + .NET Framework support (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120) <br>- [SWIFT MT encoder and decoder (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014) <br>- Call custom .NET Framework code from Azure Logic Apps (Standard) |
-| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- BizTalk Rules Engine support |
+| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- Business Rules Engine support |
 | Long term | Business event tracking |
 
 To stay updated about the latest investments, subscribe to the [Integrations on Azure Blog - Tech Community](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/bg-p/IntegrationsonAzureBlog).

@@ -43,7 +43,7 @@ To complete this tutorial, an [Azure Automation account](../automation/index.yml
 
 3. Search for **Event Grid**, and select **Integrating Azure Automation with Event grid**.
 
-    ![Import gallery runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+    ![Import gallery runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery.png)
 
 4. Select **Import** and name it **Watch-VMWrite**.
 
@@ -89,7 +89,7 @@ To complete this tutorial, an [Azure Automation account](../automation/index.yml
 
 1. On the **Automation Account** overview page, select **Event grid**.
 
-    ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
+    ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select.png)
 
 2. Click **+ Event Subscription**.
 

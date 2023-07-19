@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/13/2023
 ms.author: jeedes
 ---
 
@@ -34,7 +34,7 @@ For more information, see [Azure built-in roles](../roles/permissions-reference.
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* pymetrics supports **SP and IDP** initiated SSO.
+* pymetrics supports **SP** initiated SSO. If you need to configure an **IDP** initiated flow, please reach out to [pymetrics support](mailto:solutions-engineering@pymetrics.com).
 * pymetrics supports **Just In Time** user provisioning.
 
 ## Add pymetrics from the gallery
@@ -81,9 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://www.pymetrics.com/saml2-sp/<CUSTOMERNAME>/<CUSTOMERNAME>/?acs`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.pymetrics.com/saml2-sp/<CUSTOMERNAME>/<CUSTOMERNAME>/?sso`
 
 	> [!NOTE]
@@ -141,17 +139,11 @@ In this section, a user called Britta Simon is created in pymetrics. pymetrics s
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+* Click on **Test this application** in Azure portal. This will redirect to pymetrics Sign-on URL where you can initiate the login flow. 
 
-* Click on **Test this application** in Azure portal. This will redirect to pymetrics Sign-On URL where you can initiate the login flow.  
+* Go to pymetrics Sign-on URL directly and initiate the login flow from there.
 
-* Go to pymetrics Sign-On URL directly and initiate the login flow from there.
-
-#### IDP initiated:
-
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the pymetrics for which you set up the SSO. 
-
-You can also use Microsoft My Apps to test the application in any mode. When you click the pymetrics tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the pymetrics for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the pymetrics tile in the My Apps, this will redirect to pymetrics Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

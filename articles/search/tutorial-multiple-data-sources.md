@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/29/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
 ---
 
 # Tutorial: Index from multiple data sources using the .NET SDK
@@ -117,8 +117,6 @@ Having a valid key establishes trust, on a per request basis, between the applic
 1. Start Visual Studio and in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. 
 
 1. In the **Browse** tab, find and then install **Azure.Search.Documents** (version 11.0 or later). 
-
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="false":::
 
 1. Search for the **Microsoft.Extensions.Configuration** and **Microsoft.Extensions.Configuration.Json** NuGet packages and install them as well.
 
