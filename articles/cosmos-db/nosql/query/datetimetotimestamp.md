@@ -40,10 +40,6 @@ Returns a signed numeric value, the current number of milliseconds that have ela
 > [!NOTE]
 > For more information on the Unix epoch, see [Unix time](https://wikipedia.org/wiki/unix_time).
 
-## Remarks
-
-DateTimeToTimestamp will return `undefined` if the DateTime value specified is invalid
-
 ## Examples
 
 The following example converts the date and time **May 19, 2015 12:00 UTC** to a timestamp.

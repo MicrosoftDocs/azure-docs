@@ -16,7 +16,7 @@ ms.custom: query-reference
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Converts the specified DateTime to ticks. A single tick represents `100` nanoseconds or `0.000000001` (*one ten-millionth*) of a second.
+Converts the specified DateTime to ticks. A single tick represents `100` nanoseconds or `0.000000001`of a second.
 
 ## Syntax
 

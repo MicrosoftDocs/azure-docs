@@ -1,7 +1,7 @@
 ---
 title: DEGREES
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that returns returns the angle in degrees for a radian value.
+description: An Azure Cosmos DB for NoSQL system function that returns the angle in degrees for a radian value.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
