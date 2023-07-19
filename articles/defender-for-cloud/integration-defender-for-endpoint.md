@@ -267,7 +267,6 @@ In Windows, Defender for Endpoint version updates are provided via continuous kn
 
 This configuration is supported for Azure VMs and Azure Arc machines, where the `MDE.Linux` extension initiates auto-update.
 
-
 ### Enable the MDE unified solution at scale
 
 You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
