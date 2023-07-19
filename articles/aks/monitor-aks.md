@@ -42,20 +42,16 @@ Access monitoring features for all AKS clusters in your subscription from the **
  
  ## Monitoring data 
 
-AKS collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data.
+AKS collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data as shown in the following diagram and table.
 
-:::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring datat from AKS." lightbox="media/monitor-aks/aks-monitor-data.png":::
+:::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring datat from AKS." lightbox="media/monitor-aks/aks-monitor-data.png" border="false":::
 
 
-### Metrics
- Sources | Description |
+
+ Source | Description |
 |:---|:---|
 | Platform metrics | [Platform metrics](monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) or use them for [metric alerts](../azure-monitor/alerts/alerts-types.md#metric-alerts).  |
 | Prometheus metrics | Prometheus metrics are collected by [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) and stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). Analyze them with dashboards in [Azure Managed Grafana](../managed-grafana/overview.md). You can also create [Prometheus alerts](../azure-monitor/alerts/prometheus-alerts.md) from this data. |
-
-### Logs
- Sources | Description |
-|:---|:---|
 | Activity logs | [Activity log](monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Send the [Activity log to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with your other log data. |
 | Resource logs | [Control plane logs](monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. [Create a diagnostic setting](#control-plane-logs) to send them to [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) where you can analyze them with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md). |
 | Container insights | Container insights collects various logs and metric data from cluster including standard output (stdout) and standard error (stderr) streams and stores them in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). Analyze this data with views and workbooks included with Container insights or with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md).  |
