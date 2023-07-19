@@ -164,7 +164,7 @@
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell
-    href: /powershell/module/az.connectedmachine/
+    href: /powershell/module/az.connectedmachine/?view=azps-10.1.0
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.hybridcompute.hybridcomputemanagementclient.apiversion
   - name: Azure Stack HCI REST
