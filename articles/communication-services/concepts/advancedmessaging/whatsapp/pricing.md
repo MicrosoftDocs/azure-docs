@@ -28,14 +28,14 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 
 **WhatsApp**
 
-When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. These rates are set by WhatsApp and will be included in your Azure bill. The information below summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and is included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
 WhatsApp charges per conversation, not individual message. Conversations are 24-hour message threads between a business and its customers. Conversations are categorized with one of the following categories:
 
--   **Marketing** — Marketing conversations include promotions or offers, informational updates, or invitations for customers to respond or take action.
--   **Utility** — Utility conversations facilitate a specific, agreed-upon request or transaction, or update a customer about an ongoing transaction. These may include transaction confirmations, transaction updates, and/or post-purchase notifications.
--   **Authentication** — Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (e.g., account verification, account recovery, integrity challenges).
--   **Service** — Service conversations help you resolve customer inquiries.
+-   **Marketing**—Marketing conversations include promotions or offers, informational updates, or invitations for customers to respond or take action.
+-   **Utility**—Utility conversations facilitate a specific, agreed-upon request or transaction, or update a customer about an ongoing transaction. These conversations may include transaction confirmations, transaction updates, and/or post-purchase notifications.
+-   **Authentication**—Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
+-   **Service**—Service conversations help you resolve customer inquiries.
 
 For service conversations, WhatsApp provides 1,000 fee conversations each month across all business phone numbers. Marketing, utility and authentication conversations are not part of the free tier.
 
@@ -43,7 +43,7 @@ WhatsApp rates vary based on conversation category and country/region rate. Rate
 
 **Pricing example: Alice sends appointment reminders to its WhatsApp customers**
 
-Alice is managing a virtual visit solution for her organization’s patients. Alice will be scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as “Utility Conversations". In this case, each WhatsApp conversation is a single message.
+Alice is managing a virtual visit solution for her organization’s patients. Alice is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as "Utility Conversations". In this case, each WhatsApp conversation is a single message.
 
 Alice sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
 
@@ -59,7 +59,7 @@ To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [
 
 **Pricing example: A WhatsApp user reaches out to a business for support**
 
-Contoso is a business which provides a contact center for customers to seek product information and support. All these cases are closed within 24 hours and have an average of 20 messages each. Each case equals one WhatsApp Conversation. WhatsApp classifies contact center conversations as “Service Conversations.”
+Contoso is a business that provides a contact center for customers to seek product information and support. All these cases are closed within 24 hours and have an average of 20 messages each. Each case equals one WhatsApp Conversation. WhatsApp classifies contact center conversations as “Service Conversations.”
 
 Contoso manages 2,000 cases in North America each month and the pricing would be:
 
