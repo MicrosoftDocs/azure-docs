@@ -10,7 +10,7 @@
   items:
   - name: Onboarding requirements
     href: onboarding-requirements.md
-  - name: Quality checks
+  - name: Quality checks ofAzure Large Instances
     href: quality-checks.md
   - name: Find your subscription ID
     href: find-your-subscription-id.md

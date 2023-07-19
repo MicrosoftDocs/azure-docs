@@ -1,5 +1,5 @@
 ---
-title: Quality checks
+title: Quality checks for Azure Large Instances
 titleSuffix: Azure Large Instances
 description: Provides an overview of Azure Large Instances for Epic quality checks.
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# Quality checks
+# Quality checks for Azure Large Instances  
 This article provides an overview of Azure Large Instances for Epic<sup>®</sup> quality checks.
 
 The Microsoft operations team performs a series of extensive quality checks to ensure that customers' requests to run Azure Large Instances for Epic<sup>®</sup> are fulfilled accurately, and that infrastructure is healthy before handover.

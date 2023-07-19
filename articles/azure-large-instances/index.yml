@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: Onboarding requirements
             url: onboarding-requirements.md
-          - text: Quality checks
+          - text: Quality checks for Azure Large Instances
             url: quality-checks.md
           - text: Find your subscription ID
             url: find-your-subscription-id.md
