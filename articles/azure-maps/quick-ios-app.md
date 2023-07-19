@@ -94,7 +94,7 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 2. Enter the following in the resulting dialog:
    * Enter `https://github.com/Azure/azure-maps-ios-sdk-distribution.git` in the search bar that appears in the top right corner.
    * Select `Up to Next Major Version` in the **Dependency Rule** field.
-   * Enter `1.0.0-pre.1` into the **Dependency Rule** version field.
+   * Enter `1.0.0-pre.3` into the **Dependency Rule** version field.
 
    ![Add dependency rule to an iOS project.](./media/ios-sdk/quick-ios-app/xcode-dependency-rule.png)
 
@@ -124,6 +124,27 @@ By setting the authentication information on the AzureMaps class globally using 
 Xcode takes a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
 
 ![Your first map on an iOS application.](./media/ios-sdk/quick-ios-app/example.png)
+
+## Access map functionality
+
+You can start customing map functionality by getting hold to `AzureMap` instance in a `mapView.onReady` handler. For a MapControl view added above, your sample `ViewController` may look the following way:
+
+```swift
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let mapView = self.view.subviews.first as? MapControl;
+        mapView?.onReady({ map in
+            // customize your map here
+            // map.sources.add()
+            // map.layers.insertLayer()
+        })
+    }
+}
+```
+
+Proceed to [Add a polygon layer to the map in the iOS SDK](add-polygon-layer-map-ios.md) for one such example.
 
 ## Clean up resources
 

@@ -38,7 +38,7 @@ The Azure portal autofills these fields for you. However, many Docker repositori
 
 ## Unhealthy Credential Set
 
-Credential sets are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. Inside the Azure portal you can select the credential set, to edit and apply changes.
+Credential sets are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credential sets are often a result of these secrets no longer being valid. In the Azure portal, you can select the credential set, to edit and apply changes.
 
 - Verify the secrets in Azure Key Vault haven't expired. 
 - Verify the secrets in Azure Key Vault are valid.
@@ -72,7 +72,6 @@ Cache for ACR currently supports the following upstream registries:
 | Docker                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
 | ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI               |
-| Quay.io                     | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 | GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 
 

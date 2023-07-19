@@ -88,7 +88,7 @@ If no sampling overrides match:
 
 * If this is the first span in the trace, then the
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
-* If this is not the first span in the trace, then the parent sampling decision is used.
+* If this isn't the first span in the trace, then the parent sampling decision is used.
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -199,5 +199,15 @@ To see the exact set of attributes captured by Application Insights Java for you
 [self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
 with the text "exporting span".
 
-Note that only attributes set at the start of the span are available for sampling,
-so attributes such as `http.status_code` which are captured later on cannot be used for sampling.
+>[!Note]
+> Only attributes set at the start of the span are available for sampling,
+so attributes such as `http.status_code` which are captured later on can't be used for sampling.
+
+## Troubleshooting
+
+If you use `regexp` and the sampling override doesn't work, please try with the `.*` regex. If the sampling now works, it means
+you have an issue with the first regex and please read [this regex documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+
+If it doesn't work with `.*`, you may have a syntax issue in your `application-insights.json file`. Please look at the Application Insights logs and see if you notice
+warning messages.
+

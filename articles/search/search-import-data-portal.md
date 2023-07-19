@@ -2,7 +2,6 @@
 title: Import data into a search index using Azure portal
 titleSuffix: Azure Cognitive Search
 description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -37,7 +36,7 @@ The wizard will output the objects in the following table. After the objects are
 | [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
 | [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to a [supported data source](search-indexer-overview.md#supported-data-sources) on Azure. A data source object is used exclusively with indexers. | 
 | [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
-| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to a Cognitive Services resource that provides enrichment. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to an Azure AI multi-service resource that provides enrichment. | 
 | [Knowledge store](knowledge-store-concept-intro.md) | Optional. Stores output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in tables and blobs in Azure Storage for independent analysis or downstream processing. |
 
 ## Benefits and limitations

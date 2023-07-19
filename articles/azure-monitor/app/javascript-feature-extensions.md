@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript feature extensions (Click A
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 07/10/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
