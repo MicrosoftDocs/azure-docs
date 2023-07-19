@@ -34,7 +34,7 @@ Enterprises working in the Microsoft Azure cloud will find familiar security and
 
 Machine learning projects often require a team with varied skill set to build and maintain. Azure Machine Learning has tools that help enable you to: 
 
-* Collaborate with your team via shared notebooks, compute resources (including [serverless compute (preview)(how-to-use-serverless-compute.md)), data, and environments
+* Collaborate with your team via shared notebooks, compute resources, (including [serverless compute (preview)](how-to-use-serverless-compute.md)), data, and environments
 
 * Develop models for fairness and explainability, tracking and auditability to fulfill lineage and audit compliance requirements
 
