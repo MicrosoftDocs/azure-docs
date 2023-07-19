@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/19/2025
+ms.date: 07/19/2023
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
