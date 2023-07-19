@@ -20,7 +20,7 @@ We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. St
 
 - Deprecation announcement: April 28 ,2023 
 
--	No new subscriptions for V1 deployments: July 1,2023 - Application Gateway V1 is no longer available for deployment on new subscriptions from July 1 2023.
+-	No new subscriptions for V1 deployments: July 1,2023 onwards - Application Gateway V1 is no longer available for deployment on new subscriptions from July 1 2023 onwards.
 
 - No new V1 deployments: August 28, 2024 - V1 creation is stopped completely for all customers 28 August 2024 onwards.
 
