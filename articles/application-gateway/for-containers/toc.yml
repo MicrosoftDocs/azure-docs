@@ -38,8 +38,8 @@
     href: api-types-kubernetes.md
 - name: Reference
   - items:
-    - name: ALB Controller changelog
-      href: alb-controller-changelog.md
+    - name: ALB Controller release notes
+      href: alb-controller-release-notes.md
     - name: Azure CLI
       href: /cli/azure/network/alb
     - name: Azure PowerShell
