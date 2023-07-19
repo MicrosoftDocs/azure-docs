@@ -1,6 +1,7 @@
 ---
 title: Onboarding requirements for Azure Large Instances
 description: Provides an overview of onboarding requirements for Azure Large Instances.
+ms.title: Onboarding requirements
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -88,7 +89,7 @@ If you don't see your deployed Azure Large Instances under your subscription, re
 
 ### Enable ExpressRoute Fast Path
 
-Before you begin, install the latest version of the Azure resource manager PowerShell cmdlets, at least 4.0 or later.
+Before you begin, install the latest version of the Azure Resource Manager PowerShell cmdlets, at least 4.0 or later.
 If
 For more information, see these resources:
 
@@ -104,7 +105,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to Azure Large Instances support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-azure-large-instances) with the Azure Customer Support team.
+If you don’t have this information, obtain the details from the circuit owner. Reach out to Azure Large Instances support by [creating a support ticket](work-with-azure-large-instances-in-azure-portal.md#open-a-support-request-for-azure-large-instances) with the Azure Customer Support team.
 ### Declare variables
 
 This example declares the variables using the values for this exercise.

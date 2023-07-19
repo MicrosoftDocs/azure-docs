@@ -9,12 +9,12 @@ ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
 ---
 
-# Working with  Azure Large Instances in the Azure portal 
+# Work with  Azure Large Instances in the Azure portal 
 
 In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances.
 
 > [!Note]
-> For now, BareMetal Infrastructure or BareMetal Instances are being used synonyms with Azure Large Instances.
+> For now, BareMetal Infrastructure or BareMetal Instances are being used as synonyms with Azure Large Instances.
 
 ## Register the resource provider
 
@@ -61,7 +61,7 @@ For more information about resource providers, see [Azure resource providers and
 
 [comment]: <End of Include content> 
 
-Sign in to the Azure subscription you use for the ALI deployment through the Azure CLI.
+Sign in to the Azure subscription you use for the Azure Large Instances deployment through the Azure CLI.
 Register the BareMetalInfrastructure Azure Large Instance resource provider with the az provider register command:
 
 ```azurecli
@@ -135,7 +135,7 @@ Use the proximity placement group associated with the Azure Large Instances to e
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of an ALI instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
+To see details of an Azure Large Instances instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group MyResourceGroup --instance-name MyInstanceName
@@ -175,7 +175,7 @@ As with VMs, the tags exist in the Azure metadata.
 Tags have the same restrictions for Azure Large Instances as for VMs.
  
 Deleting tags also works the same way as for VMs. 
-Both applying and deleting a tag is listed in the ALI instance's Activity log.
+Both applying and deleting a tag is listed in the Azure Large Instances instance's Activity log.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -210,7 +210,7 @@ Data collected includes:
 
 This information is important in support requests and when setting up a storage snapshot configuration.
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot of how to restart the ALI instance.":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot of how to restart the Azure Large Instances tenant.":::
 
 ### Restart an Azure Large Instances tenant through the Azure portal
 
@@ -241,7 +241,7 @@ az baremetalinstance restart --resource-group MyResourceGroup --instance-name My
 
 ### Open a support request for Azure Large Instances
  
-You can submit support requests specifically for ALI instances.
+You can submit support requests specifically for Azure Large Instances.
 1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
  
     * **Issue type:** Select an issue type.

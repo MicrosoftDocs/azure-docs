@@ -1,6 +1,7 @@
 ---
 title: Create a volume group
 description: Explains how to create an ALI for Epic volume group.
+ms.title: Create a volume group
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay

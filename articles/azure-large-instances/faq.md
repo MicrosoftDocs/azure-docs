@@ -1,5 +1,5 @@
 ---
-title: ALI FAQ
+title: Azure Large Instances FAQ
 description: Provides resolutions for common issues that arise in working with ALI for the Epic workload.
 ms.topic: conceptual
 author: jjaygbay1
@@ -11,11 +11,11 @@ ms.date: 06/01/2023
 
 # Frequently asked questions about the Epic workload on Azure Large Instances
 
-This article provides answers to frequently asked questions about Azure Large Instances (ALI).
+This article provides answers to frequently asked questions about Azure Large Instances.
 
 ## In which regions is this service available?
 
-ALI is available in the following regions:
+Azure Large Instances is available in the following regions:
 
 * East US
 * US West2
@@ -25,17 +25,17 @@ ALI is available in the following regions:
 
 No, explicit permissions aren't required but you should register the resource provider with your subscription.
 
-## Why am I not able to see the ALI resources in Azure portal?
+## Why am I not able to see the Azure Large Instances resources in Azure portal?
 
-Check Azure Policy set up if ALI managed RGs aren't reflected in the portal.
-Azure subscription you use for Azure Large Instances deployments is registered with the ALI infrastructure resource provider by the Microsoft Operations team during the provisioning process.
-If you don't see your deployed ALI instances under your subscription, register the resource provider with your subscription. 
-Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](work-with-ali-in-the-azure-portal.md)
+Check Azure Policy set up if Azure Large Instances managed RGs aren't reflected in the portal.
+Azure subscription you use for Azure Large Instances deployments is registered with the Azure Large Instances infrastructure resource provider by the Microsoft Operations team during the provisioning process.
+If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. 
+Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](work-with-azure-large-instances-in-azure-portal.md)
 
 ## Is it possible to have Azure ARC installed on Azure Large Instances?
 
 It’s not mandatory, but it's possible.
-If you need guidance, [create a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-azure-large-instances) with the Azure Customer Support team to help with your setup.
+If you need guidance, [create a support ticket](work-with-azure-large-instances-in-azure-portal.md#open-a-support-request-for-azure-large-instances) with the Azure Customer Support team to help with your setup.
 
 ## How do I monitor Azure Large Instances?
 
@@ -53,9 +53,9 @@ It’s also recommended to rerun Azure Large Instances GenIO test post third-par
 
 For more information, see “Shared Responsibility Model"
 
- -- Publishing Team to put  link where user can see the shared Responsibility Mode or paste the table here --  
+ < Publishing Team to put  link where user can see the shared Responsibility Mode or paste the table here >  
 
-## How will I get notified if there's any issue with our Azure Azure Large Instances resource? How Microsoft communicates unplanned issues?
+## How will I get notified if there's any issue with our Azure Large Instances resource? How Microsoft communicates unplanned issues?
 
 Microsoft sends service health notification only through the Azure portal.
 We always recommend customers to configure alerts for service health notifications.  

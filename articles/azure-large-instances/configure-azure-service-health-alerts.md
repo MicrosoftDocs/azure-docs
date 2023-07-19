@@ -1,6 +1,7 @@
 ---
 title: Configure Azure service health alerts
 description: Explains how to configure Azure service health alerts.
+ms.title: Configure Azure service health alerts
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -18,7 +19,7 @@ Follow these steps to configure Service Health alerts:
 1. Go to the [Microsoft Azure portal](https://portal.Azure.Com).
 2. Search for “service health” in the search bar and select **Service Health** from the results.
 
-    :::image type="content" source="media/health-alerts-step-2.png" alt-text="Screen shot of the health alert dashboard.":::
+    :::image type="content" source="media/health-alerts-step-2.png" alt-text="Screenshot of the health alert dashboard.":::
 
 1. In the Service Health Dashboard, select **Health Alerts**.
     :::image type="content" source="media/health-alerts-step-3.png" alt-text="Screenshot of the health alert service issues.":::

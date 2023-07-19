@@ -1,14 +1,16 @@
 ---
 title: Available Azure Large Instances SKUs
 description: Provides a list of Azure Large Instances for Epic SKUs.
+ms.title: Available Azure Large Instances SKUs
 ms.topic: conceptual
+ms.custom: references_regions
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# Azure Large Instances SKUs for Epic workload    
+# Azure Large Instances for Epic workload SKUs     
 
 This article provides a list of available Azure Large Instances for Epic<sup>®</sup> workload SKUs.
 ## Azure Large Instances availability by region
