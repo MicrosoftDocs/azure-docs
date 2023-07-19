@@ -289,7 +289,7 @@ As with the previous steps, there's little difference between implementing a RES
 
     This content configures a service that uses the previously defined default `webHttpRelayBinding`. It also uses the default `sbTokenProvider`, which is defined in the next step.
 
-1. After the `<services>` element, create a `<behaviors>` element with the following content, replacing `SAS_KEY` with the Shared Access Signature (SAS) key. To obtain an SAS key from the [Azure portal][Azure portal], see [Get management credentials](service-bus-relay-tutorial.md#get-management-credentials).
+1. After the `<services>` element, create a `<behaviors>` element with the following content, replacing `SAS_KEY` with the Shared Access Signature (SAS) key. To obtain an SAS key from the [Azure portal], see [Get management credentials](service-bus-relay-tutorial.md#get-management-credentials).
 
     ```xml
     <behaviors>
