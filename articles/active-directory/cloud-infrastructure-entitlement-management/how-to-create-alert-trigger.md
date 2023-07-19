@@ -52,7 +52,7 @@ This article describes how you can create and view activity alerts and alert tri
 
     The **Alerts** table displays information about your alert.
 
-    Click the alert name to view the individual activities and further details about the **resources**, **tasks**, and **identities** involved.
+    Select the alert name to view the individual activities and further details about the **resources**, **tasks**, and **identities** involved.
 
 
 
