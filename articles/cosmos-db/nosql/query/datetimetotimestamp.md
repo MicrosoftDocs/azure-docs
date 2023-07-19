@@ -44,9 +44,9 @@ Returns a signed numeric value, the current number of milliseconds that have ela
 
 The following example converts the date and time **May 19, 2015 12:00 UTC** to a timestamp.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimetotimestamp/query.sql" highlight="2":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimetotimestamp/query.sql" highlight="2":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimetotimestamp/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimetotimestamp/result.json":::
 
 ## Remarks
 

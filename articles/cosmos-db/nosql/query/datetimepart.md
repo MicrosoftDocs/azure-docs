@@ -42,9 +42,9 @@ Returns a numeric value that is a positive integer.
 
 The following example returns various parts of the date and time **May 29, 2016 08:30 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimepart/query.sql" highlight="2-10":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimepart/query.sql" highlight="2-10":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimepart/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimepart/result.json":::
 
 ## Remarks
 

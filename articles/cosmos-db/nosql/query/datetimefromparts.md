@@ -47,9 +47,9 @@ Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.f
 
 The following example uses various combinations of the arguments to create date and time strings. This example uses the date and time **April 20, 2017 13:15 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimefromparts/query.sql" highlight="2-6":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimefromparts/query.sql" highlight="2-6":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimefromparts/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimefromparts/result.json":::
 
 ## Remarks
 

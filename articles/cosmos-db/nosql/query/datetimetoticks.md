@@ -44,9 +44,9 @@ Returns a signed numeric value, the current number of `100`-nanosecond ticks tha
 
 The following example measures the ticks since the date and time **May 19, 2015 12:00 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimetoticks/query.sql" highlight="2":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/query.sql" highlight="2":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimetoticks/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/result.json":::
 
 ## Remarks
 
