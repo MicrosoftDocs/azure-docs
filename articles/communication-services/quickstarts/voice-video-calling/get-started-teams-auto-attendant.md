@@ -46,7 +46,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-Code Samples: [!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
+[!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
 
 ## Clean up resources
 

@@ -1,49 +1,26 @@
 ---
-author: ruslanzdor
-ms.service: azure-communication-services
+title: Quickstart - Join a Teams meeting from a web app
+description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript
+author: chpalm
+ms.author: rifox
+ms.date: 03/10/2021
 ms.topic: include
-ms.date: 07/17/2023
-ms.author: ruslanzdor
+ms.service: azure-communication-services
 ---
+
+## Sample Code
+
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
 ## Prerequisites
 
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
-- Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- A working [Communication Services calling web app](../../getting-started-with-calling.md).
+- A [Teams deployment](/deployoffice/teams-install).
 
-## Setting up
+## Add the Teams UI controls
 
-### Create a new Node.js application
-
-Open your terminal or command window create a new directory for your app, and navigate to the directory.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-### Install the package
-
-Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
-> [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `latest`.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling@latest --save
-```
-
-### Set up the app framework
-
-This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
-
-```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
-```
-
-Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
-
-Here's the code:
+Replace code in index.html with following snippet.
+The text box is used to enter the Teams meeting context and the button is used to join the specified meeting:
 
 ```html
 <!-- index.html -->
@@ -61,9 +38,9 @@ Here's the code:
         <button id="initialize-teams-call-agent" type="button">Initialize Call Agent</button>
         <br>
         <br>
-        <input id="call-queue-id"
+        <input id="teams-user-id"
             type="text"
-            placeholder="Enter callee's Teams user identity in format: '28:orgid:USER_GUID'"
+            placeholder="Enter callee's Teams user identity in format: '8:orgid:USER_GUID'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -83,21 +60,9 @@ Here's the code:
 </html>
 ```
 
-## Azure Communication Services Calling Web SDK Object model
+## Enable the Teams UI controls
 
-The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
-
-| Name                                | Description |
-| ----------------------------------- | ----------- |
-| `CallClient`                        | The main entry point to the Calling SDK. |
-| `CallAgent`                         | Used to start and manage calls.|
-| `DeviceManager`                     | Used to manage media devices. |
-| `Call`                              | Used for representing a Call. |
-| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system. |
-| `RemoteParticipant`                 | Used for representing a remote participant in the Call. |
-| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant. |
-
-Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+Replace content of app.js file with following snippet.
 
 ```JavaScript
 // Make sure to install the necessary dependencies
@@ -389,7 +354,7 @@ hangUpCallButton.addEventListener("click", async () => {
 
 ## Run the code
 
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
+Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -400,6 +365,4 @@ Manual steps to setup the call:
 1. Open your browser and navigate to http://localhost:8080/.
 2. Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 3. Click on the "Initialize Call Agent" buttons.
-4. Enter the Call Queue Object ID, and select the "Start Call" button. Application will start the outgoing call to the call queue with given object ID.
-5. Call is connected to the Call Queue.
-6. Communication Services user is routed through Call Queue based on it's configuration.
+4. Enter the Teams user Object ID, and select the "Start Call" button. Application will start the outgoing call with given object ID.
