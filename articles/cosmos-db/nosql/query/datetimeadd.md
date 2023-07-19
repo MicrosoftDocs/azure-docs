@@ -33,7 +33,7 @@ DateTimeAdd(<date_time_part>, <numeric_expr> ,<date_time>)
 | **`date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
 
 > [!NOTE]
-> For more information on the ISO 8601 format, see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+> For more information on the ISO 8601 format, see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
