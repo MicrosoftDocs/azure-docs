@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs
+          - text: Key sovereignty, availability, performance, and scalability
             url: mhsm-technical-details.md
           - text: Managed HSM best practices
             url: best-practices.md
@@ -98,4 +98,3 @@ landingContent:
             url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
-
