@@ -41,8 +41,19 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**. Select **Add a task** to select a task template.
 ![Screenshot that shows the "Tasks (preview)" pane with "Add a task" selected.](media/create-automation-tasks/add-automation-task.png)
 
-1. Under **Select a template**, select the task for **Starting** or **Stopping** your Azure MySQL Flexible Server.
-![Screenshot that shows the "Add a task" pane with "Stop MySQL Flexible Server" template selected.](media/create-automation-tasks/select-task-template.png)
+1. Under **Select a template**, select one of the tasks available to automate for your MySQL Flexible Server.
+   ![Screenshot that shows the "Add a task" pane with "Stop MySQL Flexible Server" template selected.](media/create-automation-tasks/select-task-template.png)
+
+   |Task Type| Details |
+   |---------|---------|
+   |**Send monthly cost**| Send email about the monthly cost for you MySQL Flexible Server.|
+   |**Stop server**| Allows you to stop a server based on a given schedule, for example you want to stop it on a weekend to optimize cost.|
+   |**Start server**| Allows you to start a server based on a given schedule, for example you want to start a server if it is stopped during the weekend.|
+   |**Scale server**|Allows you to scale up or down a server on a given schedule. For example you have use scale down during weekends or scale up during an event you can use this task.|
+   |||
+
+## Stop server task
+We will show the stop operation to perform during weekend as an example here.  Once you select  **Stop MySQL Flexible server** task follow the steps below: 
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections.  The types of connections in each task vary based on the task.
 ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](media/create-automation-tasks/create-authenticate-connections.png)
@@ -69,6 +80,26 @@ The task you've created, which is automatically live and running, will appear on
 
 ![Screenshot that shows the automation tasks list.](media/create-automation-tasks/automation-tasks-list.png)
 
+
+>[!NOTE]
+>The server will not start automatically and hence you need to create a **Start MySQL Flexible Server** task to start the server on first Monday after the server was stopped by the **stop** task.
+
+## Scale a server task
+You can scale a server up or down based on a recurring time schedule. You will need to provide the following information when creating a scale MySQL flexbile server task:
+
+|Field|Description|
+|------|----------|
+|Scale Time| Time when to start the operation.|
+|Location| Region of your MySQL Flexible server.| 
+|Sku Name| Choose a Service tier name in this format Standard_B1ms. See [the full list of skus available.](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-service-tiers-storage#service-tiers-size-and-server-types)|
+|Sku Tier| Choose from Burstable, General purpose and Business critical.|
+|Interval| How frequent to run this task. Enter a numeric value. If you enter 1, the task will run 1 time based on the frequency.|
+|Frequeny| You can run this task once a month/week/day/hour/minute/second. |
+|Notify Me| Turn on or off to receive notificaitions.|
+|Enter email| Provide email to receive notifications.|
+
+
+![Screenshot that shows the automation tasks list.](media/create-automation-tasks/scale-server-on-schedule.png)
 ## Review task history
 
 To view a task's history of runs along with their status:
