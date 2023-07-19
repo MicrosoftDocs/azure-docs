@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 07/18/2023
 ms.author: mbullwin
 ---
 
@@ -98,6 +98,12 @@ To minimize issues related to rate limits, it's a good idea to use the following
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
+
+## Resource deletion
+
+When an attempt to delete an Azure OpenAI resource is made from the Azure portal if any deployments are still present deletion is blocked until the associated deployments are deleted. Deleting the deployments first allows quota allocations to be properly freed up so they can be used on new deployments.
+
+However, if you delete a resource using the REST API or some other programmatic method, this bypasses the need to delete deployments first. When this occurs, the associated quota allocation will remain unavailable to assign to a new deployment for 48 hours until the resource is purged. To trigger an immediate purge for a deleted resource to free up quota, follow the [purge a deleted resource instructions](/azure/ai-services/manage-resources?tabs=azure-portal#purge-a-deleted-resource).
 
 ## Next steps
 
