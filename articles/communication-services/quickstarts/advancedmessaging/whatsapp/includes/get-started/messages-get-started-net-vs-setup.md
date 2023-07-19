@@ -15,7 +15,7 @@ ms.author: memontic
 ## Setup C# Project with Visual Studio
 
 1. Create new C# project   
-For example, in Visual Studio, create new project, then select Console App (.NET Framework) for C#
+In Visual Studio, create new project, then select `Console App (.NET Framework) for C#`.
  
 2. Install the Azure.Communication.Messages NuGet package to your C# project
 

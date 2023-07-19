@@ -63,14 +63,14 @@ namespace AdvancedMessagesQuickstart
 }
 ```
 
-## Initalize APIs
-### 1. Set Connection String   
-Get the connection string from your ACS resource in the Azure portal. From the `Keys` blade, copy the `Connection string` field for the `Primary key`.   
-The Connection string will be in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
+## Initialize APIs
+### 1. Set connection String
+Get the connection string from your ACS resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`.   
+The connection string is in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
 
-:::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Keys' blade. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Keys' tab. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
-Set the envrionment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
+Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
 For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../../create-communication-resource.md).   
 To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
 
@@ -121,21 +121,25 @@ Using connectionString, create a NotificationMessagesClient.
 NotificationMessagesClient notificationMessagesClient = new NotificationMessagesClient(connectionString);
 ```
 
-### 3. Set Channel Registration ID   
+### 3. Set channel registration ID   
 The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your ACS resource.
 
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Channels' blade. Attention is placed on the copy action of the 'Channel ID' field.":::
+:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId   
 ```csharp
 string channelRegistrationId = "<your channel registration id GUID>";
 ```
 
-### 4. Set Recipient List   
-You will need to supply a real phone number that has a WhatsApp account associated with it. This may be your personal phone number.
-Note: Only one phone number is currently supported in the recipient list.
+### 4. Set recipient list
+You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account will receive the text and media messages sent in this quickstart.
+For the purpose of this quickstart, this phone number may be your personal phone number.   
+
+The recipient phone number cannot be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID will appear as the sender of the text and media messages sent to the recipient.
 
 The phone number must include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
+
+> Only one phone number is currently supported in the recipient list.
 
 Create the recipient list like this:
 ```csharp
@@ -157,21 +161,21 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 
 Initiate a conversation by sending a template message.
 
-#### 1. Set Template   
+#### 1. Set template
 Create a MessageTemplate using the values for a template. 
 
-If you do not have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
+If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
-Here is MessageTemplate creation using a default template, sample_template.
+Here's MessageTemplate creation using a default template, sample_template.
 ```csharp
 string templateName = "sample_template";
 string templateLanguage = "en_us";
 var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ```
 
-For more examples of how to assemble your MessageTemplate, see [Send WhatsApp Template Messages](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md)
+For more examples of how to assemble your MessageTemplate and how to create your own template, see [Send WhatsApp Template Messages](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md)
 
-#### 2. Send a Template Message   
+#### 2. Send a template message
 
 Assemble the template message:
 ```csharp
@@ -185,27 +189,27 @@ Response<SendMessageResult> templateResponse = await notificationMessagesClient.
 
 #### 3. User responds to template message
 
-From the WhatsApp user account, reply to the template message recieved from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
+From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
 
-The recipient must respond to the template message to initiate the conversation before text or media message will be delivered to the recipient.
+The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
 
 ### Option 2: Initiate Conversation from User
 
 The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
 
-To do so, from your personal WhatsApp account, send a message to your business number.
+To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
 
 :::image type="content" source="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number. The user messages reads 'Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways: 1. The business sends a template message to the WhatsApp user. 2. The WhatsApp user sends any message to the business number.'":::
 
 
 ## Send a Text Message to WhatsApp User
-> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages) for more details
+> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Initiate Conversation between Business and User](#initiate-conversation-between-business-and-whatsapp-user).
 
-In the text message, provide text to send to the recipient. In this example, we will reply to the WhatsApp user with the text “Thanks for your feedback”.
+In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
 
 Assemble the text message:
 ```csharp
-var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, "Thank you for your feedback.");
+var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, "Thanks for your feedback.");
 ```
 
 Then send the text message:
@@ -214,10 +218,10 @@ Response<SendMessageResult> textResponse = await notificationMessagesClient.Send
 ```
 
 ## Send a Media Message to WhatsApp User
-> To send a Media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages) for more details
+> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Initiate Conversation between Business and User](#initiate-conversation-between-business-and-whatsapp-user).
 
-To send a media message, we will provide a URI to an image.
-As an example, create your URI:
+To send a media message, provide a URI to an image.
+As an example, create a URI:
 ```csharp
 var uri = new Uri("https://aka.ms/acsicon1");
 ```

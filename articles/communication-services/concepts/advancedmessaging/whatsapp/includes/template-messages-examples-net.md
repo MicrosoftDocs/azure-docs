@@ -24,9 +24,10 @@ var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLan
 
 ``````
 
-### Use sample_shipping_confirmation template
+### Use template sample_shipping_confirmation
 
-Some templates take parameters. Only include the parameters which are required by the template. Including parameters not in the template is invalid.
+Some templates take parameters. Only include the parameters that the template requires. Including parameters not in the template is invalid.
+In this example, parameters are defined with the `MessageTemplateValue` values and `MessageTemplateWhatsAppBindings` bindings.
 
 ```csharp
 string templateName = "sample_shipping_confirmation"; 
@@ -41,7 +42,7 @@ var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLan
 
 ``````
 
-### Use sample_movie_ticket_confirmation template
+### Use template sample_movie_ticket_confirmation
 
 ```csharp
 string templateName = "sample_movie_ticket_confirmation"; 
