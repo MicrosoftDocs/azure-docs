@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
@@ -152,7 +152,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Azure AI containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
+> Azure AI services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI services containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
 
 ## Next steps
 
