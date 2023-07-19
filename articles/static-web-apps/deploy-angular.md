@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build your first Angular app in Azure Static Web Apps'
-description: 
+description: Learn to deploy an Angular app in the Azure portal with Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -32,7 +32,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 Select **Create repository from template**.
 
-:::image type="content" source="../articles/static-web-apps/media/getting-started/create-template.png" alt-text="Create repository from template":::
+:::image type="content" source="media/getting-started/create-template.png" alt-text="Create repository from template":::
 
 ::: zone-end
 
@@ -98,7 +98,7 @@ Select **Go to resource**.
 
 ## View the website
 
-[!INCLUDE [view website](../../includes/static-web-apps/static-web-apps-tutorials-view-website.md)]
+[!INCLUDE [view website](../../includes/static-web-apps/static-web-apps-tutorials-portal-view-website.md)]
 
 ## Clean up resources
 

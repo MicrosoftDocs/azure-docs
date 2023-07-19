@@ -18,7 +18,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
+:::image type="content" source="../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
 
 | Setting | Value |
 |--|--|
