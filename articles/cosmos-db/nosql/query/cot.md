@@ -38,15 +38,7 @@ Returns a numeric expression.
 
 The following example calculates the cotangent of the specified angle using the function.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/cot/query.sql" highlight="2":::  
-  
-```json
-[
-  {
-    "cotangent": -0.040311998371148884
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/cot/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/cot/result.json":::
 
