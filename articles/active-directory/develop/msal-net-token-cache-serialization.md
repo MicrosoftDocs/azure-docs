@@ -232,7 +232,8 @@ Instead of `app.AddInMemoryTokenCache();`, you can use different caching seriali
 
 Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when building the application and don't add any serializer.
 
-**IMPORTANT**: there is no way to control the size of the cache with this option! If you are building a web site, web api or a multi-tenant S2S app, then use `In-memory token cache` option.
+> [!IMPORTANT]
+> There is no way to control the size of the cache with this option. If you are building a website, a web API, or a multi-tenant S2S app, then use the `In-memory token cache` option.
 
 ```CSharp
     // Create the confidential client application
