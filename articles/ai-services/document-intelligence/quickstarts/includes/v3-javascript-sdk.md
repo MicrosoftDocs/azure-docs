@@ -66,7 +66,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure/ai-form-recognizer @azure/identity
+    npm i @azure/ai-form-recognizer@4.1.0-beta.1 @azure/identity
     ```
 
     * Your app's `package.json` file is updated with the dependencies.
