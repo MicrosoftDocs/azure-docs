@@ -324,7 +324,6 @@ After you set up Azure Active Directory applications and set roles for users, [c
 <!-- Links -->
 
 [azure-cli]: /cli/azure/get-started-with-azure-cli
-[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
