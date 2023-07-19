@@ -62,7 +62,27 @@ This article describes the process of managing alert rules created in the previo
     ![Screenshot that shows Action overrides for log alerts.](media/alerts-log/AlertsPreviewOverrideLog.png)
 1. After you've finished editing all the alert rule options, select **Save**.
 
-## Manage log alerts by using PowerShell
+## Changes to the log alert rule creation experience
+
+The current alert rule wizard is different from the earlier experience:
+
+- Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1,000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
+    - We recommend using [dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
+    - When you need to investigate in the logs, use the link in the alert to the search results in logs.
+    - If you need the raw search results or for any other advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
+- The new alert rule wizard doesn't support customization of the JSON payload.
+    - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
+    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
+- The new alert rule wizard doesn't support customization of the email subject.
+    - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to trigger an alert of the desired resource by using the resource ID column.
+    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
+
+### Impact
+
+- All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](/azure/azure-monitor/alerts/alerts-log-create-templates) and [sample use via PowerShell](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell).
+- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
+
+## Manage log alerts using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
