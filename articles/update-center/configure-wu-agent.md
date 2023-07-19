@@ -39,7 +39,7 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 
 ## Enable updates for other Microsoft products
 
-By default, the Windows Update client is configured to provide updates only for Windows operating system. In Windows update, select **Check online for Windows updates**, to enable the **Give me updates for other Microsoft products when I update Windows** to receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
+By default, the Windows Update client is configured to provide updates only for Windows operating system. In Windows update, select **Check online for Windows updates**, it will check updates for other Microsoft products and enable the **Give me updates for other Microsoft products when I update Windows** to receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
 
 Use one of the following options to perform the settings change at scale:
 
@@ -54,7 +54,31 @@ Use one of the following options to perform the settings change at scale:
 
 - For servers running Server 2016 or later which are not using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-- To change the settings on a single server, follow these steps mentioned in How to [configure a Windows server to use Microsoft product](https://supportability.visualstudio.com/AzureAutomation/_wiki/wikis/Azure-Automation.wiki/654338/HT-Configure-a-Windows-Server-to-use-Microsoft-Updates-or-Windows-Updates).
+
+## Configure a Windows server for Microsoft updates
+
+The Windows update client on Windows serers can get their patches from either of the following Microsoft hosted patch repositories
+- Windows update - hosts operating System patches
+- Microsoft update - hosts operating system and other Microsoft patches. For example MS-Office, SQL Server and so on.
+
+> [!NOTE]
+> For the application of patches, you can choose the update client at the install time, or later using Group policy or by directly editing the registry.
+> To get the non-operating system Microsoft patches or to install only the OS patches, we recommend you to change the patch repository as this is an operating system setting and not an option that you can configure within Update management center (preview).
+
+### Edit the registry
+
+If scheduled patching is configured on your machine using the Update management center (preview), the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+
+### Patching using group policy on Azure Update management
+
+If your machine is patched using Automation Update management and you have enabled Automatic updates enabled on the client, to have a complete control, you can use Group policy by following these steps:
+
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience** 
+1. Select **Configure Automatic Updates**.
+1. Select or deselect the **Install updates for other Microsoft products** option.
+
+   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/workbooks/configure-updates-group-policy-expanded.png":::
+
 
 ## Make WSUS configuration settings
 
