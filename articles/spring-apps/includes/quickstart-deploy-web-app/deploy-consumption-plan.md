@@ -138,7 +138,9 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
-1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
+1. Select **Configuration** from the navigation pane, on the **General settings** tab page, choose `java 17` for **Runtime platform**, then select **Save**.
+
+1. On the **Configuration** page, select the **Environment variables** tab and configure the following properties:
     - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
     - **SPRING_DATASOURCE_USERNAME**: *myadmin*
     - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
