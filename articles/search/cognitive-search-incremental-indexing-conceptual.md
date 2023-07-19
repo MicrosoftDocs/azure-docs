@@ -2,7 +2,6 @@
 title: Incremental enrichment concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
-
 author: HeidiSteen    
 ms.author: heidist
 ms.service: cognitive-search
