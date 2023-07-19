@@ -65,6 +65,15 @@ Permissions Management offers the following reports for management associated wi
     - **Use cases**:
          - All group level entitlements and permission assignments, PCIs, and the number of members are listed as part of this report.
 
+- **All Permissions for Identity**
+    - **Summary of report**: Provides results of all permissions for identities.
+    - **Applies to**: AWS, Azure, GCP
+    - **Report output type**: CSV
+    - **Ability to collate report**: Yes
+    - **Type of report**: **Summary**
+    - **Use cases**:
+         - This report lists all the assigned permissions for the selected identities.
+
 - **Identity Permissions**:
     - **Summary of report**: Report on identities that have specific permissions, for example, identities that have permission to delete any S3 buckets.
     - **Applies to**: AWS, Azure, and GCP
@@ -74,24 +83,19 @@ Permissions Management offers the following reports for management associated wi
     - **Use cases**:
          - Any task usage or specific task usage via User/Group/Role/App can be tracked with this report.
 
-- **Identity privilege activity report**
-    - **Summary of report**: Provides information about permission changes that have occurred in the selected duration.
-    - **Applies to**: AWS, Azure, and GCP
-    - **Report output type**: PDF
-    - **Ability to collate report**: No
+- **PCI History**
+    - **Summary of report**: Provides a report of privilege creep index (PCI) history.
+    - **Applies to**: AWS, Azure, GCP
+    - **Report output type**: CSV
+    - **Ability to collate report**: Yes
     - **Type of report**: **Summary**
     - **Use cases**:
-        - Any identity permission change can be captured using this report.
-        - The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**.
-        - The **User** summary lists the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users.
-        - The **Group** summary lists the administrator level groups with the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
-        - The **Role summary** lists similar details as **Group Summary**.
-        - The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period.
+         - This report plots the trend of the PCI by displaying the monthly PCI history for each authorization system.
 
 - **Permissions Analytics Report**
     - **Summary of report**: Provides information about the violation of key security best practices.
     - **Applies to**: AWS, Azure, and GCP
-    - **Report output type**: CSV
+    - **Report output type**: XSLX
     - **Ability to collate report**: Yes
     - **Type of report**: **Detailed**
     - **Use cases**:
@@ -107,25 +111,6 @@ Permissions Management offers the following reports for management associated wi
     - **Type of report**: **Summary**
     - **Use cases**:
          - Assigned/Unassigned, custom/system policy, and the used/unused condition is captured in this report for any specific, or all, AWS accounts. Similar data can be captured for Azure/GCP for the assigned/unassigned roles.
-
-- **PCI History**
-    - **Summary of report**: Provides a report of privilege creep index (PCI) history.
-    - **Applies to**: AWS, Azure, GCP
-    - **Report output type**: CSV
-    - **Ability to collate report**: Yes
-    - **Type of report**: **Summary**
-    - **Use cases**:
-         - This report plots the trend of the PCI by displaying the monthly PCI history for each authorization system.
-
-- **All Permissions for Identity**
-    - **Summary of report**: Provides results of all permissions for identities.
-    - **Applies to**: AWS, Azure, GCP
-    - **Report output type**: CSV
-    - **Ability to collate report**: Yes
-    - **Type of report**: **Detailed**
-    - **Use cases**:
-         - This report lists all the assigned permissions for the selected identities.
-
 
 
 
