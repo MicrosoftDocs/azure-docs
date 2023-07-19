@@ -7,7 +7,7 @@
         },
         {
             "source_path": "notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md",
-            "redirect_url": "notification-hubs-android-push-notification-google-fcm-get-started.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
             "redirect_document_id": true
         },
         {
