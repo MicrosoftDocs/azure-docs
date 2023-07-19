@@ -89,7 +89,7 @@ For this troubleshooting example, we're using a test device message that is [mes
 
    Select the **X** in the right corner to close the **Upload test device message** box.
 
-4. Once a conforming test device message is uploaded, the **View normalized message** and **View FHIR observation** buttons become available so that you may view the sample outputs of the normalization and FHIR transformation stages. These sample outputs can be used to validate your device and FHIR destination mappings are properly configured for processing device messages according to your requirements.
+4. Once a valid test device message is uploaded, the **View normalized message** and **View FHIR observation** buttons become available so that you may view the sample outputs of the normalization and FHIR transformation stages. These sample outputs can be used to validate your device and FHIR destination mappings are properly configured for processing device messages according to your requirements.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png" alt-text="Screenshot View normalized message and View FHIR observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png":::
 
