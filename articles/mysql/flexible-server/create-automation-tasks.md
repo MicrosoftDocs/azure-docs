@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.date: 07/19/2023
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: tutorial
 ---
 
 # Manage Azure Database for MySQL - Flexible Server using automation tasks (preview)
