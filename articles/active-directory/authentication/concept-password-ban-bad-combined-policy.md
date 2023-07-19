@@ -34,7 +34,7 @@ The following Azure AD password policy requirements apply for all passwords that
 | Characters not allowed | Unicode characters |
 | Password length |Passwords require<br>- A minimum of eight characters<br>- A maximum of 256 characters</li> |
 | Password complexity |Passwords require three out of four of the following categories:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: Password complexity check isn't required for Education tenants. |
-| Password not recently used | When a user changes their password, the new password can't be the same as the current or recently used passwords. |
+| Password not recently used | When a user changes their password, the new password should not be the same as the current password. |
 | Password isn't banned by [Azure AD Password Protection](concept-password-ban-bad.md) | The password can't be on the global list of banned passwords for Azure AD Password Protection, or on the customizable list of banned passwords specific to your organization. |
 
 ## Password expiration policies
