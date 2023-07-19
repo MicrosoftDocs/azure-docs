@@ -1,5 +1,5 @@
 ---
-title: Archive of what's new in Microsoft Defender for Cloud
+title: Archive of what's new
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 author: dcurwin
 ms.author: dacurwin

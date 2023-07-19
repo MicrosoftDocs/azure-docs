@@ -17,7 +17,7 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
 
 1. Create a new HTML file and [implement the map as usual](./how-to-use-map-control.md).
 2. Load the Azure Maps drawing tools module. You can load it in one of two ways:
-    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
+    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS Style Sheet in the `<head>` element of the file:
 
         ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
@@ -62,6 +62,8 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
         }
       };
       ```
+
+      To learn more, see [How to use the Azure Maps map control npm package].
 
 ## Use the drawing manager directly
 
@@ -219,3 +221,4 @@ Learn more about the classes and methods used in this article:
 [style-loader]: https://webpack.js.org/loaders/style-loader/
 [Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
 [drawing tools module]: https://www.npmjs.com/package/azure-maps-drawing-tools
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

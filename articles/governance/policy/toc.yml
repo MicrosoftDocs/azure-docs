@@ -132,6 +132,8 @@
         href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
+      - name: New Zealand ISM Restricted
+        href: ./samples/new-zealand-ism.md
       - name: New Zealand ISM Restricted v3.5
         href: ./samples/NZ_ISM_Restricted_v3_5.md
       - name: NIST SP 800-53 Rev. 5

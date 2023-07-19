@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 05/08/2023
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup

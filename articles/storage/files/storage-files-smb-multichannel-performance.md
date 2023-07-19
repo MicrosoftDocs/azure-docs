@@ -2,11 +2,10 @@
 title: SMB Multichannel performance - Azure Files
 description: Learn how SMB Multichannel can improve performance for Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 02/22/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # SMB Multichannel performance

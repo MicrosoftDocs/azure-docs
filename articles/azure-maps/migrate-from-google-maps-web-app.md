@@ -450,7 +450,7 @@ You may use Custom images to represent points on a map. The following map uses a
 
 <center>
 
-![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
+![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br>
 yellow-pushpin.png</center>
 
 #### Before: Google Maps
@@ -1678,40 +1678,40 @@ The following appendix provides a cross reference of the commonly used classes i
 
 | Google Maps   | Azure Maps  |
 |---------------|-------------|
-| `google.maps.Map` | [atlas.Map](/javascript/api/azure-maps-control/atlas.map)  |
-| `google.maps.InfoWindow` | [atlas.Popup](/javascript/api/azure-maps-control/atlas.popup)  |
-| `google.maps.InfoWindowOptions` | [atlas.PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions) |
-| `google.maps.LatLng`  | [atlas.data.Position](/javascript/api/azure-maps-control/atlas.data.position)  |
-| `google.maps.LatLngBounds` | [atlas.data.BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox) |
-| `google.maps.MapOptions`  | [atlas.CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)<br/>[atlas.CameraBoundsOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions)<br/>[atlas.ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions)<br/>[atlas.StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)<br/>[atlas.UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) |
-| `google.maps.Point`  | [atlas.Pixel](/javascript/api/azure-maps-control/atlas.pixel)   |
+| `google.maps.Map` | [atlas.Map]  |
+| `google.maps.InfoWindow` | [atlas.Popup]  |
+| `google.maps.InfoWindowOptions` | [atlas.PopupOptions] |
+| `google.maps.LatLng`  | [atlas.data.Position]  |
+| `google.maps.LatLngBounds` | [atlas.data.BoundingBox] |
+| `google.maps.MapOptions`  | [atlas.CameraOptions]<br>[atlas.CameraBoundsOptions]<br>[atlas.ServiceOptions]<br>[atlas.StyleOptions]<br>[atlas.UserInteractionOptions] |
+| `google.maps.Point`  | [atlas.Pixel]   |
 
 ## Overlay Classes
 
 | Google Maps  | Azure Maps  |
 |--------------|-------------|
-| `google.maps.Marker` | [atlas.HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)<br/>[atlas.data.Point](/javascript/api/azure-maps-control/atlas.data.point)  |
-| `google.maps.MarkerOptions`  | [atlas.HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)<br/>[atlas.layer.SymbolLayer](/javascript/api/azure-maps-control/atlas.layer.symbollayer)<br/>[atlas.SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)<br/>[atlas.IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions)<br/>[atlas.TextOptions](/javascript/api/azure-maps-control/atlas.textoptions)<br/>[atlas.layer.BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)<br/>[atlas.BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions) |
-| `google.maps.Polygon`  | [atlas.data.Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)               |
-| `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer)<br/> [atlas.PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)<br/> [atlas.layer.LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/> [atlas.LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)|
-| `google.maps.Polyline` | [atlas.data.LineString](/javascript/api/azure-maps-control/atlas.data.linestring)         |
-| `google.maps.PolylineOptions` | [atlas.layer.LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/>[atlas.LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions) |
+| `google.maps.Marker` | [atlas.HtmlMarker]<br>[atlas.data.Point]  |
+| `google.maps.MarkerOptions`  | [atlas.HtmlMarkerOptions]<br>[atlas.layer.SymbolLayer]<br>[atlas.SymbolLayerOptions]<br>[atlas.IconOptions]<br>[atlas.TextOptions]<br>[atlas.layer.BubbleLayer]<br>[atlas.BubbleLayerOptions] |
+| `google.maps.Polygon`  | [atlas.data.Polygon]   |
+| `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer]<br>[atlas.PolygonLayerOptions]<br> [atlas.layer.LineLayer]<br>[atlas.LineLayerOptions]|
+| `google.maps.Polyline` | [atlas.data.LineString] |
+| `google.maps.PolylineOptions` | [atlas.layer.LineLayer]<br>[atlas.LineLayerOptions] |
 | `google.maps.Circle`  | See [Add a circle to the map]                                     |
-| `google.maps.ImageMapType`  | [atlas.TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)         |
-| `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions](/javascript/api/azure-maps-control/atlas.tilelayeroptions) |
-| `google.maps.GroundOverlay`  | [atlas.layer.ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)<br/>[atlas.ImageLayerOptions](/javascript/api/azure-maps-control/atlas.imagelayeroptions) |
+| `google.maps.ImageMapType`  | [atlas.TileLayer]  |
+| `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions] |
+| `google.maps.GroundOverlay`  | [atlas.layer.ImageLayer]<br>[atlas.ImageLayerOptions] |
 
 ## Service Classes
 
 The Azure Maps Web SDK includes a services module, which can be loaded separately. This module wraps the Azure Maps REST services with a web API and can be used in JavaScript, TypeScript, and Node.js applications.
 
-| Google Maps | Azure Maps  |
-|-------------|-------------|
-| `google.maps.Geocoder` | [atlas.service.SearchUrl](/javascript/api/azure-maps-rest/atlas.service.searchurl)  |
-| `google.maps.GeocoderRequest`  | [atlas.SearchAddressOptions](/javascript/api/azure-maps-rest/atlas.service.searchaddressoptions)<br/>[atlas.SearchAddressRevrseOptions](/javascript/api/azure-maps-rest/atlas.service.searchaddressreverseoptions)<br/>[atlas.SearchAddressReverseCrossStreetOptions](/javascript/api/azure-maps-rest/atlas.service.searchaddressreversecrossstreetoptions)<br/>[atlas.SearchAddressStructuredOptions](/javascript/api/azure-maps-rest/atlas.service.searchaddressstructuredoptions)<br/>[atlas.SearchAlongRouteOptions](/javascript/api/azure-maps-rest/atlas.service.searchalongrouteoptions)<br/>[atlas.SearchFuzzyOptions](/javascript/api/azure-maps-rest/atlas.service.searchfuzzyoptions)<br/>[atlas.SearchInsideGeometryOptions](/javascript/api/azure-maps-rest/atlas.service.searchinsidegeometryoptions)<br/>[atlas.SearchNearbyOptions](/javascript/api/azure-maps-rest/atlas.service.searchnearbyoptions)<br/>[atlas.SearchPOIOptions](/javascript/api/azure-maps-rest/atlas.service.searchpoioptions)<br/>[atlas.SearchPOICategoryOptions](/javascript/api/azure-maps-rest/atlas.service.searchpoicategoryoptions) |
-| `google.maps.DirectionsService`  | [atlas.service.RouteUrl](/javascript/api/azure-maps-rest/atlas.service.routeurl)  |
-| `google.maps.DirectionsRequest`  | [atlas.CalculateRouteDirectionsOptions](/javascript/api/azure-maps-rest/atlas.service.calculateroutedirectionsoptions) |
-| `google.maps.places.PlacesService` | [f](/javascript/api/azure-maps-rest/atlas.service.searchurl)  |
+| Google Maps            | Azure Maps                 |
+|------------------------|----------------------------|
+| `google.maps.Geocoder` | [atlas.service.SearchUrl]  |
+| `google.maps.GeocoderRequest` | [atlas.SearchAddressOptions]<br>[atlas.SearchAddressRevrseOptions]<br>[atlas.SearchAddressReverseCrossStreetOptions]<br>[atlas.SearchAddressStructuredOptions]<br>[atlas.SearchAlongRouteOptions]<br>[atlas.SearchFuzzyOptions]<br>[atlas.SearchInsideGeometryOptions]<br>[atlas.SearchNearbyOptions]<br>[atlas.SearchPOIOptions]<br>[atlas.SearchPOICategoryOptions] |
+| `google.maps.DirectionsService` | [atlas.service.RouteUrl] |
+| `google.maps.DirectionsRequest` | [atlas.CalculateRouteDirectionsOptions] |
+| `google.maps.places.PlacesService` | [f] |
 
 ## Libraries
 
@@ -1719,11 +1719,11 @@ Libraries add more functionality to the map. Many of these libraries are in
 the core SDK of Azure Maps. Here are some equivalent classes to use in
 place of these Google Maps libraries
 
-| Google Maps           | Azure Maps   |
-|-----------------------|--------------|
-| Drawing library       | [Drawing tools module](set-drawing-options.md) |
-| Geometry library      | [atlas.math](/javascript/api/azure-maps-control/atlas.math)   |
-| Visualization library | [Heat map layer](map-add-heat-map-layer.md) |
+| Google Maps           | Azure Maps             |
+|-----------------------|------------------------|
+| Drawing library       | [Drawing tools module] |
+| Geometry library      | [atlas.math]           |
+| Visualization library | [Heat map layer]       |
 
 ## Clean up resources
 
@@ -1734,105 +1734,136 @@ No resources to be cleaned up.
 Learn more about migrating to Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Migrate a web service](migrate-from-google-maps-web-services.md)
-
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[free account]: https://azure.microsoft.com/free/
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
-
-[road tiles]: /rest/api/maps/render/getmaptile
-[satellite tiles]: /rest/api/maps/render/getmapimagerytile
-
-[Cesium documentation]: https://www.cesium.com/
-[Leaflet code sample]: https://samples.azuremaps.com/?sample=render-azure-maps-in-leaflet
-[Leaflet documentation]: https://leafletjs.com/
-[OpenLayers documentation]: https://openlayers.org/
-
-[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
-[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
-[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
-[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
+> [Migrate a web service]
 
 [*atlas.data* namespace]: /javascript/api/azure-maps-control/atlas.data
 [*atlas.Shape*]: /javascript/api/azure-maps-control/atlas.shape
-[atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
-
-[npm module]: how-to-use-map-control.md
-
-[Load a map]: #load-a-map
-[Localizing the map]: #localizing-the-map
-[Setting the map view]: #setting-the-map-view
-[Adding a marker]: #adding-a-marker
-[Adding a custom marker]: #adding-a-custom-marker
-[Adding a polyline]: #adding-a-polyline
-[Adding a polygon]: #adding-a-polygon
-[Display an info window]: #display-an-info-window
-[Import a GeoJSON file]: #import-a-geojson-file
-[Marker clustering]: #marker-clustering
-[Add a heat map]: #add-a-heat-map
-[Overlay a tile layer]: #overlay-a-tile-layer
-[Show traffic data]: #show-traffic-data
-[Add a ground overlay]: #add-a-ground-overlay
-[Add KML data to the map]: #add-kml-data-to-the-map
-
-[Use the Azure Maps map control]: how-to-use-map-control.md
-[Add controls to a map]: map-add-controls.md
-[Localization support in Azure Maps]: supported-languages.md
-
-[Choose a map style]: choose-map-style.md
-[Supported map styles]: supported-map-styles.md
-
-[Create a data source]: create-data-source-web-sdk.md
-[Add a Symbol layer]: map-add-pin.md
+[`atlas.layer.ImageLayer.getCoordinatesFromEdges`]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
 [Add a Bubble layer]: map-add-bubble-layer.md
-[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
+[Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
+[Add a ground overlay]: #add-a-ground-overlay
+[Add a heat map layer]: map-add-heat-map-layer.md
+[Add a heat map]: #add-a-heat-map
+[Add a polygon to the map]: map-add-shape.md
+[Add a popup]: map-add-popup.md
+[Add a Symbol layer]: map-add-pin.md
+[Add controls to a map]: map-add-controls.md
 [Add HTML Markers]: map-add-custom-html.md
-[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
-[Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
-[Symbol layer text option]: /javascript/api/azure-maps-control/atlas.textoptions
+[Add KML data to the map]: #add-kml-data-to-the-map
+[Add lines to the map]: map-add-line-layer.md
+[Add tile layers]: map-add-tile-layer.md
+[Adding a custom marker]: #adding-a-custom-marker
+[Adding a marker]: #adding-a-marker
+[Adding a polygon]: #adding-a-polygon
+[Adding a polyline]: #adding-a-polyline
+[atlas.BubbleLayerOptions]: /javascript/api/azure-maps-control/atlas.bubblelayeroptions
+[atlas.CalculateRouteDirectionsOptions]: /javascript/api/azure-maps-rest/atlas.service.calculateroutedirectionsoptions
+[atlas.CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions
+[atlas.CameraOptions]: /javascript/api/azure-maps-control/atlas.cameraoptions
+[atlas.data.BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox
+[atlas.data.LineString]: /javascript/api/azure-maps-control/atlas.data.linestring
+[atlas.data.Point]: /javascript/api/azure-maps-control/atlas.data.point
+[atlas.data.Polygon]: /javascript/api/azure-maps-control/atlas.data.polygon
+[atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
+[atlas.data.Position]: /javascript/api/azure-maps-control/atlas.data.position
+[atlas.HtmlMarker]: /javascript/api/azure-maps-control/atlas.htmlmarker
+[atlas.HtmlMarkerOptions]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
+[atlas.IconOptions]: /javascript/api/azure-maps-control/atlas.iconoptions
+[atlas.ImageLayerOptions]: /javascript/api/azure-maps-control/atlas.imagelayeroptions
+[atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
+[atlas.layer.BubbleLayer]: /javascript/api/azure-maps-control/atlas.layer.bubblelayer
+[atlas.layer.ImageLayer]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
+[atlas.layer.LineLayer]: /javascript/api/azure-maps-control/atlas.layer.linelayer
+[atlas.layer.PolygonLayer]: /javascript/api/azure-maps-control/atlas.layer.polygonlayer
+[atlas.layer.SymbolLayer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
+[atlas.LineLayerOptions]: /javascript/api/azure-maps-control/atlas.linelayeroptions
+[atlas.Map]: /javascript/api/azure-maps-control/atlas.map
+[atlas.math]: /javascript/api/azure-maps-control/atlas.math
+[atlas.Pixel]: /javascript/api/azure-maps-control/atlas.pixel
+[atlas.PolygonLayerOptions]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
+[atlas.Popup]: /javascript/api/azure-maps-control/atlas.popup
+[atlas.PopupOptions]: /javascript/api/azure-maps-control/atlas.popupoptions
+[atlas.SearchAddressOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressoptions
+[atlas.SearchAddressReverseCrossStreetOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressreversecrossstreetoptions
+[atlas.SearchAddressRevrseOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressreverseoptions
+[atlas.SearchAddressStructuredOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressstructuredoptions
+[atlas.SearchAlongRouteOptions]: /javascript/api/azure-maps-rest/atlas.service.searchalongrouteoptions
+[atlas.SearchFuzzyOptions]: /javascript/api/azure-maps-rest/atlas.service.searchfuzzyoptions
+[atlas.SearchInsideGeometryOptions]: /javascript/api/azure-maps-rest/atlas.service.searchinsidegeometryoptions
+[atlas.SearchNearbyOptions]: /javascript/api/azure-maps-rest/atlas.service.searchnearbyoptions
+[atlas.SearchPOICategoryOptions]: /javascript/api/azure-maps-rest/atlas.service.searchpoicategoryoptions
+[atlas.SearchPOIOptions]: /javascript/api/azure-maps-rest/atlas.service.searchpoioptions
+[atlas.service.RouteUrl]: /javascript/api/azure-maps-rest/atlas.service.routeurl
+[atlas.service.SearchUrl]: /javascript/api/azure-maps-rest/atlas.service.searchurl
+[atlas.ServiceOptions]: /javascript/api/azure-maps-control/atlas.serviceoptions
+[atlas.StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
+[atlas.SymbolLayerOptions]: /javascript/api/azure-maps-control/atlas.symbollayeroptions
+[atlas.TextOptions]: /javascript/api/azure-maps-control/atlas.textoptions
+[atlas.TileLayer]: /javascript/api/azure-maps-control/atlas.layer.tilelayer
+[atlas.TileLayerOptions]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
+[atlas.UserInteractionOptions]: /javascript/api/azure-maps-control/atlas.userinteractionoptions
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
+[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
+[Cesium documentation]: https://www.cesium.com/
+[Choose a map style]: choose-map-style.md
+[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
+[Create a data source]: create-data-source-web-sdk.md
+[Create a Fullscreen Control]: https://samples.azuremaps.com/?sample=fullscreen-control
+[Display an info window]: #display-an-info-window
+[Drawing tools module]: set-drawing-options.md
+[Drawing tools]: map-add-drawing-toolbar.md
+[f]: /javascript/api/azure-maps-rest/atlas.service.searchurl
+[free account]: https://azure.microsoft.com/free/
+[Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
+[Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
+[Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions
+[Heat map layer]: map-add-heat-map-layer.md
 [HTML marker class]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HTML marker options]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
-
-[Add lines to the map]: map-add-line-layer.md
+[Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
+[Import a GeoJSON file]: #import-a-geojson-file
+[Leaflet code sample]: https://samples.azuremaps.com/?sample=render-azure-maps-in-leaflet
+[Leaflet documentation]: https://leafletjs.com/
+[Limit Map to Two Finger Panning]: https://samples.azuremaps.com/?sample=limit-map-to-two-finger-panning
+[Limit Scroll Wheel Zoom]: https://samples.azuremaps.com/?sample=limit-scroll-wheel-zoom
 [Line layer options]: /javascript/api/azure-maps-control/atlas.linelayeroptions
-
-[Add a polygon to the map]: map-add-shape.md
-[Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
+[Load a map]: #load-a-map
+[Localization support in Azure Maps]: supported-languages.md
+[Localizing the map]: #localizing-the-map
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Marker clustering]: #marker-clustering
+[Migrate a web service]: migrate-from-google-maps-web-services.md
+[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
+[npm module]: how-to-use-map-control.md
+[OpenLayers documentation]: https://openlayers.org/
+[Overlay a tile layer]: #overlay-a-tile-layer
+[Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
-
-[Add a popup]: map-add-popup.md
+[Popup class]: /javascript/api/azure-maps-control/atlas.popup
+[Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[Popup class]: /javascript/api/azure-maps-control/atlas.popup
-[Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
-[spatial IO module]: /javascript/api/azure-maps-spatial-io/
-
-[Add a heat map layer]: map-add-heat-map-layer.md
-[Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
-[Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions
-
-[Add tile layers]: map-add-tile-layer.md
-[Tile layer class]: /javascript/api/azure-maps-control/atlas.layer.tilelayer
-[Tile layer options]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
-
+[road tiles]: /rest/api/maps/render/getmaptile
+[satellite tiles]: /rest/api/maps/render/getmapimagerytile
+[Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[Search for points of interest]: map-search-location.md
+[Setting the map view]: #setting-the-map-view
+[Show directions from A to B]: map-route.md
+[Show traffic data]: #show-traffic-data
 [Show traffic on the map]: map-show-traffic.md
-[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
-
-[`atlas.layer.ImageLayer.getCoordinatesFromEdges`]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
-[Overlay an image]: map-add-image-layer.md
-[Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
-
-[atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
 [SimpleDataLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer
 [SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
-[Drawing tools]: map-add-drawing-toolbar.md
-[Limit Map to Two Finger Panning]: https://samples.azuremaps.com/?sample=limit-map-to-two-finger-panning
-[Limit Scroll Wheel Zoom]: https://samples.azuremaps.com/?sample=limit-scroll-wheel-zoom
-[Create a Fullscreen Control]: https://samples.azuremaps.com/?sample=fullscreen-control
+[spatial IO module]: /javascript/api/azure-maps-spatial-io/
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Supported map styles]: supported-map-styles.md
+[Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
+[Symbol layer text option]: /javascript/api/azure-maps-control/atlas.textoptions
+[Tile layer class]: /javascript/api/azure-maps-control/atlas.layer.tilelayer
+[Tile layer options]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
+[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Use the Azure Maps map control]: how-to-use-map-control.md
 [Using the Azure Maps services module]: how-to-use-services-module.md
-[Search for points of interest]: map-search-location.md
-[Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
-[Show directions from A to B]: map-route.md
-[Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps

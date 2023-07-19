@@ -35,7 +35,6 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Azure Monitor data ingestion: Analytics logs and basic logs
 - Microsoft Sentinel: Analytics logs and basic logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
@@ -98,7 +97,7 @@ The costs shown in the following image are for example purposes only. They're no
 Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Since ingestion and analysis are billed on a daily basis, if your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
 
 # [Simplified](#tab/simplified)
-The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
+The following tabs show how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
 
 # [Classic](#tab/classic)
 The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your classic pricing tier. 
@@ -107,7 +106,7 @@ The following tabs show how Microsoft Sentinel and Log Analytics costs appear in
 
 # [Commitment tiers](#tab/commitment-tiers/simplified)
 
-If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -127,7 +126,7 @@ If you're billed at the classic commitment tier rate, this table shows how Micro
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
 
-If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -241,8 +240,7 @@ For data connectors that include both free and paid data types, select which dat
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
-
-## Next steps
+## Learn more
 
 - [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
 - [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
@@ -251,3 +249,10 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+
+## Next steps
+
+In this article, you learned how to plan costs and understand the billing for Microsoft Sentinel.
+
+> [!div class="nextstepaction"]
+> >[Deploy Microsoft Sentinel](deploy-overview.md)

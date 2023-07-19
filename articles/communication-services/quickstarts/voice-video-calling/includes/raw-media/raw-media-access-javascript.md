@@ -300,7 +300,8 @@ console.log(localScreenSharingStream.mediaStreamType) // 'RawMedia'
 ```
 
 ### Access the raw screen share stream from a screen, browser tab, or app, and apply effects to the stream
-
+The following is an example on how to apply a black and white effect on the raw screen sharing stream from a screen, browser tab, or app.
+NOTE: The Canvas context filter = "grayscale(1)" API is not supported on Safari.
 ```js
 let bwTimeout;
 let bwVideoElem;
@@ -322,6 +323,7 @@ const applyBlackAndWhiteEffect = function (stream) {
 	    try {
 		let begin = Date.now();
 		// start processing.
+		// NOTE: The Canvas context filter API is not supported in Safari
 		bwCtx.filter = "grayscale(1)";
 		bwCtx.drawImage(bwVideoElem, 0, 0, width, height);
 		const imageData = bwCtx.getImageData(0, 0, width, height);
@@ -362,7 +364,8 @@ bwVideoElem.srcObject = null;
 Use the following code to stop sending a custom screen share stream after it has been set during a call.
 
 ```js
-await call.stopScreenSharing();
+// Stop sending raw screen sharing stream
+await call.stopScreenSharing(localScreenSharingStream);
 ```
 
 ### Access incoming screen share stream from a remote participant

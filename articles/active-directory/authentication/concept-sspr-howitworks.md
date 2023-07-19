@@ -175,9 +175,9 @@ Consider the following example scenario:
 
 > [!NOTE]
 > Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
-> - Public: msonlineservicesteam@microsoft.com
-> - China: msonlineservicesteam@oe.21vianet.com 
-> - Government: msonlineservicesteam@azureadnotifications.us
+> - Public: msonlineservicesteam@microsoft.com, msonlineservicesteam@microsoftonline.com
+> - China: msonlineservicesteam@oe.21vianet.com, 21Vianetonlineservicesteam@21vianet.com
+> - Government: msonlineservicesteam@azureadnotifications.us, msonlineservicesteam@microsoftonline.us
 
 > If you observe issues in receiving notifications, please check your spam settings. 
 ## On-premises integration

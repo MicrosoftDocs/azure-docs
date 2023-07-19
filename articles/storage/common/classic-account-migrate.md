@@ -5,11 +5,11 @@ description: Learn how to migrate your classic storage accounts to the Azure Res
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---
 

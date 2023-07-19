@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/25/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Reduce costs with Azure Disks Reservation

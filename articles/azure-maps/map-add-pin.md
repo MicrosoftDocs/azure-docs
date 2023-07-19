@@ -29,7 +29,7 @@ The maps image sprite manager loads custom images used by the symbol layer. It s
 
 Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered.
 
-The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
+The following code demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -166,7 +166,7 @@ function InitMap()
 ------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
 
 ## Customize a symbol layer
 
@@ -210,7 +210,7 @@ See the following articles for more code samples to add to your maps:
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [How to use image templates](how-to-use-image-templates-web-sdk.md)
+> [How to use image templates]
 
 > [!div class="nextstepaction"]
 > [Add a line layer](map-add-line-layer.md)
@@ -226,3 +226,4 @@ See the following articles for more code samples to add to your maps:
 
 [Symbol Layer Options]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-options
 [Symbol Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20Layer%20Options/Symbol%20Layer%20Options.html
+[How to use image templates]: how-to-use-image-templates-web-sdk.md
