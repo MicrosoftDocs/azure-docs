@@ -31,8 +31,22 @@ To use 3D Scenes Studio, you'll need the following resources:
 * A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
     * Take note of the *name* of your storage container to use later.
 * *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+* Configure CORS for your storage account (see details in the following sub-section).
 
-You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
+### Configure CORS
+
+You'll need to configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. 
+
+Here are the minimum required CORS headers:
+* Authorization
+* Content-Type
+* Content-Length
+* x-ms-version
+* x-ms-blob-type
+* x-ms-copy-source
+* x-ms-requires-sync
+
+Below is the [Azure CLI](/cli/azure/what-is-azure-cli) command that will set the minimum required methods, origins, and headers for CORS in your storage account. The command contains one placeholder for the name of your storage account.
 
 ```azurecli
 az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization Content-Type Content-Length x-ms-version x-ms-blob-type x-ms-copy-source x-ms-requires-sync --account-name <your-storage-account>
