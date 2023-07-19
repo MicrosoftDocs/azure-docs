@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Get started
+  items:
     - name: About Azure Container Apps
       href: overview.md
     - name: Compare container options in Azure
@@ -133,6 +134,7 @@
   items:
     - name: Custom domains & certificates
       expanded: true
+      items:
         - name: Set up custom domain with a free certificate
           href: custom-domains-managed-certificates.md
           displayName: Set up custom domain with a managed certificate
