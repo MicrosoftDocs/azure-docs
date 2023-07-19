@@ -50,7 +50,7 @@ Check your configuration and ensure it matches your requirements. If the configu
 Once your resource has been provisioned, a message appears saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
 
 > [!NOTE]
-> Once your resource has been provisioned you will not be able to make calls immediately, you need to complete the remaining steps in this guide before it's ready to handle traffic.
+> You will not be able to make calls immediately. You need to complete the remaining steps in this guide before your resource is ready to handle traffic.
 
 :::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
