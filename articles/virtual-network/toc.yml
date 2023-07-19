@@ -41,8 +41,6 @@
       items:
       - name: Preface and Test Setup
         href: ../networking/connectivty-interoperability-preface.md?toc=/azure/virtual-network/toc.json
-      - name: Test Setup Configuration
-        href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/virtual-network/toc.json
       - name: Control Plane Analysis
         href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
       - name: Data Plane Analysis
