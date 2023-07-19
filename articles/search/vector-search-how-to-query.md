@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 07/14/2023
 ---
 
 # Query vector data in a search index
@@ -16,6 +16,8 @@ ms.date: 07/10/2023
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
+
+Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. You would then pass the output of the call to the embedding model to the search engine for similarity search over vector fields.
 
 ## Prerequisites
 
@@ -29,13 +31,13 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 
 ## Check your index for vector fields
 
-In the index schema, check for:
+If you aren't sure whether your search index already has vector fields, look for:
 
-+ A `vectorSearch` algorithm configuration.
++ A `vectorSearch` algorithm configuration embedded in the index schema.
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
 
-Search documents containing vector data have fields containing many hundreds of floating point values.
+You can also send an empty query (`search=*`) against the index. If the vector field is "retrievable", the response includes a vector field consisting of an array of floating point values.
 
 ## Convert query input into a vector
 
@@ -52,7 +54,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the embedding value into "vector.value" in a query request, using syntax from the next sections. Note that the actual response for this query included 1536 embeddings, trimmed here for brevity.
+The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. The actual response for this call to the deployment model includes 1536 embeddings, trimmed here for brevity.
 
 ```json
 {
@@ -81,7 +83,7 @@ The expected response is 202 for a successful call to the deployed model. The bo
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
-Recall that the vector query was generated from this string: `"what Azure services support full text search"`. The search targets the "contentVector" field.
+The sample vector query for this article is: `"what Azure services support full text search"`. The query targets the "contentVector" field.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -105,11 +107,13 @@ api-key: {{admin-api-key}}
 
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
 
+Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result.
+
 ## Query syntax for hybrid search
 
-A hybrid query combines full text search and vector search. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
+A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-You can also write queries that target just the vector fields, or just the text fields, within your search index. For example, besides vector queries, you might also want to write queries that filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
 
 The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic search with captions and answers. Semantic search is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
 
@@ -141,9 +145,9 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for cross-field vector query
+## Query syntax for vector query over multiple fields
 
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
+You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". Your vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -166,26 +170,36 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for multi-modal vector queries
+## Query syntax for multiple vector queries
 
-You can issue a search request with multiple query vectors using the `vectors` query parameter. The queries execute concurrently over the same embedding space in the search index, looking for similarities in each of the vector fields. The result set is a union of the documents that matched all vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search.
+You can issue a search request containing multiple query vectors using the "vectors" query parameter. The queries execute concurrently in the search index, each one looking for similarities in the target vector fields. The result set is a union of the documents that matched both vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
 
-You must use REST for this scenario. Currently, there isn't support for multiple vector fields in the alpha SDKs.
+You must use REST for this scenario. Currently, there isn't support for multiple vector queries in the alpha SDKs.
 
 + `vectors.value` property contains the vector query generated from the embedding model used to create image and text vectors in the search index. 
-+ `vectors.fields` contains the image vectors and text vectors in the search index.
++ `vectors.fields` contains the image vectors and text vectors in the search index. This is the searchable data.
 + `vectors.k` is the number of nearest neighbor matches to include in results.
 
 ```http
 {
     "vectors": [ 
         {
-            "value": [1.0, 2.0],
+            "value": [
+                -0.001111111,
+                0.018708462,
+                -0.013770515,
+            . . .
+            ],
             "fields": "myimagevector",
             "k": 5
         },
         {
-            "value": [1.0, 2.0, 3.0],
+            "value": [
+                -0.002222222,
+                0.018708462,
+                -0.013770515,
+            . . .
+            ],
             "fields": "mytextvector",
             "k": 5
         }
@@ -195,7 +209,42 @@ You must use REST for this scenario. Currently, there isn't support for multiple
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
+## Configure a query response
+
+When you're setting up the vector query, think about the response structure. The response is a flattened rowset. Parameters on the query determine which fields are in each row and how many rows are in the response. The search engine ranks the matching documents and returns the most relevant results.
+
+### Fields in a response
+
+Search results are composed of "retrievable" fields from your search index. A result is either:
+
++ All "retrievable" fields (a REST API default).
++ Fields explicitly listed in a "select" parameter on the query. 
+
+The examples in this article used a "select" statement to specify text (non-vector) fields in the response.
+
+> [!NOTE]
+> Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
+
+### Number of results
+
+A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
+
++ `"k": n` results for vector-only queries
++ `"top": n` results for hybrid queries that include a "search" parameter
+
+Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
+
+### Ranking
+
+Ranking of results is computed by either:
+
++ The similarity metric specified in the index `vectorConfiguration` for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
++ Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
+
+Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
+
+Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+
 ## Next steps
 
 As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
-

@@ -92,7 +92,7 @@
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cognitive Services
-      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../ai-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning

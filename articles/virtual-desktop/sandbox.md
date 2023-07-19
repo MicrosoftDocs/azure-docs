@@ -15,7 +15,7 @@ This topic will walk you through how to publish Windows Sandbox for your users i
 
 ## Prerequisites
 
-Before you get started, here's what you need to configureWindows Sandbox in Azure Virtual Desktop:
+Before you get started, here's what you need to configure Windows Sandbox in Azure Virtual Desktop:
 
 - A working Azure profile that can access the Azure portal.
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
@@ -23,7 +23,7 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 
 ## Prepare the VHD image for Azure
 
-First, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
+First, you'll need to create a custom VHD image. If you haven't created your custom VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
 
 When customizing your master image, you'll need to enable the **Containers-DisposableClientVM** feature by running the following command:
 
@@ -97,7 +97,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
    Set-AzContext -Tenant $tenantId -Subscription <subscription name or id>
    ```
 
-1. Run the following command to create a Sandbox remote app:
+1. Run the following command to create a Sandbox RemoteApp:
 
    ```azurepowershell-interactive
    New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath C:\windows\system32\WindowsSandbox.exe -IconIndex 0 -IconPath C:\windows\system32\WindowsSandbox.exe -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
@@ -108,7 +108,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 
 ---
 
-That's it! Leave the rest of the options default. You should now have Windows Sandbox Remote App published for your users.
+That's it! Leave the rest of the options default. You should now have Windows Sandbox published as a RemoteApp for your users.
 
 ## Next steps
 
