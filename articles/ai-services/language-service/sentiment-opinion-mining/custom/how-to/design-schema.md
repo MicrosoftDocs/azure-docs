@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/05/2022
+07/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-classification
 ---

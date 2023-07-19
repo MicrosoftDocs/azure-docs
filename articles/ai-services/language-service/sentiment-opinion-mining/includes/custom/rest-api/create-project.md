@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/13/2023
+07/19/2023
 ms.author: aahi
 ---
 To start creating a Custom sentiment analysis model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
