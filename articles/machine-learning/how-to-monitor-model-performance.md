@@ -477,7 +477,9 @@ created_monitor = poller.result()
 1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
 1. Configure your data assets for Feature Attribution Drift
    1. In your model creation wizard, add your custom data asset from your [custom data collection](how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
-    :::image type="content" source="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
+   
+      :::image type="content" source="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
+      
    1. Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
    1. Confirm your parameters are correct
 1. Adjust the data window size according to your business case.
