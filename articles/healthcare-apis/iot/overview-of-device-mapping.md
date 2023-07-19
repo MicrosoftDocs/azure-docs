@@ -23,7 +23,7 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 
 ## Device mapping basics
 
-The device mapping contains collections of expression templates used to extract device message data into an internal, normalized format for further evaluation. Each device message received is evaluated against **all** expression templates in the collection. This evaluation means that a single device message can be separated into multiple outbound messages that can be mapped to multiple FHIR Observations in the FHIR service.
+The device mapping contains collections of expression templates used to extract device message data into an internal, normalized format for further evaluation. Each received device message is evaluated against **all** expression templates in the collection. This evaluation means that a single device message can be separated into multiple outbound messages that can be mapped to multiple FHIR Observations in the FHIR service.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence in the FHIR service, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
