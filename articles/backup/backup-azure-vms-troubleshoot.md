@@ -150,13 +150,13 @@ This error occurs because the VSS writers were in a bad state. Azure Backup exte
 > [!NOTE]
 > Restarting some services can have an impact on your production environment. Ensure the approval process is followed and the service is restarted at the scheduled downtime.
 
-Step 3: If restarting the VSS writers did not resolve the issue, then run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
+**Step 3**: If restarting the VSS writers did not resolve the issue, then run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Step 4: If steps 1 and 2 did not resolve the issue, then the failure could be due to VSS writers timing out due to limited IOPS.<br>
+**Step 4**: If steps 1 and 2 did not resolve the issue, then the failure could be due to VSS writers timing out due to limited IOPS.<br>
 
 To verify, navigate to ***System and Event Viewer Application logs*** and check for the following error message:<br>
 *The shadow copy provider timed out while holding writes to the volume being shadow copied. This is probably due to excessive activity on the volume by an application or a system service. Try again later when activity on the volume is reduced.*<br>
