@@ -83,36 +83,36 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
 1. Install the kernel headers and development packages
 
-```
-sudo apt-get install linux-headers-$(uname -r)
-```
+   ```
+   sudo apt-get install linux-headers-$(uname -r)
+   ```
 
 2. Remove outdated signing key
 
-```
-sudo apt-key del 7fa2af80
-```
+   ```
+   sudo apt-key del 7fa2af80
+   ```
 
 3. Install the new cuda-keyring package
 
-```
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.1-1_all.deb
-sudo dpkg -i cuda-keyring_1.1-1_all.deb
-```
+   ```
+   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.1-1_all.deb
+   sudo dpkg -i cuda-keyring_1.1-1_all.deb
+   ```
 
 4. Install CUDA toolkit and driver
 
-```
-sudo apt-get update
-sudo apt-get install cuda
-sudo apt-get install nvidia-gds
-```
+   ```
+   sudo apt-get update
+   sudo apt-get install cuda
+   sudo apt-get install nvidia-gds
+   ```
 
-5. Reboot the system
+5. Reboot the VM and proceed to verify the installation
 
-```
-sudo reboot
-```
+   ```
+   sudo reboot
+   ```
 
 
 ### CentOS or Red Hat Enterprise Linux
@@ -129,16 +129,17 @@ sudo reboot
    LIS is applicable to Red Hat Enterprise Linux, CentOS, and the Oracle Linux Red Hat Compatible Kernel 5.2-5.11, 6.0-6.10, and 7.0-7.7. Refer to the [Linux Integration Services documentation](https://www.microsoft.com/en-us/download/details.aspx?id=55106) for more details. 
    Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
-      ```bash
-      wget https://aka.ms/lis
-      tar xvzf lis
-      cd LISISO
+   ```bash
+   wget https://aka.ms/lis
+   tar xvzf lis
+   cd LISISO
 
-      sudo ./install.sh
-      sudo reboot
-      ```
+   sudo ./install.sh
+   sudo reboot
+   ```
 
 3. Reconnect to the VM and continue installation with the following commands:
+   
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
@@ -148,7 +149,7 @@ sudo reboot
 
    The installation can take several minutes. 
    
-    > [!NOTE]
+   > [!NOTE]
    >  Visit [Fedora](https://dl.fedoraproject.org/pub/epel/) and [Nvidia CUDA repo](https://developer.download.nvidia.com/compute/cuda/repos/) to pick the correct package for the CentOS or RHEL version you want to use.
    >  
 
@@ -271,6 +272,7 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    ```
    FeatureType=0
    ```
+   
 10. Reboot the VM and proceed to verify the installation.
 
 #### Install GRID driver on Ubuntu with Secure Boot enabled
@@ -301,15 +303,15 @@ The GRID driver installation process does not offer any options to skip kernel m
 
    Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
-      ```bash
-      wget https://aka.ms/lis
-      tar xvzf lis
-      cd LISISO
+   ```bash
+   wget https://aka.ms/lis
+   tar xvzf lis
+   cd LISISO
 
-      sudo ./install.sh
-      sudo reboot
+   sudo ./install.sh
+   sudo reboot
 
-      ```
+   ```
  
 4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
  
@@ -320,7 +322,8 @@ The GRID driver installation process does not offer any options to skip kernel m
    chmod +x NVIDIA-Linux-x86_64-grid.run
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
-   ``` 
+   ```
+   
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
 7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
@@ -335,11 +338,13 @@ The GRID driver installation process does not offer any options to skip kernel m
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
+   
 9. Remove one line from `/etc/nvidia/gridd.conf` if it is present:
  
    ```
    FeatureType=0
    ```
+   
 10. Reboot the VM and proceed to verify the installation.
 
 
