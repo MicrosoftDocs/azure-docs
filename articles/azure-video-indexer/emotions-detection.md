@@ -22,7 +22,7 @@ The model works on text only (labeling emotions in video transcripts.) This mode
 There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying emotions detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
-- Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
+- Are we equipped to identify and respond to errors? AI-powered products and features are not 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
 
 ## General Transparency Note overview
 
