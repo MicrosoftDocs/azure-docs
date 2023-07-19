@@ -4,9 +4,10 @@ description: In this article, learn how to create a policy to back up blobs in a
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Create Azure Backup vault using REST API
 
 Azure Backup's new Data Protection platform provides enhanced capabilities for backup and restore for newer workloads such as blobs in storage accounts, managed disk and PostgreSQL server's PaaS platform. It aims to minimize management overhead while making it easy for organizing backups. A 'Backup vault' is the cornerstone of the Data protection platform and this is different from the 'Recovery Services' vault.
