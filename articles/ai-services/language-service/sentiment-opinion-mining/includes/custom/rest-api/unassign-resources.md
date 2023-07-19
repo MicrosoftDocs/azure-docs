@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-07/19/2023
+ms.date: 07/19/2023
 ms.author: haelhamm
 ---
 
