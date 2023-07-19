@@ -119,7 +119,7 @@ For more information, see [Push Notifications](../notifications.md).
 
 ## Build intelligent, AI powered chat experiences
 
-You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to build use cases like:
+You can use [Azure Cognitive APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
@@ -127,7 +127,7 @@ You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with t
 
 One way to achieve this is by having your trusted service act as a participant of a chat thread. Let's say you want to enable language translation. This service is responsible for listening to the messages exchanged by other participants [1], calling Cognitive APIs to translate content to desired language[2,3] and sending the translated result as a message in the chat thread[4].
 
-This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../cognitive-services/translator/quickstart-translator.md) to understand how to use Cognitive APIs to translate text to different languages. 
+This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use Cognitive APIs to translate text to different languages. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
 

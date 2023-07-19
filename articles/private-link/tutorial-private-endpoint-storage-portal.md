@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 11/23/2022
+ms.date: 07/18/2023
 ms.custom: template-tutorial, ignite-2022
 ---
 

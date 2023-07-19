@@ -156,8 +156,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ---
 
-## Create the Computer Vision service account
-Create the Computer Vision service account that processes our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
+## Create the Azure AI Vision service
+
+Next, create the Azure AI Vision service account that will process our uploaded files. Vision is part of Azure AI services and offers various features for extracting data out of images.  You can learn more about Azure AI Vision on the [overview page](../../ai-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/computer-vision-azure-portal)
 

@@ -15,7 +15,7 @@ ms.date: 07/08/2019
 
 # Filtering the answers that the search response includes  
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 When you query the web, Bing returns all the relevant content it finds for the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 

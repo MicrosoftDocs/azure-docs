@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 * [Sample application](https://github.com/Azure-Samples/app-service-language-detector)
 
 > [!TIP]
-> Azure Cognitive Services do [support authentication through managed identities](../../../cognitive-services/authentication.md#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](../../../cognitive-services/authentication.md#authenticate-with-a-single-service-subscription-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
+> Azure Cognitive Services do [support authentication through managed identities](../../../ai-services/authentication.md#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](../../../ai-services/authentication.md#authenticate-with-a-single-service-resource-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
 
 ![Architecture diagram for tutorial scenario.](../../media/tutorial-connect-msi-key-vault/architecture.png)
 

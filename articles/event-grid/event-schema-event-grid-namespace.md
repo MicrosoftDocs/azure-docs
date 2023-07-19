@@ -6,12 +6,12 @@ ms.custom: build-2023
 ms.date: 12/02/2022
 ---
 
-# Azure Event Grid Namespace as an Event Grid source
+# Azure Event Grid Namespace (Preview) as an Event Grid source
 This article provides the properties and schema for Azure Event Grid namespace events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
 ## Available event types
 
-Azure Event Grid namespace emits the following event types:
+Azure Event Grid namespace (Preview) emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |

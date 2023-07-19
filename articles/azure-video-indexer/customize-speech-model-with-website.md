@@ -1,6 +1,6 @@
 ---
-title: Customize a speech model with Azure Video Indexer website
-description: Learn how to customize a speech model with the Azure Video Indexer website.
+title: Customize a speech model with Azure AI Video Indexer website
+description: Learn how to customize a speech model with the Azure AI Video Indexer website.
 ms.topic: how-to
 ms.date: 03/06/2023
 ---
@@ -9,22 +9,22 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
  
-Azure Video Indexer lets you create custom speech models to customize speech recognition by uploading datasets that are used to create a speech model. This article goes through the steps to do so through the Video Indexer website. You can also use the API, as described in [Customize speech model using API](customize-speech-model-with-api.md). 
+Azure AI Video Indexer lets you create custom speech models to customize speech recognition by uploading datasets that are used to create a speech model. This article goes through the steps to do so through the Video Indexer website. You can also use the API, as described in [Customize speech model using API](customize-speech-model-with-api.md). 
 
-For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](customize-speech-model-overview.md). 
+For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure AI Video Indexer](customize-speech-model-overview.md). 
 
 ## Create a dataset 
 
 As all custom models must contain a dataset, we'll start with the process of how to create and manage datasets. 
 
-1. Go to the [Azure Video Indexer website](https://www.videoindexer.ai/) and sign in. 
+1. Go to the [Azure AI Video Indexer website](https://www.videoindexer.ai/) and sign in. 
 1. Select the Model customization button on the left of the page. 
 1. Select the Speech (new) tab. Here you'll begin the process of uploading datasets that are used to train the speech models.  
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="Screenshot of uploading datasets which are used to train the speech models.":::
 1. Select Upload dataset. 
-1. Select either Plain text or Pronunciation from the Dataset type dropdown menu. Every speech model must have a plain text dataset and can optionally have a pronunciation dataset. To learn more about each type, see Customize a speech model with Azure Video Indexer. 
+1. Select either Plain text or Pronunciation from the Dataset type dropdown menu. Every speech model must have a plain text dataset and can optionally have a pronunciation dataset. To learn more about each type, see Customize a speech model with Azure AI Video Indexer. 
 1. Select Browse which will open the File Explorer. You can only use one file in each dataset. Choose the relevant text file. 
 1. Select a Language for the model. Choose the language that is spoken in the media files you plan on indexing with this model. 
 1. The Dataset name is pre-populated with the name of the file but you can modify the name. 
@@ -131,7 +131,7 @@ You'll then see in the Details tab the name, description, language and status of
 
 ## How to use a custom language model when indexing a video 
 
-A custom language model isn't used by default for indexing jobs and must be selected during the index upload process.  To learn how to index a video, see Upload and index videos with Azure Video Indexer - Azure Video Indexer | Microsoft Learn.  
+A custom language model isn't used by default for indexing jobs and must be selected during the index upload process.  To learn how to index a video, see Upload and index videos with Azure AI Video Indexer - Azure AI Video Indexer | Microsoft Learn.  
 
 During the upload process, you can select the source language of the video. In the Video source language drop-down menu, you'll see your custom model among the language list. The naming of the model is the language of your Language model and the name that you gave it in parentheses. For example: 
 
