@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
+title: Connect your GitHub repositories
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
 ms.date: 01/24/2023
 ms.topic: quickstart

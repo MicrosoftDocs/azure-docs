@@ -1,5 +1,5 @@
 ---
-title: Select a Defender for Servers plan in Microsoft Defender for Cloud
+title: Select a Defender for Servers plan
 description: Select a Microsoft Defender for Servers plan in Microsoft Defender for Cloud to protect Azure, AWS, and GCP servers and on-premises machines.
 ms.topic: conceptual
 ms.author: dacurwin

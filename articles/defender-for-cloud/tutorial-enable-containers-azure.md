@@ -1,6 +1,5 @@
 ---
-title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription - Microsoft Defender for Cloud
-
+title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
