@@ -10,8 +10,6 @@ ms.author: allensu
 
 # Interoperability in Azure - Data plane analysis
 
-This article describes the data plane analysis of the [test setup](./connectivty-interoperability-preface.md). You can also review the [test setup configuration](./connectivty-interoperability-configuration.md) and the [control plane analysis](./connectivty-interoperability-control-plane.md) of the test setup.
-
 Data plane analysis examines the path taken by packets that traverse from one local network (LAN or virtual network) to another within a topology. The data path between two local networks isn't necessarily symmetrical. Therefore, in this article, we analyze a forwarding path from a local network to another network that's separate from the reverse path.
 
 ## Data path from the hub virtual network
