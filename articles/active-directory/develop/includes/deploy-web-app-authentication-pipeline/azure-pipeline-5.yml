@@ -69,7 +69,7 @@ stages:
             homePageUrlTest="https://$WEBAPPNAMETEST.azurewebsites.net"
             issuerTest="https://sts.windows.net/$TENANTID"
             
-            # Required resource access
+            # Required resource access.  Access Microsoft Graph with delegated User.Read permissions.
             cat > manifest.json << EOF
             [
                 {

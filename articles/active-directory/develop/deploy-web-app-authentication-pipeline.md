@@ -1,6 +1,6 @@
 ---
 title: Deploy a web app with App Service auth in a pipeline
-description: Describes how to deploy a web app to Azure App Service and enable the built-in App Service authentication in Azure Pipelines.
+description: Describes how to set up a pipeline in Azure Pipelines to build and deploy a web app to Azure and enable the Azure App Service built-in authentication. The article provides step-by-step instructions on how to configure Azure resources, build and deploy a web application, create an Azure AD app registration, and configure App Service built-in authentication using Azure Pipelines.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: 
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/17/2023
 ms.author: ryanwi
-ms.reviewer: mahender
+ms.reviewer: mahender, jukullam
 ---
 
-# Deploy a web app in a pipeline and configure authentication
+# Deploy a web app in a pipeline and configure App Service authentication
 
-Set up a multi-stage continuous integration/continuous deployment (CI/CD) pipeline that automates the process of deploying your application.  Your pipeline will automatically trigger a build when code changes are made and promote changes through various environments.
+This article describes how to set up a pipeline in [Azure Pipelines](/azure/devops/pipelines/) to build and deploy a web app to Azure and enable the [Azure App Service built-in authentication](/azure/app-service/overview-authentication-authorization).
 
-Configure authentication and authorization for Azure App Service in a continuous integration/continuous deployment (CI/CD) pipeline. Create an Azure AD app registration as an identity for your web app and configure redirect URI, home page URI, and issuer settings for App Service Authentication.
+You'll learn how to:
 
-After completing this article, you'll be able to:
-
-1. Create an identity for your web app using an Azure AD app registration in Azure Pipelines
-1. Configure App Service authentication to enable user sign-in in Azure Pipelines.
+- Configure Azure resources using scripts in Azure Pipelines
+- Build a web application and deploy to App Service using Azure Pipelines
+- Create an Azure AD app registration in Azure Pipelines
+- Configure App Service built-in authentication in Azure Pipelines.
 
 ## Prerequisites
 
@@ -34,13 +34,13 @@ After completing this article, you'll be able to:
 - A [GitHub account](https://github.com) and Git [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
 - .NET 6.0 SDK or later.
 
-## Create a new ASP.NET Core web app
+## Create a sample ASP.NET Core web app
 
 Create a sample app and push it to your GitHub repo.
 
 ### Create and clone a repo in GitHub
 
-[Create a new repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) in GitHub, specify a name like "PipelinesTest".  Set it to **Private** and add a *.gitignore* file with **.getignore template: VisualStudio**.
+[Create a new repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) in GitHub, specify a name like "PipelinesTest".  Set it to **Private** and add a *.gitignore* file with `.getignore template: VisualStudio`.
 
 Open a terminal window and change the current working directory to the location where you want the cloned directory:
 
@@ -111,7 +111,7 @@ After the project is created, add a pipeline:
 1. When the list of repositories appears, select your `PipelinesTest` repository.
 1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
 1. In **Configure your pipeline**, select the **Starter pipeline**.
-1. A new pipeline with a very basic configuration appears. The default configuration uses a Microsoft-hosted agent.
+1. A new pipeline with a basic configuration appears. The default configuration uses a Microsoft-hosted agent.
 1. When you're ready, select **Save and run**. To commit your changes to GitHub and start the pipeline, choose Commit directly to the main branch and select Save and run a second time. If prompted to grant permission with a message like **This pipeline needs permission to access a resource before this run can continue**, choose **View** and follow the prompts to permit access.
 
 ## Add a build stage and build tasks to your pipeline
@@ -191,7 +191,7 @@ Save your changes and run the pipeline.
 
 ## Deploy Azure resources
 
-Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure pipeline tasks) cannot create an app registration.
+Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure pipeline tasks) can't create an app registration.
 
 The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 
@@ -209,7 +209,7 @@ Save your changes and run the pipeline.  In the [Azure portal](https://portal.az
 
 ## Deploy the web app to App Service
 
-Now that you your pipeline is creating resources in Azure, a deployment stage to deploy the web app to App Service.  
+Now that your pipeline is creating resources in Azure, a deployment stage to deploy the web app to App Service.  
 
 Update *azure-pipelines.yml* to add the deployment stage.
 
@@ -222,7 +222,7 @@ A `DeployWebApp` stage is defined with several tasks:
 - [DownloadBuildArtifacts@1](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) downloads the build artifacts that were published to the pipeline in a previous stage.
 - [AzureRmWebAppDeployment@4](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) deploys the web app to App Service.
 
-View the deployed website on App Service. Navigate to your App Service in Azure Portal and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
+View the deployed website on App Service. Navigate to your App Service in Azure portal and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
 
 :::image type="content" alt-text="Screen shot that shows the default domain URL." source="./media/deploy-web-app-authentication-pipeline/default-domain.png" border="true":::
 
@@ -232,7 +232,7 @@ The *pipelinetestwebapp* has been successfully deployed to App Service.
 
 ## Configure App Service authentication
 
-Now that the pipeline is deploying the web app to App Service, you can configure the [built-in App Service authentication](/azure/app-service/overview-authentication-authorization).  Modify the inline script in the `DeployAzureResources` to:
+Now that the pipeline is deploying the web app to App Service, you can configure the [App Service built-in authentication](/azure/app-service/overview-authentication-authorization).  Modify the inline script in the `DeployAzureResources` to:
 
 1. Create an Azure AD app registration as an identity for your web app. To create an app registration, the service principal for running the  pipeline needs Application Administrator role in the directory.
 1. Get a secret from the app.
@@ -264,7 +264,7 @@ Select **Delete resource group** to delete the resource group and all the resour
 
 ### Disable the pipeline or delete the Azure DevOps project
 
-You created a project which points to a GitHub repository. The pipeline is triggered to run every time you push a change to your GitHub repository, consuming free build minutes or your resources.
+You created a project that points to a GitHub repository. The pipeline is triggered to run every time you push a change to your GitHub repository, consuming free build minutes or your resources.
 
 #### Option 1: Disable your pipeline
 
@@ -276,7 +276,7 @@ Choose this option if you want to keep your project and your build pipeline for 
 
 #### Option 2: Delete your project
 
-Choose this option if you don't need your DevOps project for future reference. This will delete your Azure DevOps project.
+Choose this option if you don't need your DevOps project for future reference. This deletes your Azure DevOps project.
 
 1. Navigate to your Azure DevOps project.
 1. Select **Project settings** in the lower-left corner.
@@ -293,3 +293,7 @@ Select the application for the web app, *pipelinetestwebapp*, and delete it.
 
 ## Next steps
 
+Learn more about:
+
+- [App Service built-in authentication](/azure/app-service/overview-authentication-authorization).
+- [Deploy to App Service using Azure Pipelines](/azure/app-service/deploy-azure-pipelines)
