@@ -297,7 +297,7 @@ api-key: {{admin-api-key}}
             "k": 10
         },
     ],
-    "select": "title, content, category"
+    "select": "title, content, category",
     "filter": "category eq 'Databases'"
 }
 ```
