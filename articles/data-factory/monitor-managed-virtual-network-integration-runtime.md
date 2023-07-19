@@ -4,7 +4,7 @@ description: Learn how to monitor managed virtual network integration runtime in
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 19/07/2023
+ms.date: 07/19/2023
 author: lrtoyou1223
 ms.author: lle
 ms.custom:
