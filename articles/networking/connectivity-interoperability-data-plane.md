@@ -489,7 +489,7 @@ Trace complete.
 
 ### Path to the branch virtual network and on-premises Location 2
 
-As we discuss in the [control plane analysis](./connectivty-interoperability-control-plane.md), the remote virtual network has no visibility to the branch virtual network or to on-premises Location 2 per the network configuration. 
+As we discuss in the control plane analysis, the remote virtual network has no visibility to the branch virtual network or to on-premises Location 2 per the network configuration. 
 
 ### Path to on-premises Location 1
 
