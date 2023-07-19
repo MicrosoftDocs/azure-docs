@@ -33,8 +33,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
-
 [!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
 
 > [!NOTE]
