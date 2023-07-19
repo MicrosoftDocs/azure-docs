@@ -65,9 +65,10 @@ If your database server disallows public access, ensure your environment that ru
 
 Next, we use Azure App Service as an example to create a connection using managed identity. 
 
-If you use Azure Spring Apps, use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
+If you use:
 
-If you use Azure Container Apps, use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
+* Azure Spring Apps, use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
+* Azure Container Apps, use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
 
 > [!NOTE]
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](./quickstart-portal-app-service-connection.md), [Azure Spring Apps](./quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](./quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
@@ -186,11 +187,11 @@ az webapp connection create mysql-flexible \
 ::: zone-end
 
 
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
+
 ::: zone pivot="sql"
 
 ### [User-assigned managed identity](#tab/user)
-
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
 
 ```azurecli
 az webapp connection create sql \
@@ -237,9 +238,9 @@ This Service Connector command completes the following tasks in the background:
 - Set the Azure Active Directory admin to the current signed-in user.
 - Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 - Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type. 
-  - For App Service, the configurations are set to App Settings.
-  - For Spring Apps, the configurations are set when application launched.
-  - For Container Apps, the configurations are set to the environment variables. You can get all configurations and their value in Service Connector Blade in the Azure portal.
+  - For App Service, the configurations are set in the **App Settings** blade.
+  - For Spring Apps, the configurations are set when the application is launched.
+  - For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
 
 
 ### Troubleshooting
@@ -287,7 +288,7 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 
 ::: zone-end
 
-In some cases, the permissions aren't required. For example, if the Azure CLI-authenticated user is already an Active Directory Administrator on SQL server, you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
+In some cases, the permissions aren't required. For example, if the Azure CLI-authenticated user is already an Active Directory Administrator on SQL server, you don't need to have the `Microsoft.Sql/servers/administrators/write` permission.
 
 #### Azure Active Directory
 
