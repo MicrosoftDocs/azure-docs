@@ -35,7 +35,7 @@ The following limitations apply when you create AKS clusters that support multip
   * For Linux node pools, the length must be between 1-12 characters.
   * For Windows node pools, the length must be between 1-6 characters.
 * All node pools must reside in the same virtual network.
-* When creating multiple node pools at cluster creation time, the Kubernetes versions for the node pools must match the version set for the control plane.
+* When you create multiple node pools at cluster creation time, the Kubernetes versions for the node pools must match the version set for the control plane.
 
 ## Create an AKS cluster
 
@@ -173,7 +173,7 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 
 ## Node pools with unique subnets
 
-A workload may require splitting a cluster's nodes into separate pools for logical isolation. Separate subnets dedicated to each node pool in the cluster can help support this isolation. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
+A workload may require splitting a cluster nodes into separate pools for logical isolation. Separate subnets dedicated to each node pool in the cluster can help support this isolation, which can address requirements such as having noncontiguous virtual network address space to split across node pools.
 
 > [!NOTE]
 > Make sure to use Azure CLI version `2.35.0` or later.
@@ -212,7 +212,7 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
 > When using `containerd` with Windows Server 2019 node pools:
 >
 > * Both the control plane and Windows Server 2019 node pools must use Kubernetes version 1.20 or greater.
-> * When creating or updating a node pool to run Windows Server containers, the default value for `--node-vm-size` is *Standard_D2s_v3*, which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the `--node-vm-size` parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
+> * When you create or update a node pool to run Windows Server containers, the default value for `--node-vm-size` is *Standard_D2s_v3*, which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the `--node-vm-size` parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
 > * We highly recommended using [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
 
 ### Add a Windows Server node pool with `containerd`

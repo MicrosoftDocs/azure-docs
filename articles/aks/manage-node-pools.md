@@ -25,7 +25,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * [System pools][use-system-pool] must contain at least one node, and user node pools may contain zero or more nodes.
 * You can't change the VM size of a node pool after you create it.
-* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
+* When you create multiple node pools at cluster creation time, all Kubernetes versions used by node pools must match the version set for the control plane. You can update this after provisioning the cluster using per node pool operations.
 * You can't simultaneously run upgrade and scale operations on a cluster or node pool. If you attempt to run them at the same time, you receive an error. Each operation type must complete on the target resource prior to the next request on that same resource. For more information, see the [troubleshooting guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
 ## Upgrade a single node pool
@@ -120,8 +120,8 @@ Kubernetes upgrades for a cluster control plane and node pools are validated usi
 
 * **Rules for submitting an upgrade operation**:
   * You can't downgrade the control plane or a node pool Kubernetes version.
-  * If a node pool Kubernetes version isn't specified, the behavior depends on the client. In Resource Manager templates, declaration falls back to the existing version defined for the node pool. If none are set, it uses the control plane version to fall back on.
-  * You can either upgrade or scale a control plane or a node pool at a given time, but you can't simultaneously submit multiple operations on a single control plane or node pool resource.
+  * If a node pool Kubernetes version isn't specified, the behavior depends on the client. In Resource Manager templates, declaration falls back to the existing version defined for the node pool. If nothing is set, it uses the control plane version to fall back on.
+  * You can't simultaneously submit multiple operations on a single control plane or node pool resource. You can either upgrade or scale a control plane or a node pool at a given time.
 
 ## Scale a node pool manually
 
@@ -179,13 +179,13 @@ As your application workload demands change, you may need to scale the number of
 
 ## Scale a specific node pool automatically using the cluster autoscaler
 
-AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). You can enable this feature with unique minimum and maximum scale counts per node pool. 
+AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). You can enable this feature with unique minimum and maximum scale counts per node pool.
 
 For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## Associate capacity reservation groups to node pools (preview)
 
-As your application workloads demands, you may associate node pools to existing capacity reservation groups, which guarantees allocated capacity for your node pools.  
+As your application workload demands change, you can associate existing capacity reservation groups to node pools, which guarantees allocated capacity for your node pools.  
 
 For more information, see [capacity reservation groups][capacity-reservation-groups].
 
@@ -567,7 +567,7 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[[use-tags]: use-tags.md
+[use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
