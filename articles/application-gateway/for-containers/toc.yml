@@ -34,8 +34,6 @@
   items:
   - name: API Specification
     href: api-specification-kubernetes.md
-  - name: API Types
-    href: api-types-kubernetes.md
 - name: Reference
   items:
   - name: ALB Controller release notes

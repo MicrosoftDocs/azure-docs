@@ -110,7 +110,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
 </td>
 </tr>
 </tbody>
@@ -202,7 +202,7 @@ AlbSpec
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
 </td>
 </tr>
 </table>
