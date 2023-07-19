@@ -44,6 +44,7 @@ Access monitoring features for all AKS clusters in your subscription from the **
 
 AKS collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data.
 
+:::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring datat from AKS." lightbox="media/monitor-aks/aks-monitor-data.png":::
 
 
 ### Metrics
