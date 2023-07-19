@@ -201,7 +201,6 @@ dotnet run
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
 | scheduledTimeUtc | `DateTimeOffset` | ✔️ | | Based on user input
 | unavailableForMatching | `bool` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
 
@@ -269,8 +268,6 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobQueued
 
 [Back to Event Catalog](#events-catalog)
@@ -334,8 +331,6 @@ dotnet run
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating job
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobClassificationFailed
 
 [Back to Event Catalog](#events-catalog)
@@ -389,8 +384,6 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobCompleted
 
 [Back to Event Catalog](#events-catalog)
@@ -437,8 +430,6 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | assignmentId| `string` | ❌ | |
 | workerId | `string` | ❌ | |
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClosed
 
@@ -489,8 +480,6 @@ dotnet run
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobCancelled
 
 [Back to Event Catalog](#events-catalog)
@@ -538,8 +527,6 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | queueId | `string` | ✔️ | |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
 [Back to Event Catalog](#events-catalog)
@@ -584,8 +571,6 @@ dotnet run
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
@@ -647,7 +632,6 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
 | attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobUnassigned
 
@@ -695,7 +679,6 @@ dotnet run
 | queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobWaitingForActivation
 
@@ -763,7 +746,6 @@ dotnet run
 | scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
 | unavailableForMatching | `bool` |✔️ | | Based on user input while creating a job
 | priority| `int` | ❌ | | Based on user input while creating a job
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobSchedulingFailed
 
@@ -870,8 +852,6 @@ dotnet run
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
@@ -926,7 +906,6 @@ dotnet run
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -979,8 +958,6 @@ dotnet run
 | offerId | `string` | ❌ |
 | assignmentId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterWorkerOfferDeclined
 
 [Back to Event Catalog](#events-catalog)
@@ -1015,8 +992,6 @@ dotnet run
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
 | offerId | `string` | ❌ |
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferRevoked
 
@@ -1053,8 +1028,6 @@ dotnet run
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterWorkerOfferExpired
 
 [Back to Event Catalog](#events-catalog)
@@ -1089,7 +1062,6 @@ dotnet run
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerRegistered
 
@@ -1148,8 +1120,6 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerDeregistered
 
@@ -1233,7 +1203,6 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ## Model Definitions
 

@@ -106,7 +106,6 @@ This section contains an example of what that data would look like for each even
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
 | scheduledTimeUtc | `DateTimeOffset` | ✔️ | | Based on user input
 | unavailableForMatching | `bool` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
 
@@ -174,8 +173,6 @@ This section contains an example of what that data would look like for each even
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobQueued
 
 [Back to Event Catalog](#events-types)
@@ -239,8 +236,6 @@ This section contains an example of what that data would look like for each even
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating job
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobClassificationFailed
 
 [Back to Event Catalog](#events-types)
@@ -294,8 +289,6 @@ This section contains an example of what that data would look like for each even
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobCompleted
 
 [Back to Event Catalog](#events-types)
@@ -342,8 +335,6 @@ This section contains an example of what that data would look like for each even
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | assignmentId| `string` | ❌ | |
 | workerId | `string` | ❌ | |
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClosed
 
@@ -394,8 +385,6 @@ This section contains an example of what that data would look like for each even
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobCancelled
 
 [Back to Event Catalog](#events-types)
@@ -443,8 +432,6 @@ This section contains an example of what that data would look like for each even
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | queueId | `string` | ✔️ | |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
 [Back to Event Catalog](#events-types)
@@ -489,8 +476,6 @@ This section contains an example of what that data would look like for each even
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
@@ -552,7 +537,6 @@ This section contains an example of what that data would look like for each even
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
 | attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobUnassigned
 
@@ -600,7 +584,6 @@ This section contains an example of what that data would look like for each even
 | queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobWaitingForActivation
 
@@ -668,7 +651,6 @@ This section contains an example of what that data would look like for each even
 | scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
 | unavailableForMatching | `bool` |✔️ | | Based on user input while creating a job
 | priority| `int` | ❌ | | Based on user input while creating a job
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobSchedulingFailed
 
@@ -775,8 +757,6 @@ This section contains an example of what that data would look like for each even
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
@@ -831,7 +811,6 @@ This section contains an example of what that data would look like for each even
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -884,8 +863,6 @@ This section contains an example of what that data would look like for each even
 | offerId | `string` | ❌ |
 | assignmentId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterWorkerOfferDeclined
 
 [Back to Event Catalog](#events-types)
@@ -921,8 +898,6 @@ This section contains an example of what that data would look like for each even
 | queueId | `string` | ❌ |
 | offerId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterWorkerOfferRevoked
 
 [Back to Event Catalog](#events-types)
@@ -957,7 +932,6 @@ This section contains an example of what that data would look like for each even
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
 
@@ -993,7 +967,6 @@ This section contains an example of what that data would look like for each even
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerRegistered
 
@@ -1052,8 +1025,6 @@ This section contains an example of what that data would look like for each even
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
-
----------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerDeregistered
 
@@ -1137,7 +1108,6 @@ This section contains an example of what that data would look like for each even
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ## Model Definitions
 
