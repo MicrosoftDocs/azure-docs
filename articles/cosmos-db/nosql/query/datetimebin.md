@@ -1,7 +1,7 @@
 --- 
 title: DateTimeBin
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that returns a datetime that's the resulting of binning (rounding) a part of the specified datetime.
+description: An Azure Cosmos DB for NoSQL system function that returns a date and time time that's the resulting of binning (rounding) a part of the specified datetime.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
