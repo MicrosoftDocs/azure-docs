@@ -23,7 +23,7 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 ## Data sharing
 
-When you enable Defender for Storage Malware Scanning, it may share data, including Customer Data, with Microsoft Defender for Endpoint.
+When you enable Defender for Storage Malware Scanning, it may share data, including customer data, with Microsoft Defender for Endpoint.
 
 ## Data protection
 
@@ -33,7 +33,7 @@ Data is kept logically separate on each component throughout the service. All da
 ### Data access
 To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including process creation events, and other artifacts, which may unintentionally include customer data or personal data from your machines. 
 
-We adhere to the [Microsoft Online Services Data Protection Addendum](https://www.microsoftvolumelicensing.com/Downloader.aspx?DocumentId=17880), which states that Microsoft won't use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
+We adhere to the [Microsoft Online Services Data Protection Addendum](https://www.microsoftvolumelicensing.com/Downloader.aspx?DocumentId=17880), which states that Microsoft won't use customer data or derive information from it for any advertising or similar commercial purposes. We only use customer data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to customer data.
 
 ### Data use
 Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
