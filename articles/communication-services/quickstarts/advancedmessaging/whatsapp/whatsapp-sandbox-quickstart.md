@@ -1,5 +1,5 @@
 ---
-title: Try Whatsapp Sandbox
+title: Try WhatsApp Sandbox
 titleSuffix: An Azure Communication Services quickstart document
 description: Learn about Communication Service WhatsApp sandbox
 author: shamkh
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# Quickstart: Try AdvancedMessaging For Whatsapp Sandbox
+# Quickstart: Try AdvancedMessaging For WhatsApp Sandbox
 
-To enable Contoso developers to try out the Advanced Messaging for Whatsapp quickly, Advanced Messaging is providing Whatsapp Business Account enabled sandbox. This WhatsApp Sandbox will be available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
+To enable Contoso developers to try out the Advanced Messaging for WhatsApp quickly, Advanced Messaging is providing WhatsApp Business Account enabled sandbox. This WhatsApp Sandbox is available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
 
 ## Prerequisites 
 
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
-- [Whatsapp enabled phonenumber]()
+- [WhatsApp enabled phonenumber]()
 
 ## Task
 
-Send text and template message to WhatsApp phonenumber using Azure Communication Services Advanced Messaging for Whatsapp.
+Send text and template message to WhatsApp phone number using Azure Communication Services Advanced Messaging for WhatsApp.
 
 ### Steps
 
@@ -30,23 +30,23 @@ Send text and template message to WhatsApp phonenumber using Azure Communication
 
 :::image type="content" source="./media/whatsapp-sandbox/acs-resource.png" alt-text="Screenshot that shows Azure Communication Service Resource in Azure portal.":::
 
-2. Select "Try Advanced Messaging".  
+2. Select **Try Advanced Messaging**.  
 
 :::image type="content" source="./media/whatsapp-sandbox/advancedmessaging-sandbox-blade.png" alt-text="Screenshot that shows Advanced Messaging Sandbox option in the Azure portal.":::
 
-3. Before you can send a message to a WhatsApp end user from the sandbox on Azure Portal, you will first need to join the sandbox. You can scan the QR code on the **Connect to WhatsApp** page with your mobile device, it will take you to our pre-configured WhatsApp business account.
+3. Before you can send a message to a WhatsApp end user from the sandbox on Azure portal, you first need to join the sandbox. You can scan the QR code on the **Connect to WhatsApp** page with your mobile device, it takes you to our preconfigured WhatsApp business account.
 
 :::image type="content" source="./media/whatsapp-sandbox/connect-to-whatsapp.png" alt-text="Screenshot that shows WhatsApp Connect QR code in the Azure portal.":::
 
-4. You will be asked to send a unique keyword message to that phone number. Once we receive the keyword message, we will reply with confirmation to you that you have successfully joined the Sandbox. And we will also be able to obtain your WhatsApp phone number, which will be used as the recipient number when sending messages from the sandbox. 
+4. You're asked to send a unique keyword message to that phone number. Once we receive the keyword message, we reply with confirmation to you, that you have successfully joined the Sandbox. And we also save your WhatsApp phone number, which is used as the recipient number when sending messages from the sandbox. 
 
-:::image type="content" source="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging Whatsapp connection established in the Azure portal.":::
+:::image type="content" source="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging WhatsApp connection established in the Azure portal.":::
  
-5. Once connected, you will be able to send either a template message or a text message. Below is example of text message.
+5. Once connected, you're able to send either a template message or a text message. Here is an example of text message.
 
 :::image type="content" source="./media/whatsapp-sandbox/send-message.png" alt-text="Screenshot that shows WhatsApp Send text message in the Azure portal.":::
  
-6. Our sandbox will have a few pre-configured templates for you to try out. Simply fill in the parameters and they will replace the double-bracketed numbers in the template message. 
+6. Our sandbox also have a few preconfigured templates for you to try out. Fill in the parameters and they replace the double-bracketed numbers in the template message. 
 
 :::image type="content" source="./media/whatsapp-sandbox/send-template.png" alt-text="Screenshot that shows WhatsApp Send template message in the Azure portal.":::
 
@@ -55,13 +55,13 @@ Send text and template message to WhatsApp phonenumber using Azure Communication
 ``` 
 ## Next Steps
 
-In this quickstart, you have learned how is registered with Azure Communication Services your WhatsApp Business Account, you are ready to send and receive messages.
+In this quickstart, you have tried out Advanced Messaging for WhatsApp sandbox.
 
 > [!div class="nextstepaction"]
 > [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 
 You might also want to see the following articles: 
 
--    [AdvancedMessaging For Whatsapp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
+-    [AdvancedMessaging For WhatsApp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
 
 -    [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md)
