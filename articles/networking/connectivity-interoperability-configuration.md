@@ -10,7 +10,7 @@ ms.author: allensu
 
 # Interoperability in Azure back-end connectivity features - Test configuration details
 
-This article describes the configuration details of the [test setup](./connectivty-interoperability-preface.md). The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
+This article describes the configuration details of the test setup. The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
 
 ## Spoke virtual network connectivity by using virtual network peering
 
