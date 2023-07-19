@@ -16,9 +16,7 @@ ms.topic: tutorial
 > [!IMPORTANT]
 > This capability is in preview and is subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure Database for MySQL Flexible Server](./overview.md) resources more efficiently, you can create automation tasks for your Flexible Server. One example of such tasks can be starting or stopping the MySQL Flexible Server on a predefined schedule. You can set this task to automatically start or stop the server a specific number of times every day, week, or month by setting the Interval and Frequency values on the task's Configure tab. The automation task continues to work until you delete or disable the task.
-
-In addition, you can also setup automation tasks for other routine tasks such as 'Send monthly cost for resource' and 'Scale MySQL Flexible Server'.
+To help you manage [Azure Database for MySQL Flexible Server](./overview.md) resources more efficiently, you can create automation tasks for your Flexible Server. One example of such tasks can be starting or stopping the MySQL Flexible Server on a predefined schedule. You can set this task to start or stop the server automatically for a specific number of times every day, week, or month by setting the Interval and Frequency values. The automation task continues to work until you delete or disable the task.
 
 ## How do automation tasks differ from Azure Automation?
 
@@ -28,7 +26,7 @@ In contrast, Azure Automation is a comprehensive cloud-based automation and conf
 
 ## Pricing
 
-Creating an automation task doesn't immediately incur charges. Underneath, an automation task is powered by a workflow in a logic app resource hosted in multi-tenant Azure Logic Apps, thus the [Consumption pricing model](../../logic-apps/logic-apps-pricing.md) applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow. 
+Creating an automation task doesn't immediately incur charges. The automation task is powered by a workflow in a logic app resource hosted in multi-tenant Azure Logic Apps, hence the [Consumption pricing model](../../logic-apps/logic-apps-pricing.md) applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow. 
 
 ## Prerequisites
 
@@ -46,14 +44,16 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
    |Task Type| Details |
    |---------|---------|
-   |**Send monthly cost**| Send email about the monthly cost for you MySQL Flexible Server.|
+   |**Send monthly cost**| Send email about the monthly cost for your MySQL Flexible Server.|
    |**Stop server**| Allows you to stop a server based on a given schedule, for example you want to stop it on a weekend to optimize cost.|
    |**Start server**| Allows you to start a server based on a given schedule, for example you want to start a server if it is stopped during the weekend.|
    |**Scale server**|Allows you to scale up or down a server on a given schedule. For example you have use scale down during weekends or scale up during an event you can use this task.|
    |||
 
 ## Stop server task
-We will show the stop operation to perform during weekend as an example here.  Once you select  **Stop MySQL Flexible server** task follow the steps below: 
+Here is an example to configure stop tasks for a MySQL Flexible Server.
+
+1. Select  **Stop MySQL Flexible server** task. 
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections.  The types of connections in each task vary based on the task.
 ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](media/create-automation-tasks/create-authenticate-connections.png)
@@ -85,7 +85,7 @@ The task you've created, which is automatically live and running, will appear on
 >The server will not start automatically and hence you need to create a **Start MySQL Flexible Server** task to start the server on first Monday after the server was stopped by the **stop** task.
 
 ## Scale a server task
-You can scale a server up or down based on a recurring time schedule. You will need to provide the following information when creating a scale MySQL flexbile server task:
+You can scale a server up or down based on a recurring time schedule. You need to provide the following information when creating a scale MySQL Flexible Server task:
 
 |Field|Description|
 |------|----------|
