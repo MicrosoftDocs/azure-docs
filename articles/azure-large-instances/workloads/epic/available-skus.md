@@ -1,6 +1,7 @@
 ---
 title: Available Azure Large Instances SKUs
 description: Provides a list of Azure Large Instances for Epic SKUs.
+titleSuffix: Azure Large Instances for Epic
 ms.title: Available Azure Large Instances SKUs
 ms.topic: conceptual
 ms.custom: references_regions

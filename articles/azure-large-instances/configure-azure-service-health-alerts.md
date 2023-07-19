@@ -1,5 +1,6 @@
 ---
 title: Configure Azure service health alerts
+titleSuffix: Azure Large Instances
 description: Explains how to configure Azure service health alerts.
 ms.title: Configure Azure service health alerts
 ms.topic: conceptual

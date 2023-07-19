@@ -1,5 +1,6 @@
 ---
 title: Onboarding requirements for Azure Large Instances
+titleSuffix: Azure Large Instances
 description: Provides an overview of onboarding requirements for Azure Large Instances.
 ms.title: Onboarding requirements
 ms.topic: conceptual

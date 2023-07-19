@@ -1,7 +1,9 @@
 ---
 title: What is Azure Large Instances?
+titleSuffix: Azure Large Instances
 description: Provides an overview of Azure Large Instances.
 author: jjaygbay1
+ms.title: What is Azure Large Instances?
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.custom: references_regions

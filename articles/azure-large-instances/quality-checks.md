@@ -1,5 +1,6 @@
 ---
 title: Quality checks
+titleSuffix: Azure Large Instances
 description: Provides an overview of Azure Large Instances for Epic quality checks.
 ms.topic: conceptual
 ms.title: Quality checks

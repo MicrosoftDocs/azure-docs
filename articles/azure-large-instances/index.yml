@@ -5,6 +5,7 @@ summary: Learn how to use Azure Large Instances.
 
 metadata:
   title: Azure Large Instances
+  titleSuffix: Azure Large Instances
   description: Learn how to use ALI.
   services: baremetal-infrastructure 
   ms.service: azure-large-instances
