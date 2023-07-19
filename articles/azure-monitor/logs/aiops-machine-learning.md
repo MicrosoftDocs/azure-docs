@@ -19,7 +19,7 @@ Azure Monitor also provides tools that let you create your own machine learning 
 
 This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models and build an automated machine learning pipeline on data in Azure Monitor Logs. 
 
-## Built-in Azure Monitor AIOps capabilities 
+## Built-in Azure Monitor AIOps and machine learning capabilities 
 
 |Monitoring scenario|AIOps capability|Description| 
 |-|-|-|
