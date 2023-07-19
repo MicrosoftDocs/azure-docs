@@ -1,120 +1,19 @@
 ---
-title: Subscribe to events in Job Router
-titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to subscribe to Job Router events from Event Grid
-author: jasonshave
-ms.author: jassha
-ms.service: azure-communication-services
-ms.topic: how-to 
-ms.date: 10/14/2021
-ms.custom: template-how-to
-
+title: Azure Communication Services - Job Router events
+description: This article describes how to use Azure Communication Services as an Event Grid event source for Job Router events.
+ms.topic: conceptual
+ms.date: 07/12/2023
+author: WilliamZhao
+ms.author: williamzhao
 ---
 
-# Subscribe to Job Router events
+# Azure Communication Services - Job Router events
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+This article provides the properties and schema for communication services job router events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). These events are emitted for Azure Communication Services throughout the job and worker lifecycles.
 
-This guide outlines the steps to set up a subscription for Job Router events and how to receive them.
+## Events types
 
-For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
-
-## Create an Event Grid subscription
-
-This template deploys an Event Grid subscription on a Storage Queue for Job Router events.
-If the storage account, queue or system topic doesn't exist, they'll be created as well.
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftDocs%2Fazure-docs%2Fmain%2Farticles%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
-
-### Parameters
-
-- **Azure Communication Services Resource Name**: The name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set to `contoso`.
-- **Storage Name**: The name of your Azure Storage Account. If it doesn't exist, it will be created.
-- **Event Sub Name**: The name of the event subscription to create.
-- **System Topic Name**: If you have existing event subscriptions on your Azure Communication Services resource, find the `System Topic` name in the `Events` tab of your Azure Communication Services resource. Otherwise, specify a unique name such as the Azure Communication Services resource name itself.
-- **Queue Name**: The name of your Queue within your Storage Account. If it doesn't exist, it will be created.
-
-### Deployed resources
-
-The following resources are deployed as part of the solution
-
-- **Storage Account**: If the storage account name doesn't exist.
-- **Storage Queue**: If the queue doesn't exist within the storage account.
-- **Event Grid System Topic**: If the topic doesn't exist.
-- **Event Grid Subscription**: A subscription for all Job Router events on the storage queue.
-
-## Quick-start: Receive Event Grid events via an Azure Storage Queue
-
-### Create a new C# application
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EventReceiver`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
-
-```console
-dotnet new console -o EventReceiver
-```
-
-Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
-
-```console
-cd EventReceiver
-dotnet build
-```
-
-### Install the packages
-
-Install the Azure Storage Queues and Event Grid packages.
-
-```console
-dotnet add package Azure.Storage.Queues
-dotnet add package Azure.Messaging.EventGrid
-```
-
-### Receive messages from the queue
-
-Copy the following code snippet and paste into source file: **Program.cs**
-
-```csharp
-using Azure.Storage.Queues;
-using Azure.Messaging.EventGrid;
-
-// For more detailed tutorials on storage queues, see: https://learn.microsoft.com/azure/storage/queues/storage-tutorial-queues
-
-var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
-
-while (true)
-{
-    var msg = await queueClient.ReceiveMessageAsync();
-    if (msg.Value == null)
-    {
-        await Task.Delay(TimeSpan.FromSeconds(1));
-        continue;
-    }
-    var json = Convert.FromBase64String(msg.Value.Body.ToString());
-    var evt = EventGridEvent.Parse(BinaryData.FromBytes(json));
-
-    Console.WriteLine($"Received event: {evt.EventType} - {evt.Subject} - {evt.Data}");
-
-    await queueClient.DeleteMessageAsync(msg.Value.MessageId, msg.Value.PopReceipt);
-}
-```
-
-### Run the code
-
-Run the application from your application directory with the `dotnet run` command.
-
-```console
-dotnet run
-```
-
-## Events Catalog
-
-## Router Events
+Azure Communication Services emits the following job router event types:
 
 | Events | Subdomain | Description |
 |------|:------------:| ---------- |
@@ -140,9 +39,15 @@ dotnet run
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered (status changed from active to inactive/draining) |
 | [`RouterWorkerDeleted`](#microsoftcommunicationrouterworkerdeleted)  | `Worker` | A worker has been deleted |
 
+## Event responses
+
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
+
+This section contains an example of what that data would look like for each event.
+
 ### Microsoft.Communication.RouterJobReceived
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -187,7 +92,7 @@ dotnet run
 
 #### Attribute list
 
-| Attribute | Type | Nullable | Description | Notes |
+| Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -204,7 +109,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobClassified
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -255,7 +160,7 @@ dotnet run
 
 #### Attribute list
 
-| Attribute | Type | Nullable | Description | Notes |
+| Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
 | jobId| `string` | ❌ |
@@ -270,7 +175,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobQueued
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -333,7 +238,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -386,7 +291,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobCompleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -433,7 +338,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobClosed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -482,7 +387,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobCancelled
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -529,7 +434,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -574,7 +479,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -635,7 +540,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobUnassigned
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -682,7 +587,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobWaitingForActivation
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -749,7 +654,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobSchedulingFailed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -816,7 +721,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterJobDeleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -856,7 +761,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -909,7 +814,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -960,7 +865,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerOfferDeclined
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -995,7 +900,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerOfferRevoked
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1030,7 +935,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1065,7 +970,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerRegistered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1123,7 +1028,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerDeregistered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1148,7 +1053,7 @@ dotnet run
 
 ### Microsoft.Communication.RouterWorkerDeleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1270,6 +1175,3 @@ public enum LabelOperator
     GreaterThanEqual,
 }
 ```
-
-<!-- LINKS -->
-[event-grid-overview]: ../../../event-grid/overview.md
