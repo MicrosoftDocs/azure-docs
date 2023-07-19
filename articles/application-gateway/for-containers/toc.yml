@@ -38,7 +38,7 @@
     href: api-types-kubernetes.md
 - name: Reference
   - items:
-    - name: ALB Controller Changelog
+    - name: ALB Controller changelog
       href: alb-controller-changelog.md
     - name: Azure CLI
       href: /cli/azure/network/alb
