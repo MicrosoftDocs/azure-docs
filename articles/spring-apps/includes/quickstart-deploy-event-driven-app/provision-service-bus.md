@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -13,12 +13,13 @@ To reuse the Service Bus instance creation steps in other articles, a separate m
 [!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
 
 -->
+Use the following steps to create a Service Bus instance:
 
-1. Select Create a resource (+) in the upper-left corner of the portal.
+1. Select **Create a resource** in the corner of the Azure portal.
 
-1. In the *Search services and marketplace* search box, search for *service bus*.
+1. In the **Search services and marketplace** search box, search for *service bus*.
 
-1. On the *Service Bus* section, select **Create**.
+1. On the **Service Bus** section, select **Create**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png" alt-text="Screenshot of the Azure portal showing the Marketplace search results with Service Bus highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png":::
 
@@ -36,7 +37,7 @@ To reuse the Service Bus instance creation steps in other articles, a separate m
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment Overview page." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png":::
 
@@ -44,13 +45,12 @@ To reuse the Service Bus instance creation steps in other articles, a separate m
 
 1. Select **Go to resource** to go to the **Service Bus Namespace** page.
 
-1. Select **Shared access policies** in the left navigational menu, select **RootManageSharedAccessKey**.
+1. Select **Shared access policies** on the navigation menu, then select **RootManageSharedAccessKey**.
 
-1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String**, which is used to set up connections from the Spring app.
+1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String** value, which is used to set up connections from the Spring app.
 
-1. Select **Queues** in the left navigational menu, select **Queue**.
+1. Select **Queues** on the navigation menu, then select **Queue**.
 
-1. On the **Create Queue** page, enter `lower-case` as **Name**, select **Create**.
+1. On the **Create Queue** page, enter *lower-case* for **Name**, then select **Create**.
 
-1. Repeat the previous step, enter `upper-case` as **Name**, select **Create**.
-99
+1. Repeat the previous step, enter *upper-case* for **Name**, then select **Create**.

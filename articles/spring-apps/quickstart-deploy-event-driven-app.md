@@ -4,7 +4,7 @@ description: Learn how to deploy an event-driven application to Azure Spring App
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 07/19/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection

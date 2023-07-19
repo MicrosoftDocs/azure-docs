@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -14,25 +14,27 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-The main resources you need to run this sample are an Azure Spring Apps instance, an Azure Key Vaults and an Azure Service Bus instance. This section provides the steps to create these resources.
+The main resources you need to run this sample are an Azure Spring Apps instance, an Azure Key Vault instance, and an Azure Service Bus instance. Use the following steps to create these resources.
 
 ### [Azure portal](#tab/Azure-portal)
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create a Service Bus instance
 
 [!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
 
-### 3.3. Create a Key Vaults instance
+### 3.3. Create a Key Vault instance
 
 [!INCLUDE [provision-key-vault](../../includes/quickstart-deploy-event-driven-app/provision-key-vault.md)]
 
 ### 3.4. Create an Azure Spring Apps instance
 
-1. Select Create a resource (+) in the upper-left corner of the portal.
+Use the following steps to create an Azure Spring Apps instance:
+
+1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
@@ -47,7 +49,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    | Subscription   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
    | Resource group | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
    | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan           | *Basic*                          | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Plan           | *Basic*                          | The plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                           |
    | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
 
@@ -61,9 +63,9 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Apps** in the left navigational menu, select **Create App**.
+1. Select **Apps** in the navigation menu, then select **Create App**.
 
-1. On the **Create App** page, enter `simple-event-driven-app` for **App name**, select *Java 17* for **Runtime platform**.
+1. On the **Create App** page, enter *simple-event-driven-app* for **App name** and select *Java 17* for **Runtime platform**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of the Azure portal showing the Create App pane with App name and Runtime platform options selected." lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
@@ -71,45 +73,47 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. After the app creation, select the app name you created in the previous step.
 
-1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**, then select **Save**
+1. On the **Configuration** page, select the **Environment variables** tab, enter *AZURE_KEY_VAULT_ENDPOINT* for **Key**, enter the Key Vault URI for **Value**, then select **Save**
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Environment variables tab of the App Configuration page." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png":::
 
-### 3.5. Config Key Vault access policy
+### 3.5. Configure the Key Vault access policy
+
+Use the following steps to configure the Key Vault access policy:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Apps** in the left navigational menu, select the app name you created in the previous step.
+1. Select **Apps** on the navigation menu, then select the app name you created in the previous step.
 
-1. On the **App Overview** page, select **Identity** in the left navigational menu, select the **on** state switch, then select **Save**, and continue to select **Yes** when prompt `Enable system assigned managed identity`.
+1. On the **App Overview** page, select **Identity** on the navigation menu, select the **on** state switch, then select **Save**. Select **Yes** when prompted with the message **Enable system assigned managed identity**.
 
 1. Go to the Key vault instance overview page.
 
-1. Select **Access policies** in the left navigational menu, select **Create**.
+1. Select **Access policies** on the navigation menu, then select **Create**.
 
-1. On the **Create an access policy** page, select **Get** and **List** for **Secret permissions**, select **Next**.
+1. On the **Create an access policy** page, select **Get** and **List** for **Secret permissions**, then select **Next**.
 
-1. On the search box, enter your Azure Spring Apps instance name, you can see the similar search result:
+1. In the search box, enter your Azure Spring Apps instance name.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy.png" alt-text="Screenshot of the Azure portal showing the Create an access policy page." lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy.png" alt-text="Screenshot of the Azure portal showing the Create an access policy page with an Azure Spring Apps instance name highlighted in the search box." lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy.png":::
 
-1. select the principal of your Azure Spring Apps instance, select **Next**, and select **Next** to review the creation parameters, then select **Create** to finish creating the access policy.
+1. Select the principal of your Azure Spring Apps instance, select **Next**, select **Next** again to review the creation parameters, and then select **Create** to finish creating the access policy.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
    ```
 
-1. Run the following command to enable the Azure Spring Apps features:
+1. Use the following command to enable the Azure Spring Apps features:
 
    ```bash
    azd config set alpha.springapp on
    ```
 
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
+1. Use the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
 
    ```bash
    azd provision
@@ -129,6 +133,6 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
+   > This command may take a while to complete. You're shown a progress indicator as it provisions Azure resources.
 
 ---

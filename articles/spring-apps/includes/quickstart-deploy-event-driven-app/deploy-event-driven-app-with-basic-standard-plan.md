@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2. Prepare Spring project
+## 2. Prepare the Spring project
 
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
 

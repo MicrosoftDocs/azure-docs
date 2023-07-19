@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -22,7 +22,7 @@ Use the following steps to prepare the sample locally.
 
 ## 3. Prepare the cloud environment
 
-The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
 ### 3.1. Provide names for each resource
 
@@ -39,7 +39,7 @@ export APP_NAME=<event-driven-app-name>
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
 1. Use the following command to sign in to the Azure CLI:
 
@@ -93,7 +93,7 @@ az provider register --namespace Microsoft.AppPlatform
 
 The Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Use the following steps to create the environment:
+Use the following command to create the environment:
 
 ```azurecli
 az containerapp env create \
@@ -128,7 +128,7 @@ An Azure Spring Apps service instance hosts the Spring event-driven app. Use the
 The following sections show you how to create an app in either the standard consumption or dedicated workload profiles.
 
 > [!IMPORTANT]
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+> The consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 #### 3.6.1. Create an app with the consumption workload profile
 
@@ -183,7 +183,7 @@ Use the following command to create a Service Bus namespace:
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-Use the following commands to create two queues named `lower-case` and `upper-case`:
+Then, use the following commands to create two queues named `lower-case` and `upper-case`:
 
 ```azurecli
 az servicebus queue create \
@@ -196,7 +196,7 @@ az servicebus queue create \
 
 ### 3.8. Connect app instance to Service Bus instance
 
-Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus:
+Now, both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus:
 
 1. Get the Service Bus's connection string by using the following command:
 

@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -22,7 +22,7 @@ Use the following steps to prepare the sample locally.
 
 ## 3. Prepare the cloud environment
 
-The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
 ### 3.1. Provide names for each resource
 
@@ -38,7 +38,7 @@ export APP_NAME=<event-driven-app-name>
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
 1. Use the following command to sign in to the Azure CLI:
 
@@ -78,7 +78,7 @@ Use the following steps to create a new resource group.
 
 ### 3.3. Install extension and register namespace
 
-Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
+Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the `Microsoft.SaaS` namespace:
 
 ```azurecli
 az extension add --name spring --upgrade
@@ -95,7 +95,7 @@ az spring create \
     --sku Enterprise
 ```
 
-Use the following command to create an app in the Azure Spring Apps instance:
+Then, use the following command to create an app in the Azure Spring Apps instance:
 
 ```azurecli
 az spring app create \
@@ -111,7 +111,7 @@ Use the following command to create a Service Bus namespace:
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-Use the following commands to create two queues named `lower-case` and `upper-case`:
+Then, use the following commands to create two queues named `lower-case` and `upper-case`:
 
 ```azurecli
 az servicebus queue create \
@@ -124,28 +124,28 @@ az servicebus queue create \
 
 ### 3.6. Connect app instance to Service Bus instance
 
-Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
+Now, both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
 
-Get the Service Bus's connection string by using the following command:
+1. Get the Service Bus's connection string by using the following command:
 
-```azurecli
-export SERVICE_BUS_CONNECTION_STRING=$( \
-    az servicebus namespace authorization-rule keys list \
-        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-        --name RootManageSharedAccessKey \
-        --query primaryConnectionString \
-        --output tsv)
-```
+   ```azurecli
+   export SERVICE_BUS_CONNECTION_STRING=$( \
+       az servicebus namespace authorization-rule keys list \
+           --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+           --name RootManageSharedAccessKey \
+           --query primaryConnectionString \
+           --output tsv)
+   ```
 
-Use the following command to provide the connection string to the app through an environment variable:
+1. Use the following command to provide the connection string to the app through an environment variable:
 
-```azurecli
-az spring app update \
-    --service ${AZURE_SPRING_APPS_INSTANCE} \
-    --name ${APP_NAME} \
-    --env SPRING_CLOUD_AZURE_SERVICEBUS_CONNECTIONSTRING=${SERVICE_BUS_CONNECTION_STRING} \
-          SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
-```
+   ```azurecli
+   az spring app update \
+       --service ${AZURE_SPRING_APPS_INSTANCE} \
+       --name ${APP_NAME} \
+       --env SPRING_CLOUD_AZURE_SERVICEBUS_CONNECTIONSTRING=${SERVICE_BUS_CONNECTION_STRING} \
+             SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
+   ```
 
 ## 4. Deploy the app to Azure Spring Apps
 

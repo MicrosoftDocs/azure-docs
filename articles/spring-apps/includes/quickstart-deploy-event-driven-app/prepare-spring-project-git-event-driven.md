@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-1. The sample project is ready on GitHub. Clone sample project by using the following command:
+1. The sample project is ready on GitHub. Clone the sample project by using the following command:
 
    ```bash
    git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git

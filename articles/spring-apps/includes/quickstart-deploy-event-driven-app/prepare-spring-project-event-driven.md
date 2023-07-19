@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 07/19/2023
 ---
 
 <!-- 
@@ -22,10 +22,10 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use AZD to initialize the event-driven application from the Azure Developer CLI templates.
+These steps use AZD to initialize the event-driven application from the Azure Developer CLI templates.
 
-1. Open a terminal, create a new empty folder, and change into it.
-1. Run the following command to initialize the project:
+1. Open a terminal, create a new, empty folder, then navigate to it.
+1. Use the following command to initialize the project:
 
    ```bash
    azd init --template Azure-Samples/ASA-Samples-Event-Driven-Application
