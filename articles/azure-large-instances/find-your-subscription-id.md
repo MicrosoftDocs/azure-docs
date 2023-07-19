@@ -19,8 +19,6 @@ You need it when interacting with the Microsoft Support team. To find your subsc
 2. From the left pane, select **Subscriptions**.
 3. A new blade called “Subscriptions” will open to display your subscriptions.
 
-    :::image type="content" source="media/subscription-id.png" alt-text="Screenshot of the subscriptions id.":::
-
 1. Choose the subscription you have used for Azure Large Instances.
 
 

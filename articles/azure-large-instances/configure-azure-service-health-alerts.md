@@ -37,8 +37,6 @@ Follow these steps to configure Service Health alerts:
 1. Under **Action Groups**, select **Create New**.
 1. Fill in the details and select the type of notification for the Action (Examples: Email, SMS, Voice).
 
-    :::image type="content" source="media/health-alerts-step-8.png" alt-text="Screenshot of create health service fill the details.":::
-
 1. Click **OK** to add the Action.
 1. Click **OK** to add the Action Group.
 1. Verify you see your newly created Action Group.
