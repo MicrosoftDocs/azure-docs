@@ -92,7 +92,7 @@ You can scale a server up or down based on a recurring time schedule. You will n
 |Scale Time| Time when to start the operation.|
 |Location| Region of your MySQL Flexible server.| 
 |Sku Name| Choose a Service tier name in this format Standard_B1ms. See [the full list of skus available.](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-service-tiers-storage#service-tiers-size-and-server-types)|
-|Sku Tier| Choose from Burstable, General purpose and Business critical.|
+|Sku Tier| Choose from Burstable, General purpose and Memory Optimized (same as Business critical Sku tier in MySQL Flexible Server).|
 |Interval| How frequent to run this task. Enter a numeric value. If you enter 1, the task will run 1 time based on the frequency.|
 |Frequeny| You can run this task once a month/week/day/hour/minute/second. |
 |Notify Me| Turn on or off to receive notificaitions.|
