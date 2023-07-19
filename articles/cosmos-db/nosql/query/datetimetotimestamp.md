@@ -1,82 +1,60 @@
 ---
-title: DateTimeToTimestamp in Azure Cosmos DB query language
-description: Learn about SQL system function DateTimeToTimestamp in Azure Cosmos DB.
-author: seesharprun
+title: DateTimeToTimestamp
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a numeric timestamp that represents the milliseconds since the Unix epoch.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/19/2023
+ms.custom: query-reference
 ---
-# DateTimeToTimestamp (Azure Cosmos DB)
+
+# DateTimeToTimestamp (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Converts the specified DateTime to a timestamp.
-  
+Converts the specified date and time to a numeric timestamp. The timestamp is a signed numeric integer that measures the milliseconds since the Unix epoch.
+
 ## Syntax
-  
+
 ```sql
-DateTimeToTimestamp (<DateTime>)
+DateTimeToTimestamp(<date_time>)
 ```
 
 ## Arguments
 
-*DateTime*  
-   UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
-  
-  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+| | Description |
+| --- | --- |
+| **`date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
+
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns a signed numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+Returns a signed numeric value, the current number of milliseconds that have elapsed since the Unix epoch (January 1, 1970).
+
+> [!NOTE]
+> For more information on the Unix epoch, see [Unix time](https://wikipedia.org/wiki/unix_time).
 
 ## Remarks
 
 DateTimeToTimestamp will return `undefined` if the DateTime value specified is invalid
 
 ## Examples
-  
-The following example converts the DateTime to a timestamp:
 
-```sql
-SELECT DateTimeToTimestamp("2020-07-09T23:20:13.4575530Z") AS Timestamp
-```
+The following example converts the date and time **May 19, 2015 12:00 UTC** to a timestamp.
 
-```json
-[
-    {
-        "Timestamp": 1594336813457
-    }
-]
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimetotimestamp/query.sql" highlight="2":::
 
-Here's another example:
+:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimetotimestamp/result.json":::
 
-```sql
-SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp
-```
+## Remarks
 
-```json
-[
-    {
-        "Timestamp": 1594252800000
-    }
-]
-```  
+- This function returns `undefined` if the date and time isn't a valid ISO 8601 date and time string.
 
 ## Next steps
 
