@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Handle Advanced Messaging and delivery report events
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you will learn how to subscribe for Azure Communication Services events.Know how to subscribe/receive whatsapp messages status events and receive messages delivery report events." 
+description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for Whatsapp events."
 author: shamkh
 manager: camilo.ramirez
 ms.author: shamkh
@@ -23,7 +23,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 ## About Event Grid
 
-[Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
+[Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you learn how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
 
 ## [Setup Event Grid Viewer]
 
@@ -33,48 +33,48 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
     
     :::image type="content" source="./media/handle-advanced-messaging-events/eventgrid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
-2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in thename for this step).
+2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in the name for this step).
 
-    :::image type="content" source="./media/handle-advanced-messaging-events/customdeployment.png" alt-text="Screenshot that shows Custome deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
+    :::image type="content" source="./media/handle-advanced-messaging-events/customdeployment.png" alt-text="Screenshot that shows Custom deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
 
-3.  Then click "Review + Create".
+3.  Then select **Review + Create**.
 
-4.  After the deployment completes, click on the App Service resource to open it.
+4.  After the deployment completes, select on the App Service resource to open it.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/eventviewer-webapp.png" alt-text="Screenshot that shows Custom deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
 
-5.  On the resource overview page, click on the copy button next to the "Default Domain" property.
+5.  On the resource overview page, select on the copy button next to the "Default Domain" property.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/defaultdomain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
-6.  The URL for the Event Grid Viewer will be the Site Name you used to create the deployment with the path "/api/update" appended.
-    For example: "https://{{site-name}}.azurewebsites.net/api/updates" . You will need it in the next step and during the creation of the demo app.
+6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path "/api/update" appended.
+    For example: "https://{{site-name}}.azurewebsites.net/api/updates". You'll need it in the next step and during the creation of the demo app.
 
 ## [Subscribe to Advanced Messaging Events]
 
-1.  Open your Communication Services resource in the Azure Portal, navigate to the "Events" blade, and click "+ Event Subscription".
+1.  Open your Communication Services resource in the Azure portal, navigate to the /"Events" option in left panel, and select "+ Event Subscription".
     
-    :::image type="content" source="./media/handle-advanced-messaging-events/eventsubscription.png" alt-text="Screenshot that shows Azure Communication Services Events subscription blade and allows you to subscribe to Advanced Messaging events.":::
+    :::image type="content" source="./media/handle-advanced-messaging-events/eventsubscription.png" alt-text="Screenshot that shows Azure Communication Services Events subscription option and allows you to subscribe to Advanced Messaging events.":::
 
 2.  Fill in the details for the new event subscription:
 
-    1.  Subscription name
+    1.  Subscription name.
 
-    1.  System topic name -- Enter a unique name, unless this is already pre-filled with a topic from your subscription.
+    1.  System topic name--Enter a unique name, unless this name is already prefilled with a topic from your subscription.
 
-    1.  Event types -- Select the 2 new Advanced messaging events from the list.
+    1.  Event types -- Select the two new Advanced messaging events from the list.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/createeventssubcription.png" alt-text="Screenshot that shows create event subscription properties.":::
 
-    1.  For endpoint type select "Webhook" and enter the URL for the Event Grid Viewer we created in the "Setup Event Grid Viewer" step with the path "/api/updates" appended. For example: https://{{site-name}}.azurewebsites.net/api/updates .
+    1.  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the "Setup Event Grid Viewer" step with the path "/api/updates" appended. For example: https://{{site-name}}.azurewebsites.net/api/updates.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/eventwebhookdetails.png" alt-text="Screenshot that shows to update webhook url of event subscription to receive events.":::
 
-    1.  Click "Create" .
+    1.  select **Create**.
 
-3.  Now if you navigate back to the "Events" blade of your ACS resource, you should be able to see the new event subscription with the Advanced Messaging events.
+3.  Now if you navigate back to the "Events" option in left panel of your ACS resource, you should be able to see the new event subscription with the Advanced Messaging events.
 
-    :::image type="content" source="./media/handle-advanced-messaging-events/verifyevents.png" alt-text="Screenshot that shows 2 Advanced messaging events subscribed.":::
+    :::image type="content" source="./media/handle-advanced-messaging-events/verifyevents.png" alt-text="Screenshot that shows two Advanced messaging events subscribed.":::
 
 ## Clean up resources
 
