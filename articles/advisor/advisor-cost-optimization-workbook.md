@@ -41,7 +41,7 @@ This query focuses on reviewing the advisor recommendations specifically related
 
 ### Virtual Machines in a Stopped State
 
-This query identifies Virtual Machines that are not properly deallocated. If a Virtual Machine’s status is *Stopped* rather than *Stopped (Deallocated)*, you are still billed for the resource as the hardware remains allocated for you. If no items are presented in this tab, it indicates that all your Virtual Machines are correctly in a *Stopped (Deallocated)* state.
+This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is *Stopped* rather than *Stopped (Deallocated)*, you are still billed for the resource as the hardware remains allocated for you.
 
 ### Web Apps
 This query helps identify Azure App Services with and without Auto Scale, as well as App Services where the actual app might be stopped. I
@@ -91,21 +91,21 @@ This query identifies snapshots that are older than 30 days. Identifying and man
 ### Advisor Recommendations
 Review the Advisor recommendations for Networking. This section provides insights into various recommendations, such as “Reduce costs by deleting or reconfiguring idle virtual network gateways” or “Reduce costs by eliminating unprovisioned ExpressRoute circuits.”
 
-### Application Gateway with empty backendpool
+### Application Gateway with empty backend pool
 
 Review the Application Gateways with empty backend pools. App gateways are considered idle if there isn’t any backend pool with targets.
 
-### Load Balancer with empty backendpool
+### Load Balancer with empty backend pool
 
 Review the Load Balancers with empty backend pools. Load Balancers are considered idle if there isn’t any backend pool with targets.
 
 ### Unattached Public IPs
 
-Review the list of idle Public IP Addresses. This query will also show Public IP addresses attached to idle Network Interface Cards (NICs)
+Review the list of idle Public IP Addresses. This query also shows Public IP addresses attached to idle Network Interface Cards (NICs)
 
 ### Idle Virtual Network Gateways
 
-Review the Idle Virtual Network Gateways. This query will show VPN Gateways without any active connection.
+Review the Idle Virtual Network Gateways. This query shows VPN Gateways without any active connection.
 
 For more information, see: 
 * [Well-Architected cost optimization design principles](/azure/well-architected/cost/principles)
