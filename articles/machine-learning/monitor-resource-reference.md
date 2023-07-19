@@ -12,7 +12,7 @@ ms.custom: subject-monitoring engagement-fy23
 ms.date: 01/19/2023
 ---
 
-# Monitoring Azure machine learning data reference
+# Monitoring Azure Machine Learning data reference
 
 Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
 
@@ -272,7 +272,7 @@ The following schemas are in use by Azure Machine Learning
 | CorrelationId | A GUID used to group together a set of related events, when applicable. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure Active Directory (Azure AD) tenant ID the operation was submitted for. |
 | AmlComputeInstanceName | "The name of the compute instance associated with the log entry. |
 
 ### AmlDataLabelEvent table
@@ -286,7 +286,7 @@ The following schemas are in use by Azure Machine Learning
 | CorrelationId | A GUID used to group together a set of related events, when applicable. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlProjectId | The unique identifier of the Azure Machine Learning project. |
 | AmlProjectName | The name of the Azure Machine Learning project. |
 | AmlLabelNames | The label class names which are created for the project. |
@@ -303,7 +303,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlDatasetId | The ID of the Azure Machine Learning Data Set. |
 | AmlDatasetName | The name of the Azure Machine Learning Data Set. |
 
@@ -318,7 +318,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlDatastoreName | The name of the Azure Machine Learning Data Store. |
 
 ### AmlDeploymentEvent table
@@ -331,7 +331,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlServiceName | The name of the Azure Machine Learning Service. |
 
 ### AmlInferencingEvent table
@@ -344,7 +344,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlServiceName | The name of the Azure Machine Learning Service. |
 
 ### AmlModelsEvent table
@@ -357,7 +357,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | ResultSignature | The HTTP status code of the event. Typical values include 200, 201, 202 etc. |
 | AmlModelName | The name of the Azure Machine Learning Model. |
 
@@ -373,7 +373,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | The name of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlModuleId | A GUID and unique ID of the module.|
 | AmlModelName | The name of the Azure Machine Learning Model. |
 | AmlPipelineId | The ID of the Azure Machine Learning pipeline. |
@@ -395,7 +395,7 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | RunId | The unique ID of the run. |
 
 ### AmlEnvironmentEvent  table
@@ -407,11 +407,27 @@ The following schemas are in use by Azure Machine Learning
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
 | AmlEnvironmentName | The name of the Azure Machine Learning environment configuration. |
 | AmlEnvironmentVersion | The name of the Azure Machine Learning environment configuration version. |
 
+### AMLOnlineEndpointTrafficLog table (preview)
 
+[!INCLUDE [endpoint-monitor-traffic-reference](includes/endpoint-monitor-traffic-reference.md)]
+
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
+### AMLOnlineEndpointConsoleLog
+
+[!INCLUDE [endpoint-monitor-console-reference](includes/endpoint-monitor-console-reference.md)]
+
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
+### AMLOnlineEndpointEventLog (preview)
+
+[!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
+
+For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 ## See also
 
 - See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
