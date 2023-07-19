@@ -642,7 +642,7 @@ In this step, you create datasets to represent input and output data.
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
     ```
-6. Use the [Azure portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
+6. Use the [Azure portal](https://portal.azure.com) or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
    ![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 
@@ -1050,7 +1050,6 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 [nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
 [adf-developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
