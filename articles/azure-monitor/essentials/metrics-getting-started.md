@@ -50,7 +50,11 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 ![Screenshot that shows changing the time range panel.](./media/metrics-getting-started/time.png)
 
 > [!TIP]
+<<<<<<< Updated upstream
 > Use the **time brush** to investigate an interesting area of the chart like a spike or a dip. Position the mouse pointer at the beginning of the area, select and hold the left mouse button, drag to the other side of the area, and then release the button. The chart will zoom in on that time range.
+=======
+> Use the **time brush** to investigate an interesting area of the chart like a spike or a dip. Select an area on the chart and the chart zooms in to show more detail for the selected area. For more information, see [Zoom in on a chart](../essentials/metrics-charts#zoom)
+>>>>>>> Stashed changes
 
 ## Apply dimension filters and splitting
 

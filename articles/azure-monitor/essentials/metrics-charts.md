@@ -97,48 +97,38 @@ Most metrics support 93 days of retention but only let you view 30 days at a tim
 
 ### Zoom
 
-You can click and drag on the chart to zoom into a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to Automatic, zooming selects a smaller time grain. The new time range applies to all charts in Metrics.
+You can select and drag on the chart to zoom into a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to Automatic, zooming selects a smaller time grain. The new time range applies to all charts in Metrics.
 
 ![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 
-When you add a metric to a chart, Metrics Explorer applies a default aggregation. The default makes sense in basic scenarios. But you can use a different aggregation to gain more insights about the metric.
+When you add a metric to a chart, Metrics Explorer applies a default aggregation. The default makes sense in basic scenarios, but you can use a different aggregation to gain more insights about the metric.
 
-Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*.
+Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time granularity*.
 
-You select the size of the time grain by using Metrics Explorer's [time picker panel](./metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+You select the size of the time grain by using Metrics Explorer's time picker panel. If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+
+:::image type="content" source="media/metrics-charts/time-granuularity.png" alt-text="A screenshot showing the time range and granularity selector.":::  
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
-- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. The line chart connects 48 dots in the chart plot area (24 hours x 2 data points per hour). Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
-- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, you get 24 hours x 4 data points per hour.
+- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, 2 data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, 4 data points per hour for 24 hours.
 
-Metrics Explorer has five basic statistical aggregation types: sum, count, min, max, and average. The *sum* aggregation is sometimes called the *total* aggregation. For many metrics, Metrics Explorer hides the aggregations that are irrelevant and can't be used. 
-
-For a deeper discussion of how metric aggregation works, see [Azure Monitor metrics aggregation and display explained](metrics-aggregation-explained.md).
-
-- **Sum**: The sum of all values captured during the aggregation interval.
-
-  ![Screenshot of a sum request.](./media/metrics-charts/request-sum.png)
-
+Metrics Explorer has five aggregation types:
+- **Sum**: The sum of all values captured during the aggregation interval. The *sum* aggregation is sometimes called the *total* aggregation.
 - **Count**: The number of measurements captured during the aggregation interval.
-
   When the metric is always captured with the value of 1, the count aggregation is equal to the sum aggregation. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. The code emits a metric record every time a new request arrives.
-
-  ![Screenshot of a count request.](./media/metrics-charts/request-count.png)
-
 - **Average**: The average of the metric values captured during the aggregation interval.
-
-  ![Screenshot of an average request.](./media/metrics-charts/request-avg.png)
-
 - **Min**: The smallest value captured during the aggregation interval.
-
-  ![Screenshot of a minimum request.](./media/metrics-charts/request-min.png)
-
 - **Max**: The largest value captured during the aggregation interval.
 
-  ![Screenshot of a maximum request.](./media/metrics-charts/request-max.png)
+  :::image type="content" source="media/metrics-charts/aggregations.png" alt-text="A screenshot showing the aggregation dropdown." lightbox="media/metrics-charts/aggregations.png":::
+
+Metrics Explorer hides the aggregations that are irrelevant and can't be used. 
+
+For a deeper discussion of how metric aggregation works, see [Azure Monitor metrics aggregation and display explained](metrics-aggregation-explained.md).
 
 ## Filters
 
@@ -148,21 +138,18 @@ You can apply filters to charts whose metrics have dimensions. For example, imag
 
 1. Above the chart, select **Add filter**.
 
-1. Select a dimension (property) to filter.
+1. Select a dimension from the **Property** dropdown to filter.
 
-   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/028.png)
+   :::image type="content" source="./media/metrics-charts/filter-property.png" alt-text="Screenshot that shows the filter properties dropdown." lightbox="./media/metrics-charts/filter-property.png":::
 
 1. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
-
-   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/filter-operator.png)
+  :::image type="content" source="./media/metrics-charts/filter-operator.png" alt-text="Screenshot that shows the operator you can use with the filter." lightbox="./media/metrics-charts/filter-operator.png":::
 
 1. Select which dimension values you want to apply to the filter when plotting the chart. This example shows filtering out the successful storage transactions.
+    :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the filter values dropdown." lightbox="./media/metrics-charts/filter-values.png":::  
 
-   ![Screenshot that shows the successful filtered storage transactions.](./media/metrics-charts/029.png)
-
-1. After selecting the filter values, click away from the filter selector to close it. Now the chart shows how many storage transactions have failed:
-
-   ![Screenshot that shows how many storage transactions have failed.](./media/metrics-charts/030.png)
+1. After selecting the filter values, click away from the filter selector to close it. The chart shows how many storage transactions have failed:
+    :::image type="content" source="./media/metrics-charts/filtered-chart.png" alt-text="Screenshot that shows the successful filtered storage transactions." lightbox="./media/metrics-charts/filtered-chart.png":::
 
 1. Repeat these steps to apply multiple filters to the same charts.
 
@@ -174,29 +161,27 @@ You can split a metric by dimension to visualize how different segments of the m
 
 1. Above the chart, select **Apply splitting**.
    
-1. Choose dimension(s) on which to segment your chart:
+1. Choose dimensions on which to segment your chart:
+    :::image type="content" source="./media/metrics-charts/apply-splitting.png" alt-text="Screenshot that shows the selected dimension on which to segment the chart." lightbox="./media/metrics-charts/apply-splitting.png":::
 
-   ![Screenshot that shows the selected dimension on which to segment the chart.](./media/metrics-charts/031.png)
+   The chart shows multiple lines, one for each dimension segment:
+    :::image type="content" source="./media/metrics-charts/segment-dimension.png" alt-text="Screenshot that shows multiple lines, one for each segment of dimension." lightbox="./media/metrics-charts/segment-dimension.png":::
 
-   The chart now shows multiple lines, one for each dimension segment:
-
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/segment-dimension.png)
 
 1. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 - 50.
-
-   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/segment-dimension-limit.png)
+       :::image type="content" source="./media/metrics-charts/segment-dimension-limit.png" alt-text="Screenshot that shows split limit, which restricts the number of values after splitting." lightbox="./media/metrics-charts/segment-dimension-limit.png":::
 
 1. Choose the sort order on segments: **Ascending** or **Descending**. The default selection is **Descending**.
 
-   ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
+ 
+    :::image type="content" source="./media/metrics-charts/segment-dimension-sort.png" alt-text="Screenshot that shows sort order on split values." lightbox="./media/metrics-charts/segment-dimension-sort.png":::
 
-1. If you like to segment by multiple segments select multiple dimensions from the values dropdown. The legends will show a comma-separated list of dimension values for each segment
-
-   ![Screenshot that shows multiple segments selected, and the corresponding chart below.](./media/metrics-charts/segment-dimension-multiple.png)
+1. Segment by multiple segments by selecting multiple dimensions from the values dropdown. The legends shows a comma-separated list of dimension values for each segment
+    :::image type="content" source="./media/metrics-charts/segment-dimension-multiple.png" alt-text="Screenshot that shows multiple segments selected, and the corresponding chart below." lightbox="./media/metrics-charts/segment-dimension-multiple.png":::
    
-3. Click away from the grouping selector to close it.
+1. Click away from the grouping selector to close it.
 
-   > [!NOTE]
+   > [!TIP]
    > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.
 
 ## Locking the range of the y-axis
@@ -207,28 +192,27 @@ For example, a drop in the volume of successful requests from 99.99 percent to 9
 
 Another example is a fluctuation in the available memory. In this scenario, the value technically never reaches 0. Fixing the range to a higher value might make drops in available memory easier to spot. 
 
-To control the y-axis range, open the chart menu (**...**). Then select **Chart settings** to access advanced chart settings.
+1. To control the y-axis range, open the chart menu **...**. Then select **Chart settings** to access advanced chart settings.
+  :::image source="./media/metrics-charts/select-chart-settings.png" alt-text="Screenshot that highlights the chart settings selection." lightbox="./media/metrics-charts/select-chart-settings.png":::
 
-![Screenshot that highlights the chart settings selection.](./media/metrics-charts/033.png)
+1. Modify the values in the **Y-axis range** section, or select **Auto** to revert to the default values.
+  :::image type="content" source="./media/metrics-charts/chart-settings.png" alt-text="Screenshot that shows the Y-axis range section." lightbox="./media/metrics-charts/chart-settings.png"::: 
+ 
 
-Modify the values in the **Y-axis range** section, or select **Auto** to revert to the default values.
-
- ![Screenshot that highlights the Y-axis range section.](./media/metrics-charts/034.png)
-
-> [!WARNING]
-> If you need to lock the boundaries of the y-axis for charts that track counts or sums over a period of time (by using count, sum, min, or max aggregations), you should usually specify a fixed time granularity. In this case, you shouldn't rely on the automatic defaults. 
+> [!NOTE]
+> If you lock the boundaries of the y-axis for charts that tracks count, sum, min, or max aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.  
 >
-> You choose a fixed time granularity because chart values change when the time granularity is automatically modified after a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the look of the chart, invalidating the current selection of the y-axis range.
+> A fixed time granularity is chosen because chart values change when the time granularity is automatically modified when a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the appearance of the chart, invalidating the selection of the y-axis range.
 
 ## Line colors
 
-After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
+Chart lines are automatically assigned a color from a default palette.  
 
-To change the color of a chart line, select the colored bar in the legend that corresponds to the chart. The color picker dialog opens. Use the color picker to configure the line color.
+To change the color of a chart line, select the colored bar in the legend that corresponds to the line on the chart. Use the color picker to select the line color.
 
-![Screenshot that shows how to change color.](./media/metrics-charts/035.png)
+:::image source="./media/metrics-charts/line-colors.png" alt-text="Screenshot that shows how to change color." lightbox="./media/metrics-charts/line-colors.png":::
 
-Your customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
+Customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
 ## Saving to dashboards or workbooks
 
