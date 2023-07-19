@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2022
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Azure Spring Apps API breaking changes

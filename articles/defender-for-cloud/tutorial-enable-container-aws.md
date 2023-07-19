@@ -1,6 +1,5 @@
 ---
-title: Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers  - Microsoft Defender for Cloud
-
+title: Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
 description: Learn how to enable the Defender for Containers plan on your Amazon Web Service (AWS) accounts for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023

@@ -1,6 +1,5 @@
 ---
-title: Protect your on-premises Kubernetes clusters with Defender for Containers - Microsoft Defender for Cloud
-
+title: Protect your on-premises Kubernetes clusters with Defender for Containers
 description: Learn how to enable the Defender for Containers plan on your on-premises devices for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023

@@ -249,7 +249,7 @@ foreach ($userId in $skus.Keys) {
 
     Write-Host ""
 }
-
+```
 
 
 ## Remove direct licenses for users with group licenses
