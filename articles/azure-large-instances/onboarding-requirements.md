@@ -1,6 +1,6 @@
 ---
-title: Onboarding requirements
-description: Provides an overview of onboarding requirements for ALI.
+title: Onboarding requirements for Azure Large Instances
+description: Provides an overview of onboarding requirements for Azure Large Instances.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -8,15 +8,15 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# ALI onboarding requirements
+# Azure Large Instances onboarding requirements
 
-This article explains the actions to take after you receive an environment from the Microsoft ALI team.
+This article explains the actions to take after you receive an environment from the Microsoft Azure Large Instances team.
 
 ## Azure portal
 
 Use the Azure portal to:
   * Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
-  * Link them with ALI stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
+  * Link them with Azure Large Instances stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
 
 ## VNET address space
 
@@ -28,24 +28,24 @@ Setup time synchronization with NTP server. 
 
 ## Jump box
 
-* Set up a jump box in a VM to connect to ALI stamps.
+* Set up a jump box in a VM to connect to Azure Large Instances stamps.
 * Change the root password at first login and store password in a secure location.  
 
 ## Satellite server
 
 Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 
-## ALI stamps
+## Azure Large Instances stamps
 
-* Validate ALI stamps and configure and patch OS based on your requirements.  
+* Validate Azure Large Instances stamps and configure and patch OS based on your requirements.  
 * Verify that the servers are visible on Azure portal.
 
   > [!Note]
-  > Do *not* place large files like ALI installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
+  > Do *not* place large files like Azure Large Instances installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
 
 ## Secure Server IP pool address range
 
-This IP address range is used to assign the individual IP address to ALI servers.
+This IP address range is used to assign the individual IP address to Azure Large Instances servers.
 The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.
 
 From this range, the first 30 IP addresses are reserved for use by Microsoft.
@@ -57,25 +57,25 @@ This range is an IP address range, which must be submitted to Microsoft when ask
 
 ## Optional IP address ranges to submit to Microsoft
   
-If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to ALI tenant, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to Azure Large Instances tenant, you must reserve another /29 IP address range.
 This range may not overlap with any of the other IP addresses ranges you defined before.  
 
-If you choose to use ExpressRoute Global Reach to enable direct routing from an ALI instance tenant in one Azure region to another ALI  tenant in another Azure region, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from an Azure Large Instances  tenant in one Azure region to another Azure Large Instances  tenant in another Azure region, you must reserve another /29 IP address range.
 This range may not overlap with the  IP address ranges you defined before.  
 
 ## Using ExpressRoute Fast Path
 
-You can use ExpressRoute Fast Path to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.
+You can use ExpressRoute Fast Path to access your Azure Large Instances servers from anywhere, Azure VMs (hub and spoke) and on-premises.
 
 For setup instructions, see [Enable ExpressRoute Fast Path](#enable-expressroute-fast-path).
 
-To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
+To see the learned routes from Azure Large Instances, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub that is connected to ALI), select **Networking**, select the network interface name, then select **Effective Routes**.
+1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub that is connected to Azure Large Instances), select **Networking**, select the network interface name, then select **Effective Routes**.
 
-2. Make sure to enable accelerated networking with all VMs connecting to ALI. 
+2. Make sure to enable accelerated networking with all VMs connecting to Azure Large Instances. 
 
-3. Set up ALI solution based on your system requirements and take a system backup.  
+3. Set up Azure Large Instances solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
 5. Set up volume groups. For more information, see [Create a volume group](./workloads/epic/create-a-volume-group.md).  
 6. Set up a storage snapshot, backup, and data offload. 
@@ -83,7 +83,7 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 > [!Note]
 > A storage snapshot should only be set up after all data-intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
 
-The Azure subscription you use for ALI deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
+The Azure subscription you use for Azure Large Instances deployments is already registered with the Azure Large Instances resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see Register the resource provider in [What is Azure Large Instances?](what-is-azure-large-instances.md)
 
 ### Enable ExpressRoute Fast Path
@@ -104,7 +104,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-ali-instances) with the Azure Customer Support team.
+If you don’t have this information, obtain the details from the circuit owner. Reach out to Azure Large Instances support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-ali-instances) with the Azure Customer Support team.
 ### Declare variables
 
 This example declares the variables using the values for this exercise.

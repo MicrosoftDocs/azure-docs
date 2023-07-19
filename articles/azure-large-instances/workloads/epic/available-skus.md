@@ -1,6 +1,6 @@
 ---
-title: Available ALI SKUs
-description: Provides a list of ALI for Epic SKUs.
+title: Available Azure Large Instances SKUs
+description: Provides a list of Azure Large Instances for Epic SKUs.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -8,9 +8,9 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# ALI SKUs for Epic workload    
+# Azure Large Instances SKUs for Epic workload    
 
-This article provides a list of available ALI for Epic<sup>®</sup> workload SKUs.
+This article provides a list of available Azure Large Instances for Epic<sup>®</sup> workload SKUs.
 ## Azure Large Instances availability by region
 
 * West Europe
@@ -21,7 +21,7 @@ This article provides a list of available ALI for Epic<sup>®</sup> workload SKU
 * South Central US
 * West US 2 with Zones support
 
-Azure Large Instances (ALI) for Epic<sup>®</sup> workload has limited availability and is currently available in the following regions:
+Azure Large Instances for Epic<sup>®</sup> workload has limited availability and is currently available in the following regions:
 
 * East US with Zones support
 * South Central US
@@ -41,13 +41,13 @@ Azure Large Instances (ALI) for Epic<sup>®</sup> workload has limited availabil
 
 ## Tenant considerations
 
-A complete ALI for Epic stamp isn't exclusively allocated for a single customer's use.
+A complete Azure Large Instances for Epic stamp isn't exclusively allocated for a single customer's use.
 This applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well.
-ALI, like Azure, deploys different customer "tenants" that are isolated from one another in the following three levels.
+Azure Large Instances, like Azure, deploys different customer "tenants" that are isolated from one another in the following three levels.
 
 ### Network
 
-Isolation through virtual networks within the ALI stamp for Epic.
+Isolation through virtual networks within the Azure Large Instances stamp for Epic.
 
 ### Storage
 
@@ -59,11 +59,11 @@ Dedicated assignment of server units to a single tenant.
 No hard or soft partitioning of server units.
 No sharing of a single server or host unit between tenants.
 
-The deployments of ALI units for Epic between different tenants aren't visible to each other.
-ALI units for Epic deployed in different tenants can't communicate directly with each other on the ALI for Epic stamp level. Only ALI units for Epic within one tenant can communicate with each other on the ALI for Epic stamp level.
+The deployments of Azure Large Instances units for Epic between different tenants aren't visible to each other.
+Azure Large Instances units for Epic deployed in different tenants can't communicate directly with each other on the Azure Large Instances for Epic stamp level. Only Azure Large Instances units for Epic within one tenant can communicate with each other on the Azure Large Instances for Epic stamp level.
 
-A deployed tenant in the ALI stamp is assigned to one Azure subscription for billing purposes. For a network, it can be accessed from virtual networks of other Azure subscriptions within the same Azure enrollment.
-If you deploy with another Azure subscription in the same Azure region, you also request for a separated ALI tenant.
+A deployed tenant in the Azure Large Instances stamp is assigned to one Azure subscription for billing purposes. For a network, it can be accessed from virtual networks of other Azure subscriptions within the same Azure enrollment.
+If you deploy with another Azure subscription in the same Azure region, you also request for a separated Azure Large Instances tenant.
 
 
 

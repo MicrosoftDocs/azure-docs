@@ -1,6 +1,6 @@
 ---
-title: Working with ALI in the Azure portal
-description: Shows how to what you can do in the Azure portal with ALI.
+title: Work with Azure Large Instances in the Azure portal
+description: Shows how to what you can do in the Azure portal with Azure Large Instances.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -9,23 +9,23 @@ ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
 ---
 
-# Working with  ALI in the Azure portal 
+# Working with  Azure Large Instances in the Azure portal 
 
-In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances (ALI).
+In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances.
 
 > [!Note]
-> For now, BareMetal Infrastructre or BareMetal Instances are being used synonyms with ALI.
+> For now, BareMetal Infrastructure or BareMetal Instances are being used synonyms with Azure Large Instances.
 
 ## Register the resource provider
 
-An Azure resource provider for ALI enables you to see the instances in the Azure portal. By default, the Azure subscription you use for ALI deployments registers the ALI resource provider. If you don't see your deployed ALI, register the resource provider with your subscription.
+An Azure resource provider for Azure Large Instances enables you to see the instances in the Azure portal. By default, the Azure subscription you use for Azure Large Instances deployments registers the Azure Large Instances resource provider. If you don't see your deployed Azure Large Instances, register the resource provider with your subscription.
 
 You can register the Azure Large Instance resource provider using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
 
-You need to list your subscription in the Azure portal and then double-click the subscription used to deploy your ALI instance.
+You need to list your subscription in the Azure portal and then double-click the subscription used to deploy your Azure Large Instances tenant.
 
 1. Sign in to the Azure portal.
 2. On the Azure portal menu, select **All services**.
@@ -33,7 +33,7 @@ You need to list your subscription in the Azure portal and then double-click the
 4. Select the subscription from the subscription list.
 5. Select **Resource providers** and type **BareMetalInfrastructure** in the search box. The resource provider should be Registered, as the image shows. 
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png"  border="false":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of Azure Large Instances." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png"  border="false":::
 
 > [!Note]
 > If the resource provider isn't registered, select **Register**.
@@ -74,16 +74,16 @@ You can use the az provider list command to see all available providers.
 
 For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-## ALI instances in the Azure portal
+## Azure Large Instances in the Azure portal
 
-When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance. Use the same subscription you use to deploy the application layer that works against the ALI.
+When you submit an Azure Large Instances deployment request, specify the Azure subscription you're connecting to the Azure Large Instances. Use the same subscription you use to deploy the application layer that works against the Azure Large Instances.
 
- During the deployment of your ALI, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
-This new resource group lists the ALI you've deployed in that subscription.
+ During the deployment of your Azure Large Instances, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
+This new resource group lists the Azure Large Instances you've deployed in that subscription.
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal, in the ALI subscription, select **Resource groups**.
+1. In the Azure portal, in the Azure Large Instances subscription, select **Resource groups**.
 
    :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
 
@@ -91,11 +91,11 @@ This new resource group lists the ALI you've deployed in that subscription.
  
    :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
 
-1. Select the new resource group to view its details. The image shows one ALI instance deployed. 
+1. Select the new resource group to view its details. The image shows one Azure Large Instances tenant deployed. 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your ALI instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
+To see all your Azure Large Instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group MyResourceGroup –output table
@@ -105,7 +105,7 @@ az baremetalinstance list --resource-group MyResourceGroup –output table
 > The `--output` parameter is a global parameter, available for all commands. The **table** value presents output in a friendly format. For more information, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
 
 > [!Note]
-> If you deployed several ALI tenants under the same Azure subscription, you will see multiple Azure resource groups.
+> If you deployed several Azure Large Instances tenants under the same Azure subscription, you will see multiple Azure resource groups.
 
 ---
 
@@ -115,23 +115,23 @@ You can view the details of a single instance.
 
 ### [Portal](#tab/azure-portal)
 
-In the list of ALI instances, select the single instance you want to view.
+In the list of Azure Large Instances, select the single instance you want to view.
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot of the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot of the Azure Large Instances attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
 
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
 On the left, you see the Resource group, Azure region, and subscription name and ID. 
 If you assigned tags, you see them here as well.
-By default, the ALI instances don't have tags assigned.
+By default, the Azure Large Instances don't have tags assigned.
 
-On the right, you see the name of the ALI instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. 
-You also see the power state and hardware version (revision of the ALI instance stamp).
+On the right, you see the name of the Azure Large Instances, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. 
+You also see the power state and hardware version (revision of the Azure Large Instances stamp).
 The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running. 
 
 Also on the right is the  [Azure proximity placement group's name](../virtual-machines/co-location.md).
-The placement group's name is created automatically for each deployed ALI instance. 
+The placement group's name is created automatically for each deployed Azure Large Instances tenant. 
 Reference the proximity placement group when you deploy the Azure VMs that host the application layer. 
-Use the proximity placement group associated with the ALI instance to ensure the Azure VMs are deployed close to the ALI instance. 
+Use the proximity placement group associated with the Azure Large Instances to ensure the Azure VMs are deployed close to the Azure Large Instances. 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -147,7 +147,7 @@ If you're uncertain of the instance name, run the **az baremetalinstance list** 
 
 ## Check activities of a single instance
 
-You can check the activities of a single ALI instance.
+You can check the activities of a single Azure Large Instances tenant.
 One of the main activities recorded are restarts of the instance.
 The data listed includes:
 
@@ -160,28 +160,28 @@ The data listed includes:
 
 Changes to an instance's metadata in Azure also get recorded in the Activity log.
 Besides the restart, you can see the activity of **WriteBareMetalInstances**. 
-This activity makes no changes on the ALI instance itself, but documents the changes to the unit's metadata in Azure.
+This activity makes no changes on the Azure Large Instances tenant itself, but documents the changes to the unit's metadata in Azure.
 
 Another activity that gets recorded is adding a tag to or deleting a tag from an instance.
 
 ## Add an Azure tag to or delete an Azure tag from an instance
 
-You can add Azure tags to an ALI instance or delete them using either the Portal or Azure CLI.  
+You can add Azure tags to an Azure Large Instances tenant or delete them using either the Portal or Azure CLI.  
 
 ### [Portal](#tab/azure-portal)
  
 Tags get assigned just as they do when assigning tags to VMs.
 As with VMs, the tags exist in the Azure metadata.
-Tags have the same restrictions for ALI instances as for VMs.
+Tags have the same restrictions for Azure Large Instances as for VMs.
  
 Deleting tags also works the same way as for VMs. 
 Both applying and deleting a tag is listed in the ALI instance's Activity log.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Assigning tags to ALI instances works the same as assigning tags for VMs.
+Assigning tags to Azure Large Instances works the same as assigning tags for VMs.
 As with VMs, the tags exist in the Azure metadata.
-Tags have the same restrictions for ALI instances as for VMs.
+Tags have the same restrictions for Azure Large Instances as for VMs.
 
 To add tags to an ALI instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
 
@@ -212,9 +212,9 @@ This information is important in support requests and when setting up a storage 
 
 :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot of how to restart the ALI instance.":::
 
-### Restart an ALI instance through the Azure portal
+### Restart an Azure Large Instances tenant through the Azure portal
 
-There are various situations in which the operating system won't complete a restart, which requires a power restart of the ALI instance.
+There are various situations in which the operating system won't complete a restart, which requires a power restart of the Azure Large Instances.
 
 You can do a power restart of the instance directly from the Azure portal or through Azure CLI.
 
@@ -228,7 +228,7 @@ As a result, after a restart, you can only log into the unit once the state swit
 
 ### [Azure CLI](#tab/azure-cli)
 
-To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
+To restart an Azure Large Instances tenant, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
 
 ```azurecli
 az baremetalinstance restart --resource-group MyResourceGroup --instance-name MyALIinstanceName
@@ -237,9 +237,9 @@ az baremetalinstance restart --resource-group MyResourceGroup --instance-name My
 ---
 
 > [!Important]
-> Depending on the amount of memory in your ALI instance, a restart and a reboot of the hardware and operating system can take up to one hour.
+> Depending on the amount of memory in your Azure Large Instances, a restart and a reboot of the hardware and operating system can take up to one hour.
 
-### Open a support request for ALI instances
+### Open a support request for Azure Large Instances
  
 You can submit support requests specifically for ALI instances.
 1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
@@ -247,7 +247,7 @@ You can submit support requests specifically for ALI instances.
     * **Issue type:** Select an issue type.
     * **Subscription:** Select your subscription.
     * **Service:** Select Epic on Azure
-    * **Problem type:** Azure Large Instances (ALI) 
+    * **Problem type:** Azure Large Instances  
     * **Problem subtype:** Select a subtype for the problem.
 
 1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.

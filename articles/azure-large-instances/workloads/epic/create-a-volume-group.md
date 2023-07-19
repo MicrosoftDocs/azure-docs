@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # Create a volume group
-This article explains how to create an ALI for Epic volume group.
+This article explains how to create an Azure Large Instances for Epic<sup>®</sup> volume group.
 1. Discover storage using the following command.
 
     `[root@rhel101 ~]# lsblk -do KNAME,TYPE,SIZE,MODEL`

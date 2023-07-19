@@ -12,41 +12,41 @@ ms.date: 06/01/2023
 #  What is Azure Large Instances?
 
 While Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs,   
-in some cases, you may need to run services on Azure large servers without a virtualization layer. You may also require root access and control over the operating system (OS). To meet these needs, Azure offers Azure Large Instances (ALI) for several high-value, mission-critical applications.
+in some cases, you may need to run services on Azure large servers without a virtualization layer. You may also require root access and control over the operating system (OS). To meet these needs, Azure offers Azure Large Instances for several high-value, mission-critical applications.
 
-ALI is comprised of dedicated large compute instances with the following key features:
+Azure Large Instances is comprised of dedicated large compute instances with the following key features:
 
 - High-performance storage appropriate to the application (Fiber Channel).
-    Storage can also be shared across ALI to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
+    Storage can also be shared across Azure Large Instances to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
 
 - A set of function-specific virtual LANs (VLANs) in an isolated environment. 
     This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription.
     The entire environment is represented as a resource group in that subscription.
 
-- A large set of ALI SKUs is available with Optane memory.
+- A large set of Azure Large Instances SKUs is available with Optane memory.
     Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
 
-## Why ALI?
+## Why Azure Large Instances?
 
 Some workloads in the enterprise consist of technologies that just aren't designed to run in a typical virtualized cloud setting.
 They require special architecture, certified hardware, or extraordinarily large servers. Although those technologies have the most sophisticated data protection and business continuity features, they aren't built for the virtualized cloud.
 They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
 
-ALI is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.
+Azure Large Instances is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.
 
-## ALI benefits
+## Azure Large Instances benefits
 
-ALI is intended for critical workloads that require certification to run your enterprise applications. 
+Azure Large Instances is intended for critical workloads that require certification to run your enterprise applications. 
 Azure Large Instances implementations are dedicated only to you, and you'll have full access (root access) to the operating system (OS).
 You manage OS and application installation according to your needs.
 For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. If you need access to the internet, you need to set up an internet proxy service.
 
-Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your implementation of ALI.
+Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your implementation of Azure Large Instances.
 
-ALI offers the following benefits:
+Azure Large Instances offers the following benefits:
 
-* Non-hypervised ALI, single tenant ownership
-* Low latency between Azure hosted application VMs to ALI implementations (0.35 ms)
+* Non-hypervised Azure Large Instances, single tenant ownership
+* Low latency between Azure hosted application VMs to Azure Large Instances implementations (0.35 ms)
 * All Flash SSD and NVMe
   * Up to 1 PB/tenant
   * IOPS up to 1.2 million/tenant
@@ -59,7 +59,7 @@ ALI offers the following benefits:
 
 ## SKU availability in Azure regions
 
-ALI for specialized workloads is available in the following Azure regions:
+Azure Large Instances for specialized workloads is available in the following Azure regions:
 
 * West Europe
 * North Europe
@@ -72,19 +72,19 @@ ALI for specialized workloads is available in the following Azure regions:
 * South Central US
 
 > [!Note]
->Zones support refers to availability zones in which a region where ALI can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling.
+>Zones support refers to availability zones in which a region where Azure Large Instances can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling.
 
-## Managing ALI in Azure
+## Managing Azure Large Instances in Azure
 
-Depending on your needs, the application topologies of ALI can be complex. You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections
-Therefore, for ALI, Azure offers a consultation with a CSA/GBB in the field who can work with you.
+Depending on your needs, the application topologies of Azure Large Instances can be complex. You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections
+Therefore, for Azure Large Instances, Azure offers a consultation with a CSA/GBB in the field who can work with you.
 
-By the time your ALI implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured.
+By the time your Azure Large Instances implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured.
 You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there. 
+You'll see all the Azure Large Instances resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there. 
 
-ALI are ISO 27001, ISO 27017, ISO 27018, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
+Azure Large Instances is ISO 27001, ISO 27017, ISO 27018, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
 
 As soon as you receive root access and full control, you assume responsibility for the following tasks:
 
@@ -99,7 +99,7 @@ Microsoft is responsible for:
     :::image type="content" source="media/what-is-azure-large-instances/ali-support-model.png" alt-text="ALI support model." lightbox="media/what-is-azure-large-instances/ali-support-model.png" border="false":::
 
 
-## ALI stamp
+## Azure Large Instances stamp
 
 The Azure Large instance stamp itself combines the following components:
 
@@ -114,25 +114,25 @@ An infrastructure accessed through a unified network fabric.
 
 Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants.
 When deploying a tenant, you name an Azure subscription within your Azure enrollment. 
-This Azure subscription is the one billed for your implementation of ALI.
+This Azure subscription is the one billed for your implementation of Azure Large Instances.
 
 > [!Note]
-> A customer implementing ALI is isolated into a tenant.
+> A customer implementing Azure Large Instances is isolated into a tenant.
 A tenant is isolated in the networking, storage, and compute layer from other tenants.
-Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their implementations of ALI.
+Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their implementations of Azure Large Instances.
 
 ## Operating system
 
-The Linux OS version for ALI is Red Hat Enterprise Linux (RHEL) 8.4.  
+The Linux OS version for Azure Large Instances is Red Hat Enterprise Linux (RHEL) 8.4.  
 
 >[!Note]
-> Remember,Check properties of an instance ALI is a BYOL model.
+> Remember,Check properties of an instance Azure Large Instances is a BYOL model.
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 
 ## Storage
 
-ALI provides highly redundant Fiber Channel storage.
+Azure Large Instances provide highly redundant Fiber Channel storage.
 The infrastructure offers deep integration for enterprise workloads like SAP, SQL, and others.
 It also provides application-consistent data protection and data-management capabilities.
 The self-service management tools offer space-efficient snapshot, cloning, and granular replication capabilities along with single pane of glass monitoring. 
@@ -151,9 +151,9 @@ Fiber Channel Protocol (FCP) is supported.
 
 ## Networking
 
-The architecture of Azure network services is a key component for a successful deployment of specialized workloads in ALI.
+The architecture of Azure network services is a key component for a successful deployment of specialized workloads in Azure Large Instances.
 It's likely that not all IT systems are located in Azure already. Azure offers you network technology to make Azure look like a virtual data center to your on-premises software deployments.
-The Azure network functionality required for ALI instances includes: 
+The Azure network functionality required for Azure Large Instances includes: 
 
 * Azure virtual networks connected to the Azure ExpressRoute circuit that connects to your on-premises network assets. 
 * The ExpressRoute circuit that connects on-premises to Azure should have a minimum bandwidth of 1 Gbps or higher. 
@@ -162,7 +162,7 @@ The Azure network functionality required for ALI instances includes:
 You can use ExpressRoute Local for cost-effective data transfer between your on-premises location and the Azure region you want.
 To extend connectivity across geopolitical boundaries, you can enable ExpressRoute Premium.
 
-ALI is provisioned within your Azure VNet server IP address range.
+Azure Large Instances is provisioned within your Azure VNet server IP address range.
 
 :::image type="content" source="media/what-is-azure-large-instances/ali-networking.png" alt-text="Networking diagram of ALI." lightbox="media/what-is-azure-large-instances/ali-networking.png" border="false":::
 
@@ -179,7 +179,7 @@ Shows ExpressRoute provisioned using your Azure subscription offering connectivi
 Shows Azure IaaS, and in this case, use of VMs to host your applications, which are provisioned within your Azure virtual network.
 
 ### ExpressRoute Gateway (lower)
-Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for ALI connectivity offering low latency.
+Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large Instances connectivity offering low latency.
 
 > [!Note]
 >To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).

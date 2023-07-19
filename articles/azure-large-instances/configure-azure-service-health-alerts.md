@@ -32,7 +32,7 @@ Follow these steps to configure Service Health alerts:
 
 1. Select **Azure Large Instances**.
 
-1. Select the regions in which your ALI for the Epic workload instances are deployed.
+1. Select the regions in which your Azure Large Instances for the Epic workload instances are deployed.
 1. Under **Action Groups**, select **Create New**.
 1. Fill in the details and select the type of notification for the Action (Examples: Email, SMS, Voice).
 
