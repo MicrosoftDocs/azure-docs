@@ -8,7 +8,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 07/13/2023
+ms.date: 07/19/2023
 ms.author: greglin
 ---
 
@@ -84,10 +84,6 @@ ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/refe
 | [Gateway](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.Gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
 | [HTTPRoute](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.HTTPRoute)                | Yes   | Currently doesn't support [HTTPRouteFilter](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteFilter) |
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
-
-### Implementation of custom CRDs in ALB controller 
-
-ALB Controller supports a few custom CRDs, details on these can be found [here](api-types-kubernetes.md).
 
 ## Reporting issues
 

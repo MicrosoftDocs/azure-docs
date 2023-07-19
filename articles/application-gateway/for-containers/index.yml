@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: greglin
   ms.author: greglin
-  ms.date: 7/7/2023
+  ms.date: 07/19/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -64,8 +64,6 @@ landingContent:
         links:
           - text: API Specification
             url: api-specification-kubernetes.md
-          - text: API Types
-            url: api-types-kubernetes.md
 
 # Card
   - title: Troubleshoot Application Gateway for Containers
