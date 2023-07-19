@@ -49,7 +49,7 @@ The following video presents an overview of the Mapping debugger:
 
 ## How to troubleshoot the device and FHIR destination mappings using the Mapping debugger
 
-For this troubleshooting example, we're using a test device message that is [messaged routed](../../iot-hub/iot-hub-devguide-messages-d2c.md) from an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) and a [device mapping](overview-of-device-mapping.md) that uses [IotJsonPathContent templates](how-to-use-iotjsonpathcontent-templates.md).
+For this troubleshooting example, we're using a test device message that is [message routed](../../iot-hub/iot-hub-devguide-messages-d2c.md) through an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) and a [device mapping](overview-of-device-mapping.md) that uses [IotJsonPathContent templates](how-to-use-iotjsonpathcontent-templates.md).
 
 1. If there are errors with the device or FHIR destination mappings, the Mapping debugger displays the issues. In this example, we can see that there are error *warnings* at **Line 12** in the **Device mapping** and at **Line 20** in the **FHIR destination mapping**.
 
