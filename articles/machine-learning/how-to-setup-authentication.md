@@ -15,7 +15,7 @@ ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, even
 
 # Set up authentication for Azure Machine Learning resources and workflows
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
     
 
 Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
@@ -51,7 +51,7 @@ Once you've created the Azure AD accounts, see [Manage access to Azure Machine L
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
 
@@ -207,7 +207,7 @@ For more information, see [Set up managed identity for compute instance](how-to-
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a service principal uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). The `DefaultAzureCredential` class looks for the following environment variables and uses the values when authenticating as the service principal:
 
@@ -279,7 +279,7 @@ For information and samples on authenticating with MSAL, see the following artic
 
 ## Use managed identity authentication
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a managed identity uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). To authenticate to the workspace from a VM or compute cluster that is configured with a managed identity, use the `DefaultAzureCredential` class. This class automatically detects if a managed identity is being used, and uses the managed identity to authenticate to Azure services.
 

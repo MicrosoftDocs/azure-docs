@@ -135,7 +135,7 @@ sections:
       - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
         answer: |
-          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#look-up-certificateuserids-using-microsoft-graph-queries)
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-microsoft-graph-queries)
           
           GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 

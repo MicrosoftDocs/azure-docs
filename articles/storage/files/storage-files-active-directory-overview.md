@@ -2,10 +2,9 @@
 title: Overview - Azure Files identity-based authentication
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Azure Active Directory Domain Services (Azure AD DS), and Azure Active Directory (Azure AD) Kerberos for hybrid identities.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 07/18/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 ---
@@ -64,7 +63,6 @@ Azure Files supports identity-based authentication over SMB through the followin
 ## Restrictions
 
 - None of the authentication methods support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC, because computer accounts can't be synced to an identity in Azure AD. If you want to allow a computer account to access Azure file shares using identity-based authentication, [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) or consider using a service logon account instead.
-- Neither on-premises AD DS authentication nor Azure AD DS authentication is supported against Azure AD-joined devices or Azure AD-registered devices.
 - Identity-based authentication isn't supported with Network File System (NFS) shares.
 
 ## Common use cases

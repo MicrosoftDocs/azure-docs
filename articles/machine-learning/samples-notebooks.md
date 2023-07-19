@@ -17,7 +17,7 @@ ms.custom: seodec18, ignite-2022
 
 # Explore Azure Machine Learning with Jupyter Notebooks
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 The [AzureML-Examples](https://github.com/Azure/azureml-examples) repository includes the latest (v2) Azure Machine Learning Python CLI and SDK samples. For information on the various example types, see the [readme](https://github.com/Azure/azureml-examples#azure-machine-learning-examples).
 

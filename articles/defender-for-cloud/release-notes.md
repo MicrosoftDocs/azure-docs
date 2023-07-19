@@ -1,8 +1,8 @@
 ---
-title: Release notes for Microsoft Defender for Cloud
+title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/28/2023
+ms.date: 07/18/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,7 +26,38 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
+| July 18 | [Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM](#agentless-secret-scanning-for-virtual-machines-in-defender-for-servers-p2--dcspm) |
+| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
+| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
+
+### Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM
+
+July 18, 2023
+
+Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and DCSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines, both in Azure or AWS resources, that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+
+For more information about how to protect your secrets with secret scanning, see [Manage secrets with agentless secret scanning](secret-scanning.md).
+
+### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
+
+July 12, 2023
+
+This alert focuses on identifying suspicious activities leveraging Azure virtual machine **GPU driver extensions** and provides insights into attackers' attempts to compromise your virtual machines. The alert targets suspicious deployments of GPU driver extensions; such extensions are often abused by threat actors to utilize the full power of the GPU card and perform cryptojacking.
+
+| Alert Display Name <br> (Alert Type)  | Description | Severity | MITRE Tactic  |
+|---------|---------|---------|---------|
+| Suspicious installation of GPU extension in your virtual machine (Preview) <br> (VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Low | Impact |
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+### Support for disabling specific vulnerability findings
+
+July 9, 2023
+
+Release of support for disabling vulnerability findings for your container registry images or running images as part of agentless container posture. If you have an organizational need to ignore a vulnerability finding on your container registry image, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise. 
+
+Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md). 
 
 ### Data Aware Security Posture is now Generally Available
 
@@ -59,7 +90,7 @@ Updates in June include:
 
 June 26, 2023
 
-Defender for Cloud have improved the onboarding experience to include a new streamlined user interface and instructions in addition to new capabilities that allow you to onboard your AWS and GCP environments while providing access to advanced onboarding features.
+Defender for Cloud has improved the onboarding experience to include a new streamlined user interface and instructions in addition to new capabilities that allow you to onboard your AWS and GCP environments while providing access to advanced onboarding features.
 
 For organizations that have adopted Hashicorp Terraform for automation, Defender for Cloud now includes the ability to use Terraform as the deployment method alongside AWS CloudFormation or GCP Cloud Shell. You can now customize the required role names when creating the integration. You can also select between:
 

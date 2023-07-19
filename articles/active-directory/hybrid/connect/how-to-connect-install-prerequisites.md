@@ -57,8 +57,8 @@ To read more about securing your Active Directory environment, see [Best practic
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later. You can deploy Azure AD Connect on Windows Server 2016 but since Windows Server 2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. We recommend the usage of domain joined Windows Server 2022.
-- The minimum .NET Framework version required is 4.6.2, and newer versions of .NET are also supported.
+- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later. We recommend using domain-joined Windows Server 2022. You can deploy Azure AD Connect on Windows Server 2016 but since Windows Server 2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration.
+- The minimum .NET Framework version required is 4.6.2, and newer versions of .NET are also supported.  .NET version 4.8 and greater offers the best accessibility compliance.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you use the Azure AD Connect wizard to manage Active Directory Federation Services (AD FS) configuration. You can enable PowerShell transcription if you use the Azure AD Connect wizard to manage sync configuration. 

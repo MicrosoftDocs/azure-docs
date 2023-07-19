@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Translator with Cognitive Service'
+title: 'Tutorial: Translator with Azure AI services'
 description: Learn how to use translator in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -11,9 +11,9 @@ ms.author: ruxu
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Translator with Cognitive Service
+# Tutorial: Translator with Azure AI services
 
-[Translator](../../cognitive-services/Translator/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../cognitive-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
+[Translator](../../ai-services/Translator/index.yml) is an [Azure AI services](../../ai-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../ai-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
 
 This tutorial demonstrates using translator with [MMLSpark](https://github.com/Azure/mmlspark) to:
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Get started
 Open Synapse Studio and create a new notebook. To get started, import [MMLSpark](https://github.com/Azure/mmlspark). 
@@ -49,7 +49,7 @@ from pyspark.sql.functions import col, flatten
 Use the linked translator you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for translator>"
+ai_service_name = "<Your linked service for translator>"
 ```
 
 ## Translate Text
@@ -61,7 +61,7 @@ df = spark.createDataFrame([
 ], ["text",])
 
 translate = (Translate()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setToLanguage(["zh-Hans", "fr"])
     .setOutputCol("translation")
@@ -90,7 +90,7 @@ transliterateDf =  spark.createDataFrame([
 ], ["text",])
 
 transliterate = (Transliterate()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setLanguage("ja")
     .setFromScript("Jpan")
     .setToScript("Latn")
@@ -119,7 +119,7 @@ detectDf =  spark.createDataFrame([
 ], ["text",])
 
 detect = (Detect()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setOutputCol("result"))
 
@@ -145,7 +145,7 @@ bsDf =  spark.createDataFrame([
 ], ["text",])
 
 breakSentence = (BreakSentence()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setOutputCol("result"))
 
@@ -170,7 +170,7 @@ dictDf = spark.createDataFrame([
 ], ["text",])
 
 dictionaryLookup = (DictionaryLookup()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setFromLanguage("en")
     .setToLanguage("es")
     .setTextCol("text")
@@ -199,7 +199,7 @@ dictDf = spark.createDataFrame([
 ], ["textAndTranslation",])
 
 dictionaryExamples = (DictionaryExamples()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setFromLanguage("en")
     .setToLanguage("es")
     .setTextAndTranslationCol("textAndTranslation")

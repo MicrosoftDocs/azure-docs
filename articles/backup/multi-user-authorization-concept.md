@@ -4,8 +4,8 @@ description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
 ms.date: 09/15/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Multi-user authorization using Resource Guard
 

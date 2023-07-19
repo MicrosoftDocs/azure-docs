@@ -31,7 +31,8 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service| Build customized calling workflows for PSTN and VoIP calls|
+| Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service | Build customized calling workflows for PSTN and VoIP calls |
+| Job Router | [REST](/rest/api/communication/jobrouter/job-router) | Service | Optimize the management of customer interactions across various applications |
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
@@ -50,6 +51,7 @@ Publishing locations for individual SDK packages are detailed below.
 | Email| [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
 | Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
 |Call Automation|[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
+|Job Router|[npm](https://www.npmjs.com/package/@azure/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Reference Documentation | [docs](https://azure.github.io/azure-sdk-for-js/communication.html) | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)| -| [docs](http://azure.github.io/azure-sdk-for-java/communication.html) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| -|
@@ -63,29 +65,30 @@ Publishing locations for individual SDK packages are detailed below.
 
 #### .NET
 
-Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
+Calling supports the platforms listed below.
 
-Support via .NET Framework 4.6.1
+- UWP with .NET Native or C++/WinRT
+  - Windows 10/11 10.0.17763 - 10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763 - 10.0.22621.0
+- WinUI3 with .NET 6
+  - Windows 10/11 10.0.17763.0 - net6.0-windows10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763.0 - net6.0-windows10.0.22621.0
+  
+All other Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
-- Windows 10, 8.1, 8 and 7
-- Windows Server 2012 R2, 2012 and 2008 R2 SP1
-
-Support via .NET Core 2.0:
-
-- Windows 10 (1607+), 7 SP1+, 8.1
-- Windows Server 2008 R2 SP1+
-- Max OS X 10.12+
-- Linux multiple versions/distributions
-- UWP 10.0.16299 (RS3) September 2017
-- Unity 2018.1
-- Mono 5.4
-- Xamarin iOS 10.14
-- Xamarin Mac 3.8
-
-The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
-
-- Windows 10 10.0.17763
-- Windows Server 2019 10.0.17763
+- Support via .NET Framework 4.6.1
+    - Windows 10, 8.1, 8 and 7
+    - Windows Server 2012 R2, 2012 and 2008 R2 SP1
+- Support via .NET Core 2.0:
+  - Windows 10 (1607+), 7 SP1+, 8.1
+  - Windows Server 2008 R2 SP1+
+  - Max OS X 10.12+
+  - Linux multiple versions/distributions
+  - UWP 10.0.16299 (RS3) September 2017
+  - Unity 2018.1
+  - Mono 5.4
+  - Xamarin iOS 10.14
+  - Xamarin Mac 3.8
 
 ## REST APIs
 
@@ -117,6 +120,7 @@ For more information, see the following SDK overviews:
 
 - [Calling SDK Overview](../concepts/voice-video-calling/calling-sdk-features.md)
 - [Call Automation SDK Overview](../concepts/call-automation/call-automation.md)
+- [Job Router SDK Overview](../concepts/router/concepts.md)
 - [Chat SDK Overview](../concepts/chat/sdk-features.md)
 - [SMS SDK Overview](../concepts/sms/sdk-features.md)
 - [Email SDK Overview](../concepts/email/sdk-features.md)

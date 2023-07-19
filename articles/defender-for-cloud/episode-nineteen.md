@@ -1,6 +1,6 @@
 ---
 title: Defender for DevOps | Defender for Cloud in the Field
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about Defender for Cloud integration with Defender for DevOps.
 ms.topic: reference
 ms.date: 04/27/2023

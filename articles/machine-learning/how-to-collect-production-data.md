@@ -16,11 +16,11 @@ ms.custom: devplatv2, build-2023
 
 # Collect production data from models deployed for real-time inferencing (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to collect production inference data from a model deployed to an Azure Machine Learning managed online endpoint or Kubernetes online endpoint.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Azure Machine Learning **Data collector** logs inference data in Azure blob storage. You can enable data collection for new or existing online endpoint deployments.
 
@@ -33,15 +33,15 @@ If you're interested in collecting production inference data for a MLFlow model 
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [basic prereqs sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -74,6 +74,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     global inputs_collector, outputs_collector
     inputs_collector = Collector(name='model_inputs')          
     outputs_collector = Collector(name='model_outputs')
+    inputs_outputs_collector = Collector(name='model_inputs_outputs')
     ```
 
     By default, Azure Machine Learning raises an exception if there's a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run if logging failure happens. For instance, using the `on_error` parameter in the following code, Azure Machine Learning logs the error rather than throwing an exception:
@@ -106,6 +107,7 @@ def init():
   # instantiate collectors with appropriate names, make sure align with deployment spec
   inputs_collector = Collector(name='model_inputs')                    
   outputs_collector = Collector(name='model_outputs')
+  inputs_outputs_collector = Collector(name='model_inputs_outputs') #note: this is used to enable Feature Attribution Drift
 
 def run(data): 
   # json data: { "data" : {  "col1": [1,2,3], "col2": [2,3,4] } }
@@ -122,6 +124,13 @@ def run(data):
 
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
+
+  # create a dataframe with inputs/outputs joined - this creates a URI folder (not mltable) 
+  # input_output_df = input_df.merge(output_df, context)
+  input_output_df = input_df.join(output_df)
+
+  # collect both your inputs and output  
+  inputs_outputs_collector.collect(input_output_df, context)
   
   return output_df.to_dict()
   

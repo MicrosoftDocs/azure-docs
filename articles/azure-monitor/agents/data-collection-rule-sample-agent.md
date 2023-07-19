@@ -2,9 +2,9 @@
 title: Sample data collection rule - agent
 description: Sample data collection rule for Azure Monitor agent
 ms.topic: sample
-ms.date: 02/15/2022
+ms.date: 07/19/2023
 ms.custom: references_region
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 
