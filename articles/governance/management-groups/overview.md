@@ -14,7 +14,7 @@ above subscriptions. You organize subscriptions into management groups; the gove
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you enterprise-grade management at scale, no matter what type of subscriptions you might have.
-However, all subscriptions within a single management group must trust the same Microsoft Entra ID tenant.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD) tenant.
 
 For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all nested management groups, subscriptions, and resources and allow VM creation only in authorized regions.
 
@@ -64,7 +64,7 @@ you can assign your account as the owner of the root management group.
 
 ### Important facts about the root management group
 
-- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Microsoft Entra ID tenant ID.
+- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Azure Active Directory (Azure AD) tenant ID.
 - To change the display name, your account must be assigned the **Owner** or **Contributor** role on the
   root management group. See
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
