@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create a Hadoop cluster in HDInsight using the Azure portal.
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the top menu, select **+ Create a resource**.
 
