@@ -188,7 +188,7 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
     3. Ensure the NSG/firewall is not blocking the port – 5XX13 or 5XX14. (XX - SAP Instance Number)
     4. Check if AMS and SAP VMs are in the same vNet or are attached using vNet peering.
 
-       If not attached, see the following to connect vNets:  https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal       
+       If not attached, see the following to connect vNets:  https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal       
    
 2. **Check for unprotected updated rules. ErrorCode: SOAPWebMethodsValidationFailed**
 
