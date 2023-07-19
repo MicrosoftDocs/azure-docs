@@ -445,6 +445,12 @@ sections:
 
           - Switching subscriptions or resources can be done under Settings -> Resource tab.
 
+      - question: |
+          My Storage Account is configured with firewall and get AuthorizationFailure on Project Share, Auto Label or OCR Upgrade.
+        answer: |
+
+          Please add our website IP address, 20.3.165.95, to the allowlist of firewall. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
+
   - name: Containers
     questions:
       - question: |
