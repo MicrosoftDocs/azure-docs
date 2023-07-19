@@ -13,14 +13,25 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams call queue
 
-## Create Teams Call Queue
+In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
 
-Teams Call Queue is a feature in Microsoft Teams that efficiently distributes incoming calls among a group of designated users or agents. It's useful for customer support or call center scenarios. Calls are placed in a queue and assigned to the next available agent based on a predetermined routing method. Agents receive notifications and can handle calls using Teams' call controls. The feature offers reporting and analytics for performance tracking. It simplifies call handling, ensures a consistent customer experience, and optimizes agent productivity.
-Description how to create call queue using Teams Admin portal [Instructions](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info).
+1. Enable federation of Azure Communication Services resource with Teams Tenant.
+2. Select or create Teams Call Queue via Teams Admin Center.
+3. Get email address of Call Queue via Teams Admin Center.
+4. Get Object ID of the Call Queue via Graph API.
+5. Start a call with Azure Communication Services Calling SDK.
 
-## Find ObjectID for Call Queue
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
-After Call queue is created, we need to find correlated ObjectID to use it later for calls. ObjectID is connected to Resource Account that was attached to call queue - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email.
+## Create or select Teams Call Queue
+
+Teams Call Queue is a feature in Microsoft Teams that efficiently distributes incoming calls among a group of designated users or agents. It's useful for customer support or call center scenarios. Calls are placed in a queue and assigned to the next available agent based on a predetermined routing method. Agents receive notifications and can handle calls using Teams' call controls. The feature offers reporting and analytics for performance tracking. It simplifies call handling, ensures a consistent customer experience, and optimizes agent productivity. You can select existing or create new Call Queue via [Teams Admin Center](https://aka.ms/teamsadmincenter).
+
+Learn more about how to create Auto Attendant using Teams Admin Center [here](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info).
+
+## Find Object ID for Call Queue
+
+After Call queue is created, we need to find correlated Object ID to use it later for calls. Object ID is connected to Resource Account that was attached to call queue - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email.
 :::image type="content" source="../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::
 All required information for Resource Account can be found in [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) using this email in the search.
 
@@ -35,9 +46,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-## Code Samples
-
-[!INCLUDE [Call Queue with JavaScript](./includes/teams-call-queue/teams-call-queue-javascript.md)]
+Code Samples: [!INCLUDE [Call Queue with JavaScript](./includes/teams-call-queue/teams-call-queue-javascript.md)]
 
 ## Clean up resources
 

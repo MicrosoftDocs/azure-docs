@@ -13,14 +13,25 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams Auto Attendant
 
-## Create Teams Auto Attendant
+In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Auto Attendant. You are going to achieve it with the following steps:
 
-Teams Auto Attendant is system that provides an automated call handling system for incoming calls. It serves as a virtual receptionist, allowing callers to be automatically routed to the appropriate person or department without the need for a human operator.
-Description how to create Auto Attendant using Teams Admin portal [Instructions](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info).
+1. Enable federation of Azure Communication Services resource with Teams Tenant.
+2. Select or create Teams Auto Attendant via Teams Admin Center.
+3. Get email address of Auto Attendant via Teams Admin Center.
+4. Get Object ID of the Auto Attendant via Graph API.
+5. Start a call with Azure Communication Services Calling SDK.
 
-## Find ObjectID for Auto Attendant
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
-After Auto Attendant is created, we need to find correlated ObjectID to use it later for calls. ObjectID is connected to Resource Account that was attached to Auto Attendant - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email of account.
+## Create or select Teams Auto Attendant
+
+Teams Auto Attendant is system that provides an automated call handling system for incoming calls. It serves as a virtual receptionist, allowing callers to be automatically routed to the appropriate person or department without the need for a human operator. You can select existing or create new Auto Attendant via [Teams Admin Center](https://aka.ms/teamsadmincenter).
+
+Learn more about how to create Auto Attendant using Teams Admin Center [here](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info).
+
+## Find Object ID for Auto Attendant
+
+After Auto Attendant is created, we need to find correlated Object ID to use it later for calls. Object ID is connected to Resource Account that was attached to Auto Attendant - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email of account.
 :::image type="content" source="../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::
 All required information for Resource Account can be found in [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) using this email in the search.
 
@@ -35,9 +46,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-## Code Samples
-
-[!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
+Code Samples: [!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
 
 ## Clean up resources
 

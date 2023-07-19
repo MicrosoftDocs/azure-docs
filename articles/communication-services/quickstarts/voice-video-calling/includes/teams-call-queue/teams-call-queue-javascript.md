@@ -89,17 +89,18 @@ Here's the code:
 
 The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
-| Name                                | Description                                                                                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
-| `CallAgent`                         | Used to start and manage Calls calls.                                                                                                          |
-| `DeviceManager`                     | Used to manage media devices.                                                                                                            |
-| `Call`                              | Used for representing a Call Call                                                                                                              |
-| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
-| `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
-| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        |
+| Name                                | Description |
+| ----------------------------------- | ----------- |
+| `CallClient`                        | The main entry point to the Calling SDK. |
+| `CallAgent`                         | Used to start and manage calls.|
+| `DeviceManager`                     | Used to manage media devices. |
+| `Call`                              | Used for representing a Call. |
+| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system. |
+| `RemoteParticipant`                 | Used for representing a remote participant in the Call. |
+| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant. |
 
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+
 ```JavaScript
 // Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
@@ -130,7 +131,7 @@ let connectedLabel = document.getElementById('connectedLabel');
 let remoteVideoContainer = document.getElementById('remoteVideoContainer');
 let localVideoContainer = document.getElementById('localVideoContainer');
 /**
- * Create an instance of CallClient. Initialize a CallAgent instance with a CommunicationUserCredential via created CallClient. CallAgent enables us to make outgoing calls and receive incoming calls. 
+ * Create an instance of CallClient. Initialize a CallAgent instance with a AzureCommunicationTokenCredential via created CallClient. CallAgent enables us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
@@ -159,7 +160,7 @@ initializeCallAgentButton.onclick = async () => {
     }
 }
 /**
- * Place a 1:1 outgoing video call to a user
+ * Place a 1:1 outgoing video call to a Teams Call Queue
  * Add an event listener to initiate a call when the `startCallButton` is selected.
  * Enumerate local cameras using the deviceManager `getCameraList` API.
  * In this quickstart, we're using the first camera in the collection. Once the desired camera is selected, a
@@ -396,8 +397,11 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and navigate to http://localhost:8080/.
+Manual steps to setup the call:
 
-Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
-Click on the "Initialize Call Agent" buttons.
-Enter the Call Queue ObjectID, and select the "Start Call" button. Application will start the outgoing call and call queue will be connected. While introduction message and music will be played, call queue will try to reach and connect correspondent Teams user to the call.
+1. Open your browser and navigate to [localhost](http://localhost:8080/).
+2. Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
+3. Click on the "Initialize Call Agent" buttons.
+4. Enter the Call Queue Object ID, and select the "Start Call" button. Application will start the outgoing call to the call queue with given object ID.
+5. Call is connected to the Call Queue.
+6. Communication Services user is routed through Call Queue based on it's configuration.
