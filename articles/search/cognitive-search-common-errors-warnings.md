@@ -218,9 +218,9 @@ Skill execution failed because the call to Azure AI services was throttled. Typi
 
 An input to the skill was missing, it has the wrong type, or otherwise, invalid. You might see the following information:
 
-1. `Could not execute skill`
++ `Could not execute skill`
 
-1.`Skill executed but may have unexpected results`
++ `Skill executed but may have unexpected results`
 
 Cognitive skills have required inputs and optional inputs. For example, the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. Custom skill inputs are all considered optional inputs.
 
@@ -231,7 +231,6 @@ If an optional input is missing, the skill still runs but may produce unexpected
 In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents that don't have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
-
 
 ```json
 {

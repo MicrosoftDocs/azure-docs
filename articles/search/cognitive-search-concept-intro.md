@@ -18,7 +18,7 @@ In Cognitive Search, *AI enrichment* is the application of machine learning mode
 Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
 + Apply translation and language detection for multi-lingual search
-+ Apply entity recognition to extract people anmes, places, and other entities from large chunks of text
++ Apply entity recognition to extract people names, places, and other entities from large chunks of text
 + Apply key phrase extraction to identify and output important terms
 + Apply Optical Character Recognition (OCR) to recognize printed and handwritten text in binary files
 + Apply image analysis to describe image content, and output the descriptions as searchable text fields
