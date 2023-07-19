@@ -128,7 +128,7 @@ The Channel Registration ID GUID was created during channel registration. You ca
 
 Assign it to a variable called channelRegistrationId   
 ```csharp
-string channelRegistrationId = "{your channel registration id GUID}";
+string channelRegistrationId = "<your channel registration id GUID>";
 ```
 
 ### 4. Set Recipient List   
@@ -139,12 +139,12 @@ The phone number must include the country code. For more information on phone nu
 
 Create the recipient list like this:
 ```csharp
-var recipientList = new List<string> { "{your WhatsApp number}" };
+var recipientList = new List<string> { "<your WhatsApp number>" };
 ```
 
 Example:
 ```csharp
-var recipientList = new List<string> { "+14255550000" };
+var recipientList = new List<string> { "+14250000000" };
 ```
 
 ## Initiate Conversation between Business and WhatsApp User
@@ -153,16 +153,14 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-Here is how to send 
-
 ### Option 1: Initiate Conversation from Business - Send a Template Message
 
 Initiate a conversation by sending a template message.
 
 #### 1. Set Template   
 Create a MessageTemplate using the values for a template. 
-You can create a MessageTemplate using the template you created during HandsOn Lab - WhatsApp Template Creation.docx
-If you do not have a template to use, proceed to step 7.
+
+If you do not have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here is MessageTemplate creation using a default template, sample_template.
 ```csharp
@@ -170,6 +168,8 @@ string templateName = "sample_template";
 string templateLanguage = "en_us";
 var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ```
+
+For more examples of how to assemble your MessageTemplate, see [Send WhatsApp Template Messages](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md)
 
 #### 2. Send a Template Message   
 
