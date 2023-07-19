@@ -63,11 +63,11 @@ Here are the typical stages of incident response in Microsoft Defender for Cloud
 
 - **Diagnose**:  Categorize and prioritize the incident based on its potential impact and risk level.
 
--**Remediate**:  Contain the threat and prevent it from spreading further. Work to remove any remaining malicious elements, close security gaps, and implement necessary patches or configuration changes to prevent similar incidents in the future.
+- **Remediate**:  Contain the threat and prevent it from spreading further. Work to remove any remaining malicious elements, close security gaps, and implement necessary patches or configuration changes to prevent similar incidents in the future.
 
--**Report**:  Detailed incident reports are prepared to document the incident, response actions, and any lessons learned.
+- **Report**:  Detailed incident reports are prepared to document the incident, response actions, and any lessons learned.
 
--**Post-Incident Monitoring & Prevention**: Implement additional security measures based on insights gained from the incident response process.
+- **Post-Incident Monitoring & Prevention**: Implement additional security measures based on insights gained from the incident response process.
 
 The following example shows a suspicious RDP activity taking place:
 
