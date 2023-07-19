@@ -24,7 +24,7 @@ Labels help you organize your attack surface and apply business context in a cus
 - Were added to your inventory within a specific time range.
   
 
-Labels are freeform text fields, so you can create a label for any use case that applies to your organization.
+Labels are free form text fields, so you can create a label for any use case that applies to your organization.
 
 [![Screenshot that shows an inventory list view with a filtered Labels column.](media/labels-1a.png)](media/labels-1a.png#lightbox)
 
