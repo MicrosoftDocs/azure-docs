@@ -53,7 +53,7 @@ If you're interested in collecting production inference data for a MLFlow model 
 
 ## Perform custom logging for model monitoring
 
-Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage, where it can be seamlessly consumed by your model monitors.
+Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage or to a custom Blob storage container, where it can be seamlessly consumed by your model monitors.
 
 ### Update your scoring script with custom logging code
 
@@ -198,6 +198,37 @@ Optionally, you can adjust the following additional parameters for your `data_co
 - `data_collector.collections.<collection_name>.data.name`: The name of the data asset to register with the collected data.
 - `data_collector.collections.<collection_name>.data.path`: The full Azure Machine Learning datastore path where the collected data should be registered as a data asset.
 - `data_collector.collections.<collection_name>.data.version`: The version of the data asset to be registered with the collected data in blob storage.
+
+#### Collect data to a custom Blob storage container
+
+If you are interested in collecting your production inference data to a custom Blob storage container, you can do so with the data collector.
+
+To do so, you will first need to connect your Azure Blob storage container to an AzureML datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
+
+Next, ensure that your AzureML endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Assign the role `Blob Storage Contributor` to the identity on the Blob storage container which will be the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal-managed-identity).
+
+Then, update your deployment YAML to include the `data` property within each collection. The `data.name` property specifies the name of the data asset to be registered with the collected data. The `data.path` specifies the fully-formed AzureML datastore path which is connected to your Azure Blob storage container. The `data.version` is an optional parameter which specifies the version of the data asset (defaults to 1).
+
+Here is an example YAML configuration of how you would do so:
+
+```yml
+data_collector:
+  collections:
+    model_inputs:
+      enabled: 'True'
+      data: 
+        name: my_model_inputs_data_asset
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_inputs
+        version: 1
+    model_outputs:
+      enabled: 'True'
+      data: 
+        name: my_model_outputs_data_asset
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_outputs 
+        version: 1
+```
+
+### Create your deployment with data collection
 
 Deploy the model with custom logging enabled:
 
