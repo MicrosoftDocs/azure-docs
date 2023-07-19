@@ -81,4 +81,4 @@ SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`DateTimeToTicks`](datetimetoticks.md)

@@ -69,4 +69,4 @@ SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`DateTimeToTimestamp`](datetimetotimestamp.md)
