@@ -35,6 +35,13 @@ Update the `Main` method declaration to support async code.
 public static async Task Main(string[] args)
 ```
 
+4. Include the package in your C# project   
+Add the directive to include the Messages package.
+
+```csharp
+using Azure.Communication.Messages;
+```
+
 Or, you can replace your Program.cs with the following code:
 
 ```csharp
@@ -54,13 +61,6 @@ namespace AdvancedMessagesQuickstart
         }
     }
 }
-```
-
-4. Include the package in your C# project   
-Add the directive to include the Messages package.
-
-```csharp
-using Azure.Communication.Messages;
 ```
 
 ## Initalize APIs
