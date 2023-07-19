@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 07/18/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -41,7 +41,7 @@ To configure Quick Access, you need to have a connector group with at least one 
 
 To summarize, the overall process is as follows:
 
-1. Create a connector group with at least one active App Proxy connector, if you don't already have one.
+1. Create a connector group with at least one active App Proxy connector, if you don't already have one. If you already have a connector group, make sure you're on the latest version.
 1. Configure Quick Access, which creates a new enterprise app.
 1. Assign users and groups to the app.
 1. Configure Conditional Access policies.
@@ -54,6 +54,12 @@ Let's look at each of these steps in more detail.
 To configure Quick Access, you must have a connector group with at least one active App Proxy connector.
 
 If you don't already have a connector group set up, see [Configure connectors for Quick Access](how-to-configure-connectors.md).
+
+> [!NOTE]
+> If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders.
+>
+> The minimum version of connector required for Private Access is **1.5.3417.0**.
+
 
 ## Configure Quick Access
 
