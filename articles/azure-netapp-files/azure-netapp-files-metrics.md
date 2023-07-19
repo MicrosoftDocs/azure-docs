@@ -19,10 +19,17 @@ ms.author: anfdocs
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
-You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**. Then select **Metric** to view the available metrics: 
+## Access metrics 
 
-[ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
-
+Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files capacity pools and volumes from two locations:
+1.	From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
+   
+    :::image type="content" source="../media/azure-netapp-files/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pool or volumes." lightbox="../media/azure-netapp-files/metrics-select-pool-volume.png":::
+  	
+2.	From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
+   
+    :::image type="content" source="../media/azure-netapp-files/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="../media/azure-netapp-files/metrics-navigate-volume.png":::
+    
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
