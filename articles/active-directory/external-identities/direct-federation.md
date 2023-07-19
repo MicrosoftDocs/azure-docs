@@ -150,7 +150,7 @@ Required claims for the SAML 2.0 token issued by the IdP:
 |Attribute Name |Value  |
 |---------|---------|
 |NameID Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | emailaddress |
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | Emailaddress |
 
 ### WS-Fed configuration
 
@@ -179,7 +179,7 @@ Required claims for the WS-Fed token issued by the IdP:
 |Attribute  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
-|emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
+|Emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
@@ -222,13 +222,13 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 
 7. (Optional) To add more domain names to this federating identity provider: 
    
-   a. Select the link in the **Domains** column.
+   1. Select the link in the **Domains** column.
 
-   ![Screenshot showing the link for adding domains to the SAML/WS-Fed identity provider.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
+      ![Screenshot showing the link for adding domains to the SAML/WS-Fed identity provider.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
 
-   b. Next to **Domain name of federating IdP**, type the domain name, and then select **Add**. Repeat for each domain you want to add. When you're finished, select **Done**.
+   1. Next to **Domain name of federating IdP**, type the domain name, and then select **Add**. Repeat for each domain you want to add. When you're finished, select **Done**.
    
-   ![Screenshot showing the Add button in the domain details pane.](media/direct-federation/add-domain.png)
+      ![Screenshot showing the Add button in the domain details pane.](media/direct-federation/add-domain.png)
    
 ### To configure federation using the Microsoft Graph API
 
@@ -276,7 +276,7 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations can no longer sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
 To remove a configuration for an IdP in the Azure portal:
 
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 1. Select **External Identities**.
 1. Select **All identity providers**.
 1. Under **SAML/WS-Fed identity providers**, scroll to the identity provider in the list or use the search box.

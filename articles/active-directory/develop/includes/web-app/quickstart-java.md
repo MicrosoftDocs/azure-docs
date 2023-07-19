@@ -31,7 +31,7 @@ There are two ways to start your quickstart application: express (option 1) and 
 
 ### Option 1: Register and automatically configure your app, and then download the code sample
 
-1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Enter a name for your application, and then select **Register**.
 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 

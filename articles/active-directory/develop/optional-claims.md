@@ -17,7 +17,7 @@ ms.reviewer: ludwignick
 
 You can configure optional claims for your application through the Azure portal or application manifest.
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
@@ -148,8 +148,8 @@ Complete the following steps to configure groups optional claims through the app
    
    Multiple token types can be listed:
 
-   - idToken for the OIDC ID token
-   - accessToken for the OAuth access token
+   - IdToken for the OIDC ID token
+   - AccessToken for the OAuth access token
    - Saml2Token for SAML tokens.
 
    The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens.

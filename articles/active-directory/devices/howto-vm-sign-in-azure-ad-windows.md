@@ -425,7 +425,7 @@ Try these solutions:
 
 - Verify that the user doesn't have a temporary password. Temporary passwords can't be used to log in to a remote desktop connection.
 
-  Sign in with the user account in a web browser. For instance, open the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
+  Sign in with the user account in a web browser. For instance, sign in to the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
 
 ### MFA sign-in method required
 
