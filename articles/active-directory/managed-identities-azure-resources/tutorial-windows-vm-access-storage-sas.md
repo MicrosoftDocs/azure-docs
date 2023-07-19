@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-arm-template
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via a SAS credential

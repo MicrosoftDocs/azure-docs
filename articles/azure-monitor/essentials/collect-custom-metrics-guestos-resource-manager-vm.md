@@ -5,6 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/04/2020
 ms.author: bwren
 ---

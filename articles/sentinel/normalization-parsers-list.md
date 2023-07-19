@@ -99,6 +99,7 @@ ASIM Network Session parsers are available in every workspace. Microsoft Sentine
 | **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |
 | **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
 | **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
+| **ForcePoint Firewall** | | `_Im_NetworkSession_ForcePointFirewallVxx` |    
 | **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
 | **Microsoft Defender for IoT micro agent** | | `_Im_NetworkSession_MD4IoTAgentVxx` |
 | **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` |
@@ -136,7 +137,9 @@ ASIM Web Session parsers are available in every workspace. Microsoft Sentinel pr
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
-| **Palo Alto PanOS threat logs** | Collected using CEF. | `_Im_WebSession_PaloAltoCEF` |
+| **Normalized Web Session Logs** | Any event normalized at ingestion to the `ASimWebSessionLogs` table. | `_Im_WebSession_NativeVxx` |
+| **Internet Information Services (IIS) Logs** | Collected using the AMA or Log Analytics Agent based IIS connectors. | `_Im_WebSession_IISVxx` |
+| **Palo Alto PanOS threat logs** | Collected using CEF. | `_Im_WebSession_PaloAltoCEFVxx` |
 | **Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
 | **Vectra AI Streams** | Supports the [pack](normalization-about-parsers.md#the-pack-parameter) parameter. | `_Im_WebSession_VectraAIVxx`  |
 | **Zscaler ZIA** | Collected using CEF. | `_Im_WebSessionZscalerZIAVxx` |

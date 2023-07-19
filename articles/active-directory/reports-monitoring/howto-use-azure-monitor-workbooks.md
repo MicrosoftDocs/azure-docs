@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/15/2022
+ms.date: 06/01/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
@@ -28,7 +28,7 @@ To use Azure Workbooks for Azure AD, you need:
 
 1. Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
     - Access to the Log Analytics workspace is determined by the workspace settings, access to the resources sending the data to the workspace, and the method used to access the workspace.
-    - To ensure you have the right access, review the [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md?tabs=tabs=portal#azure-rbac) article.
+    - To ensure you have the right access, review the Azure workspace permissions in the [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md?tabs=tabs=portal#azure-rbac) article.
 
 2. Ensure that you have one of the following roles in Azure AD (if you're accessing the workspace through the Azure portal):
     - Security Administrator
@@ -51,7 +51,7 @@ To use Azure Workbooks for Azure AD, you need:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
     - **Workbooks**: All workbooks created in your tenant
-    - **Public Templates**: Pre-built workbooks for common or high priority scenarios
+    - **Public Templates**: Prebuilt workbooks for common or high priority scenarios
     - **My Templates**: Templates you've created
 1. Select a report or template from the list. Workbooks may take a few moments to populate. 
     - Search for a template by name.

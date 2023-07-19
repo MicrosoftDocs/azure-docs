@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 04/10/2023
 ms.custom: template-quickstart
 ---
 
@@ -77,6 +77,12 @@ In this section, you'll create a virtual network and subnet.
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ## Create load balancer
 

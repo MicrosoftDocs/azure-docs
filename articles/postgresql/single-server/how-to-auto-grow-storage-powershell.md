@@ -29,7 +29,7 @@ specified in the storage section of the [Azure Database for PostgreSQL pricing t
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 If you choose to use PowerShell locally, connect to your Azure account using the

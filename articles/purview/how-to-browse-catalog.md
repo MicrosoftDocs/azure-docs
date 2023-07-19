@@ -28,11 +28,12 @@ Browse by collection allows you to explore the different collections you're a da
 
 Once a collection is selected, you'll get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Microsoft Purview search relevance engine to boost the most important assets to the top.
 
+You can also refine the list of assets using facets and filters:
+
+- [Use the facets](how-to-search-catalog.md#use-the-facets) on the left hand side to narrow results by business metadata like glossary terms or classifications.
+- [Use the filters](how-to-search-catalog.md#use-the-filters) at the top to narrow results by source type, [managed attributes](how-to-managed-attributes.md), or activity.
+
 :::image type="content" source="media/how-to-browse-catalog/browse-collection-results.png" alt-text="Screenshot showing the browse by collection results" border="true":::
-
-For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition. 
-
-:::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
 If the selected collection doesn’t contain the data you're looking for, you can easily navigate to related collections, or go back and view the entire collections tree.
 
@@ -53,13 +54,12 @@ A native browsing experience with hierarchical namespace is provided for each co
 > [!NOTE]
 > After a successful scoped scan, there may be delay before newly scanned assets appear in the browse experience.
 
-
 1. On the **Browse by source types** page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
 
     :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.png" alt-text="Browse asset types page" border="true":::
 
    > [!TIP]
-   > Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
+   > Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog.
 
 1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you'll see a list of databases with assets in the data catalog.
 

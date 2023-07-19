@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 06/20/2020
+ms.date: 06/29/2023
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 

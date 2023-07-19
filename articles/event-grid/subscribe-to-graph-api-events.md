@@ -1,11 +1,12 @@
 ---
-title: Azure Event Grid - Subscribe to Microsoft Graph API events 
+title: Receive Microsoft Graph change notifications through Azure Event Grid (preview) 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 ms.topic: how-to
 ms.date: 09/01/2022
 ---
 
-# Subscribe to events published by Microsoft Graph API
+# Receive Microsoft Graph change notifications through Azure Event Grid (preview)
+
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. 
 
 > [!IMPORTANT]
@@ -26,7 +27,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 
 
 ## Why should I use Microsoft Graph API as a destination?
-Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
+Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
 - You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
@@ -61,7 +62,7 @@ x-ms-enable-features: EventGrid
 Body:
 {
     "changeType": "Updated,Deleted,Created",
-    "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=youPartnerTopic&location=theAzureRegionFortheTopic",
+    "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=youPartnerTopic&location=theNameOfAzureRegionFortheTopic",
     "resource": "users",
     "expirationDateTime": "2022-04-30T00:00:00Z",
     "clientState": "mysecret"
@@ -72,7 +73,10 @@ Here are some of the key headers and payload properties:
 
 - `x-ms-enable-features`: Header used to indicate your desire to participate in the preview capability to send events to Azure Event Grid. Its value must be `EventGrid`. This header must be included with the request when creating a Microsoft Graph API subscription.
 - `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
-- `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
+- `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. The location (also known as Azure region) `name` can be obtained by executing the **az account list-locations** command. Don't use a location displayname. For example, don't use "West Central US". Use `westcentralus` instead.
+   ```azurecli-interactive
+    az account list-locations
+   ```
 - resource: the resource that generates events to announce state changes.
 - expirationDateTime: the expiration time at which the subscription expires and hence the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
 - client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
@@ -94,8 +98,8 @@ Here are some of the key headers and payload properties:
 
 When you create a Graph API subscription with a `notificationUrl` bound to Event Grid, a partner topic is created in your Azure subscription. For that partner topic, you [configure event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events. 
 
-#### Microsoft Graph API Explorer
-For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs. 
+#### Test APIs using Graph Explorer
+For quick tests and to get to know the API, you could use the [Graph Explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Microsoft Graph SDKs. 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 

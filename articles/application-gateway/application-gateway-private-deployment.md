@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 04/04/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -101,6 +101,9 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
+>[!Note]
+>Feature registration may take up to 30 minutes to transition from Registering to Registered status. 
+
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
 ## Unregister from the preview
@@ -174,7 +177,7 @@ After registration into the public preview, configuration of NSG, Route Table, a
 
 ## Resource Changes
 
-After your gateway is provisioned, isn't tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
+After your gateway is provisioned, a resource tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
 
  ![View the EnhancedNetworkControl tag](./media/application-gateway-private-deployment/tags.png)
 
@@ -352,6 +355,10 @@ AGIC v1.7 must be used to introduce support for private frontend IP only.
 
 If Application Gateway has a backend target or key vault reference to a private endpoint located in a VNet that is accessible via global VNet peering, traffic is dropped, resulting in an unhealthy status.
 
+### Network Watcher integration
+
+Connection troubleshoot and NSG diagnostics will return an error when running check and diagnostic tests.
+
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
 If a subnet shares Application Gateway v2 deployments that were created both prior to and after enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality is limited to the prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality must either be reprovisioned, or newly created gateways must use a different subnet to enable enhanced network security group and route table features.
@@ -368,5 +375,5 @@ This error can be ignored and will be clarified in a future release.
 
 ## Next steps
 
-- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline.md) for more security best practices.
+- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline) for more security best practices.
 

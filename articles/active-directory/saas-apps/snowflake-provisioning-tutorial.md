@@ -17,9 +17,6 @@ ms.author: thwimmer
 
 This tutorial demonstrates the steps that you perform in Snowflake and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to [Snowflake](https://www.Snowflake.com/pricing/). For important details on what this service does, how it works, and frequently asked questions, see [What is automated SaaS app user provisioning in Azure AD?](../app-provisioning/user-provisioning.md). 
 
-> [!NOTE]
-> This connector is currently in public preview. For information about terms of use, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Capabilities supported
 
 > [!div class="checklist"]

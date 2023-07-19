@@ -53,7 +53,7 @@ The following table provides a list of practice statement and objectives, and Az
 
 ### Next steps
 
-* [Configure Azure Active Directory for CMMC compliance](configure-azure-active-directory-for-cmmc-compliance.md)
+* [Configure Azure Active Directory for CMMC compliance](configure-for-cmmc-compliance.md)
 * [Configure CMMC Level 1 controls](configure-cmmc-level-1-controls.md)
 * [Configure CMMC Level 2 Access Control (AC) controls](configure-cmmc-level-2-access-control.md)
 * [Configure CMMC Level 2 additional controls](configure-cmmc-level-2-additional-controls.md)

@@ -6,12 +6,13 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/23/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
+ms.custom: not-enterprise-apps
 ---
 
 # Review the application activity report

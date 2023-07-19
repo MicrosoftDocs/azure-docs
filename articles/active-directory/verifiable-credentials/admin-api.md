@@ -208,7 +208,7 @@ We support two different didModels. One is `ion` and the other supported method 
 | -------- | -------- | -------- |
 | `subscriptionId` | string | The Azure subscription this Key Vault resides |
 | `resourceGroup` | string | name of the resource group from this Key Vault |
-| `resouceName` | string | Key Vault name |
+| `resourceName` | string | Key Vault name |
 | `resourceUrl` | string | URL to this Key Vault |
 
 
@@ -986,9 +986,8 @@ example:
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`uri`| string (uri) | uri of the logo (optional if image is specified) |
+|`uri`| string (uri) | uri of the logo |
 |`description` | string | the description of the logo |
-|`image` | string | the base-64 encoded image (optional if uri is specified) |
 
 #### displayConsent type
 

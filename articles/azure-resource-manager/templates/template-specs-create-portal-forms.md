@@ -20,7 +20,7 @@ The following screenshot shows a form opened in the Azure portal.
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-For Azure PowerShell, use [version 6.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.24.0 or later](/cli/azure/install-azure-cli).
+For Azure PowerShell, use [version 6.0.0 or later](/powershell/azure/install-azure-powershell). For Azure CLI, use [version 2.24.0 or later](/cli/azure/install-azure-cli).
 
 ## Create template
 

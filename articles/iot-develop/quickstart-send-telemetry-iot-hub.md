@@ -5,17 +5,17 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 04/27/2023
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other, devx-track-azurecli, engagement-fy23
+ms.custom: mode-other, devx-track-azurecli, engagement-fy23, devx-track-extended-java, devx-track-python
 ms.devlang: azurecli
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
 
 # Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
+**Applies to**: [General device developers](about-iot-develop.md#general-device-development)
 
 :::zone pivot="programming-language-ansi-c"
 

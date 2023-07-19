@@ -13,6 +13,7 @@ ms.author: jomondi
 ms.reviewer: ergreenl, lenalepa
 ms.collection: M365-identity-device-management
 zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to hide an enterprise application from user's experience so that it is not listed in the user's Active directory access portals or Microsoft 365 launchers
 ---
@@ -20,6 +21,8 @@ zone_pivot_groups: enterprise-apps-all
 # Hide an Enterprise application
 
 Learn how to hide enterprise applications in Azure Active Directory. When an application is hidden, users still have permissions to the application.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

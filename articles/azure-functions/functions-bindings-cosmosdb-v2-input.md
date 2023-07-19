@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB input binding in Azure Functions.
 ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -1771,15 +1771,11 @@ Here's the binding data in the *function.json* file:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
-
-[!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
-
 # [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
@@ -1787,13 +1783,17 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-[!INCLUDE [functions-cosmosdb-input-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
+[!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
 # [Extension 4.x+](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-input-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-input-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
 ---
 
@@ -1810,7 +1810,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
 |`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
+|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 |`partition_key` | The partition key of the Azure Cosmos DB being monitored. |
 |`id` | The ID of the document to retrieve. |
@@ -1845,13 +1845,13 @@ _Applies only to the Python v1 programming model._
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
-# [Functions 2.x+](#tab/functionsv2)
-
-[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
-
 # [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2)
+
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
 ---
 ::: zone-end  
@@ -1861,14 +1861,16 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
+# [Extension 4.x+](#tab/extensionv4/in-process)
+
+[!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-# [Extension 4.x+](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
@@ -1876,17 +1878,41 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-# [Extension 4.x+](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
-Only JSON string inputs are currently supported. 
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
+---
+
+The parameter type supported by the Cosmos DB input binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [Extension 4.x+](#tab/extensionv4/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
+
+[!INCLUDE [functions-bindings-cosmosdb-v2-input-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-input-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
 # [Extension 4.x+](#tab/extensionv4/csharp-script)
 
-[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
 
 ---
 

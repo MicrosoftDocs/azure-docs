@@ -22,9 +22,9 @@ with the [Azure PowerShell Docker image](/powershell/azure/azureps-in-docker).
 The Azure Blueprints module requires the following software:
 
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
-  [these instructions](/powershell/azure/install-az-ps).
+  [these instructions](/powershell/azure/install-azure-powershell).
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
-  [these instructions](/powershell/scripting/gallery/installing-psget).
+  [these instructions](/powershell/gallery/powershellget/install-powershellget).
 
 ### Install the module
 

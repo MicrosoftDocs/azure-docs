@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No | [Yes*](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| No | [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
@@ -35,9 +35,13 @@ When scanning Teradata source, Microsoft Purview supports:
     - Stored procedures including the parameter dataset and result set
     - Functions including the parameter dataset
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures.
+- Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ### Required permissions for scan
 
@@ -68,7 +72,7 @@ For classification, user also needs to have read permission on the tables/views 
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
     * Download the [Teradata JDBC driver](https://downloads.teradata.com/) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 
@@ -81,22 +85,25 @@ This section describes how to register Teradata in Microsoft Purview using the [
 
 ### Steps to register
 
-1.  Navigate to your Microsoft Purview account.
-1.  Select **Data Map** on the left navigation.
-1.  Select **Register**
-1.  On Register sources, select **Teradata**. Select **Continue**
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
+1. On Register sources, select **Teradata**. Select **Continue**
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register Teradata options" border="true":::
 
 On the **Register sources (Teradata)** screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed with in the Catalog.
+1. Enter a **Name** that the data source will be listed with in the Catalog.
 
-1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
+1. Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
 
-1.  Select a collection or create a new one (Optional)
+1. Select a collection or create a new one (Optional)
 
-1.  Finish to register the data source.
+1. Finish to register the data source.
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register Teradata" border="true":::
 

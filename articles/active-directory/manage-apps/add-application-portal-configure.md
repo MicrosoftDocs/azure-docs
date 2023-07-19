@@ -11,7 +11,8 @@ ms.workload: identity
 ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
+ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
@@ -19,6 +20,8 @@ zone_pivot_groups: enterprise-apps-minus-aad-powershell
 # Configure enterprise application properties
 
 This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

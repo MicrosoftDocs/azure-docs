@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 04/05/2023
 ms.author: allensu 
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell, template-how-to
@@ -198,6 +198,9 @@ This section describes how to disable subnet private endpoint policies using an 
 ```
 
 ---
+
+> [!IMPORTANT]
+> There are limitations to private endpoints in relation to the network policy feature and Network Security Groups and User Defined Routes. For more information, see [Limitations](private-endpoint-overview.md#limitations).
 
 ## Next steps
 - Learn more about [Azure private endpoint](private-endpoint-overview.md)

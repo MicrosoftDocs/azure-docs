@@ -47,7 +47,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 			{
 				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
 				"maxEventsPerBatch": 10,
-				"preferredBatchSizeInKilobytes": 6400
+				"preferredBatchSizeInKilobytes": 64
 			}
 		},
 		"eventDeliverySchema": "EventGridSchema"

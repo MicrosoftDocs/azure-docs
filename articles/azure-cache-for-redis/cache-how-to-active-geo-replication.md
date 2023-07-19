@@ -4,11 +4,12 @@ description: Learn how to replicate your Azure Cache for Redis Enterprise instan
 author: flang-msft
 
 ms.service: cache
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 03/23/2023
 ms.author: franlanglois
-
 ---
+
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
 
 In this article, you learn how to configure an active geo-replicated cache using the Azure portal.
@@ -24,14 +25,6 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 |Tier      | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
 |--------- |:------------------:|:----------:|:---------:|
 |Available | No          | No       |  Yes  |
-
-
-|Tier	| Available|
-|:---|:---:|
-|Basic, Standard	| No |
-|Premium | No |
-|Enterprise, Enterprise Flash| Yes  |
-
 
 The Premium tier of Azure Cache for Redis offers a version of geo-replication called [_passive geo-replication_](cache-how-to-geo-replication.md). Passive geo-replication provides an active-passive configuration.
 
@@ -147,6 +140,10 @@ Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and
 
 :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
 
+### Flush caches using Azure CLI or PowerShell
+
+The Azure CLI and PowerShell can also be used to trigger a flush operation. For more information on using Azure CLI, see [az redisenterprise database flush](/cli/azure/redisenterprise#az-redisenterprise-database-flush). For more information on using PowerShell, see [Invoke-AzRedisEnterpriseCacheDatabaseFlush](/powershell/module/az.redisenterprisecache/invoke-azredisenterprisecachedatabaseflush). 
+
 > [!IMPORTANT]
 > Be careful when using the **Flush Caches** feature. Selecting the button removes all data from the current cache and from ALL linked caches in the geo-replication group. 
 >
@@ -159,3 +156,5 @@ Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 * [High availability for Azure Cache for Redis](cache-high-availability.md)
+
+

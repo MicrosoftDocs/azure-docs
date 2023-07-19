@@ -2,51 +2,41 @@
 title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 
 ---
 
 # Use Azure ultra disks on Azure Kubernetes Service
 
-[Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. With ultra disks, you can dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
+[Azure ultra disks][ultra-disk-overview] offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
+
+This article describes how to configure a new or existing AKS cluster to use Azure ultra disks.
 
 ## Before you begin
 
-This feature can only be set at cluster or node pool creation time.
-
-> [!IMPORTANT]
-> Azure ultra disks require node pools deployed in availability zones and regions that support these disks and specific VM series. For more information, see the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+This feature can only be set at cluster creation or when creating a node pool.
 
 ### Limitations
 
-- Ultra disks can't be used with certain features, such as availability sets or Azure Disk encryption. Review [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations) before proceeding.
+- Azure ultra disks require node pools deployed in availability zones and regions that support these disks, and are only supported by specific VM series. Review the corresponding table under the  [Ultra disk limitations][ultra-disk-limitations] section for more information.
+- Ultra disks can't be used with some features and functionality, such as availability sets or Azure Disk Encryption. Review the [Ultra disk limitations][ultra-disk-limitations] for the latest information.  
 - The supported size range for ultra disks is between *100* and *1500*.
 
 ## Create a cluster that can use ultra disks
 
-Create an AKS cluster that can use ultra disks by enabling the `EnableUltraSSD` feature.
+Create an AKS cluster that is able to leverage Azure ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` parameter to set the `EnableUltraSSD` feature.
 
-1. Create an Azure resource group using the [`az group create`][az-group-create] command.
+```azurecli-interactive
+az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+```
 
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location westus2
-    ```
-
-2. Create an AKS-managed Azure AD cluster with support for ultra disks using the [`az aks create`][az-aks-create] command with the `--enable-ultra-ssd` flag.
-
-    ```azurecli-interactive
-    az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
-    ```
+If you want to create a cluster without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
 
 ## Enable ultra disks on an existing cluster
 
-You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks.
+You can enable ultra disks on an existing cluster by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use ultra disks by using the `--enable-ultra-ssd` parameter with the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
-- Configure a new node pool to use ultra disks using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--enable-ultra-ssd` flag.
-
-    ```azurecli
-    az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
-    ```
+If you want to create new node pools without support for ultra disks, you can do so by excluding the `--enable-ultra-ssd` parameter.
 
 ## Use ultra disks dynamically with a storage class
 
@@ -54,7 +44,7 @@ To use ultra disks in your deployments or stateful sets, you can use a [storage 
 
 ### Create the storage class
 
-A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes]. In this case, we'll create a storage class that references ultra disks.
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes]. In this example, we'll create a storage class that references ultra disks.
 
 1. Create a file named `azure-ultra-disk-sc.yaml` and copy in the following manifest:
 
@@ -75,7 +65,7 @@ A storage class is used to define how a unit of storage is dynamically created w
 
 2. Create the storage class using the [`kubectl apply`][kubectl-apply] command and specify your `azure-ultra-disk-sc.yaml` file.
 
-    ```console
+    ```bash
     kubectl apply -f azure-ultra-disk-sc.yaml
     ```
 
@@ -109,7 +99,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 2. Create the persistent volume claim using the [`kubectl apply`][kubectl-apply] command and specify your `azure-ultra-disk-pvc.yaml` file.
 
-    ```console
+    ```bash
     kubectl apply -f azure-ultra-disk-pvc.yaml
     ```
 
@@ -166,7 +156,7 @@ Once the persistent volume claim has been created and the disk successfully prov
 
 3. See your configuration details using the `kubectl describe pod` command and specify your `nginx-ultra.yaml` file.
 
-    ```console
+    ```bash
     kubectl describe pod nginx-ultra
     ```
 
@@ -193,10 +183,6 @@ Once the persistent volume claim has been created and the disk successfully prov
     [...]
     ```
 
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in AKS][use-tags].
-
 ## Next steps
 
 - For more about ultra disks, see [Using Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).
@@ -207,9 +193,9 @@ For more details on using Azure tags, see [Use Azure tags in AKS][use-tags].
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 
 <!-- LINKS - internal -->
+[ultra-disk-overview]: ../virtual-machines/disks-types.md#ultra-disks
+[ultra-disk-limitations]: ../virtual-machines/disks-types.md#ultra-disk-limitations
 [azure-disk-volume]: azure-disk-csi.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [use-tags]: use-tags.md
-[az-group-create]: /cli/azure/group#az_group_create
-[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add

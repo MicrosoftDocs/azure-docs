@@ -29,7 +29,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming models for authoring Functions in Python (V2) and Node.js (V4) are currently in preview. Compared to the current models, the new experiences are designed to be more flexible and intuitive for Python and JavaScript/TypeScript developers. Learn more about the differences between the models in the [Python developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and [Node.js upgrade guide](../functions-node-upgrade-v4.md).
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, this new experience is designed to be more flexible and intuitive for Node developers. Learn more about the differences between the models in the [Node.js upgrade guide](../functions-node-upgrade-v4.md).
 >
 > In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
 
@@ -518,7 +518,7 @@ public static async Task Run(
         if (jobStatus == "Completed")
         {
             // Perform an action when a condition is met.
-            await context.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", jobId);
             break;
         }
 
@@ -547,7 +547,7 @@ public static async Task Run(
         if (jobStatus == "Completed")
         {
             // Perform an action when a condition is met.
-            await context.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", jobId);
             break;
         }
 
@@ -575,7 +575,7 @@ module.exports = df.orchestrator(function*(context) {
         const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
             // Perform an action when a condition is met.
-            yield context.df.callActivity("SendAlert", machineId);
+            yield context.df.callActivity("SendAlert", jobId);
             break;
         }
 

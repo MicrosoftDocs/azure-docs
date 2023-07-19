@@ -3,7 +3,7 @@ title: Best practices for running Azure Kubernetes Service (AKS) at scale
 titleSuffix: Azure Kubernetes Service
 description: Learn the AKS cluster operator best practices and special considerations for running large clusters at 500 node scale and beyond 
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 07/14/2023
  
 ---
 
@@ -33,7 +33,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or internal service below 750 node scale for optimal scaling performance and load balancer elasticity.
 
 > [!NOTE]
-> You can't use [Azure Network Policy Manager (Azure NPM)][azure-npm] with clusters that have more than 500 nodes.
+> [Azure Policy Network Manager (Azure NPM)][azure-npm] doesn't support clusters that have more than 250 nodes, and you can't update a cluster with more than 250 nodes managed by Cluster Autoscaler across all agent pools.
 
 ## Node pool scaling considerations and best practices
 

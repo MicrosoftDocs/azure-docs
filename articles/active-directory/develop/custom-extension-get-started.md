@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/31/2023
+ms.date: 05/23/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -23,7 +23,7 @@ This article describes how to configure and setup a custom claims provider with 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
 
-> [!VIDEO https://www.youtube.com/embed/r-JEsMBJ7GE]
+> [!VIDEO https://www.youtube.com/embed/fxQGVIwX8_4]
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ After the Azure Function app is created, create an HTTP trigger function. The HT
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
 1. In the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
-1. Under **Template details**, enter *CustomExtensionsAPI* for the **New Function** property.
+1. Under **Template details**, enter *CustomAuthenticationExtensionsAPI* for the **New Function** property.
 1. For the **Authorization level**, select **Function**.
 1. Select **Create**
 
@@ -128,7 +128,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
         public Claims claims { get; set; }
         public Action()
         {
-            odatatype = "microsoft.graph.provideClaimsForToken";
+            odatatype = "microsoft.graph.tokenIssuanceStart.provideClaimsForToken";
             claims = new Claims();
         }
     }
@@ -285,10 +285,6 @@ Next, you register the custom extension. You register the custom extension by as
             "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
             "resourceId": "{functionApp_IdentifierUri}"
         },
-        "clientConfiguration": {
-            "timeoutInMilliseconds": 2000,
-            "maximumRetries": 1
-        },
         "claimsForTokenConfiguration": [
             {
                 "claimIdInApiResponse": "DateOfBirth"
@@ -369,7 +365,7 @@ The following JSON snippet demonstrates how to configure these properties.
 ```
 
 > [!WARNING]
-> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](/graph/application-saml-sso-configure-api#option-2-create-a-custom-signing-certificate).
 
 ## Step 4. Assign a custom claims provider to your app
 

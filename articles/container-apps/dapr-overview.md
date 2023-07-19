@@ -4,9 +4,9 @@ description: Learn more about using Dapr on your Azure Container App service to 
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 05/15/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -41,7 +41,7 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 
 > [!NOTE]
-> The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see limitations](#unsupported-dapr-capabilities).
+> The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
 
 ## Dapr concepts overview
 
@@ -334,10 +334,6 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ---
 
-## Release cadence for Dapr
-
-The latest version of Dapr in Azure Container Apps will be available within six weeks after [the Dapr OSS release][dapr-release].
-
 ## Limitations
 
 ### Unsupported Dapr capabilities
@@ -346,7 +342,7 @@ The latest version of Dapr in Azure Container Apps will be available within six 
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
-- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. If available to use, they are on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components aren't covered by customer support.
+- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
 
 ### Known limitations
 
@@ -356,9 +352,14 @@ The latest version of Dapr in Azure Container Apps will be available within six 
 
 Now that you've learned about Dapr and some of the challenges it solves:
 
+- [Create an Azure Dapr component via the Azure Container Apps portal][dapr-component-connection]
 - Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
 - Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
-- Learn how to [perform event-driven work using Dapr bindings][dapr-bindings-tutorial]
+- Learn how to [perform event-driven work using Dapr bindings][dapr-bindings-tutorial].
+- [Enable token authentication for Dapr requests.][dapr-token]
+- [Scale your Dapr applications using KEDA scalers][dapr-keda]
+- [Answer common questions about the Dapr integration with Azure Container Apps][dapr-faq]
+
 
 <!-- Links Internal -->
 
@@ -366,6 +367,10 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
 [dapr-github-actions]: ./dapr-github-actions.md
 [dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
+[dapr-token]: ./dapr-authentication-token.md
+[dapr-component-connection]: ./dapr-component-connection.md
+[dapr-keda]: ./dapr-keda-scaling.md
+[dapr-faq]: ./faq.yml#dapr
 
 <!-- Links External -->
 

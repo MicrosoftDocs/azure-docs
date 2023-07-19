@@ -2,10 +2,10 @@
 title: Configure and manage enhanced soft delete for Azure Backup (preview)
 description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 06/12/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Configure and manage enhanced soft delete in Azure Backup (preview)
@@ -17,7 +17,7 @@ This article describes how to configure and use enhanced soft delete to protect 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
 - It's supported for new and existing vaults.
 - All existing Recovery Services vaults in the [preview regions](backup-azure-enhanced-soft-delete-about.md#supported-scenarios) are upgraded with an option to use enhanced soft delete.
-
+- For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
 
 ## Enable soft delete with always-on state
 
@@ -190,11 +190,53 @@ Here are some points to note:
 
 - Unregistering a container while its backup items are soft deleted (not permanently deleted) will change the state of the container to Soft deleted. 
 
-- You can re-register containers that are in soft deleted state to another vault. However, in such scenarios, the existing backups (that are soft deleted) will continue to be in the original vault and will be permanently deleted when the soft delete retention period expires. 
+- You can re-register containers that are in soft deleted state to another vault. However, in such scenarios, the existing backups (that is soft deleted) will continue to be in the original vault and will be permanently deleted when the soft delete retention period expires. 
 
 - You can also *undelete* the container. Once undeleted, it's re-registered to the original vault.
 
   You can undelete a container only if it's not registered to another vault. If it's registered, then you need to unregister it with the vault before performing the *undelete* operation.
+
+## Delete recovery points
+
+Soft delete of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
+
+[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points), a part of enhanced soft delete is currently available in selected Azure regions. [Learn more](backup-azure-enhanced-soft-delete-about.md#supported-regions) on the region availability.
+
+Follow these steps:
+
+1. Go to your *vault* > **Backup policies**.
+
+2. Select the *backup policy* you want to modify.
+
+3. Reduce the retention duration in the backup policy, and then select **Update**.
+
+4. Go to *vault* > **Backup items**.
+
+5. Select a *backup item* that is backed up using the modified policy, and view its details.
+
+6.	To view all recovery points for this item, select **Restore**, and then filter for the impacted recovery points.
+
+   The impacted recovery points are labeled as *being soft deleted* in the **Recovery type** column and will be retained as per the soft delete retention of the vault.
+ 
+   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/select-restore-point-for-soft-delete.png" alt-text="Screenshot shows to filter recovery points for soft delete.":::
+
+## Undelete recovery points
+
+You can *undelete* recovery points that are in soft deleted state so that they can last till their expiry by modifying the policy again to increase the retention of backups.
+
+Follow these steps:
+
+1. Go to your *vault* > **Backup policies**.
+
+2. Select the *backup policy* you want to modify.
+
+3. Increase the retention duration in the backup policy, and then select **Update**.
+
+4.	Go to *vault* > **Backup items**, select a *backup item* that is backed up using the modified policy, and then view its details.
+
+5.	To view all recovery points for this item, select **Restore**, and then filter for the impacted recovery points.
+
+   The impacted recovery points don't have the *soft deleted* label and can't in soft-deleted state. If there are recovery points that are still beyond the increased retention duration, these would continue to be in the soft-deleted state unless the retention is further increased.
 
 ## Disable soft delete
 

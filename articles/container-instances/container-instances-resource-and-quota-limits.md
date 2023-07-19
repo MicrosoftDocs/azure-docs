@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Resource availability & quota limits for ACI
 
-This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
+This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). For product feature availability in Azure regions, see [Region availability](container-instances-region-availability.md).
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
@@ -23,7 +23,7 @@ Values presented are the maximum resources available per deployment of a [contai
 
 All Azure services include certain default limits and quotas for resources and features. This section details the default quotas and limits for Azure Container Instances.  
 
-Use the [List Usage](/rest/api/container-instances/location/listusage) API to review current quota usage in a region for a subscription. 
+Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription. 
 
 Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
@@ -74,6 +74,12 @@ For a general list of available regions for Azure Container Instances, see [avai
 
 The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. 
 
+#### Windows Server 2022 LTSC 
+
+| 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support | 
+| :----: | :-----: | :-------: | 
+| 4 | 16 | 20 | Y | 
+
 #### Windows Server 2019 LTSC 
 
 > [!NOTE] 
@@ -86,8 +92,10 @@ The following resources are available in all Azure Regions supported by Azure Co
 | 4 | 16 | 20 | Y | 
 
 ## GPU Resources (Preview) 
+> [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
 
-> [!IMPORTANT]  
+> [!NOTE]
 > Not all limit increase requests are guaranteed to be approved.
 > Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
 > Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
@@ -96,12 +104,17 @@ The following maximum resources are available to a container group deployed with
 
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) | 
 | --- | --- | --- | --- | --- | 
+| V100 | 1 | 6 | 112 | 50 | 
+| V100 | 2 | 12 | 224 | 50 | 
+| V100 | 4 | 24 | 448 | 50 | 
+<!---
 | K80 | 1 | 6 | 56 | 50 | 
 | K80 | 2 | 12 | 112 | 50 | 
 | K80 | 4 | 24 | 224 | 50 | 
 | P100, V100 | 1 | 6 | 112 | 50 | 
 | P100, V100 | 2 | 12 | 224 | 50 | 
 | P100, V100 | 4 | 24 | 448 | 50 | 
+--->
 
 ## Next steps 
 

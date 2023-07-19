@@ -4,7 +4,7 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/31/2023
+ms.date: 07/11/2023
 ---
 
 # Add session hosts to a host pool
@@ -17,21 +17,22 @@ This article shows you how to generate a registration key using the Azure portal
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required. In addition, you'll need:
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required, such as operating systems, virtual networks, and identity providers. In addition, you'll need:
 
 - An existing host pool.
 
-- If you're joining session hosts to Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
-
-- If you're joining session hosts to Active Directory domain using Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS), you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-
-- A virtual network and subnet in the same Azure region you want to create session hosts. You don't need a public IP address or open inbound ports for your session hosts.
-
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that was used. All session hosts in a host pool should be the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Azure AD and some session hosts joined to an Active Directory domain.
 
-- If you're creating virtual machines outside of the Azure Virtual Desktop service, make sure you're using a [supported operating system](prerequisites.md#operating-systems-and-licenses) (OS). Remember to use a multi-session OS for a pooled host pool.
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on the resource group:
 
-- A minimum of *Contributor* built-in [role-based access control](../role-based-access-control/built-in-roles.md) (RBAC) role on the resource group.
+   | Action | RBAC role(s) |
+   |--|--|
+   | Generate a host pool registration key | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Create and add session hosts using the Azure portal | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
+
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating and adding session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -68,7 +69,6 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
 2. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurecli
@@ -95,7 +95,6 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
 2. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurepowershell
@@ -132,7 +131,7 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the name of the host pool you want to add session hosts to.
 
@@ -145,14 +144,15 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Parameter | Value/Description |
    |--|--|
    | Resource group | This automatically defaults to the same resource group as your host pool, but you can select an alternative existing one from the drop-down list. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host will have a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**. This name prefix can be a maximum of 11 characters and will also be in the computer name in the operating system. Session host names must be unique. |
+   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
-   | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**. |
+   | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
    | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
    | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
    | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session host VMs at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
    | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
+   | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
    | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
    | **Network and security** |  |
    | Virtual network | Select your virtual network. An option to select a subnet will appear. |
@@ -160,7 +160,7 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **Basic** will create a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG. |
    | Public inbound ports | We recommend you select **No**. |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.  |
+   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.<br /><br />To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md). |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for the new session host VMs. |
    | Password | Enter a password for the local administrator account. |
@@ -202,8 +202,10 @@ Select the relevant tab for your scenario and follow the steps.
 1. Download the Agent and the Agent Bootloader installation files using the following links You may need to unblock them; right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -215,7 +217,9 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Follow the prompts and complete the installation.
 
-1. The virtual machines should now appear as a session host in the host pool. Finally, restart the virtual machines.
+1. After a short time, the virtual machines should now be listed as session hosts in the host pool. The status of the session hosts may initially show as **Unavailable** and if there is a newer agent version available, it will upgrade automatically.
+
+1. Once the status of the session hosts is **Available**, restart the virtual machines.
 
 # [Command line](#tab/cmd)
 
@@ -232,7 +236,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    Install-WindowsFeature -Name RDS-RD-Server -Restart
    ```
 
-1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands:
+1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands. The files will be downloaded to the current working directory.
 
    ```powershell
    $uris = @(
@@ -242,7 +246,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
    $installers = @()
    foreach ($uri in $uris) {
-       $download = Invoke-WebRequest -Uri $uri
+       $download = Invoke-WebRequest -Uri $uri -UseBasicParsing
 
        $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
        $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)
@@ -256,6 +260,9 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    }
    ```
 
+   > [!TIP]
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 
    ```powershell
@@ -268,7 +275,9 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    msiexec /i Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi /quiet
    ```
 
-1. The virtual machines should now appear as a session host in the host pool. Finally, restart the virtual machines. 
+1. After a short time, the virtual machines should now be listed as session hosts in the host pool. The status of the session hosts may initially show as **Unavailable** and if there is a newer agent version available, it will upgrade automatically.
+
+1. Once the status of the session hosts is **Available**, restart the virtual machines.
 
 ---
 

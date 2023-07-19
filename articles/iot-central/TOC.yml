@@ -93,8 +93,6 @@
         href: core/concepts-device-templates.md      
       - name: Connect IoT Edge devices
         href: core/concepts-iot-edge.md
-      - name: Message payloads
-        href: core/concepts-telemetry-properties-commands.md
 
     - name: Device management guide
       href: core/overview-iot-central-operator.md
@@ -121,8 +119,6 @@
   items:
     - name: Create an application
       href: core/howto-create-iot-central-application.md
-    - name: Integrate IoT Central into a DevOps pipeline
-      href: core/howto-integrate-with-devops.md
     - name: Build and connect devices
       items:
         - name: Set up a device template

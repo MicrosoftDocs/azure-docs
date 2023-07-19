@@ -1,7 +1,7 @@
 ---
 title:  Azure Connected Machine agent deployment options
 description: Learn about the different options to onboard machines to Azure Arc-enabled servers.
-ms.date: 10/08/2022
+ms.date: 05/04/2023
 ms.topic: how-to 
 ---
 
@@ -35,3 +35,4 @@ Be sure to review the basic [prerequisites](prerequisites.md) and [network confi
 * Learn about the Azure Connected Machine agent [prerequisites](prerequisites.md) and [network requirements](network-requirements.md).
 * Review the [Planning and deployment guide for Azure Arc-enabled servers](plan-at-scale-deployment.md)
 * Learn about [reconfiguring, upgrading, and removing the Connected Machine agent](manage-agent.md).
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).

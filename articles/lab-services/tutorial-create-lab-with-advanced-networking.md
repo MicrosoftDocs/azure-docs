@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
-Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  Advanced networking is used to enable various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), lab to lab communication, etc.  
+Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  You can use advanced networking to implement various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), or lab to lab communication. Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md).
 
 Let's focus on the lab to lab communication scenario.  For our example, we'll create labs for a web development class.  Each student will need access to both a server VM and a client VM.  The server and client VMs must be able to communicate with each other.  We'll test communication by configuring Internet Control Message Protocol (ICMP) for each VM and allowing the VMs to ping each other.
 
@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 
@@ -287,7 +288,7 @@ First, let's start and connect to a lab VM from each lab.  Complete the followin
 1. Select the **State** slider to change the state from **Stopped** to **Starting**.
 
     > [!NOTE]
-    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-manage-lab-users.md?#set-quotas-for-users).
 1. Once the **State** is **Running**, select the connect icon for the running VM.  Open the download RDP file to connect to the VM.  For more information about connection experiences on different operating systems, see [Connect to a lab VM](connect-virtual-machine.md).
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/virtual-machine-pool-running-vm.png" alt-text="Screen shot of virtual machine pool page for Azure Lab Services lab.":::
@@ -313,4 +314,4 @@ If you're not going to continue to use this application, delete the virtual netw
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Add students to the labs](how-to-configure-student-usage.md)
+>[Add students to the labs](how-to-manage-lab-users.md)

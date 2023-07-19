@@ -54,12 +54,14 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool name | Enter a name for the host pool, for example *aad-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
-   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *Remote App* application groups in the same host pool.|
+   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *RemoteApp* application groups in the same host pool.|
    | **Host pool type** |  |
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they'll always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user will automatically get assigned the first available session host when they first sign in, which will then be dedicated to that user. |
 
-   Once you've completed this tab, select **Next: Virtual Machines**.
+   Once you've completed this tab, select **Next: Networking**.
+
+1. On the **Networking** tab, select **Enable public access from all networks**, where end users can access the feed and session hosts securely over the public internet or the private endpoints. Once you've completed this tab, select **Next: Virtual Machines**.
 
 1. On the **Virtual machines** tab, complete the following information:
 
@@ -67,13 +69,13 @@ To create a personal host pool, workspace, application group, and session host V
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**. This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. |
+   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select **No infrastructure dependency required**. This means that your session host VMs won't be deployed in an availability set or in availability zones. |
    | Security type | Select **Standard**. |
    | Image | Select **Windows 11 Enterprise, version 22H2**. |
    | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
-   | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more later. <br /><br />With a personal host pool, each session host can only be assigned to one user, so you'll need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
+   | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more later.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you'll need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
    | OS disk type | Select **Premium SSD** for best performance. |
    | Boot Diagnostics | Select **Enable with managed storage account (recommended)**. |
    | **Network and security** |  |
@@ -105,6 +107,8 @@ To create a personal host pool, workspace, application group, and session host V
 1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
 1. Select **Create**. A host pool, workspace, application group, and session host will be created. Once your deployment is complete, select **Go to resource**. This goes to the host pool overview.
+
+1. Finally, from the host pool overview select **Session hosts** and verify the status of the session hosts is **Available**.
 
 ## Assign users to the application group
 

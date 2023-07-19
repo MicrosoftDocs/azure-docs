@@ -1,12 +1,12 @@
 ---
 title:  Java and base OS for Azure Spring Apps apps
 description: Principles for maintaining healthy Java and base operating system for Azure Spring Apps apps
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Java and Base OS for Azure Spring Apps apps
@@ -20,7 +20,7 @@ The following are principles for maintaining healthy Java and base operating sys
 
 ## Principles for healthy Java and Base OS
 
-* Shall be the same base operating system across tiers - Basic | Standard | Premium.
+* Shall be the same base operating system across plans - Basic | Standard | Premium.
 
   * Currently, apps on Azure Spring Apps use a mix of Debian 10 and Ubuntu 18.04.
   * VMware Tanzu® Build Service™ uses Ubuntu 18.04.

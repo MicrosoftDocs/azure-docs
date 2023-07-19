@@ -10,11 +10,14 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace
+# Tutorial: How to create a secure workspace
 
-In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+In this article, learn how to create and connect to a secure Azure Machine Learning workspace. The steps in this article use an Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 In this tutorial, you accomplish the following tasks:
 
@@ -264,9 +267,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-machine-learning-workspace.png" alt-text="Basic workspace configuration":::
 
-1. From the __Networking__ tab, select __Private endpoint__ and then select __+ add__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-networking.png" alt-text="Workspace networking":::
+1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ add__.
 
 1. On the __Create private endpoint__ form, use the following values: 
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -283,6 +284,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of workspace private network config":::
 
+1. From the __Networking__ tab, in the __Workspace outbound access__ section, select __Use my own virtual network__.
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
 1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
@@ -477,11 +479,11 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 For more information on creating a compute cluster and compute cluster, including how to do so with Python and the CLI, see the following articles:
 
 * [Create a compute cluster](how-to-create-attach-compute-cluster.md)
-* [Create a compute instance](how-to-create-manage-compute-instance.md)
+* [Create a compute instance](how-to-create-compute-instance.md)
 
 ## Configure image builds
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
@@ -549,4 +551,9 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
+:::moniker range="azureml-api-2"
 Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Now that you've created a secure workspace, learn how to [deploy a model](./v1/how-to-deploy-and-where.md).
+:::moniker-end

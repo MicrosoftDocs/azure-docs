@@ -95,7 +95,6 @@ After importing the certificate, you can view the certificate using the Azure CL
 az keyvault certificate show --vault-name "<your-key-vault-name>" --name "ExampleCertificate"
 ```
 
-
 # [Azure PowerShell](#tab/azure-powershell)
 
 You can import a certificate into Key Vault using the Azure PowerShell [Import-AzKeyVaultCertificate](/powershell/module/az.keyvault/import-azkeyvaultcertificate) cmdlet.

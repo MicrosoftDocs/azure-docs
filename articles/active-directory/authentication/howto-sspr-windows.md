@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 04/05/2023
 
 ms.author: justinha
 author: justinha
@@ -36,7 +36,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 - This feature doesn't work for networks with 802.1x network authentication deployed and the option "Perform immediately before user logon". For networks with 802.1x network authentication deployed, it's recommended to use machine authentication to enable this feature.
 - Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials. This means that devices must either be on the organization's internal network or on a VPN with network access to an on-premises domain controller.
 - If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
-- The following settings are known to interfere with the ability to use and reset passwords on Windows devices:
+- The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices:
     - If lock screen notifications are turned off, **Reset password** won't work.
     - *HideFastUserSwitching* is set to enabled or 1
     - *DontDisplayLastUserName* is set to enabled or 1
@@ -93,7 +93,7 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
     Select **Add**, then **Next**.
 1. The policy can be assigned to specific users, devices, or groups. Assign the profile as desired for your environment, ideally to a test group of devices first, then select **Next**.
 
-    For more information, see [Assign user and device profiles in Microsoft Microsoft Intune](/mem/intune/configuration/device-profile-assign).
+    For more information, see [Assign user and device profiles in Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.

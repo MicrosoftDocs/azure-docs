@@ -1221,6 +1221,12 @@
     },
 
     {
+      "source_path_from_root": "/articles/sap/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-scale-out-hsr-suse",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md",
       "redirect_url": "/azure/sap/center-sap-solutions/deploy-s4hana",
       "redirect_document_id": true

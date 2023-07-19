@@ -8,6 +8,7 @@ services: synapse-analytics
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
+ms.custom: devx-track-python
 ms.date: 09/13/2020
 ---
 # Visualize data

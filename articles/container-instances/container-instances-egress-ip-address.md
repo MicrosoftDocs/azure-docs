@@ -4,6 +4,7 @@ description: Configure Azure firewall and user-defined routes for Azure Containe
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
 ms.date: 05/03/2022
@@ -162,7 +163,7 @@ View the container logs to confirm the IP address is the same as the public IP a
 
 ```azurecli
 az container logs \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --sed 's/$RESOURCE_GROUP_NAME/$resourceGroup/g'
   --name testegress 
 ```
 

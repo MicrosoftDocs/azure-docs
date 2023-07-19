@@ -7,22 +7,20 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/07/2020
+ms.date: 05/03/2023
 ms.author: mbender
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Load Balancer and Availability Zones
 
 Azure Load Balancer supports availability zones scenarios. You can use Standard Load Balancer to increase availability throughout your scenario by aligning resources with, and distribution across zones.  Review this document to understand these concepts and fundamental scenario design guidance.
 
-A Load Balancer can either be **zone redundant, zonal,** or **non-zonal**. To configure the zone-related properties (mentioned above) for your load balancer, select the appropriate type of frontend needed.
+A Load Balancer can either be **zone redundant, zonal,** or **non-zonal**. To configure the zone-related properties for your load balancer, select the appropriate type of frontend needed.
 
 ## Zone redundant
 
-In a region with Availability Zones, a Standard Load Balancer can be zone-redundant. This traffic is served by a single IP address.
-
-A single frontend IP address will survive zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
+In a region with Availability Zones, a Standard Load Balancer can be zone-redundant with traffic served by a single IP address. A single frontend IP address survives zone failure. The frontend IP may be used to reach all (nonimpacted) backend pool members no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
 The frontend's IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones. Any retries or reestablishment will succeed in other zones not affected by the zone failure.
 
@@ -34,7 +32,7 @@ The frontend's IP address is served simultaneously by multiple independent infra
 
 ## Zonal
 
-You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal*.  This scenario means any inbound or outbound flow is served by a single zone in a region.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
+You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal*.  With this scenario,  a single zone in a region serves all inbound or outbound flow.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
 
 Additionally, the use of zonal frontends directly for load-balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name.
 
@@ -72,7 +70,7 @@ Using multiple frontends allow you to load balance traffic on more than one port
 
 ### Transition between regional zonal models
 
-In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md), any existing IPs would remain non-zonal like IPs used for load balancer frontends. To ensure your architecture can take advantage of the new zones, creation of new frontend IPs is recommended. Once created, you can replace the existing non-zonal frontend with a new zone-redundant frontend using the method described [here](../virtual-network/ip-services/configure-public-ip-load-balancer.md#change-or-remove-public-ip-address).  All existing load balancing and NAT rules will transition to the new frontend.
+In the case where a region is augmented to have [availability zones](../availability-zones/az-overview.md), any existing IPs would remain non-zonal like IPs used for load balancer frontends. To ensure your architecture can take advantage of the new zones, creation of new frontend IPs is recommended. Once created, you can replace the existing non-zonal frontend with a new zone-redundant frontend using the method described [here](../virtual-network/ip-services/configure-public-ip-load-balancer.md#change-or-remove-public-ip-address).  All existing load balancing and NAT rules transition to the new frontend.
 
 ### Control vs data plane implications
 

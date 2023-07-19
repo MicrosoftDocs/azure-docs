@@ -12,6 +12,7 @@ ms.date: 03/29/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---
@@ -35,6 +36,8 @@ Using this feature, you can:
 - Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s My Apps portal
 
 - Optionally automatically assign self-service assigned users to an application role directly.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

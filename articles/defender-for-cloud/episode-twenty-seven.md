@@ -3,7 +3,7 @@ title: Demystifying Defender for Servers | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about different deployment options in Defender for Servers
 ms.topic: reference
-ms.date: 03/05/2023
+ms.date: 04/27/2023
 ---
 
 # Demystifying Defender for Servers | Defender for Cloud in the field
@@ -40,4 +40,4 @@ ms.date: 03/05/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Zero Trust and Defender for Cloud](episode-twenty-eight.md)

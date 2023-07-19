@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Protect your application gateway with Azure DDoS Protection Standard'
+title: 'Tutorial: Protect your application gateway with Azure DDoS Network Protection'
 titleSuffix: Azure Application Gateway
 description: Learn how to set up an application gateway and protect it with Azure DDoS protection
 services: application-gateway
 author: duongau
 ms.author: duau
-ms.date: 12/21/2022
+ms.date: 04/06/2023
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: template tutorial
 ---
 
-# Tutorial: Protect your application gateway with Azure DDoS Protection Standard
+# Tutorial: Protect your application gateway with Azure DDoS Network Protection
 
-This article helps you create an Azure Application Gateway with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your application gateways from large scale DDoS attacks.
+This article helps you create an Azure Application Gateway with a DDoS protected virtual network. Azure DDoS Network Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your application gateways from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
 In this tutorial, you learn how to:
 
@@ -156,7 +156,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 ## Enable DDoS protection
 
-Azure DDoS protection Standard is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network Protection is enabled at the virtual network where the resource you want to protect reside. 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -168,7 +168,7 @@ Azure DDoS protection Standard is enabled at the virtual network where the resou
 
 5. In the pull-down box in DDoS protection plan, select **myDDoSProtectionPlan**.
 
-    :::image type="content" source="./media/tutorial-protect-application-gateway/enable-ddos-vnet.png" alt-text="Screenshot of ddos protection.":::
+    :::image type="content" source="./media/tutorial-protect-application-gateway/enable-ddos-vnet.png" alt-text="Screenshot of D D o S network protection.":::
 
 6. Select **Save**.
 

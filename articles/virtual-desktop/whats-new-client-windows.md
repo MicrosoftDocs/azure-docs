@@ -1,10 +1,10 @@
 ---
 title: What's new in the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Windows
-ms.topic: conceptual
+ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 03/29/2023
+ms.date: 07/11/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,30 +17,94 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4066       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4153       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4485       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.4153 (Insider)
+## Updates for version 1.2.4485 (Insider)
 
-*Date published: March 28, 2023*
+*Date published: July 11, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following changes: 
+
+- Narrator now describes the toggle button in the display settings side panel as "toggle button" instead of "button."
+- Control types for text now correctly reflect that they're "text" and not "custom." 
+- Updated File and URI Launch Dialog Error Handling to be more specific and user-friendly. 
+- Fixed an issue where Narrator didn't read the error message that appears after the user selects **Detect**.
+- The client now displays an error message after unsuccessfully checking for updates instead of incorrectly displaying a message that says the client is up to date.
+- Added a new RDP file property called "allowed security protocols." This property restricts the list of security protocols the client can negotiate.
+- Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verification. 
+- Added heading-level description to subscribe with URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4419
+
+*Date published: July 6, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes: 
+
+- General improvements to Narrator experience.
+- Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
+- Fixed an issue that caused the client to sometimes stop responding when attempting to start new connections.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4337 
+
+*Date published: June 13, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1697H), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15Tzb), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15W7E) 
+
+In this release, we've made the following changes: 
+
+- Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
+- Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
+
+## Updates for version 1.2.4331
+
+*Date published: June 6, 2023*
+
+In this release, we've made the following changes:
+
+- Improved connection bar resizing so that resizing the bar to its minimum width doesn't make its buttons disappear.
+- Fixed an application compatibility issue that affected preview versions of Windows.
+- Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
+- Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
+- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.4240 
+
+*Date published: May 16, 2023*
+
+In this release, we've made the following changes: 
+
+- Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
+- Made minor changes to connection bar UI, including improved button sizing. 
+- Fixed an issue where the client stopped responding if closed from the system tray. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4159
+
+*Date published: May 9, 2023*
 
 In this release, we've made the following changes:
 
 - Redesigned the connection bar for session desktops.
-- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
+- Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
+- Fixed an issue that generated duplicate Activity IDs for unique connections. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed an application compatibility issue for preview versions of Windows.
 
 ## Updates for version 1.2.4066
 
 *Date published: March 28, 2023*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 In this release, we've made the following changes:
 
@@ -48,7 +112,7 @@ In this release, we've made the following changes:
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
 - Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
-- Disabled UPnP after reports of connectivity issues.
+- Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
@@ -62,8 +126,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.3918
 
 *Date published: February 7, 2023*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWHz3), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWzLu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWPlp)
 
 In this release, we've made the following changes:
 
@@ -136,7 +198,7 @@ In this release, we've made the following changes:
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
+   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
    - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
@@ -508,7 +570,7 @@ In this release, we've made the following changes:
 - Added the auto-update feature, which allows the client to install the latest updates automatically.
 - The client now distinguishes between different feeds in the Connection Center.
 - Fixed an issue where the subscription account doesn't match the account the user signed in with.
-- Fixed an issue where some users couldn't access remote apps through a downloaded file.
+- Fixed an issue where some users couldn't access a RemoteApp through a downloaded file.
 - Fixed an issue with Smartcard redirection.
 
 ## Updates for version 1.2.1364
@@ -533,7 +595,7 @@ In this release, we've made the following changes:
 - Added functionality to enable custom URL subscriptions for all users.
 - Fixed an issue with app pinning on the feed taskbar.
 - Fixed a crash when subscribing with URL.
-- Improved experience when dragging remote app windows with touch or pen.
+- Improved experience when dragging a RemoteApp window with touch or pen.
 - Fixed an issue with localization.
 
 ## Updates for version 1.2.1186

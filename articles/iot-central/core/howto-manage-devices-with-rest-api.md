@@ -1,6 +1,6 @@
 ---
 title: How to use the IoT Central REST API to manage devices
-description: How to use the IoT Central REST API to add devices in an application
+description: Learn how to use the IoT Central REST API to add, modify, delete, and manage devices in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/23/2023

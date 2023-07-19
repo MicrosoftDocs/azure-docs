@@ -44,12 +44,15 @@ Security defaults make it easier to help protect your organization from these id
 
 If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
 
+> [!NOTE]
+> To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this, free tenants not actively using multifactor authentication for all their users will be periodically notified for the automatic enablement of the security defaults setting. After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, please refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
+
 To enable security defaults in your directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
-1. Set **Security defaults** to **Enabled **.
+1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
@@ -65,7 +68,9 @@ All users in your tenant must register for multifactor authentication (MFA) in t
 Administrators have increased access to your environment. Because of the power these highly privileged accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multifactor authentication. 
 
 > [!TIP]
-> We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
+> Recommendations for your admins:
+> - Ensure all your admins sign in after enabling security defaults so that they can register for authentication methods.
+> - Have separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
 
 After registration with Azure AD Multifactor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
@@ -115,6 +120,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
 - Azure portal 
+- Microsoft Entra Admin Center
 - Azure PowerShell 
 - Azure CLI
 

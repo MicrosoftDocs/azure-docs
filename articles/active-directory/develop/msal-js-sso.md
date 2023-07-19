@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 01/16/2023
 ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev, has-adal-ref, engagement-fy23
+ms.custom: aaddev, has-adal-ref, engagement-fy23, devx-track-js
 #Customer intent: As an application developer, I want to learn about enabling single sign on experiences with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -220,4 +220,4 @@ For more information about SSO, see:
 
 - [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
 - [Optional token claims](active-directory-optional-claims.md)
-- [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
+- [Configurable token lifetimes](configurable-token-lifetimes.md)

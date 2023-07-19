@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab by using Bicep.
 ms.topic: how-to
 ms.date: 05/23/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Create a lab in Azure Lab Services using a Bicep file
@@ -15,7 +15,9 @@ In this article, you learn how to create a lab using a Bicep file.  For a detail
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Review the Bicep file
 

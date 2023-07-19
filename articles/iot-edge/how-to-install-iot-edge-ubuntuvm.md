@@ -6,11 +6,11 @@ manager: veyalla
 # this is the PM responsible
 ms.reviewer: kgremban
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2022
 ms.author: pdecarlo
-
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
 

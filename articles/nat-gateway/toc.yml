@@ -1,0 +1,112 @@
+items:
+- name: Azure NAT Gateway documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure NAT Gateway?
+    href: nat-overview.md
+- name: Quickstarts
+  items:
+  - name: Portal
+    href: quickstart-create-nat-gateway-portal.md
+  - name: PowerShell
+    href: quickstart-create-nat-gateway-powershell.md
+  - name: CLI
+    href: quickstart-create-nat-gateway-cli.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-nat-gateway-bicep.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-create-nat-gateway-template.md
+- name: Tutorials
+  items:
+  - name: Configure dual-stack outbound with a NAT gateway
+    href: tutorial-dual-stack-outbound-nat-load-balancer.md
+  - name: Use a NAT gateway with a hub and spoke network
+    href: tutorial-hub-spoke-route-nat.md
+  - name: Use a NAT gateway with Azure Firewall
+    href: tutorial-hub-spoke-nat-firewall.md
+  - name: Integrate NAT gateway public load balancer
+    href: tutorial-nat-gateway-load-balancer-public-portal.md
+  - name: Integrate NAT gateway internal load balancer
+    href: tutorial-nat-gateway-load-balancer-internal-portal.md
+  - name: Migrate outbound access
+    href: tutorial-migrate-outbound-nat.md
+  - name: Migrate a virtual machine public IP address
+    href: tutorial-migrate-ilip-nat.md
+  expanded: true
+- name: Concepts
+  items:
+  - name: NAT gateway resource
+    href: nat-gateway-resource.md
+  - name: Metrics and alerts
+    href: nat-metrics.md
+  - name: Resource health
+    href: resource-health.md
+  - name: Availability zones
+    href: nat-availability-zones.md
+  - name: Security
+    items:
+    - name: NAT gateway security baseline
+      href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: SNAT with NAT gateway
+    href: nat-gateway-snat.md
+  - name: NAT gateway design guidance
+    href: nat-gateway-design.md
+- name: How-to
+  items:
+  - name: Manage NAT gateway
+    href: manage-nat-gateway.md
+  - name: Move across regions
+    items:
+    - name: Create and configure NAT gateway after region move
+      href: region-move-nat-gateway.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot NAT gateway
+      href: troubleshoot-nat.md
+    - name: Troubleshoot NAT gateway connectivity
+      href: troubleshoot-nat-connectivity.md
+    - name: Troubleshoot NAT gateway and Azure services
+      href: troubleshoot-nat-and-azure-services.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-network
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtual-network
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: /javascript/azure#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtualnetwork/nat-gateways
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/allversions
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/modules/intro-to-azure-virtual-network-nat/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Microsoft Q&A question page for Networking
+    href: /answers/topics/azure-virtual-network.html
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-network
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: faq.yml

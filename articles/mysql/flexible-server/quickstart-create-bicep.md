@@ -3,6 +3,7 @@ title: 'Quickstart: Create an Azure Database for MySQL - Flexible Server - Bicep
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server by using Bicep.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-bicep
 ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal

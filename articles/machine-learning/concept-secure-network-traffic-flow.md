@@ -11,6 +11,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 10/03/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Network traffic flow when using a secured workspace
@@ -93,7 +94,7 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can’t directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can't directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
@@ -130,11 +131,8 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+:::moniker range="azureml-api-2"
 ## Scenario: Use online endpoints
-
-Securing an online endpoint with a private endpoint is a preview feature.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 __Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
 
@@ -153,7 +151,7 @@ Visibility of the endpoint is also governed by the `public_network_access` flag 
 | secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
 | public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
-
+:::moniker-end
 ## Scenario: Use Azure Kubernetes Service
 
 For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to secure inference](how-to-secure-inferencing-vnet.md).

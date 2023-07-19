@@ -2,8 +2,8 @@
 title: Plan Defender for Servers agents and extensions deployment
 description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premises servers with Microsoft Defender for Servers.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/06/2022
 ---
 # Plan agents, extensions, and Azure Arc for Defender for Servers
@@ -42,6 +42,7 @@ You can onboard the Azure Arc agent to your AWS or GCP servers automatically wit
 To plan for Azure Arc deployment:
 
 1. Review the Azure Arc [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md) and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Open the [network ports for Azure Arc](support-matrix-defender-for-servers.md#network-requirements) in your firewall.
 1. Azure Arc installs the Connected Machine agent to connect to and manage machines that are hosted outside of Azure. Review the following information:
 
     - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).

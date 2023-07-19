@@ -99,6 +99,24 @@ Azure Key Vaults policies for automatic, periodic rotation of keys, or actions o
 
 SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in workspaces *not* enabled for double encryption. In this type of workspace, a service-managed key is used to provide double encryption for the data in the dedicated SQL pools. TDE with the service-managed key can be enabled or disabled for individual dedicated SQL pools.
 
+### Cmdlets for Azure SQL Database and Azure Synapse
+
+To configure TDE through PowerShell, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
+
+Use the following cmdlets for Azure Synapse workspace. 
+
+| Cmdlet | Description |
+| --- | --- |
+| [Set-AzSynapseSqlPoolTransparentDataEncryption](/powershell/module/az.synapse/set-azsynapsesqlpooltransparentdataencryption) |Enables or disables transparent data encryption for a SQL pool.|
+| [Get-AzSynapseSqlPoolTransparentDataEncryption](/powershell/module/az.synapse/get-azsynapsesqlpooltransparentdataencryption) |Gets the transparent data encryption state for a SQL pool. |
+| [New-AzSynapseWorkspaceKey](/powershell/module/az.synapse/new-azsynapseworkspacekey) |Adds a Key Vault key to a workspace. |
+| [Get-AzSynapseWorkspaceKey](/powershell/module/az.synapse/get-azsynapseworkspacekey) |Gets the Key Vault keys for a workspace  |
+| [Update-AzSynapseWorkspace](/powershell/module/az.synapse/update-azsynapseworkspace) |Sets the transparent data encryption protector for a workspace. |
+| [Get-AzSynapseWorkspace](/powershell/module/az.synapse/get-azsynapseworkspace) |Gets the transparent data encryption protector |
+| [Remove-AzSynapseWorkspaceKey](/powershell/module/az.synapse/remove-azsynapseworkspacekey) |Removes a Key Vault key from a workspace. |
+
+
+
 ## Next steps
 
 - [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)

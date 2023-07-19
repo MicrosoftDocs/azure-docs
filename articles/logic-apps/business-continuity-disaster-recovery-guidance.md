@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 05/11/2023
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps
@@ -323,8 +323,8 @@ For this task, create a basic health-check logic app that performs these tasks:
 To monitor the primary instance's health and call the health-check logic app, create a "watchdog" logic app in an *alternate location*. For example, you can set up the watchdog logic app so that if calling the health-check logic fails, the watchdog can send an alert to your operations team so that they can investigate the failure and why the primary instance doesn't respond.
 
 > [!IMPORTANT]
-> Make sure that your watchdog logic app is in a *location that differs from primary location*. If the 
-> Logic Apps service in the primary location experiences problems, your watchdog logic app might not run.
+> Make sure that your watchdog logic app is in a *location that differs from primary location*. If Azure 
+> Logic Apps in the primary location experiences problems, your watchdog logic app workflow might not run.
 
 For this task, in the secondary location, create a watchdog logic app that performs these tasks:
 
@@ -332,7 +332,9 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 
    You can set the recurrence to a value that below the tolerance level for your recovery time objective (RTO).
 
-1. Call the health-check logic app in the primary location by using the HTTP action, for example:
+1. Call the health-check logic app workflow in the primary location by using the HTTP action.
+
+You might also create a more sophisticated watchdog logic app, which after a number of failures, that calls another logic app that automatically handles switching to the secondary location when the primary fails.
 
 <a name="activate-secondary"></a>
 

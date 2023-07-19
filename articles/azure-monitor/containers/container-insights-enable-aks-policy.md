@@ -2,6 +2,7 @@
 title: Enable the AKS Monitoring Add-on by using Azure Policy
 description: This article describes how to enable the AKS Monitoring Add-on by using a custom Azure policy.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 08/29/2022
 ms.reviewer: viviandiec
 ---

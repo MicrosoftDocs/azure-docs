@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 04/10/2023
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
@@ -167,6 +167,12 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 ## Create a bastion host
 
 In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a public IP address
 

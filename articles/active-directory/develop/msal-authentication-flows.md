@@ -241,7 +241,7 @@ To satisfy either requirement, one of these operations must have been completed:
 - You as the application developer have selected **Grant** in the Azure portal for yourself.
 - A tenant admin has selected **Grant/revoke admin consent for {tenant domain}** in the **API permissions** tab of the app registration in the Azure portal; see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 - You've provided a way for users to consent to the application; see [User consent](../manage-apps/user-admin-consent-overview.md#user-consent).
-- You've provided a way for the tenant admin to consent for the application; see [Administrator consent]../manage-apps/user-admin-consent-overview.md#administrator-consent).
+- You've provided a way for the tenant admin to consent for the application; see [Administrator consent](../manage-apps/user-admin-consent-overview.md#admin-consent).
 
 For more information on consent, see [Permissions and consent](v2-permissions-and-consent.md#consent).
 

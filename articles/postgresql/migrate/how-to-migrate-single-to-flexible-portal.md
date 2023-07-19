@@ -35,6 +35,8 @@ In this tutorial, you learn to:
 
 2. Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist the extensions before you initiate a migration using this tool.
 
+3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+
 ## Configure the migration task
 
 The migration tool comes with a simple, wizard-based experience on the Azure portal. Here's how to start:

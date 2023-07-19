@@ -2,13 +2,13 @@
 title: Application Insights User Flows analyzes navigation flows
 description: Analyze how users move between the pages and features of your web app.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 05/13/2023
 ms.reviewer: mmcc
 ---
 
 # Analyze user navigation patterns with User Flows in Application Insights
 
-![Screenshot that shows the Application Insights User Flows tool.](./media/usage-flows/flows.png)
+:::image type="content" source="./media/usage-flows/flows.png" lightbox="./media/usage-flows/flows.png" alt-text="Screenshot that shows the Application Insights User Flows tool.":::
 
 The User Flows tool visualizes how users move between the pages and features of your site. It's great for answering questions like:
 
@@ -25,7 +25,7 @@ The User Flows tool starts from an initial page view, custom event, or exception
 
 ## Choose an initial event
 
-![Screenshot that shows choosing an initial event for User Flows.](./media/usage-flows/initial-event.png)
+:::image type="content" source="./media/usage-flows/initial-event.png" lightbox="./media/usage-flows/initial-event.png" alt-text="Screenshot that shows choosing an initial event for User Flows.":::
 
 To begin answering questions with the User Flows tool, choose an initial page view, custom event, or exception to serve as the starting point for the visualization:
 
@@ -50,7 +50,7 @@ If you want to see more steps in the visualization, use the **Previous steps** a
 
 ## After users visit a page or feature, where do they go and what do they select?
 
-![Screenshot that shows using User Flows to understand where users select.](./media/usage-flows/one-step.png)
+:::image type="content" source="./media/usage-flows/one-step.png" lightbox="./media/usage-flows/one-step.png" alt-text="Screenshot that shows using User Flows to understand where users select.":::
 
 If your initial event is a page view, the first column (**Step 1**) of the visualization is a quick way to understand what users did immediately after they visited the page. 
 

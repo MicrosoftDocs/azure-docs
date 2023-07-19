@@ -7,6 +7,7 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2020 
 ms.reviewer: sngun
 ---

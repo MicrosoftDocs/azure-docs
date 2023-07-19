@@ -31,9 +31,9 @@ This article demonstrates how to deploy an existing container to Azure Container
 
 To create the environment, run the following command:
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
@@ -44,7 +44,7 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
-```azurepowershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -59,7 +59,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -90,7 +90,7 @@ The example shown in this article demonstrates how to use a custom container ima
 
 ::: zone pivot="container-apps-private-registry"
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
@@ -103,7 +103,7 @@ REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 
 (Replace the \<placeholders\> with your values.)
 
-```azurecli
+```azurecli-interactive
 az containerapp create \
   --name my-container-app \
   --resource-group $RESOURCE_GROUP \
@@ -116,7 +116,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $ContainerImageName = "<CONTAINER_IMAGE_NAME>"
 $RegistryServer = "<REGISTRY_SERVER>"
 $RegistryUsername = "<REGISTRY_USERNAME>"
@@ -125,7 +125,7 @@ $RegistryPassword = "<REGISTRY_PASSWORD>"
 
 (Replace the \<placeholders\> with your values.)
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
@@ -159,9 +159,9 @@ New-AzContainerApp @ContainerAppArgs
 
 ::: zone pivot="container-apps-public-registry"
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az containerapp create \
   --image <REGISTRY_CONTAINER_NAME> \
   --name my-container-app \
@@ -174,13 +174,13 @@ If you have enabled ingress on your container app, you can add `--query properti
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>" 
 ```
 
 (Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $ContainerAppArgs = @{
@@ -205,9 +205,9 @@ To verify a successful deployment, you can query the Log Analytics workspace. Yo
 
 Use the following commands to view console log messages.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
 
 az monitor log-analytics query \
@@ -218,7 +218,7 @@ az monitor log-analytics query \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
 $queryResults.Results
 ```
@@ -232,15 +232,15 @@ If you're not going to continue to use this application, run the following comma
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

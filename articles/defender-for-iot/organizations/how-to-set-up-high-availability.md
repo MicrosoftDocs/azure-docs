@@ -24,7 +24,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
 - Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](ot-deploy/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
-- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
+- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md).
 
 - Make sure that your organizational security policy grants you access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 

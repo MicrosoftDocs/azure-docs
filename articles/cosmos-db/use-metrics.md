@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 04/14/2023
 ms.custom: devx-track-csharp, ignite-2022
 ---
 
@@ -107,6 +107,21 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
 *QueryMetrics* provides details on how long each component of the query took to execute. The most common root cause for long running queries is scans, meaning the query was unable to apply the indexes. This problem can be resolved with a better filter condition.
+
+## Monitor control plane requests
+
+Azure Cosmos DB applies limits on the number of metadata requests that can be made over consecutive 5 minute intervals. Control plane requests which go over these limits may experience throttling. Metadata requests may in some cases, consume throughput against a `master partition` within an account that contains all of an account's metadata. Control plane requests which go over the throughput amount will experience rate limiting (429s).
+
+To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Insights** pane. From this pane, open the **System** tab. The System tab shows two charts. One that shows all metadata requests for an account. The second shows metadata requests throughput consumption from the account's `master partition` that stores an account's metadata.
+
+:::image type="content" source="media/use-metrics/metadata-requests-by-status-code.png" alt-text="Screenshot of the Insights pane, highlighting the metadata requests graph on the System tab." lightbox="media/use-metrics/metadata-requests-by-status-code.png" :::
+
+:::image type="content" source="media/use-metrics/metadata-requests-429.png" alt-text="Screenshot of the Insights pane, highlighting the metadata requests 429 graph on the System tab." lightbox="media/use-metrics/metadata-requests-429.png" :::
+
+The Metadata Request by Status Code graph above aggregates requests at increasing larger granularity as you increase the Time Range. The largest Time Range you can use for a 5 minute time bin is 4 hours. To monitor metadata requests over a greater time range with specific granularity, use Azure Metrics. Create a new chart and select Metadata requests metric. In the upper right corner select 5 minutes for Time granularity as seen below. Metrics also allow for users to [Create Alerts](create-alerts.md) on them which makes them more useful than Insights.
+
+:::image type="content" source="media/use-metrics/metadata-requests-metrics.png" alt-text="Screenshot of Metrics pane, highlighting the metadata requests for an account and time granularity of 5 minutes." lightbox="media/use-metrics/metadata-requests-429.png" :::
+
 
 ## Next steps
 

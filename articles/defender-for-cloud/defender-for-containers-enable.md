@@ -2,11 +2,11 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022, devx-track-azurecli
 zone_pivot_groups: k8s-host
-ms.date: 10/30/2022
+ms.date: 06/29/2023
 ---
 
 # Enable Microsoft Defender for Containers
@@ -32,9 +32,11 @@ You can learn more by watching these videos from the Defender for Cloud in the F
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE. This is a preview feature.
+> Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE is a preview feature. The preview feature is available on a self-service, opt-in basis.
 >
-> To learn more about the supported operating systems, feature availability, outbound proxy and more see the [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
+> Previews are provided "as is" and "as available" and are excluded from the service level agreements and limited warranty.
+>
+> To learn more about the supported operating systems, feature availability, outbound proxy and more, see the [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
@@ -71,9 +73,9 @@ A full list of supported alerts is available in the [reference table of all Defe
     kubectl get pods --namespace=asc-alerttest-662jfi039n
     ```
 
-    The expected response is "No resource found".
+    The expected response is `No resource found`.
 
-    Within 30 minutes, Defender for Cloud will detect this activity and trigger a security alert.
+    Within 30 minutes, Defender for Cloud detects this activity and trigger a security alert.
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
@@ -95,10 +97,6 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-aks,defender-for-container-arc"
-[!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
-::: zone-end
-
 ## Learn More
 
 You can check out the following blogs:
@@ -113,3 +111,4 @@ Now that you enabled Defender for Containers, you can:
 
 - [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
 - [Scan your Amazon AWS ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
+- Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

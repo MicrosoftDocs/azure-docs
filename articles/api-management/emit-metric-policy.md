@@ -6,8 +6,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 06/02/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Emit custom metrics
@@ -63,8 +64,14 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+* You can configure at most 10 custom dimensions for this policy.
+
+* Invoking the `emit-metric` policy counts toward the usage limits for custom metrics per region in a subscription. [Learn more](api-management-howto-app-insights.md#limits-for-custom-metrics)
 
 ## Example
 

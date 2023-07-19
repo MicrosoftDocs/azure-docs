@@ -6,13 +6,13 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 04/26/2023
 ---
 # Custom classifications in Microsoft Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
->[IMPORTANT]
+>[!IMPORTANT]
 >To create a custom classification you need either **data curator** or **data source administrator** permission on a collection. Permissions at any collection level are sufficient.
 >For more information about permissions, see: [Microsoft Purview permissions](catalog-permissions.md).
 
@@ -160,6 +160,62 @@ To create a custom classification rule:
 1. After the dictionary is generated, you can adjust the minimum match threshold and submit the rule.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule, with Dictionary-Generated checkmark." border="true":::
+
+## Edit or delete a custom classification
+
+To update or edit a custom classification, follow these steps:
+
+1. In your Microsoft Purview account, select the **Data map**, and then **Classifications**.
+1. Select the **Custom** tab.
+1. Select the classification you want to edit, then select the **Edit** button.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-edit.png" alt-text="Screenshot of the custom classification page, showing a classification selected and the edit button highlighted." border="true":::
+
+1. Now can edit the description of this custom classification. Select the **Ok** button when you're finished to save your changes.
+
+To delete a custom classification:
+
+1. After opening the **Data map**, and then **Classifications**, select the **Custom** tab.
+1. Select the classification you want to delete, or multiple classifications you want to delete, and then select the **Delete** button.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-delete.png" alt-text="Screenshot of the custom classification page, showing a classification selected and the delete button highlighted." border="true":::
+
+You can also edit or delete a classification from inside the classification itself. Just select your classification, then select the **Edit** or **Delete** buttons in the top menu.
+
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/edit-inside-asset.png" alt-text="Screenshot of a custom classification asset page, with the edit and delete buttons highlighted at the top of the page." border="true":::
+
+## Enable or disable classification rules
+
+1. In your Microsoft Purview account, select the **Data map**, and then **Classification rules**.
+1. Select the **Custom** tab.
+1. You can check the current status of a classification rule by looking at the **Status** column in the table.
+1. Select the classification rule, or multiple classification rules, that you want to enable or disable.
+1. Select either the **Enable** or **Disable** buttons in the top menu.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/enable-or-disable.png" alt-text="Screenshot of the custom classification rule page, showing a classification rule selected and the enable and disable buttons highlighted." border="true":::
+
+You can also update the status of a rule when editing the rule.
+
+## Edit or delete a classification rule
+
+To update or edit a custom classification rule, follow these steps:
+
+1. In your Microsoft Purview account, select the **Data map**, and then **Classification rules**.
+1. Select the **Custom** tab.
+1. Select the classification rule you want to edit, then select the **Edit** button.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-edit-rule.png" alt-text="Screenshot of the custom classification rule page, showing a classification rule selected and the edit button highlighted." border="true":::
+
+1. Now you can edit the state, the description, and the associated classification rule.
+1. Select the **Continue** button.
+1. You can upload a new file for your regular expression or dictionary rule to match against, and update your match threshold and column pattern match.
+1. Select **Apply** to save your changes. Scans will need to be rerun with the new rule to apply changes across your assets.
+
+To delete a custom classification:
+
+1. After opening the **Data map**, and then **Classification rules**, select the **Custom** tab.
+1. Select the classification rule you want to delete, and then select the **Delete** button.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-delete-rule.png" alt-text="Screenshot of the custom classification rule page, showing a classification rule selected and the delete button highlighted." border="true":::
 
 ## Next steps
 

@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Visualize experiment jobs and metrics with TensorBoard and Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
 
@@ -36,14 +36,14 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 * To launch TensorBoard and view your experiment job histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 * The code in this document can be run in either of the following environments: 
     * Azure Machine Learning compute instance - no downloads or installation necessary
-        * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete [Create resources to get started](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**
     * Your own Juptyer notebook server
        * [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) with the `tensorboard` extra
         * [Create an Azure Machine Learning workspace](../quickstart-create-resources.md).  
-        * [Create a workspace configuration file](how-to-configure-environment-v1.md).
+        * [Create a workspace configuration file](how-to-configure-environment.md).
 
 ## Option 1: Directly view job history in TensorBoard
 
@@ -141,7 +141,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 ### Configure and submit training job
 
