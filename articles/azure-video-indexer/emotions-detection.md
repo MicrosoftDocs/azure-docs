@@ -21,7 +21,7 @@ The model works on text only (labeling emotions in video transcripts.) This mode
 There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying emotions detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
-- Are we equipped to identify and respond to errors? AI-powered products and features are not 100% accurate, consider how you identify and respond to any errors that may occur. 
+- Are we equipped to identify and respond to errors? AI-powered products and features aren't 100% accurate, consider how you identify and respond to any errors that may occur. 
 
 ## General Transparency Note overview
 
@@ -29,7 +29,7 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 ## Emotion detection specific transparency note 
 
-Introduction: This model is designed to help detect emotions in the transcript of a video. However, it is not suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
+Introduction: This model is designed to help detect emotions in the transcript of a video. However, it isn't suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
 
 Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. It should not be used for assessing employee performance or the emotional state of any other person.  
 
@@ -37,14 +37,14 @@ Information requirements: To increase the accuracy of this model, it is recommen
 
 Limitations: This model can produce both false positives and false negatives. To reduce the likelihood of either, users are advised to follow best practices for input data and preprocessing, and to interpret outputs in the context of other relevant information. Interpretation: The outputs of this model should not be used to make assessments about an individual's emotional state or other human characteristics. This model is supported in English and may not function properly with non-English inputs. Not English inputs are being translated to English before entering the model, therefore may produce less accurate results. 
 
-## Notes related to below instructions
+## Additional notes for emotion detection instructions
 
-1. Specify examples of intended use cases and specify use cases for which emotion detection is not designed or tested, including evaluating employee performance, making assessments about a person, their emotional state, or their ability, or monitoring individuals or employees;  
-2. Requirements for input data and best practices to increase reliability, and a statement about situations in which the model does not perform well such as for sarcasm;  
-3. Best practices to reduce false positive and false negative results;  
-4. Information about how to interpret outputs, emphasizing that output is not to be used for assessments of people;  
-5. Disclosure that the system does not have any context about input data;  
-6. Information about supported and unsupported languages, and how the feature functions with non-English inputs.  
+1. Specify examples of intended use cases and specify use cases for which emotion detection isn't designed or tested, including evaluating employee performance, making assessments about a person, their emotional state, or their ability, or monitoring individuals or employees.
+2. Requirements for input data and best practices to increase reliability, and a statement about situations in which the model does not perform well such as for sarcasm.
+3. Best practices to reduce false positive and false negative results.  
+4. Information about how to interpret outputs, emphasizing that output isn't to be used for assessments of people.
+5. Disclosure that the system does not have any context about input data.
+6. Information about supported and unsupported languages, and how the feature functions with non-English inputs.
 
 ## View the insight
 
