@@ -29,7 +29,7 @@ sections:
           How many datasources/items can be protected in a vault?
         answer: |
           Protection of up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) is the recommended limit per vault.
-          For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+          For example, you've already protected 500 VMs and 400 Azure Files shares in the vault. If you need to protect SQL databases in the same vault, we recommend you not to protect more than 1100 databases in it.
           
       - question: |
           How many policies can I create per vault?
