@@ -397,7 +397,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Manual steps to setup the call:
 
-1. Open your browser and navigate to [localhost](http://localhost:8080/).
+1. Open your browser and navigate to http://localhost:8080/.
 2. Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 3. Click on the "Initialize Call Agent" buttons.
 4. Enter the Auto Attendant Object ID, and select the "Start Call" button. Application will start the outgoing call to the auto attendant with given object ID.
