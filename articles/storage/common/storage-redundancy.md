@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 07/19/2023
 ms.author: jammart
 ms.subservice: common
 ms.custom: references_regions, engagement-fy23
