@@ -1,6 +1,6 @@
 ---
 title: Azure Large Instances FAQ
-description: Provides resolutions for common issues that arise in working with ALI for the Epic workload.
+description: Provides resolutions for common issues that arise in working with Azure Large Instances for the Epic workload.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -30,7 +30,7 @@ No, explicit permissions aren't required but you should register the resource pr
 Check Azure Policy set up if Azure Large Instances managed RGs aren't reflected in the portal.
 Azure subscription you use for Azure Large Instances deployments is registered with the Azure Large Instances infrastructure resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. 
-Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](work-with-azure-large-instances-in-azure-portal.md)
+Ensure that your VNET address space provided in the request is the same as what you configure [Working with Azure large Instances in the Azure portal](work-with-azure-large-instances-in-azure-portal.md)
 
 ## Is it possible to have Azure ARC installed on Azure Large Instances?
 
@@ -52,9 +52,6 @@ Customers are responsible for any additional third-party agents that they would 
 It’s also recommended to rerun Azure Large Instances GenIO test post third-party agents are installed to check for any performance variations.
 
 For more information, see “Shared Responsibility Model"
-
- < Publishing Team to put  link where user can see the shared Responsibility Mode or paste the table here >  
-
 ## How will I get notified if there's any issue with our Azure Large Instances resource? How Microsoft communicates unplanned issues?
 
 Microsoft sends service health notification only through the Azure portal.

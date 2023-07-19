@@ -183,7 +183,7 @@ Assigning tags to Azure Large Instances works the same as assigning tags for VMs
 As with VMs, the tags exist in the Azure metadata.
 Tags have the same restrictions for Azure Large Instances as for VMs.
 
-To add tags to an ALI instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
+To add tags to an Azure Large Instances implementation, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
 
 ```azurecli
 az baremetalinstance update --resource-group MyResourceGroup --instance-name MyALIinstanceName --set tags.Dept=Finance tags.Status=Normal

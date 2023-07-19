@@ -90,7 +90,7 @@ If you don't see your deployed Azure Large Instances under your subscription, re
 ### Enable ExpressRoute Fast Path
 
 Before you begin, install the latest version of the Azure Resource Manager PowerShell cmdlets, at least 4.0 or later.
-If
+
 For more information, see these resources:
 
 * [Azure ExpressRoute overview](https://azure.microsoft.com/products/expressroute/)
