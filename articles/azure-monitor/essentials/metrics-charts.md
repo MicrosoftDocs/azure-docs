@@ -216,24 +216,36 @@ Customized colors are preserved when you pin the chart to a dashboard. The follo
 
 ## Saving to dashboards or workbooks
 
-After you configure a chart, you might want to add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring information.
+After you configure a chart, you can add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring information.
 
 - To pin a configured chart to a dashboard, in the upper-right corner of the chart, select **Save to dashboard** and then **Pin to dashboard**.
 - To save a configured chart to a workbook, in the upper-right corner of the chart, select **Save to dashboard** and then **Save to workbook**.
 
-:::image type="content" source="media/metrics-charts/save-to-dashboard.png" alt-text="Screenshot showing how to pin a chart to a dashboard.":::
+:::image type="content" source="media/metrics-charts/save-to-dashboard.png" alt-text="Screenshot showing how to pin a chart to a dashboard." lightbox="media/metrics-charts/save-to-dashboard.png":::
 
 ## Alert rules
 
 You can use your visualization criteria to create a metric-based alert rule. The new alert rule includes your chart's target resource, metric, splitting, and filter dimensions. You can modify these settings by using the alert rule creation pane.
 
-To begin, select **New alert rule**.
+To create an alert rule,
+1. Select **New alert rule** in the upper-right corner of the chart
 
-![Screenshot that shows the New alert rule button highlighted in red.](./media/metrics-charts/042.png)
+:::image source="./media/metrics-charts/new-alert.png" alt-text="Screenshot that shows the New alert rule button." lightbox="./media/metrics-charts/new-alert.png":::
 
-The alert rule creation pane opens. In the pane, you see the chart's metric dimensions. The fields in the pane are prepopulated to help you customize the rule.
+1. On the **Condition** the **Signal name** is defaulted to the metric from your chart. You can choose a different metric.
 
-![Screenshot showing the rule creation pane.](./media/metrics-charts/041.png)
+1. Enter a **Threshold value**. The threshold value is the value that triggers the alert. The Preview chart shows the threshold value as a horizontal line over the metric values.
+
+1. Select the **Details** tab.
+:::image source="./media/metrics-charts/alert-rule-condition.png" alt-text="Screenshot that shows the condition tab on the rule creation page." lightbox="./media/metrics-charts/alert-rule-condition.png":::
+
+1. On the **Details** tab, enter a **Name** and **Description** for the alert rule.
+
+1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose. 
+
+Select **Review + create** to review the alert rule, then select **Create** to create the alert rule.
+
+:::image source="./media/metrics-charts/alert-rule-details.png" alt-text="Screenshot that shows the details tab on the rule creation page." lightbox="./media/metrics-charts/alert-rule-details.png":::
 
 For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
 
