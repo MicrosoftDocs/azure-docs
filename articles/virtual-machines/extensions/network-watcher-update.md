@@ -133,7 +133,7 @@ To update your extension, you need to know your extension version.
 
 You can check your extension version by using the Azure portal, the Azure CLI, or PowerShell.
 
-#### Use the Azure portal
+#### Use the Azure portal
 
 1. Go to the **Extensions** pane of your VM in the Azure portal.
 1. Select the **AzureNetworkWatcher** extension to see the details pane.
