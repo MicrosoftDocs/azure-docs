@@ -10,7 +10,8 @@ author: SnehaSudhirG
 
 # Troubleshoot issues with update management center (preview)
 
-This article describes the errors that might occur when you deploy or use update management center (preview) and how to resolve them.  
+This article describes the errors that might occur when you deploy or use update management center (preview), how to resolve them and the known issues and limitations of scheduled patching.  
+
 
 ## General troubleshooting
 
@@ -103,7 +104,11 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_execution_<numeric>_stdout.txt`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 * `cmd_excution_<numeric>_stderr.txt`
 
-## Known issues
+## Known issues in schedule patching
+
+- For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
+- If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
+- Policy definition *[Preview]: Schedule recurring updates using Update Management Center* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
 
 ### Scenario: Unable to apply patches for the shutdown machines 
 
@@ -140,6 +145,9 @@ More details can be found by reviewing the logs in the file path provided in the
 #### Resolution
 
 Setting a longer time range for maximum duration when triggering an [on-demand update deployment](deploy-updates.md) helps avoid the problem.
+
+
+
 
 ## Next steps
 
