@@ -148,9 +148,9 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters and  [serverless compute (preview)](how-to-use-serverless-compute.md) offer the latest GPU options.
 
-Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compute clusters:
+Supported via Azure Machine Learning Kubernetes, Azure Machine Learning compute clusters, and  [serverless compute (preview)](how-to-use-serverless-compute.md):
 
 * PyTorch
 * TensorFlow
