@@ -26,11 +26,11 @@ Create an Azure storage account for the steps in this article. If you already ha
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **test-rg**. |
     | **Instance details** |  |
-    | Storage account name | Enter **storage-1**. If the name is unavailable, enter a unique name. |
+    | Storage account name | Enter **storage1**. If the name is unavailable, enter a unique name. |
     | Location | Select **(US) East US 2**. |
     | Performance | Leave the default **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
    
-1. Select the **Networking** tab or select **Next: Advanced** then **Next: Networking**.
+1. Select **Review**.
 
-1. In the **Networking** tab, under **Network connectivity** select **Disable public access and use private access**.
+1. Select **Create**.
