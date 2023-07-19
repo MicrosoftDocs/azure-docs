@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api, devx-track-extended-java
 ---
 # Quickstart: Use the Bing News Search client library
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 

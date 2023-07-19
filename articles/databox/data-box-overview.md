@@ -143,7 +143,7 @@ Throughout the export process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target storage account where you transfer the data.
+Data Box can transfer data based on the region in which service is deployed, the country/region you ship the device to, and the target storage account where you transfer the data.
 
 ### For import
 

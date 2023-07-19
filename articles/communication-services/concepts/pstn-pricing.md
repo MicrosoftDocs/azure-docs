@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
-Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
 In most cases, customers with Azure subscriptions locations that match the country of the Number offer are able to buy the Number. See here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
@@ -199,11 +199,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 3.00/mo        |
+|Toll-Free     |USD 20.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.2300/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.2300/min   | USD 0.2800/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -277,11 +279,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.50/mo        |
+|Toll-Free     |USD 25.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.3500/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.3500/min   |Starting at USD 0.0770/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -303,7 +307,7 @@ All prices shown below are in USD.
 
 ***
 
-Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
+Note: Pricing for all countries/regions is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
 ***
 ## Direct routing pricing

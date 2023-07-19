@@ -4,8 +4,8 @@ description: This article describes the new and improved alerting capabilities v
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Switch to Azure Monitor based alerts for Azure Backup

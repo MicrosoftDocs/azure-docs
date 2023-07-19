@@ -132,9 +132,9 @@ The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential),
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-### Install the Microsoft.Identity.Web.MicrosoftGraph client library package
+### Install the Microsoft.Identity.Web.GraphServiceClient client library package
 
-Install the [Microsoft.Identity.Web.MicrosoftGraph NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Microsoft.Identity.Web.GraphServiceClient NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command-line
 
@@ -143,7 +143,7 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient
 dotnet add package Microsoft.Graph
 ```
 
@@ -153,7 +153,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 Install-Package Microsoft.Graph
 ```
 
@@ -189,7 +189,6 @@ public async Task OnGetAsync()
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
-        //var users = await graphServiceClient.Users.Request().GetAsync();
         var users = await graphServiceClient.Users.GetAsync();
         foreach (var u in users.Value)
         {

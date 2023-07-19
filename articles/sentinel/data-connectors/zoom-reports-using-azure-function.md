@@ -3,7 +3,7 @@ title: "Zoom Reports (using Azure Function) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Zoom Reports (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -39,7 +39,7 @@ Zoom
 
 To integrate with Zoom Reports (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **REST API Credentials/permissions**: **ZoomApiKey** and **ZoomApiSecret** are required for Zoom API. [See the documentation to learn more about API](https://developers.zoom.us/docs/internal-apps/jwt/). Check all [requirements and follow  the instructions](https://developers.zoom.us/docs/internal-apps/jwt/) for obtaining credentials.
 
 
@@ -89,7 +89,7 @@ Use the following step-by-step instructions to deploy the Zoom Reports data conn
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-ZoomAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

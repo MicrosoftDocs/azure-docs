@@ -117,7 +117,7 @@ The user flow is for sign-up and sign-in, or sign-up. The Arkose Labs user flow 
 13. In **Use custom page content**, paste your custom HTML URI.
 14. (Optional) If you use social identity providers, repeat steps for **Social account sign-up page**.
 
-    ![Screenshot of Layout name options and Social acount sign-up page options, under Page layouts.](media/partner-arkose-labs/page-layouts.png)
+    ![Screenshot of Layout name options and Social account sign-up page options, under Page layouts.](media/partner-arkose-labs/page-layouts.png)
 
 15. From your user flow, go to **Properties**.
 16. Select **Enable JavaScript**. 

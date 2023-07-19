@@ -2,19 +2,18 @@
 title: Create a knowledge store using REST
 titleSuffix: Azure Cognitive Search
 description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting AI enrichments from skillset.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/31/2022
+ms.date: 06/29/2023
 ---
 # Create a knowledge store using REST and Postman
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. After the knowledge store is populated, use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
+In Azure Cognitive Search, a [knowledge store](knowledge-store-concept-intro.md) is a repository of [AI-generated content](cognitive-search-concept-intro.md) that's used for non-search scenarios. You create the knowledge store using an indexer and skillset, and specify Azure Storage to store the output. After the knowledge store is populated, use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
 
-In this article, you'll learn how to use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store. The knowledge store contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
+In this article, you use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store. The knowledge store contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
 
 To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
@@ -35,7 +34,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 ## Load data
 
-This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching a Cognitive Services resource.
+This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
 
 1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
@@ -47,7 +46,7 @@ This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive 
 
 ## Decide on a connection strategy
 
-During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the "knowledgeStore" section of the skillset. You can choose from the following approaches when setting up your connection:
+During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information is specified in the "knowledgeStore" section of the skillset. You can choose from the following approaches when setting up your connection:
 
 + Option 1: Obtain a full access Azure Storage connection string that includes an access key:
 
@@ -63,7 +62,7 @@ During skillset execution, the indexer connects to Azure Storage and creates the
   }
   ```
 
-+ Option 2: Use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string.
++ Option 2: Use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You need to set up the managed identity, assign roles, and assemble a connection string.
 
   A connection string for a system managed identity has the following format:
 
@@ -77,7 +76,7 @@ Once you decide on an approach, you'll provide the connection string as a variab
 
 ## Configure requests
 
-1. Download the [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) from GitHub and unzip the file. There are multiple collections in the repo. You'll use the collection in the knowledge-store folder.
+1. Download the [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) from GitHub and unzip the file. There are multiple collections in the repo. You use the collection in the knowledge-store folder.
 
 1. In Postman, select **File** > **Import** to import the KnowledgeStore.postman_collection.json file.
 
@@ -114,11 +113,11 @@ Variables are defined for Azure services, service connections, and object names.
 
 ### Review the request collection in Postman
 
-Knowledge stores are defined in skillsets, which are in turn attached to indexers. Creating a knowledge store requires that you create all of the upstream objects, including an index, data source, skillset, and indexer. Although an index is unrelated to a knowledge store, an indexer requires it for execution, so you will create one as an indexer prerequisite.
+Knowledge stores are defined in skillsets, which are in turn attached to indexers. Creating a knowledge store requires that you create all of the upstream objects, including an index, data source, skillset, and indexer. Although an index is unrelated to a knowledge store, an indexer requires it for execution, so you create one as an indexer prerequisite.
 
-When you create a knowledge store, you'll issue four HTTP requests: 
+When you create a knowledge store, you issue four HTTP requests: 
 
-+ **PUT request to create the index**: This index will contain searchable data returned in query requests issued to your search service.
++ **PUT request to create the index**: This index contains searchable data returned in query requests issued to your search service.
 
 + **POST request to create the datasource**: This data source provides connection information to the indexer. The indexer connects to your Azure Storage account to retrieve the sample data.
 
@@ -136,7 +135,7 @@ The variables you set up earlier are used in the headers and URL. The following 
 
 ## Create an index
 
-Use the [Create Index (REST API)](/rest/api/searchservice/create-index) to create a search index on the search service. A search index is unrelated to a knowledge store, but the indexer requires that you create one. The search index will contain the same content as the knowledge store. If you want an alternative approach for exploring your content, you can query this index by sending query requests to your search service. 
+Use the [Create Index (REST API)](/rest/api/searchservice/create-index) to create a search index on the search service. A search index is unrelated to a knowledge store, but the indexer requires that you create one. The search index contains the same content as the knowledge store. If you want an alternative approach for exploring your content, you can query this index by sending query requests to your search service. 
 
 Create the index by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. The index schema is provided in the body of the quest.
 
@@ -163,7 +162,7 @@ This index definition is a combination of data that you'd like to present to the
 
 Select **Send** to issue the PUT request.
 
-You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. If you are using a free search service, make sure you have room for the new objects (the free service has a maximum of three).
+You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. If you're using a free search service, make sure you have room for the new objects (the free service has a maximum of three).
 
 At this point, the index is created but not loaded. Importing documents occurs later when you run the indexer. 
 
@@ -193,7 +192,7 @@ There are two large top-level objects: `skills` and `knowledgeStore`:
 
 + "skills" is the skillset. Each object inside the `skills` object is an enrichment service. Each enrichment service has `inputs` and `outputs`. The `LanguageDetectionSkill` has an output `targetName` of `Language`. The value of this node is used by most of the other skills as an input. The source is `document/Language`. The capability of using the output of one node as the input to another is even more evident in `ShaperSkill`, which specifies how the data flows into the tables of the knowledge store.
 
-+ "knowledgeStore" includes the connection string to the storage account and a series of projections. Each projection item in the projections array results in a table in Azure Storage. Columns in the table will include generated columns used for cross-linking and content fields. They will also include content fields created during enrichment.
++ "knowledgeStore" includes the connection string to the storage account and a series of projections. Each projection item in the projections array results in a table in Azure Storage. Columns in the table include generated columns used for cross-linking and content fields. They'll also include content fields created during enrichment.
 
   Projections accept data shapes as input. You can provide the shapes through a Shaper skill, mapping the skill output to a projection, or you can define inline shapes in each projection item. 
 
@@ -358,7 +357,7 @@ The final step is the [Create Indexer](/rest/api/searchservice/create-indexer) r
 
 + Field mappings create "AzureSearch_DocumentKey" is a unique identifier for each document that's generated by the blob indexer (based on metadata storage path). 
 
-+ Output field mappings specify how enriched fields are mapped to fields in a search index. Output field mappings are not used in knowledge stores (knowledge stores use shapes and projections to express the physical data structures).
++ Output field mappings specify how enriched fields are mapped to fields in a search index. Output field mappings aren't used in knowledge stores (knowledge stores use shapes and projections to express the physical data structures).
 
 Select **Send** in Postman to create and run the indexer. Data import, skillset execution, and knowledge store creation occur in this step.
 
@@ -393,7 +392,7 @@ Select **Send** in Postman to create and run the indexer. Data import, skillset 
 
 ## Check status
 
-After you send each request, the search service should respond with a 201 success message. If you get errors, re-check your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
+After you send each request, the search service should respond with a 201 success message. If you get errors, recheck your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
 
 In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
@@ -422,14 +421,14 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 > [!TIP]
 > If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer and the related objects to recreate them. Deleting the indexer resets the free daily transaction counter to zero.
 
 ## Next steps
 
-Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
+Now that you've enriched your data by using Azure AI services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
 > [!div class="nextstepaction"]
 > [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)

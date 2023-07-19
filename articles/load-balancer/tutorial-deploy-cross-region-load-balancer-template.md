@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial 
 ms.date: 04/12/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-arm-template
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -57,6 +57,12 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkInterfaces) (2): Network interfaces for virtual machines.
 
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (2): use to configure the Internet Information Server (IIS), and the web pages.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 

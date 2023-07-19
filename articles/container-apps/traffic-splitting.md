@@ -4,6 +4,7 @@ description: Send a portion of an apps traffic to different revisions in Azure C
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: cshoe
@@ -14,7 +15,7 @@ zone_pivot_groups: arm-azure-cli-portal
 
 By default, when ingress is enabled, all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
 
-Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](https://martinfowler.com/bliki/BlueGreenDeployment.html) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
+Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](blue-green-deployment.md) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 
 Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#revision-labels).
 
@@ -233,4 +234,4 @@ The following example template applies labels to different revisions.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress-how-to.md)
+> [Blue-green deployment](blue-green-deployment.md)

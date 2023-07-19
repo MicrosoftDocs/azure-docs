@@ -1,5 +1,5 @@
 ---
-title: Job Matching
+title: How jobs are matched to workers
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router distribution concepts.
 author: danielgerlag
@@ -10,12 +10,13 @@ ms.author: danielgerlag
 ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp
+ms.custom: devx-track-extended-java, devx-track-js
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # How jobs are matched to workers
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 This document describes the registration of workers, the submission of jobs and how they're matched to each other.
 
@@ -33,30 +34,22 @@ In the following example we register a worker to
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var worker = await client.CreateWorkerAsync(
-    new CreateWorkerOptions(
-            workerId: "worker-1",
-            totalCapacity: 2)
+await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 2)
+{
+    QueueIds = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
+    ChannelConfigurations =
     {
-        QueueIds = new Dictionary<string, QueueAssignment>()
-        {
-            ["queue-1"] = new QueueAssignment(),
-            ["queue-2"] = new QueueAssignment()
-        },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>()
-        {
-            ["voice"] = new ChannelConfiguration(2),
-            ["chat"] = new ChannelConfiguration(1)
-        },
-        Labels = new Dictionary<string, LabelValue>()
-        {
-            ["Skill"] = new LabelValue(11),
-            ["English"] = new LabelValue(true),
-            ["French"] = new LabelValue(false),
-            ["Vendor"] = new LabelValue("Acme")
-        },
+        ["voice"] = new ChannelConfiguration(capacityCostPerJob: 2),
+        ["chat"] = new ChannelConfiguration(capacityCostPerJob: 1)
+    },
+    Labels =
+    {
+        ["Skill"] = new LabelValue(11),
+        ["English"] = new LabelValue(true),
+        ["French"] = new LabelValue(false),
+        ["Vendor"] = new LabelValue("Acme")
     }
-);
+});
 ```
 
 ::: zone-end
@@ -64,17 +57,13 @@ var worker = await client.CreateWorkerAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-let worker = await client.registerWorker({
-    id: "worker-1",    
-    queueAssignments: [
-        { queueId: "queue-1" },
-        { queueId: "queue-2" } 
-    ],
+await client.createWorker("worker-1", {
     totalCapacity: 2,
-    channelConfigurations: [
-        { channelId: "voice", capacityCostPerJob: 2 },
-        { channelId: "chat", capacityCostPerJob: 1 }
-    ],
+    queueAssignments: { queue1: {}, queue2: {} },
+    channelConfigurations: {
+        voice: { capacityCostPerJob: 2 },
+        chat: { capacityCostPerJob: 1 },
+    },
     labels: {
         Skill: 11,
         English: true,
@@ -86,6 +75,48 @@ let worker = await client.registerWorker({
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+```python
+client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
+    total_capacity = 2,
+    queue_assignments = {
+        "queue2": QueueAssignment()
+    },
+    channel_configurations = {
+        "voice": ChannelConfiguration(capacity_cost_per_job = 2),
+        "chat": ChannelConfiguration(capacity_cost_per_job = 1)
+    },
+    labels = {
+        "Skill": 11,
+        "English": True,
+        "French": False,
+        "Vendor": "Acme"
+    }
+))
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+client.createWorker(new CreateWorkerOptions("worker-1", 2)
+    .setQueueAssignments(Map.of(
+        "queue1", new QueueAssignment(),
+        "queue2", new QueueAssignment()))
+    .setChannelConfigurations(Map.of(
+        "voice", new ChannelConfiguration().setCapacityCostPerJob(2),
+        "chat", new ChannelConfiguration().setCapacityCostPerJob(1)))
+    .setLabels(Map.of(
+        "Skill", new LabelValue(11),
+        "English", new LabelValue(true),
+        "French", new LabelValue(false),
+        "Vendor", new LabelValue("Acme"))));
+```
+
+::: zone-end
+
 > [!NOTE]
 > If a worker is registered and idle for more than 7 days, it'll be automatically deregistered and you'll receive a `WorkerDeregistered` event from EventGrid.
 
@@ -93,34 +124,25 @@ let worker = await client.registerWorker({
 
 In the following example, we'll submit a job that
 
-- Goes directly to `queue-1`.
+- Goes directly to `queue1`.
 - For the `chat` channel.
-- With a label selector that specifies that any worker servicing this job must have a label of `English` set to `true`.
-- With a label selector that specifies that any worker servicing this job must have a label of `Skill` greater than `10` and this condition will expire after one minute.
+- With a worker selector that specifies that any worker servicing this job must have a label of `English` set to `true`.
+- With a worker selector that specifies that any worker servicing this job must have a label of `Skill` greater than `10` and this condition will expire after one minute.
 - With a label of `name` set to `John`.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var job = await client.CreateJobAsync(
-    channelId: "chat",
-    queueId: "queue-1",
-    workerSelectors: new List<LabelSelector>
+await client.CreateJobAsync(new CreateJobOptions("job1", "chat", "queue1")
+{
+    RequestedWorkerSelectors =
     {
-        new LabelSelector(
-            key: "English", 
-            @operator: LabelOperator.Equal, 
-            value: true),
-        new LabelSelector(
-            key: "Skill", 
-            @operator: LabelOperator.GreaterThan, 
-            value: 10,
-            ttl: TimeSpan.FromMinutes(1)),    
+        new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
+        new RouterWorkerSelector(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+            { ExpiresAfter = TimeSpan.FromMinutes(5) }
     },
-    labels: new LabelCollection()
-    {
-        ["name"] = "John"
-    });
+    Labels = { ["name"] = new LabelValue("John") }
+});
 ```
 
 ::: zone-end
@@ -128,22 +150,64 @@ var job = await client.CreateJobAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-let job = await client.createJob({
-    channelId: "chat",
-    queueId: "queue-1",
-    workerSelectors: [
-        { key: "English", operator: "equal", value: true },        
-        { key: "Skill", operator: "greaterThanEqual", value: 10, ttl: "00:01:00" },        
-    ],
-    labels: {
-        name: "John"
-    },
+await client.createJob("job1", {
+  channelId: "chat",
+  queueId: "queue1",
+  requestedWorkerSelectors: [
+      { key: "English", labelOperator: "equal", value: true },
+      { key: "Skill", labelOperator: "greaterThan", value: 10, expiresAfterSeconds: 60 },        
+  ],
+  labels: {
+      name: "John"
+  }
 });
 ```
 
 ::: zone-end
 
-Job Router will now try to match this job to an available worker listening on `queue-1` for the `chat` channel, with `English` set to `true` and `Skill` greater than `10`.
+::: zone pivot="programming-language-python"
+
+```python
+client.create_job(job_id = "job1", router_job = RouterJob(
+    channel_id = "chat",
+    queue_id = "queue1",
+    requested_worker_selectors = [
+        RouterWorkerSelector(
+          key = "English",
+          label_operator = LabelOperator.EQUAL,
+          value = True
+        ),
+        RouterWorkerSelector(
+          key = "Skill",
+          label_operator = LabelOperator.GREATER_THAN,
+          value = True
+        )
+    ],
+    labels = { "name": "John" }
+))
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+client.createJob(new CreateJobOptions("job1", "chat", "queue1")
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector()
+          .setKey("English")
+          .setLabelOperator(LabelOperator.EQUAL)
+          .setValue(new LabelValue(true)),
+        new RouterWorkerSelector()
+          .setKey("Skill")
+          .setLabelOperator(LabelOperator.GREATER_THAN)
+          .setValue(new LabelValue(10))))
+    .setLabels(Map.of("name", new LabelValue("John"))));
+```
+
+::: zone-end
+
+Job Router will now try to match this job to an available worker listening on `queue1` for the `chat` channel, with `English` set to `true` and `Skill` greater than `10`.
 Once a match is made, an offer is created. The distribution policy that is attached to the queue will control how many active offers there can be for a job and how long each offer is valid. [You'll receive][subscribe_events] an [OfferIssued Event][offer_issued_event] which would look like this:
 
 ```json
@@ -151,7 +215,7 @@ Once a match is made, an offer is created. The distribution policy that is attac
     "workerId": "worker-1",
     "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
     "channelId": "chat",
-    "queueId": "queue-1",
+    "queueId": "queue1",
     "offerId": "525fec06-ab81-4e60-b780-f364ed96ade1",
     "offerTimeUtc": "2021-06-23T02:43:30.3847144Z",
     "expiryTimeUtc": "2021-06-23T02:44:30.3847674Z",
@@ -171,4 +235,3 @@ The [OfferIssued Event][offer_issued_event] includes details about the job, work
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
-

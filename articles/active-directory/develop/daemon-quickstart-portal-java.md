@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 08/22/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api, devx-track-extended-java
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -182,7 +182,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > > |---------|---------|
 > > | `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

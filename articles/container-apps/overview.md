@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: overview
 ms.date: 03/29/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
 ---
 
 # Azure Container Apps overview
@@ -39,6 +39,8 @@ With Azure Container Apps, you can:
 - [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
+
+- Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 - [**Use specialized hardware**](plans.md) for access to increased compute resources.
 

@@ -4,6 +4,7 @@ description: Add sign in and sign out components to your React single-page app
 author: OwenRichards1
 ms.author: owenrichards
 ms.service: active-directory
+ms.custom: devx-track-extended-java, devx-track-js
 ms.topic: tutorial
 ms.date: 02/28/2023
 #Customer intent: As a React developer, I want to know how to use functional components to add sign in and sign out experiences in my React application.

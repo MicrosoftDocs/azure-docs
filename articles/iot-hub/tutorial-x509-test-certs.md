@@ -43,7 +43,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 
 * An [OpenSSL](https://www.openssl.org/) installation. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
-  >[!NOTE]
+  > [!NOTE]
   > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Create a root CA
@@ -87,16 +87,19 @@ You must first create an internal root certificate authority (CA) and a self-sig
 
     | Placeholder | Description |
     | --- | --- |
-    | {rootca_name} | The name of the root CA. For example, `rootca`. |
-    | {domain_suffix} | The suffix of the domain name for the root CA. For example, `example.com`. |
-    | {rootca_common_name} | The common name of the root CA. For example, `Test Root CA`. |
+    | *{rootca_name}* | The name of the root CA. For example, `rootca`. |
+    | *{domain_suffix}* | The suffix of the domain name for the root CA. For example, `example.com`. |
+    | *{rootca_common_name}* | The common name of the root CA. For example, `Test Root CA`. |
 
     The file provides OpenSSL with the values needed to configure your test root CA. For this example, the file configures a root CA using the directories and files created in previous steps. The file also provides configuration settings for:
 
     - The CA policy used by the root CA for certificate Distinguished Name (DN) fields
     - Certificate requests created by the root CA
     - X.509 extensions applied to root CA certificates, subordinate CA certificates, and client certificates issued by the root CA
-    
+
+    > [!NOTE]
+    > The `home` attribute, in the `ca_default` section, is set to `../rootca` because this configuration file is also used when creating the certificate for your subordinate CA. The specified relative path allows OpenSSL to navigate from your subordinate CA folder to your root CA folder during that process.
+
     For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) manual page in OpenSSL documentation.
 
     ```bash
@@ -162,7 +165,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     basicConstraints         = critical,CA:false
     extendedKeyUsage         = clientAuth
     keyUsage                 = critical,digitalSignature
-    subjectKeyIdentifier     = hash    
+    subjectKeyIdentifier     = hash
     ```
 
 1. In the Git Bash window, run the following command to generate a certificate signing request (CSR) in the *rootca* directory and a private key in the *rootca/private* directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in OpenSSL documentation.
@@ -245,7 +248,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 > * Create a configuration file used by OpenSSL to configure your subordinate CA and certificates created with your subordinate CA
 > * Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
 
-1. Start a Git Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA.
+1. Start a Git Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA. For this example, both the root CA and the subordinate CA reside in the same base directory. 
 
     ```bash
     cd {base_dir}
@@ -255,7 +258,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 
     | Placeholder | Description |
     | --- | --- |
-    | {subca_dir} | The name of the directory for the subordinate CA. For example, `subca`. |
+    | *{subca_dir}* | The name of the directory for the subordinate CA. For example, `subca`. |
     
     This step creates a directory structure and support files for the subordinate CA similar to the folder structure and files created for the root CA in [Create a root CA](#create-a-root-ca).
 
@@ -269,13 +272,13 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     echo 1001 > db/crlnumber
     ```
 
-1. Create a text file named *subca.conf* in the directory for the subordinate CA created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with their corresponding values. 
+1. Create a text file named *subca.conf* in the directory specified in *{subca_dir}*, for the subordinate CA created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with their corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
-    | {subca_name} | The name of the subordinate CA. For example, `subca`. |
-    | {domain_suffix} | The suffix of the domain name for the subordinate CA. For example, `example.com`. |
-    | {subca_common_name} | The common name of the subordinate CA. For example, `Test Subordinate CA`. |
+    | *{subca_name}* | The name of the subordinate CA. For example, `subca`. |
+    | *{domain_suffix}* | The suffix of the domain name for the subordinate CA. For example, `example.com`. |
+    | *{subca_common_name}* | The common name of the subordinate CA. For example, `Test Subordinate CA`. |
     
     As with the configuration file for your test root CA, this file provides OpenSSL with the values needed to configure your test subordinate CA. You can create multiple subordinate CAs, for managing testing scenarios or environments.
 
@@ -344,7 +347,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     basicConstraints         = critical,CA:false
     extendedKeyUsage         = clientAuth
     keyUsage                 = critical,digitalSignature
-    subjectKeyIdentifier     = hash    
+    subjectKeyIdentifier     = hash
     ```
     
 1. In the Git Bash window, run the following commands to generate a private key and a certificate signing request (CSR) in the subordinate CA directory.
@@ -455,8 +458,8 @@ Perform the following steps to:
 
     | Placeholder | Description |
     | --- | --- |
-    | {subca_dir} | The name of the directory for the subordinate CA. For example, `subca`. |
-    | {device_name} | The name of the IoT device. For example, `testdevice`. |
+    | *{subca_dir}* | The name of the directory for the subordinate CA. For example, `subca`. |
+    | *{device_name}* | The name of the IoT device. For example, `testdevice`. |
     
     This step creates a 2048-bit RSA private key for your client certificate, and then generates a certificate signing request (CSR) using that private key.
 
@@ -484,7 +487,7 @@ Perform the following steps to:
 
     | Placeholder | Description |
     | --- | --- |
-    | {device_id} | The identifier of the IoT device. For example, `testdevice`. <br/><br/>This value must match the device ID specified for the corresponding device identity in your IoT hub for your device. |
+    | *{*device_id}* | The identifier of the IoT device. For example, `testdevice`. <br/><br/>This value must match the device ID specified for the corresponding device identity in your IoT hub for your device. |
 
     You can optionally enter your own values for the other fields, such as **Country Name**, **Organization Name**, and so on. You don't need to enter a challenge password or an optional company name. After providing the certificate details, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
 

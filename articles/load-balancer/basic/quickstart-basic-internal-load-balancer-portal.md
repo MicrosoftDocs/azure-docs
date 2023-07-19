@@ -35,6 +35,12 @@ A private IP address in the virtual network is configured as the frontend for th
 
 An Azure Bastion host is created to securely manage the virtual machines and install IIS.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
+
 In this section, you'll create a virtual network, subnet, and Azure Bastion host.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.

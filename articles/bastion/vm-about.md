@@ -5,7 +5,7 @@ description: Learn about VM connections and features when connecting using Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 06/08/2023
 ms.author: cherylmc
 
 ---
@@ -16,7 +16,7 @@ The sections in this article show you various features and settings that are ava
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use a variety of different methods to connect to a target VM. Some connection types require Bastion to be configured with the Standard SKU. Use the following articles to connect.
+You can use various different methods to connect to a target VM. Some connection types require Bastion to be configured with the Standard SKU. Use the following articles to connect.
 
 [!INCLUDE [Connect articles list](../../includes/bastion-vm-connect-article-list.md)]
 

@@ -45,12 +45,13 @@ There are several API Management endpoints to which you can assign a custom doma
 | **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
 | **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
 | **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
+| **Configuration API (v2)** | Default is: `<apim-service-name>.configuration.azure-api.net` |
 | **SCM** | Default is: `<apim-service-name>.scm.azure-api.net` |
 
 ### Considerations
 
 * You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
-* The default **Gateway** endpoint also is available after you configure a custom Gateway domain name. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
+* The default **Gateway** endpoint remains available after you configure a custom Gateway domain name and cannot be deleted. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
 * Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
 * The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
 * Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier. A specific subdomain certificate (for example, api.contoso.com) would take precedence over a wildcard certificate (*.contoso.com) for requests to api.contoso.com.

@@ -227,6 +227,8 @@
       href: expressroute-nat.md
   - name: Troubleshoot
     items:
+    - name: Obtain correlation ID
+      href: get-correlation-id.md
     - name: Verifying ExpressRoute connectivity
       href: expressroute-troubleshooting-expressroute-overview.md
     - name: Resolving network performance issues

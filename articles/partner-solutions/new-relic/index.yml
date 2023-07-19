@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Native New Relic Service Preview
+title: Azure Native New Relic Service
 summary: Azure Native New Relic Service provides a native integrated experience for monitoring where you can create and manage New Relic accounts.
 
 metadata:
-  title: Azure Native New Relic Service Preview documentation
+  title: Azure Native New Relic Service documentation
   description: Azure Native New Relic Service offers a monitoring solution for your Azure workloads by using a streamlined workflow.
   ms.topic: landing-page
   author: flang-msft

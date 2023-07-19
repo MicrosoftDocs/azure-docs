@@ -21,6 +21,8 @@ In this tutorial, we'll be configuring the Azure Communication Services UI Libra
 
 >[!IMPORTANT]
 >Azure Communication Services doesn't provide a file storage service. You will need to use your own file storage service for sharing files. For the pupose of this tutorial, we will be using Azure Blob Storage.**
+>
+> This tutorial is about file sharing between ACS users in an ACS Chat. For file sharing in a Teams interoperability chat, see the documentation in the [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-filesharing--file-sharing).  Note that for Teams Interoperability chat, we only support ACS users to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
 
 ## Download code
 
@@ -85,11 +87,11 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the Package
 
-Use the `npm install` command to install the Azure Communication Services UI Library for JavaScript.
+Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
 
 ```bash
 
-npm install @azure/communication-react
+npm install @azure/communication-react@1.5.1-beta.5
 
 ```
 

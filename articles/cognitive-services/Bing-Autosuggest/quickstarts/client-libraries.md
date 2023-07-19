@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
 ms.devlang: csharp, golang
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-go
 ---
 # Quickstart: Use the Bing Autosuggest client library
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 

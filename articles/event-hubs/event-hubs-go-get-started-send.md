@@ -4,7 +4,7 @@ description: 'Quickstart: This article provides a walkthrough for creating a Go 
 ms.topic: quickstart
 ms.date: 11/16/2022
 ms.devlang: golang
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -101,6 +101,8 @@ Don't run the application yet. You first need to run the receiver app and then t
 ### Create a Storage account and container
 
 State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Go packages
 

@@ -1,12 +1,12 @@
 ---
 title: How to use Application Insights Java In-Process Agent in Azure Spring Apps
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/20/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -279,9 +279,9 @@ az spring app-insights update \
 
 ### Manage Application Insights buildpack bindings
 
-This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
+This section applies to the Enterprise plan only, and provides instructions that that supplement the previous section.
 
-Azure Enterprise tier uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 
@@ -459,7 +459,7 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ::: zone pivot="sc-enterprise"
 
-Automation in Enterprise tier is pending support. Documentation is added as soon as it's available.
+Automation in the Enterprise plan is pending support. Documentation is added as soon as it's available.
 
 ::: zone-end
 

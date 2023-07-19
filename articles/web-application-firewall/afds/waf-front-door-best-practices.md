@@ -79,13 +79,13 @@ High rate limit thresholds avoid blocking legitimate traffic, while still provid
 
 ### Geo-filter traffic
 
-Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries you expect to receive traffic from.
+Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries/regions you expect to receive traffic from.
 
 For more information, see [What is geo-filtering on a domain for Azure Front Door Service?](waf-front-door-tutorial-geo-filtering.md).
 
 ### Specify the unknown (ZZ) location
 
-Some IP addresses aren't mapped to locations in our dataset. When an IP address can't be mapped to a location, the WAF assigns the traffic to the unknown (ZZ) country. To avoid blocking valid requests from these IP addresses, consider allowing the unknown (ZZ) country through your geo-filter.
+Some IP addresses aren't mapped to locations in our dataset. When an IP address can't be mapped to a location, the WAF assigns the traffic to the unknown (ZZ) country/region. To avoid blocking valid requests from these IP addresses, consider allowing the unknown (ZZ) country/region through your geo-filter.
 
 For more information, see [What is geo-filtering on a domain for Azure Front Door Service?](waf-front-door-tutorial-geo-filtering.md).
 

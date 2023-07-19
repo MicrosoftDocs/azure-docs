@@ -1,26 +1,20 @@
 ---
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
-ms.topic: conceptual
-ms.date: 04/25/2022
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 06/24/2023
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Back up and restore Azure VMs with PowerShell
+# Back up and restore Azure VMs using Azure PowerShell
 
-This article explains how to back up and restore an Azure VM in an [Azure Backup](backup-overview.md) Recovery Services vault using PowerShell cmdlets.
+This article describes how to back up and restore an Azure VM in an [Azure Backup](backup-overview.md) Recovery Services vault using PowerShell cmdlets.
 
-In this article you learn how to:
+Azure Backup provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized, and you can easily restore as needed.
 
-> [!div class="checklist"]
->
-> * Create a Recovery Services vault and set the vault context.
-> * Define a backup policy
-> * Apply the backup policy to protect multiple virtual machines
-> * Trigger an on-demand backup job for the protected virtual machines
 Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 ## Before you start
@@ -33,7 +27,7 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 
 The object hierarchy is summarized in the following diagram.
 
-![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Disgram shows the Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices/) reference in the Azure library.
 
@@ -53,7 +47,7 @@ To begin:
 
     The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following image is an example of what you'll see. It isn't the complete list of cmdlets.
 
-    ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
+    ![Screenshot shows the list of Recovery Services.](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. Sign in to your Azure account using **Connect-AzAccount**. This cmdlet brings up a web page prompts you for your account credentials:
 
@@ -96,7 +90,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for *testvault* set to **GeoRedundant**.
+3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for `testvault` set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -134,7 +128,7 @@ Use a Recovery Services vault to protect your virtual machines. Before you apply
 
 ### Set vault context
 
-Before enabling protection on a VM, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, *testvault*.
+Before enabling protection on a VM, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, `testvault`.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
@@ -426,9 +420,9 @@ There's an important difference between the restoring a VM using the Azure porta
 >
 >
 
-The following graphic shows the object hierarchy from the RecoveryServicesVault down to the BackupRecoveryPoint.
+The following graphic shows the object hierarchy from the `RecoveryServicesVault` down to the `BackupRecoveryPoint`.
 
-![Recovery Services object hierarchy showing BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+![Screenshot shows the BackupContainer listed by Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 To restore backup data, identify the backed-up item and the recovery point that holds the point-in-time data. Use [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) to restore data from the vault to your account.
 
@@ -672,7 +666,7 @@ The template isn't directly accessible since it's under a customer's storage acc
 
 ### Create a VM using the config file
 
-The following section lists steps necessary to create a VM using _VMConfig_ file.
+The following section lists steps necessary to create a VM using `VMConfig` file.
 
 > [!NOTE]
 > It's highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.

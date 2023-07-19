@@ -3,7 +3,7 @@ title: Create, retrieve, and view the support bundle from an Azure Storage Mover
 description: Learn how to create, retrieve, and view the support bundle from the Azure Storage Mover Agent.
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 10/06/2022
 ms.custom: template-how-to

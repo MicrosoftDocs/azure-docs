@@ -3,14 +3,14 @@ title: Filled map in Azure Maps Power BI Visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn about the Filled map feature in Azure Maps Power BI Visual.
 author: deniseatmicrosoft
-ms.author: limingchen 
+ms.author: limingchen
 ms.date: 04/11/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Filled map in Azure Maps Power BI Visual (Preview)
+# Filled map in Azure Maps Power BI visual
 
 Filled maps use varying degrees of shading, tinting or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
 
@@ -35,7 +35,7 @@ Filled maps can be a great choice:
 
 Some common uses for filled maps include:
 
-* Visualize sales or revenue results by country or state.
+* Visualize sales or revenue results by country/region or state.
 * Visualize election results where the color represents the party that won and the shading represent the margin of victory.
 * Visualize unemployment rates  by region, state or county.
 
@@ -65,7 +65,7 @@ There are two places where you can adjust filled maps settings: Build and format
 
 | Bucket               | Description                                                                                     |
 |----------------------|-------------------------------------------------------------------------------------------------|
-| Location             | Geospatial area with a boundary, such as country, state, city, county or postal code. Street and address aren't supported in filled map. |
+| Location             | Geospatial area with a boundary, such as country/region, state, city, county or postal code. Street and address aren't supported in filled map. |
 | Legend               | Categorical data that will be used to shade the map.                                            |
 | Tool Tips (optional) | Determined the data/columns that would be shown in tool tips                                    |
 
@@ -128,7 +128,7 @@ There are two places where you can adjust filled maps settings: Build and format
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)

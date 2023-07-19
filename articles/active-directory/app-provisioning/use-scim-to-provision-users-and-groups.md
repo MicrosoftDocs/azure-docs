@@ -171,7 +171,7 @@ The Azure AD Provisioning Services is designed to support a SCIM 2.0 user manage
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
-Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must support these requirements:
+Within the SCIM 2.0 protocol specification, your application must support these requirements:
 
 |Requirement|Reference notes (SCIM protocol)|
 |---|---|

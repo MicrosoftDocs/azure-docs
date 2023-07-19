@@ -3,6 +3,7 @@ title: How to troubleshoot the Azure Data Lake Analytics U-SQL job failures beca
 description: 'Troubleshoot U-SQL job failures because of the upgrade to .NET Framework 4.7.2.'
 ms.reviewer: whhender
 ms.service: data-lake-analytics
+ms.custom: devx-track-dotnet
 ms.topic: troubleshooting
 ms.date: 01/27/2023
 ---

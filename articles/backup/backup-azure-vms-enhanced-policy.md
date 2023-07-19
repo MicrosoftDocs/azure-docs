@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.date: 05/15/2023
 ms.reviewer: sharrai
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up an Azure VM using Enhanced policy
 

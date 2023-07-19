@@ -1,5 +1,5 @@
-- name: Cost Management + Billing documentation
-  href: index.yml
+- name: Billing and subscriptions documentation
+  href: manage/index.yml
 - name: Overview
   items:
   - name: What is Cost Management and Billing?
@@ -7,18 +7,6 @@
     href: cost-management-billing-overview.md
   - name: What's new?
     href: https://azure.microsoft.com/blog/tag/cost-management/
-- name: Quickstarts
-  items:
-  - name: Start analyzing costs
-    displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
-    href: costs/quick-acm-cost-analysis.md
-  - name: Create a budget - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: costs/quick-create-budget-bicep.md
-  - name: Create a budget - ARM template
-    displayName: Resource Manager
-    href: costs/quick-create-budget-template.md
-  expanded: true
 - name: Tutorials
   items:
   - name: Review your individual account bill
@@ -29,195 +17,37 @@
     href: understand/review-customer-agreement-bill.md
   - name: Review your Microsoft Partner Agreement bill
     href: understand/review-partner-agreement-bill.md
-  - name: Create and manage budgets
-    href: costs/tutorial-acm-create-budgets.md
-  - name: Export data
-    displayName: Azure CLI, az costmanagement query, az costmanagement export
-    href: costs/tutorial-export-acm-data.md
-  - name: Seed historical cost dataset with Exports API
-    href: automate/tutorial-seed-historical-cost-dataset-exports-api.md
-  - name: Act on recommendations
-    href: costs/tutorial-acm-opt-recommendations.md
 - name: Concepts
   items:
-  - name: Cost Management
-    items:
-    - name: Cost Management best practices
-      href: costs/cost-mgt-best-practices.md
-    - name: Understand Cost Management data
-      displayName: Microsoft Azure Sponsorship, sponsorship
-      href: costs/understand-cost-mgt-data.md
-    - name: Understand and work with scopes
-      href: costs/understand-work-scopes.md
-    - name: Understand reporting
-      items:
-      - name: Get started with reporting
-        href: costs/reporting-get-started.md
-      - name: Use built-in views in Cost analysis
-        href: costs/cost-analysis-built-in-views.md
-      - name: Customize views in cost analysis
-        href: costs/customize-cost-analysis-views.md
-      - name: Save and share customized views
-        href: costs/save-share-views.md
-      - name: Group and filter options
-        href: costs/group-filter.md
-    - name: Plan to manage costs
-      href: understand/plan-manage-costs.md
-    - name: Identify cost anomalies and unexpected changes
-      href: understand/analyze-unexpected-charges.md
-    - name: Manage costs with automation
-      href: costs/manage-automation.md
-    - name: Cost Management for partners
-      href: costs/get-started-partners.md
-  - name: Reservations
-    items:
-    - name: What are Azure Reservations?
-      href: reservations/save-compute-costs-reservations.md?toc=/azure/cost-management-billing/toc.json
-    - name: How reservation recommendations are created
-      href: reservations/reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/toc.json
-    - name: How discount is applied
-      items:
-      - name: How an Azure reservation discount is applied
-        href: reservations/reservation-discount-application.md?toc=/azure/cost-management-billing/toc.json
-      - name: App Service
-        href: reservations/reservation-discount-app-service.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Cache for Redis
-        href: reservations/understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Cosmos DB
-        href: reservations/understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for MariaDB
-        href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for MySQL
-        href: reservations/understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for PostgreSQL - Single Server
-        href: ../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for PostgreSQL - Hyperscale (Citus)
-        href: ../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
-      - name: Databricks
-        href: reservations/reservation-discount-databricks.md
-      - name: Data Explorer
-        href: reservations/understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Dedicated Hosts
-        href: reservations/billing-understand-dedicated-hosts-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Disk Storage
-        href: reservations/understand-disk-reservations.md?toc=/azure/cost-management-billing/toc.json
-      - name: Red Hat Linux Enterprise
-        href: reservations/understand-rhel-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Software plans
-        href: reservations/understand-suse-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Storage
-        href: reservations/understand-storage-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: SQL Database
-        href: reservations/understand-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Synapse Analytics
-        href: reservations/reservation-discount-azure-sql-dw.md?toc=/azure/cost-management-billing/toc.json
-      - name: Virtual machines
-        href: manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-    - name: Windows and SQL costs not included
-      href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
-    - name: Reservation usage data for individual subscriptions
-      href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Reservation usage data for EA and Microsoft Customer Agreement
-      href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
-  - name: Billing
-    items:
-    - name: Individual subscription usage terms
-      href: understand/understand-usage.md
-    - name: Individual subscription invoice terms
-      href: understand/understand-invoice.md
-    - name: Microsoft Customer Agreement usage terms
-      href: understand/mca-understand-your-usage.md
-    - name: Microsoft Customer Agreement invoice terms
-      href: understand/mca-understand-your-invoice.md
-    - name: Microsoft Customer Agreement price sheet terms
-      href: manage/mca-understand-pricesheet.md
-    - name: Microsoft Partner Agreement invoice terms
-      href: understand/mpa-invoice-terms.md
-    - name: Changes to your updated pay-as-you-go billing account
-      href: understand/mosp-new-customer-experience.md
-    - name: Billing accounts for Microsoft Customer Agreement
-      href: understand/mca-overview.md
-    - name: Billing accounts for Microsoft Partner Agreement
-      href: understand/mpa-overview.md
-    - name: Get started in the Azure EA portal
-      href: manage/ea-portal-get-started.md
-    - name: Get started with EA billing in the Azure portal
-      href: manage/ea-direct-portal-get-started.md
-    - name: Direct EA billing invoice documents
-      href: manage/direct-ea-billing-invoice-documents.md
-    - name: Request Withholding Tax credit - India
-      href: manage/withholding-tax-credit-india.md
-  - name: Automation
-    items:
-    - name: Automation scenarios
-      href: automate/automation-overview.md
-    - name: Automation FAQ
-      href: automate/automation-faq.md
-    - name: Assign API permissions
-      items:
-      - name: Cost Management API permissions
-        href: automate/cost-management-api-permissions.md
-      - name: Assign roles to EA SPNs
-        href: manage/assign-roles-azure-service-principals.md?toc=/azure/cost-management-billing/toc.json
-    - name: Ingest cost details
-      items:
-      - name: Cost details overview
-        href: automate/automation-ingest-usage-details-overview.md
-      - name: Choose a cost details solution
-        href: automate/usage-details-best-practices.md
-      - name: Understand cost details data fields
-        href: automate/understand-usage-details-fields.md
-      - name: Retrieve large datasets with exports
-        href: costs/ingest-azure-usage-at-scale.md?toc=/azure/cost-management-billing/toc.json
-      - name: Get small cost datasets on demand
-        href: automate/get-small-usage-datasets-on-demand.md
-      - name: Get cost details for pay-as-you-go subscriptions
-        href: automate/get-usage-details-legacy-customer.md
-      - name: Get cost data with Azure CLI
-        href: automate/get-usage-data-azure-cli.md
-    - name: Budget automation
-      items:
-      - name: Automate budget creation
-        href: automate/automate-budget-creation.md
-      - name: Configure budget-based actions
-        href: manage/cost-management-budget-scenario.md?toc=/azure/cost-management-billing/toc.json
-    - name: Reservation automation
-      href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-    - name: Automation for partners
-      href: automate/partner-automation.md
-    - name: Migrate from Enterprise Reporting APIs
-      items:
-      - name: Migrate from EA Reporting APIs to ARM
-        href: automate/migrate-ea-reporting-arm-apis-overview.md
-      - name: EA Usage Details APIs 
-        href: automate/migrate-ea-usage-details-api.md
-      - name: EA Balance Summary API
-        href: automate/migrate-ea-balance-summary-api.md
-      - name: EA Price Sheet API
-        href: automate/migrate-ea-price-sheet-api.md
-      - name: EA Reserved Instance Usage Details API
-        href: automate/migrate-ea-reserved-instance-usage-details-api.md
-      - name: EA Reserved Instance Usage Summary API
-        href: automate/migrate-ea-reserved-instance-usage-summary-api.md
-      - name: EA Reserved Instance Recommendations API
-        href: automate/migrate-ea-reserved-instance-recommendations-api.md
-      - name: EA Reserved Instance Charges API
-        href: automate/migrate-ea-reserved-instance-charges-api.md
-    - name: Migrate from EA to MCA APIs
-      href: costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/toc.json
-    - name: Migrate from Consumption APIs
-      items:
-      - name: Usage Details API
-        href: automate/migrate-consumption-usage-details-api.md
-      - name: Marketplaces API
-        href: automate/migrate-consumption-marketplaces-api.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
+  - name: Individual subscription usage terms
+    href: understand/understand-usage.md
+  - name: Individual subscription invoice terms
+    href: understand/understand-invoice.md
+  - name: Microsoft Customer Agreement usage terms
+    href: understand/mca-understand-your-usage.md
+  - name: Microsoft Customer Agreement invoice terms
+    href: understand/mca-understand-your-invoice.md
+  - name: Microsoft Customer Agreement price sheet terms
+    href: manage/mca-understand-pricesheet.md
+  - name: Microsoft Partner Agreement invoice terms
+    href: understand/mpa-invoice-terms.md
+  - name: Changes to your updated pay-as-you-go billing account
+    href: understand/mosp-new-customer-experience.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: understand/mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: understand/mpa-overview.md
+  - name: Get started in the Azure EA portal
+    href: manage/ea-portal-get-started.md
+  - name: Get started with EA billing in the Azure portal
+    href: manage/ea-direct-portal-get-started.md
+  - name: Direct EA billing invoice documents
+    href: manage/direct-ea-billing-invoice-documents.md
+  - name: Request Withholding Tax credit - India
+    href: manage/withholding-tax-credit-india.md
 - name: How-to guides
   items:
-  - name: Configure Cost Management + Billing
+  - name: Configure billing
     items:
     - name: Administer accounts
       items:
@@ -255,6 +85,14 @@
         href: manage/open-banking-strong-customer-authentication.md
       - name: Find tenant ID and primary domain name
         href: manage/find-tenant-id-domain.md
+      - name: Understand spending limit
+        href: manage/spending-limit.md
+      - name: Track credits for Microsoft Customer Agreement
+        href: manage/mca-check-azure-credits-balance.md
+      - name: Track your Microsoft Azure Consumption Commitment
+        href: manage/track-consumption-commitment.md
+      - name: Markup - China
+        href: manage/markup-china.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
@@ -288,6 +126,8 @@
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
+      - name: Filter and view subscriptions
+        href: manage/filter-view-subscriptions.md
     - name: Transfer billing products
       items:
       - name: Azure billing product transfers
@@ -375,100 +215,6 @@
         href: manage/check-free-service-usage.md
       - name: Upgrade free account
         href: manage/upgrade-azure-subscription.md
-  - name: Perform key cost management tasks
-    items:
-    - name: Calculate pricing
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Use cost analysis for common tasks
-      href: costs/cost-analysis-common-uses.md
-    - name: Enable preview features
-      href: costs/enable-preview-features-cost-management-labs.md
-    - name: Automate actions with budgets
-      href: manage/cost-management-budget-scenario.md
-    - name: Use cost alerts
-      href: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - name: Export cost data with a Storage SAS key
-      href: costs/export-cost-data-storage-account-sas-key.md
-    - name: Cost allocation
-      items:
-      - name: Group and allocate costs using tag inheritance
-        href: costs/enable-tag-inheritance.md
-      - name: Split shared costs
-        href: costs/allocate-costs.md
-    - name: Connect with Power BI Desktop
-      href: /power-bi/desktop-connect-azure-cost-management
-    - name: Analyze Azure costs with the Power BI template app
-      href: costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md
-    - name: Manage AWS cost and usage
-      href: costs/aws-integration-manage.md
-    - name: Understand spending limit
-      href: manage/spending-limit.md
-    - name: Track credits for Microsoft Customer Agreement
-      href: manage/mca-check-azure-credits-balance.md
-    - name: Track your Microsoft Azure Consumption Commitment
-      href: manage/track-consumption-commitment.md
-  - name: Purchase and administer reservations
-    items:
-    - name: Determine what to purchase
-      items:
-      - name: Choose reservation to purchase
-        href: reservations/determine-reservation-purchase.md?toc=/azure/cost-management-billing/toc.json
-    - name: Buy reservations
-      items:
-      - name: Buy an Azure reservation
-        href: reservations/prepare-buy-reservation.md?toc=/azure/cost-management-billing/toc.json
-      - name: App Service
-        href: reservations/prepay-app-service.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Cache for Redis reservation
-        href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Cosmos DB
-        href: /azure/data-explorer
-      - name: Databricks
-        href: reservations/prepay-databricks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
-      - name: Data Explorer
-        href: /azure/data-explorer/pricing-reserved-capacity
-      - name: Disk Storage
-        href: ../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
-      - name: Dedicated Host
-        href: ../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/toc.json
-      - name: Software plans
-        href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Storage
-        href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Database for PostgreSQL
-        href: ../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Database for MySQL
-        href: ../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Database for MariaDB
-        href: ../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
-      - name: SAP HANA Large Instances
-        href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
-      - name: SQL Database
-        href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/toc.json
-      - name: Azure Synapse Analytics
-        href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Virtual machines
-        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
-    - name: View, Manage and Optimize after purchase
-      items:
-      - name: View reservations and utilization
-        href: reservations/view-reservations.md?toc=/azure/cost-management-billing/toc.json
-      - name: View reservations as a CSP
-        href: reservations/how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/toc.json
-      - name: Manage reservations
-        href: reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/toc.json
-      - name: Exchange and refund reservations
-        href: reservations/exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/toc.json
-    - name: Report costs
-      items:
-      - name: View reservation transactions
-        href: reservations/view-purchase-refunds.md?toc=/azure/cost-management-billing/toc.json
-      - name: Charge back reservation costs
-        href: reservations/charge-back-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Renew reservations
-      items:
-      - name: Renew a reservation
-        href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Manage payment methods
     items:
     - name: Pay your Azure bill
@@ -483,8 +229,6 @@
       href: manage/view-payment-history.md
   - name: Troubleshoot
     items:
-    - name: Error codes
-      href: costs/cost-management-error-codes.md
     - name: Can't view or find invoices
       href: manage/troubleshoot-cant-find-invoice.md
     - name: View billing account
@@ -521,52 +265,24 @@
       href: manage/how-to-create-azure-support-request-ea.md
 - name: Reference
   items:
+  - name: Billing Automation Scenarios
+    href: manage/cost-management-automation-scenarios.md
+  - name: Azure Billing REST API
+    href: /rest/api/billing
   - name: Azure CLI
     href: /cli/azure/billing
   - name: Cost Management REST API
     href: /rest/api/cost-management
-  - name: Consumption REST API ARM budget template
-    href: /azure/templates/microsoft.consumption/budgets
-  - name: Cost Management REST API Samples
-    href: https://github.com/Azure-Samples/Cost-Management-Samples
-  - name: Azure PowerShell cmdlets for Cost Management
-    href: /powershell/module/Az.CostManagement
-  - name: Billing Automation Scenarios
-    href: manage/cost-management-automation-scenarios.md
   - name: Azure Retail Prices REST API
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
-  - name: Azure Billing REST API
-    href: /rest/api/billing
   - name: Enterprise reporting REST API overview
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST APIs
     href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-  - name: Reservations
-    items:
-    - name: Reservations REST API
-      href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-    - name: Azure PowerShell cmdlets for Reservations
-      href: /powershell/module/azurerm.reservations
-    - name: Azure CLI for Reservations
-      href: /cli/azure/reservations/reservation
-    - name: Usage Details REST API
-      href: /rest/api/consumption/usagedetails
-    - name: Reservations Details REST API
-      href: /rest/api/consumption/reservationsdetails
 - name: Resources
   items:
   - name: FAQ
     href: cost-management-billing-faq.yml
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?products=azure-cost-management
-  - name: Cost Management feedback forum
-    href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cost-management
-  - name: Regional Availability
-    href: https://azure.microsoft.com/regions/services/
 - name: Samples
   items:
   - name: REST API

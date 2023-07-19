@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 03/08/2023
+ms.date: 06/13/2023
 ---
 
 ## Latest client versions
@@ -11,7 +11,16 @@ The following table lists the current version available for the public release:
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.2.3000.0      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+| Public  | 10.2.3012      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+
+## Updates for version 10.2.3012
+
+*Date published: June 12, 2023*
+
+In this release, we've made the following change:
+
+- Updated Store description to mention the end of Azure Virtual Desktop support.
+- Fixed the vulnerability known as [CVE-2023-28290](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28290).
 
 ## Updates for version 10.2.3000
 

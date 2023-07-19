@@ -1,6 +1,5 @@
 ---
 title: Device connectivity guide
-titleSuffix: Azure IoT Central
 description: This guide describes how IoT devices connect to and communicate with your IoT Central application. The article describes telemetry, properties, and commands.
 author: dominicbetts
 ms.author: dobett

@@ -1,6 +1,6 @@
 ---
 title: Credential scanner rules
-titleSuffix: Defender for Cloud
+
 description: Learn more about the Defender for DevOps credential scanner's rules, descriptions and the supported file types in Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/31/2023
@@ -14,7 +14,7 @@ Defender for DevOps supports many types of files and rules. This article explain
 
 Credential scanning supports the following file types:
 
-| Supported file types |  |  |  |  |  |
+| Supported file types | Supported file types | Supported file types | Supported file types | Supported file types | Supported file types |
 |--|--|--|--|--|--|
 | 0.001 |\*.conf | id_rsa |\*.p12 |\*.sarif |\*.wadcfgx |
 | 0.1 |\*.config |\*.iis |\*.p12* |\*.sc |\*.waz |
@@ -210,7 +210,7 @@ Azure App Service Deployment Password
 
 **Sample**: `userPWD=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOPQRSTUV;`<br> `PublishingPassword=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOPQRSTUV;`
 
-Learn more about [Configuring deployment credentials for Azure App Service](../app-service/deploy-configure-credentials.md) and [Get publish settings from Azure and import into Visual Studio](/visualstudio/deployment/tutorial-import-publish-settings-azure?view=vs-2019).
+Learn more about [Configuring deployment credentials for Azure App Service](../app-service/deploy-configure-credentials.md) and [Get publish settings from Azure and import into Visual Studio](/visualstudio/deployment/tutorial-import-publish-settings-azure).
 
 ### CSCAN-AZURE0100
 
@@ -218,7 +218,7 @@ Azure DevOps Personal Access Token
 
 **Sample**: `URL="org.visualstudio.com/proj"; PAT = "ntpi2ch67ci2vjzcohglogyygwo5fuyl365n2zdowwxhsys6jnoa"` <br> `URL="dev.azure.com/org/proj"; PAT = "ntpi2ch67ci2vjzcohglogyygwo5fuyl365n2zdowwxhsys6jnoa"`
 
-Learn more about [Using personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows).
+Learn more about [Using personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ### CSCAN-AZURE0101
 
@@ -226,7 +226,7 @@ Azure DevOps App Secret
 
 **Sample**: `AdoAppId=...;AdoAppSecret=ntph2ch67ciqunzcohglogyygwo5fuyl365n4zdowwxhsys6jnoa;`
 
-Learn more about [Authorizing access to REST APIs with OAuth 2.0](/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops).
+Learn more about [Authorizing access to REST APIs with OAuth 2.0](/azure/devops/integrate/get-started/authentication/oauth).
 
 ### CSCAN-AZURE0120
 
@@ -234,7 +234,7 @@ Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
-Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys)
+Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys)
 
 ### CSCAN-AZURE0121
 
@@ -242,7 +242,7 @@ Identifiable Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
-Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys).
+Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys).
 
 ### CSCAN-AZURE0130
 
@@ -282,7 +282,7 @@ Azure Bot Service App Secret
 
 **Sample**: `"account.azurewebsites.net/api/messages;AppId=01234567-abcd-abcd-abcd-abcdef012345;AppSecret="abcdeFGHIJ0K1234567%;[@"`
 
-Learn more about [Authentication types](/azure/bot-service/bot-builder-concept-authentication-types?view=azure-bot-service-4.0).
+Learn more about [Authentication types](/azure/bot-service/bot-builder-concept-authentication-types).
 
 ### CSCAN-AZURE0160
 
@@ -386,7 +386,7 @@ Azure Bot Framework Secret Key
 
 **Sample**: `host: webchat.botframework.com/?s=abcdefghijklmnopqrstuvwxyz.0123456789_ABCDEabcdefghijkl&...` <br> `host: webchat.botframework.com/?s=abcdefghijk.lmn.opq.rstuvwxyz0123456789-_ABCDEFGHIJKLMNOPQRSTUV&...`
 
-Learn more about [Connecting a bot to Web Chat](/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0)
+Learn more about [Connecting a bot to Web Chat](/azure/bot-service/bot-service-channel-connect-webchat)
 
 ### CSCAN-GENERAL0020
 
@@ -418,7 +418,7 @@ ASP.NET Machine Key
 
 **Sample**: `machineKey validationKey="ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789" decryptionKey="ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789"...`
 
-Learn more about [MachineKey Class](/dotnet/api/system.web.security.machinekey?view=netframework-4.8)
+Learn more about [MachineKey Class](/dotnet/api/system.web.security.machinekey)
 
 
 ### CSCAN-GENERAL0060
@@ -443,7 +443,7 @@ Http Authorization Header
 
 **Sample**: `Authorization: Basic ABCDEFGHIJKLMNOPQRS0123456789;` <br> `Authorization: Digest ABCDEFGHIJKLMNOPQRS0123456789;`
 
-Learn more about [HttpRequestHeaders.Authorization Property](/dotnet/api/system.net.http.headers.httprequestheaders.authorization?view=netframework-4.8).
+Learn more about [HttpRequestHeaders.Authorization Property](/dotnet/api/system.net.http.headers.httprequestheaders.authorization).
 
 ### CSCAN-GENERAL0130
 
@@ -451,7 +451,7 @@ Client Secret / API Key
 
 **Sample**: `client_secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:password=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:...issuer...Api...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `Namespace...ACS...Issuer...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `IssuerName...IssuerSecret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `App_Secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEabcdefghijklmnopqrstuvwxyz0123456789/+ABCDE==`
 
-Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Azure AD](../active-directory/develop/active-directory-how-applications-are-added.md).
+Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Azure AD](../active-directory/develop/how-applications-are-added.md).
 
 ### CSCAN-GENERAL0140
 
@@ -459,7 +459,7 @@ General Symmetric Key
 
 **Sample**: `key=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=;`
 
-Learn more about [AES Class](/dotnet/api/system.security.cryptography.aes?view=net-5.0).
+Learn more about [AES Class](/dotnet/api/system.security.cryptography.aes).
 
 ### CSCAN-GENERAL0150
 

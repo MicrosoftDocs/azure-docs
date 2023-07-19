@@ -1,31 +1,31 @@
 ---
-title: Overview of Labs within Canvas | Microsoft Docs
-description: Learn how to use Lab Services within Canvas.
+title: Azure Lab Services within Canvas
+description: Learn about the benefits of using Azure Lab Services in Canvas.
+services: lab-services
+ms.service: lab-services
+ms.author: nicktrog
+author: ntrogh
 ms.topic: how-to
-ms.date: 01/22/2022
+ms.date: 06/02/2023
 ---
 
-# Overview of Lab Services within Canvas
- 
-[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+# Use Azure Lab Services within Canvas
 
-Azure Lab Services now provides an integrated experience for using labs with the Canvas. [Canvas LMS](https://www.instructure.com/canvas) is a cloud-based learning management system that provides one place for course content, quizzes, and grades for both educators and students. Educators can create labs from within Canvas and students will see their lab VMs alongside their other material for a course.
+Azure Lab Services provides an integrated experience for using labs with Canvas. [Canvas LMS](https://www.instructure.com/canvas) is a cloud-based learning management system that provides one place for course content, quizzes, and grades for both educators and students. Educators can create labs from within Canvas and students will see their lab virtual machines alongside their other material for a course.
+
+This article outlines the benefits of using Azure Lab Services within Canvas and provides links to other articles for instructions on how to create and manage labs within Canvas.
 
 ## Benefits
 
-Integration with Canvas LMS includes the following key capabilities:
+Azure Lab Services integration with Canvas provides the following benefits for setting up a virtual lab environment:
 
-- Labs are created and managed inside a course in Canvas.
-- Each lab automatically pulls and updates the list of students based on the latest course roster.
-- Virtual machines are added and deleted automatically based on changes to the course roster.
+- Educators can create and manage labs directly inside a course in Canvas.
+- Educators don't need to maintain lab participants in two different systems. The list of lab users is autopopulated based on the Canvas course roster. Azure Lab Services automatically performs a synchronization every 24 hours.
+- After the initial publish of the template virtual machine, the lab capacity (the number of virtual machines in the lab) is automatically adjusted based on the addition/deletion of students from the Canvas course roster.
 - Students access their labs directly inside a course in Canvas.
 
 ## Next steps
 
-See the following articles:
-
-- [Get started and create a Lab Services lab within Canvas](how-to-configure-canvas-for-lab-plans.md)
-- [Manage lab user lists within Canvas](how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas)
-- [Manage lab's VM pool within Canvas](how-to-manage-labs-within-canvas.md#manage-a-lab-vm-pool-in-canvas)
-- [Create and manage lab schedules within Canvas](how-to-manage-labs-within-canvas.md#configure-lab-schedules-and-settings-in-canvas)
-- [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-canvas.md)
+- [Configure Canvas to access lab plans](./how-to-configure-canvas-for-lab-plans.md)
+- [Create and manage labs within Canvas](./how-to-manage-labs-within-canvas.md)
+- [Access a lab virtual machine within Canvas](how-to-access-vm-for-students-within-canvas.md)

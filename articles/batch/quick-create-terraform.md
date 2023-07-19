@@ -4,9 +4,11 @@ description: 'In this article, you create an Azure Batch account using Terraform
 ms.topic: quickstart
 ms.service: batch
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure Batch account using Terraform
@@ -25,8 +27,6 @@ In this article, you learn how to:
 > * Create a random value using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure Storage account using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
 > * Create an Azure Batch account using [azurerm_batch_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/batch_account)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

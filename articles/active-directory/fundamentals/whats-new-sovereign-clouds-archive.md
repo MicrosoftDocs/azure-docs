@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: overview
-ms.date: 4/13/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
@@ -20,6 +20,154 @@ The primary [What's new in sovereign clouds release notes](whats-new-sovereign-c
 
 ---
 
+
+## November 2022
+
+### General Availability - Windows Hello for Business, cloud Kerberos trust deployment
+
+
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** User Authentication   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+
+---
+
+### General Availability - Expression builder with Application Provisioning
+
+**Type:** Changed feature  
+**Service category:** Provisioning  
+**Product capability:** Outbound to SaaS Applications  
+ 
+
+Accidental deletion of users in your apps or in your on-premises directory could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability. When a provisioning job would cause a spike in deletions, it will first pause and provide you with visibility into the potential deletions. You can then accept or reject the deletions and have time to update the job’s scope if necessary. For more information, see [Understand how expression builder in Application Provisioning works](../app-provisioning/expression-builder.md).
+ 
+
+---
+
+### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
+
+
+
+**Type:** New feature  
+**Service category:** Azure AD Connect Cloud Sync   
+**Product capability:** Identity Lifecycle Management 
+
+Azure AD Connect Cloud Sync Password writeback now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+
+---
+
+### General Availability - Prevent accidental deletions
+
+
+
+**Type:** New feature  
+**Service category:** Provisioning  
+**Product capability:** Outbound to SaaS Applications 
+
+
+
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+
+For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
+
+---
+
+### General Availability - Create group in administrative unit
+
+**Type:** New feature  
+**Service category:** RBAC       
+**Product capability:** AuthZ/Access Delegation    
+ 
+
+Groups Administrators and other roles scoped to an administrative unit can now create groups within the administrative unit.  Previously, creating a new group in administrative unit required a two-step process to first create the group, then add the group to the administrative unit.  The second step required a Privileged Role Administrator or Global Administrator.  Now, groups can be directly created in an administrative unit by anyone with appropriate roles scoped to the administrative unit, and this no longer requires a higher privilege admin role. For more information, see: [Add users, groups, or devices to an administrative unit](../roles/admin-units-members-add.md).
+ 
+---
+
+### General Availability - Number matching for Microsoft Authenticator notifications
+
+
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App      
+**Product capability:** User Authentication   
+
+To prevent accidental notification approvals, admins can now require users to enter the number displayed on the sign-in screen when approving an MFA notification in the Microsoft Authenticator app. We've also refreshed the Azure portal admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature roll-outs. As part of this update we have also added the highly requested ability for admins to exclude user groups from each feature. 
+
+The number matching feature greatly up-levels the security posture of the Microsoft Authenticator app and protects organizations from MFA fatigue attacks. We highly encourage our customers to adopt this feature applying the rollout controls we have built. Number Matching will begin to be enabled for all users of the Microsoft Authenticator app starting 27th of February 2023.
+
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md).
+
+---
+
+### General Availability - Additional context in Microsoft Authenticator notifications
+
+
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App      
+**Product capability:** User Authentication 
+
+Reduce accidental approvals by showing users additional context in Microsoft Authenticator app notifications. Customers can enhance notifications with the following:
+
+- Application Context: This feature will show users which application they're signing into.
+- Geographic Location Context: This feature will show users their sign-in location based on the IP address of the device they're signing into. 
+
+The feature is available for both MFA and Password-less Phone Sign-in notifications and greatly increases the security posture of the Microsoft Authenticator app. We've also refreshed the Azure portal Admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature roll-outs. As part of this update, we've also added the highly requested ability for admins to exclude user groups from certain features. 
+
+We highly encourage our customers to adopt these critical security features to reduce accidental approvals of Authenticator notifications by end users.
+
+
+For more information, see: [How to use additional context in Microsoft Authenticator notifications - Authentication methods policy](../authentication/how-to-mfa-additional-context.md).
+
+---
+
+
+
+## October 2022
+
+### General Availability - Azure AD certificate-based authentication
+
+**Type:** New feature  
+**Service category:** Other   
+**Product capability:** User Authentication   
+ 
+
+Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI). For more information, see: [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md).
+ 
+---
+
+### General Availability - Audited BitLocker Recovery
+
+**Type:** New feature  
+**Service category:** Device Access Management    
+**Product capability:** Device Lifecycle Management   
+ 
+
+BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+ 
+---
+
+### General Availability - More device properties supported for Dynamic Device groups
+
+**Type:** Changed feature   
+**Service category:** Group Management   
+**Product capability:** Directory   
+ 
+
+You can now create or update dynamic device groups using the following properties:
+
+- deviceManagementAppId
+- deviceTrustType
+- extensionAttribute1-15
+- profileType
+
+For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) 
+ 
+---
 
 ## September 2022
 
