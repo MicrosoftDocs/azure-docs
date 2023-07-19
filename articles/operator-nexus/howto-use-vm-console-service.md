@@ -52,6 +52,7 @@ To help set up the environment for accessing to Virtual Machines, define these e
 
     # Your Console resource enviroment variables
     export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
+    export VM_RESOURCE_GROUP="my-vm-rg"
     export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
     export CONSOLE_EXPIRATION_TIME="2023-06-01T01:27:03.008Z"
 
@@ -126,7 +127,7 @@ This section provides step-by-step guide to help you to create a Console resourc
    ```bash
        az networkcloud virtualmachine console create \
            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-           --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+           --resource-group "${VM_RESOURCE_GROUP}" \
            --extended-location name="${CM_EXTENDED_LOCATION}" type="CustomLocation" \
            --enabled True \
            --key-data "${CONSOLE_PUBLIC_KEY}" \
@@ -143,7 +144,7 @@ This section provides step-by-step guide to help you to create a Console resourc
    ```bash
        virtual_machine_access_id=$(az networkcloud virtualmachine console show \
            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-           --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+           --resource-group "${VM_RESOURCE_GROUP}" \
            --query "virtualMachineAccessId")
    ```
 
@@ -177,7 +178,7 @@ You can disable the session to a given VM by updating the expiration date/time a
 ```bash
     az networkcloud virtualmachine console update \
         --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-        --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+        --resource-group "${VM_RESOURCE_GROUP}" \
         [--enabled True | False] \
         [--key-data "${CONSOLE_PUBLIC_KEY}"] \
         [--expiration "${CONSOLE_EXPIRATION_TIME}"]
@@ -201,7 +202,7 @@ To clean up your VM Console environment setup, you need to delete the Console re
    ```bash
        az networkcloud virtualmachine console delete \
            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-           --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}"
+           --resource-group "${VM_RESOURCE_GROUP}"
    ```
 
 1. Deleting the Private Link Endpoint
