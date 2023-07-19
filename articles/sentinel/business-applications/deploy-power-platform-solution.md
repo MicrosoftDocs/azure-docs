@@ -5,7 +5,7 @@ ms.author: cwatson
 author: cwatson-cat
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 07/19/2023
 #CustomerIntent: As a security engineer, I want to ingest Power Platform activity logs into Microsoft Sentinel for security monitoring, detect related threats, and respond to incidents.
 ---
 
@@ -90,14 +90,26 @@ In your Power Platform environment, go to **Settings** > **Audit settings**. Und
 For more information about these steps, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#startstop-auditing-for-an-environment-and-set-retention-policy).
 
 ### Audit dataverse entities
-<!--Is dataverse Microsoft Dataverse? Per cloud style guide: "Microsoft Dataverse is the new name for Common Data Service."-->
+
 Enable detailed auditing on each of the dataverse entities. Do this automatically by importing a Power Platform managed solution or manually by enabling details auditing on each of the entities.
 
-<!--Totally lost. What section in the existing PP articles does the manual enablement align to? The automated way doesn't seem safe (download a zip file?!) -->
+#### Automatically enable entity auditing
 
-In your Power Platform environment, go to **Settings** > **Audit settings**...
+The quickest way to enable audit settings for all dataverse entities is to import the appropriate Power Platform managed solution in your Power Platform environment. This managed solution enables detailed auditing for each of the entities listed in the following file: [https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g).
 
-For more information about these steps, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
+To automatically enable entity auditing, complete the following steps.
+
+1. Go to [make.powerapps.com](make.powerapps.com).
+1. Choose the environment you want to monitor from the top right-hand side of the page.
+1.	Go to **Solutions** > **Import solution**.
+1. Import one of the following solutions depending on whether your Power Platform environment is used for Dynamics 365 CE Apps or not.
+
+   - For use with Dynamics 365 CE Apps, import [https://aka.ms/AuditSettings/Dynamics](https://aka.ms/AuditSettings/Dynamics).
+   - Otherwise, import [https://aka.ms/AuditSettings/DataverseOnly](https://aka.ms/AuditSettings/DataverseOnly).
+
+#### Manually enable entity auditing
+
+To enable auditing on each dataverse entity manually, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
 
 ## Verify that the data connector is ingesting logs to Microsoft Sentinel
 
