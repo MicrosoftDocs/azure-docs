@@ -1,5 +1,5 @@
 ---
-title: Connect on-premises machines to Defender for Cloud
+title: Connect on-premises machines
 description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
