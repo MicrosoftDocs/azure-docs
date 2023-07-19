@@ -1,3 +1,14 @@
+---
+title: How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs
+description: A technical description of how customer key control is implemented cryptographically by managed HSM
+ms.service: key-vault
+ms.subservice: managed-hsm
+ms.topic: conceptual
+author: davinune
+ms.author: davinune
+ms.date: 07/19/2023
+---
+
 # How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs
 
 Cryptographic keys are the root of trust for securing modern computer systems, be they in the cloud or on premise. As such, controlling who has authority over those keys is critical to building secure and compliant applications. In Azure, our vision of how the key management should be done in the cloud is expressed in the concept of **key sovereignty**, which means a customer’s organization has full and exclusive control over what people can access keys and change key management policies; and over what Azure services consume these keys. Once these decisions are made by the customer, Microsoft personnel are prevented through technical means from changing these decisions. The key management service code executes the customer’s decisions, until the customer tells it to do otherwise, and Microsoft personnel cannot intervene.
