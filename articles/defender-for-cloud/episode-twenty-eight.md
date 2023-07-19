@@ -1,6 +1,6 @@
 ---
 title: Zero Trust and Defender for Cloud | Defender for Cloud in the Field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about Zero Trust best practices and Zero Trust visibility and analytics tools
 ms.topic: reference
 ms.date: 04/27/2023

@@ -1,5 +1,5 @@
 ---
-title: How to prevent misconfigurations with Microsoft Defender for Cloud
+title: How to prevent misconfigurations
 description: Learn how to use Defender for Cloud's 'Enforce' and 'Deny' options on the recommendations details pages
 ms.topic: how-to
 ms.date: 01/08/2023

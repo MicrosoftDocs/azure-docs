@@ -1,6 +1,6 @@
 ---
 title: Credential scanner rules
-titleSuffix: Defender for Cloud
+
 description: Learn more about the Defender for DevOps credential scanner's rules, descriptions and the supported file types in Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/31/2023
