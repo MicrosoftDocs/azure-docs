@@ -44,7 +44,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 Custom skill deployment creates an Azure Function app and an Azure Storage account. Since these resources are created for you, they aren't listed as a prerequisite. When you're finished with this tutorial, remember to clean up the resources so that you aren't billed for services you're not using.
 
 > [!NOTE]
-> Skillsets often require [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). As written, this skillset has no dependency on Cognitive Services and thus no key is required. If you later add enrichments that invoke built-in skills, remember to update your skillset accordingly.
+> Skillsets often require [attaching an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). As written, this skillset has no dependency on Azure AI services and thus no key is required. If you later add enrichments that invoke built-in skills, remember to update your skillset accordingly.
 
 ## 1 - Create services and collect credentials
 

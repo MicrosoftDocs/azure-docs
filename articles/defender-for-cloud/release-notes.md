@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 07/12/2023
+ms.date: 07/18/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -27,10 +27,10 @@ Updates in July include:
 |Date |Update  |
 |---------|---------|
 | July 19 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux)
+| July 18 | [Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM](#agentless-secret-scanning-for-virtual-machines-in-defender-for-servers-p2--dcspm) |
 | July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
 | July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
-
 
 ### Management of automatic updates to Defender for Endpoint for Linux
 
@@ -38,7 +38,15 @@ July 19, 2023
 
 By default, Defender for Cloud attempts to update your Defender for Endpoint for Linux agents onboarded with the `MDE.Linux` extension. With this release, you can manage this setting and opt-out from the default configuration to manage your update cycles manually. 
 
-Learn how to [manage automatic updates configuration for Linux](integration-defender-for-endpoint.md#manage-automatic-updates-configuration-for-linux).    
+Learn how to [manage automatic updates configuration for Linux](integration-defender-for-endpoint.md#manage-automatic-updates-configuration-for-linux).  
+
+### Agentless secret scanning for virtual machines in Defender for servers P2 & DCSPM
+
+July 18, 2023
+
+Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and DCSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines, both in Azure or AWS resources, that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+
+For more information about how to protect your secrets with secret scanning, see [Manage secrets with agentless secret scanning](secret-scanning.md).
 
 ### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
 
@@ -52,14 +60,13 @@ This alert focuses on identifying suspicious activities leveraging Azure virtual
 
 For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
- ### Support for disabling specific vulnerability findings
+### Support for disabling specific vulnerability findings
 
 July 9, 2023
 
 Release of support for disabling vulnerability findings for your container registry images or running images as part of agentless container posture. If you have an organizational need to ignore a vulnerability finding on your container registry image, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise. 
 
 Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md). 
-
 
 ### Data Aware Security Posture is now Generally Available
 
