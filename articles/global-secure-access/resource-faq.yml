@@ -7,7 +7,7 @@ metadata:
   manager: amycolannino
   ms.service: network-access
   ms.topic: faq
-  ms.date: 07/03/2023
+  ms.date: 07/18/2023
   ms.custom: references_regions
 title: Global Secure Access Frequently asked questions
 summary: |
@@ -38,17 +38,13 @@ sections:
           Can I manage Global Secure Access with Microsoft Graph APIs?
         answer: |
           Yes, there's a set of Microsoft Graph APIs available to manage aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access. For more information about these APIs, see the article [Secure access to cloud, public, and private apps using Microsoft Graph network access APIs](/graph/api/resources/networkaccess-global-secure-access-api-overview).
+      - question: | 
+          Does Global Secure Access support TCP and UDP?
+        answer: |
+          At this time, only TCP is supported. UDP support is under development.
   - name: Private Access
     questions:
-        - question: |
-            I was prompted for admin consent when trying to access private resources using Private Access. What should I do?
-          answer: |
-            Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the "Expose an API" page. Be sure the "user-impersonation" checkbox is selected.
         - question: |
             I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access.
           answer: |
             Private DNS is currently not supported. Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
-        - question: |
-            My Quick Access app isn't working as expected.  
-          answer: |
-            Delete and reinstall the Quick Access app. If the issue persists, submit a support request.

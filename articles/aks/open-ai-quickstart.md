@@ -3,7 +3,7 @@ title: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)
 description: Learn how to deploy an application that uses OpenAI on Azure Kubernetes Service (AKS). #Required; article description that is displayed in search results. 
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 6/29/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
@@ -399,4 +399,3 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [aoai]: ../cognitive-services/openai/index.yml
 
 [learn-aoai]: /training/modules/explore-azure-openai
-

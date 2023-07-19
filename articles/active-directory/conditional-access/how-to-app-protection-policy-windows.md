@@ -23,19 +23,7 @@ App protection policies apply mobile application management (MAM) to specific ap
 
 ## Prerequisites
 
-The following requirements must be met before you can apply an [app protection policy] to Windows client devices:
-
-- Ensure your Windows client version is Windows 11, build 10.0.22621 (22H2) or newer.
-- Ensure your device isn't managed, including:
-   - Not Azure AD joined or enrolled in Mobile Device Management (MDM) for the same tenant
-as your MAM user.
-   - Not Azure AD registered (workplace joined) with more than two users besides the MAM user. There's a limit of no more than [three Azure AD registered users to a device](../devices/faq.yml#i-can-t-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-11-device--why).
-- Clients must be running Microsoft Edge build v115.0.1901.155 or newer.
-   - You can check the version by going to `edge://settings/help` in the address bar.
-- Clients must have the **Enable MAM on Edge desktop platforms** flag enabled.
-   - You can enable this going to `edge://flags/#edge-desktop-mam` in the address bar.
-   - Enable **Enable MAM on Edge desktop platforms**
-   - Click the **Restart** button at the bottom of the window.
+Customers interested in the public preview will need to opt-in using the [MAM for Windows Public Preview Sign Up Form](https://aka.ms/MAMforWindowsPublic).
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]

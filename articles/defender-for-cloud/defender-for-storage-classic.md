@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
+title: Microsoft Defender for Storage (classic)
 description: Learn about the benefits and features of Microsoft Defender for Storage (classic).
 ms.date: 06/15/2023
 author: dcurwin
