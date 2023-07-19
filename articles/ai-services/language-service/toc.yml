@@ -920,86 +920,109 @@ items:
     href: sentiment-opinion-mining/overview.md
   - name: Sentiment analysis and opinion mining language support
     href: sentiment-opinion-mining/language-support.md
-  - name: Sentiment analysis and opinion mining quickstart
-    href: sentiment-opinion-mining/quickstart.md
-  - name: Samples
+  - name: Prebuilt
     items:
-    - name: C#
-      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
-    - name: Java
-      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
-    - name: JavaScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
-    - name: Python
-      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for sentiment analysis and opinion mining
-      href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/ai-services/language-service/context/context
-      displayName: Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
-    items:
-    - name: Call Sentiment Analysis and Opinion Mining
-      href: sentiment-opinion-mining/how-to/call-api.md
-    - name: Use containers
+    - name: Sentiment analysis and opinion mining quickstart
+      href: sentiment-opinion-mining/quickstart.md
+    - name: Samples
       items:
-      - name: Use Docker Containers
-        href: sentiment-opinion-mining/how-to/use-containers.md
-      - name: Configure containers
-        href: concepts/configure-containers.md
-      - name: Use container instances
-        href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
-      - name: Use containers in disconnected environments
-        href: ../containers/disconnected-containers.md
-      - name: Azure AI services containers documentation
-        href: ../containers/index.yml
-  - name: Tutorials
-    items:
-    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /training/modules/python-flask-build-ai-web-app/
-  - name: Reference
-    items:
-    - name: REST API
+      - name: C#
+        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+      - name: Java
+        href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+      - name: JavaScript
+        href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1
+      - name: Python
+        href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note for sentiment analysis and opinion mining
+        href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context
+        displayName: Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Data, privacy, and security  
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
+    - name: How-to guides
       items:
-        - name: Text analysis runtime API (v2023-04-01)
-          href: https://go.microsoft.com/fwlink/?linkid=2239169
-        - name: Text analysis runtime API (v2022-10-01-preview)
-          href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
-        - name: Previous versions
+      - name: Call Sentiment Analysis and Opinion Mining
+        href: sentiment-opinion-mining/how-to/call-api.md
+      - name: Use containers
+        items:
+        - name: Use Docker Containers
+          href: sentiment-opinion-mining/how-to/use-containers.md
+        - name: Configure containers
+          href: concepts/configure-containers.md
+        - name: Use container instances
+          href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+        - name: Use containers in disconnected environments
+          href: ../containers/disconnected-containers.md
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml
+    - name: Tutorials
+      items:
+      - name: Use Flask to translate text, analyze sentiment, and synthesize speech
+        href: /training/modules/python-flask-build-ai-web-app/
+    - name: Reference
+      items:
+      - name: REST API
+        items:
+          - name: Text analysis runtime API (v2023-04-01)
+            href: https://go.microsoft.com/fwlink/?linkid=2239169
+          - name: Text analysis runtime API (v2022-10-01-preview)
+            href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
+          - name: Previous versions
+            items:
+            - name: v3.2-preview.2
+              href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
+            - name: v3.1
+              href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
+      - name: SDKs
+        items:
+        - name: Latest
           items:
-          - name: v3.2-preview.2
-            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
-          - name: v3.1
-            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
-    - name: SDKs
-      items:
-      - name: Latest
+            - name: .NET
+              href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+            - name: Python
+              href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
+            - name: Java
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
+            - name: Node.js
+              href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
+        - name: Preview
+          items:
+            - name: .NET
+              href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            - name: Python
+              href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+            - name: Java
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+            - name: Node.js
+              href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+  - name: Custom
+    items:
+      - name: Quickstart
+        href: sentiment-opinion-mining/custom/quickstart.md
+      - name: Concepts
         items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
-          - name: Python
-            href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
-      - name: Preview
+          - name: Data formats
+            href: sentiment-opinion-mining/custom/concepts/data-formats.md
+      - name: How-to guides
         items:
-          - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
-          - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-          - name: Java
-            href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
-          - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
-
+          - name: Data preparation
+            href: sentiment-opinion-mining/custom/how-to/design-schema.md
+          - name: Label data
+            href: sentiment-opinion-mining/custom/how-to/label-data.md
+          - name: Create projects
+            href: sentiment-opinion-mining/custom/how-to/create-project.md
+          - name: Train model
+            href: sentiment-opinion-mining/custom/how-to/train-model.md
+          - name: Deploy model
+            href: sentiment-opinion-mining/custom/how-to/deploy-model.md
+          - name: Call the API
+            href: sentiment-opinion-mining/custom/how-to/call-api.md
 - name: Text Analytics for health
   items:
   - name: Text Analytics for health overview
