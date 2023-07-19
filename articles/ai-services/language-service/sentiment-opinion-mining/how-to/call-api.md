@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
