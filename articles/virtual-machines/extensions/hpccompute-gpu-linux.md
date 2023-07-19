@@ -20,6 +20,9 @@ This extension installs NVIDIA GPU drivers on Linux N-series virtual machines (V
 Instructions on manual installation of the drivers and the current supported versions are available. For more information including secure boot enable setting, see [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Windows N-series VMs](hpccompute-gpu-windows.md).
 
+> [!NOTE]
+> With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers (key trusted by the system). Both Windows and select Linux distributions support Secure Boot.
+
 ## Prerequisites
 
 ### Operating system
