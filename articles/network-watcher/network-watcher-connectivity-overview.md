@@ -33,6 +33,7 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 Connection troubleshoot provides the capability to check TCP or ICMP connections from any of these Azure resources:
 
 - Virtual machines
+- Virtual machine scale sets
 - Azure Bastion instances
 - Application gateways (except v1)
 
