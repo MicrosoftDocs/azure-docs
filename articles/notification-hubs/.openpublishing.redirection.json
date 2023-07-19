@@ -11,7 +11,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md",
+            "source_path": "/articles/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md",
             "redirect_url": "push-notifications-android-specific-devices-firebase-cloud-messaging.md",
             "redirect_document_id": true
         },
