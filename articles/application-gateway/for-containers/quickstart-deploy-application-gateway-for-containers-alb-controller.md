@@ -124,14 +124,13 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	```bash
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm upgrade \
-		--install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-		--version '0.3.023706-pr' \
-		--set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+	helm --install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+	     --version 0.4.023901 \
+	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
 
    	> [!Note]
-   	> ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.
+   	> ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.  During upgrade, please ensure you specify the --namespace parameter.
 
 ### Verify the ALB Controller installation
 
