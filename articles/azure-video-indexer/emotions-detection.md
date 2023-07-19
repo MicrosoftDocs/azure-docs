@@ -30,11 +30,13 @@ There are many things you need to consider when deciding how to use and implemen
 - Will this feature perform well in my scenario? Before deploying emotions detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
 - Are we equipped to identify and respond to errors? AI-powered products and features aren't 100% accurate, consider how you identify and respond to any errors that may occur. 
 
-## General Transparency Note overview
+## Transparency Notes
+
+### General 
 
 Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
-## Emotion detection specific transparency note 
+### Emotion detection specific 
 
 Introduction: This model is designed to help detect emotions in the transcript of a video. However, it isn't suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
 
