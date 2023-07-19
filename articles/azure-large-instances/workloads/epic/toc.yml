@@ -1,8 +1,8 @@
-- name: ALI for Epic workload 
+- name: Azure Large Instances for Epic workload 
   href: index.yml
 - name: Overview
   items:
-  - name: ALI SKUs for Epic workload
+  - name: Azure Large Instances SKUs for Epic workload
     href: available-skus.md  
 - name: Configuration
   items:
