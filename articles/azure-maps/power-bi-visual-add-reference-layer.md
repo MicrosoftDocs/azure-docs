@@ -18,7 +18,7 @@ To add a **GeoJSON** file as a reference layer, go to the **Format** pane, expan
 
 After a GeoJSON file is added to the reference layer, the name of the file will appear in place of the **+ Add local file** button with an **X** beside it. Press the **X** button to remove the data from the visual and delete the GeoJSON file from Power BI.
 
-The following map is displays [2016 census tracts for Colorado], colored by population.
+The following map displays [2016 census tracts for Colorado], colored by population.
 
 :::image type="content" source="./media/power-bi-visual/reference-layer-CO-census-tract.png" alt-text="A map displaying 2016 census tracts for Colorado, colored by population as a reference layer.":::
 
