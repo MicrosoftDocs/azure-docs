@@ -11,7 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java, engagement-fy23
+ms.custom: devx-track-java, devguide-java, engagement-fy23, devx-track-extended-java
 ---
 
 # Create a service SAS for a container with Java

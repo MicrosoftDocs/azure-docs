@@ -7,10 +7,9 @@ manager: CelesteDG
 ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-js
 ms.topic: sample
 ms.date: 06/23/2023
-
-
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
