@@ -49,7 +49,7 @@ Microsoft Purview supports these out-of-the-box relationships for terms:
 
 **Relationship definitions in the glossary are bi-directional:** Every relationship between terms is a two-way relationship. This means that if term A is related to term B, then term B is also related to term A. 
 
-Any time you populate a relationship in one direction, Purview automatically adds the reverse relationship for you. For example, if you add term A as a synonym for term B, Purview automatically adds term B as a synonym for term A. 
+Anytime you populate a relationship in one direction, Purview automatically adds the reverse relationship for you. For example, if you add term A as a synonym for term B, Purview automatically adds term B as a synonym for term A. 
 
 ## Term templates
 
