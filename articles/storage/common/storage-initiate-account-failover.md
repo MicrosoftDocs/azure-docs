@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 07/19/2023
 ms.author: jammart
 ms.subservice: common 
 ---
@@ -42,6 +42,8 @@ Some features and services are not supported for account failover. See [Unsuppor
 > - (Europe) Switzerland West
 > - (North America) Canada Central
 >
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify **AllowHNSAccountFailover** as the feature name.
+>>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
