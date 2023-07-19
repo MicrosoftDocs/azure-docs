@@ -22,7 +22,7 @@
         },
         {
             "source_path": "/articles/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md",
-            "redirect_url": "notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md",
             "redirect_document_id": false
         }
     ]
