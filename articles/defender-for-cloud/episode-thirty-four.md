@@ -1,6 +1,6 @@
 ---
 title: Understanding the DevOps Threat Matrix | Defender for Cloud in the Field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about the DevOps Threat Matrix
 ms.topic: reference
 ms.date: 06/21/2023
