@@ -26,7 +26,7 @@ At a high level you can break down working with functions into three steps:
 
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 
-To use function calling with the Chat Completions API, you'll need to include two new properties in your request: `functions` and `function_call`. You can include one or more `functions` in your request and you can learn more about how to define functions in the [defining functions](#defining-functions) section below. Keep in mind that functions are injected into the system message under the hood so functions will count against your token usage.
+To use function calling with the Chat Completions API, you need to include two new properties in your request: `functions` and `function_call`. You can include one or more `functions` in your request and you can learn more about how to define functions in the [defining functions](#defining-functions) section below. Keep in mind that functions are injected into the system message under the hood so functions count against your token usage.
 
 When functions are provided, by default the `function_call` will be set to `"auto"` and the model will decide whether or not a function should be called. Alternatively, you can set the `function_call` parameter to `{"name": "<insert-function-name>"}` to force the API to call a specific function or you can set the parameter to `"none"` to prevent the model from calling any functions.
 
@@ -79,7 +79,7 @@ response = openai.ChatCompletion.create(
 print(response['choices'][0]['message'])
 ```
 
-The response from the API will include a `function_call` property if the model determines that a function should be called. The `function_call` property will include the name of the function to call and the arguments to pass to the function. The arguments will be a JSON string that you can parse and use to call your function.
+The response from the API includes a `function_call` property if the model determines that a function should be called. The `function_call` property includes the name of the function to call and the arguments to pass to the function. The arguments are a JSON string that you can parse and use to call your function.
 
 ```json
 {
@@ -107,7 +107,7 @@ If you want to describe a function that doesn't accept any parameters, use `{"ty
 
 ### Prompt engineering with functions
 
-When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model will leverage the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
+When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
 
 ### Improving quality
 If the model isn't calling your function when or how you expect, there are a few things you can try to improve the quality.
@@ -116,7 +116,7 @@ If the model isn't calling your function when or how you expect, there are a few
 
 It's important that you provide a meaningful `description` of the function and provide descriptions for any parameter that might not be obvious to the model. 
 
-For example, in the description for the `location` parameter, you could include additional details and examples on the format of the location.
+For example, in the description for the `location` parameter, you could include extra details and examples on the format of the location.
 
 ```json
 "location": {
@@ -125,9 +125,9 @@ For example, in the description for the `location` parameter, you could include 
 },
 ```
 
-#### Provide additional context in the system message
+#### Provide more context in the system message
 
-The system message can also be used to provide additional context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
+The system message can also be used to provide more context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
 
 ```json 
 {"role": "system", "content": "You're an AI assistant designed to help users search for hotels. When a user asks for help finding a hotel, you should call the search_hotels function."}
@@ -200,9 +200,9 @@ else:
 
 In the example above, we don't do any validation or error handling so you'll want to make sure to add that to your code.
 
-For a full example of working with functions see the (sample notebook on function calling)[]. You can also apply more complex logic to chain multiple function calls together which is covered in the sample as well.
+For a full example of working with functions, see the (sample notebook on function calling)[]. You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
 
-## Using function calling responsbily
+## Using function calling responsibly
 Like any AI system, using function calling to integrate language models with other tools and systems presents potential risks. It’s important to understand the risks that function calling could present and take measures to ensure you use the capabilities responsibly.
 
 Here are a few tips to help you use functions safely and securely:
@@ -210,7 +210,7 @@ Here are a few tips to help you use functions safely and securely:
 *	**Use Trusted Data and Tools**: Only use data from trusted and verified sources. Untrusted data in a function’s output could be used to instruct the model to write function calls in a way other than you intended.
 *	**Follow the Principle of Least Privilege**: Grant only the minimum access necessary for the function to perform its job. This reduces the potential impact if a function is misused or exploited. For example, if you’re using function calls to query a database, you should only give your application read-only access to the database. You also shouldn’t depend solely on excluding capabilities in the function definition as a security control.
 *	**Consider Real-World Impact**: Be aware of the real-world impact of function calls that you plan to execute, especially those that trigger actions such as executing code, updating databases, or sending notifications.
-*	**Implement User Confirmation Steps**: Particularly for functions that take actions, we recommend including a step where the user confirms the action before it is executed.
+*	**Implement User Confirmation Steps**: Particularly for functions that take actions, we recommend including a step where the user confirms the action before it's executed.
 
 
 ## Next steps
