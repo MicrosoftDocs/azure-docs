@@ -26,9 +26,9 @@ The following table highlights the key differences between using ContainerLog an
 | Feature Differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
 | Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR |
-| Logging SKU | Only compatible with analytics logs | Supports basic and analytics logs |
-| Multiline logging | Not supported, multiline entries are split into multiple rows | Support for multiline logging to allow consolidated, single entries for multiline output |
+| Pricing | Only compatible with full-priced analytics logs | Supports the low cost basic logs tier in addition to analytics logs |
 | Querying | Requires multiple join operations with inventory tables for standard queries | Includes additional pod and container metadata to reduce query complexity and join operations |
+| Multiline | Not supported, multiline entries are split into multiple rows | Support for multiline logging to allow consolidated, single entries for multiline output |
 
 ## Assess the impact on existing alerts
 
