@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 07/21/2023
+ms.date: 07/19/2023
 ms.author: greglin
 ---
 
