@@ -1,5 +1,5 @@
 ---
-title:  ".NET tutorial: Deploy search-enabled website"
+title:  "Deploy search-enabled website (.NET tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Deploy search-enabled website with .NET apis to Azure Static web app.
 manager: nitinme
