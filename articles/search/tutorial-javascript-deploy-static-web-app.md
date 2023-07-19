@@ -1,5 +1,5 @@
 ---
-title:  "Deploy search-enabled website (JavaScript tutorial)"
+title:  "Deploy search app (JavaScript tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Deploy search-enabled website to Azure Static Web Apps.
 manager: nitinme

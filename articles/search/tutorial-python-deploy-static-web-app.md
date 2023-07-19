@@ -1,5 +1,5 @@
 ---
-title:  "Deploy search-enabled website (Python tutorial)"
+title:  "Deploy search app (Python tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Deploy search-enabled Python website to Azure Static web app.
 manager: nitinme

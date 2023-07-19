@@ -14,7 +14,7 @@ ms.service: cognitive-search
 1. Enter a resource group name, such as `cognitive-search-demo-rg`. 
 1. Enter a region:
 
-   * For Node.js: Select `West US 2`. This is the recommended region for the Azure Function programming model (PM) v4 preview. 
-   * For C# and Python, select a region near you.
+   * For Node.js, select `West US 2`. This is the recommended region for the Azure Function programming model (PM) v4 preview. 
+   * For C# and Python, select any region.
 
-Use this resource group for all of the resources that you create during this tutorial. A resource group gives you a logical unit to manage the resources, including deleting them when you're finished.
+Use this resource group for all resources created during this tutorial. A resource group gives you a logical unit to manage the resources, including deleting them when you're finished.

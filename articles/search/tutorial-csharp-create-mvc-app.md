@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 03/09/2023
 ---
 # Create a search app in ASP.NET Core
 

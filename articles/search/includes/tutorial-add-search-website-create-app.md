@@ -8,7 +8,7 @@ ms.service: cognitive-search
 
 Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
 
-The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
+The static web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
 ## Create a Static Web App in Visual Studio Code
 

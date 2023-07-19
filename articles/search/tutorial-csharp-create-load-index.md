@@ -21,41 +21,7 @@ Continue to build your search-enabled website by following these steps:
 
 ## Create an Azure Cognitive Search resource
 
-Create a new search resource from the command line using the Azure CLI. In this section, you'll also create a query key used for read-access to the index, and get the built-in admin key used for adding objects.
-
-1. In Visual Studio Code, under **Terminal**, select **New Terminal**.
-
-1. Connect to Azure:
-
-   ```azurecli
-   az login
-   ```
-
-1. Before creating a new search service, you can list existing search services for your subscription. If you have a free search service, you can use it for this tutorial:
-
-   ```azurecli
-   az resource list --resource-type Microsoft.Search/searchServices --output table
-   ```
-
-   If you have one, note the name and then skip ahead to [Prepare the bulk import script](#prepare-the-bulk-import-script-for-search)
-
-1. Create a new search service. Use the following command as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas. The following statement uses the resource group created in a previous step and specifies the free tier. If your Azure subscription already has a free search service, specify a billable tier such as "basic" instead.
-
-   ```azurecli
-   az search service create --name my-cog-search-demo-svc --resource-group cognitive-search-demo-rg --sku free --partition-count 1 --replica-count 1
-   ```
-
-1. Get a query key that grants read access to a search service. A search service is provisioned with two admin keys and one query key. Substitute valid names for the resource group and search service. Copy the query key to Notepad so that you can paste it into the client code in a later step:
-
-   ```azurecli
-   az search query-key list --resource-group cognitive-search-demo-rg --service-name my-cog-search-demo-svc
-   ```
-
-1. Get a search service admin API key. An admin API key provides write access to the search service. Copy either one of the admin keys to Notepad so that you can use it in the bulk import step that creates and loads an index:
-
-   ```azurecli
-   az search admin-key show --resource-group cognitive-search-demo-rg --service-name my-cog-search-demo-svc
-   ```
+[!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
