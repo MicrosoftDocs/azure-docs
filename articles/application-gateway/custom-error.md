@@ -61,8 +61,6 @@ You may reference internal or external images/CSS for this HTML file. For extern
 > [!Note]
 >  - Relative links are not supported.
 
-After you specify an error page, application gateway verifies internet connectivity to the file and will save the file to the local application gateway cache. The HTML page will be served by the application gateway, whereas externally referenced resources (such as images, javascript, css files) are fetched directly by the client. To modify an existing custom error page, you must point to a different blob location in the application gateway configuration. Application gateway doesn't periodically check the blob location to fetch new versions.
-
 ## How it works?
 After you specify an error page in your application gateway's configuration, your gateway verifies the connectivity to the HTML page over the internet. It then downloads the file on its local cache. 
 
