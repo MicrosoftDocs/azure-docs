@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-api, devx-track-extended-java
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Call Recording Quickstart
 
