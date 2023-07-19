@@ -77,7 +77,7 @@ The following Azure services and features of Azure Monitor can be used for addit
 
 
 
-### Sample log queries
+## Sample log queries
 
 > [!IMPORTANT]
 > When you select **Logs** from the menu for an AKS cluster, Log Analytics is opened with the query scope set to the current cluster. This means that log queries will only include data from that resource. If you want to run a query that includes data from other clusters or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
@@ -86,7 +86,7 @@ The following Azure services and features of Azure Monitor can be used for addit
 
 ### Resource logs
 
-If the [diagnostic setting for your cluster ](#control-plane-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
+If the [diagnostic setting for your cluster](#control-plane-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
 
 | Description | Log query |
 |:---|:---|
