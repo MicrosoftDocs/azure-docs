@@ -99,7 +99,7 @@ The quickest way to enable audit settings for all dataverse entities is to impor
 
 To automatically enable entity auditing, complete the following steps.
 
-1. Go to [make.powerapps.com](make.powerapps.com).
+1. Go to [https://make.powerapps.com](https://make.powerapps.com).
 1. Choose the environment you want to monitor from the top right-hand side of the page.
 1.	Go to **Solutions** > **Import solution**.
 1. Import one of the following solutions depending on whether your Power Platform environment is used for Dynamics 365 CE Apps or not.
