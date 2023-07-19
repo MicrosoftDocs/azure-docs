@@ -8,10 +8,8 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.date: 07/18/2023
 ---
-
 # Tenable One-Click Nessus Agent
 
-## Introduction
 Tenable now supports a One-Click deployment of Nessus Agents via Microsoft's Azure portal. This solution provides an easy way to install the latest version of Nessus Agent on Azure virtual machines (VM) (whether Linux or Windows) by either clicking on an icon within the Azure Portal or by writing a few lines of PowerShell script. 
 
 ## Prerequisites
