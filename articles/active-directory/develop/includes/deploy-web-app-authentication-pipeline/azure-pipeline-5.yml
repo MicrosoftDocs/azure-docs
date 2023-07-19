@@ -64,6 +64,46 @@ stages:
             ### Create Test resources
             # create and configure an Azure App Service web app
             az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST -r "dotnet:7"
+
+            redirectUriTest="https://$WEBAPPNAMETEST.azurewebsites.net/.auth/login/aad/callback"
+            homePageUrlTest="https://$WEBAPPNAMETEST.azurewebsites.net"
+            issuerTest="https://sts.windows.net/$TENANTID"
+            
+            # Required resource access
+            cat > manifest.json << EOF
+            [
+                {
+                    "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                    "resourceAccess": [
+                        {
+                            "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+                            "type": "Scope"
+                        }
+                    ]
+                }
+            ]
+            EOF
+            
+            # Create app registration for App Service authentication
+            appIdTest=$(az ad app create --display-name $WEBAPPNAMETEST --sign-in-audience AzureADMyOrg --enable-id-token-issuance true --query appId --output tsv)
+            echo "Created app registration $appIdTest"
+
+            # Set identifier URI, homepage, redirect URI, and resource access
+            az ad app update --id $appIdTest --identifier-uris api://$appIdTest --web-redirect-uris $redirectUriTest  --web-home-page-url $homePageUrlTest --required-resource-accesses @manifest.json
+            echo "Updated app $appIdTest"
+
+            # Get secret from the app for App Service authentication
+            secretTest=$(az ad app credential reset --id $appIdTest --query password --output tsv)
+            echo "Added secret to app $appIdTest"
+
+            az config set extension.use_dynamic_install=yes_without_prompt
+            az extension add --name authV2                      
+
+            az webapp config appsettings set --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --slot-settings MICROSOFT_PROVIDER_AUTHENTICATION_SECRET=$secretTest
+            echo "Updated settings for web app $WEBAPPNAMETEST"
+
+            az webapp auth microsoft update --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --client-id $appIdTest --secret-setting MICROSOFT_PROVIDER_AUTHENTICATION_SECRET --allowed-audiences $redirectUriTest  --issuer $issuerTest
+            echo "Updated authentication settings for $WEBAPPNAMETEST"
             
         name: DeploymentScript
 
@@ -75,7 +115,7 @@ stages:
   
   jobs: 
   - job: DeployWebApp
-    displayName: 'Deploy Web App'
+    displayName: 'Depoy Web App'
     pool: 
       vmImage: 'windows-latest'
     

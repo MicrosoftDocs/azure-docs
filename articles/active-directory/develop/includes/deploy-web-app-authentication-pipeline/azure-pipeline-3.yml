@@ -64,33 +64,5 @@ stages:
             ### Create Test resources
             # create and configure an Azure App Service web app
             az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST -r "dotnet:7"
-            
+                        
         name: DeploymentScript
-
-- stage: DeployWebApp
-  displayName: 'Deploy the web app'
-  dependsOn: DeployAzureResources
-  condition: |
-    succeeded()    
-  
-  jobs: 
-  - job: DeployWebApp
-    displayName: 'Depoy Web App'
-    pool: 
-      vmImage: 'windows-latest'
-    
-    steps:
-      
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(System.DefaultWorkingDirectory)'
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: $(AZURESUBSCRIPTION)
-        appType: 'webApp'
-        WebAppName: '$(WEBAPPNAMETEST)'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
