@@ -16,7 +16,6 @@ Here’s how to get started:
 
 1.	Navigate to [Workbooks gallery](https://aka.ms/advisorworkbooks) in Azure Advisor 
 1.	Open **Cost Optimization (Preview)** workbook template.
-1.	Select a service from the list to display a detailed view of impacted resources.
 
 The workbook is organized into different tabs, each focusing on a specific area to help you reduce the cost of your Azure environment. 
 * Compute
@@ -32,7 +31,7 @@ Each tab supports the following capabilities:
 :::image type="content" source="media/advisor-cost-optimization-workbook-overview.png" alt-text="Screenshot of the Azure Advisor cost optimization workbook template." lightbox="media/advisor-cost-optimization-workbook-overview.png":::
 
 > [!NOTE]
-> It’s important to note that the workbook serves as guidance and does not guarantee cost reduction.
+> The workbook serves as guidance and does not guarantee cost reduction.
 
 ## Compute
 
@@ -109,8 +108,8 @@ Review the list of idle Public IP Addresses. This query will also show Public IP
 Review the Idle Virtual Network Gateways. This query will show VPN Gateways without any active connection.
 
 For more information, see: 
-* [Well-Architected cost optimization design principles](https://learn.microsoft.com/azure/well-architected/cost/principles)
-* [Cloud Adoption Framework manage cloud costs](https://learn.microsoft.com/azure/cloud-adoption-framework/get-started/manage-costs)
-* [Azure FinOps principles](https://learn.microsoft.com/azure/cost-management-billing/finops/overview-finops)
+* [Well-Architected cost optimization design principles](/azure/well-architected/cost/principles)
+* [Cloud Adoption Framework manage cloud costs](/azure/cloud-adoption-framework/get-started/manage-costs)
+* [Azure FinOps principles](/azure/cost-management-billing/finops/overview-finops)
 * [Azure Advisor cost recommendations](advisor-reference-cost-recommendations.md)
 
