@@ -2,14 +2,14 @@
 title: Quick start for inbound provisioning to Azure Active Directory with PowerShell
 description: Learn how to configure Inbound Provisioning API with PowerShell.
 services: active-directory
-author: jfields
+author: jenniferf-skc
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/18/2023
-ms.author: jenniferf-skc
+ms.author: jfields
 ms.reviewer: cmmdesai
 ---
 
