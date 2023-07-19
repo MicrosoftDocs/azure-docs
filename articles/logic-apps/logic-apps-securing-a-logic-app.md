@@ -725,6 +725,8 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
 * An inbound call to the request endpoint can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because Azure Logic Apps doesn't know which scheme to choose.
 
+* Azure Logic Apps supports either [bearer type](../active-directory/develop/active-directory-v2-protocols.md#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Azure AD OAuth access tokens. So, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
+
   To enable Azure AD OAuth so that this option is the only way to call the request endpoint, use the following steps:
 
   1. To enable the capability to check the OAuth access token, [follow the steps to include 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
@@ -746,8 +748,6 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
   > If you call the trigger endpoint without the correct authorization, 
   > the run history just shows the trigger as `Skipped` without any 
   > message that the trigger condition has failed.
-
-* Azure Logic Apps supports either [bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Azure AD OAuth access tokens. So, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
 * Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
