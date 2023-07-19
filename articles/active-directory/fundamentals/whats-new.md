@@ -32,6 +32,134 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## July 2023
+
+### General Availability: Azure Active Directory (Azure AD) is being renamed.
+
+**Type:** Changed feature       
+**Service category:**                            
+**Product capability:** End User Experiences                
+
+**No action is required from you.**
+
+Azure AD is being renamed to Microsoft Entra ID. The name change rolls out across all Microsoft products and experiences throughout the second half of 2023. 
+
+Capabilities, licensing, and usage of the product isn't changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
+
+Learn more: https://aka.ms/aadrebrandFAQ
+
+---
+
+### General Availability - Automatic assignments to access packages in Microsoft Entra ID Governance
+
+**Type:** Changed feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+Microsoft Entra ID Governance includes the ability for a customer to configure an assignment policy in an entitlement management access package that includes an attribute-based rule, similar to dynamic groups, of the users who should be assigned access. For more information, see: [Configure an automatic assignment policy for an access package in entitlement management](../governance/entitlement-management-access-package-auto-assignment-policy.md).
+
+---
+
+### General Availability - Custom Extensions in Entitlement Management 
+
+**Type:** New feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+Custom Extensions in Entitlement Management are now general available. For more information, see:  ADD LINK
+
+---
+
+### General Availability - Conditional Access templates
+
+**Type:** Plan for change         
+**Service category:** Conditional Access                             
+**Product capability:** Identity Security & Protection                  
+
+Conditional Access templates are predefined set of conditions and controls that provide a convenient method to deploy new policies aligned with Microsoft recommendations. Customers are assured that their policies reflect modern best practices for securing corporate assets, promoting secure, optimal access for their hybrid workforce. For more information, see: [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md).
+
+---
+
+### General Availability - Lifecycle Workflows
+
+**Type:** New feature       
+**Service category:** Lifecycle Workflows                            
+**Product capability:** Identity Governance                  
+
+Lifecycle Workflows is now general available within Microsoft Entra ID Governance. For more information, see: [Lifecycle Workflows is now generally available!](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/lifecycle-workflows-is-now-generally-available/ba-p/2466931)
+
+---
+
+### General Availability - Enabling extended customization capabilities for sign-in and sign-up pages in Company Branding capabilities.
+
+**Type:** New feature       
+**Service category:** User Experience and Management                            
+**Product capability:** User Authentication                
+
+Update the Azure AD and Microsoft 365 sign in experience with new Company Branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+
+---
+
+### General Availability - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
+
+**Type:** Changed feature       
+**Service category:** User Experience and Management                            
+**Product capability:** End User Experiences                  
+
+Update the Company Branding functionality on the Azure AD/Microsoft 365 sign in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks, and a browser icon. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+
+---
+
+### General Availability - User-to-Group Affiliation recommendation for group Access Reviews
+
+**Type:** New feature       
+**Service category:** Access Reviews                            
+**Product capability:** Identity Governance                  
+
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group and leverages the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
+
+---
+
+### Public Preview - Inactive guest insights
+
+**Type:** New feature       
+**Service category:** Reporting                            
+**Product capability:** Identity Governance                  
+
+Monitor guest accounts at scale with intelligent insights into inactive guests in your organization using inactive guest report. Customize the inactivity threshold depending on your organization’s needs, narrow down the scope of guest users you want to monitor and identify the guest users that may be inactive. For more information, see: [Monitor and clean up stale guest accounts using access reviews](../enterprise-users/clean-up-stale-guest-accounts.md).
+
+---
+
+### Public Preview - Just-in-time application access with PIM for Groups
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                            
+**Product capability:** Privileged Identity Management                  
+
+You can minimize the number of persistent administrators in applications such as [AWS](../saas-apps/aws-single-sign-on-provisioning-tutorial.md#just-in-time-jit-application-access-with-pim-for-groups-preview)/[GCP](../saas-apps/g-suite-provisioning-tutorial.md#just-in-time-jit-application-access-with-pim-for-groups-preview) and get JIT access to groups in AWS and GCP. While PIM for Groups is publicly available, we’ve released a public preview that integrates PIM with provisioning and reduces the activation delay from 40+ minutes to 1 – 2 minutes.
+
+---
+
+### Public Preview - Graph beta API for PIM security alerts on Azure AD roles
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                            
+**Product capability:** Privileged Identity Management                 
+
+Announcing API support (beta) for managing PIM security alerts for Azure AD roles. [Azure Privileged Identity Management (PIM)](../privileged-identity-management/index.yml) generates alerts when there's suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. You can now manage these alerts using REST APIs. These alerts can also be [managed through the Azure portal](../privileged-identity-management/pim-resource-roles-configure-alerts.md). For more information, see:  [unifiedRoleManagementAlert resource type](/graph/api/resources/unifiedrolemanagementalert).
+
+---
+
+### General Availability - Reset Password on Azure Mobile App
+
+**Type:** New feature       
+**Service category:** Other                            
+**Product capability:** End User Experiences                
+
+The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset won't be supported at this time. However, users can still more efficiently control and streamline their authentication methods. For more information, see: [What authentication and verification methods are available in Azure Active Directory?](../authentication/concept-authentication-methods.md).
+
+---
+
 ## June 2023
 
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
@@ -97,7 +225,7 @@ Starting today the modernized experience for viewing previously accepted terms o
 **Service category:** Privileged Identity Management                               
 **Product capability:** Privileged Identity Management                 
 
-Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, as well as third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
+Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
 
 PIM for Groups offers can also be used for just-in-time ownership. As the owner of the group, you can manage group properties, including membership. For more information, see: [Privileged Identity Management (PIM) for Groups](../privileged-identity-management/concept-pim-for-groups.md).
 
@@ -109,7 +237,7 @@ PIM for Groups offers can also be used for just-in-time ownership. As the owner 
 **Service category:** Privileged Identity Management                               
 **Product capability:** Privileged Identity Management                    
 
-The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet a variety of requirements during role activation such as:
+The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet various requirements during role activation such as:
 
 - Have specific authentication method through [Authentication Strengths](../authentication/concept-authentication-strengths.md)
 - Activate from a compliant device 
