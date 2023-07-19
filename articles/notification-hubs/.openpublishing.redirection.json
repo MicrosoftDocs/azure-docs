@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "notification-hubs-android-push-notification-google-gcm-get-started.md",
+            "source_path": "/articles/notification-hubs/notification-hubs-android-push-notification-google-gcm-get-started.md",
             "redirect_url": "/azure/notification-hubs/android-sdk",
             "redirect_document_id": true
         },
