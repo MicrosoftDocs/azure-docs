@@ -6,8 +6,7 @@ summary: Azure Table storage is a service that stores structured NoSQL data in t
 metadata:
   title: Azure Table storage documentation
   description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design.
-  ms.service: storage
-  ms.subservice: tables # Optional; remove if no subservice is used.
+  ms.service: azure-table-storage
   ms.custom: ignite-2022
   ms.topic: landing-page
   ms.collection: collection # Optional; Remove if no collection is used.

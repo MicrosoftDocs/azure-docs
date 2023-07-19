@@ -215,8 +215,6 @@
           items:
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
-          - name: Scan with GitHub Actions
-            href: github-action-scan.md        
 - name: Tasks
   expanded: true
   items:
@@ -358,6 +356,8 @@
     href: container-registry-support-policies.md
   - name: FAQ
     href: container-registry-faq.yml
+  - name: API Deprecation
+    href: container-registry-api-deprecation.md
 - name: Resources
   expanded: false
   items:

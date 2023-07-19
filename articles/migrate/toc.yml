@@ -265,6 +265,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Test migration
       href: how-to-test-replicating-virtual-machines.md
+    - name: Upgrade Windows OS
+      href: how-to-upgrade-windows.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method
@@ -312,7 +314,9 @@
     - name: Troubleshoot stuck replication and slow migration issues in agentless VMware
       href: troubleshoot-replication-vmware.md
     - name: Troubleshoot web app migration issues
-      href: troubleshoot-webapps-migration.md  
+      href: troubleshoot-webapps-migration.md
+    - name: Troubleshoot Windows OS upgrade issues
+      href: troubleshoot-upgrade.md  
 - name: Reference
   items:
   - name: Azure CLI

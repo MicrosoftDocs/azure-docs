@@ -1,7 +1,7 @@
 ---
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
-titleSuffix: Defender for Cloud
+
 ms.topic: how-to
 ms.date: 06/04/2023
 ---

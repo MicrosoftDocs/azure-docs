@@ -34,18 +34,6 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 ## June 2023
 
-### Public Preview - Availability of Exchange Hybrid in Azure AD Connect cloud sync
-
-**Type:** New feature   
-**Service category:** Directory Management                       
-**Product capability:** Azure Active Directory Connect Cloud Sync                
-
-
-
-Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync synchronizes a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
-
----
-
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
 
 **Type:** New feature   
@@ -87,7 +75,7 @@ The Entitlement Management service can now be targeted in the conditional access
 **Service category:** Azure Mobile App                             
 **Product capability:** End User Experiences                  
 
-The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [Get the Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 ---
 
@@ -173,16 +161,6 @@ Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Exten
 **Product capability:** Access Control               
 
 Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators can't modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
-
----
-
-### Public Preview - Real-Time Threat Intelligence Detections
-
-**Type:** New feature   
-**Service category:** Identity Protection                        
-**Product capability:** Identity Security & Protection              
-
-To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection detects emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
 
 ---
 
@@ -379,7 +357,7 @@ The Azure AD on-premises application provisioning feature now supports both the 
 **Service category:** Identity Protection                          
 **Product capability:** Identity Security & Protection               
 
-Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-in's performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-in's by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -830,7 +808,7 @@ Unfamiliar sign-in properties risk detection now provides risk reasons as to whi
 
 Identity Protection now surfaces the unfamiliar properties in the Azure portal on UX and in API as *Additional Info* with a user-friendly description explaining that *the following properties are unfamiliar for this sign-in of the given user*. 
 
-There's no additional work to enable this feature, the unfamiliar properties are shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+There's no additional work to enable this feature, the unfamiliar properties are shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 
 ---
@@ -870,88 +848,3 @@ For more information about how to better secure your organization by using autom
 
 
 ---
-
-## January 2023
-
-### Public Preview - Cross-tenant synchronization
-
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Collaboration          
-
-Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
-
-
----
-
-### General Availability - New Federated Apps available in Azure AD Application gallery - January 2023
-
-
-
-**Type:** New feature   
-**Service category:** Enterprise Apps                
-**Product capability:** 3rd Party Integration          
-
-In January 2023 we've added the following 10 new applications in our App gallery with Federation support:
-
-[MINT TMS](../saas-apps/mint-tms-tutorial.md),  [Exterro Legal GRC Software Platform](../saas-apps/exterro-legal-grc-software-platform-tutorial.md), [SIX.ONE Identity Access Manager](https://portal.six.one/), [Lusha](../saas-apps/lusha-tutorial.md), [Descartes](../saas-apps/descartes-tutorial.md), [Travel Management System](https://tms.billetkontoret.dk/), [Pinpoint (SAML)](../saas-apps/pinpoint-tutorial.md), [my.sdworx.com](../saas-apps/mysdworxcom-tutorial.md), [itopia Labs](https://labs.itopia.com/), [Better Stack](https://betteruptime.com/users/sign-up).
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
-
-For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
-
-
----
-
-### Public Preview - New provisioning connectors in the Azure AD Application Gallery - January 2023
-
-
-
-**Type:** New feature   
-**Service category:** App Provisioning               
-**Product capability:** 3rd Party Integration         
-
-We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
-
-- [SurveyMonkey Enterprise](../saas-apps/surveymonkey-enterprise-provisioning-tutorial.md)
-
-
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
-
-
----
-
-### Public Preview - Azure AD cloud sync new user experience
-
-
-**Type:** Changed feature   
-**Service category:** Azure AD Connect Cloud Sync                  
-**Product capability:** Identity Governance         
-
-Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD cloud sync in one single place. 
-
-This experience helps administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which integrates with Azure Monitor and Workbooks. 
-
-For more information, see:
-
-- [Create a new configuration for Azure AD Connect cloud sync](../cloud-sync/how-to-configure.md)
-- [Attribute mapping in Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md)
-- [Azure AD cloud sync insights workbook](../cloud-sync/how-to-cloud-sync-workbook.md)
-
----
-
-### Public Preview - Support for Directory Extensions using Azure AD cloud sync
-
-
-
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Azure AD Connect Cloud Sync         
-
-Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
-
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
-
-
----
-

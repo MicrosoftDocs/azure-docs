@@ -1,8 +1,8 @@
 ---
-title: Investigate your API security findings and posture in Microsoft Defender for Cloud
+title: Investigate your API security findings and posture
 description: Learn how to analyze your API security alerts and posture in Microsoft Defender for Cloud
-author: elazark
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 05/08/2023

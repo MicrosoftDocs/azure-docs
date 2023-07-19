@@ -3,10 +3,10 @@ title: Resource Manager template samples for agents
 description: Sample Azure Resource Manager templates to deploy and configure virtual machine agents in Azure Monitor.
 ms.topic: sample
 ms.custom: devx-track-arm-template
-author: bwren
-ms.author: bwren
-ms.date: 04/26/2022
-ms.reviewer: shseth
+author: guywi-ms
+ms.author: guywild
+ms.date: 07/19/2023
+ms.reviewer: jeffwo
 ---
 
 # Resource Manager template samples for agents in Azure Monitor

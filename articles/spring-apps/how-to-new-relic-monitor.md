@@ -16,7 +16,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to monitor of Spring Boot applications in Azure Spring Apps with the New Relic Java agent.
 
@@ -43,21 +43,28 @@ Use the following procedure to access the agent:
 
 1. Create an instance of Azure Spring Apps.
 
-2. Create an application.
+1. Create an application.
 
-    ```azurecli
-      az spring app create --name "appName" --is-public true \
-      -s "resourceName" -g "resourceGroupName"
-    ```
+   ```azurecli
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --is-public true \
+   ```
 
-3. Create a deployment with the New Relic agent and environment variables.
+1. Create a deployment with the New Relic agent and environment variables.
 
-    ```azurecli
-    az spring app deploy --name "appName" --jar-path app.jar \
-       -s "resourceName" -g "resourceGroupName" \
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --jar-path app.jar \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
-       --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-    ```
+       --env NEW_RELIC_APP_NAME=appName \
+             NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
+   ```
 
 Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 

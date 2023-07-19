@@ -28,6 +28,10 @@ Update management center (preview) uses maintenance control schedule instead of 
 	> [!Note]
 	> If you set the patch mode to Azure orchestrated (AutomaticByPlatform) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule. [Learn more](./overview.md#prerequisites).
 
+## Schedule patching in an availability set
+
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
 ## Schedule recurring updates on single VM
 
@@ -53,6 +57,8 @@ To schedule recurring updates on a single VM, follow these steps:
 	
 		- Start on
 		- Maintenance window (in hours)
+		> [!NOTE]
+        > The upper maintenance window is 3 hours 55 mins.
 		- Repeats (monthly, daily or weekly)
 		- Add end date
 		- Schedule summary
@@ -265,14 +271,6 @@ To view the current compliance state of your existing resources:
 
 ## Check your scheduled patching run
 You can check the deployment status and history of your maintenance configuration runs from the Update management center portal. Follow [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
-
-
-## Limitations and known issues
-
-The known issues and limitations of scheduled patching are:
-
-1. For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
-1. If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
 
 ## Next steps
 

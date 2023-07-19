@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 06/16/2023
-ms.custom: developer
+ms.custom: developer, devx-track-js
 ---
 
 # Use role-based access control in your Node.js web application
@@ -25,8 +25,6 @@ Once you assign users and groups to roles, the *roles* claim is emitted in your 
 In this article, you learn how to receive user roles or group membership or both as claims in a security token for your Node.js web app.  
 
 ## Prerequisites
-
-- A security group in your customer's tenant. If you've not done so, [create one](../../roles/groups-create-eligible.md#azure-portal).
 
 - If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This article shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how to add a group claim to a to security token. Learn more about [ID tokens](../../develop/id-tokens.md) and [access tokens](../../develop/access-tokens.md). 
 

@@ -2,7 +2,7 @@
 title: Upgrade legacy rules management to the current Azure Monitor Log Alerts API
 description: Learn how to switch to the log alerts management to ScheduledQueryRules API
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 07/09/2023
 ---
 # Upgrade to the Log Alerts API from the legacy Log Analytics alerts API
 
@@ -28,8 +28,7 @@ In the past, users used the [legacy Log Analytics Alert API](/azure/azure-monito
 ## Impact
 
 - All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](/azure/azure-monitor/alerts/alerts-log-create-templates) and [sample use via PowerShell](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell).
-- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
-
+- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged. 
 ## Process
 
 View workspaces to upgrade using this [Azure Resource Graph Explorer query](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29). Open the [link](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29), select all available subscriptions, and run the query. 
@@ -110,7 +109,7 @@ If the Log Analytics workspace wasn't switched, the response is:
 
 ## Next steps
 
-- Learn about the [Azure Monitor - Log Alerts](/azure/azure-monitor/alerts/alerts-unified-log).
+- Learn about the [Azure Monitor - Log Alerts](/azure/azure-monitor/alerts/alerts-types).
 - Learn how to [manage your log alerts using the API](/azure/azure-monitor/alerts/alerts-log-create-templates).
 - Learn how to [manage log alerts using PowerShell](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell).
 - Learn more about the [Azure Alerts experience](/azure/azure-monitor/alerts/alerts-overview).
