@@ -73,9 +73,6 @@ else:
     print("Default TLS version has been added as TLS 1.2.")
 ```
 
-> [!NOTE]
-> You must access Azure Log Analytics control plane partner security group and then [connect](https://dataexplorer.azure.com/?cluster=oibeftprd&workspace=empty) to the cluster.
-
 ### Platform-specific guidance
 
 |Platform/Language | Support | More Information |
