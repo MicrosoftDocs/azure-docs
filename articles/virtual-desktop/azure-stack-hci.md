@@ -7,7 +7,7 @@ ms.date: 06/12/2023
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 

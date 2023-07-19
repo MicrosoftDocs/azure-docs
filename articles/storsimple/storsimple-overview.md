@@ -11,7 +11,7 @@ ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.workload: TBD
 ms.date: 07/10/2023
 ms.author: alkohli

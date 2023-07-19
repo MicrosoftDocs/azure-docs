@@ -10,8 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 07/06/2023
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
-
+ms.custom: contperf-fy21q1, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
