@@ -69,4 +69,4 @@ The following example adds various values (one year, one month, one day, one hou
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [`DateTimeFromParts`](datetimefromparts.md)
+- [`DateTimeBin`](datetimebin.md)

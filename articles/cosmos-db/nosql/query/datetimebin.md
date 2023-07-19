@@ -117,4 +117,4 @@ DateTimeBin('2021-06-28T17:24:29.2991234Z', 'day', 5, '0001-01-01T00:00:00
 ## Next steps 
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [`DateTimeDiff`](datetimediff.md)
+- [`DateTimeAdd`](datetimeadd.md)
