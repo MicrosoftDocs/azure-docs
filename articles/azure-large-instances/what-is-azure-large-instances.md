@@ -164,7 +164,7 @@ To extend connectivity across geopolitical boundaries, you can enable ExpressRou
 
 Azure Large Instances is provisioned within your Azure VNet server IP address range.
 
-:::image type="content" source="media/what-is-azure-large-instances/azure-large-instances-networking.png" alt-text="Screenshot of  Azure Large Instances network." lightbox="media/what-is-azure-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/what-is-azure-large-instances/azure-large-instances-networking.png" alt-text="Screenshot of  Azure Large Instances network." lightbox="media/what-is-azure-large-instances/azure-large-instances-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 
