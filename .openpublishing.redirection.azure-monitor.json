@@ -6187,12 +6187,12 @@
             "redirect_document_id": false
         }, 
         {
-            "source_path_from_root": "/azure/azure-monitor/essentials/metrics-supported.md",
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-supported.md",
             "redirect_url": "/azure/azure-monitor/reference/supported-metrics/metrics-index",
             "redirect_document_id": false
         }, 
         {
-            "source_path_from_root": "/azure/azure-monitor/essentials/resource-logs-categories.md",
+            "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
             "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
             "redirect_document_id": false
         } 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
+title: Connect your Azure DevOps repositories
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
 ms.date: 01/24/2023
 ms.topic: quickstart

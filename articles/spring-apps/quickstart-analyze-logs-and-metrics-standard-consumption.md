@@ -6,7 +6,7 @@ ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan

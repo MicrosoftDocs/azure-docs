@@ -6,7 +6,7 @@ ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/05/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset`

@@ -1,6 +1,6 @@
 ---
-title: View information about activity triggers in Permissions Management
-description: How to view information about activity triggers in the Activity triggers dashboard in Permissions Management.
+title: View information about alerts and alert triggers in Permissions Management
+description: How to view information about alerts and alert triggers in the Alerts dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -54,6 +54,9 @@ The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one
 
 - **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
+
+Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
+
 
 ## View information about alert triggers
 
