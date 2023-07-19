@@ -1,6 +1,6 @@
 ---
-title: Microsoft Entra ID diagnostic data that support engineers can access
-description: Learn about what Microsoft Entra ID diagnostic information support engineers can access.
+title: Support access requests in Microsoft Entra ID
+description: Learn how Microsoft Support engineers can access identity diagnostic information in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/17/2023
+ms.date: 07/19/2023
 ms.collection: M365-identity-device-management
 
 ---
-# Microsoft Support and identity diagnostic data
+# How Microsoft Support accesses identity diagnostic data
 
 Microsoft Support requests are automatically assigned to a support engineer with expertise in solving similar problems. To expedite solution delivery, our support engineers use diagnostic tooling to read [identity diagnostic data](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs) for your tenant.
 

@@ -79,10 +79,17 @@ items:
     href: active-directory-how-to-find-tenant.md
   - name: Get support for Azure AD
     href: how-to-get-support.md
-  - name: Manage Support Access requests
-    href: how-to-manage-support-access-requests.md
-  - name: How diagnostic data is used
-    href: concept-diagnostic-data-access.md
+  - name: Support access requests
+    expanded: false
+    items:
+      - name: About support access requests
+        href: concept-support-access-requests.md
+      - name: Approve support access requests
+        href: how-to-approve-support-access-requests.md
+      - name: Manage support access requests
+        href: how-to-manage-support-access-requests.md
+      - name: How to view support access request activity logs
+        href: how-to-view-support-access-requests-logs.md
 - name: Reference
   expanded: false
   items:
