@@ -238,6 +238,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
 
 ### [OpenAI](#tab/openai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
+
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -267,7 +268,13 @@ Now that the application is deployed, you can deploy the Python-based microservi
               value: ""
             - name: OPENAI_ORG_ID 
               value: ""
-            resources: {}
+            resources:
+              requests:
+                cpu: 20m
+                memory: 46Mi
+              limits:
+                cpu: 30m
+                memory: 50Mi
     ---
     apiVersion: v1
     kind: Service
@@ -282,7 +289,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
       selector:
         app: ai-service
     ```
-1. Set the environment variable `USE_AZURE_OPENAI` to `"False"`
+
 1. Set the environment variable `OPENAI_API_KEY` by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
 1. [Find your OpenAI organization ID][open-ai-org-id], copy the value, and set the `OPENAI_ORG_ID` environment variable. 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
@@ -399,4 +406,5 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [aoai]: ../cognitive-services/openai/index.yml
 
 [learn-aoai]: /training/modules/explore-azure-openai
+
 
