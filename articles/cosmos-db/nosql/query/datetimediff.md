@@ -43,9 +43,9 @@ Returns a numeric value that is a signed integer.
 
 The following examples compare **February 4, 2019 16:00 UTC** and **March 5, 2018 05:00 UTC** using various date and time parts.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimediff/query.sql" highlight="2-11":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/query.sql" highlight="2-11":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimediff/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/result.json":::
 
 ## Remarks
 

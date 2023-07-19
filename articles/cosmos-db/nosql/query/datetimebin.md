@@ -44,9 +44,9 @@ Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.f
 
 The following example bins the date **January 8, 2021** at **18:35 UTC** by various values. The example also changes the bin size, and the bin start date and time.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/datetimebin/query.sql" highlight="2-7":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimebin/query.sql" highlight="2-7":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/datetimebin/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimebin/result.json":::
 
 ## Remarks
 
