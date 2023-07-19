@@ -379,7 +379,7 @@ Trace complete.
 
 ### Path to on-premises Location 2
 
-As we discuss in the [control plane analysis](./connectivty-interoperability-control-plane.md), the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
+As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
 
 ```console
 C:\Users\rb>ping 10.1.31.10
