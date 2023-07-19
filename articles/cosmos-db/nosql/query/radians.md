@@ -38,9 +38,9 @@ Returns a numeric expression.
 
 The following example returns the radians for various degree values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/radians/query.sql" highlight="2-5":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/radians/query.sql" highlight="2-5":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/radians/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/radians/result.json":::
 
 ## Remarks
 
