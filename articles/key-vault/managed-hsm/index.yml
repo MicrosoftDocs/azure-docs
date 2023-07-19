@@ -36,6 +36,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs
+            url: mhsm-technical-details.md
           - text: Managed HSM best practices
             url: best-practices.md
           - text: Managed HSM access control
