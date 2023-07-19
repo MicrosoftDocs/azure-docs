@@ -22,6 +22,7 @@ To transition to ContainerLogV2, we recommend the following approach.
 ## ContainerLog vs ContainerLogV2 schema
 
 The following table highlights the key differences between using ContainerLog and ContainerLogV2 schema.
+
 | Feature Differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
 | Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR |
