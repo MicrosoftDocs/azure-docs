@@ -104,7 +104,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to Azure Large Instances support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#Open-a-support-request-for-Azure-Large-Instances) with the Azure Customer Support team.
+If you don’t have this information, obtain the details from the circuit owner. Reach out to Azure Large Instances support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-azure-large-instances) with the Azure Customer Support team.
 ### Declare variables
 
 This example declares the variables using the values for this exercise.
