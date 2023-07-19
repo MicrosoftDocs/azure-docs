@@ -75,7 +75,7 @@ You can connect to VMs using a specified IP address with native client via SSH, 
    **SSH:**
    
    ```azurecli
-   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
    ```
    
    **Tunnel:**

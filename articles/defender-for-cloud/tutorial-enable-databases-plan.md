@@ -1,6 +1,5 @@
 ---
-title: Protect your databases with Defender for Databases - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your databases with Defender for Databases
 description: Learn how to enable the Databases plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023

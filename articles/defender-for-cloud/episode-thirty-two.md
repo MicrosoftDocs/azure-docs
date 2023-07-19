@@ -1,6 +1,6 @@
 ---
 title: API Security with Defender for APIs | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about API security with Defender for APIs
 ms.topic: reference
 ms.date: 06/08/2023

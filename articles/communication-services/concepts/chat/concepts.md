@@ -6,7 +6,7 @@ author: kperla97
 manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 05/09/2023
+ms.date: 07/18/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -23,7 +23,6 @@ The Chat APIs provide an **auto-scaling** service for persistently stored text a
 - **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
 - **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the background, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end users of new threads and messages.
 - **Service & Bot Extensibility** - REST APIs and server SDKs allow services to send and receive messages. It is easy to add bots with [Azure Bot Framework integration](../../quickstarts/chat/quickstart-botframework-integration.md).
-
 
 
 ## Chat overview
@@ -53,17 +52,17 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.
 
-:::image type="content" source="../../media/chat-architecture.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
+:::image type="content" source="../../media/chat-architecture-updated.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
- - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Use real-time notifications feature, which we discuss below, in your client application to subscribe to message & thread updates from other participants.
+ - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Real-time notifications in your client application can be used to subscribe to message & thread updates from other participants.
 
 
 ## Message types
 
 As part of message history, Chat shares user-generated messages and system-generated messages. System messages are generated when a chat thread is updated and identify when a participant was added or removed or when the chat thread topic was updated. When you call `List Messages` or `Get Messages` on a chat thread, the result contains both kind of messages in chronological order.
 
-For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services will default to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitize the content to ensure that it's rendered safely on client devices.
+For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services defaults to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitize the content to ensure that it's rendered safely on client devices.
  - `text`: A plain text message composed and sent by a user as part of a chat thread. 
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
@@ -75,7 +74,6 @@ Types of system messages:
 ## Real-time notifications
 
 JavaScript Chat SDK supports real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. 
-Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom application notification service. You will need to validate(../../how-tos/event-grid/view-events-request-bin.md) and locally test events(../../how-tos/event-grid/local-testing-event-grid.md) once you set up the event grid resource to ensure that events are being sent.
 
 The client app can subscribe to following events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
@@ -83,8 +81,8 @@ The client app can subscribe to following events:
  - `chatMessageDeleted` - when a message is deleted in a chat thread.
  - `typingIndicatorReceived` - when another participant sends a typing indicator to the chat thread.
  - `readReceiptReceived` - when another participant sends a read receipt for a message they have read.
- - `chatThreadCreated` - when a chat thread is created by a Communication Services user.
- - `chatThreadDeleted` - when a chat thread is deleted by a Communication Services user.
+ - `chatThreadCreated` - when a Communication Services user creates a chat thread.
+ - `chatThreadDeleted` - when a Communication Services user deletes a chat thread.
  - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.
  - `participantsAdded` - when a user is added as a chat thread participant.
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
@@ -94,7 +92,9 @@ The client app can subscribe to following events:
 > [!NOTE] 
 > Real time notifications are not to be used with server applications.
 
-For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
+## Server events
+
+This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see what kinds of chat events can be used by developers, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
 
@@ -103,7 +103,7 @@ Android and iOS Chat SDKs support push notifications. To send push notifications
 IOS and Android SDK support the below event:
 - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
    
-Android SDK supports additional events:
+Android SDK supports extra events:
 - `chatMessageEdited` - when a message is edited in a chat thread.	
 - `chatMessageDeleted` - when a message is deleted in a chat thread.	
 - `chatThreadCreated` - when a Communication Services user creates a chat thread.	

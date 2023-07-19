@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 06/01/2023
 ms.author: haital
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Zero downtime deployment in Azure Spring Apps

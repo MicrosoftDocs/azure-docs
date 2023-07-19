@@ -72,23 +72,27 @@ The following tables show the supported migration paths between outbound types f
 
 ### Supported Migration Paths for Managed VNet
 
-|                        | loadBalancer | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
-|------------------------|--------------|-------------------|------------------------|--------------------|
-| loadBalancer           | N/A          | Supported         | Not Supported          | Not Supported      |
-| managedNATGateway      | Supported    | N/A               | Not Supported          | Supported          |
-| userAssignedNATGateway | Supported    | Not Supported     | N/A                    | Not Supported      |
-| userDefinedRouting     | Supported    | Supported         | Supported              | N/A                |
+| Managed VNet           |loadBalancer   | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+|------------------------|---------------|-------------------|------------------------|--------------------|
+| loadBalancer           | N/A           | Supported         | Not Supported          | Supported          |
+| managedNATGateway      | Supported     | N/A               | Not Supported          | Supported          |
+| userAssignedNATGateway | Not Supported | Not Supported     | N/A                    | Not Supported      |
+| userDefinedRouting     | Supported     | Supported         | Not Supported          | N/A                |
 
 ### Supported Migration Paths for BYO VNet
 
-|                        | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+| BYO VNet               | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
 |------------------------|---------------|-------------------|------------------------|--------------------|
-| loadBalancer           | N/A           | Supported         | Supported              | Supported          |
-| managedNATGateway      | Supported     | N/A               | Not Supported          | Not Supported      |
+| loadBalancer           | N/A           | Not Supported     | Supported              | Supported          |
+| managedNATGateway      | Not Supported | N/A               | Not Supported          | Not Supported      |
 | userAssignedNATGateway | Supported     | Not Supported     | N/A                    | Supported          |
-| userDefinedRouting     | Not Supported | Not Supported     | Not Supported          | N/A                |
+| userDefinedRouting     | Supported     | Not Supported     | Supported              | N/A                |
 
-Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), and `userDefinedNATGateway` (if using a custom virtual network).
+Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), `userAssignedNATGateway` and `userDefinedRouting` (if using a custom virtual network).
+
+> [!WARNING] 
+> Migrating the outbound type to user managed types (`userAssignedNATGateway` and `userDefinedRouting`) will change the outbound public IP addresses of the cluster. 
+> if [Authorized IP ranges](./api-server-authorized-ip-ranges.md) is enabled, please make sure new outbound ip range is appended to authorized ip range.
 
 > [!WARNING]
 > Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, you need to update them to match the new egress IP address.

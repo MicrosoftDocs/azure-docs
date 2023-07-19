@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 05/24/2023
 ms.custom:
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup
