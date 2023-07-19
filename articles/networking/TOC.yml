@@ -38,8 +38,6 @@
         href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
       - name: Control Plane Analysis
         href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
-      - name: Data Plane Analysis
-        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Concepts
     items:
     - name: Microsoft global network
