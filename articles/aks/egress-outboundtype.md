@@ -91,7 +91,7 @@ The following tables show the supported migration paths between outbound types f
 Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), `userAssignedNATGateway` and `userDefinedRouting` (if using a custom virtual network).
 
 > [!WARNING] 
-> Migrating the outbound type to user managed ones(`userAssignedNATGateway` and `userDefinedRouting`) will change the outbound pip of the cluster. 
+> Migrating the outbound type to user managed types (`userAssignedNATGateway` and `userDefinedRouting`) will change the outbound public IP addresses of the cluster. 
 > if [Authorized IP ranges](./api-server-authorized-ip-ranges.md) is enabled, please make sure new outbound ip range is appended to authorized ip range.
 
 > [!WARNING]
