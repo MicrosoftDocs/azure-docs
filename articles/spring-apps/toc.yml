@@ -47,6 +47,8 @@ items:
       href: quickstart-standard-consumption-eureka-server.md
 - name: Tutorials
   items:
+  - name: Authenticate client with gateway on Azure Spring Apps
+    href: tutorial-authenticate-client-with-gateway.md
   - name: "Run microservice apps (Pet Clinic)"
     items:
     - name: Introduction to PetClinic sample
