@@ -9,7 +9,8 @@ ms.custom: mode-ui
 ---
 
 # Use Azure portal to create a Service Bus namespace and a queue
-This quickstart shows you how to create a Service Bus namespace and a queue using the [Azure portal][Azure portal]. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue. 
+
+This quickstart shows you how to create a Service Bus namespace and a queue using the [Azure portal]. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 

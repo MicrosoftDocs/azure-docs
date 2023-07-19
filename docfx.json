@@ -49,6 +49,20 @@
         ]
       },
       {
+        "group": "azure-large-instances",
+        "src": "articles/azure-large-instances",
+        "dest": "./azure-large-instances/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
         "group": "healthcare-apis",
         "src": "articles/healthcare-apis",
         "dest": "./healthcare-apis/",
