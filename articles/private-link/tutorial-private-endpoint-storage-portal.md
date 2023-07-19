@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 07/19/2023
+ms.date: 07/18/2023
 ms.custom: template-tutorial, ignite-2022
 ---
 
@@ -18,8 +18,9 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
+> * Create a storage account and disable public access.
+> * Create a private endpoint for the storage account.
 > * Create a virtual machine.
-> * Create a storage account with a private endpoint.
 > * Test connectivity to the storage account private endpoint.
 
 ## Prerequisites
@@ -30,159 +31,86 @@ In this tutorial, you'll learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network and bastion host
+[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
-Create a virtual network, subnet, and bastion host. The virtual network and subnet will contain the private endpoint that connects to the Azure Storage Account.
+[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
 
-The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
+[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual network** in the search results.
-
-2. Select **+ Create**.
-
-3. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | Setting          | Value                        |
-    |------------------|------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription.                     |
-    | Resource Group   | Select **Create new**. </br> Enter **TutorPEstorage-rg** in **Name**. </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**.                                 |
-    | Region           | Select **East US**. |
-
-4. Select the **IP Addresses** tab or select **Next: IP Addresses**.
-
-5. In the **IP Addresses** tab, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16**. |
-
-6. Under **Subnet name**, select the word **default**. If a subnet isn't listed, select **+ Add subnet**.
-
-7. In **Edit subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
-
-8. Select **Save**.
-
-9. Select the **Security** tab.
-
-10. Under **BastionHost**, select **Enable**. Enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
+> [!NOTE]
+> If you choose to use an existing storage account, it's recommended that you disable public access to the storage account. For more information, see [Change the default network access rule - Azure storage](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule).
 
 
-11. Select the **Review + create** tab or select the **Review + create** button.
+## Create private endpoint
 
-12. Select **Create**.
+The private endpoint is created in virtual network created in the previous steps. 
 
-It will take a few minutes for the virtual network and Azure Bastion host to deploy. Proceed to the next steps when the virtual network is created.
+1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
 
-## Create a virtual machine
+1. Select **+ Create** in **Private endpoints**.
 
-In this section, you'll create a virtual machine that will be used to test the private endpoint.
-
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-   
-2. Select **+ Create** > **Azure virtual machine**.
-
-3. In **Create a virtual machine**, enter or select the following in the **Basics** tab:
-
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | **Project Details** |  |
-    | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **TutorPEstorage-rg**. |
-    | **Instance details** |  |
-    | Virtual machine name | Enter **myVM**. |
-    | Region | Select **(US) East US**. |
-    | Availability Options | Select **No infrastructure redundancy required**. |
-    | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2**. |
-    | Size | Choose a size or leave the default setting. |
-    | **Administrator account** |  |
-    | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
-    | **Inbound port rules** |   |
-    | Public inbound ports | Select **None**. |
-
-4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
-  
-5. In the Networking tab, enter or select the following information:
+1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information.
 
     | Setting | Value |
-    |-|-|
-    | **Network interface**. |  |
-    | Virtual network | **myVNet**. |
-    | Subnet | **mySubnet**. |
-    | Public IP | Select **None**. |
-    | NIC network security group | **Basic**. |
-    | Public inbound ports | Select **None**. |
-   
-6. Select **Review + create**. 
-  
-7. Review the settings, and then select **Create**.
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** |
+    | **Instance details** |   |
+    | Name | Enter **private-endpoint**. |
+    | Network Interface Name | Leave the default of **private-endpoint-nic**. |
+    | Region | Select **East US 2**. |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+1. Select **Next: Resource**.
+    
+1. In the **Resource** pane, enter or select the following information.
 
-## Create storage account with a private endpoint
+    | Setting | Value |
+    | ------- | ----- |
+    | Connection method | Leave the default of **Connect to an Azure resource in my directory.** |
+    | Subscription | Select your subscription. |
+    | Resource type | Select **Microsoft.Web/storageAccounts**. |
+    | Resource | Select **storage-1**. |
+    | Target subresource | Select **blob**. |
 
-Create a storage account and configure the private endpoint. The private endpoint uses a network interface assigned an IP address in the virtual network you created previously.
+1. Select **Next: Virtual Network**. 
 
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
-   
-2. Select **+ Create**.
+1. In **Virtual Network**, enter or select the following information.
 
-3. In the **Basics** tab of **Create a storage account** enter or select the following information:
-
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | **Project Details** |  |
-    | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **TutorPEstorage-rg**. |
-    | **Instance details** |  |
-    | Storage account name | Enter **mystorageaccount**. If the name is unavailable, enter a unique name. |
-    | Location | Select **(US) East US**. |
-    | Performance | Leave the default **Standard**. |
-    | Redundancy | Select **Locally-redundant storage (LRS)**. |
-   
-4. Select the **Networking** tab or select **Next: Advanced** then **Next: Networking**.
-
-5. In the **Networking** tab, under **Network connectivity** select **Disable public access and use private access**.
-
-6. In **Private endpoint**, select **+ Add private endpoint**.
-
-7. In **Create private endpoint** enter or select the following information:
-
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **TutorPEstorage-rg**. |
-    | Location | Select **East US**. |
-    | Name | Enter **myPrivateEndpoint**. |
-    | Storage subresource | Leave the default **blob**. |
+    | Setting | Value |
+    | ------- | ----- |
     | **Networking** |  |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myVNet/mySubnet(10.1.0.0/24)**. |
-    | **Private DNS integration**. |
-    | Integrate with private DNS zone | Leave the default **Yes**. |
-    | Private DNS Zone | Leave the default **(New) privatelink.blob.core.windows.net**. |
+    | Virtual network | Select **vnet-1 (test-rg)**. |
+    | Subnet | Select **subnet-1**. |
+    | Network policy for private endpoints | Select **edit** to apply Network policy for private endpoints. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables** in the **Network policies setting for all private endpoints in this subnet** pull-down. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
-8. Select **OK**.
+    # [**Dynamic IP**](#tab/dynamic-ip)
 
-9. Select **Review**.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-10. Select **Create**.
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+
+    # [**Static IP**](#tab/static-ip)
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Statically allocate IP address**. |
+    | Name | Enter **ipconfig-1**. |
+    | Private IP | Enter **10.0.0.10**. |
+
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+
+    ---
+
+1. Select **Next: DNS**.
+
+1. Leave the defaults in **DNS**. Select **Next: Tags**, then **Next: Review + create**. 
+
+1. Select **Create**.
+
+[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
 
 ### Storage access key
 
@@ -190,7 +118,7 @@ The storage access key is required for the later steps. You'll go to the storage
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
-2. Select the storage account you created in the previous steps.
+2. Select the storage account you created in the previous steps or your existing storage account.
 
 3. In the **Security + networking** section of the storage account, select **Access keys**.
 
@@ -206,7 +134,7 @@ The storage access key is required for the later steps. You'll go to the storage
 
 4. Select **+ Container** to create a new container.
 
-5. Enter **mycontainer** in **Name** and select **Private (no anonymous access)** under **Public access level**.
+5. Enter **container** in **Name** and select **Private (no anonymous access)** under **Public access level**.
 
 6. Select **Create**.
 
@@ -216,9 +144,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM**.
+2. Select **vm-1**.
 
-3. On the overview page for **myVM**, select **Connect** then **Bastion**.
+3. On the overview page for **vm-1**, select **Connect** then **Bastion**.
 
 4. Enter the username and password that you entered during the virtual machine creation.
 
@@ -234,11 +162,11 @@ In this section, you'll use the virtual machine you created in the previous step
 
     Non-authoritative answer:
     Name:    mystorageaccount.privatelink.blob.core.windows.net
-    Address:  10.1.0.5
+    Address:  10.0.0.10
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the storage account name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
+    A private IP address of **10.0.0.10** is returned for the storage account name. This address is in **subnet-1** subnet of **vnet-1** virtual network you created previously.
 
 8. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
@@ -262,23 +190,11 @@ In this section, you'll use the virtual machine you created in the previous step
 
 18. Expand the storage account and then **Blob Containers**.
 
-19. The **mycontainer** you created previously is displayed. 
+19. The **container** you created previously is displayed. 
 
-20. Close the connection to **myVM**.
+20. Close the connection to **vm-1**.
 
-## Clean up resources
-
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and storage account with the following steps:
-
-1. From the left-hand menu, select **Resource groups**.
-
-2. Select **TutorPEstorage-rg**.
-
-3. Select **Delete resource group**.
-
-4. Enter **TutorPEstorage-rg** in **TYPE THE RESOURCE GROUP NAME**.
-
-5. Select **Delete**.
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
