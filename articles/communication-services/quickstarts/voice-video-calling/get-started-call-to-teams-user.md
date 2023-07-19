@@ -14,7 +14,7 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: How to make a call between your application and Teams user
 
-In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams user. You are going to achieve it with the following steps:
+In this quickstart, you're going to learn how to start a call from Azure Communication Services user to Teams user. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
 2. Find Teams user ID.
@@ -28,14 +28,14 @@ All Teams information could be found in [Microsoft Graph Explorer](https://devel
 https://graph.microsoft.com/v1.0/users/user-email@contoso.com
 ```
 
-In results we'll are able to find "ID" field
+In results, we be able to find "ID" field
 
 ```json
     "userPrincipalName": "user-email@contoso.com",
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-Or the same ID could be found in [Azure Portal](https://aka.ms/portal) in Users tab:
+Or the same ID could be found in [Azure portal](https://aka.ms/portal) in Users tab:
 ![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
 
 ::: zone pivot="platform-web"
