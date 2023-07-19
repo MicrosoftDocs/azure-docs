@@ -439,7 +439,26 @@ and where the span name doesn't match `login.*`.
 
 For example, given `http.url = http://example.com/user/12345622` is updated to `http.url = http://example.com/user/****` based on the below configuration.
 
-
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "/user/([^/]+)",
+            "replace": "/user/****",
+            "action": "mask"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Span processor samples
 
