@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 07/12/2023
 ms.author: halkazwini
-ms.custom: template-concept, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Update Azure Network Watcher extension to the latest version

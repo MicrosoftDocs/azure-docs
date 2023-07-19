@@ -6,7 +6,7 @@ ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/26/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot VMware Spring Cloud Gateway
