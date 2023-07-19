@@ -19,7 +19,7 @@ This document describes how to use PowerShell to configure the inbound provision
 
 Using the steps in this guide, you'll convert a CSV file containing HR data into a SCIM bulk request payload and send it to the Azure AD inbound provisioning API endpoint. 
 
-To help you with this process, we provide a sample PowerShell script that you can customize with your requirements. You can download this script from the Inbound Provisioning Private Preview Teams folder(WHAT IS THE PUBLIC PREVIEW, OR GA, FOLDER?).  
+To help you with this process, we provide a sample PowerShell script that you can customize with your requirements. You can download this script from the [Inbound Provisioning GitHub folder](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM).  
 
 ## Configure provisioning job for API-based data ingestion 
 
@@ -64,7 +64,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
 1. Click the hyperlink in the Mappings expansion panel to view the default attribute mappings.
 
    >[!IMPORTANT]
-   >The default configuration in the **Attribute Mappings** page maps SCIM Core User and Enterprise User attributes to Azure AD attributes. We recommend using the default mappings to get started and customizing these mappings later as you get more familiar with the overall data flow. For more information about customization, see [NEED UPDATED LINK](###). 
+   >The default configuration in the **Attribute Mappings** page maps SCIM Core User and Enterprise User attributes to Azure AD attributes. We recommend using the default mappings to get started and customizing these mappings later as you get more familiar with the overall data flow. For samples of Attribute Mappings, see the [Inbound Provisioning Attribute Mappings for Powershell sample folder](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM). 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/attribute-mapping.png" alt-text="Screenshot of how to set attribute mapping.":::
 
