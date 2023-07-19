@@ -112,7 +112,8 @@ If you're already signed in, go to the next step.
 		WorkspaceID
 		WorkspaceKey
 		logAnalyticsUri (optional) - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
-4. Once all application settings have been entered, click **Save**.
+		GithubWebhookSecret (optional) - To enable webhook authentication generate a secret value and store it in this setting.
+5. Once all application settings have been entered, click **Save**.
 
 
 **Post Deployment steps**
@@ -132,8 +133,9 @@ If you're already signed in, go to the next step.
  1. Go to [GitHub](https://www.github.com) and open your account and click on "Your Organizations."
  2. Click on Settings.
  3. Click on "Webhooks" and enter the function app url which was copied from above STEP 1 under payload URL textbox. 
- 4. Choose content type as "application/json". 
- 5. Subscribe for events and Click on "Add Webhook"
+ 4. Choose content type as "application/json".
+ 5. (optional) To enable webhook authentication add to the "Secret" field value you have saved to GithubWebhookSecret from Function App settings.
+ 6. Subscribe for events and Click on "Add Webhook"
 
 
 *Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
