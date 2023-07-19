@@ -24,9 +24,6 @@ The Key Vault VM extension supports these Linux distributions:
 - [Azure Linux](../../azure-linux/intro-azure-linux.md)
 
 > [!NOTE]
-> To get extended security features, prepare to upgrade Ubuntu 16.04 and Debian 9 systems as these versions are reaching their end of designated support period.
-
-> [!NOTE]
 > The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The Key Vault VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
 
 ### Supported certificate content types
