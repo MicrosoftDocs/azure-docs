@@ -69,7 +69,7 @@ Yes. For the implications of making a change and the options that are available,
 
 ## What is the default TCP timeout in Windows OS?
 
-The default TCP timeout in Windows OS is 4 minutes. This value is not configurable. When a user's application uses a longer timeout, the TCP connections between different containers in the same node will be closed after 4 minutes.
+The default TCP timeout in Windows OS is 4 minutes. This value isn't configurable. When an application uses a longer timeout, the TCP connections between different containers in the same node close after four minutes.
 
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
@@ -84,9 +84,9 @@ To fix this error:
 1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
 1. Delete old Windows agent pools.
 
-## Why am I seeing an error when I try to deploy Windows pods
+## Why am I seeing an error when I try to deploy Windows pods?
 
-If you have specified a value in `--max-pods` that is less than the number of pods you want to create, you may see the error "No available addresses".
+If you specify a value in `--max-pods` less than the number of pods you want to create, you may see the `No available addresses` error.
 
 To fix this error, use the `az aks nodepool add` command with a high enough `--max-pods` value:
 
@@ -97,7 +97,7 @@ az aks nodepool add \
     --name $NODEPOOL_NAME \
     --max-pods 3
 ```
-See [documentation](https://learn.microsoft.com/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number) on `--max-pods` for more details.
+For more details, see the [`--max-pods` documentation](https://learn.microsoft.com/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
 
 ## Why is there an unexpected user named "sshd" on my VM node?
 
@@ -178,7 +178,7 @@ A cluster with Windows nodes can have approximately 500 services (sometimes less
 
 When external traffic policy on a Service is configured as Cluster, the traffic undergoes an additional Source NAT on the node which also results in reservation of a port from the TCPIP dynamic port pool. This port pool is a limited resource (~16K ports by default) and many active connections to a Service(s) can lead to dynamic port pool exhaustion resulting in connection drops.
 
-If the Kubernetes Service is configured with External Traffic Policy set to “Local”, port exhaustion problems are not likely to occur at 500 services.
+If the Kubernetes Service is configured with External Traffic Policy set to “Local”, port exhaustion problems aren't likely to occur at 500 services.
 
 ## Can I use Azure Hybrid Benefit with Windows nodes?
 

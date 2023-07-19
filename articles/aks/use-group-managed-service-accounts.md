@@ -54,9 +54,7 @@ Your domain controller needs to be configured through DNS so it's reachable by t
 
 ## Optional: Configure more than one DNS server
 
-If you want to configure more than one DNS server for Windows GMSA in your AKS cluster, you should not specify `--gmsa-dns-server` or `v--gmsa-root-domain-name`as described in the instructions below.
-
-Instead, you should add multiple DNS servers in the vnet by selecting Custom DNS and adding multiple DNS servers. 
+If you want to configure more than one DNS server for Windows GMSA in your AKS cluster, don't specify `--gmsa-dns-server`or `v--gmsa-root-domain-name`. Instead, you can add multiple DNS servers in the vnet by selecting Custom DNS and adding the DNS servers
 
 ## Optional: Use your own kubelet identity for your cluster
 
