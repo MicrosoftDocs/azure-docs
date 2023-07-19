@@ -23,7 +23,7 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 ## Data sharing
 
-When you enable Defender for Storage Malware Scanning, it may share data, including customer data, with Microsoft Defender for Endpoint.
+When you enable Defender for Storage Malware Scanning, it may share metadata, including metadata classified as customer data (e.g. SHA-256 hash), with Microsoft Defender for Endpoint.
 
 ## Data protection
 
