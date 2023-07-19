@@ -54,6 +54,8 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
+    - name: Work with functions
+      href: ./how-to/function_calling.md
     - name: Completions
       href: ./how-to/completions.md
     - name: OpenAI vs Azure OpenAI (Python)

@@ -15,6 +15,12 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## July 2023
+
+### Support for function calling 
+
+- [Azure OpenAI now supports function calling](./how-to/function-calling.md) to enable you to work with functions in the chat completions API.
+
 ## June 2023
 
 ### Use Azure OpenAI on your own data (preview)

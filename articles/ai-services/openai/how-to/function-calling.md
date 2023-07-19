@@ -215,4 +215,6 @@ Here are a few tips to help you use functions safely and securely:
 
 ## Next steps
 
-TODO: link to samples and other docs
+* [Learn more about Azure OpenAI](../overview.md).
+* For more examples on working with functions, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/oai/function-samples)
+* Get started with the GPT-35-Turbo model with [the GPT-35-Turbo quickstart](../chatgpt-quickstart.md).
