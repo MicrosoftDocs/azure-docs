@@ -80,8 +80,6 @@ An AI system includes not only the technology, but also the people who use it, t
 
 ## Next steps
 
-There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Language service features without needing to write code.
-* The quickstart articles for instructions on making requests to the service using the REST API and client library SDK (prebuilt sentiment analysis model only).
+* The quickstart articles with instructions on using the service for the first time.
     * [Use the prebuilt model](./quickstart.md)
     * [Create a custom model](./custom/quickstart.md)  
