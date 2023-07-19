@@ -4,7 +4,7 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 07/13/2023
 ms.author: franlanglois
 ms.devlang: csharp, golang, java, javascript, php, python
 

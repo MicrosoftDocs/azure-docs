@@ -33,14 +33,23 @@ Microsoft Purview supports these out-of-the-box attributes for any business glos
 - Definition
 - Stewards
 - Experts
-- Acronym
-- Synonyms
-- Related terms
 - Resources
-- Parent term
 
 These attributes can't be edited or deleted, but only the Name is mandatory to create a glossary term. 
 However, these attributes aren't sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
+
+## Relationships between terms
+
+Microsoft Purview supports these out-of-the-box relationships for terms:
+
+- Parent/child term
+- Acronym
+- Synonyms
+- Related terms
+
+**Relationship definitions in the glossary are bi-directional:** Every relationship between terms is a two-way relationship. This means that if term A is related to term B, then term B is also related to term A. 
+
+Anytime you populate a relationship in one direction, Purview automatically adds the reverse relationship for you. For example, if you add term A as a synonym for term B, Purview automatically adds term B as a synonym for term A. 
 
 ## Term templates
 
@@ -71,5 +80,8 @@ Sensitivity labels are a type of annotation that allows you to classify and prot
 
 ## Next steps
 
-- [Manage Term Templates](how-to-manage-term-templates.md)
+- [Create and manage glossaries](how-to-create-manage-glossary.md)
+- [Create and manage terms](how-to-create-manage-glossary-term.md)
+- [Manage term templates](how-to-manage-term-templates.md)
+- [Best practices for describing data with terms, tags, managed attributes, and business assets](concept-best-practices-annotating-data.md)
 - [Browse the data catalog in Microsoft Purview](how-to-browse-catalog.md)

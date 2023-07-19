@@ -17,11 +17,17 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## July 2023
+
+### Content Safety C# SDK
+
+The Azure AI Content Safety service is now available through a C# SDK. The SDK is available on [NuGet](https://www.nuget.org/packages/Azure.AI.ContentSafety/). Follow the [quickstart](./quickstart-text.md) to get started.
+
 ## May 2023
 
 ### Content Safety public preview
 
-The Azure AI Content Safety detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure AI Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart-text.md) to get started.
+Azure AI Content Safety detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure AI Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart-text.md) to get started.
 
 ## Azure AI services updates
 
