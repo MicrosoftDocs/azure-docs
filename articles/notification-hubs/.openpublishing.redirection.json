@@ -1,0 +1,29 @@
+{
+    "redirections": [
+        {
+            "source_path": "notification-hubs-android-push-notification-google-gcm-get-started.md",
+            "redirect_url": "android-sdk.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md",
+            "redirect_url": "notification-hubs-android-push-notification-google-fcm-get-started.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md",
+            "redirect_url": "push-notifications-android-specific-devices-firebase-cloud-messaging.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "notification-hubs-windows-mobile-push-notifications-mpns.md",
+            "redirect_url": "notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md",
+            "redirect_url": "notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md",
+            "redirect_document_id": true
+        }
+    ]
+}
