@@ -187,9 +187,9 @@ az webapp connection create mysql-flexible \
 ::: zone-end
 
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
-
 ::: zone pivot="sql"
+
+The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
