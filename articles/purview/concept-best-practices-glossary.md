@@ -103,5 +103,10 @@ Microsoft Purview supports having multiple business glossaries managed within Mi
 - Other bulk edit operations can be performed by using the Atlas API. An example would be using the API to add descriptions or other custom properties to assets in bulk programmatically.
 
 ## Next steps
--  [Import and export glossary terms](./how-to-import-export-glossary.md)
--  [Create and manage glossary terms](./how-to-create-manage-glossary-term.md)
+
+- [Import and export glossary terms](./how-to-import-export-glossary.md)
+- [Best practices for describing data with terms, tags, managed attributes, and business assets](concept-best-practices-annotating-data.md)
+- [Create and manage glossaries](how-to-create-manage-glossary.md)
+- [Create and manage terms](how-to-create-manage-glossary-term.md)
+- [Manage term templates](how-to-manage-term-templates.md)
+- [Browse the data catalog in Microsoft Purview](how-to-browse-catalog.md)
