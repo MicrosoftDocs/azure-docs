@@ -128,7 +128,7 @@ A stage `Build` is defined to build the web app. Under the `steps` section, you 
 
 - [NuGetToolInstaller@1](/azure/devops/pipelines/tasks/reference/nuget-tool-installer-v1) acquires NuGet and adds it to the PATH. 
 - [NuGetCommand@2](/azure/devops/pipelines/tasks/reference/nuget-command-v2) restores NuGet packages in the solution.
-- [VSBuild@1](/devops/pipelines/tasks/reference/vsbuild-v1) builds the solution with MSBuild and packages the app's build results (including its dependencies) as a .zip file into a folder.
+- [VSBuild@1](/azure/devops/pipelines/tasks/reference/vsbuild-v1) builds the solution with MSBuild and packages the app's build results (including its dependencies) as a .zip file into a folder.
 - [PublishBuildArtifacts@1](/azure/devops/pipelines/tasks/reference/publish-build-artifacts-v1) publishes the .zip file to Azure Pipelines.
 
 ## Create a service connection
@@ -222,7 +222,7 @@ A `DeployWebApp` stage is defined with several tasks:
 - [DownloadBuildArtifacts@1](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) downloads the build artifacts that were published to the pipeline in a previous stage.
 - [AzureRmWebAppDeployment@4](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) deploys the web app to App Service.
 
-View the deployed website on App Service. Navigate to your App Service in Azure Portal and select the instance's **Default domain**: https://pipelinetestwebapp.azurewebsites.net.
+View the deployed website on App Service. Navigate to your App Service in Azure Portal and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
 
 :::image type="content" alt-text="Screen shot that shows the default domain URL." source="./media/deploy-web-app-authentication-pipeline/default-domain.png" border="true":::
 
@@ -246,7 +246,7 @@ Save your changes and run the pipeline.
 
 ## Verify limited access to the web app
 
-To verify that access to your app is limited to users in your organization, navigate to your App Service in the [Azure portal](https://portal.azure.com) and select the instance's **Default domain**: https://pipelinetestwebapp.azurewebsites.net.
+To verify that access to your app is limited to users in your organization, navigate to your App Service in the [Azure portal](https://portal.azure.com) and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
 
 You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. Sign in as a user in your organization to gain access to the site. 
 
