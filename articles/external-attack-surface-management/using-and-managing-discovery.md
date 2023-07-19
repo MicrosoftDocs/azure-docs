@@ -94,7 +94,7 @@ The discovery group details page contains the run history for the group. This se
 
 Run history is organized by the seed assets that were scanned during the discovery run. To see a list of the applicable seeds, select **Details**. A pane opens on the right of your screen that lists all the seeds and exclusions by kind and name.
 
-:::image type="content" source="media/Discovery_10.png" alt-text="Screenshot that shows the run history for the discovery group screen.":::
+:::image type="content" source="media/Discovery-10.png" alt-text="Screenshot that shows the run history for the discovery group screen.":::
 
 ### View seeds and exclusions
 
