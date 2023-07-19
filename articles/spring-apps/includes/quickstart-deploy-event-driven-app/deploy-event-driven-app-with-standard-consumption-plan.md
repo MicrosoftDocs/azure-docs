@@ -145,11 +145,12 @@ az spring app create \
     --runtime-version Java_17
 ```
 
-#### 3.6.2. Create an app with the dedicated workload profile
+#### 3.6.2. (Optional) Create an app with the dedicated workload profile
 
-Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
+>[!NOTE]
+> This step is optional. Use this step only if you wish to create apps in the dedicated workload profile.
 
-Use the following command to create a dedicated workload profile:
+Dedicated workload profiles support running apps with customized hardware and increased cost predictability. Use the following command to create a dedicated workload profile:
 
 ```azurecli
 az containerapp env workload-profile set \
