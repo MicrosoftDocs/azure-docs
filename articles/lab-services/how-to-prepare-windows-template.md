@@ -98,18 +98,6 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "FilesOnDemandEnabled" -Value "00000001" -PropertyType DWORD
 ```
 
-### Silently sign in users to OneDrive
-
-You can configure OneDrive to automatically sign in with the Windows credentials of the logged on lab user.  Automatic sign-in is useful for scenarios where lab users signs in with their organizational account.
-
-Use the following PowerShell script to enable automatic sign-in:
-
-```powershell
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
-    -Name "SilentAccountConfig" -Value "00000001" -PropertyType DWORD
-```
-
 ### Disable the OneDrive tutorial
 
 By default, after you finish the OneDrive setup, a tutorial is launched in the browser. Use the following script to disable the tutorial from showing:
