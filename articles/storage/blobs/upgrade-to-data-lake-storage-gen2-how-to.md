@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 07/19/2023
 ms.author: normesta
 ---
 
@@ -35,6 +35,7 @@ The following features are supported for Data Lake Storage Gen2 accounts, but ar
 - Blob snapshots
 - Encryption scopes
 - Immutable storage
+- Last access time tracking for lifecycle management
 - Soft delete for blobs
 - Soft delete for containers
 

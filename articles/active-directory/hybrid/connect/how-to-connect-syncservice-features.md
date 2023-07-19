@@ -28,8 +28,39 @@ This topic explains how the following features of the **Azure AD Connect sync se
 
 These settings are configured by the [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
-To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
+To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
+
+To see the configuration in your Azure AD directory using the Graph Powershell, use the following commands:
+```powershell
+Connect-MgGraph -Scopes OnPremDirectorySynchronization.Read.All, OnPremDirectorySynchronization.ReadWrite.All
+
+Get-MgDirectoryOnPremisSynchronization | Select-Object -ExpandProperty Features | Format-List
+```
+
+The output looks similar to `Get-MsolDirSyncFeatures`:
+```powershell
+BlockCloudObjectTakeoverThroughHardMatchEnabled  : False
+BlockSoftMatchEnabled                            : False
+BypassDirSyncOverridesEnabled                    : False
+CloudPasswordPolicyForPasswordSyncedUsersEnabled : False
+ConcurrentCredentialUpdateEnabled                : False
+ConcurrentOrgIdProvisioningEnabled               : False
+DeviceWritebackEnabled                           : False
+DirectoryExtensionsEnabled                       : True
+FopeConflictResolutionEnabled                    : False
+GroupWriteBackEnabled                            : False
+PasswordSyncEnabled                              : True
+PasswordWritebackEnabled                         : False
+QuarantineUponProxyAddressesConflictEnabled      : False
+QuarantineUponUpnConflictEnabled                 : False
+SoftMatchOnUpnEnabled                            : True
+SynchronizeUpnForManagedUsersEnabled             : False
+UnifiedGroupWritebackEnabled                     : True
+UserForcePasswordChangeOnLogonEnabled            : False
+UserWritebackEnabled                             : True
+AdditionalProperties                             : {}
+```
 
 Many of these settings can only be changed by Azure AD Connect.
 
@@ -72,7 +103,12 @@ If you need to match on-premises AD accounts with existing accounts created in t
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
+## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
+
+## Using the Graph Powershell module
+$Config = Get-MgDirectoryOnPremisSynchronization
+$Config.Features.SoftMatchOnUpnEnabled
 ```
 
 If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
@@ -106,7 +142,12 @@ Enabling this feature allows the sync engine to update the userPrincipalName whe
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
+## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
+
+## Using the Graph Powershell module
+$config = Get-MgDirectoryOnPremisSynchronization
+$config.Features.SynchronizeUpnForManagedUsersEnabled
 ```
 
 If this feature is not enabled for your Azure AD directory, then you can enable it by running:  

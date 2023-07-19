@@ -1046,6 +1046,8 @@
         href: ./extensions/chef.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
+      - name: Tenable
+        href: ./extensions/tenable.md
     - name: Restrict extension installation
       items:
       - name: Linux
@@ -1916,7 +1918,7 @@
   items:
   - name: Reliability in Virtual Machines
     displayName: Reliability in Virtual Machines
-    href: virtual-machines-reliability.md
+    href: reliability-virtual-machines.md
   - name: Service disruptions
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs

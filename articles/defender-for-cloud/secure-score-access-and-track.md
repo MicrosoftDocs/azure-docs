@@ -1,5 +1,5 @@
 ---
-title: Tracking your secure score in Microsoft Defender for Cloud
+title: Tracking your secure score
 description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 01/09/2023

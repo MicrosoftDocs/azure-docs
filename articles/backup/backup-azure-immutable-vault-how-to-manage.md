@@ -4,8 +4,8 @@ description: This article explains how to manage Azure Backup Immutable vault op
 ms.topic: how-to
 ms.service: backup
 ms.date: 05/25/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage Azure Backup Immutable vault operations

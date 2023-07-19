@@ -406,7 +406,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [restricted-vm-sizes]: ../quotas-skus-regions.md#restricted-vm-sizes
