@@ -15,6 +15,8 @@ ms.date: 07/13/2023
 
 # Manage Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
