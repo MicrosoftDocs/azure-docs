@@ -101,7 +101,7 @@ Organizations that use the [Subscription Activation](/windows/deployment/windows
 
 [Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Determine affect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+[Determine effect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 

@@ -56,6 +56,6 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 - [Remediate risks and unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Sign-in risk-based Conditional Access](howto-conditional-access-policy-risk.md)
-- [Determine affect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+- [Determine effect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 - [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 - [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
