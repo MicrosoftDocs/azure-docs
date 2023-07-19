@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/04/2023
+ms.date: 07/17/2023
 
 ---
 
@@ -16,12 +16,14 @@ ms.date: 05/04/2023
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].
 
 > [!NOTE]
-> The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket, which will be triaged by the support team:
+> The following features are available in preview:
 >
 > - Ability to edit your cross region disaster recovery options
 > - Availability zones
 >
 > If you're not participating in the preview, your failover region defaults to one of the [Azure paired regions][].
+>
+> Availability zones support will incur an additional cost on top of existing tier pricing. You will not be charged to preview the feature. Once it becomes generally available, you will automatically be billed.
 
 Notification Hubs offers two availability configurations:
 
