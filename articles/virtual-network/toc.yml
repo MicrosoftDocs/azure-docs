@@ -45,8 +45,6 @@
         href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
     - name: Container networking
       href: container-networking-overview.md
-    - name: Cross-network connectivity
-      href: ../expressroute/cross-network-connectivity.md?toc=/azure/virtual-network/toc.json
     - name: Peering
       href: virtual-network-peering-overview.md
   - name: Integrate Azure services
