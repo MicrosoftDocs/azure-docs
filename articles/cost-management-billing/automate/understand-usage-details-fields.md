@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/14/2023
+ms.date: 07/19/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -63,12 +63,12 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
-| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. |
+| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. Purchases and Marketplace usage may be shown as blank or `unassigned`. |
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
 | MeterId¹ | All | The unique identifier for the meter. |
-| MeterName | All | The name of the meter. |
+| MeterName | All | The name of the meter. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
-| MeterSubCategory | All | Name of the meter subclassification category. |
+| MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
 | OfferId¹ | All | Name of the offer purchased. |
 | pay-as-you-goPrice | All | Retail price for the resource. |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
