@@ -53,7 +53,7 @@ The following operations are available on Chat API request metrics:
 | AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
 | RemoveChatThreadParticipant   | Remove a member from a thread. |
 
-:::image type="content" source="./media/chat-metric.png" alt-text="Screenshot of Chat API Request Metric.":::
+:::image type="content" source="./media/chat-metric.png" alt-text="Screenshot of Chat API Request Metric." lightbox="./media/chat-metric.png":::
 
 If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 
@@ -67,7 +67,7 @@ The following operations are available on SMS API request metrics:
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
 
-:::image type="content" source="./media/sms-metric.png" alt-text="Screenshot of SMS API Request Metric.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Screenshot of SMS API Request Metric." lightbox="./media/sms-metric.png":::
 
 ### Authentication API requests
 
@@ -81,7 +81,7 @@ The following operations are available on Authentication API request metrics:
 | RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
 | ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
-:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Screenshot of authentication Request Metric.":::
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Screenshot of authentication Request Metric."  lightbox="./media/acs-auth-metrics.png":::
 
 ### Call Automation API requests
 
@@ -171,7 +171,7 @@ The following operations are available on Rooms API request metrics:
 | GetParticipants               | Gets list of participants for a Room. |
 | UpdateParticipants            | Updates list of participants for a Room. |
 
-:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Screenshot of Rooms Request Metric.":::
+:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Screenshot of Rooms Request Metric."  lightbox="./media/rooms/rooms-metrics.png":::
 
 ## Next steps
 

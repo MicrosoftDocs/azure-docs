@@ -20,11 +20,9 @@ Azure Communication Services Job Router is a robust tool designed to optimize th
 
 At its core, Job Router operates on a set of key concepts that together create a seamless and efficient communication management system. These include Job, Worker, Queue, Channel, Offer, and Distribution Policy. Whether it's managing high volumes of customer interactions in a contact center, routing customer queries to the right department in a large organization, or efficiently handling customer service requests in a retail business, Job Router can do it all. It ensures that every customer interaction is handled by the most suitable agent or automated service, leading to business efficiency.
 
-:::image type="content" source="./media/acs-router-architecture-diagram.png" alt-text="Diagram that shows the Job Router Architecture.":::
+:::image type="content" source="./media/acs-router-architecture-diagram.png" alt-text="Diagram that shows the Job Router Architecture." lightbox="./media/acs-router-architecture-diagram.png":::
 
 Job Router is agnostic to any Azure Communication Services channel primitive helping developers to build a comprehensive omnichannel communication solution. With Job Router, businesses can ensure that every customer interaction is handled efficiently, at the right time and in the right channel.
-
-
 
 ## Key Concepts
 
@@ -43,7 +41,7 @@ An actual instance would be an incoming call or chat in the context of a call ce
 1. Your application can accept the [Offer](#offer) via the SDK and the Job will be removed from the queue and an [OfferAccepted Event][offer_accepted_event] will be sent that contains an `assignmentId`.
 1. Once the Worker has completed the Job, the SDK can be used to complete and close it, using the `assignmentId`. This will free the Worker up to take on the next Job.
 
-:::image type="content" source="./media/acs-router-job-lifecycle.png" alt-text="Diagram that shows the Job lifecycle.":::
+:::image type="content" source="./media/acs-router-job-lifecycle.png" alt-text="Diagram that shows the Job lifecycle."  lightbox="./media/acs-router-job-lifecycle.png":::
 
 ### Worker
 
@@ -138,7 +136,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 - Let's get started with Job Router, check out the [Job Router Quickstart](../../quickstarts/router/get-started-router.md)
 
-#### Learn more about these key Job Router concepts:
+#### Learn more about these key Job Router concepts
 
 - [How jobs are matched to workers](matching-concepts.md)
 - [How worker capacity is configured](worker-capacity-concepts.md)

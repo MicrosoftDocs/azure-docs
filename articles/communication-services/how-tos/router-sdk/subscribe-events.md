@@ -185,9 +185,9 @@ dotnet run
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
-| Attribute | Type | Nullable |Description | Notes |
+| Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -254,9 +254,9 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
-| Attribute | Type | Nullable |Description | Notes |
+| Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
 | jobId| `string` | ❌ |
@@ -320,7 +320,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -377,7 +377,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -425,7 +425,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -475,7 +475,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -525,7 +525,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -573,7 +573,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -635,7 +635,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -683,7 +683,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -748,7 +748,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -816,7 +816,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -864,7 +864,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -911,7 +911,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -964,7 +964,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1005,7 +1005,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1042,7 +1042,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1079,7 +1079,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1138,7 +1138,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1170,7 +1170,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
@@ -1223,7 +1223,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+#### Attribute list
 
 | Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|

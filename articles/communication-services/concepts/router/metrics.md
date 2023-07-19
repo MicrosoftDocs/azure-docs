@@ -1,27 +1,15 @@
 --- 
-
-title: Job Router metrics definitions for Azure Communication Service 
-
-titleSuffix: An Azure Communication Services concept document 
-
-description: This document covers definitions of job router metrics available in the Azure portal. 
-
-author: nabennet 
-
-manager: bga 
-
-services: azure-communication-services 
-
+title: Job Router metrics definitions for Azure Communication Service
+titleSuffix: An Azure Communication Services concept document
+description: This document covers definitions of job router metrics available in the Azure portal.
+author: nabennet
+manager: bga
+services: azure-communication-services
 ms.author: nabennet
-
 ms.date: 06/23/2023
-
-ms.topic: conceptual 
-
-ms.service: azure-communication-services 
-
-ms.subservice: data 
-
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: data
 --- 
 
 # Job Router metrics overview
@@ -38,7 +26,7 @@ More information on supported aggregation types and time series aggregations can
 
 - **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 
-- **API Version – The version of the API used in the API request.
+- **API Version** – The version of the API used in the API request.
 
 - **Status Code** - The status code response sent after the request.
 
@@ -82,7 +70,7 @@ The following operations are available on Job Router API request metrics:
 | GetWorkers | Retrieves existing workers |
 | DeleteWorker | Deletes a worker and all of its traces |
 
- :::image type="content" source="./media/acs-router-api-requests.png" alt-text="Diagram that shows the Job Router API requests.":::
+ :::image type="content" source="./media/acs-router-api-requests.png" alt-text="Diagram that shows the Job Router API requests." lightbox="./media/acs-router-api-requests.png":::
 
 ## Next steps
 
