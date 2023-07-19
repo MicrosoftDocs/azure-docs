@@ -13,6 +13,11 @@ Some log data collected by Azure Monitor will include multiple pieces of informa
 
 This article describes different options for parsing log data in Azure Monitor when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
 
+## Permissions required
+
+- To parse data at collection time, you need `microsoft.operationalinsights/workspaces/customfields/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+- To parse data at query time, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+
 ## Parsing methods
 You can parse data either at ingestion time when the data is collected or at query time when you analyze the data with a query. Each strategy has unique advantages.
 
