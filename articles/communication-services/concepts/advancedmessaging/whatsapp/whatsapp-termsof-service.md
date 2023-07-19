@@ -15,15 +15,15 @@ ms.service: azure-communication-services
 
 ## Overview
 
-To enable the WhatsApp feature in Azure Communication Services, you need to create or connect a WhatsApp Business Account and agree to the Meta Cloud API and WhatsApp Terms of Service ("Meta Terms"). When you use the WhatsApp feature in Azure Communication Services, your data is transferred from one service to the other, and the respective terms will govern the handling of that data. Azure Communication Services is governed by the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms). The WhatsApp Service is governed by the Meta Terms [Meta Terms](https://www.facebook.com/legal/Meta-Hosting-Terms-Cloud-API). You should be aware that there are differences between the Meta Terms and Microsoft Terms in subject matters, including but not limited to privacy, compliance and data handling. Some of which are outlined below.
+To enable the WhatsApp feature in Azure Communication Services, you need to create or connect a WhatsApp Business Account and agree to the Meta Cloud API and WhatsApp Terms of Service ("Meta Terms"). When you use the WhatsApp feature in Azure Communication Services, your data is transferred from one service to the other, and the respective terms govern the handling of that data. [Microsoft Product Terms](https://www.microsoft.com/licensing/terms) governs the Azure Communication Services. [Meta Terms](https://www.facebook.com/legal/Meta-Hosting-Terms-Cloud-API)  governs the WhatsApp Service. You should be aware of differences between the Meta Terms and Microsoft Terms in subject matters, including but not limited to privacy, compliance and data handling.
 
 ## EU Data Boundary
 
-WhatsApp data will follow the data handling policy defined in the Meta Terms which may not include the EU Data Boundary commitments.
+WhatsApp data follows the data handling policy defined in the Meta Terms, which may not include the EU Data Boundary commitments.
 
 ## Service Level Agreement
 
-Azure Communication Services provides an SLA for its customers as outlined in the Azure Terms. Once data is transferred to WhatsApp, it will follow the services levels detailed in the Meta Terms.
+Azure Communication Services provides an SLA for its customers as outlined in the Azure Terms. Once data is transferred to WhatsApp, it follows the services levels detailed in the Meta Terms.
 
 ## HIPAA
 
