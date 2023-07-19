@@ -260,7 +260,7 @@ A description of the intended purpose of a message within a chat completions int
 |Name | Type | Description |
 |---|---|---|
 | assistant | string | The role that provides responses to system-instructed, user-prompted input. |
-| function | string | The role that provides function results for char completions. |
+| function | string | The role that provides function results for chat completions. |
 | system | string | The role that instructs or sets the behavior of the assistant. |
 | user | string | The role that provides input for chat completions. |
 
