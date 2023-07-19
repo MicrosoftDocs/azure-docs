@@ -1,5 +1,5 @@
 ---
-title: Agentless Container Posture for Microsoft Defender for Cloud
+title: Agentless Container Posture
 description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
