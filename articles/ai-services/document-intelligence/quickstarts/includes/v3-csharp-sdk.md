@@ -78,7 +78,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
      :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
- 1. Select version **4.0.0** from the dropdown menu and install the package in your project.
+ 1. Choose the Include prerelease checkbox and select version 4.1.0-beta.1 from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 <!-- > [!div class="nextstepaction"]
