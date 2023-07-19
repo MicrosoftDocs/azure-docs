@@ -78,14 +78,14 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Container Apps page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-env-basics.png":::
 
+   > [!IMPORTANT]
+   > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/tutorial-authenticate-client-with-gateway/notifications.png":::
-
-> [!IMPORTANT]
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 1. Use the following command to enable Eureka server:
 
@@ -152,7 +152,7 @@ The Books RESTful APIs acts as a resource server, which is protected by Azure AD
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
-   :::image type="content" source="media/tutorial-authenticate-client-with-gateway/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/tutorial-authenticate-client-with-gateway/api-permissions.png":::
+   :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="../../media/tutorial-authenticate-client-with-gateway/api-permissions.png":::
 
 1. Navigate to **Certificates & secrets** and select the **New client secret**. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and select **Add**.
 

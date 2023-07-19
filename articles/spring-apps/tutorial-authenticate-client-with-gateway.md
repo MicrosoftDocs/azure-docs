@@ -24,7 +24,7 @@ that is hosted on Azure Spring Apps and shielded behind a gateway app. The clien
 will be verified as a security principal to initiate contact with the microservice deployed 
 on Azure Spring Apps, via the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). The methodology employs Spring Cloud 
 Gateway's Token Relay feature, and Spring Security's Resource Server feature for the processes of authentication and authorization, realized through 
-the execution of the [client credentials flow](https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
+the execution of the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 - [Books SPA](https://github.com/moarychan/azure-spring-apps-sso-client-credential/tree/main/spa): This Single Page Application (SPA), hosted locally, interacts with the Books Microservice for adding or searching for books.
 - Books Microservice:
