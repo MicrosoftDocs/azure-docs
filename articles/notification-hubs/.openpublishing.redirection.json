@@ -18,7 +18,7 @@
         {
             "source_path": "/articles/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md",
             "redirect_url": "/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "/articles/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md",
