@@ -37,27 +37,24 @@
   - name: API Types
     href: api-types-kubernetes.md
 - name: Reference
-  - items:
-    - name: ALB Controller release notes
-      href: alb-controller-release-notes.md
-    - name: Azure CLI
-      href: /cli/azure/network/alb
-    - name: Azure PowerShell
-      href: /powershell/azure/
-    - name: .NET
-      href: /dotnet/api/overview/azure/servicenetworking
-    - name: Java
-      href: /java/api/overview/azure/servicenetworking
-    - name: Python
-      href: /python/api/overview/azure/servicenetworking
-    - name: REST
-      href: /rest/api/applicationgatewaycontainers
-    - name: Azure Resource Manager
-      displayName: ARM
-      href: ../../azure-resource-manager/management/overview.md
-    - name: Resource Manager template
-      displayName: ARM
-      href: /azure/templates/microsoft.servicenetworking/applicationgateways
+  items:
+  - name: ALB Controller release notes
+    href: alb-controller-release-notes.md
+  - name: Azure CLI
+    href: /cli/azure/network/alb
+  - name: Azure PowerShell
+    href: /powershell/azure/
+  - name: .NET
+    href: /dotnet/api/overview/azure/servicenetworking
+  - name: Java
+    href: /java/api/overview/azure/servicenetworking
+  - name: Python
+    href: /python/api/overview/azure/servicenetworking
+  - name: REST
+    href: /rest/api/applicationgatewaycontainers
+  - name: Azure Resource Manager
+    displayName: ARM
+    href: ../../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: Author templates

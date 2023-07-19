@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 07/12/2023
+ms.date: 07/19/2023
 ms.author: greglin
 ---
 
@@ -54,7 +54,7 @@ Each access log entry in Application Gateway for Containers will contain the fol
 | backendIp | IP address of backend target Application Gateway for Containers will proxy the request to. |
 | backendPort | Port number of the backend target. |
 | backendResponseLatency | Time in milliseconds to receive first byte from Application Gateway for Containers to the backend target. |
-| backendTimeTaken | Time in milliseconds to for the response to be transmitted from the backend target to Application Gateway for Containers. |
+| backendTimeTaken | Time in milliseconds for the response to be transmitted from the backend target to Application Gateway for Containers. |
 | clientIp | IP address of the client initiating the request to the frontend of Application Gateway for Containers |
 | frontendName | Name of the Application Gateway for Containers frontend that received the request from the client |
 | frontendPort | Port number the request was listened on by Application Gateway for Containers |
@@ -62,7 +62,7 @@ Each access log entry in Application Gateway for Containers will contain the fol
 | httpMethod | HTTP Method of the request received from the client by Application Gateway for Containers as per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3). |
 | httpStatusCode | HTTP Status code returned from Application Gateway for Containers to the client |
 | httpVersion | HTTP version of the request received from the client by Application Gateway for Containers  |
-| referer | Referer header of the request received from the client by Application Gateway for Containers  |
+| referrer | Referrer header of the request received from the client by Application Gateway for Containers  |
 | requestBodyBytes | Size in bytes of the body payload of the request received from the client by Application Gateway for Containers  |
 | requestHeaderBytes | Size in bytes of the headers of the request received from the client by Application Gateway for Containers  |
 | requestUri | URI of the request received from the client by Application Gateway for Containers (everything after \<protocol\>://\<host\> of the URL)  |
