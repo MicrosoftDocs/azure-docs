@@ -12,7 +12,7 @@ ms.topic: article
 
 # Emotions detection
 
-Emotions detection is an Azure AI Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Sad", or none of the above if no other emotion was detected.
+Emotions detection is an Azure AI Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as *Anger*, *Fear*, *Joy*, *Sad*, or none of the above if no other emotion was detected.
 
 The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
 
