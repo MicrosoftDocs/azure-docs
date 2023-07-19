@@ -20,7 +20,7 @@ For more information, see [Understanding inventory assets](understanding-invento
 
 You can view the asset details page for any asset by selecting its name from your inventory list. On the left pane of this page, you can view an asset summary that provides key information about that particular asset. This section primarily includes data that applies to all asset types, although more fields are available in some cases. For more information on the metadata provided for each asset type in the summary section, see the following chart.
 
-![Screenshot that shows an asset details page with the summary pane highlighted.](media/Inventory-1.png)
+![Screenshot that shows an asset details page with the summary pane highlighted.](media/inventory-1.png)
 
 ### General information
 
