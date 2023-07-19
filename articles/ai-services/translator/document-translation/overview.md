@@ -120,7 +120,7 @@ Document Translation data residency depends on the Azure region where your Trans
 ### Document Translation data residency
 
 ✔️ Feature: **Document Translation**</br>
-✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.0`**
+✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
  |Resource region| Request processing data center |
 |----------------------------------|-----------------------|

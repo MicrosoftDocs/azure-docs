@@ -74,7 +74,7 @@ Once you have created a Vector Index, you can add it to a prompt flow from the p
 
 1. On the top menu, select **More Tools** and select Vector Index Lookup
 
-    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
+    :::image type="content" source="media/how-to-create-vector-index/vector-lookup.png" alt-text="Screenshot showing the location of the More Tools button.":::
 
 1. The Vector Index lookup tool gets added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 

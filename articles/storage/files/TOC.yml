@@ -195,6 +195,8 @@
     items:
     - name: Migrate to Azure file shares
       href: storage-files-migration-overview.md
+    - name: Migrate files between Azure file shares
+      href: migrate-files-between-shares.md
     - name: Target a cloud-only deployment
       items:
       - name: RoboCopy to migrate to Azure file shares
