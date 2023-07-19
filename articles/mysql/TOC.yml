@@ -141,7 +141,7 @@
   - name: Integrations
     items:
     - name: Automation tasks
-        href: flexible-server/create-automation-tasks.md
+      href: flexible-server/create-automation-tasks.md
     - name: Azure Key Vault
       href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps
