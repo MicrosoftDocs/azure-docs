@@ -10,7 +10,7 @@ ms.date: 07/17/2023
 The Azure Cost Optimization workbook is designed to provide a comprehensive understanding of the cost posture of your Azure environment and empower you to optimize your costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
 
 ## Overview
-The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.
 
 Here’s how to get started:
 
@@ -37,14 +37,14 @@ Each tab supports the following capabilities:
 
 ### Advisor Recommendations
 
-This query focuses on reviewing the advisor recommendations specifically related to Compute. Some of the recommendations available in this query could be *Optimize virtual machine spend by resizing or shutting down underutilized instances* or *Buy reserved virtual machine instances to save money over pay-as-you-go costs*.
+This query focuses on reviewing the Advisor recommendations related to compute. Some of the recommendations available in this query could be *Optimize virtual machine spend by resizing or shutting down underutilized instances* or *Buy reserved virtual machine instances to save money over pay-as-you-go costs*.
 
-### Virtual Machines in a Stopped State
+### Virtual Machines in Stopped State
 
 This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is *Stopped* rather than *Stopped (Deallocated)*, you are still billed for the resource as the hardware remains allocated for you.
 
 ### Web Apps
-This query helps identify Azure App Services with and without Auto Scale, as well as App Services where the actual app might be stopped. I
+This query helps identify Azure App Services with and without Auto Scale, and App Services where the actual app might be stopped. I
 
 ### Azure Kubernetes Clusters (AKS)
 
@@ -52,7 +52,7 @@ This query focuses on cost optimization opportunities specific to Azure Kubernet
 *	Enabling cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints.
 *	Considering the use of Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions.
 *	Utilizing the Horizontal Pod Autoscaler to adjust the number of pods in a deployment based on CPU utilization or other selected metrics.
-*	Leveraging the Start/Stop feature in Azure Kubernetes Services (AKS) to optimize cost during off-peak hours.
+*	Using the Start/Stop feature in Azure Kubernetes Services (AKS) to optimize cost during off-peak hours.
 *	Using appropriate VM SKUs per node pool and considering reserved instances where long-term capacity is expected.
 
 ### Azure Hybrid Benefit
