@@ -30,12 +30,13 @@ After completing this article, you'll be able to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
     - To use Microsoft-hosted agents, your Azure DevOps organization must have access to Microsoft-hosted parallel jobs. [Check your parallel jobs and request a free grant](/azure/devops/pipelines/troubleshooting/troubleshooting#check-for-available-parallel-jobs).
-- An Azure Active Directory [tenant](azure/active-directory/develop/quickstart-create-new-tenant).
-- A [GitHub username](https://github.com), Git is [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
+- An Azure Active Directory [tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
+- A [GitHub account](https://github.com) and Git [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
+- .NET 6.0 SDK or later.
 
 ## Create and clone a repo in GitHub
 
-[Create a new repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) in GitHub, specify a name like "PipelinesTest".  Add a .gitignore file with **.getignore template: VisualStudio**.
+[Create a new repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) in GitHub, specify a name like "PipelinesTest".  Set it to **Private** and add a *.gitignore* file with **.getignore template: VisualStudio**.
 
 Open a terminal window and change the current working directory to the location where you want the cloned directory:
 
@@ -85,9 +86,8 @@ git push origin main
 
 ## Set up your Azure DevOps environment
 
-Create a new project:
+Sign in to your Azure DevOps organization (`https://dev.azure.com/{yourorganization}`).
 
-1. Add a user to Azure DevOps
 Create a new project:
 
 1. Select **New project**.
@@ -95,20 +95,14 @@ Create a new project:
 1. Select **Private** visibility.
 1. Select **Create**.
 
-Add a service connection:
-
-1. Select **Project settings**.
-1. In the left navigation pane, select **Service connections** and then **Create service connection**.
-1. Select **Azure Resource Manager** and then **Next**.
-1. Select **Service principal (automatic)** and then **Next**.
-1. Select **Subscription** for **scope level** and select your subscription.  Enter a service connection name such as "PipelinesTextServiceConnetion" and select **Next**.
-
 ## Create the pipeline
 
-1. Go to **Pipelines**, and then select **Create Pipeline**.
+After the project is created, add a pipeline:
+
+1. In the left navigation pane, select **Pipelines**->**Pipelines**, and then select **Create Pipeline**.
 1. Select **GitHub  YAML**.  
 
-1. On the **Connect** tab, select GitHub. When prompted, enter your GitHub credentials.
+1. On the **Connect** tab, select **GitHub YAML**. When prompted, enter your GitHub credentials.
 
 1. When the list of repositories appears, select your `PipelinesTest` repository.
 
@@ -117,77 +111,123 @@ Add a service connection:
 
 1. When the **Configure** tab appears, select **ASP.NET Core**.
 
-1. A new pipeline with a very basic configuration appears. The default configuration uses a Microsoft-hosted agent.    
+1. A new pipeline with a very basic configuration appears. The default configuration uses a Microsoft-hosted agent.
 
 1. When you're ready, select **Save and run**. To commit your changes to GitHub and start the pipeline, choose Commit directly to the main branch and select Save and run a second time. If prompted to grant permission with a message like **This pipeline needs permission to access a resource before this run can continue**, choose **View** and follow the prompts to permit access.
 
-Under **Jobs**, select **Job**. Next, trace the build process through each of the steps. To see the job output as a text file when the build completes, you can also select **View** raw log.
+## Add the Build stage and Build tasks to your pipeline
 
-## Add a variable group
+Now that you have a working pipeline, you can add a build stage and build tasks.  
 
-Add a variable group and variables to the pipeline.  Select **Library** in the left navigation pane and create a new **Variable group**.
+Define a stage to build the web app.
 
-In the Azure Portal, find app registration created for service connection.  Copy app/client ID into pipeline variable.
-
-Give it the name "AzureResourcesVariableGroup".  Add the following variables and values:
-
-| Variable name | Value |
-| --- | --- |
-| LOCATION | centralus |
-| PIPELINESPID | {app-id}|
-| RESOURCEGROUPNAME | pipelinetestgroup |
-| SVCPLANNAME | pipelinetestplan |
-| TENANTID |  {tenant-id}|
-| WEBAPPNAMETEST | pipelinetestwebapp |
-| AZURESUBSCRIPTION | PipelinesTextServiceConnetion |
-
-Select **Save**.
-
-Give the pipeline permissions to access the variable group.  Select **Pipeline permissions**, add your pipeline, and then close the window.
-
-## Add a build stage
-
-Add a build stage.  Add build tasks, restore project dependencies, publish the build to the pipeline.
-
-Replace the basic pipeline configuration with:
+Update *azure-pipelines.yml* and replace the basic pipeline configuration with the following:
 
 [!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-1.yml)]
 
 Save your changes and run the pipeline.
 
+Under the `steps` section, you see various tasks to build the web app and publish artifacts to the pipeline.
+
+[NuGetToolInstaller@1](/azure/devops/pipelines/tasks/reference/nuget-tool-installer-v1) acquires NuGet and adds it to the PATH. [NuGetCommand@2](/azure/devops/pipelines/tasks/reference/nuget-command-v2) restores NuGet packages in the solution.
+
+[VSBuild@1](/devops/pipelines/tasks/reference/vsbuild-v1) builds the solution with MSBuild and packages the app's build results (including its dependencies) as a .zip file into a folder.
+
+[PublishBuildArtifacts@1](/azure/devops/pipelines/tasks/reference/publish-build-artifacts-v1) publishes the .zip file to Azure Pipelines.
+
+Add a [service connection](/azure/devops/pipelines/library/service-endpoints) so your pipeline can connect and deploy resources to Azure:
+
+1. Select **Project settings**.
+1. In the left navigation pane, select **Service connections** and then **Create service connection**.
+1. Select **Azure Resource Manager** and then **Next**.
+1. Select **Service principal (automatic)** and then **Next**.
+1. Select **Subscription** for **scope level** and select your Azure subscription.  Enter a service connection name such as "PipelinesTestServiceConnection" and select **Next**.  The service connection name is used in the following steps.
+
+An application is also created in your Azure AD tenant that provides an identity for the pipeline.  You need the display name of the app registration in later steps.  To find the display name:
+
+1. Sign into the [Entra admin portal](https://entra.microsoft.com/).
+1. Select **App registrations** in the left navigation pane, and then the **All applications**.
+1. Find the display name of the app registration, which is of the form `{organization}-{project}-{guid}`.
+
+Grant the service connection permission to access the pipeline:
+
+1. In the left navigation pane, select **Project settings** and then **Service connections**.
+1. Select the **PipelinesTestServiceConnection** service connection and then **Security** from the drop-down menu.
+1. In the **Pipeline permissions** section, select **Add pipeline** and select the **PipelinesTest** service connection from the list.
+
+## Add a variable group
+
+The `DeployAzureResources` stage that you create in the next section uses several values to create and deploy resources to Azure:
+
+- The Azure AD tenant ID.
+- The region, or location, where the resources are deployed.
+- A resource group name.
+- The App Service service plan name.
+- The name of the web app.
+- The name of the service connection used to connect the pipeline to Azure. In the pipeline, this value is used for the Azure subscription.
+
+Create a [variable group](/azure/devops/pipelines/library/variable-groups) and add values to use as variables in the pipeline.  Select **Library** in the left navigation pane and create a new **Variable group**. Give it the name "AzureResourcesVariableGroup".
+
+In the Azure Portal, find app registration created for service connection.  Copy app/client ID into pipeline variable.
+
+Add the following variables and values:
+
+| Variable name | Example value |
+| --- | --- |
+| LOCATION | centralus |
+| TENANTID |  {tenant-id}|
+| RESOURCEGROUPNAME | pipelinetestgroup |
+| SVCPLANNAME | pipelinetestplan |
+| WEBAPPNAMETEST | pipelinetestwebapp |
+| AZURESUBSCRIPTION | PipelinesTestServiceConnection |
+
+Select **Save**.
+
+Give the pipeline permissions to access the variable group.  Select **Pipeline permissions**, add your pipeline, and then close the window.
+
 ## Deploy resources to Azure
 
-Add stage to the pipeline to deploy Azure resources.
+Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure pipeline tasks) cannot create an app registration.
 
-Grant service connection permission to the pipeline.
+The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 
-[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-2.yml?highlight=42-70)]
+1. Sign into the [Entra admin portal](https://entra.microsoft.com/).
+1. In the left navigation pane, select **Roles & admins**.
+1. Select **Application Administrator** from the list of roles and then **Add assignment**.
+1. Search for the pipeline app registration by display name.
+1. Select the app registration from the list and select **Add**.
 
-## Deploy the web app to Azure App Service
-
-[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-3.yml?highlight=72-98)]
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-2.yml?highlight=40-68)]
 
 Save your changes and run the pipeline.  Verify that a new resource group and App Service instance are created.
 
-## Configure Azure App Service authentication in Azure Pipelines
+## Deploy the web app to Azure App Service
 
-Modify the deploy Azure resources stage.
+Extend the pipeline by adding a deployment stage to deploy the web app to App Service using the DownloadBuildArtifacts@0 and AzureRmWebAppDeployment@4 tasks to download the build artifacts and then deploy it.
 
-1. Create an Azure AD app registration as an identity for your web app. To create app registration, SP for running pipeline needs Application Administrator role in the directory.
-1. Get a secret from the app for App Service authentication
-1. Configure secret setting for App Service web app
-1. Configure redirect URI, home page URI, and issuer settings for App Service Authentication
-1. Deploy the web app to Azure App Service and verify user sign in
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-3.yml?highlight=70-96)]
 
-[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-4.yml?highlight=70-108)]
+Save your changes and run the pipeline.  View the deployed website on App Service. Navigate to your Azure App Service in Azure Portal and select the instance's URL: https://pipelinetestwebapp.azurewebsites.net.
+
+## Configure Azure App Service authentication
+
+Modify the inline script in the deploy Azure resources stage to:
+
+1. Create an Azure AD app registration as an identity for your web app. To create an app registration, the service principal for running the  pipeline needs Application Administrator role in the directory.
+1. Get a secret from the app.
+1. Configure the secret setting for the App Service web app.
+1. Configure the redirect URI, home page URI, and issuer settings for the App Service web app.
+1. Configure other settings on the web app.
+
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-4.yml?highlight=68-108)]
 
 ## Verify limited access to the web app
 
-To verify that access to your app is limited to users in your organization, start a browser in incognito or private mode and go to https://<app-name>.azurewebsites.net. You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. Sign in as a user in your organization to gain access to the site. You can also start up a new browser and try to sign in by using a personal account to verify that users outside the organization don't have access.
-
-This command might take several minutes to run.
+To verify that access to your app is limited to users in your organization, start a browser in incognito or private mode and go to Navigate to your Azure App Service in Azure Portal and select the instance's URL: https://pipelinetestwebapp.azurewebsites.net. You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. Sign in as a user in your organization to gain access to the site. You can also start up a new browser and try to sign in by using a personal account to verify that users outside the organization don't have access.
 
 ## Clean up resources
+
+Clean up your Azure resources and Azure DevOps environment so you're not charged for Azure resources after you're done.
 
 ### Delete the resource group
 
@@ -195,7 +235,25 @@ In the Azure portal, select Resource groups from the portal menu and select the 
 
 Select Delete resource group to delete the resource group and all the resources.
 
-### Delete the Azure DevOps project
+### Disable the pipeline or delete the Azure DevOps project
+
+You created a project which points to a GitHub repository. The pipeline is triggered to run every time you push a change to your GitHub repository, consuming free build minutes or your resources. 
+
+#### Option 1: Disable your pipeline
+
+Choose this option if you want to keep your project and your build pipeline for future reference. You can re-enable your pipeline later if you need to.
+
+1. In your Azure DevOps project, select **Pipelines** and then select your pipeline.
+1. Select the ellipsis button at the far right, and then select **Settings**.
+1. Select **Disabled**, and then select **Save**. Your pipeline will no longer process new run requests.
+
+#### Option 2: Delete your project
+Choose this option if you don't need your DevOps project for future reference. This will delete your Azure DevOps project.
+
+1. Navigate to your Azure DevOps project.
+1. Select **Project settings** in the lower-left corner.
+1. Under **Overview**, scroll down to the bottom of the page and then select **Delete**.
+1. Type your project name in the text box, and then select **Delete**.
 
 ### Delete app registration in Azure AD
 

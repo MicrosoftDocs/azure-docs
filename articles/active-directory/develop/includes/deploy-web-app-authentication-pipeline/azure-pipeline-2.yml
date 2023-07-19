@@ -15,9 +15,7 @@ stages:
     variables:
       solution: '**/*.sln'
       buildPlatform: 'Any CPU'
-      wwwrootDir: 'PipelinesTest/wwwroot'
-      buildConfiguration: 'Release'
-      
+      buildConfiguration: 'Release'      
 
     steps:
     - task: NuGetToolInstaller@1
