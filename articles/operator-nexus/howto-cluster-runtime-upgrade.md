@@ -4,7 +4,7 @@ description: Learn to execute a cluster runtime upgrade for Operator Nexus
 author: gedrivera
 ms.author: eduardori
 ms.service: azure-operator-nexus
-ms.custom: azure-operator-nexus
+ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/06/2023
 # ms.custom: template-include

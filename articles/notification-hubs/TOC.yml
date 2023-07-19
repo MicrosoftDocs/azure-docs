@@ -31,22 +31,12 @@
       items:
       - name: Send push notifications to all registrations (Current SDK)
         href: android-sdk.md
-      - name: Send push notifications to all registrations (Legacy SDK)
-        href: notification-hubs-android-push-notification-google-fcm-get-started.md
       - name: Send push notifications to specific devices
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
       - name: Send push notifications to specific users
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
       - name: Send push notifications to Xamarin Android apps 
         href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Google Cloud Message (deprecated)
-      items:      
-      - name: Send push notifications to all registrations
-        href: notification-hubs-android-push-notification-google-gcm-get-started.md      
-      - name: Send push notifications to specific devices
-        href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-      - name: Send push notifications to specific users
-        href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: iOS
     items:
     - name: Notification Hubs updates for iOS 13
@@ -67,12 +57,6 @@
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Send push localized notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-  - name: Windows Phone
-    items:
-    - name: Send push notifications to apps
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md          
-    - name: Send push notifications to specific devices
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
   - name: Windows
     items:
     - name: Send push notifications to Universal Windows Platform apps

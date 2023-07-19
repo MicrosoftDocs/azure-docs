@@ -3,6 +3,7 @@ description: This article provides step-by-step instructions to deploy Azure Clo
 ms.contributor: jahelmic
 ms.date: 06/29/2023
 ms.topic: article
+ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a VNET with quickstart templates
 ---
 

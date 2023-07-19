@@ -19,9 +19,9 @@ Azure Monitor also provides tools that let you create your own machine learning 
 
 This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models and build an automated machine learning pipeline on data in Azure Monitor Logs. 
 
-## Built-in Azure Monitor AIOps capabilities 
+## Built-in Azure Monitor AIOps and machine learning capabilities 
 
-|Monitoring scenario|AIOps capability|Description| 
+|Monitoring scenario|Capability|Description| 
 |-|-|-|
 |Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | A curated monitoring experience that provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
 ||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. 
