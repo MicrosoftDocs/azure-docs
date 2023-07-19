@@ -32,7 +32,6 @@ BareMetal Infrastructure offers these benefits:
 
 - Certified hardware for specialized workloads
     - SAP (Refer to [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533). You'll need an SAP account for access.)
-    - Oracle (You'll need an Oracle account for access.)
 - Non-hypervised BareMetal instance, single tenant ownership
 - Low latency between Azure hosted application VMs to BareMetal instances (0.35 ms)
 - All Flash SSD and NVMe
