@@ -26,10 +26,10 @@ The following steps exemplify how to add these buttons to the app.
 2. In the central panel, look for the XAML code under the UI preview.
 3. Modify the XAML code by the following excerpt:
 ```xml
-<TextBox x:Name="CalleeTextBox" Text="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0" Height="40" Margin="10,10,10,10" />
-<StackPanel Orientation="Horizontal">
-    <Button x:Name="CallButton" Content="Start Call" Click="CallButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="200"/>
-    <Button x:Name="HangupButton" Content="Hang Up" Click="HangupButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="200"/>
+<TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" />
+<StackPanel>
+    <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" />
+    <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" />
 </StackPanel>
 ```
 
@@ -43,7 +43,6 @@ The following steps inform the C# compiler about these namespaces allowing Visua
 3. Add the following commands at the bottom of the current `using` statements.
 
 ```csharp
-using Azure.Communication;
 using Azure.Communication.Calling.WindowsClient;
 ```
 
@@ -51,13 +50,13 @@ Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps will add m
 
 ## Allow app interactions
 
-The UI buttons previously added need to operate on top of a placed `Call`. It means that a `Call` data member should be added to the `MainPage` or `MainWindow` class.
+The UI buttons previously added need to operate on top of a placed `CommunicationCall`. It means that a `CommunicationCall` data member should be added to the `MainPage` or `MainWindow` class.
 Additionally, to allow the asynchronous operation creating `CallAgent` to succeed, a `CallAgent` data member should also be added to the same class.
 
 Add the following data members to the `MainPage` or `MainWindow` class:
 ```csharp
 CallAgent callAgent;
-Call call;
+CommunicationCall call;
 ```
 
 ## Create button handlers
@@ -90,7 +89,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `CallAgentOptions` | The `CallAgentOptions` contains information to identify the caller. |
 | `HangupOptions` | The `HangupOptions` informs if a call should be terminated to all its participants. |
 
-## Register video handler
+## Register video schema handler
 
 A UI component, like XAML's MediaElement or MediaPlayerElement, you need the app registering a configuration for rendering local and remote video feeds.
 Add the following content between the `Package` tags of the `Package.appxmanifest`:
@@ -125,8 +124,8 @@ var callAgentOptions = new CallAgentOptions()
 };
 
 this.callAgent = await callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
-this.callAgent.OnCallsUpdated += Agent_OnCallsUpdatedAsync;
-this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
+this.callAgent.CallsUpdated += Agent_OnCallsUpdatedAsync;
+this.callAgent.IncomingCallReceived += Agent_OnIncomingCallAsync;
 ```
 
 Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.
@@ -134,8 +133,6 @@ Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resou
 ## Place a 1:1 call with video camera
 
 The objects needed for creating a `CallAgent` are now ready. It's time to asynchronously create `CallAgent` and place a video call.
-
-The following code should be added after handling the exception from the previous step.
 
 ```csharp
 private async void CallButton_Click(object sender, RoutedEventArgs e)
@@ -146,14 +143,14 @@ private async void CallButton_Click(object sender, RoutedEventArgs e)
     {
         if (callString.StartsWith("8:")) // 1:1 ACS call
         {
-            call = await StartAcsCallAsync(callString);
+            this.call = await StartAcsCallAsync(callString);
         }
     }
 
-    if (call != null)
+    if (this.call != null)
     {
-        call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-        call.StateChanged += OnStateChangedAsync;
+        this.call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
+        this.call.StateChanged += OnStateChangedAsync;
     }
 }
 
@@ -164,75 +161,49 @@ private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
     return call;
 }
 
+var micStream = new LocalOutgoingAudioStream(); // Create a default local audio stream
+var cameraStream = new LocalOutgoingVideoStreamde(this.viceManager.Cameras.FirstOrDefault() as VideoDeviceDetails); // Create a default video stream
+
 private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
 {
     return new StartCallOptions() {
-        OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true, OutgoingAudioStream = micStream  },
-        OutgoingVideoOptions = new OutgoingVideoOptions() { OutgoingVideoStreams = new OutgoingVideoStream[] { cameraStream } }
+        OutgoingAudioOptions = new OutgoingAudioOptions() { IsMuted = true, Stream = micStream  },
+        OutgoingVideoOptions = new OutgoingVideoOptions() { Streams = new OutgoingVideoStream[] { cameraStream } }
     };
 }
 ```
 
 ## Local camera preview
 
-We can optionally set up local camera preview. The video can be rendered through UWP `MediaElement`:
+We can optionally set up local camera preview. The video can be rendered through `MediaPlayerElement`:
 
 ```xml
-<Grid Grid.Row="1">
-    <Grid.RowDefinitions>
-        <RowDefinition/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
-    <MediaElement x:Name="LocalVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center"/>
-    <MediaElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center"/>
-</Grid>
-```
-To initialize the local preview `MedialElement`:
-```csharp
-private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-{
-    var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-    cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
-    InitVideoEffectsFeature(cameraStream);
-
-    var localUri = await cameraStream.StartPreviewAsync();
-    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-    {
-        LocalVideo.Source = MediaSource.CreateFromUri(localUri);
-    });
-}
-```
-
-Or, by `MediaPlayerElement` in WinUI 3:
-```xml
-<Grid Grid.Row="1">
-    <Grid.RowDefinitions>
-        <RowDefinition/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
-    <MediaPlayerElement x:Name="LocalVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center"/>
-    <MediaPlayerElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center"/>
+<Grid>
+    <MediaPlayerElement x:Name="LocalVideo" AutoPlay="True" />
+    <MediaPlayerElement x:Name="RemoteVideo" AutoPlay="True" />
 </Grid>
 ```
 To initialize the local preview `MediaPlayerElement`:
 ```csharp
 private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 {
+    if (cameraStream != null)
+    {
+        await cameraStream?.StopPreviewAsync();
+        if (this.call != null)
+        {
+            await this.call?.StopVideoAsync(cameraStream);
+        }
+    }
     var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
     cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
-    InitVideoEffectsFeature(cameraStream);
 
     var localUri = await cameraStream.StartPreviewAsync();
-    this.DispatcherQueue.TryEnqueue(() => {
-        LocalVideo.Source = MediaSource.CreateFromUri(localUri);
-        LocalVideo.MediaPlayer.Play();
-    });
+    LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+
+    if (this.call != null) {
+        await this.call?.StartVideoAsync(cameraStream);
+    }
 }
 ```
 
@@ -302,7 +273,7 @@ private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEve
 }
 
 ```
-Start rendering remote video stream on `MediaElement` for UWP app:
+Start rendering remote video stream on `MediaPlayerElement`:
 ```csharp
 private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomingVideoStream)
 {
@@ -320,48 +291,14 @@ private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomin
                         {
                             RemoteVideo.Source = MediaSource.CreateFromUri(uri);
                         });
-                        break;
 
-                    case VideoStreamKind.RawIncoming:
-                        break;
-                }
-
-                break;
-            }
-        case VideoStreamState.Started:
-            break;
-        case VideoStreamState.Stopping:
-            break;
-        case VideoStreamState.Stopped:
-            if (incomingVideoStream.Kind == VideoStreamKind.RemoteIncoming)
-            {
-                var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                await remoteVideoStream.StopPreviewAsync();
-            }
-            break;
-        case VideoStreamState.NotAvailable:
-            break;
-    }
-}
-```
-Or, render remote video stream on `MediaPlayerElement` for Win32 3 app:
-```csharp
-private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomingVideoStream)
-{
-    switch (incomingVideoStream.State)
-    {
-        case VideoStreamState.Available:
-            {
-                switch (incomingVideoStream.Kind)
-                {
-                    case VideoStreamKind.RemoteIncoming:
-                        var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                        var uri = await remoteVideoStream.StartPreviewAsync();
-
+                        /* Or WinUI 3
                         this.DispatcherQueue.TryEnqueue(() => {
                             RemoteVideo.Source = MediaSource.CreateFromUri(uri);
                             RemoteVideo.MediaPlayer.Play();
                         });
+                        */
+
                         break;
 
                     case VideoStreamKind.RawIncoming:
@@ -384,13 +321,12 @@ private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomin
         case VideoStreamState.NotAvailable:
             break;
     }
-
 }
 ```
 
 ## End a call
 
-Once a call is placed, the `HangupAsync` method of the `Call` object should be used to hang up the call.
+Once a call is placed, the `HangupAsync` method of the `CommunicationCall` object should be used to hang up the call.
 
 An instance of `HangupOptions` should also be used to inform if the call must be terminated to all its participants.
 
@@ -400,18 +336,37 @@ The following code should be added inside `HangupButton_Click`.
 var call = this.callAgent?.Calls?.FirstOrDefault();
 if (call != null)
 {
-    try
+    var call = this.callAgent?.Calls?.FirstOrDefault();
+    if (call != null)
     {
-        await call.HangUpAsync(new HangUpOptions() { ForEveryone = true });
-    }
-    catch(Exception ex) 
-    {
+        foreach (var localVideoStream in call.OutgoingVideoStreams)
+        {
+            await call.StopVideoAsync(localVideoStream);
+        }
+
+        try
+        {
+            if (cameraStream != null)
+            {
+                await cameraStream.StopPreviewAsync();
+            }
+
+            await call.HangUpAsync(new HangUpOptions() { ForEveryone = false });
+        }
+        catch(Exception ex) 
+        { 
+            var errorCode = unchecked((int)(0x0000FFFFU & ex.HResult));
+            if (errorCode != 98) // Sample error code, sam_status_failed_to_hangup_for_everyone (98)
+            {
+                throw;
+            }
+        }
     }
 }
 ```
 
 ## Run the code
 
-Make sure Visual Studio builds the app for `x64`, `x86` or `ARM64`, then hit `F5` to start running the app. After that, click on the `Call` button to place a call to the callee defined.
+Make sure Visual Studio builds the app for `x64`, `x86` or `ARM64`, then hit `F5` to start running the app. After that, click on the `CommunicationCall` button to place a call to the callee defined.
 
 Keep in mind that the first time the app runs, the system prompts user for granting access to the microphone.
