@@ -6,13 +6,13 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 07/12/2023
+ms.date: 07/19/2023
 ms.author: greglin
 ---
 
 # Quickstart: Create Application Gateway for Containers managed by ALB Controller (preview)
 
-This guide assumes you're following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller and lifecycle is determined by definition of the resources defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. Application Gateway for Containers' lifecycle is based on the lifecycle of the custom resource.
+This guide assumes you're following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller. Lifecycle is determined the resources defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. The Application Gateway for Containers lifecycle is based on the lifecycle of the custom resource.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 
 ### Prepare your virtual network / subnet for Application Gateway for Containers
 
-If you do not have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, the following steps can be followed to create a new subnet and enable subnet delegation.
+If you do not have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation.
 
 # [New subnet in AKS managed virtual network](#tab/new-subnet-aks-vnet)
 If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, execute the following command to find the cluster's virtual network:
@@ -65,9 +65,9 @@ ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-g
 
 ## Delegate permissions to managed identity
 
-ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
+ALB Controller needs the ability to provision new Application Gateway for Containers resources and to join the subnet intended for the Application Gateway for Containers association resource.
 
-In this example, we will delegate the _AppGW for Containers Configuration Manager_ role to the resource group the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+In this example, we delegate the _AppGW for Containers Configuration Manager_ role to the resource group the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
 
 If desired, you can [create and assign a custom role](../../role-based-access-control/custom-roles-portal.md) with the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission to eliminate other permissions contained in the _Network Contributor_ role. Learn more about [managing subnet permissions](../../virtual-network/virtual-network-manage-subnet.md#permissions). 
 
