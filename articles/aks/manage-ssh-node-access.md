@@ -18,17 +18,9 @@ This article describes how to manage disabling, enabling, and updating the SSH k
 
 ## Disable SSH overview
 
-To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. This introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific users (that is, user outbound IP address) from connecting to AKS nodes using SSH. You can integrate with Azure Active Directory (Azure AD) authentication and use Azure AD as a core authentication platform and a certificate authority to SSH into a Linux or Windows-based cluster by using Azure AD and OpenSSH certificate-based authentication. This functionality allows organizations to manage access with Azure role-based access control (RBAC).
+To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. This introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific users (that is, user outbound IP address) from connecting to AKS nodes using SSH.
 
 When you disable SSH during cluster deployment, it doesn't need to be re-imaged. However, when you disable SSH on an existing node pool, it is re-imaged. After you disable or enable SSH, you have the option to re-image all the nodes. Only after re-image is complete, does the disable/enable operation take effect.
-
-AKS supports three values for sshAccess:
-
-* **disabled** means the SSH service is disabled.
-
-* **Localuser** means the SSH service is enabled and you can access with SSH key.
-
-* **AzureAD**  is for another feature named AADSSH. Only the users in specific AAD group can ssh to the nodes 
 
 ## Disable SSH on a new cluster deployment (preview)
 
