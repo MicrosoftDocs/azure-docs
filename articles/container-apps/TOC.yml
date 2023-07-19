@@ -278,3 +278,9 @@
     - name: Frequently asked questions
       href: faq.yml
       displayName: faq
+    - name: Compliance
+      items:
+        - name: Microsoft Azure Compliance Offerings
+          href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+        - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
+          href: /azure/compliance/offerings/

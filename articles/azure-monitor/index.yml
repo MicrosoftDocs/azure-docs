@@ -54,16 +54,12 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Azure Monitor learning path 
+          - text: Azure Monitor fundamentals 
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-          - text: Configure Azure Monitor
-            url: /training/modules/configure-azure-monitor/
-          - text: Analyze logs in Azure Monitor with KQL
-            url: /training/modules/analyze-logs-with-kql/
-          - text: Monitor performance of virtual machines using Azure Monitor VM Insights
-            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
-          - text: Visualize data combined from multiple data sources using Azure Workbooks
-            url: /training/modules/visualize-data-workbooks/
+          - text: Analyze monitoring data with Kusto Query Language
+            url: /training/paths/analyze-monitoring-data-with-kql/
+          - text: Monitor hybrid virtual machines, containers, and network resources
+            url: /training/paths/monitor-hybrid-virtual-machines-containers-network/
 
 # Card 
   - title: Get started with Azure Monitor

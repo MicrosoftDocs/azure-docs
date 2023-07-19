@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/06/2023
+ms.date: 07/18/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -278,6 +278,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## SQL
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
+
+## SQL Managed Instance
+
+[!INCLUDE [azure-policy-reference-policies-sql-managed-instance](../../../../includes/policy/reference/bycat/policies-sql-managed-instance.md)]
 
 ## SQL Server
 

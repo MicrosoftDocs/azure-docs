@@ -22,6 +22,7 @@ When a server is dropped, the database server backup is retained for five days i
 To restore a dropped Azure Database for PostgreSQL Flexible server, you need
 - Azure Subscription name hosting the original server
 - Location where the server was created
+- Use the 2023-03-01-preview  **api-version** version
 
 ## Steps to restore
 
@@ -102,7 +103,10 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
   }
 }
  ```
-  
+## Commom Errors
+
+1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-03-01-preview API to avoid such issues.
+2. To avoid potential DNS errors, it is recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
 
 ## Next steps
 

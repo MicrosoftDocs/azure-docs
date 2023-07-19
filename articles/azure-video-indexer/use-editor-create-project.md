@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Video Indexer editor to create projects and add video clips
-description: This topic demonstrates how to use the Azure Video Indexer editor to create projects and add video clips.
+title: Use the Azure AI Video Indexer editor to create projects and add video clips
+description: This topic demonstrates how to use the Azure AI Video Indexer editor to create projects and add video clips.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -10,9 +10,9 @@ ms.author: juliako
 
 # Add video clips to your projects
 
-The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
+The [Azure AI Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
 
-Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows.
+Once created, the project can be rendered and downloaded from Azure AI Video Indexer and be used in your own editing applications or downstream workflows.
 
 Some scenarios where you may find this feature useful are: 
 
@@ -24,7 +24,7 @@ This article shows how to create a project and add selected clips from the video
 
 ## Create new project and manage videos
 
-1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Browse to the [Azure AI Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Select the **Projects** tab. If you have created projects before, you  will see all of your other projects here.
 1. Click **Create new project**.  
 
@@ -59,7 +59,7 @@ If you click on the downward arrow on the right side of each video, you will ope
 1. To create queries for specific clips, use the search box that says "Search in transcript, visual text, people, and labels".
 1. Select **View Insights** to customize which insights you want to see and which you don't want to see. 
 
-    :::image type="content" source="./media/video-indexer-view-edit/search-try-cognitive-services.png" alt-text="Screenshot shows searching for videos that say Try cognitive services":::
+    :::image type="content" source="./media/video-indexer-view-edit/search-try-cognitive-services.png" alt-text="Screenshot shows searching for videos that say Try Azure AI services":::
 1. Add filters to further specify details on what scenes you are looking for by selecting **Filter options**.
 
     You can add multiple filters. 
@@ -75,11 +75,11 @@ As you are selecting and ordering your clips, you can preview the video in the p
 ### Render and download the project
 
 > [!NOTE]
-> For Azure Video Indexer paid accounts, rendering your project has encoding costs. Azure Video Indexer trial accounts are limited to 5 hours of rendering.
+> For Azure AI Video Indexer paid accounts, rendering your project has encoding costs. Azure AI Video Indexer trial accounts are limited to 5 hours of rendering.
 
-1. Once you are done, make sure that your project has been saved. You can now render this project. Click **Render**, a popup dialog comes up that tells you that Azure Video Indexer will render a file and then the download link will be sent to your email. Select Proceed. 
+1. Once you are done, make sure that your project has been saved. You can now render this project. Click **Render**, a popup dialog comes up that tells you that Azure AI Video Indexer will render a file and then the download link will be sent to your email. Select Proceed. 
 
-    :::image type="content" source="./media/video-indexer-view-edit/render-download.png" alt-text="Screenshot shows Azure Video Indexer with the option to Render and download your project":::
+    :::image type="content" source="./media/video-indexer-view-edit/render-download.png" alt-text="Screenshot shows Azure AI Video Indexer with the option to Render and download your project":::
     
     You will also see a notification that the project is being rendered on top of the page. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click the notification to download the project. It will download the project in mp4 format.
 1. You can access saved projects from the **Projects** tab. 
@@ -90,12 +90,12 @@ As you are selecting and ordering your clips, you can preview the video in the p
 
 You can create a new project directly from a video in your account. 
 
-1. Go to the **Library** tab of the Azure Video Indexer website.
+1. Go to the **Library** tab of the Azure AI Video Indexer website.
 1. Open the video that you want to use to create your project. On the insights and timeline page, select the **Video editor** button.
 
     This takes you to the same page that you used to create a new project. Unlike the new project, you see the timestamped insights segments of the video, that you had started editing previously.
 
 ## See also
 
-[Azure Video Indexer overview](video-indexer-overview.md)
+[Azure AI Video Indexer overview](video-indexer-overview.md)
 

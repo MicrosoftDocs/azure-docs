@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 07/18/2023
 ---
 
 # Prepare for live traffic with Azure Communications Gateway
@@ -37,10 +37,13 @@ In some parts of this article, the steps you must take depend on whether your de
 
 ## 1. Connect Azure Communications Gateway to your networks
 
+1. Exchange TLS certificate information with your onboarding team.
+    1. Azure Communications Gateway is preconfigured to support the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, provide your onboarding team with this root CA certificate.
+    1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs). To find the hostnames to use for SIP traffic:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
-    1. In each **Service Location** section, find the **Hostname** field.
+    1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
 1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
@@ -198,6 +201,8 @@ If you don't have the API Bridge, you must provide your onboarding team with pro
 ## 10. Arrange synthetic testing
 
 Your onboarding team must arrange synthetic testing of your deployment. This synthetic testing is a series of automated tests lasting at least seven days. It verifies the most important metrics for quality of service and availability.
+
+After launch, synthetic traffic will be sent through your deployment using your test numbers. This traffic is used to continuously check the health of your deployment.
 
 ## 11. Schedule launch
 
