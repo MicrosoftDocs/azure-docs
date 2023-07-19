@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
+ms.custom: devx-track-dotnet
 ms.date: 05/22/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---

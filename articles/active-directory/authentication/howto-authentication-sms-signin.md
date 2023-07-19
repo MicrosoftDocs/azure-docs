@@ -162,7 +162,6 @@ If you receive an error when you try to set a phone number for a user account in
 [rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/

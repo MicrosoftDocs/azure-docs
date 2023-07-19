@@ -527,5 +527,4 @@ Requests to token server over private endpoint connection doesn't require the da
 [az-network-nic-show]: /cli/azure/network/nic#az_network_nic_show
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
-[azure-portal]: https://portal.azure.com
 [outbound-connection]: /azure/firewall/rule-processing#outbound-connectivity
