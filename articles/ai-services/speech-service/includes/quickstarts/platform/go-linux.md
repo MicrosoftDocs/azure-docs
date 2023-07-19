@@ -26,11 +26,13 @@ The following steps enable your Go environment to find the Speech SDK. In both s
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
+   # Replace "<architecture>" with what corresponds to your setup with either "x86", "x64", "arm32" or "arm64"
    export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
 1. To run applications and the SDK, you need to tell the operating system where to find the libraries. 
 
    ```sh
+   # Replace "<architecture>" with what corresponds to your setup with either "x86", "x64", "arm32" or "arm64"
    export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
