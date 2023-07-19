@@ -54,6 +54,8 @@ items:
   items:
   - name: Control your data
     href: mhsm-control-data.md
+  - name: Key sovereignty, availability, performance, and scalability
+    href: mhsm-technical-details.md
   - name: Security domain
     href: security-domain.md
   - name: Best practices
