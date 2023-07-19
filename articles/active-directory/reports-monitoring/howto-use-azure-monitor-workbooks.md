@@ -59,14 +59,16 @@ For more information on the Log Analytics RBAC roles, see [Azure built-in roles]
 
 #### Azure AD roles
 
-The following Azure AD roles are required to set up the diagnostic settings to send Azure AD data to a Log Analytics workspace or to view the workbooks in the Azure portal:
+The following Azure AD roles are required to view the workbooks in the Azure portal or set up the diagnostic settings to send Azure AD data to a Log Analytics workspace.
 
-- **View a workspace**:
-    - Reports Reader
-    - Security Reader
-    - Global Reader
+To read Azure AD log data inside a workbook, query data from Log Analytics, or read logs in the Azure AD portal you need the following roles:
+  - Reports Reader
+  - Security Reader
+  - Global Reader
 
-- **Update a workspace**:
+The following role provides the ability create and edit diagnostic settings to send Azure AD data to a Log Analytics workspace.
+
+- **Update**:
     - Security Administrator
 
 For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
