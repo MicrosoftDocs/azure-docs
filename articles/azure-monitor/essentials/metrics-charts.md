@@ -132,7 +132,7 @@ For a deeper discussion of how metric aggregation works, see [Azure Monitor metr
 
 ## Filters
 
-You can apply filters to charts whose metrics have dimensions. For example, imagine a *Transaction count* metric that has a *Response type* dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, you'll see a chart line for only successful or only failed transactions.
+You can apply filters to charts whose metrics have dimensions. For example, imagine a *Transaction count* metric that has a *Response type* dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, a chart line is displayed for only successful or only failed transactions.
 
 ### Add a filter
 
@@ -177,7 +177,7 @@ You can split a metric by dimension to visualize how different segments of the m
     :::image type="content" source="./media/metrics-charts/segment-dimension-sort.png" alt-text="Screenshot that shows sort order on split values." lightbox="./media/metrics-charts/segment-dimension-sort.png":::
 
 1. Segment by multiple segments by selecting multiple dimensions from the values dropdown. The legends shows a comma-separated list of dimension values for each segment
-    :::image type="content" source="./media/metrics-charts/segment-dimension-multiple.png" alt-text="Screenshot that shows multiple segments selected, and the corresponding chart below." lightbox="./media/metrics-charts/segment-dimension-multiple.png":::
+    :::image type="content" source="./media/metrics-charts/segment-dimension-multiple.png" alt-text="Screenshot that shows multiple segments selected, and the corresponding chart." lightbox="./media/metrics-charts/segment-dimension-multiple.png":::
    
 1. Click away from the grouping selector to close it.
 
@@ -232,7 +232,7 @@ To create an alert rule,
 
 :::image source="./media/metrics-charts/new-alert.png" alt-text="Screenshot that shows the New alert rule button." lightbox="./media/metrics-charts/new-alert.png":::
 
-1. On the **Condition** the **Signal name** is defaulted to the metric from your chart. You can choose a different metric.
+1. On the **Condition** tab, the **Signal name** is defaulted to the metric from your chart. You can choose a different metric.
 
 1. Enter a **Threshold value**. The threshold value is the value that triggers the alert. The Preview chart shows the threshold value as a horizontal line over the metric values.
 
@@ -251,26 +251,24 @@ For more information, see [Create, view, and manage metric alerts](../alerts/ale
 
 ## Correlate metrics to logs
 
-To help customers diagnose the root cause of anomalies in their metrics chart, we created the *Drill into Logs* feature. Drill into Logs allows customers to correlate spikes in their metrics chart to logs and queries.
+**Drill into Logs** helps you diagnose the root cause of anomalies in your metrics chart. Drilling into logs allows you to correlate spikes in your metrics chart to logs and queries.
 
-This table summarizes the types of logs and queries provided:
+The following table summarizes the types of logs and queries provided:
 
 | Term             | Definition  | 
 |------------------|-------------|
 | Activity logs    | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There's a single Activity log for each Azure subscription.  |
-| Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. **Note:** Must be provided by service and enabled by customer.  | 
-| Recommended log | Scenario-based queries that customer can use to investigate anomalies in their Metrics Explorer.  |
+| Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane). For example, getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. You must enable logs for the resource. |  
+| Recommended log | Scenario-based queries that you can use to investigate anomalies in Metrics Explorer.  |
 
-Currently, Drill into Logs is available for select resource providers. The resource providers that have the complete Drill into Logs experience are:
+Currently, Drill into Logs is available for select resource providers. The following resource providers offer the complete Drill into Logs experience:
 
 - Application Insights
 - Autoscale
 - App Services
 - Storage
 
-This screenshot shows a sample for the Application Insights resource provider.
-
-![Screenshot shows a spike in failures in app insights metrics pane.](./media/metrics-charts/drill-into-log-ai.png)
+    :::image source="./media/metrics-charts/drill-into-log-ai.png" alt-text="Screenshot that shows a spike in failures in app insights metrics pane." lightbox="./media/metrics-charts/drill-into-log-ai.png":::
 
 1. To diagnose the spike in failed requests, select **Drill into Logs**.
 
