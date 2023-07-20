@@ -188,7 +188,6 @@ Another area where prompt engineering can be valuable is in improving the qualit
 
 If you find the model is generating function calls that weren't provided, try including a sentence that says `"Only use the functions you have been provided with."`
 
-
 ## Using function calling responsibly
 Like any AI system, using function calling to integrate language models with other tools and systems presents potential risks. It’s important to understand the risks that function calling could present and take measures to ensure you use the capabilities responsibly.
 
