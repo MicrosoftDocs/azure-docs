@@ -130,9 +130,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. **Service Identifier (Issuer)** : Paste the **Azure AD Identifier** which you have copied from Azure portal.
 
-    f. **X.509 Certificate** : Open the **Certificate (Base64)** downloaded from the Azure portal in notepad and paste it in this box.
+    1. **X.509 Certificate** : Open the **Certificate (Base64)** downloaded from the Azure portal in notepad and paste it in this box.
 
-    g. Click **Save** to save the settings.
+    1. Click **Save** to save the settings.
 
 ### Create Menlo Security test user
 
