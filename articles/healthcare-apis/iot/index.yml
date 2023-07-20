@@ -90,7 +90,7 @@ landingContent:
           - text: Error logs
             url: troubleshoot-errors-logs.md
 
-  - title: The MedTech service and Azure IoT Hub 
+  - title: MedTech service and Azure IoT Hub 
     linkLists:
       - linkListType: tutorial
         links:
