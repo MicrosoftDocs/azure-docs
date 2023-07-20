@@ -200,14 +200,17 @@ Use the steps in the example to provision roles for a user to your application. 
 
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
-- **SingleAppRoleAssignment** 
+- **SingleAppRoleAssignment**
+
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
   - **How to configure:** Use the steps described to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
 
-  ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+    ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+
   - **Things to consider**
     - Ensure that multiple roles aren't assigned to a user. There's no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
+
   - **Example request (POST)** 
 
     ```json
@@ -250,7 +253,8 @@ Use the steps in the example to provision roles for a user to your application. 
 
 The request formats in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
-- **AppRoleAssignmentsComplex** 
+- **AppRoleAssignmentsComplex**
+
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
   - **How to configure:** Edit the list of supported attributes as described to include a new attribute for roles: 
   
@@ -259,16 +263,18 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
     Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image:
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+
   - **Things to consider**
+
     - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups."
     - The AppRoleAssignmentsComplex only supports the PATCH add function. For multi-role SCIM applications, roles deleted in Azure Active Directory will therefore not be deleted from the application. We're working to support additional PATCH functions and address the limitation. 
     
-  - **Example output** 
+  - **Example output**
   
-   ```json
-   {
+    ```json
+    {
        "schemas": [
            "urn:ietf:params:scim:schemas:core:2.0:User"
       ],
@@ -293,35 +299,33 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
              "value": "User"
          }
       ]
-   }
-   ```
-
-  
-
+    }
+    ```
 
 ## Provisioning a multi-value attribute
+
 Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
 * `phoneNumbers[type eq "work"].value`
 * `phoneNumbers[type eq "mobile"]`.value
 * `phoneNumbers[type eq "fax"].value`
 
-   ```json
-   "phoneNumbers": [
-       {
-         "value": "555-555-5555",
-         "type": "work"
-      },
-      {
-         "value": "555-555-5555",
-         "type": "mobile"
-      },
-      {
-         "value": "555-555-5555",
-         "type": "fax"
-      }
-   ]
-   ```
+  ```json
+  "phoneNumbers": [
+     {
+        "value": "555-555-5555",
+        "type": "work"
+     },
+     {
+        "value": "555-555-5555",
+        "type": "mobile"
+     },
+     {
+        "value": "555-555-5555",
+        "type": "fax"
+     }
+  ]
+  ```
 
 ## Restoring the default attributes and attribute-mappings
 
