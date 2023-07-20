@@ -161,7 +161,6 @@ In this section, you use the virtual machine you created in the previous steps t
 1. Select **Connect**.
 
 1. Open Windows PowerShell on the server after you connect.
-d
 1. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps. The following example shows the output of the command.
 
     ```powershell
