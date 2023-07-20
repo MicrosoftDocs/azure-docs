@@ -205,3 +205,23 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 After the shortcuts have been created, expanding a table will show the names and types of the columns.  
 
 :::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Table columns are listed in the explorer view. " lightbox="media/fabric-shortcut-schema.png":::
+
+### Running notebooks
+Once the tables have been created in the lakehouse, they can be queried from [Microsoft Fabric notebooks](https://learn.microsoft.com/fabric/data-engineering/how-to-use-notebook).  Notebooks may be created directly from the lakehouse by selecting **Open Notebook** from the menu bar. 
+
+On the notebook page, the contents of the lakehouse can still be viewed on the left-hand side, including the newly added tables. At the top of the page, select the language for the notebook (the language may also be configured for individual cells). The following example will use Spark SQL.
+
+#### Query tables using Spark SQL
+In the cell editor, enter a simple Spark SQL query, for example, a simple select statement.
+
+``` SQL
+SELECT * from instance
+```
+
+This query will select all of the contents from the `instance` table. When ready, select the **Run cell** button to execute the query. 
+
+:::image type="content" source="media/fabric-notebook.png" alt-text="Notebook with sample Spark SQL query." lightbox="media/fabric-notebook.png":::
+
+After a few seconds, the results of the query should appear in a table beneath the cell like (the time may be longer if this is the first Spark query in the session as the Spark context will need to be initialized).
+
+:::image type="content" source="media/fabric-notebook-results.png" alt-text="Notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
