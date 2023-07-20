@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 07/20/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,7 +20,7 @@ The procedure described in this article was performed using a different version 
 
 ## About latest updates
 
-The current update is Update 2303. This update installs two updates, the device update followed by Kubernetes updates. 
+The current update is Update 2307. This update installs two updates, the device update followed by Kubernetes updates. 
 
 The associated versions for this update are:
 
@@ -34,7 +34,7 @@ The associated versions for this update are:
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2303-release-notes.md).
 
-**To apply 2303 update, your device must be running version 2207 or later.**
+**To apply 2307 update, your device must be running version 2207 or later.**
 
 - If you are not running the minimum required version, you'll see this error:
  
