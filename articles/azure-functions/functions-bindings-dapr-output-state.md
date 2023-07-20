@@ -100,6 +100,33 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr State output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprState` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="HttpTriggerFunc")
+@dapp.route(route="req", auth_level=dapp.auth_level.ANONYMOUS)
+@dapp.dapr_state_output(arg_name="state", state_store="statestore", key="newOrder")
+def main(req: func.HttpRequest, state: func.Out[str] ) -> str:
+    # request body must be passed this way '{\"value\": { \"key\": \"some value\" } }'
+    body = req.get_body()
+    if body is not None:
+        state.set(body.decode('utf-8'))
+        logging.info(body.decode('utf-8'))
+    else:
+        logging.info('req body is none')
+    return 'ok'
+```
+
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr State output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprState`:
@@ -136,6 +163,8 @@ def main(payload,
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 

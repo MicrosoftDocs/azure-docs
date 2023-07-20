@@ -2,7 +2,7 @@
 title: Dapr Topic trigger for Azure Functions
 description: Learn how to run an Azure Function as Dapr topic data changes.
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 07/20/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -87,6 +87,28 @@ module.exports = async function (context) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr Topic trigger, which uses the [v2 Python programming model](functions-reference-python.md). To use the `daprTopicTrigger` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="PrintTopicMessage")
+@dapp.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="B", route="B")
+def main(subEvent) -> None:
+    logging.info('Python function processed a PrintTopicMessage request from the Dapr Runtime.')
+    subEvent_json = json.loads(subEvent)
+    logging.info("Topic B received a message: " + subEvent_json["data"])
+```
+
+ 
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr Topic trigger, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprTopicTrigger`:
@@ -121,7 +143,9 @@ def main(subEvent) -> None:
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
 
+
 ---
+
 
 ::: zone-end
 

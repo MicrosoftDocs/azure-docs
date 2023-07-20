@@ -2,7 +2,7 @@
 title: Dapr Service Invocation trigger for Azure Functions
 description: Learn how to run an Azure Function as Dapr service invocation data changes.
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 07/20/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -86,6 +86,29 @@ module.exports = async function (context) {
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr Service Invocation trigger, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprServiceInvocationTrigger` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="RetrieveOrder")
+@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveOrder")
+@dapp.dapr_state_input(arg_name="data", state_store="statestore", key="order")
+def main(payload, data: str) :
+    # Function should be invoked with this command: dapr invoke --app-id functionapp --method RetrieveOrder  --data '{}'
+    logging.info('Python function processed a RetrieveOrder request from the Dapr Runtime.')
+    logging.info(data)
+```
+
+ 
+# [Python v1](#tab/v1)
 
 The following example shows a Dapr Service Invocation trigger, which uses the [v1 Python programming model](functions-reference-python.md).
 

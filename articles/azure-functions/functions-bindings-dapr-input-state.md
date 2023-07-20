@@ -87,6 +87,28 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr State input binding, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprState` binding alongside the `daprServiceInvocationTrigger` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="RetrieveOrder")
+@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveOrder")
+@dapp.dapr_state_input(arg_name="data", state_store="statestore", key="order")
+def main(payload, data: str) :
+    # Function should be invoked with this command: dapr invoke --app-id functionapp --method RetrieveOrder  --data '{}'
+    logging.info('Python function processed a RetrieveOrder request from the Dapr Runtime.')
+    logging.info(data)
+```
+
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr State input binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprState`:
@@ -121,6 +143,8 @@ def main(payload, data: str) -> None:
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 

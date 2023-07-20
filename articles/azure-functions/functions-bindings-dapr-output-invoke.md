@@ -100,6 +100,28 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr Invoke output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprInvoke` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="SendMessageToKafka")
+@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="SendMessageToKafka")
+@dapp.dapr_binding_output(arg_name="messages", binding_name="%KafkaBindingName%", operation="create")
+def main(payload: str, messages: func.Out[bytes]) -> None:
+    logging.info('Python processed a SendMessageToKafka request from the Dapr Runtime.')
+    messages.set(json.dumps({"data": payload}).encode('utf-8'))
+```
+
+ 
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr Invoke output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprInvoke`:
@@ -131,6 +153,8 @@ def main(req: func.HttpRequest,
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 

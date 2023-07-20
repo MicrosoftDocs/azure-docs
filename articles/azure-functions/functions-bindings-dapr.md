@@ -138,6 +138,57 @@ For examples using these types, see [the GitHub repository for the extension](ht
 
 ::: zone-end
 
+## Try out the Dapr Functions extension
+
+Learn how to use the Dapr Functions extension via the provided samples.
+
+::: zone pivot="programming-language-csharp"
+
+| Samples | Description |
+|-|-| 
+| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+| [Dapr Kafka][dapr-kafka] |  |
+| [.NET In-process][dapr-in-proc] | Learn how to use Azure Functions in-process model to integrate with multiple Dapr components in .NET, like Service Invocation, Pub/sub, Bindings, and State Management. |
+| [.NET Isolated][dapr-isolated] | Integrate with Dapr components in .NET using the Azure Functions out-of-proc (OOP) execution model. |
+
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-in-proc]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-azurefunction
+[dapr-isolated]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+| Samples | Description |
+|-|-| 
+| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+| [Dapr Kafka][dapr-kafka] |  |
+| [JavaScript][dapr-js] | Run a JavaScript Dapr function application and integrate with Dapr Service Invocation, Pub/sub, Bindings, and State Management using Azure Functions. |
+
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-js]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+| Samples | Description |
+|-|-| 
+| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+| [Dapr Kafka][dapr-kafka] |  |
+| [Python v1][dapr-python] | Run a Dapr-ized Python application and use the Azure Functions Python v1 programming model to integrate with Dapr components. |
+| [Python v2][dapr-python-2] | Launch a Dapr application using the Azure Functions Python v2 programming model to integrate with Dapr components. |
+
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-python]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
+[dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
+
+::: zone-end
+
+
 ## Next steps
 
 Choose one of the following links to review the reference article for a specific Dapr binding type:

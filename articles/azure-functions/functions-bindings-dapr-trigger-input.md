@@ -2,7 +2,7 @@
 title: Dapr Input Bindings trigger for Azure Functions
 description: Learn how to run an Azure Function as Dapr input binding data changes.
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 07/20/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -84,6 +84,27 @@ module.exports = async function (context) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr Input Binding trigger, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprBindingTrigger` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="ConsumeMessageFromKafka")
+@dapp.dapr_binding_trigger(arg_name="triggerData", binding_name="%KafkaBindingName%")
+def main(triggerData: str) -> None:
+    logging.info('Python function processed a ConsumeMessageFromKafka request from the Dapr Runtime.')
+    logging.info('Trigger data: ' + triggerData)
+```
+
+ 
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr Input Binding trigger, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprBindingTrigger`:
@@ -117,6 +138,8 @@ def main(triggerData: str) -> None:
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 

@@ -89,6 +89,30 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="programming-language-python"
 
+# [Python v2](#tab/v2)
+
+The following example shows a Dapr Publish output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprPublish` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="TransferEventBetweenTopics")
+@dapp.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="A", route="A")
+@dapp.dapr_publish_output(arg_name="pubEvent", pub_sub_name="%PubSubName%", topic="B")
+def main(subEvent, pubEvent: func.Out[bytes]) -> None:
+    logging.info('Python function processed a TransferEventBetweenTopics request from the Dapr Runtime.')
+    subEvent_json = json.loads(subEvent)
+    payload = "Transfer from Topic A: " + str(subEvent_json["data"])
+    pubEvent.set(json.dumps({"payload": payload}).encode('utf-8'))
+```
+
+ 
+# [Python v1](#tab/v1)
+
 The following example shows a Dapr Publish output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprPublish`:
@@ -121,6 +145,8 @@ def main(subEvent,
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 

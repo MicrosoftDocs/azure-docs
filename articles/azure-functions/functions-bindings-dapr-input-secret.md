@@ -91,9 +91,35 @@ module.exports = async function (context) {
 
 ::: zone pivot="programming-language-python"
 
-The following example shows a Dapr trigger binding, which uses the [v1 Python programming model](functions-reference-python.md).
+# [Python v2](#tab/v2)
 
-Here's the _function.json_ file for `daprServiceInvocationTrigger`:
+The following example shows a Dapr Secret input binding, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprSecret` binding alongside the `daprServiceInvocationTrigger` in your Python function app code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+dapp = func.DaprFunctionApp()
+
+@dapp.function_name(name="RetrieveSecret")
+@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveSecret")
+@dapp.dapr_secret_input(arg_name="secret", secret_store_name="localsecretstore", key="my-secret", metadata="metadata.namespace=default")
+def main(payload, secret: str) :
+    # Function should be invoked with this command: dapr invoke --app-id functionapp --method RetrieveSecret  --data '{}'
+    logging.info('Python function processed a RetrieveSecret request from the Dapr Runtime.')
+    secret_dict = json.loads(secret)
+
+    for key in secret_dict:
+        logging.info("Stored secret: Key = " + key +
+                     ', Value = ' + secret_dict[key])
+```
+
+# [Python v1](#tab/v1)
+
+The following example shows a Dapr Secret input binding, which uses the [v1 Python programming model](functions-reference-python.md).
+
+Here's the _function.json_ file for `daprSecret`:
 
 ```json
 {
@@ -128,6 +154,8 @@ def main (payload, secret) -> None:
 ```
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
+---
 
 ::: zone-end
 
