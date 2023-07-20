@@ -1,7 +1,7 @@
 ---
 title: IS_STRING
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that returns
+description: An Azure Cosmos DB for NoSQL system function that returns true if the type of the specified expression is a string.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
@@ -16,7 +16,7 @@ ms.custom: query-reference
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns a boolean value indicating if the type of the specified expression is a string.  
+Returns a boolean value indicating if the type of the specified expression is a string.
 
 ## Syntax
 
