@@ -1,6 +1,6 @@
 ---
 
-title: What is Application Gateway for Containers (preview)
+title: 'What is Application Gateway for Containers?' (preview)
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
 author: greglin
@@ -8,32 +8,43 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 07/20/2023
 ms.author: greglin
 ---
 
-# What is Application Gateway for Containers (preview)?
+# What is Application Gateway for Containers? (preview)
 
-Application Gateway for Containers is a new application (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family. For more information about current generally available Azure load balancing solutions, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
+Application Gateway for Containers is a new application (layer 7) [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family. 
 
-Application Gateway for Containers is the evolution of [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC). The existing AGIC solution is a [Kubernetes](/azure/aks) application that makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM). 
+Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM). 
 
-Application Gateway for Containers provides an elastic and scalable ingress to AKS clusters and comprises a new data plane, as well as control plane, with new set of ARM APIs. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs. For more information, see [How Application Gateway for Containers works](concepts-how-application-gateway-for-containers-works.md).
+## How does it work?
 
-## Benefits
+Application Gateway for Containers is made up of three components:
+- Application Gateway for Containers
+- Frontends
+- Associations
 
-- Application Gateway for Containers improves on AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
-- Another significant benefit of Application Gateway for Containers over AGIC are the flexible [deployment strategies](#deployment-strategies) that it offers. 
-- Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway.
+The following dependencies are also referenced in an Application Gateway for Containers deployment:
+- Private IP address
+- Subnet Delegation
+- User-assigned Managed Identity
 
-## Features
+![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/overview/application-gateway-for-containers-kubernetes-conceptual.png)
+
+For details about how Application Gateway for Containers accepts incoming requests and routes them to a backend target, see [Application Gateway for Containers components](application-gateway-for-containers-components.md).
+
+## Features and benefits
 
 Application Gateway for Containers offers some entirely new features at release, such as:
 - Traffic splitting 
 - Weighted round robin 
 - Mutual authentication to the backend target
 - Improved AKS orchestration
-- Flexible deployment strategies
+- Flexible [deployment strategies](#deployment-strategies)
+- Improved AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
+
+Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs. 
 
 ### Load balancing features
 
@@ -71,8 +82,18 @@ There are two deployment strategies for management of Application Gateway for Co
 ### Supported regions
 
 Application Gateway for Containers is currently offered in the following regions:
+- Australia East
+- Central US
+- East Asia
+- East US
+- East US2
 - North Central US
 - North Europe
+- South Central US
+- Southeast Asia
+- UK South
+- West US
+- West Europe
 
 ### Implementation of gateway API
 
@@ -102,5 +123,5 @@ To learn what's new with Application Gateway for Containers, see [Azure updates]
 
 ## Next steps
 
-- [Concepts: How Application Gateway for Containers works](concepts-how-application-gateway-for-containers-works.md)
+- [Concepts: Application Gateway for Containers components](application-gateway-for-containers-components.md)
 - [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)

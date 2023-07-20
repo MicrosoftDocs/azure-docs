@@ -14,8 +14,8 @@
     href: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
 - name: Concepts
   items:
-  - name: How Application Gateway for Containers works
-    href: concepts-how-application-gateway-for-containers-works.md
+  - name: Application Gateway for Containers components
+    href: application-gateway-for-containers-components.md
   - name: Backend Health and Metrics
     href: alb-controller-backend-health-metrics.md
   - name: Diagnostic Logs

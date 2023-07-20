@@ -1,33 +1,21 @@
 ---
 
-title: How Application Gateway for Containers works  (preview)
+title: Application Gateway for Containers components (preview)
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 07/20/2023
 ms.author: greglin
 ---
 
-# How Application Gateway for Containers works (preview)
+# Application Gateway for Containers components (preview)
 
-Application Gateway for Containers is made up of three components:
-- Application Gateway for Containers
-- Frontends
-- Associations
+This article provides detailed descriptions and requirements for components of Application Gateway for Containers. Information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target is provided.  For a general overview of Application Gateway for Containers, see [What is Application Gateway for Containers?](overview.md).
 
-The following dependencies are also referenced in an Application Gateway for Containers deployment:
-- Private IP address
-- Subnet Delegation
-- User-assigned Managed Identity
-
-![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/concepts-how-application-gateway-for-containers-works/application-gateway-for-containers-kubernetes-conceptual.png)
-
-## Application Gateway for Containers concepts
-
-### Application Gateway for Containers
+### Core components
 - Application Gateway for Containers is an Azure parent resource that deploys the control plane
 - The control plane is responsible for orchestrating proxy configuration based on customer intent.
 - Application Gateway for Containers has two child resources; associations and frontends
