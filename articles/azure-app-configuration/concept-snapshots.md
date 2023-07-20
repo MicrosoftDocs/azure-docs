@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/16/2023
 ---
 
-# Snapshots in Azure App Configuration (preview)
+# Snapshots (preview)
 
 A snapshot is a named, immutable subset of an App Configuration store's key-values. Snapshots are created by selecting which key-values should be included in the snapshot at the time of creation, by using key and label filters. Once created, snapshots are guaranteed to remain unchanged, which means they can't be modified, deleted, or purged.
 
-## Deploy safely with Snapshots
+## Deploy safely with snapshots
 
 Snapshots are designed to help deployment the Configuration changes in a safe manner. The goal of safe deployment is to minimize the risk of service disruptions, data loss, or other issues that can arise from deploying new code and configuration changes. In safe deployments, updates are deployed in a stage-by-stage manner, progressively verifying the rollout along the way. The idea is to catch any issues before the update is fully rolled out to all users.
 
 To deploy the configuration settings safely, they should be deployed in a controlled, consistent way, and there should be a way to roll back easily to the previous version of the configuration, if necessary. Developers can implement Safe deployment of Configuration changes by providing an immutable configuration with Snapshots. Additionally, snapshots allow for easy rollback to a Last Known Good (LKG) configuration if there was misconfiguration during deployment. Snapshots provide developers with a powerful tool for managing their configuration key-values and ensuring consistency across their deployments.
 
-## Scenarios for using Snapshots
+## Scenarios for using snapshots
 
 * **Safe deployment practices/LKG**: Snapshots can be used to support Safe Deployment Practices for Configuration. With snapshots, developers can ensure that a Last known Good (LKG) configuration is available for rollback if there was any issue during deployment.
 
@@ -43,38 +43,38 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 > [!NOTE]
 > Retention period can only be set at the creation of snapshot. By default, the value for retention period is 30 days in Standard sku and 7 days in Free sku.
 
-## Permissions to create a snapshot
+## Permissions
 
-- `Microsoft.AppConfiguration/configurationStores/keyvalues/read` and `Microsoft.AppConfiguration/configurationStores/snapshots/write`
+### Create a snapshot
 
-To create a snapshot the `Microsoft.AppConfiguration/configurationStores/keyvalues/read` and `Microsoft.AppConfiguration/configurationStores/snapshots/write` permissions are needed. The built-in "DataOwner" role contain this permission by default. The permission can be assigned at the subscription or resource group scope.
+To create a snapshot, the following permissions are needed. The App Configuration Data Owner role and read-write access keys already have these permissions.
 
-## Permissions to archive and recover a snapshot
+- `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
+- `Microsoft.AppConfiguration/configurationStores/snapshots/write`
+
+### Archive and recover a snapshot
+
+To archive and recover a snapshot, the following permission is needed. The App Configuration Data Owner role and read-write access keys already have this permission.
 
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
 
-To create and archive a snapshot the `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action` permission is needed. The built-in "DataOwner" role contain this permission by default. The permission can be assigned at the subscription or resource group scope.
+### Read and list a snapshot
 
-## Permissions to read, list and use a snapshot
+To  list all snapshots, or get an individual snapshot by name the following permission is needed. The built-in "DataOwner", "DataReader", read-write access keys and read-only access keys already have this permission.
 
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
 
-To list all snapshots, or get an individual snapshot by name the `Microsoft.AppConfiguration/configurationStores/snapshots/read` permission is needed. The built-in "DataOwner" and "DataReader" roles contain these permissions by default. The permission can be assigned at the subscription or resource group scope.
-
 ## Billing considerations
 
-Snapshots have their own storage quota in the App Configuration store. This quota is in addition to the “storage per resource” for key-values. Check the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details.
+Snapshots have a separate storage quota from the “storage per resource” for key-values. There is no extra charge for snapshots before the included snapshot storage quota is exhausted. Check the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details.
 
 App Configuration has two tiers, Free and standard, check the details of snapshots quota and charge in each tier.
 
-* **Free tier**: This tier has 10-MB storage quota for Snapshots. One can keep as many snapshots as possible until the total storage for snapshots is less than or equal to 10 MB.
+* **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.
 
-* **Standard tier**: This tier has a Snapshots storage quota of 1 GB. Users are allowed to create as many snapshots as required until the 1-GB quota is met in standard tier.
+* **Standard tier**: This tier has a snapshot storage quota of 1 GB. One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 1 GB.
 
-Snapshots can go to a maximum size of 1 MB.
-
-> [!NOTE]
-> Snapshots are in Public preview. There is no charge for snapshots during preview; only the storage limits apply. Once the feature goes GA, the option to create snapshots after the 1GB quota is met in the standard tier will be available at an additional cost.
+The maximum size for a snapshot is 1 MB.
 
 ## Next steps
 

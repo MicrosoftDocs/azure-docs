@@ -8,13 +8,12 @@ ms.topic: how-to
 ms.date: 05/16/2023
 ---
 
-# Create and manage snapshots (preview) in Azure App Configuration
+# Use snapshots (preview)
 
-In this article, learn how to create and manage snapshots (preview) in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
+In this article, learn how to create and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - "DataOwner" role in the App Configuration store. Details on required [role and permissions for snapshots](./concept-snapshots.md)
 
@@ -34,6 +33,11 @@ In your App Configuration store, go to **Operations** > **Configuration explorer
 | *app2/message* | *Good morning!*| *label1* |
 
 ## Create a snapshot
+
+ > [!IMPORTANT]
+   > You may see any error "You are not authorized to view this configuration store data" when you switch to the Snapshots blade in the Azure portal if you opt to use Azure AD authentication in the Configuration explorer or the Feature manager blades. This is a known issue in the Azure portal, and we are working on addressing it. It doesn't affect any scenarios other than the Azure Portal regarding accessing snapshots with Azure AD authentication.
+
+As a temporary workaround, you can switch to using Access keys authentication from either the Configuration explorer or the Feature manager blades. You should then see the Snapshot blade displayed properly, assuming you have permission for the access keys.
 
 Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**.
 
@@ -82,8 +86,6 @@ To create sample snapshots and check how the snapshots feature work, use the sna
 1. Select **Create** to generate the sample snapshot.
 1. Check out the snapshot result generated under **Generated sample snapshot**. The sample snapshot displays all keys that are included in the sample snapshot, according to your selection.
 
-   > [!NOTE]
-   > Azure portal will show error on Snapshots blade if the App Config store has only AAD authentication enabled. It is a known issue and we are working on supporting the scenario.
 ## Manage active snapshots
 
 The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
@@ -104,7 +106,7 @@ In the **Active snapshots** tab, select the ellipsis **...** on the right of an 
 
 ## Manage archived snapshots
 
-Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App Configuration store. Archived snapshots remain there for the retention period that was selected during their creation.
+Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App Configuration store. Archived snapshots remain accessible for the retention period that was selected during their creation.
 
    :::image type="content" source="./media/archived-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
