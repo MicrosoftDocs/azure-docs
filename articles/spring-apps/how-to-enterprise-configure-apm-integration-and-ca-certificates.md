@@ -158,7 +158,7 @@ Use the following steps to show, add, edit, and delete the APM configuration:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. In the navigation pane, select **APM**.
-1. Select **Add** to create an APM configuration. If you want to enable the APM configuration globally, check the **Enable globally** option. All the subsequent builds and deployments will use the APM configuration automatically.
+1. To create an APM configuration, select **Add**. If you want to enable the APM configuration globally, check the **Enable globally** option. All the subsequent builds and deployments will use the APM configuration automatically.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Add APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
