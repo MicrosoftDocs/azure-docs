@@ -37,11 +37,11 @@ This example uses a container with a partition key path of `/pk`. There are thre
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/seed.novalidate.json" highlight="4,8,12":::
 
+This function returns the same static date and time for items within the same partition. For comparison, the nonstatic function gets a new date and time value for each item matched by the query.
+
 :::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/query.novalidate.sql" highlight="4-5":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/result.novalidate.json":::
-
-This function returns the same static date and time for items within the same partition. For comparison, the nonstatic function gets a new date and time value for each item matched by the query.
 
 > [!NOTE]
 > It's possible for items in different logical partitions to exist in the same physical partition. In this scenario, the static date and time value would be identical.
