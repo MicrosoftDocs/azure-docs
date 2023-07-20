@@ -33,7 +33,7 @@ ms.custom: include file
 [Kubenet]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [Azure CNI]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
 [standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
-[node-pool]: ../articles/aks/use-multiple-node-pools.md
+[node-pool]: ../articles/aks/create-node-pools.md
 [Contact Support]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 
 <!-- LINKS - External -->

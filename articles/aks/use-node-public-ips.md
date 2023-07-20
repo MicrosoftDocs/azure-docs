@@ -319,7 +319,7 @@ Containers:
 
 ## Next steps
 
-* Learn about [using multiple node pools in AKS](use-multiple-node-pools.md).
+* Learn about [using multiple node pools in AKS](create-node-pools.md).
 
 * Learn about [using standard load balancers in AKS](load-balancer-standard.md)
 

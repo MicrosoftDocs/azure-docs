@@ -242,14 +242,14 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md
-[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
+[upgrade-cluster-cp]: manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
-[nodepool-limitations]: use-multiple-node-pools.md#limitations
+[nodepool-limitations]: create-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

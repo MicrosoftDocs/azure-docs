@@ -324,7 +324,7 @@ The issue has been resolved with Kubernetes version 1.20. For more information, 
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](create-node-pools.md#add-a-fips-enabled-node-pool).
+FIPS-enabled nodes are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](create-node-pools.md#fips-enabled-node-pools).
 
 ## Can I configure NSGs with AKS?
 

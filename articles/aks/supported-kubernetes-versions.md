@@ -295,7 +295,7 @@ If a cluster has been out of support for more than three (3) minor versions and 
 
 ### What version does the control plane support if the node pool isn't in one of the supported AKS versions?
 
-The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 ### Can I skip multiple AKS versions during cluster upgrade?
 
