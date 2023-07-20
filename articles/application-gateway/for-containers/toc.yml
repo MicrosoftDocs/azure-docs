@@ -16,7 +16,7 @@
   items:
   - name: How Application Gateway for Containers works
     href: concepts-how-application-gateway-for-containers-works.md
-  - name: Backend Health \& Metrics
+  - name: Backend Health and Metrics
     href: alb-controller-backend-health-metrics.md
   - name: Diagnostic Logs
     href: diagnostics.md
