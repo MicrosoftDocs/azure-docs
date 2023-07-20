@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 07/20/2023
 ms.author: jasteppe
 ---
 
@@ -206,7 +206,7 @@ The resulting normalized message will look like this after the normalization sta
 
 In this article, you learned how to use CalculatedContent templates with the MedTech service device mapping.
 
-To learn how to use the MedTech service custom functions, see:
+To learn how to use the MedTech service custom functions, see
 
 > [!div class="nextstepaction"]
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
