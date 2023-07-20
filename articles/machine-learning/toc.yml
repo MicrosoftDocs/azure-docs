@@ -36,6 +36,8 @@
       displayName: azurecli, mlops
       href: ./v1/reference-azure-machine-learning-cli.md
     # end v1
+    - name: Install and setup the SDK(v2)
+      href: https://aka.ms/sdk-v2-install
     - name: Set up VS Code extension
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-setup-vs-code.md
