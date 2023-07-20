@@ -109,7 +109,7 @@ Before you use different aggregations on a chart, you should understand how Metr
 
 You select the size of the time grain by using Metrics Explorer's time picker panel. If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
 
-:::image type="content" source="media/metrics-charts/time-granuularity.png" alt-text="A screenshot showing the time range and granularity selector.":::  
+:::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="A screenshot showing the time range and granularity selector.":::  
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
@@ -229,7 +229,6 @@ You can use your visualization criteria to create a metric-based alert rule. The
 
 To create an alert rule,
 1. Select **New alert rule** in the upper-right corner of the chart
-
 :::image source="./media/metrics-charts/new-alert.png" alt-text="Screenshot that shows the New alert rule button." lightbox="./media/metrics-charts/new-alert.png":::
 
 1. On the **Condition** tab, the **Signal name** is defaulted to the metric from your chart. You can choose a different metric.
@@ -241,10 +240,9 @@ To create an alert rule,
 
 1. On the **Details** tab, enter a **Name** and **Description** for the alert rule.
 
-1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose. 
+1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose.  
 
-Select **Review + create** to review the alert rule, then select **Create** to create the alert rule.
-
+1. Select **Review + create** to review the alert rule, then select **Create** to create the alert rule.
 :::image source="./media/metrics-charts/alert-rule-details.png" alt-text="Screenshot that shows the details tab on the rule creation page." lightbox="./media/metrics-charts/alert-rule-details.png":::
 
 For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
