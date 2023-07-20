@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: application-gateway-for-containers
-ms.topic: overview
+ms.topic: article
 ms.date: 07/21/2023
 ms.author: greglin
 ---
