@@ -146,12 +146,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/faq.md",
       "redirect_url": "/azure/ai-services/document-intelligence/faq",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/index.md",
       "redirect_url": "/azure/ai-services/document-intelligence/index",
       "redirect_document_id": true
     },
@@ -281,7 +281,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/index.md",
       "redirect_url": "/azure/ai-services/immersive-reader/index",
       "redirect_document_id": true
     },
@@ -331,7 +331,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/faq.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/faq",
       "redirect_document_id": true
     },
@@ -341,7 +341,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/index.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/index",
       "redirect_document_id": true
     },
@@ -506,12 +506,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/faq.yml",
+      "source_path_from_root": "/articles/applied-ai-services/faq.md",
       "redirect_url": "/azure/ai-services/what-are-ai-services",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/index.yml",
+      "source_path_from_root": "/articles/applied-ai-services/index.md",
       "redirect_url": "/azure/ai-services/what-are-ai-services",
       "redirect_document_id": false
     },
