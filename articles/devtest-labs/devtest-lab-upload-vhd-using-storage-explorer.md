@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/23/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Upload a VHD file to a lab storage account by using Storage Explorer
