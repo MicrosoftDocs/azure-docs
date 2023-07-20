@@ -45,7 +45,7 @@ The following example returns the left part of the string `Microsoft` for variou
 
 ## Remarks
 
-- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
