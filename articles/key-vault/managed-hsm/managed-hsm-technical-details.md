@@ -31,7 +31,6 @@ Figure 1 below show the architecture of an HSM pool, which consists of three Lin
 - A FIPS 140-2 Level 3 compliant cryptographic boundary, exclusive for each customer, including three Intel SGX confidential enclaves, each connected to an HSM instance. The root keys for this boundary are generated and stored in the three HSMs. As we will describe, no Microsoft person has access to the data within this boundary; only service code running in the SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
 
 ![Architectural diagram of an MHSM pool showing the TEEs inside the customer cryptographic boundary and health maintenance operations outside of the boundary.](../../media/mhsm-technical-details/mhsm-architecture.png)
-*Figure 1:  The architecture of a Managed HSM pool, showing three service instances (TEEs) with component redundancy and cryptographic boundary.*
 
 ### The trusted execution environment (TEE)
 
