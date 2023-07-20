@@ -39,21 +39,22 @@ Use AZD to initialize the application from the Azure Developer CLI templates.
 
    The console outputs messages similar to the ones below:
 
-    ```text
-    Initializing a new project (azd init)
-    
-    (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\app
-    
-    ? Please enter a new environment name: [? for help] (app-dev) wingtiptoy
-    
-    ? Please enter a new environment name: wingtiptoy
-    
-    SUCCESS: New project initialized!
-    You can view the template code in your directory: D:\samples\app
-    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
-    ```
+   ```text
+   Initializing a new project (azd init)
+   
+   (✓) Done: Initialized git repository
+   (✓) Done: Downloading template code to: <your-local-path>
+   Enter a new environment name: <your-env-name>
+   SUCCESS: New project initialized!
+   You can view the template code in your directory: <your-local-path>
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
+   ```
 
+1. Use the following command to set the template using the **standard** plan.
+
+   ```bash
+   azd env set PLAN standard
+   ```
 ---
 
 ## 3. Prepare the cloud environment
