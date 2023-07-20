@@ -60,19 +60,19 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: ASP.NET and Azure SQL Database app
+          - text: ASP.NET and Azure SQL Database
             url: app-service-web-tutorial-dotnet-sqldatabase.md
-          - text: ASP.NET Core and Azure SQL Database app
+          - text: ASP.NET Core and Azure SQL Database
             url: tutorial-dotnetcore-sqldb-app.md
-          - text: Python (Django) and PostgreSQL app
+          - text: Python (Django) and PostgreSQL
             url: tutorial-python-postgresql-app.md            
-          - text: PHP and MySQL app
+          - text: PHP and MySQL
             url: tutorial-php-mysql-app.md
-          - text: Node.js and MongoDB app
+          - text: Node.js and MongoDB
             url: tutorial-nodejs-mongodb-app.md
-          - text: Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
+          - text: Java Spring Boot and Azure Cosmos DB
             url: tutorial-java-spring-cosmosdb.md
-          - text: A multi-container (preview) and MySQL app
+          - text: Multi-container (preview) and MySQL
             url: tutorial-multi-container-app.md                
       - linkListType: reference
         links:
@@ -89,7 +89,7 @@ landingContent:
         links:
           - text: Secure with custom domain and certificate
             url: tutorial-secure-domain-certificate.md
-          - text: Continuous deployment to Azure App Service
+          - text: Continuous deployment
             url: deploy-continuous-deployment.md
           - text: Upload content with FTP
             url: deploy-ftp.md
