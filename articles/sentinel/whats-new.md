@@ -35,7 +35,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 Content hub is now generally available (GA)! The [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also been released. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
-As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. 
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. See our featured [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-microsoft-sentinel-content-hub-ga-and-ootb-content/ba-p/3854807) for more information.
 
 ### Deploy incident response playbooks for SAP
 
@@ -172,7 +172,7 @@ Combining the pricing tiers offers a simplification to the overall billing and c
 A slight change to how free trials are offered was made to provide further simplification. There used to be a free trial option that waived Microsoft Sentinel costs and charged Log Analytics costs regularly, this will no longer be offered as an option. Starting July 5, 2023 all new Microsoft Sentinel workspaces will result in a 31 day free trial of 10 GB/day for the combined ingestion and analysis costs on Microsoft Sentinel and Log Analytics.
 
 ##### How do I get started with the simplified pricing tier?
-All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation.
+All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation and this featured [blog post](https://aka.ms/SentinelSimplifiedPricing).
 
 ### Classic alert automation due for deprecation
 

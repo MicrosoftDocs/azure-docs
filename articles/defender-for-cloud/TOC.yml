@@ -302,6 +302,8 @@
       href: how-to-enable-agentless-containers.md
     - name: View and remediate vulnerability assessment findings for registry images 
       href: view-and-remediate-vulnerability-assessment-findings.md
+    - name: View and remediate vulnerabilities for images running on your AKS clusters 
+      href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
     - name: Disable vulnerability assessment findings on Container registry images
       href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
@@ -492,6 +494,9 @@
     - name: Enable just-in-time access on VMs
       displayName: jit, management, ports
       href: just-in-time-access-usage.md
+    - name: Manage secrets with agentless secret scanning
+      displayName: secrets, secret scanning, agentless
+      href: secret-scanning.md
     - name: Protect your endpoints with Defender for Cloud's integration with Microsoft Defender for Endpoint
       displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
       href: integration-defender-for-endpoint.md
