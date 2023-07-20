@@ -78,28 +78,27 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 3. Install Helm
 
-[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
+	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
-Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
+	> [!NOTE]
+	> Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
 
-You can also install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
+	You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
 
-# [Windows](#tab/install-helm-windows)
-See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
-```powershell
-winget install helm.helm
-```
+	# [Windows](#tab/install-helm-windows)
+	See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
+	```powershell
+	winget install helm.helm
+	```
 
-# [Linux](#tab/install-helm-linux)
-The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
-```bash
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-```
-
----
+	# [Linux](#tab/install-helm-linux)
+	The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
+	```bash
+	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+	```
 
 
-## Install ALB Controller
+## Install the ALB Controller
 
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
