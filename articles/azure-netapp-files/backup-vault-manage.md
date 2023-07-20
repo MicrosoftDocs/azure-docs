@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Manage backup vaults for Azure NetApp Files (preview)
 
-Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. You must 
+Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
 
 ## Create a backup vault
 
@@ -45,12 +45,13 @@ If you have existing backups, you must migrate them to a backup vault before you
 
   :::image type="content" source="../media/azure-netapp-files/backup-vault-select.png" alt-text="Screenshot of backup vault selection." lightbox="../media/azure-netapp-files/backup-vault-select.png":::
 
-1. Go to the **Backup Vault** menu to view and manage your backups.
+1. Navigate to to the **Backup Vault** menu to view and manage your backups.
 
 ## Delete a backup vault
 
 1. Navigate to the **Backup Vault** menu.
-1. Identify the backup vault you want to delete and select the three dots `...` next to its name. Select **Delete**. 
+1. Identify the backup vault you want to delete and select the three dots `...` next to the backup's name. Select **Delete**. 
+
     :::image type="content" source="../media/azure-netapp-files/backup-vault-delete.png" alt-text="Screenshot of deleting a backup vault." lightbox="../media/azure-netapp-files/backup-vault-delete.png":::
 
 ## Next steps

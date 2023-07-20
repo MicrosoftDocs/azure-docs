@@ -51,9 +51,11 @@ A backup policy can be suspended so that it does not perform any new backup oper
 
 1. Navigate to **Backup Vaults**. Select the backup vault with the policies you want to suspend.
 
-2. Select **Backup Policies**, click the three dots (`…`) to the right of a backup policy, and click **Edit**. 
+1. Select **Backup Policies**.
 
-3. Toggle **Policy State** to **Disabled**, enter the policy name to confirm, and click **Save**. 
+1. Select the three dots (`…`) to the right of the backup policy you want to modify, then select **Edit**. 
+
+1. Toggle **Policy State** to **Disabled**, enter the policy name to confirm, and click **Save**. 
 
     ![Screenshot that shows the Modify Backup Policy window with Policy State disabled.](../media/azure-netapp-files/backup-modify-policy-disabled.png)
 
@@ -79,6 +81,3 @@ A backup policy can be suspended so that it does not perform any new backup oper
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-
-
-
