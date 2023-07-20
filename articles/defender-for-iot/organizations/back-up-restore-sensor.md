@@ -1,7 +1,7 @@
 ---
 title: Back up and restore OT network sensors from the sensor console - Microsoft Defender for IoT
 description: Learn how to back up and restore Microsoft Defender for IoT OT network sensors from the sensor console.
-ms.date: 08/20/2023
+ms.date: 07/20/2023
 ms.topic: how-to
 ---
 
