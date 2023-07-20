@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/20/2023
 manager: nitinme
 ---
 

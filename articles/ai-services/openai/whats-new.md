@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 06/12/2023
+ms.date: 07/20/2023
 recommendations: false
 keywords:  
 ---
@@ -23,7 +23,7 @@ keywords:
 
 ### Embedding input array increase
 
-- Azure OpenAI now supports arrays with up to 16 inputs per API request with text-embedding-ada-002 Version 2.
+- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
 
 ## June 2023
 
