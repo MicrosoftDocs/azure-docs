@@ -17,7 +17,7 @@ This article describes the connectivity modes available for Azure Arc-enabled da
 
 ## Connectivity modes
 
-There are multiple options for the degree of connectivity from your Azure Arc-enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the avaiselability of network connectivity to Azure, you can choose from the following connectivity modes.
+There are multiple options for the degree of connectivity from your Azure Arc-enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
 Azure Arc-enabled data services provide you the option to connect to Azure in two different *connectivity modes*: 
 
