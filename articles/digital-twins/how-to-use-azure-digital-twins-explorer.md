@@ -98,8 +98,6 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 ### Explore twin data
 
 Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **Twin Graph** panel.
@@ -271,8 +269,6 @@ This section describes how to perform the following management activities:
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 ### View flat list of twins and relationships
 
 The **Twins** panel shows a flat list of your twins and their associated relationships. You can search for twins by name, and expand them for details about their incoming and outgoing relationships.
@@ -328,9 +324,9 @@ You can also choose to delete all of the twins in your instance at the same time
 
 ## Explore models and the Model Graph
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 The **Models** panel:
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Models panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel.png":::
@@ -411,8 +407,6 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
 
 ## Manage models
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 You can use the **Models** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Models panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel.png":::
@@ -422,11 +416,15 @@ With this panel, you can complete the following model management activities:
 * [Delete models](#delete-models) from your instance
 * [Refresh models](#refresh-models) to reload the list of all models into this panel
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 For information about the viewing experience for models, see [Explore models and the Model Graph](#explore-models-and-the-model-graph).
 
 ### Upload models
 
 You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
