@@ -223,7 +223,7 @@ This list summarizes the required setup steps:
 
    The following steps grant the blob data reader role access to your user account.
 
-   1. Attach the offline materialization store and UAI, to enable the offline store on the feature store
+#### 1. Attach the offline materialization store and UAI, to enable the offline store on the feature store
 
       # [Python SDK](#tab/python)
 
@@ -239,7 +239,7 @@ This list summarizes the required setup steps:
 
       ---
 
-   1. Enable offline materialization on the transactions feature set
+#### 2. Enable offline materialization on the transactions feature set
 
       Once materialization is enabled on a feature set, you can perform a backfill, as explained in this tutorial. You can also schedule recurrent materialization jobs. Tutorial part 3 covers this topic.
 
@@ -265,7 +265,7 @@ This list summarizes the required setup steps:
 
       ---
 
-   1. Backfill data for the transactions feature set
+#### 3. Backfill data for the transactions feature set
 
    As explained earlier in this tutorial, materialization computes the feature values for a given feature window, and stores these computed values in a materialization store. Feature materialization increases the reliability and availability of the computed values. All feature queries now use the values from the materialization store. In this step, you perform a one-time backfill, for a feature window of three months.
 
