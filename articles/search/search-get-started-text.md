@@ -6,6 +6,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 06/09/2023
 ---

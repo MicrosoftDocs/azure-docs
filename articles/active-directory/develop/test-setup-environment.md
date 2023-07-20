@@ -100,7 +100,7 @@ Viewing your production tenant conditional access policies may need to be perfor
 1. Navigate to **Cloud apps or actions**.
 1. If the policy only applies to a select group of apps, then move on to the next policy. If not, then it will likely apply to your app as well when you move to production. You should copy the policy over to your test tenant.
 
-In a new tab or browser session, navigate to the [Azure portal](https://portal.azure.com), and sign into your test tenant.
+In a new tab or browser session, sign in to the [Azure portal](https://portal.azure.com) to access your test tenant.
 
 1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
 1. Click on **New policy**
