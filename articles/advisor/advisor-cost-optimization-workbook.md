@@ -7,7 +7,7 @@ ms.date: 07/17/2023
 ---
 
 # Understand and optimize your Azure costs using the Cost Optimization workbook
-The Azure Cost Optimization workbook is designed to provide a comprehensive understanding of the cost posture of your Azure environment and empower you to optimize your costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
+The Azure Cost Optimization workbook is designed to provide an overview of the cost posture of your Azure environment and help optimize costs effectively. It brings together a range of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
 
 ## Overview
 The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases. The workbook template is available in Azure Advisor gallery.
@@ -35,16 +35,16 @@ Each tab supports the following capabilities:
 
 ## Compute
 
-### Advisor Recommendations
+### Advisor recommendations
 
 This query focuses on reviewing the Advisor recommendations related to compute. Some of the recommendations available in this query could be *Optimize virtual machine spend by resizing or shutting down underutilized instances* or *Buy reserved virtual machine instances to save money over pay-as-you-go costs*.
 
-### Virtual Machines in Stopped State
+### Virtual machines in Stopped State
 
 This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is *Stopped* rather than *Stopped (Deallocated)*, you are still billed for the resource as the hardware remains allocated for you.
 
 ### Web Apps
-This query helps identify Azure App Services with and without Auto Scale, and App Services where the actual app might be stopped. I
+This query helps identify Azure App Services with and without Auto Scale, and App Services where the actual app might be stopped.
 
 ### Azure Kubernetes Clusters (AKS)
 
@@ -74,7 +74,7 @@ Azure Hybrid Benefit can also be applied to SQL services, such as SQL server on 
 
 ## Storage
 
-### Advisor Recommendations
+### Advisor recommendations
 
 Review the Advisor recommendations for Storage. This section provides insights into various recommendations such as “Blob storage reserved capacity” or “Use lifecycle management.” These recommendations can help optimize your storage costs and improve efficiency.
 Unattached Managed Disks
@@ -88,7 +88,7 @@ This query identifies snapshots that are older than 30 days. Identifying and man
 
 ## Networking
 
-### Advisor Recommendations
+### Advisor recommendations
 Review the Advisor recommendations for Networking. This section provides insights into various recommendations, such as “Reduce costs by deleting or reconfiguring idle virtual network gateways” or “Reduce costs by eliminating unprovisioned ExpressRoute circuits.”
 
 ### Application Gateway with empty backend pool
