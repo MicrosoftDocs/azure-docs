@@ -6,6 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd 
 ms.author: sisawant
+ms.date: 07/20/2023
 ---
 
 # Storage IOPS in Azure Database for MySQL - Flexible Server
