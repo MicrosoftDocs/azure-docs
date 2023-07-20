@@ -5,9 +5,9 @@ description: This article provides documentation for Application Gateway for Con
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: application-gateway-for-containers
 ms.topic: article
-ms.date: 7/12/2023
+ms.date: 7/24/2023
 ms.author: greglin
 ---
 
@@ -15,11 +15,12 @@ ms.author: greglin
 
 ## Packages
 
+Package v1 is the v1 version of the API.
+
 ### alb.networking.azure.io/v1
 This document defines each of the resource types for `alb.networking.azure.io/v1`.
 
 ### Resource Types:
-<ul></ul>
 <h3 id="alb.networking.azure.io/v1.AffinityType">AffinityType
 (<code>string</code> alias)</h3>
 <p>
@@ -39,14 +40,15 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 <td><p>AffinityTypeApplicationCookie is a session affinity type for an application cookie</p>
 </td>
 </tr><tr><td><p>&#34;managed-cookie&#34;</p></td>
-<td><p>AffinityTypeManagedCookie is a session affinity type for a managed cookie</p>
+<td><p>AffinityTypeManagedCookie is a session affinity type for an managed cookie</p>
 </td>
 </tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.AlbConditionReason">AlbConditionReason
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionReason defines the set of reasons that explain why a particular condition type has been raised on the Application Gateway for Containers resource.</p>
+<p>AlbConditionReason defines the set of reasons that explain
+why a particular condition type has been raised on the Application Gateway for Containers resource.</p>
 </div>
 <table>
 <thead>
@@ -56,17 +58,25 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbReasonAccepted indicates the Application Gateway for Containers resource has been accepted by the controller.</p>
+<td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
+has been accepted by the controller.</p>
 </td>
-</tr><tr><td><p>&#34;Deployment&#34;</p></td>
-<td><p>AlbReasonDeployment indicates the Application Gateway for Containers resource deployment status.</p>
+</tr><tr><td><p>&#34;Ready&#34;</p></td>
+<td><p>AlbReasonDeploymentReady indicates that the Application Gateway for Containers resource
+deployment status.</p>
+</td>
+</tr><tr><td><p>&#34;InProgress&#34;</p></td>
+<td><p>AlbReasonInProgress indicates whether the Application Gateway for Containers resource
+is in the process of being created, updated or deleted.</p>
 </td>
 </tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionType is a type of condition associated with an Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions field.</p>
+<p>AlbConditionType is a type of condition associated with a
+Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
+field.</p>
 </div>
 <table>
 <thead>
@@ -76,13 +86,11 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource has been accepted by the controller.</p>
+<td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource
+has been accepted by the controller.</p>
 </td>
-</tr><tr><td><p>&#34;InProgress&#34;</p></td>
-<td><p>AlbConditionTypeInProgress indicates whether the Application Gateway for Containers resource is in the process of being created, updated or deleted.</p>
-</td>
-</tr><tr><td><p>&#34;Ready&#34;</p></td>
-<td><p>AlbConditionTypeReady indicates whether the Application Gateway for Containers resource is ready to serve traffic.</p>
+</tr><tr><td><p>&#34;Deployment&#34;</p></td>
+<td><p>AlbConditionTypeDeployment indicates the deployment status of the Application Gateway for Containers resource.</p>
 </td>
 </tr></tbody>
 </table>
@@ -110,7 +118,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 </em>
 </td>
 <td>
-<p>Associations are subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
+<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
 </td>
 </tr>
 </tbody>
@@ -202,7 +210,7 @@ AlbSpec
 </em>
 </td>
 <td>
-<p>Associations are subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
+<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
 </td>
 </tr>
 </table>
@@ -347,22 +355,22 @@ particular BackendTLSPolicy condition type has been raised.</p>
 When the given BackendTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidBackendTLSPolicy&#34;</p></td>
-<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn't Accepted</p>
+<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy is not Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
 <td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>BackendTLSPolicyReasonNoTargetReference is used when there's no target reference</p>
+<td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
+<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
 </td>
 </tr><tr><td><p>&#34;ServiceNotFound&#34;</p></td>
-<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service isn't found</p>
+<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service is not found</p>
 </td>
 </tr><tr><td><p>&#34;Degraded&#34;</p></td>
-<td><p>ReasonDegraded is the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
+<td><p>ReasonDegraded is the the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
 </td>
 </tr></tbody>
 </table>
@@ -388,7 +396,7 @@ field.</p>
 </td>
 </tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
 <td><p>BackendTLSPolicyConditionResolvedRefs is used to set the BackendTLSPolicyCondition to ResolvedRefs
-This is used with the following Reasons:
+This is used with the following Reasons :
 *BackendTLSPolicyReasonRefNotPermitted
 *BackendTLSPolicyReasonInvalidKind
 *BackendTLSPolicyReasonServiceNotFound
@@ -683,7 +691,7 @@ certificate of the backend.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>)
 </p>
 <div>
-<p>CustomTargetRef is a reference to a custom resource that isn't part of the
+<p>CustomTargetRef is a reference to a custom resource that is not part of the
 Kubernetes core API.</p>
 </div>
 <table>
@@ -885,17 +893,17 @@ particular FrontTLSPolicy condition type has been raised.</p>
 <td><p>FrontTLSPolicyReasonInvalidPolicyType is used when the type is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>FrontTLSPolicyReasonNoTargetReference is used when there's no target reference</p>
+<td><p>FrontTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
+<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
 </td>
 </tr><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonAccepted is used to set the FrontTLSPolicyConditionReason to Accepted
 When the given FrontTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidFrontendTLSPolicy&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy isn't Accepted</p>
+<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy is not Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidGateway&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonInvalidGateway is used when the gateway is invalid</p>
@@ -1250,7 +1258,76 @@ HealthCheckPolicyConfig
 </table>
 </td>
 </tr>
+<tr>
+<td>
+<code>status</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HealthCheckPolicyStatus">
+HealthCheckPolicyStatus
+</a>
+</em>
+</td>
+<td>
+<p>Status defines the current state of HealthCheckPolicy.</p>
+</td>
+</tr>
 </tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HealthCheckPolicyConditionReason">HealthCheckPolicyConditionReason
+(<code>string</code> alias)</h3>
+<div>
+<p>HealthCheckPolicyConditionReason defines the set of reasons that explain why a
+particular HealthCheckPolicy condition type has been raised.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;InvalidReference&#34;</p></td>
+<td><p>HealthCheckPolicyInvalidReference is used when the reference is invalid</p>
+</td>
+</tr><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>HealthCheckPolicyReasonAccepted is used to set the HealthCheckPolicyConditionReason to Accepted
+When the given HealthCheckPolicy is correctly configured</p>
+</td>
+</tr><tr><td><p>&#34;InvalidHealthCheckPolicy&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy is not Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidServiceReference&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidServiceReference is used when the service is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidTargetReference&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidTargetReference is used when the target is invalid</p>
+</td>
+</tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
+<td><p>HealthCheckPolicyReasonNoTargetReference is used when the target is not found</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HealthCheckPolicyConditionType">HealthCheckPolicyConditionType
+(<code>string</code> alias)</h3>
+<div>
+<p>HealthCheckPolicyConditionType is a type of condition associated with a
+HealthCheckPolicy. This type should be used with the HealthCheckPolicyStatus.Conditions
+field.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>HealthCheckPolicyConditionAccepted is used to set the HealthCheckPolicyConditionType to Accepted</p>
+</td>
+</tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
+<td><p>HealthCheckPolicyConditionResolvedRefs is used to set the HealthCheckPolicyCondition to ResolvedRefs</p>
+</td>
+</tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig
 </h3>
@@ -1424,13 +1501,53 @@ HealthCheckPolicyConfig
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.HealthCheckPolicyStatus">HealthCheckPolicyStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicy">HealthCheckPolicy</a>)
+</p>
+<div>
+<p>HealthCheckPolicyStatus defines the observed state of HealthCheckPolicy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>conditions</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Condition">
+[]Kubernetes meta/v1.Condition
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Conditions describe the current conditions of the HealthCheckPolicy.</p>
+<p>Implementations should prefer to express HealthCheckPolicy conditions
+using the <code>HealthCheckPolicyConditionType</code> and <code>HealthCheckPolicyConditionReason</code>
+constants so that operators and tools can converge on a common
+vocabulary to describe HealthCheckPolicy state.</p>
+<p>Known condition types are:</p>
+<ul>
+<li>&ldquo;Accepted&rdquo;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="alb.networking.azure.io/v1.IngressBackendOverride">IngressBackendOverride
 </h3>
 <p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
 </p>
 <div>
-<p>IngressBackendOverride allows a user to change the hostname on a request before it's sent to a backend service</p>
+<p>IngressBackendOverride allows a user to change the hostname on a request before it is sent to a backend service</p>
 </div>
 <table>
 <thead>
@@ -1459,7 +1576,7 @@ string
 </em>
 </td>
 <td>
-<p>BackendHost is the hostname that an incoming request is mutated to use before being forwarded to the backend</p>
+<p>BackendHost is the hostname that an incoming request will be mutated to use before being forwarded to the baackend</p>
 </td>
 </tr>
 </tbody>
@@ -1509,8 +1626,8 @@ string
 <td>
 <code>protocol</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressBackendProtocol">
-IngressBackendProtocol
+<a href="#alb.networking.azure.io/v1.Protocol">
+Protocol
 </a>
 </em>
 </td>
@@ -1519,26 +1636,6 @@ IngressBackendProtocol
 </td>
 </tr>
 </tbody>
-</table>
-<h3 id="alb.networking.azure.io/v1.IngressBackendProtocol">IngressBackendProtocol
-(<code>string</code> alias)</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressBackendPort">IngressBackendPort</a>)
-</p>
-<div>
-<p>IngressBackendProtocol specifies what protocol a backend uses</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr><td><p>&#34;http&#34;</p></td>
-<td><p>BackendProtocolHTTP indicates a backend uses HTTP</p>
-</td>
-</tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.IngressBackendSettings">IngressBackendSettings
 </h3>
@@ -1590,20 +1687,8 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communicating to the
+<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communciating to the
 backend on a port specified as https</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>connectionDraining</code><br/>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>ConnectionDraining TODO: what is this actually?</p>
 </td>
 </tr>
 <tr>
@@ -1615,7 +1700,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>PathPrefixOverride mutates requests going to the backend to be prefixed with this value</p>
+<p>PathPrefixOverride will mutate requests going to the backend to be prefixed with this value</p>
 </td>
 </tr>
 <tr>
@@ -1657,7 +1742,7 @@ HealthCheckPolicyConfig
 </td>
 <td>
 <em>(Optional)</em>
-<p>HealthCheck defines a health probe that is used to determine if a backend is healthy</p>
+<p>HealthCheck defines a health probe which is used to determine if a backend is healthy</p>
 </td>
 </tr>
 </tbody>
@@ -1842,7 +1927,7 @@ IngressExtensionSpec
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
 </p>
 <div>
-<p>IngressListenerPort describes a port a listener  listens on.</p>
+<p>IngressListenerPort describes a port a listener will listen on.</p>
 </div>
 <table>
 <thead>
@@ -1860,19 +1945,21 @@ int32
 </em>
 </td>
 <td>
-<p>Port defines what TCP port the listener  listens on</p>
+<p>Port defines what TCP port the listener will listen on</p>
 </td>
 </tr>
 <tr>
 <td>
 <code>protocol</code><br/>
 <em>
-string
+<a href="#alb.networking.azure.io/v1.Protocol">
+Protocol
+</a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Protocol indicates if the port is used for HTTP or HTTPS traffic.</p>
+<p>Protocol indicates if the port will be used for HTTP or HTTPS traffic.</p>
 </td>
 </tr>
 <tr>
@@ -1967,7 +2054,7 @@ IngressListenerTLS
 </td>
 <td>
 <em>(Optional)</em>
-<p>OverrideBackendHostnames is a list of services on which incoming requests that have the value of the host header changed</p>
+<p>OverrideBackendHostnames is a list of services on which incoming requests will have the value of the host header changed</p>
 </td>
 </tr>
 </tbody>
@@ -2102,10 +2189,10 @@ FrontendTLSPolicyType
 <h3 id="alb.networking.azure.io/v1.Protocol">Protocol
 (<code>string</code> alias)</h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig</a>, <a href="#alb.networking.azure.io/v1.IngressBackendPort">IngressBackendPort</a>, <a href="#alb.networking.azure.io/v1.IngressListenerPort">IngressListenerPort</a>)
 </p>
 <div>
-<p>Protocol defines the protocol used for checking HealthCheck of the services
+<p>Protocol defines the protocol used for certain properties.
 Valid Protocol values are:</p>
 <ul>
 <li>HTTP</li>
@@ -2121,13 +2208,13 @@ Valid Protocol values are:</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;HTTP&#34;</p></td>
-<td><p>HTTP implies that the HealthCheck check is done using HTTP protocol</p>
+<td><p>HTTP implies that the service will use HTTP</p>
 </td>
 </tr><tr><td><p>&#34;HTTPS&#34;</p></td>
-<td><p>HTTPS implies that the HealthCheck check is done using HTTPS protocol</p>
+<td><p>HTTPS implies that the service will be use HTTPS</p>
 </td>
 </tr><tr><td><p>&#34;TCP&#34;</p></td>
-<td><p>TCP implies that the HealthCheck check is done using TCP protocol</p>
+<td><p>TCP implies that the service will be use plain TCP</p>
 </td>
 </tr></tbody>
 </table>
@@ -2219,7 +2306,70 @@ RoutePolicyConfig
 </table>
 </td>
 </tr>
+<tr>
+<td>
+<code>status</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.RoutePolicyStatus">
+RoutePolicyStatus
+</a>
+</em>
+</td>
+<td>
+<p>Status defines the current state of RoutePolicy.</p>
+</td>
+</tr>
 </tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.RoutePolicyConditionReason">RoutePolicyConditionReason
+(<code>string</code> alias)</h3>
+<div>
+<p>RoutePolicyConditionReason defines the set of reasons that explain why a
+particular RoutePolicy condition type has been raised.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>RoutePolicyReasonAccepted is used to set the RoutePolicyConditionReason to Accepted
+When the given RoutePolicy is correctly configured</p>
+</td>
+</tr><tr><td><p>&#34;InvalidRoutePolicy&#34;</p></td>
+<td><p>RoutePolicyReasonInvalid is the reason when the RoutePolicy is not Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidHTTPRoute&#34;</p></td>
+<td><p>RoutePolicyReasonInvalidHTTPRoute is used when the HTTPRoute is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidTargetReference&#34;</p></td>
+<td><p>RoutePolicyReasonInvalidTargetReference is used when there is no target reference</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.RoutePolicyConditionType">RoutePolicyConditionType
+(<code>string</code> alias)</h3>
+<div>
+<p>RoutePolicyConditionType is a type of condition associated with a
+RoutePolicy. This type should be used with the RoutePolicyStatus.Conditions
+field.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>RoutePolicyConditionAccepted is used to set the RoutePolicyConditionType to Accepted</p>
+</td>
+</tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
+<td><p>RoutePolicyConditionResolvedRefs is used to set the RoutePolicyCondition to ResolvedRefs</p>
+</td>
+</tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.RoutePolicyConfig">RoutePolicyConfig
 </h3>
@@ -2227,7 +2377,8 @@ RoutePolicyConfig
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This schema permits specification of the following attributes:
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification
+This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
 </div>
@@ -2250,7 +2401,8 @@ RouteTimeouts
 </td>
 <td>
 <em>(Optional)</em>
-<p>Custom timeouts for the target resource.</p>
+<p>Custom Timeouts
+Timeout for the target resource.</p>
 </td>
 </tr>
 <tr>
@@ -2324,6 +2476,46 @@ RoutePolicyConfig
 <td>
 <em>(Optional)</em>
 <p>Default defines default policy configuration for the targeted resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.RoutePolicyStatus">RoutePolicyStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicy">RoutePolicy</a>)
+</p>
+<div>
+<p>RoutePolicyStatus defines the observed state of RoutePolicy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>conditions</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Condition">
+[]Kubernetes meta/v1.Condition
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Conditions describe the current conditions of the RoutePolicy.</p>
+<p>Implementations should prefer to express RoutePolicy conditions
+using the <code>RoutePolicyConditionType</code> and <code>RoutePolicyConditionReason</code>
+constants so that operators and tools can converge on a common
+vocabulary to describe RoutePolicy state.</p>
+<p>Known condition types are:</p>
+<ul>
+<li>&ldquo;Accepted&rdquo;</li>
+</ul>
 </td>
 </tr>
 </tbody>
