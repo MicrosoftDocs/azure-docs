@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample WPF desktop application 
 
-This guide uses a sample Windows Presentation Foundation (WPF) application to show you how to add authentication to a desktop application. The sample application enables users to sign in and sign out. The sample desktop application uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+This article uses a sample Windows Presentation Foundation (WPF) application to show you how to add authentication to a WPF desktop application. The sample application enables users to sign in and sign out. The sample desktop application uses [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 
 1. Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
-1. In your code editor, open the *appsettings.json* file in the **1-Authentication** > **5-sign-in-dotnet-wpf** folder.
+1. In your code editor, open the *appsettings.json* file in the **ms-identity-ciam-dotnet-tutorial** > **1-Authentication** > **5-sign-in-dotnet-wpf** folder.
 
 1. Replace `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
  
@@ -77,7 +77,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 1. Open a console window, and change to the directory that contains the WPF desktop sample app:
 
     ```console
-    cd 1-Authentication/4-sign-in-device-code
+    cd 1-Authentication\5-sign-in-dotnet-wpf
     ```
 
 1. In your terminal, run the app by running the following command:
