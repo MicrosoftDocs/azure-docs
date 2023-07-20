@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/20/2025
+ms.date: 07/20/2023
 ---
 
 # Power BI output from Azure Stream Analytics
