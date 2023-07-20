@@ -1,6 +1,6 @@
 ---
-title: Monitor Kubernetes environment - cluster administrator
-description: Monitor Kubernetes environment - cluster administrator
+title: Monitor Kubernetes clusters using Azure services and cloud native tools - cluster administrator
+description: Describes how to monitor the health and performance of the layers of your Kubernetes environment managed by the cluster administrator using Azure Monitor and cloud native services in Azure.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -17,10 +17,9 @@ The cluster administrator, also known as the platform engineer, is responsible f
 Large organizations may also have a fleet architect, which is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations for the fleet architect are included in the guidance below.
 
 
-## Azure services
+## Monitoring services
 
-The following table lists the services that are commonly used by the cluster administrator to monitor the health and performance of the Kubernetes cluster and its components.  
-
+Azure provides a complete set of services for monitoring the different layers of your Kubernetes infrastructure and the applications that depend on it. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools. The following table lists the services that are commonly used by the cluster administrator to monitor the health and performance of the Kubernetes cluster and its components.  
 
 | Service | Description |
 |:---|:---|
@@ -30,19 +29,13 @@ The following table lists the services that are commonly used by the cluster adm
 | [Azure Managed Grafana](../../managed-grafana/overview.md) | Fully managed implementation of [Grafana](https://grafana.com/), which is an open-source data visualization platform commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.  |
 | [OpenCost](https://www.opencost.io/docs/azure-opencost) | Open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data in addition to [customer-specific Azure pricing](https://www.opencost.io/docs/azure-prices) to Azure storage to assist the cluster administrator in analyzing and categorizing costs. |
 
-## Non-Azure services
-
-Azure provides a complete set of services for monitoring your Kubernetes environment, but you may have existing investments in other tools that you want to maintain. Depending on your particular environment, you may be using the managed offerings in Azure for Prometheus and Grafana or may be using a separate environment. Your organization may also be using alternative tools to Container insights to collect and analyze Kubernetes logs, such as Splunk or Datadog, then follow the guidance for configuration of those tools. You can also use the [Data Export feature of Log Analytics workspace]() to send AKS logs to Event Hub and forward to alternate system. 
-
-
 
 ## Configuration
-The following sections describe the typical configuration steps for complete monitoring of your Kubernetes cluster using Azure services. Depending on your particular environment, you may use alternate tools in place of these services or choose not to implement some of them. For example, you may have an existing Prometheus or Grafana environment that you intend to keep using instead of implemented the managed offerings in Azure. 
+Your choice of which tools to deploy and their configuration will depend on the requirements of your particular environment in addition to any existing investment in cloud native technologies endorsed by the [Cloud Native Computing Foundation](https://www.cncf.io/). For example, you may use the managed offerings in Azure for Prometheus and Grafana, or you may choose to use your existing installation of these tools with your Kubernetes clusters in Azure. Your organization may be using alternative tools to Container insights to collect and analyze Kubernetes logs, such as Splunk or Datadog.
 
-You may also use alternate solutions and choose not to incur the cost of 
-, such as Splunk or Datadog collect and analyze Kubernetes logs, in which case you may choose 
+Monitoring a complex environment such as Kubernetes involves collecting a significant amount of telemetry, much of which incurs a cost. The cluster administrator should collect the just enough data to meet their requirements and no more. This includes the amount of data collected, the frequency of collection, and the retention period. If you're  very cost conscious, you may choose to implement a subset of the full functionality in order to reduce your monitoring spend.
 
-Monitoring a complex environment such as Kubernetes involves collecting a significant amount of telemetry, much of which incurs a cost. The cluster administrator should collect the just enough data to meet their requirements and no more. This includes the amount of data collected, the frequency of collection, and the retention period. The following sections on configuring monitoring tools provide guidance on how to configuring each to minimize your costs.
+The following sections identify the steps for complete monitoring of your Kubernetes environment using the Azure services listed above. Functionality and integration options are provided for each to each to help you determine where you may need to modify this configuration to meet your particular requirements.
 
 
 ### Enable scraping of Prometheus metrics
@@ -73,14 +66,16 @@ If you have an existing Grafana environment, then you can continue to use it and
 
 ### Enable Container Insights
 
-When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. For prerequisites and configuration options, see [Enable Container insights](../containers/container-insights-onboard.md).
+When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. Container insights collects container stdout/stderr, infrastructure logs, and performance . All logs are stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)](../logs/log-query-overview.md).
 
-Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
+
+See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options. Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
 
 - To improve your query experience with data collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster. If you only use logs for occasional troubleshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
 - Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
 
 If you have an existing solution for collection of logs, then follow the guidance for that tool or enable Container insights and use the [data export feature of Log Analytics workspace](../logs/logs-data-export.md) to send data to Azure event hub to forward to alternate system.
+
 
 ### Collect control plane logs for AKS clusters
 
@@ -126,6 +121,7 @@ OpenCost can also breakdown relative usage of the cluster by different teams in 
 Configuration changes to your AKS clusters are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There's no cost for this data collection, and you can analyze or alert on the data using Log Analytics.
 
 ## Monitoring 
+This section describes common monitoring scenarios for each of the [levels of the Kubernetes cluster](monitor-kubernetes.md#layers-and-roles-of-kubernetes-environment) managed by the cluster administrator.
 
 ### Level 1 - Cluster level components
 
@@ -135,14 +131,20 @@ The cluster level includes the following component:
 |:---|:---|
 | Node |  Understand the readiness status and performance of CPU, memory, disk and IP usage for each node and proactively monitor their usage trends before deploying any workloads. |
 
+**Container insights**<br>
 - Use the **Cluster** view to see the performance of the nodes in your cluster, including CPU and memory utilization.
 - Use the **Nodes** view to see the health of each node and the health and performance of the pods running on them. For more information on analyzing node health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](container-insights-analyze.md).
 - Under **Reports**, use the **Node Monitoring** workbooks to analyze disk capacity, disk IO, and GPU usage. For more information about these workbooks, see [Node Monitoring workbooks](container-insights-reports.md#node-monitoring-workbooks).
-- Under **Monitoring**, you can select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
+- Under **Monitoring**, select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
 
-Ensure that the cluster is using the full capacity of its nodes by densely packing workloads, using fewer large nodes as opposed to many smaller nodes. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data to Azure storage that the cluster administrator can use for these decisions.
+**Grafana dashboards**<br>
+- Multiple [Kubernetes dashboards](https://grafana.com/grafana/dashboards/?search=kubernetes) are available that visualize the performance and health of your nodes based on data stored in Prometheus.
 
-For troubleshooting scenarios, you may need to access nodes directly for maintenance or immediate log collection. For security purposes, AKS nodes aren't exposed to the internet but you can use the `kubectl debug` command to SSH to the AKS nodes. For more information on this process, see [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](../../aks/ssh.md).
+**Cost analysis**<br>
+- Use data from OpenCost to ensure that the cluster is using the full capacity of its nodes by densely packing workloads, using fewer large nodes as opposed to many smaller nodes. 
+
+**Troubleshooting**<br>
+- For troubleshooting scenarios, you may need to access nodes directly for maintenance or immediate log collection. For security purposes, AKS nodes aren't exposed to the internet but you can use the `kubectl debug` command to SSH to the AKS nodes. For more information on this process, see [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](../../aks/ssh.md).
 
 ### Level 2 - Managed AKS components
 
@@ -153,11 +155,17 @@ The managed AKS level includes the following components:
 | API Server | Monitor the status of API server and identify any increase in request load and bottlenecks if the service is down. |
 | Kubelet | Monitor Kubelet to help troubleshoot pod management issues, pods not starting, nodes not ready, or pods getting killed.  |
 
-
+**Container insights**<br>
 - Under **Monitoring**, select **Metrics** to view the **Inflight Requests** counter.
 - Under **Reports**, use the **Kubelet** workbook to see the health and performance of each kubelet. For more information about these workbooks, see [Resource Monitoring workbooks](container-insights-reports.md#resource-monitoring-workbooks). 
+
+**Grafana**<br>
 - [Kubernetes apiserver](https://grafana.com/grafana/dashboards/12006) for a complete view of the API server performance. This includes such values as request latency and workqueue processing time.
+
+**Log Analytics**<br>
 - Use [log queries with resource logs](container-insights-log-query.md#resource-logs) to analyze control plane logs generated by AKS components.
+
+**Troubleshooting**<br>
 - For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](../../aks/kubelet-logs.md).
 
 
@@ -171,13 +179,15 @@ The Kubernetes objects and workloads level includes the following components:
 | Pods | Monitor status and resource utilization, including CPU and memory, of the pods running on your AKS cluster. |
 | Containers | Monitor resource utilization, including CPU and memory, of the containers running on your AKS cluster. |
 
+**Container insights**<br>
 - Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
 - Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
 - Under **Reports**, use the **Deployments** workbook to see deployment metrics. For more information, ee [Deployment & HPA metrics with Container Insights](container-insights-deployment-hpa-metrics.md).
 
- 
-### Live data
+**Grafana**<br>
+- [Kubernetes apiserver](https://grafana.com/grafana/dashboards/12006) for a complete view of the API server performance. This includes such values as request latency and workqueue processing time.
 
+**Live data**
 - In troubleshooting scenarios, Container Insights provides access to live AKS container logs (stdout/stderror), events and pod metrics. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real-time](container-insights-livedata-overview.md).
 
 
@@ -185,10 +195,8 @@ The Kubernetes objects and workloads level includes the following components:
 
 [Alerts in Azure Monitor](..//alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. 
 
-Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. 
-
-
-The following table describes the different types of custom alert rules that you can create based on the data collected by the services described in [Configure Kubernetes monitoring using Azure services](monitor-kubernetes-configure.md)
+### Alert types
+The following table describes the different types of custom alert rules that you can create based on the data collected by the services described above.
 
 | Alert type | Description |
 |:---|:---|
@@ -196,14 +204,17 @@ The following table describes the different types of custom alert rules that you
 | Metric alert rules | Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the metrics explorer with the data you're currently analyzing. Metric alert rules can be useful to alert on AKS performance using any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics). |
 | Log alert rules | Use log alert rules to generate an alert from the results of a log query. For more information, see [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
 
+### Recommended alerts
+Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. 
 
 
-### Additional scenarios
+
+## Additional monitoring scenarios
 This section provides solutions to a variety of common scenarios that may be encountered by the cluster administrator using the configuration described above.
 
 **How can I monitor if my cluster upgrade was successful?**
 
-- Any configuration activities for AKS are logged in the Activity log. When you [send the Activity log to a Log Analytics workspace]() you can analyze it with Log Analytics. The following sample query can be used to return records identifying a successful upgrade across all your AKS clusters. 
+- Any configuration activities for AKS are logged in the Activity log. When you [send the Activity log to a Log Analytics workspace](#collect-activity-log-for-aks-clusters) you can analyze it with Log Analytics. The following sample query can be used to return records identifying a successful upgrade across all your AKS clusters. 
 
     ``` kql
     AzureActivity
@@ -236,8 +247,6 @@ This section provides solutions to a variety of common scenarios that may be enc
 
 ## See also
 
-- See [Monitoring AKS](../../aks/monitor-aks.md) for guidance on monitoring specific to Azure Kubernetes Service (AKS).
-
-
-
-Container insights collects container stdout, stderr, and infrastructure logs, while you can create diagnostic settings to collect control plan logs for AKS. All logs are stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)]() or visualized in [managed Grafana]().
+- [Monitoring AKS](../../aks/monitor-aks.md) for guidance on monitoring specific to Azure Kubernetes Service (AKS).
+- [Monitor Kubernetes environment - network engineer](monitor-kubernetes-network-engineer.md) for guidance on monitoring the layers of your Kubernetes environment managed by the network engineer.
+- [Monitor Kubernetes environment - developer](monitor-kubernetes-developer.md) for guidance on monitoring the layers of your Kubernetes environment managed by the developer.

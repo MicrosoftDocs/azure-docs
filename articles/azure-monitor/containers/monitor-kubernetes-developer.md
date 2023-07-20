@@ -1,6 +1,6 @@
 ---
-title: Monitor Kubernetes environment - developer
-description: Monitor Kubernetes environment - developer
+title: Monitor Kubernetes clusters using Azure services and cloud native tools - developer
+description: Describes how to monitor the health and performance of the layers of your Kubernetes environment managed by the developer using Azure Monitor and cloud native services in Azure.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -11,20 +11,12 @@ ms.date: 07/07/2023
 # Monitor Kubernetes environment - developer
 This article is part of the guide [Monitor Kubernetes clusters using Azure services and cloud native tools](monitor-kubernetes.md). It describes the role of the developer, including choice and configuration of monitoring tools and how to use those tools for common monitoring scenarios.
 
-
-
 In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
-
-:::image type="content" source="media/monitor-containers/layers-developer.png" alt-text="Diagram of Kubernetes layers for developer" lightbox="media/monitor-containers/layers-developer.png"  border="false":::
-
-[Application insights](../app/app-insights-overview.md) is the primary tool for developers to monitor the health, performance, and usage of their application. Below are a few common scenarios, but you should refer to Application insights documentation for complete details.
 
 
 ## Azure services
 
-Azure has a complete set of services for monitoring the different layers of your Kubernetes infrastructure and the applications that depend on it as described in the following table. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools.
-
-Your choice of monitoring tools will depend on the requirements of your particular environment in addition to any existing investment in cloud native technologies endorsed by the [Cloud Native Computing Foundation](https://www.cncf.io/). Azure includes managed versions of the most standard tools and features that help you integrate your kubernetes clusters and workloads.
+Azure provides a complete set of services for monitoring the different layers of your Kubernetes infrastructure and the applications that depend on it. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools. The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
 
 | Service | Description |
 |:---|:---|
