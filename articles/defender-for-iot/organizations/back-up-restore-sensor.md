@@ -49,11 +49,6 @@ To create a protected backup file to send to the support team, use the sensor GU
 
 Your new, protected backup file is listed in the **Archived files** area of the backup pane.
 
-## Start an immediate, unscheduled backup via CLI
-
-You may want to create a manual backup file, such as just after updating your OT sensor software.
-
-
 ## Save your backup to an external server (SMB)
 
 We recommend saving your OT sensor backup files on your internal network. To do this, you may want to use an SMB server. For example:
@@ -103,9 +98,13 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     Set the `backup_directory_path` to the folder on your OT sensor where you want to save your backup files.
 
-## Restore an OT sensor from the GUI
+## Restore an OT sensor
 
-1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI.
+The following procedures describe how to restore your sensor using a backup file created via automatically or via CLI. Restoring your sensor using backup files created via the sensor GUI is supported only together with customer support.
+
+### Restore an OT sensor from the sensor GUI
+
+1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI. This backup file must be one that had been generated automatically or manually via the CLI.
 
     Backup files are saved on your OT sensor machine, at `/var/cyberx/backups`, and are named using the following syntax: `<sensor name>-backup-version-<version>-<date>.tar`.
 
@@ -120,9 +119,9 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. When the restore process is complete, select **Close**.
 
-## Restore an OT sensor from the latest backup via CLI
+### Restore an OT sensor from the latest backup via CLI
 
-To restore your OT sensor from the latest backup file via CLI:
+To restore your OT sensor from the latest, automatically generated backup file via CLI:
 
 1. Make sure that your backup file has the same OT sensor software version as the current software version on the OT sensor.
 
