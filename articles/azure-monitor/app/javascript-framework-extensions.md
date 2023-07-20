@@ -427,7 +427,7 @@ The `AppInsightsErrorBoundary` requires two props to be passed to it. They're th
 
 #### [React Native](#tab/reactnative)
 
-Exception tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
+**TEMPORARY EDIT TO EXPOSE THIS LINE IN GITHUB** Exception tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
 
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
