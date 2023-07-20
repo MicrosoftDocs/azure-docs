@@ -13,8 +13,7 @@ This article builds on [What is Azure Event Grid?](overview.md) to provide essen
 >[!Important]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
 
-> [!NOTE]
-> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Core concepts
 

@@ -12,6 +12,8 @@ ms.date: 05/24/2023
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 Follow the steps in this article if you need to send application events to Event Grid so that they're received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-delivery-overview.md)).
 
 >[!Important]
