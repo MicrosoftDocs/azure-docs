@@ -26,7 +26,7 @@ Use the following steps to prepare the sample locally.
 1. Use the following command to change to the sample root path and execute the shell script to run the sample project locally:
 
    ```bash
-   ./script/run_all_without_infra.sh
+   bash ./scripts/run_all_without_infra.sh
    ```
 
 1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
@@ -55,7 +55,7 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/create-basics.png":::
 
-   Use the following table as a guide for completing the form.
+   Use the following table as a guide for completing the form. The recommended **Plan** is **Basic**.
 
    | Setting        | Suggested Value                  | Description                                                                                                                                                                                                                                                                                         |
    |----------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

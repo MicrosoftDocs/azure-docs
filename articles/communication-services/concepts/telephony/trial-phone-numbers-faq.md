@@ -49,7 +49,10 @@ While the trial phone number itself is provided at no cost during the trial peri
 Verifying the recipient phone number is a security measure that ensures the trial phone number can only make calls to the verified number. This helps protect against misuse and unauthorized usage of trial phone numbers.
 
 ### How is the recipient phone number verified?
-The verification process involves sending a one-time passcode via SMS to the recipient phone number. The recipient needs to enter this code in the Azure portal to complete the verification.
+The verification process involves sending a one-time passcode via SMS to the recipient phone number. The recipient needs to enter this code in the Azure portal to complete the verification. 
+
+### From where can I verify phone numbers?
+Currently, only phone numbers that originate from the United States (i.e., have a +1 preffix) can be verified for use with trial phone numbers. 
 
 ### Can I verify multiple recipient phone numbers for the same trial phone number?
 Currently the trial phone number can be verified for up to three recipient phone numbers. If you need to make calls to more numbers, then you'll need to [purchase a phone number](../../quickstarts/telephony/get-phone-number.md)

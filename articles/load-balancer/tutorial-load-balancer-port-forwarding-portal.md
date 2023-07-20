@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual network and virtual machines
 
@@ -355,8 +355,7 @@ You'll open your web browser in this section and enter the IP address for the lo
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the virtual machines and load balancer with the following steps:
+If you're not going to continue to use this application, delete the virtual machines and load balancer with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
 

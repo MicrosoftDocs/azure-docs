@@ -24,7 +24,7 @@ The following metric is available for virtual hub router within a virtual hub:
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data in bytes/second on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub) and VPN/ExpressRoute branch to VNet (interhub).|
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub) and VPN/ExpressRoute branch to VNet (interhub).|
 
 #### PowerShell steps
 
@@ -33,7 +33,7 @@ To query, use the following example PowerShell commands. The necessary fields ar
 **Step 1:**
 
 ```azurepowershell-interactive
-$MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Average
+$MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Sum
 ```
 
 **Step 2:**
@@ -50,11 +50,8 @@ $MetricInformation.Data
 
 * **Start Time and End Time** - This time is based on UTC, so please ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
 
-* **Aggregation Types** - Average/Minimum/Maximum/Total
-  * Average - Total average of bytes/sec per the selected time period.
-  * Minimum – Minimum bytes that were sent during the selected time grain period.
-  * Maximum – Maximum bytes that were sent during the selected time grain period.
-  * Total – Total bytes/sec that were sent during the selected time grain period.
+* **Sum Aggregation Type** - This aggregation type will show you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types are not meaningful. 
+ 
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
 

@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
-ms.date: 05/16/2023
+ms.date: 07/12/2023
 ms.author: kendownie
 ms.topic: conceptual
 ---
@@ -105,16 +105,20 @@ ms.topic: conceptual
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
-### AD DS & Azure AD DS Authentication
+### Identity-based authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
     No, this scenario isn't supported.
 
 * <a id="ad-file-mount-cname"></a>
-**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication?**
 
-    No, this scenario isn't currently supported in single-forest AD environments. As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
+    No, this scenario isn't currently supported in single-forest AD environments. This is because when receiving the mount request, Azure Files depends on the Kerberos ticket's server name field to determine what storage account the request is intended for. If `storageaccount.file.core.windows.net` isn't present in the Kerberos ticket as the server name, then the service can't decide which storage account the request is for and is therefore unable to set up an SMB session for the user.
+
+    As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
+
+    As a workaround for mounting the file share, see the instructions in [Mount the file share from a non-domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm).
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**

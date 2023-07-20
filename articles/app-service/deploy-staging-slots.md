@@ -84,7 +84,7 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
-The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name is truncated at 40 characters, the slot name is truncated at 19 characters, and 4 extra random characters are appended to ensure the resulting domain name is unique. 
+The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the combined site name and slot name must be fewer than 59 characters.
 
 <a name="AboutConfiguration"></a>
 
