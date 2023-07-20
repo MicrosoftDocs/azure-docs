@@ -48,7 +48,7 @@ sections:
       - question: |
           I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
-          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI does not support batching with embedding requests. Embeddings API calls should consist of a single string input per request. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
       - question: |
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
