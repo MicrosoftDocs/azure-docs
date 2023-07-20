@@ -95,17 +95,29 @@ npm install @microsoft/applicationinsights-react-js
 
 #### [React Native](#tab/reactnative)
 
-By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+- **React Native Plug-in**
 
-Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
+  By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
 
-```zsh
+  Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
 
-npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
-npm install --save react-native-device-info
-react-native link react-native-device-info
+  ```zsh
 
-```
+  npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
+  npm install --save react-native-device-info
+  react-native link react-native-device-info
+
+  ```
+
+- **React Native Manual Device Plugin**
+
+  ```bash
+
+  npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
+
+  ```
+
+
 
 #### [Angular](#tab/angular)
 
@@ -160,40 +172,107 @@ appInsights.loadAppInsights();
 
 #### [React Native](#tab/reactnative)
 
-To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
+- **React Native Plug-in**
 
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
+  To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
 
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-// Add the Click Analytics plug-in.
-// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
-var RNPlugin = new ReactNativePlugin();
-// Add the Click Analytics plug-in.
-/* var clickPluginInstance = new ClickAnalyticsPlugin();
-var clickPluginConfig = {
+  > [!TIP]
+  > If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
+
+  ```typescript
+  import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+  import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+  // Add the Click Analytics plug-in.
+  // import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+  var RNPlugin = new ReactNativePlugin();
+  // Add the Click Analytics plug-in.
+  /* var clickPluginInstance = new ClickAnalyticsPlugin();
+  var clickPluginConfig = {
   autoCapture: true
-}; */
-var appInsights = new ApplicationInsights({
-    config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        // If you're adding the Click Analytics plug-in, delete the next line.
-        extensions: [RNPlugin]
-     // Add the Click Analytics plug-in.
-     /* extensions: [RNPlugin, clickPluginInstance],
-             extensionConfig: {
-                 [clickPluginInstance.identifier]: clickPluginConfig
-          } */
-    }
-});
-appInsights.loadAppInsights();
+  }; */
+  var appInsights = new ApplicationInsights({
+      config: {
+          connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+          // If you're adding the Click Analytics plug-in, delete the next line.
+          extensions: [RNPlugin]
+       // Add the Click Analytics plug-in.
+       /* extensions: [RNPlugin, clickPluginInstance],
+               extensionConfig: {
+                   [clickPluginInstance.identifier]: clickPluginConfig
+            } */
+      }
+  });
+  appInsights.loadAppInsights();
 
-```
+  ```
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+  > [!TIP]
+  > If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
+
+- **React Native Manual Device Plugin**
+
+  To use this plugin:
+
+  1. Construct the plugin and add it as an `extension` to your existing Application Insights instance.
+
+  ```typescript
+  import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+  import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+
+  var RNMPlugin = new ReactNativePlugin();
+  var appInsights = new ApplicationInsights({
+      config: {
+          instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+          extensions: [RNMPlugin]
+      }
+  });
+  appInsights.loadAppInsights();
+  ```
+
+1. Do one of the following:
+
+   - Disable automatic device info collection.
+
+     ```typescript
+     import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+     var RNMPlugin = new ReactNativeManualDevicePlugin();
+     var appInsights = new ApplicationInsights({
+         config: {
+             instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+             disableDeviceCollection: true,
+             extensions: [RNMPlugin]
+         }
+     });
+     appInsights.loadAppInsights();
+     ```
+
+   - Use your own device info collection class.
+
+     ```typescript
+     import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+     // Simple inline constant implementation
+     const myDeviceInfoModule = {
+         getModel: () => "deviceModel",
+         getDeviceType: () => "deviceType",
+         // v5 returns a string while latest returns a promise
+         getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+     };
+
+     var RNMPlugin = new ReactNativeManualDevicePlugin();
+     RNMPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+     var appInsights = new ApplicationInsights({
+         config: {
+             instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+             extensions: [RNMPlugin]
+         }
+     });
+
+     appInsights.loadAppInsights();
+     ```
 
 #### [Angular](#tab/angular)
 
