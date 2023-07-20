@@ -54,7 +54,7 @@ Select an option to set prerequisites:
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI(AZD)](https://aka.ms/azd-install), version 1.0.1 or higher.
+- [Azure Developer CLI(AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
 
 ---
 

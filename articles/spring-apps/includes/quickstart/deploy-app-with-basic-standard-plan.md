@@ -93,8 +93,8 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
    Command interaction description:
 
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
    The console outputs messages similar to the ones below:
 
@@ -179,8 +179,8 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    
    
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
 > [!NOTE]
