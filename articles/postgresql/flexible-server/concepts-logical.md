@@ -49,11 +49,11 @@ Logical decoding:
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
-8. You may want to make sure the role you are using has [privileges](https://www.postgresql.org/docs/current/sql-grant.html) on the schema that you're replicating. Otherwise, you may run into errors such as `Permission denied for schema`. 
+8. You may want to make sure the role you're using has [privileges](https://www.postgresql.org/docs/current/sql-grant.html) on the schema that you're replicating. Otherwise, you may run into errors such as `Permission denied for schema`. 
 
 
 >[!NOTE]
-> It is always a good practice to separate your replication user from regular admin account.
+> It's always a good practice to separate your replication user from regular admin account.
 
 ## Using logical replication and logical decoding
 
@@ -92,7 +92,7 @@ Here's some sample code you can use to try out logical replication.
    ```
    You can add more rows to the publisher's table and view the changes on the subscriber.
 
-   If you are not able to see the data, enable the login privilege for `azure_pg_admin` and check the table content. 
+   If you're not able to see the data, enable the login privilege for `azure_pg_admin` and check the table content. 
    ```SQL 
    ALTER ROLE azure_pg_admin login;
    ```
@@ -221,7 +221,7 @@ In the example below, we use the SQL interface with the wal2json plugin.
    }
    ```
 
-4. Drop the slot once you are done using it.
+4. Drop the slot once you're done using it.
    ```SQL
    SELECT pg_drop_replication_slot('test_slot'); 
    ```
@@ -230,9 +230,9 @@ Visit the PostgreSQL documentation to understand more about [logical decoding](h
 
 
 ## Monitoring
-You must monitor logical decoding. Any unused replication slot must be dropped. Slots hold on to Postgres WAL logs and relevant system catalogs until changes have been read. If your subscriber or consumer fails or if it is improperly configured, the unconsumed logs will pile up and fill your storage. Also, unconsumed logs increase the risk of transaction ID wraparound. Both situations can cause the server to become unavailable. Therefore, it is critical that logical replication slots are consumed continuously. If a logical replication slot is no longer used, drop it immediately.
+You must monitor logical decoding. Any unused replication slot must be dropped. Slots hold on to Postgres WAL logs and relevant system catalogs until changes have been read. If your subscriber or consumer fails or if it's improperly configured, the unconsumed logs will pile up and fill your storage. Also, unconsumed logs increase the risk of transaction ID wraparound. Both situations can cause the server to become unavailable. Therefore, it's critical that logical replication slots are consumed continuously. If a logical replication slot is no longer used, drop it immediately.
 
-The 'active' column in the pg_replication_slots view will indicate whether there is a consumer connected to a slot.
+The 'active' column in the pg_replication_slots view will indicate whether there's a consumer connected to a slot.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
@@ -240,7 +240,7 @@ SELECT * FROM pg_replication_slots;
 
 ## Limitations
 * **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
-* **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
+* **Slots and HA failover** - Logical replication slots on the primary server aren't available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots won't be available on the standby.
 
 >[!IMPORTANT]
 > You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists.  Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.
