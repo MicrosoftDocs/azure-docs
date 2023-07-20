@@ -40,7 +40,7 @@ A client uses `Client Access URL` to connect and authenticate with the service, 
 
 ![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
 
-As shown in the diagram above, the client has the permissions to send messages to and join a specific group named **`group1`**. 
+As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
 ```js
 // Imports the client libray
@@ -88,21 +88,21 @@ await client.sendToGroup(groupName, "hello world", "text");
 ### Handle `connected`, `disconnected` and `stopped` events
 Azure Web PubSub fires system events like `connected`, `disconnected` and `stopped`. You can register event handlers to decide what the program should do when the events are fired. 
 
-1. When a client is successfully connected to your Web PubSub resource, the `connected` event is triggered. This snippet simply logs the [connection ID](./key-concepts.md)
+1. When a client is successfully connected to your Web PubSub resource, the `connected` event is triggered. This snippet simply prints out the [connection ID](./key-concepts.md)
 ```js
 client.on("connected", (e) => {
   console.log(`Connection ${e.connectionId} is connected.`);
 });
 ```
 
-2. When a client is disconnected and fails to recover the connection, the `disconnected` event is triggered. This snippet simply logs the message.
+2. When a client is disconnected and fails to recover the connection, the `disconnected` event is triggered. This snippet simply prints out the message.
 ```js
 client.on("disconnected", (e) => {
   console.log(`Connection disconnected: ${e.message}`);
 });
 ```
 
-3. The `stopped` event will be triggered when the client is disconnected **and** the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `autoReconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
+3. The `stopped` event is triggered when the client is disconnected **and** the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `autoReconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
 
 ```js
 // Registers an event handler for the "stopped" event
@@ -177,11 +177,11 @@ client.on("group-message", (e) => {
 > For `group-message` event, the client can **only** receive messages from the groups that it has joined.
 
 ### Handle rejoin failure
-When a client is disconnected and fails to recover, all group contexts are cleaned up in your Web PubSub resource. This means when the client re-connects, it needs to rejoin groups. By default, the client has `autoRejoinGroup` option enabled. 
+When a client is disconnected and fails to recover, all group contexts are cleaned up in your Web PubSub resource. This means when the client reconnects, it needs to rejoin groups. By default, the client has `autoRejoinGroup` option enabled. 
 
 However, you should be aware of `autoRejoinGroup`'s limitations. 
-- The client can only rejoin groups that it's joined by the client code _not_ by the server side code. 
-- "Rejoin group" operations may fail due to various reasons, e.g. the client doesn't have permission to join the groups. In such cases, you need to add a callback to handle this failure.
+- The client can only rejoin groups that it has been joined by the client code _not_ by the server side code. 
+- "Rejoin group" operations may fail due to various reasons, for example, the client doesn't have permission to join the groups. In such cases, you need to add a callback to handle this failure.
 
 ```js
 // By default autoRejoinGroups=true. You can disable it by setting to false.
