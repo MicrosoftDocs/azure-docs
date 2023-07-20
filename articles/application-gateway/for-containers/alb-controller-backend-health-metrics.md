@@ -1,6 +1,6 @@
 ---
-title: ALB Controller - Backend Health
-description: Identify and troubleshoot issues using ALB Controller's backend health service for Application Gateway for Containers.
+title: ALB Controller - Backend Health \& Metrics
+description: Identify and troubleshoot issues using ALB Controller's backend health & metrics endpoints for Application Gateway for Containers.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
