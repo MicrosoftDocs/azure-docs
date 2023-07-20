@@ -329,10 +329,10 @@ For more coverage tables, see:
 
 [Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
 [Geocoding]: geocoding-coverage.md
-[Traffic]: traffic-coverage.md
-[Render]: render-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
 [Matrix Routing service]: /rest/api/maps/route/post-route-matrix
-[Traffic service]: /rest/api/maps/traffic
+[Render]: render-coverage.md
 [Routing service]: /rest/api/maps/route
+[Traffic service]: /rest/api/maps/traffic
+[Traffic]: traffic-coverage.md
