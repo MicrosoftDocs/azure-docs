@@ -102,6 +102,7 @@ Learn more about the relationships and [properties](#properties) in the returned
 Retrieve the topology of a resource group using [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example retrieves the network topology for **myResourceGroup** resource group:
 
 ```azurecli-interactive
+# Get a network level view of resources and their relationships in "myResourceGroup" resource group.
 az network watcher show-topology --resource-group 'myResourceGroup'
 ```
 
