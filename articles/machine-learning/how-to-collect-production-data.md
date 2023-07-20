@@ -203,7 +203,7 @@ Optionally, you can adjust the following additional parameters for your `data_co
 
 If you need to collect your production inference data to a custom Blob storage container, you can do so with the data collector.
 
-To do so, you will first need to connect your Azure Blob storage container to an AzureML datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
+To use the data collector with a custom Blob storage container, connect the storage container to an Azure Machine Learning datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
 
 Next, ensure that your AzureML endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Add the identity to your AzureML endpoint. Assign the role `Blob Storage Contributor` to this identity with the Blob storage container which will be used the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal-managed-identity).
 
