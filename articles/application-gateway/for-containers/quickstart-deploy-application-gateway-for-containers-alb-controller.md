@@ -85,7 +85,7 @@ Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Sh
 You can also install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
 
 # [Windows](#tab/install-helm-windows)
-See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget.md) installed, you may execute the following command:
+See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/index.md) installed, you may execute the following command:
 ```powershell
 winget install helm.helm
 ```
