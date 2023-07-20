@@ -220,7 +220,7 @@ mysql -h mydb.mysql.database.azure.com \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
 
-**Example (Powershell):**
+**Example (PowerShell):**
 
 ```
 mysql -h mydb.mysql.database.azure.com \
