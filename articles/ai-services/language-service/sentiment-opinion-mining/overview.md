@@ -35,6 +35,8 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 [!INCLUDE [development options](./includes/development-options.md)]
 
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
+
 #### [Custom model](#tab/custom)
 
 Custom sentiment analysis enables users to build custom AI models to classify text into sentiments pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
@@ -76,10 +78,8 @@ As you use Custom sentiment analysis, see the following reference documentation 
 
 An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
-
 ## Next steps
 
-There are two ways to get started using the entity linking feature:
-* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Language service features without needing to write code.
-* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  
+* The quickstart articles with instructions on using the service for the first time.
+    * [Use the prebuilt model](./quickstart.md)
+    * [Create a custom model](./custom/quickstart.md)  
