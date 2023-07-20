@@ -310,8 +310,10 @@ The Azure Private 5G Core private mobile network requires a custom location and 
       "helm.release-namespace": "azurehybridnetwork",
       "managed-by": "helm"
     }
-    "@
+    "@ 
+    ```
 
+    ```azurecli
     az k8s-extension create `
     --name networkfunction-operator `
     --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
