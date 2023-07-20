@@ -30,27 +30,33 @@ In this section, you create a namespace and a hub in the namespace.
 In this section, you create a notification hub in an existing namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** on the left menu, search for **Notification Hub**, select **star** (`*`) next to **Notification Hub Namespaces** to add it to the **FAVORITES** section on the left menu. Select **Notification Hub Namespaces**.
+1. Select **All services** on the left menu.
+    ![Azure portal - select All Services](./media/notification-hubs-portal-create-new-hub/select-all-services.png)
 
-      ![Azure portal - select Notification Hub Namespaces](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
-3. On the **Notification Hub Namespaces** page, select your namespace from the list.
+1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      ![Select your namespace from the list](./media/create-notification-hub-portal/select-namespace.png)
-4. On the **Notification Hub Namespace** page, select **Add Hub** on the toolbar.
+      ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
 
-      ![Notification Hub Namespaces - Add Hub button](./media/create-notification-hub-portal/add-hub-button.png)
-5. On the **New Notification Hub** page, enter a name for the notification hub, and select **OK**.
+1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
 
-      ![New Notification Hub page -> enter a name for your hub](./media/create-notification-hub-portal/new-notification-hub-page.png)
-6. Select **Notifications** (Bell icon) at the top to see the status of the deployment of the new hub. Select **X** in the right-corner to close the notification window.
+    1. In **Subscription**, select the name of the Azure subscription you want to use, and then select an existing resource group, or create a new one.  
+    1. Choose **Select existing** and select your namespace from the drop-down list box.
+A namespace contains one or more notification hubs, so type a name for the hub in **Notification Hub Details**.
 
-      ![Deployment notification](./media/create-notification-hub-portal/deployment-notification.png)
-7. Refresh the **Notification Hub Namespaces** web page to see your new hub in the list.
+1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
 
-      ![Screenshot that shows the Notification Hub Namespaces web page with the new hub in the list.](./media/create-notification-hub-portal/new-hub-in-list.png)
-8. Select your **notification hub** to see the home page for your notification hub.
+       :::image type="content" source="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
 
-      ![Screenshot that shows the home page for your notification hub.](./media/create-notification-hub-portal/hub-home-page.png)
+1. Review the [**Availability zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
+
+       > [!NOTE]
+       > Availability zones, and the ability to edit cross region disaster recovery options, are public preview features. Availability Zones is available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
+
+1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
+
+       :::image type="content" source="./media/notification-hubs-portal-create-new-hub/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="./media/notification-hubs-portal-create-new-hub/availability-zones.png":::
+
+1. Select **Create**.
 
 ## Next steps
 
