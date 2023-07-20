@@ -27,7 +27,7 @@ Use the following steps to prepare the sample locally.
 Use AZD to initialize the application from the Azure Developer CLI templates.
 
 1. Open a terminal, create a new empty folder, and change into it.
-1. Run the following command to initialize the project.
+1. Run the following command to initialize the project:
 
     ```bash
     azd init --template spring-guides/gs-spring-boot-for-azure
@@ -68,25 +68,25 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
+1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in:
 
    ```bash
    azd auth login
    ```
 
-1. Run the following command to enable Azure Spring Apps feature.
+1. Run the following command to enable Azure Spring Apps feature:
 
    ```bash
    azd config set alpha.springapp on
    ```
 
-1. Use the following command to set the template using the **standard** plan.
+1. Use the following command to set the template using the **standard** plan:
 
    ```bash
    azd env set PLAN standard
    ```
 
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
+1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources:
 
    ```bash
    azd provision
