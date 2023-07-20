@@ -14,7 +14,7 @@ ms.author: greglin
 
 Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
-ALB Controller's backend health exposes 3 different experiences:
+ALB Controller's backend health exposes three different experiences:
 1. Summarized backend health by Application Gateway for Containers resource
 2. Summarized backend health by Kubernetes service
 3. Detailed backend health for a specified Kubernetes service
@@ -27,7 +27,7 @@ Access to these endpoints can be reached via the following:
 1. Metrics - http://<alb-controller-pod-ip>:8001/metrics
   1. Output is text format
 
-Any clients or pods that have connectivity to this pod and port may access these endpoints. To restrict access, we recommend leveraging [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to restrict access to certain clients.
+Any clients or pods that have connectivity to this pod and port may access these endpoints. To restrict access, we recommend using [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to restrict access to certain clients.
 
 ## Backend Health
 
@@ -68,7 +68,7 @@ Description: Prints the help
 
 ### Summarized backend health by Application Gateway for Containers
 
-This experience will list a summary of all services and their corresponding health status.
+This experience summarizes of all Kubernetes services with references to Application Gateway for Containers and their corresponding health status.
 
 This experience may be accessed by specifying the Application Gateway for Containers resource ID in the query of the request to the alb-controller pod.
 
@@ -139,7 +139,7 @@ Example output:
 
 ### Detailed backend health for a specified Kubernetes service
 
-This experience will show all endpoints that make up the service, including their corresponding health status and IP address.  Endpoint status will be reported as either _HEALTHY_ or _UNHEALTHY_.
+This experience will show all endpoints that make up the service, including their corresponding health status and IP address.  Endpoint status is reported as either _HEALTHY_ or _UNHEALTHY_.
 
 This experience may be accessed by specifying detailed=true in the query string to the alb-controller pod.
 
@@ -184,8 +184,8 @@ The following Application Gateway for Containers specific metrics are currently 
 | Metric Name | Description                                                                           | 
 | ----------- | ------------------------------------------------------------------------------------- |
 | alb_connection_status | Status of the connection to the Application Gateway for Containers resource |
-| alb_reconnection_count | This counter represents the total number of times a Application Gateway for Containers resource has been reconnected |
-| total_config_updates | This counter represents the total number of service routing config operation |
+| alb_reconnection_count | This counter represents the total number of times an Application Gateway for Containers resource has been reconnected |
+| total_config_updates | This counter represents the total number of service routing config operations |
 | total_endpoint_updates | This counter represents the total number of backend pool config operations |
 | total_deployments | This counter represents the total number of Application Gateway for Containers resource deployments |
 | total_endpoints | Total number of endpoints in a service |
