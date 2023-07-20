@@ -39,6 +39,8 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: Job Router
+      href: concepts/router/concepts.md
   - name: Common scenarios
     items:
     - name: Virtual visit

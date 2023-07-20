@@ -56,6 +56,7 @@ Ensure your CA certificate complies with the following requirements:
 - The `CA` flag must be set to TRUE.
 
 - The Path Length must be greater than or equal to one.
+- It must be exportable.
 
 ## Azure Key Vault
 
