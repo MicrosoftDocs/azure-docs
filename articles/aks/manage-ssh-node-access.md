@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 07/17/2023
+ms.date: 07/19/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -16,11 +16,51 @@ This article describes how to manage disabling, enabling, and updating the SSH k
 * The `aks-preview` Azure CLI extension version 0.5.111 or later for the Update SSH public key (preview feature). To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
 * This feature supports Linux, Windows, Mariner, CBLMariner, and Mariner node pools on new and existing clusters.
 
+## Install the `aks-preview` Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli
+    az extension add --name aks-preview
+    ```
+
+2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli
+    az extension update --name aks-preview
+    ```
+
+## Register the `DisableSSHPreviewPreview` feature flag
+
+1. Register the `DisableSSHPreviewPreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "DisableSSHPreviewPreview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "DisableSSHPreviewPreview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
 ## Disable SSH overview
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. This introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific users (that is, user outbound IP address) from connecting to AKS nodes using SSH.
 
 When you disable SSH during cluster deployment, it doesn't need to be re-imaged. However, when you disable SSH on an existing node pool, it is re-imaged. After you disable or enable SSH, you have the option to re-image all the nodes. Only after re-image is complete, does the disable/enable operation take effect.
+
+A new `securityProfile` variable is added to the `agentPoolProfile` section. It includes a `nodeAccess` property, and `nodeAccess` has the `sshAccess` property, which is an enum type. Current allowed values are `disabled` and `localuser`. `Disabled` means the SSH service is turned off, and `localuser` means the SSH service is on and you can login as a local user(that is, *azureuser*, *root*, etc.) using a private key (this is the current default behavior).
 
 ## Disable SSH on a new cluster deployment (preview)
 
