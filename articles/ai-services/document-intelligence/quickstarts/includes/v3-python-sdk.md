@@ -49,7 +49,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 Open a terminal window in your local environment and install the Azure AI Document Intelligence client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.2.0
+pip install azure-ai-formrecognizer==3.3.0b1
 ```
 
 <!-- > [!div class="nextstepaction"]

@@ -18,6 +18,9 @@ By using our new enhanced monitoring feature, users can gain valuable insights i
 
 ## New metrics
 The introduction of the new metrics in the Managed Virtual Network Integration Runtime feature significantly enhances the visibility and monitoring capabilities within virtual network environments. These new metrics have been designed to address the pain point of limited monitoring, providing users with valuable insights into the performance and health of their data integration workflows.
+![NOTE]
+> These metrics are only valid when enabling Time-To-Live in managed virtual network integration runtime.
+
 Azure Data Factory provides three distinct types of compute pools, each tailored to handle specific activity execution requirements. These compute pools offer flexibility and scalability to accommodate diverse workloads and ensure optimal resource allocation:
  - Compute for Copy activity
  - Compute for Pipeline activity such as Lookup
