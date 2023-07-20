@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -54,27 +54,6 @@ The query uses fields in the original items.
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/result.json":::
 
-```json
-
-```
-
-```sql
-
-```
-
-```json
-[
-  {
-    "name": "Estrel Set Cutlery",
-    "price": 30.85
-  },
-  {
-    "name": "Willagno Spork",
-    "price": 20.15
-  }
-]
-```
-
 ## Remarks
 
 - This function is similar to the ternary conditional operator in various programming languages. For more information, see [ternary conditional operator](https://wikipedia.org/wiki/ternary_conditional_operator).
@@ -83,4 +62,4 @@ The query uses fields in the original items.
 ## See also
 
 - [System functions](system-functions.yml)
-- [Equality and comparison operators](equality-comparison-operators.md)
+- [`ToString`](tostring.md)
