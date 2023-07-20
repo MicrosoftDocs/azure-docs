@@ -6,7 +6,7 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 07/19/2023
+  ms.date: 07/20/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: "Network Watcher frequently asked questions (FAQ)"
@@ -104,7 +104,7 @@ sections:
           What ports does the Network Watcher agent use?
         answer: |
           - **Linux**: the Network Watcher agent uses available ports starting from port 50000 and above until it reaches port 65535.
-          - **Windows**: the Network Watcher agent uses ports that Windows responds with when queried for available ports.
+          - **Windows**: the Network Watcher agent uses the ports that the operating system responds with when queried for available ports.
 
   - name: Service availability and redundancy 
     questions:
