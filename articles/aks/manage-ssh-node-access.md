@@ -58,7 +58,7 @@ This article describes how to disable and enable SSH on your AKS clusters or nod
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. Disabling SSH introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH during cluster deployment, it doesn't need to be re-imaged. However, when you disable SSH on an existing node pool, it is reimaged. After you disable or enable SSH, optionally you can reimage all the nodes. Only after re-image is complete, does the disable/enable operation take effect.
+When you disable SSH during cluster deployment, it doesn't need to be reimaged. However, when you disable SSH on an existing node pool, it's reimaged. After you disable or enable SSH, optionally you can reimage all the nodes. Only after reimage is complete, does the disable/enable operation take effect.
 
 A new `securityProfile` variable is added to the `agentPoolProfile` section. It includes a `nodeAccess` property, and `nodeAccess` has the `sshAccess` property, which is an enum type. Current allowed values are `disabled` and `localuser`. `Disabled` means the SSH service is turned off, and `localuser` means the SSH service is on and you can log in as a local user(that is, *azureuser*, *root*, etc.) using a private key (this is the current default behavior).
 
@@ -118,7 +118,7 @@ The following examples demonstrate possible usage of this command:
     ```
 
 > [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH public key.
+> During this operation, all virtual machine scale set instances are upgraded and reimaged to use the new SSH public key.
 
 <!-- LINKS - external -->
 
