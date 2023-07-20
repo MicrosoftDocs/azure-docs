@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Handle Advanced Messaging and delivery report events
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for Whatsapp events."
+description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for WhatsApp events."
 author: shamkh
 manager: camilo.ramirez
 ms.author: shamkh
@@ -52,7 +52,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 ## [Subscribe to Advanced Messaging Events]
 
-1.  Open your Communication Services resource in the Azure portal, navigate to the /"Events" option in left panel, and select "+ Event Subscription".
+1.  Open your Communication Services resource in the Azure portal, navigate to the **Events** option in left panel, and select **+Event Subscription**.
     
     :::image type="content" source="./media/handle-advanced-messaging-events/eventsubscription.png" alt-text="Screenshot that shows Azure Communication Services Events subscription option and allows you to subscribe to Advanced Messaging events.":::
 
@@ -62,7 +62,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     1.  System topic name--Enter a unique name, unless this name is already prefilled with a topic from your subscription.
 
-    1.  Event types -- Select the two new Advanced messaging events from the list.
+    1.  Event types-Select the two new Advanced messaging events from the list.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/createeventssubcription.png" alt-text="Screenshot that shows create event subscription properties.":::
 

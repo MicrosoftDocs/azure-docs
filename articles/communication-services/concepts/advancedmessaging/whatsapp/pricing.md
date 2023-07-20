@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Advanced Messaging pricing in Azure Communication Services #
 
-Prices for Advanced Messaging in Azure Communication Services consists of two components: the usage fee and the channel fee.
+Prices for Advanced Messaging in Azure Communication Services consist of two components: the usage fee and the channel fee.
 
 ## Advanced Messaging usage fee ##
 
@@ -37,13 +37,13 @@ WhatsApp charges per conversation, not individual message. Conversations are 24-
 -   **Authentication**—Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
 -   **Service**—Service conversations help you resolve customer inquiries.
 
-For service conversations, WhatsApp provides 1,000 fee conversations each month across all business phone numbers. Marketing, utility and authentication conversations are not part of the free tier.
+For service conversations, WhatsApp provides 1,000 fee conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
 
 WhatsApp rates vary based on conversation category and country/region rate. Rates vary between \$0.003 and \$0.1597 depending on the category and country/region. WhatsApp provides a detailed explanation of their pricing, including the current rate card here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
 **Pricing example: Alice sends appointment reminders to its WhatsApp customers**
 
-Alice is managing a virtual visit solution for her organization’s patients. Alice is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as "Utility Conversations". In this case, each WhatsApp conversation is a single message.
+Alice is managing a virtual visit solution for her organization’s patients. Alice is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as **Utility Conversations**. In this case, each WhatsApp conversation is a single message.
 
 Alice sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
 

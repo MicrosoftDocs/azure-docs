@@ -37,10 +37,10 @@ Getting started with the Azure Communication Services Advanced Message SDK, whic
 5.  [Active WhatsApp Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## WhatsApp Business Account Sign-up
-[!INCLUDE [Whatsapp Signup](./includes/register-whatsapp-account/whatsapp-signup.md)]
+[!INCLUDE [WhatsApp Signup](./includes/register-whatsapp-account/whatsapp-signup.md)]
 
 ## Creating a new Meta Business Account
-[!INCLUDE [Add Whatsapp Business Account](./includes/register-whatsapp-account/create-new-metabusiness-account.md)]
+[!INCLUDE [Add WhatsApp Business Account](./includes/register-whatsapp-account/create-new-metabusiness-account.md)]
 
 ## Creating a WhatsApp Business Profile
 
@@ -51,11 +51,11 @@ Getting started with the Azure Communication Services Advanced Message SDK, whic
 2. Once you have completed the form, click **Next** to continue.
 
 ## Verify Your WhatsApp Business Number
-[!INCLUDE [Verify Whatsapp Business Phonenumber](./includes/register-whatsapp-account/verify-phonenumber.md)]
+[!INCLUDE [Verify WhatsApp Business Phonenumber](./includes/register-whatsapp-account/verify-phonenumber.md)]
 
 ## Viewing your WhatsApp Account in the Azure Communication Services Portal
 
-You see the account and status listed in the Azure portal along with the other WhatsApp Business accounts that you have connected to Azure Communication Services. Once approved, you can use the WhatsApp Business account to send and receive messages. The status of your WhatsApp Business account is displayed in the Azure portal. Your business’s display name is reviewed by Meta. You can learn more about this review process and how to update your business account’s display name in the article this article: [About WhatsApp Business display name](https://www.facebook.com/business/help/338047025165344).
+You see the account and status listed in the Azure portal along with the other WhatsApp Business accounts that you have connected to Azure Communication Services. Once approved, you can use the WhatsApp Business account to send and receive messages. The status of your WhatsApp Business account is displayed in the Azure portal. Meta reviews your business’s display name. You can learn more about this review process and how to update your business account’s display name in the article this article: [About WhatsApp Business display name](https://www.facebook.com/business/help/338047025165344).
 
 :::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
 
@@ -63,7 +63,7 @@ When you no longer want to use the WhatsApp Business account with Azure Communic
 
 ## Next Steps
 
-In this quickstart, you have learned, how to register your WhatsApp Business Account with Azure Communication Services.Now, you're ready to send and receive Whatsapp messages.
+In this quickstart, you have learned, how to register your WhatsApp Business Account with Azure Communication Services.Now, you're ready to send and receive WhatsApp messages.
 
 > [!div class="nextstepaction"]
 > [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
