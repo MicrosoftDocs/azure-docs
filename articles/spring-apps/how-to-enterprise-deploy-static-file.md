@@ -258,8 +258,8 @@ You can configure web server by using a customized server configuration file. Th
 
 | Web server  | Default configuration file path                        | How to customize server configuration file path                                                                            |
 |-------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| Nginx       | *nginx.conf*  under the root path of your source code. | please use environment variable BP_NGINX_CONF_LOCATION to specify configuration file name. The file should be placed under the root path of your source code. |
-| Httpd       | *httpd.conf* under the root path of your source code.  | Not Supported.                                                                                                       |
+| Nginx       | *nginx.conf*  under the root path of your source code. | Use environment variable `BP_NGINX_CONF_LOCATION` to specify configuration file name. The file should be placed under the root path of your source code. |
+| Httpd       | *httpd.conf* under the root path of your source code.  | Not supported.                                                                                                       |
 
 
 Your configuration file must conform to the restrictions described in the following table.
