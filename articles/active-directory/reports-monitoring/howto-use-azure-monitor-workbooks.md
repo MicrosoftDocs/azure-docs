@@ -31,13 +31,13 @@ To use Azure Workbooks for Azure AD, you need:
 
 ### Log Analytics workspace
 
-You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) *before* you can use Azure AD Workbooks. Access to Log Analytics workspaces is determined by a combination of factors. You need the right roles for the workspace *and* the resources sending data.
+You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) *before* you can use Azure AD Workbooks. There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending data.
 
 For more information, see [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md).
 
 ### Roles
 
-You must have the appropriate roles for Azure Monitor *and* Azure AD. Roles are largely group be read access and read/write access, so find the combination of roles that grants the least privilege for the task you need.
+You must have the appropriate roles for Azure Monitor *and* Azure AD. Roles are grouped into read access and read/write access, so find the combination of roles that grants the least privilege for the task you need.
 
 #### Azure Monitor roles
 
