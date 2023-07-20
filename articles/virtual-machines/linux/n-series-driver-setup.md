@@ -122,7 +122,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo apt-get install nvidia-gds
    ```
 
-   Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and proceed.
+   Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and then proceed.
 
    ![Secure Boot Password Configuration](./media/n-series-driver-setup/sb-passwd.png)
 
