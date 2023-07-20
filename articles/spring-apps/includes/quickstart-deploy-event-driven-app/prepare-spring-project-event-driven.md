@@ -42,15 +42,19 @@ These steps use AZD to initialize the event-driven application from the Azure De
    Initializing a new project (azd init)
    
    (✓) Done: Initialized git repository
-   (✓) Done: Downloading template code to: D:\samples\event-driven-app
+   (✓) Done: Downloading template code to: <your-local-path>
 
-   ? Please enter a new environment name: [? for help] (event-driven-app-dev) wingtiptoy
+   Enter a new environment name: <your-env-name>
 
-   ? Please enter a new environment name: wingtiptoy
 
    SUCCESS: New project initialized!
-   You can view the template code in your directory: D:\samples\event-driven-app
-   Learn more about running 3rd party code on our DevHub: https://aka.ms/zd-third-party-code-notice
+   You can view the template code in your directory: <your-local-path>
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
    ```
 
+1. Use the following command to set the template using the **standard** plan.
+
+   ```bash
+   azd env set PLAN standard
+   ```
 ---

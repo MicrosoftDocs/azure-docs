@@ -36,7 +36,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "quickstart-deploy-event-driven-app-standard-consumption.md",
+            "source_path": "/articles/quickstart-deploy-event-driven-app-standard-consumption.md",
             "redirect_url": "/azure/spring-apps/quickstart-deploy-event-driven-app.md",
             "redirect_document_id": true
         }
