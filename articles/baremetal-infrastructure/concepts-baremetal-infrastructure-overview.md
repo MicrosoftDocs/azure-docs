@@ -2,6 +2,8 @@
 title: What is BareMetal Infrastructure on Azure?
 author: jjaygbay1
 ms.author: jacobjaygbay
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
