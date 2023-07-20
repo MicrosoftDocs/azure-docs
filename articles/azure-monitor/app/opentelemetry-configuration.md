@@ -255,8 +255,6 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
-In this example, we utilize the `ApplicationInsightsSampler`, which is included with the Distro.
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
@@ -272,19 +270,13 @@ app.Run();
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
-In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
-
-1. Install the latest [OpenTelemetry.Extensions.AzureMonitor](https://www.nuget.org/packages/OpenTelemetry.Extensions.AzureMonitor) package:
-    ```dotnetcli
-    dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
-    ```
-
-1. Add the following code snippet. 
-    ```csharp
-    var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 0.1F }))
-        .AddAzureMonitorTraceExporter();
-    ```
+```csharp
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(options =>
+    {
+        options.SamplingRatio = 0.1F;
+    });
+```
 
 #### [Java](#tab/java)
 

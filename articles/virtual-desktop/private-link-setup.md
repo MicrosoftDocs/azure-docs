@@ -3,7 +3,7 @@ title: Set up Private Link with Azure Virtual Desktop - Azure
 description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.date: 07/17/2023
 ms.author: daknappe
 ---
 
@@ -24,6 +24,8 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 - If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
 ## Enable the feature
 
@@ -782,7 +784,7 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 # [Azure PowerShell](#tab/powershell-2)
 
 > [!IMPORTANT]
-> You need to use the preview version of the Az.DesktopVirtualization module to run the following commands. For more information and to download and install the preview module, see [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview).
+> Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
 #### Workspaces
 
@@ -863,7 +865,7 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 ---
 
 > [!IMPORTANT]
-> Changing access for session hosts won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+> Changing access for session hosts won't affect existing sessions. After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
 ### Block public routes with network security groups or Azure Firewall
 
