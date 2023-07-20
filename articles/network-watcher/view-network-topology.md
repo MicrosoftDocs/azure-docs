@@ -24,7 +24,7 @@ You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [
 
 ## <a name = "azure-portal"></a>View topology - Azure portal
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
 2. On the top, left corner of the portal, select **All services**.
 3. In the **All services** filter box, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 4. Select **Topology**. Generating a topology requires a network watcher in the same region that the virtual network that you want to generate the topology for exists in. If you don't have a network watcher enabled in the region that the virtual network you want to generate a topology for is in, network watchers are automatically created for you in all regions. The network watchers are created in a resource group named **NetworkWatcherRG**.
