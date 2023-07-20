@@ -1,19 +1,19 @@
 ---
-title: Just-in-time virtual machine access in Microsoft Defender for Cloud
+title: Enable just-in-time access on VMs
 description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cloud helps you control access to your Azure virtual machines.
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/14/2023
+ms.date: 06/29/2023
 ---
 
-# Secure your management ports with just-in-time access
+# Enable just-in-time access on VMs
 
 You can use Microsoft Defender for Cloud's just-in-time (JIT) access to protect your Azure virtual machines (VMs) from unauthorized network access. Many times firewalls contain allow rules that leave your VMs vulnerable to attack. JIT lets you allow access to your VMs only when the access is needed, on the ports needed, and for the period of time needed.
 
 Learn more about [how JIT works](just-in-time-access-overview.md) and the [permissions required to configure and use JIT](#prerequisites).
 
-In this article, you'll learn you how to include JIT in your security program, including how to:
+In this article, you learn you how to include JIT in your security program, including how to:
 
 - Enable JIT on your VMs from the Azure portal or programmatically
 - Request access to a VM that has JIT enabled from the Azure portal or programmatically
@@ -34,7 +34,7 @@ In this article, you'll learn you how to include JIT in your security program, i
 
 - **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
 
-- If you want to create custom roles that can work with JIT, you'll need the details from the following table:
+- If you want to create custom roles that can work with JIT, you need the details from the following table:
 
     | To enable a user to: | Permissions to set|
     | --- | --- |
@@ -45,7 +45,7 @@ In this article, you'll learn you how to include JIT in your security program, i
     > [!NOTE]
     > Only the `Microsoft.Security` permissions are relevant for AWS.
 
-- To set up JIT on your Amazon Web Service (AWS) VM, you will need to [connect your AWS account](quickstart-onboard-aws.md) to Microsoft Defender for Cloud.
+- To set up JIT on your Amazon Web Service (AWS) VM, you need to [connect your AWS account](quickstart-onboard-aws.md) to Microsoft Defender for Cloud.
 
     > [!TIP]
     > To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages. 
@@ -185,7 +185,7 @@ To request access from Azure virtual machines:
 
     Azure checks to see if JIT is enabled on that VM.
 
-    - If JIT isn't enabled for the VM, you'll be prompted to enable it.
+    - If JIT isn't enabled for the VM, you're prompted to enable it.
 
     - If JIT is enabled, select **Request access** to pass an access request with the requesting IP, time range, and ports that were configured for that VM.
 

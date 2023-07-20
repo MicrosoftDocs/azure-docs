@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 author: dramasamy
 ms.author: dramasamy
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 05/13/2023
 ---
 
@@ -46,7 +46,7 @@ Before you run the commands, you need to set several variables to define the con
 | DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
 
 
-Once you've defined these variables, you can run the Azure CLI command to create the cluster. The ```--debug``` flag at the end is used to provide more detailed output for troubleshooting purposes.
+Once you've defined these variables, you can run the Azure CLI command to create the cluster. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
 
@@ -71,7 +71,7 @@ POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
-> [!NOTE]
+> [!IMPORTANT]
 > It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
 After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
@@ -121,7 +121,7 @@ CLUSTER_NAME="myNexusAKSCluster"
 AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
 AGENT_POOL_VM_SIZE="NC_M4_v1"
 AGENT_POOL_COUNT="1"
-AGENT_POOL_MODE="System"
+AGENT_POOL_MODE="User"
 ```
 After defining these variables, you can add an agent pool by executing the following Azure CLI command:
 

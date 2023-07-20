@@ -6,8 +6,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/03/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
 ---
 

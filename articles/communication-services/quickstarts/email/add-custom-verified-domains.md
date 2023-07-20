@@ -89,10 +89,55 @@ Click **Next** once you've completed this step.
 
 
 ### Configure sender authentication for custom domain
+To configure sender authentication for your domains, additional DNS records need to be added to your domain. Below, we provide steps where Azure Communication Services will offer records that should be added to your DNS. However, depending on whether the domain you are registering is a root domain or a subdomain, you will need to add the records to the respective zone or make appropriate alterations to the records that we generate.
+
+As an example, let's consider adding SPF and DKIM records for the custom domain "sales.us.notification.azurecommtest.net." The following are different methods for adding these records to the DNS, depending on the level of the Zone where the records are being added.
+
+1. Zone: **sales.us.notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification.azurecommtest.net | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+
+The records that get generated in our portal assumes that you will be adding these records in DNS in this Zone **sales.us.notification.azurecommtest.net**.
+
+2. Zone: **us.notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+          
+3. Zone: **notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
+
+          
+4. Zone: **azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us.notification** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us.notification** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
+
+
+#### Adding SPF and DKIM Records 
+
+
 1. Navigate to  **Provision Domains** and confirm that  **Domain Status** is in "Verified" state. 
 2. You can add SPF and DKIM  by clicking **Configure**. Add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Refer to the [adding DNS records in popular domain registrars table](#cname-records) for information on how to add a TXT & CNAME record for your DNS provider.
 
-Click **Next** once you've completed this step. 
+    Click **Next** once you've completed this step. 
     :::image type="content" source="./media/email-domains-custom-spf.png" alt-text="Screenshot that shows the D N S records that you need to add for S P F validation for your verified domains.":::
     :::image type="content" source="./media/email-domains-custom-dkim-1.png" alt-text="Screenshot that shows the D N S records that you need to add for D K I M.":::
     :::image type="content" source="./media/email-domains-custom-dkim-2.png" alt-text="Screenshot that shows the D N S records that you need to add for additional D K I M records.":::

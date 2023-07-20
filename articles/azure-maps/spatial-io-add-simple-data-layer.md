@@ -127,7 +127,7 @@ The real power of the simple data layer comes when:
 - Features in the data set have several style properties individually set on them; or
 - You're not sure what the data set exactly contains.
 
-For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
+For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides. For the source code for this sample, see [Simple data layer options source code].
 
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
 
@@ -260,3 +260,4 @@ See the following articles for more code samples to add to your maps:
 > [Supported data format details](spatial-io-supported-data-format-details.md)
 
 [Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options
+[Simple data layer options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20data%20layer%20options/Simple%20data%20layer%20options.html

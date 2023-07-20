@@ -3,7 +3,7 @@ title: "Forescout connector for Microsoft Sentinel"
 description: "Learn how to install the connector Forescout to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -52,7 +52,15 @@ Install the agent on the Server where the Forescout logs are forwarded.
 
 
 
-2. Configure Forescout event forwarding
+2. Configure the logs to be collected
+
+Configure the facilities you want to collect and their severities.
+ 1. Under workspace advanced settings **Configuration**, select **Data** and then **Syslog**.
+ 2. Select **Apply below configuration to my machines** and select the facilities and severities.
+ 3.  Click **Save**.
+
+
+3. Configure Forescout event forwarding
 
 Follow the configuration steps below to get Forescout logs into Microsoft Sentinel.
 1. [Select an Appliance to Configure.](https://docs.forescout.com/bundle/syslog-3-6-1-h/page/syslog-3-6-1-h.Select-an-Appliance-to-Configure.html)
