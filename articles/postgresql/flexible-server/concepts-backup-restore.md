@@ -137,7 +137,7 @@ For more information about performing a geo-restore, see the [how-to guide](how-
 > [!IMPORTANT]
 > When the primary region is down, you can't create geo-redundant servers in the respective geo-paired region, because storage can't be provisioned in the primary region. Before you can provision geo-redundant servers in the geo-paired region, you must wait for the primary region to be up. 
 >
-> With the primary region down, you can still geo-restore the source server to the geo-paired region. Disable the geo-redundancy option in the **Compute + Storage** > **Configure Server** settings in the portal, and restore as a locally redundant server to help ensure business continuity.  
+> With the primary region down, you can still geo-restore the source server to the geo-paired region. For more information about performing a geo-restore, see the [how-to guide](how-to-restore-server-portal.md#perform-geo-restore).  
 
 ## Restore and networking
 
