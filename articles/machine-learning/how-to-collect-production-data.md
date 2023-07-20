@@ -201,7 +201,7 @@ Optionally, you can adjust the following additional parameters for your `data_co
 
 #### Collect data to a custom Blob storage container
 
-If you are interested in collecting your production inference data to a custom Blob storage container, you can do so with the data collector.
+If you need to collect your production inference data to a custom Blob storage container, you can do so with the data collector.
 
 To do so, you will first need to connect your Azure Blob storage container to an AzureML datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
 
