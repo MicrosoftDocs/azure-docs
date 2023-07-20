@@ -56,15 +56,15 @@ This article describes how to manage disabling, enabling, and updating the SSH k
 
 ## Disable SSH overview
 
-To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. This introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific users (that is, user outbound IP address) from connecting to AKS nodes using SSH.
+To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. Disabling SSH introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH during cluster deployment, it doesn't need to be re-imaged. However, when you disable SSH on an existing node pool, it is re-imaged. After you disable or enable SSH, you have the option to re-image all the nodes. Only after re-image is complete, does the disable/enable operation take effect.
+When you disable SSH during cluster deployment, it doesn't need to be re-imaged. However, when you disable SSH on an existing node pool, it is reimaged. After you disable or enable SSH, optionally you can reimage all the nodes. Only after re-image is complete, does the disable/enable operation take effect.
 
-A new `securityProfile` variable is added to the `agentPoolProfile` section. It includes a `nodeAccess` property, and `nodeAccess` has the `sshAccess` property, which is an enum type. Current allowed values are `disabled` and `localuser`. `Disabled` means the SSH service is turned off, and `localuser` means the SSH service is on and you can login as a local user(that is, *azureuser*, *root*, etc.) using a private key (this is the current default behavior).
+A new `securityProfile` variable is added to the `agentPoolProfile` section. It includes a `nodeAccess` property, and `nodeAccess` has the `sshAccess` property, which is an enum type. Current allowed values are `disabled` and `localuser`. `Disabled` means the SSH service is turned off, and `localuser` means the SSH service is on and you can log in as a local user(that is, *azureuser*, *root*, etc.) using a private key (this is the current default behavior).
 
 ## Disable SSH on a new cluster deployment (preview)
 
-By default, the SSH service on AKS cluster nodes are open to all users and pods running on the cluster. You can prevent direct SSH access from the pod network to the nodes to help limit the attack vector if a container in a pod becomes compromised.
+By default, the SSH service on AKS cluster nodes is open to all users and pods running on the cluster. You can prevent direct SSH access from the pod network to the nodes to help limit the attack vector if a container in a pod becomes compromised.
 
 Use the [az aks create][az-aks-create] command to create a new cluster, and include the `--ssh-access disabled` argument to disable SSH during cluster creation.
 
