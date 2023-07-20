@@ -171,7 +171,7 @@ The Azure AD Provisioning Services is designed to support a SCIM 2.0 user manage
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
-Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must support these requirements:
+Within the SCIM 2.0 protocol specification, your application must support these requirements:
 
 |Requirement|Reference notes (SCIM protocol)|
 |---|---|
@@ -1362,6 +1362,7 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described in the example (Required)
+> * OIDC apps must have at least 1 role (custom or default) defined
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
 > * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH

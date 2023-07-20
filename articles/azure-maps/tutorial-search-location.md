@@ -8,7 +8,7 @@ ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc, devx-track-js
+ms.custom: mvc
 ---
 
 # Tutorial: Search nearby points of interest using Azure Maps
@@ -279,6 +279,6 @@ The next tutorial demonstrates how to display a route between two locations.
 [MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
 [pipeline]: /javascript/api/azure-maps-rest/atlas.service.pipeline
 [searchURL]: /javascript/api/azure-maps-rest/atlas.service.searchurl
-[Search API] /rest/api/maps/search
+[Search API]: /rest/api/maps/search
 [Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-

@@ -46,6 +46,7 @@ az acr repository show \
 ```
 
 ### Show the current image attributes
+
 To see the current attributes of a tag, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
@@ -82,6 +83,25 @@ To lock the *myrepo* repository and all images in it, run the following command:
 az acr repository update \
     --name myregistry --repository myrepo \
     --write-enabled false
+```
+
+## Check image attributes for tag and its corresponding manifest.
+
+> [!NOTE]
+> * The changeable attributes of tags and manifest are managed separately. That is, setting attribute `deleteEnabled=false` for the tag won't set the same for the corresponding manifest.
+
+>* Query the attributes using the script below:
+
+```bash
+registry="myregistry"
+repo="myimage"
+tag="mytag"
+
+az login
+az acr repository show -n $registry --repository $repo
+az acr manifest show-metadata -r $registry -n "$repo:$tag"
+digest=$(az acr manifest show-metadata -r $registry -n "$repo:$tag" --query digest -o tsv)
+az acr manifest show-metadata -r $registry -n "$repo@$digest"
 ```
 
 ## Protect an image or repository from deletion

@@ -2,8 +2,8 @@
 title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 02/16/2023
+ms.custom: devx-track-azurecli, build-2023
+ms.date: 06/20/2023
 ---
 
 # Configure an AKS cluster
@@ -56,10 +56,81 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 
 Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/generation-2.md). Generation 2 VMs support key features not supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
 
-Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs.
-Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
+Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs. Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
 
 Additionally, not all VM images support Gen2 VMs. On AKS, Gen2 VMs use [AKS Ubuntu 22.04 or 18.04 image](#os-configuration) or [AKS Windows Server 2022 image](#os-configuration). These images support all Gen2 SKUs and sizes.
+
+Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 only.
+
+### Generation 2 virtual machines on Windows (preview)
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+* Generation 2 VMs are supported on Windows for WS2022 only.
+* Generation 2 VMs are default for Windows clusters greater than or equal to Kubernetes 1.25.
+  * If your Kubernetes version is greater than 1.25, you only need to set the `vm_size` to get the generation 2 node pool. You can still use WS2019 generation 1 if you define that in the `os_sku`.
+  * If your Kubernetes version less than 1.25, you can set the `os_sku` to WS2022 and set the `vm_size` to generation 2 to get the generation 2 node pool.
+
+#### Install the aks-preview Azure CLI extension
+
+* Install or update the aks-preview Azure CLI extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
+
+    ```azurecli
+    # Install the aks-preview extension
+    az extension add --name aks-preview
+
+    # Update to the latest version of the aks-preview extension
+    az extension update --name aks-preview
+    ```
+
+#### Register the AKSWindows2022Gen2Preview feature flag
+
+1. Register the AKSWindows2022Gen2Preview feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+2. Verify the registration using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace "Microsoft.ContainerService"
+    ```
+
+#### Add a Windows node pool with a generation 2 VM
+
+* Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
+
+    ```azurecli
+    # Sample command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
+    --kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os-sku Windows2022
+
+    # Default command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+    ```
+
+* Determine whether you're on generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
+
+    ```azurecli
+    az aks nodepool show
+    ```
+
+* Check available generation 2 VM sizes using the [`az vm list`][az-vm-list] command.
+
+    ```azurecli
+    az vm list -skus -l $region
+    ```
+
+For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ## Default OS disk sizing
 
@@ -75,47 +146,19 @@ When you create a new cluster or add a new node pool to an existing cluster, by 
 > [!IMPORTANT]
 > Default OS disk sizing is only used on new clusters or node pools when ephemeral OS disks are not supported and a default OS disk size isn't specified. The default OS disk size may impact the performance or cost of your cluster, and you cannot change the OS disk size after cluster or node pool creation. This default disk sizing affects clusters or node pools created on July 2022 or later.
 
-## Ephemeral OS
+## Use Ephemeral OS on new clusters
 
-By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
-
-By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This configuration provides lower read/write latency, along with faster node scaling and cluster upgrades.
-
-Like the temporary disk, included in the price of the VM is an ephemeral OS disk.
-
-> [!IMPORTANT]
-> When you don't explicitly request managed disks for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
-
-If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. Size requirements and recommendations for VM cache are available in the [Azure VM documentation](../virtual-machines/ephemeral-os-disks.md).
-
-If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
-
-If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60 GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
-
-If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
-
-The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
-
-If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
-
-If you chose to use [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
-and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
-
-Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
-
-### Use Ephemeral OS on new clusters
-
-Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
+Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` argument to set Ephemeral OS as the OS disk type for the new cluster.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add other ephemeral OS node pools as described below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument. You can also choose to add other ephemeral OS node pools as described below.
 
-### Use Ephemeral OS on existing clusters
+## Use Ephemeral OS on existing clusters
 
-Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
+Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` argument to set as the OS disk type as the OS disk type for that node pool.
 
 ```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
@@ -126,37 +169,37 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 
 If you want to create node pools with network-attached OS disks, you can do so by specifying `--node-osdisk-type Managed`.
 
-## Mariner OS
+## Azure Linux container host for AKS
 
-Mariner can be deployed on AKS through Azure CLI or ARM templates.
+You can deploy the Azure Linux container host for through Azure CLI or ARM templates.
 
 ### Prerequisites
 
 1. You need the Azure CLI version 2.44.1 or later installed and configured. Run `az --version` to find the version currently installed. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 1. If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 
-### Deploy an AKS Mariner cluster with Azure CLI
+### Deploy an Azure Linux AKS cluster with Azure CLI
 
-Use the following example commands to create a Mariner cluster.
+Use the following example commands to create an Azure Linux cluster.
 
 ```azurecli
-az group create --name MarinerTest --location eastus
+az group create --name AzureLinuxTest --location eastus
 
-az aks create --name testMarinerCluster --resource-group MarinerTest --os-sku mariner --generate-ssh-keys
+az aks create --name testAzureLinuxCluster --resource-group AzureLinuxTest --os-sku AzureLinux --generate-ssh-keys
 
-az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+az aks get-credentials --resource-group AzureLinuxTest --name testAzureLinuxCluster
 
 kubectl get pods --all-namespaces
 ```
 
-### Deploy an AKS Mariner cluster with an ARM template
+### Deploy an Azure Linux AKS cluster with an ARM template
 
-To add Mariner to an existing ARM template, you need to do the following:
+To add Azure Linux to an existing ARM template, you need to do the following:
 
-- Add `"osSKU": "mariner"` and `"mode": "System"` to agentPoolProfiles property.
+- Add `"osSKU": "AzureLinux"` and `"mode": "System"` to agentPoolProfiles property.
 - Set the apiVersion to 2021-03-01 or newer: `"apiVersion": "2021-03-01"`
 
-The following deployment uses the ARM template `marineraksarm.json`.
+The following deployment uses the ARM template `azurelinuxaksarm.json`.
 
 ```json
 {
@@ -165,7 +208,7 @@ The following deployment uses the ARM template `marineraksarm.json`.
   "parameters": {
     "clusterName": {
       "type": "string",
-      "defaultValue": "marinerakscluster",
+      "defaultValue": "azurelinuxakscluster",
       "metadata": {
         "description": "The name of the Managed Cluster resource."
       }
@@ -179,7 +222,7 @@ The following deployment uses the ARM template `marineraksarm.json`.
     },
     "dnsPrefix": {
       "type": "string",
-      "defaultValue": "mariner",
+      "defaultValue": "azurelinux",
       "metadata": {
         "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
       }
@@ -233,9 +276,9 @@ The following deployment uses the ARM template `marineraksarm.json`.
     },
     "osSKU": {
       "type": "string",
-      "defaultValue": "mariner",
+      "defaultValue": "azurelinux",
       "allowedValues": [
-        "mariner",
+        "AzureLinux",
         "Ubuntu",
       ],
       "metadata": {
@@ -288,21 +331,21 @@ The following deployment uses the ARM template `marineraksarm.json`.
 }
 ```
 
-Create this file on your system and include the settings defined in the `marineraksarm.json` file.
+Create this file on your system and include the settings defined in the `azurelinuxaksarm.json` file.
 
 ```azurecli
-az group create --name MarinerTest --location eastus
+az group create --name AzureLinuxTest --location eastus
 
-az deployment group create --resource-group MarinerTest --template-file marineraksarm.json --parameters linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
+az deployment group create --resource-group AzureLinuxTest --template-file azurelinuxaksarm.json --parameters linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
 
-az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+az aks get-credentials --resource-group AzureLinuxTest --name testAzureLinuxCluster
 
 kubectl get pods --all-namespaces
 ```
 
-### Deploy an AKS Mariner cluster with Terraform
+### Deploy an Azure Linux AKS cluster with Terraform
 
-To deploy a Mariner cluster with Terraform, you first need to set your `azurerm` provider to version 2.76 or higher.
+To deploy an Azure Linux cluster with Terraform, you first need to set your `azurerm` provider to version 2.76 or higher.
 
 ```
 required_providers {
@@ -313,18 +356,18 @@ required_providers {
 }
 ```
 
-Once you've updated your `azurerm` provider, you can specify the Mariner `os_sku` in `default_node_pool`.
+Once you've updated your `azurerm` provider, you can specify the AzureLinux `os_sku` in `default_node_pool`.
 
 ```
 default_node_pool {
   name = "default"
   node_count = 2
   vm_size = "Standard_D2_v2"
-  os_sku = "mariner"
+  os_sku = "AzureLinux"
 }
 ```
 
-Similarly, you can specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_pool`][azurerm-mariner].
+Similarly, you can specify the AzureLinux `os_sku` in [`azurerm_kubernetes_cluster_node_pool`][azurerm-azurelinux].
 
 ## Custom resource group name
 
@@ -393,6 +436,70 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
+## Fully managed resource group (Preview)
+
+AKS deploys infrastructure into your subscription for connecting to and running your applications.  Changes made directly to resources in the [node resource group][whatis-nrg] can affect cluster operations or cause issues later.  For example, scaling, storage, or network configuration should be through the Kubernetes API, and not directly on these resources.
+
+To prevent changes from being made to the Node Resource Group, you can apply a deny assignment and block users from modifying resources created as part of the AKS cluster.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resources installed:
+
+* The Azure CLI version 2.44.0 or later. Run `az --version` to find the current version, and if you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
+* The `aks-preview` extension version 0.5.126 or later
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+#### Register the 'NRGLockdownPreview' feature flag
+
+Register the `NRGLockdownPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "NRGLockdownPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "NRGLockdownPreview"
+```
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Create an AKS cluster with node resource group lockdown
+
+To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This allows you to view the resources, but not modify them.
+
+```azurecli-interactive
+az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+```
+
+### Update an existing cluster with node resource group lockdown
+
+```azurecli-interactive
+az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+```
+
+### Remove node resource group lockdown from a cluster
+
+```azurecli-interactive
+az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestricted
+```
+
 
 ## Next steps
 
@@ -405,7 +512,7 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
-[azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
+[azurerm-azurelinux]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [general-usage]: https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/#general-usage
 [client-config-options]: https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md#client-configuration-options
 
@@ -423,3 +530,8 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+[whatis-nrg]: ./concepts-clusters-workloads.md#node-resource-group
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
+[az-vm-list]: /cli/azure/vm#az_vm_list

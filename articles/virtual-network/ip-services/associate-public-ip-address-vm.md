@@ -123,7 +123,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
 
 ## Azure PowerShell
 
-Install [Azure PowerShell](/powershell/azure/install-az-ps) on your machine, or use Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes Azure PowerShell preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure PowerShell code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
+Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your machine, or use Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes Azure PowerShell preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure PowerShell code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
 
 1. If you're using Azure PowerShell locally, sign in to Azure with `Connect-AzAccount`.
 

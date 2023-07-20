@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 05/31/2023
 ms.author: banders
 ---
 
@@ -213,6 +213,10 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
    A `200 OK` response shows that the SPN has been successfully added.
 
 Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
+
+## Verify SPN role assignments
+
+SPN role assignments are not visible in the Azure portal. You can view enrollment account role assignments, including the subscription creator role, with the [Billing Role Assignments - List By Enrollment Account - REST API (Azure Billing)](/rest/api/billing/2019-10-01-preview/billing-role-assignments/list-by-enrollment-account) API. Use the API to verify that the role assignment was successful.
 
 ## Troubleshoot
 

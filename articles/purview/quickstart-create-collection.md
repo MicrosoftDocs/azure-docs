@@ -24,7 +24,10 @@ Collections are the Microsoft Purview Data Map's tool to manage ownership and ac
 
 ## Check permissions
 
-In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [portal](use-azure-purview-studio.md). You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [governance portal](use-azure-purview-studio.md). You can find the governance portal by:
+
+* Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+* Open the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -44,7 +47,10 @@ In order to create and manage collections in the Microsoft Purview Data Map, you
 
 ## Create a collection in the portal
 
-To create your collection, we'll start in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the portal by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com) and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
+To create your collection, we'll start in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the portal by:
+
+* Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+* Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 

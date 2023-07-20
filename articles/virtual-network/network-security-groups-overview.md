@@ -22,7 +22,7 @@ This article describes the properties of a network security group rule, the [def
 
 ## <a name="security-rules"></a> Security rules
 
-A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
+A network security group contains as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
 
 |Property  |Explanation  |
 |---------|---------|

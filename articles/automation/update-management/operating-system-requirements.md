@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 01/04/2023
+ms.date: 04/17/2023
 ms.topic: conceptual
 ---
 
@@ -25,6 +25,7 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 
 |Operating system  |Notes  |
 |---------|---------|
+| Windows Server 2022 (Datacenter)| |
 |Windows Server 2019 (Datacenter/Standard including Server Core)<br><br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
 

@@ -3,7 +3,7 @@ title: Azure VM Image Builder overview
 description: In this article, you learn about VM Image Builder for virtual machines in Azure.
 author: sumit-kalra
 ms.author: sukalra
-ms.date: 03/15/2023
+ms.date: 05/30/2023
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -98,6 +98,8 @@ The VM Image Builder service is available in the following regions:
 - USGov Arizona (public preview)
 - USGov Virginia (public preview)
 - China North 3 (public preview)
+- Sweden Central
+- Poland Central
 
 To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
@@ -145,6 +147,9 @@ VM Image Builder supports the following Azure Marketplace base operating system 
 
 >[!IMPORTANT]
 > These operating systems have been tested and now work with VM Image Builder. However, VM Image Builder should work with any Linux or Windows image in the marketplace.
+
+> [!NOTE]
+> You can now use the Azure Image Builder service inside the portal as of March 2023. [Get started](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
 
 ## How it works
 

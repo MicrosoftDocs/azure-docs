@@ -7,7 +7,7 @@ ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: container-registry
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template

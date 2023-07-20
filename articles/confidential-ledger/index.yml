@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use Azure confidential ledger 
   services: confidential-ledger
   ms.service: confidential-ledger
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/15/2021

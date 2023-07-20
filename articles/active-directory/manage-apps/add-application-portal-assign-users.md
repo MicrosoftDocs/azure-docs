@@ -21,6 +21,8 @@ In this quickstart, you use the Azure portal to create a user account in your Az
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To create a user account and assign it to an enterprise application, you need:
@@ -33,7 +35,7 @@ To create a user account and assign it to an enterprise application, you need:
 
 To create a user account in your Azure AD tenant:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** and select **Users**.
 1. Select **New user** at the top of the pane.
 

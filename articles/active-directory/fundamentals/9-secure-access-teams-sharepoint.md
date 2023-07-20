@@ -55,7 +55,7 @@ Guest invite settings determine who invites guests and how guests are invited. T
 
 * The IT team:
   * After training is complete, the IT team grants the Guest Inviter role
-  * To enable access reviews, assigns Azure AD P2 license to the Microsoft 365 group owner
+  * Ensures there are sufficient Azure AD Premium P2 licenses for the Microsoft 365 group owners who will review
   * Creates a Microsoft 365 group access review
   * Confirms access reviews occur
   * Removes users added to SharePoint

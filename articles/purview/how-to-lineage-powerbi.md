@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 06/12/2023
 ---
 # How to get lineage from Power BI into Microsoft Purview
 
@@ -57,17 +57,26 @@ Microsoft Purview captures lineage among Power BI artifacts (for example: Datafl
 In addition, column level lineage (Power BI subartifact lineage) and transformation inside of Power BI datasets are captured when using Azure SQL Database as source. For measures, you can further select column -> Properties -> expression to see the transformation details.
 
 >[!NOTE]
-> Column level lineage and transformations is supported when using Azure SQL Database as source. Other sources are currently not supported.
+> Column level lineage and transformation are supported when using Azure SQL Database as source. Other sources are currently not supported.
 
 :::image type="content" source="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png":::
 
 ## Known limitations
 
-* Limited information is currently shown for data sources where the Power BI Dataflow or Power BI Dataset is created. For example, for a SQL server source of Power BI dataset, only server/database name is captured.
-* Some measures aren't shown in the subartifact lineage, for example, `COUNTROWS`.
-* In the lineage graph, when selecting a measure that is derived by columns using the COUNT function, the underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
-* If you scanned your Power BI source before subartifact lineage was supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.
+* Microsoft Purview leverages the scanner API to retrieve the metadata and lineage. Learn about some API limitations from [Metadata scanning - Considerations and limitations](/power-bi/enterprise/service-admin-metadata-scanning#considerations-and-limitations).
 * In case you have the dataset table connected to another dataset table, when the middle dataset disables the "Enable load" option inside the Power BI desktop, and the lineage can't be extracted.
+* For lineage between Power BI artifacts and external data assets:
+    * Currently the supported source types are Azure SQL Database, Azure Blob Storage, Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2. 
+    * Column level lineage and transformation are only supported when using Azure SQL Database as source. Other sources are currently not supported. 
+    * Limited information is currently shown for data sources where the Power BI Dataflow is created. For example, for a SQL server source of Power BI dataset, only server/database name is captured.
+    * Note due to the following limitations, if you have such scenarios and scan both Power BI and the data sources that Power BI artifacts connect to, currently you may see duplicate assets in the catalog.
+        * The source object names in assets and fully qualified names follow the case used in Power BI settings/queries, which may not align with the object case in original data source.
+        * When Power BI references SQL views, they are currently captured as SQL table assets.
+        * When Power BI references Azure Dedicated SQL pools (formerly SQL DW) source, it's currently captured as Azure SQL Database assets.
+* For Power BI subartifact lineage:
+    * Some measures aren't shown in the subartifact lineage, for example, `COUNTROWS`.
+    * In the lineage graph, when selecting a measure that is derived by columns using the COUNT function, the underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
+    * If you scanned your Power BI source before subartifact lineage was supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.
 
 ## Next steps
 

@@ -1,13 +1,10 @@
 ---
 title: Section UI element
 description: Describes the Microsoft.Common.Section UI element for Azure portal. Use to group elements in the portal for deploying managed applications.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: davidsmatlak
-
 ---
+
 # Microsoft.Common.Section UI element
 
 A control that groups one or more elements under a heading.

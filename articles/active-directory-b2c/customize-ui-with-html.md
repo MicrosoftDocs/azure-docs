@@ -33,7 +33,7 @@ Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resourc
 
 ### Custom HTML page content
 
-Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP.
+Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP,however, Azure B2C does not support any view engines. Any server-side rendering of the dynamic page must be performed by a dedicated web application.
 
 Your custom page content can contain any HTML elements, including CSS and JavaScript, but can't include insecure elements like iframes. The only required element is a div element with `id` set to `api`, such as this one `<div id="api"></div>` within your HTML page.
 
@@ -233,7 +233,7 @@ To create a public container in Blob storage, perform the following steps:
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
-1. For **Public access level**, select **Blob**.
+1. For **Public access level**, select **Blob**. By selecting the **Blob** option, you allow an anonymous public read-only access for this container.
 1. Select **Create** to create the container.
 1. Select **root** to open the new container.
 

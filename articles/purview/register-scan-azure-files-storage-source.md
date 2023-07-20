@@ -16,9 +16,9 @@ This article outlines how to register Azure Files, and how to authenticate and i
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](create-sensitivity-label.md)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -66,7 +66,10 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 To register a new Azure Files account in your data catalog, follow these steps:
 
-1. Navigate to your Microsoft Purview Data Studio.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Files**

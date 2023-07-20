@@ -11,6 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: devx-track-arm-template
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
@@ -45,7 +46,7 @@ This section shows how to grant your VM access to a secret stored in a Key Vault
 
 First, we need to create a Key Vault and grant our VM's system-assigned managed identity access to the Key Vault.
 
-1. Open the Azure [portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal]portal](https://portal.azure.com/)
 1. At the top of the left navigation bar, select **Create a resource**  
 1. In the **Search the Marketplace** box type in **Key Vault** and hit **Enter**.  
 1. Select **Key Vault** from the results.
@@ -80,7 +81,7 @@ The managed identity used by the virtual machine needs to be granted access to r
 1. Select **Access Policy** from the menu on the left side.
 1. Select **Add Access Policy**
 
-   ![key vault create access policy screen](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
+   ![Key vault create access policy screen](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
 
 1. In the **Add access policy** section under **Configure from template (optional)** choose **Secret Management** from the pull-down menu.
 1. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and choose **Select**.
@@ -139,7 +140,7 @@ Once you've retrieved the secret from the Key Vault, you can use it to authentic
 
 ## Clean up resources
 
-When you want to clean up the resources, visit the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
+When you want to clean up the resources, sign in to the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
 
 Alternatively you may also do this via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
 

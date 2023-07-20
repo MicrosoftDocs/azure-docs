@@ -72,7 +72,7 @@ Usage example:
 > [!IMPORTANT]
 > The script doesn't migrate Threat Intelligence and SNAT private ranges settings. You'll need to note those settings before proceeding and migrate them manually. Otherwise, you might encounter inconsistent traffic filtering with your new upgraded firewall.
 
-This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ```azurepowershell
 <#

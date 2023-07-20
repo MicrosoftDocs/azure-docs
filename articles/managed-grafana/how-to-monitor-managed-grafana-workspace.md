@@ -1,8 +1,8 @@
 ---
 title: 'How to monitor your Azure Managed Grafana instance with logs'
 description: Learn how to monitor your Azure Managed Grafana instance with logs.
-author: maud-lv 
-ms.author: malev 
+author: mcleanbyron 
+ms.author: mcleans 
 ms.service: managed-grafana 
 ms.topic: how-to 
 ms.custom: engagement-fy23

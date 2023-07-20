@@ -5,9 +5,9 @@ keywords: app service, azure app service, authN, authZ, secure, security, multi-
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 3/08/2023
-ms.custom: "devx-track-js, seodec18, devx-track-azurecli, engagement-fy23"
+ms.custom: seodec18, devx-track-azurecli, engagement-fy23
 zone_pivot_groups: app-service-platform-windows-linux
-# Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
+# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -216,7 +216,7 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **\<front-end-app-name>**.
+1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
 1. In the **Request API permissions** page for the backend app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -230,7 +230,7 @@ In the Cloud Shell, run the following commands on the frontend app to add the `s
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope==openid offline_access api://<back-end-client-id>/user_impersonation"]}')
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://<back-end-client-id>/user_impersonation"]}')
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
@@ -316,7 +316,7 @@ if (bearerToken) {
 
 ## 8. Browse to the apps
 
-1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
+1. Use the frontend web site in a browser. The URL is in the format of `https://<front-end-app-name>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
 
     :::image type="content" source="./media/tutorial-auth-aad/browser-screenshot-authentication-permission-requested-pop-up.png" alt-text="Screenshot of browser authentication pop-up requesting permissions.":::

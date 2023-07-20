@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 10/10/2022
+ms.date: 07/06/2023
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (Preview)
@@ -59,6 +59,7 @@ Follow this link for the steps to [update or delete a data owner policy in Micro
 
 ## Data Consumption
 - Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
+- The Copy and Clone commands in Azure Storage Explorer require additional IAM permissions to work in addition to the Allow Modify policy from Purview. Provide Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action permission in IAM to the Azure AD principal.
 - Sub-container access: Policy statements set below container level on a Storage account are supported. However, users will not be able to browse to the data asset using Azure portal's Storage Browser or Microsoft Azure Storage Explorer tool if access is granted only at file or folder level of the Azure Storage account. This is because these apps attempt to crawl down the hierarchy starting at container level, and the request fails because no access has been granted at that level. Instead, the App that requests the data must execute a direct access by providing a fully qualified name to the data object. The following documents show examples of how to perform a direct access. See also the blogs in the *Next steps* section of this how-to-guide.
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
@@ -99,10 +100,10 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 ## Next steps
 Check blog, demo and related tutorials:
-
 * [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
-* [Blog: What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
-* [Blog: Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
-* [Blog: Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
+* Doc: [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+* Doc: [Provision access to all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+* Blog: [What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* Blog: [Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
+* Blog: [Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
+* Blog: [Grant users access to data assets in your enterprise via API](https://aka.ms/AAlg655)

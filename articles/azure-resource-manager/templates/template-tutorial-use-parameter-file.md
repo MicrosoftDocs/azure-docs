@@ -4,6 +4,7 @@ description: Use parameter files that contain the values to use for deploying yo
 author: mumian
 ms.date: 08/22/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao 
 ---
 

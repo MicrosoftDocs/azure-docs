@@ -47,9 +47,9 @@ Identifying which method works best for your organization is the first thing you
 
 First, you'll need to replicate your VMs to the secondary location. Your options for doing so depend on how your VMs are configured:
 
-- You can configure replication for all your VMs in both pooled and personal host pools with Azure Site Recovery. For more information about how this process works, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md). However, if you have pooled host pools that you built from the same image and don't have any personal user data stored locally, you can choose not to replicate them. Instead, you have the option to build the VMs ahead of time and keep them powered off. You can also choose to only provision new VMs in the secondary region while a disaster is happening. If you choose these methods, you'll only need to set up one host pool and its related app groups and workspaces.
-- You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn on host pools.
-- You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
+- You can configure replication for all your VMs in both pooled and personal host pools with Azure Site Recovery. For more information about how this process works, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md). However, if you have pooled host pools that you built from the same image and don't have any personal user data stored locally, you can choose not to replicate them. Instead, you have the option to build the VMs ahead of time and keep them powered off. You can also choose to only provision new VMs in the secondary region while a disaster is happening. If you choose these methods, you'll only need to set up one host pool and its related application groups and workspaces.
+- You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new application groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn on host pools.
+- You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related application groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
 We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs to other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools because, true to their name, personal host pools tend to have something personal about them for their users. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
@@ -86,6 +86,10 @@ There are three ways to keep the domain controller available:
    - Have one or more Active Directory Domain Controllers in the secondary location
    - Use an on-premises Active Directory Domain Controller
    - Replicate Active Directory Domain Controller using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md)
+
+## User profiles
+
+We recommend that you use FSLogix for managing user profiles. For information, see [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity). 
 
 ## Back up your data
 

@@ -175,6 +175,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
 
+## Microsoft.network/azureFirewalls
+|Executed Checks|
+|---|
+|<ul><li>Are there enough remaining available ports to perform Source NAT?</li><li>Are there enough remaining available connections?</li></ul>|
+
 ## Microsoft.network/bastionhosts
 |Executed Checks|
 |---|

@@ -2,6 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/28/2022
 ---
 

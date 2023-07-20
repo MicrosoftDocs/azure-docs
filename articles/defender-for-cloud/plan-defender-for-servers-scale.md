@@ -2,8 +2,8 @@
 title: Scale a Defender for Servers deployment 
 description: Scale protection of Azure, AWS, GCP, and on-premises servers by using Microsoft Defender for Servers.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/06/2022
 ---
 # Scale a Defender for Servers deployment
@@ -27,7 +27,7 @@ This article is the *sixth* and final article in the Defender for Servers planni
 When you enable a Defender for Cloud subscription, this process occurs:
 
 1. The *microsoft.security* resource provider is automatically registered on the subscription.
-1. At the same time, the Cloud Security Benchmark initiative that's responsible for creating security recommendations and calculating the security score is assigned to the subscription.
+1. At the same time, the Cloud Security Benchmark initiative that's responsible for creating security recommendations and calculating the secure score is assigned to the subscription.
 1. After you enable Defender for Cloud on the subscription, you turn on Defender for Servers Plan 1 or Defender for Servers Plan 2, and then you enable auto provisioning.
 
 In the next sections, review considerations for specific steps as you scale your deployment:

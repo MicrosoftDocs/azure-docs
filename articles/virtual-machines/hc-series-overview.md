@@ -4,7 +4,7 @@ description: Learn about the preview support for the HC-series VM size in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/04/2023
+ms.date: 04/18/2023
 ms.reviewer: wwilliams
 ms.author: padmalathas
 author: padmalathas
@@ -50,8 +50,11 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
+
+> [!IMPORTANT] 
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps
 

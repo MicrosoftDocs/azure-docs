@@ -72,7 +72,7 @@ You can use these links to bootstrap the creation of your web application:
 
 1. When the **Register an application page** appears, enter your application's registration information: 
     1. Enter a **Name** for your application, for example `java-webapp`. Users of your app might see this name, and you can change it later. 
-    1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**.
+    1. Select **Accounts in any organizational directory and personal Microsoft Accounts**.
     1. Select **Register** to register the application.
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Select **Web**.
@@ -114,13 +114,12 @@ By default, the sample uses:
    1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
    1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: `http://localhost:5000/getAToken`.
    1. Select **Register** to create the application.
-1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
+1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the *.env* file for this project.
 1. Under **Manage**, select **Certificates & secrets**.
 1. In the **Client Secrets** section, select **New client secret**, and then:
-   1. Enter a key description.
-   1. Select a key duration of **In 1 year**.
+   1. Enter a key description. Leave the default expiration.
    1. Select **Add**.
-   1. When the key value appears, copy it. You'll need it later.
+   1. Save the **Value** of the **Client Secret** in a safe location. You'll need it to configure the code, and you can't retrieve it later.
 ---
 
 ## Register an app by using PowerShell
@@ -131,66 +130,90 @@ Here's an idea of the code. For a fully functioning code, see [this sample](http
 
 ```PowerShell
 # Connect to the Microsoft Graph API, non-interactive is not supported for the moment (Oct 2021)
-    Write-Host "Connecting to Microsoft Graph"
-    if ($tenantId -eq "") {
-        Connect-MgGraph -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
-    }
-    else {
-        Connect-MgGraph -TenantId $tenantId -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
-    }
-    
-    $context = Get-MgContext
-    $tenantId = $context.TenantId
+Write-Host "Connecting to Microsoft Graph"
+if ($tenantId -eq "") {
+   Connect-MgGraph -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+}
+else {
+   Connect-MgGraph -TenantId $tenantId -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+}
+   
+$context = Get-MgContext
+$tenantId = $context.TenantId
 
-    # Get the user running the script
-    $currentUserPrincipalName = $context.Account
-    $user = Get-MgUser -Filter "UserPrincipalName eq '$($context.Account)'"
+# Get the user running the script
+$currentUserPrincipalName = $context.Account
+$user = Get-MgUser -Filter "UserPrincipalName eq '$($context.Account)'"
 
-    # get the tenant we signed in to
-    $Tenant = Get-MgOrganization
-    $tenantName = $Tenant.DisplayName
-    
-    $verifiedDomain = $Tenant.VerifiedDomains | where {$_.Isdefault -eq $true}
-    $verifiedDomainName = $verifiedDomain.Name
-    $tenantId = $Tenant.Id
+# get the tenant we signed in to
+$Tenant = Get-MgOrganization
+$tenantName = $Tenant.DisplayName
+   
+$verifiedDomain = $Tenant.VerifiedDomains | where {$_.Isdefault -eq $true}
+$verifiedDomainName = $verifiedDomain.Name
+$tenantId = $Tenant.Id
 
-    Write-Host ("Connected to Tenant {0} ({1}) as account '{2}'. Domain is '{3}'" -f  $Tenant.DisplayName, $Tenant.Id, $currentUserPrincipalName, $verifiedDomainName)
+Write-Host ("Connected to Tenant {0} ({1}) as account '{2}'. Domain is '{3}'" -f  $Tenant.DisplayName, $Tenant.Id, $currentUserPrincipalName, $verifiedDomainName)
 
-   # Create the webApp AAD application
-   Write-Host "Creating the AAD application (WebApp)"
-   # create the application 
-   $webAppAadApplication = New-MgApplication -DisplayName "WebApp" `
-                                                      -Web `
-                                                      @{ `
-                                                          RedirectUris = "https://localhost:44321/", "https://localhost:44321/signin-oidc"; `
-                                                          HomePageUrl = "https://localhost:44321/"; `
-                                                          LogoutUrl = "https://localhost:44321/signout-oidc"; `
-                                                        } `
-                                                       -SignInAudience AzureADandPersonalMicrosoftAccount `
-                                                      #end of command
+# Create the webApp AAD application
+Write-Host "Creating the AAD application (WebApp)"
+# create the application 
+$webAppAadApplication = New-MgApplication -DisplayName "WebApp" `
+                                                   -Web `
+                                                   @{ `
+                                                         RedirectUris = "https://localhost:44321/", "https://localhost:44321/signin-oidc"; `
+                                                         HomePageUrl = "https://localhost:44321/"; `
+                                                         LogoutUrl = "https://localhost:44321/signout-oidc"; `
+                                                      } `
+                                                      -SignInAudience AzureADandPersonalMicrosoftAccount `
+                                                   #end of command
 
-    $currentAppId = $webAppAadApplication.AppId
-    $currentAppObjectId = $webAppAadApplication.Id
+$currentAppId = $webAppAadApplication.AppId
+$currentAppObjectId = $webAppAadApplication.Id
 
-    $tenantName = (Get-MgApplication -ApplicationId $currentAppObjectId).PublisherDomain
-    #Update-MgApplication -ApplicationId $currentAppObjectId -IdentifierUris @("https://$tenantName/WebApp")
-    
-    # create the service principal of the newly created application     
-    $webAppServicePrincipal = New-MgServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
+$tenantName = (Get-MgApplication -ApplicationId $currentAppObjectId).PublisherDomain
+#Update-MgApplication -ApplicationId $currentAppObjectId -IdentifierUris @("https://$tenantName/WebApp")
+   
+# create the service principal of the newly created application     
+$webAppServicePrincipal = New-MgServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
 
-    # add the user running the script as an app owner if needed
-    $owner = Get-MgApplicationOwner -ApplicationId $currentAppObjectId
-    if ($owner -eq $null)
-    { 
-        New-MgApplicationOwnerByRef -ApplicationId $currentAppObjectId  -BodyParameter = @{"@odata.id" = "htps://graph.microsoft.com/v1.0/directoryObjects/$user.ObjectId"}
-        Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($webAppServicePrincipal.DisplayName)'"
-    }
-    Write-Host "Done creating the webApp application (WebApp)"
+# add the user running the script as an app owner if needed
+$owner = Get-MgApplicationOwner -ApplicationId $currentAppObjectId
+if ($owner -eq $null)
+{
+   New-MgApplicationOwnerByRef -ApplicationId $currentAppObjectId  -BodyParameter = @{"@odata.id" = "htps://graph.microsoft.com/v1.0/directoryObjects/$user.ObjectId"}
+   Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($webAppServicePrincipal.DisplayName)'"
+}
+Write-Host "Done creating the webApp application (WebApp)"
 ```
 
 
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 Move on to the next article in this scenario,
-[App's code configuration](scenario-web-app-sign-user-app-configuration.md).
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python).
+
+---

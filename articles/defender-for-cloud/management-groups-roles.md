@@ -1,5 +1,5 @@
 ---
-title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
+title: Organize subscriptions into management groups and assign roles to users
 description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
 ms.topic: how-to
 ms.date: 01/24/2023
@@ -87,7 +87,7 @@ You can add subscriptions to the management group that you created.
 
 ### Assign Azure roles to users with PowerShell: 
 
-1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 2. Run the following commands: 
 
     ```azurepowershell

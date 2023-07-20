@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes identity and access overview"
-ms.date: 02/28/2023
+ms.date: 05/04/2023
 ms.topic: conceptual
 description: "Understand identity and access options for Arc-enabled Kubernetes clusters."
 ---
@@ -15,7 +15,7 @@ This topic provides an overview of these two RBAC systems and how you can use th
 
 ## Kubernetes RBAC
 
-[Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) provides granular filtering of user actions. With Kubernetes RBAC, You assign users or groups permission to create and modify resources or view logs from running application workloads. You can create roles to define permissions, and then assign those roles to users with role bindings. Permissions may be scoped to a single namespace or across the entire cluster.
+[Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) provides granular filtering of user actions. With Kubernetes RBAC, you assign users or groups permission to create and modify resources or view logs from running application workloads. You can create roles to define permissions, and then assign those roles to users with role bindings. Permissions may be scoped to a single namespace or across the entire cluster.
 
 The Azure Arc-enabled Kubernetes cluster connect feature uses Kubernetes RBAC to provide connectivity to the `apiserver` of the cluster. This connectivity doesn't require any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner. Using the cluster connect feature helps enable interactive debugging and troubleshooting scenarios. It can also be used to provide cluster access to Azure services for [custom locations](conceptual-custom-locations.md).
 
@@ -27,12 +27,12 @@ For more information, see [Cluster connect access to Azure Arc-enabled Kubernete
 
 With Azure RBAC, role definitions outline the permissions to be applied. You assign these roles to users or groups via a role assignment for a particular scope. The scope can be across the entire subscription or limited to a resource group or to an individual resource such as a Kubernetes cluster.
 
-Using Azure RBAC with your Arc-enabled Kubernetes clusters allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource.
+Using Azure RBAC with your Arc-enabled Kubernetes clusters allows the benefits of Azure role assignments, such as activity logs that show all Azure RBAC changes to an Azure resource.
 
-For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md) and [Use Azure RBAC for Azure Arc-enabled Kubernetes clusters](azure-rbac.md).
+For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md) and [Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)](azure-rbac.md).
 
 ## Next steps
 
+- Learn about [cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
+- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md)
 - Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](../../aks/concepts-identity.md).
-- Learn about [Cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
-- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)

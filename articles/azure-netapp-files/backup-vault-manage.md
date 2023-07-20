@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: anfdocs
 ---
-# Manage backup vaults for Azure NetApp Files (Preview)
+# Manage backup vaults for Azure NetApp Files (preview)
 
 Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. You must 
 

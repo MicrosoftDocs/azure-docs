@@ -12,27 +12,27 @@ ms.date: 03/29/2023
 # Control outbound traffic with user defined routes (preview)
 
 >[!Note]
-> This feature is in preview and is only supported for the workload profiles architecture. User defined routes only work with an internal Azure Container Apps environment.
+> This feature is in preview and is only supported for the workload profiles environment. User defined routes only work with an internal Azure Container Apps environment.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
-Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, you'll setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
+Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, your setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
 
-You can also use a NAT gateway or any other 3rd party appliances instead of Azure Firewall.
+You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
+For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
 
 ## Prerequisites
 
-* An **internal** container app environment on the workload profiles architecture that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles architecture](./workload-profiles-manage-cli.md). Ensure that you're creating an **internal** environment.
+* **Internal environment**: An internal container app environment on the workload profiles environment that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md).
 
-* In your container app, have a container that supports `curl` commands. You can use `curl` to verify the container app is deployed correctly. The *helloworld* container from the sample container image already supports `curl` commands.
+* **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ## Create the firewall subnet
 
 A subnet called **AzureFirewallSubnet** is required in order to deploy a firewall into the integrated virtual network.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the virtual network that's integrated with your app.
+1. Open the virtual network that's integrated with your app in the [Azure portal](https://portal.azure.com).
 
 1. From the menu on the left, select **Subnets**, then select **+ Subnet**.
 
@@ -40,8 +40,9 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
 
     | Setting      | Action      |
     | ------------ | ---------------- |
-    | **Name** | Enter **AzureFirewallSubnet**. | 
+    | **Name** | Enter **AzureFirewallSubnet**. |
     | **Subnet address range** | Use the default or specify a [subnet range /26 or larger](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
+
 1. Select **Save**
 
 ## Deploy the firewall
@@ -73,7 +74,7 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
 
 ## Route all traffic to the firewall
 
-Your virtual networks in Azure have default route tables in place upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In the following steps, you create a UDR to route all traffic to your Azure Firewall.
+Your virtual networks in Azure have default route tables in place when you create the network. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In the following steps, you create a UDR to route all traffic to your Azure Firewall.
 
 1. On the Azure portal menu or the *Home* page, select **Create a resource**.
 
@@ -107,18 +108,21 @@ Your virtual networks in Azure have default route tables in place upon create. B
 
 1. Select **Add** to create the route.
 
-1. From the menu on the left, select **Subnets**, then select **Associate** to associate your route table with the subnet your Container App is integrated with.
+1. From the menu on the left, select **Subnets**, then select **Associate** to associate your route table with the container app's subnet.
 
 1. Configure the *Associate subnet* with the following values:
 
     | Setting      | Action      |
     |--|--|
-    | **Address prefix** | Select the virtual network your container app is integrated with |
-    | **Next hop type** | Select the subnet your container app is integrated with  |
+    | **Address prefix** | Select the virtual network for your container app. |
+    | **Next hop type** | Select the subnet your for container app.  |
 
 1. Select **OK**.
 
 ## Configure firewall policies
+
+> [!NOTE]
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to determine which service tags you need.
 
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 
@@ -151,7 +155,7 @@ Now, all outbound traffic from your container app is routed to the firewall. Cur
     | **Action** | Select *Allow* |
 
     >[!Note]
-    > If you are using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through your firewall, you will need to add the following FQDNs to your rules destination list above: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
+    > If you are using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through your firewall, you will need to add the following FQDNs to your rules destination list: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
 
 1. Select **Add**.
 
@@ -161,13 +165,13 @@ To verify your firewall configuration is set up correctly, you can use the `curl
 
 1. Navigate to your Container App that is configured with Azure Firewall.
 
-1. From the menu on the left, select **Console**, then select your container that supports the `curl` command. If you're using the helloworld container from the sample container image quickstart, you can run the `curl` command.
+1. From the menu on the left, select **Console**, then select your container that supports the `curl` command.
 
 1. In the **Choose start up command** menu, select **/bin/sh**, and select **Connect**.
 
 1. In the console, run `curl -s https://mcr.microsoft.com`. You should see a successful response as you added `mcr.microsoft.com` to the allowlist for your firewall policies.
 
-1. Run `curl -s https://<fqdn-address>` for a URL that doesn't match any of your destination rules such as `example.com`. The example command would be `curl -s https://example.com`. You should get no response, which indicates that your firewall has blocked the request.
+1. Run `curl -s https://<FQDN_ADDRESS>` for a URL that doesn't match any of your destination rules such as `example.com`. The example command would be `curl -s https://example.com`. You should get no response, which indicates that your firewall has blocked the request.
 
 ## Next steps
 

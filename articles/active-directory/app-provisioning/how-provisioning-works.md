@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2023
+ms.date: 04/10/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -31,7 +31,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## Provisioning using SCIM 2.0
 
-The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and deprovisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. Developers use the SCIM 2.0 user management API in Azure AD to build endpoints for their apps that integrate with the provisioning service. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
@@ -43,7 +43,7 @@ Credentials are required for Azure AD to connect to the application's user manag
 
 When you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute mappings. Mappings determine the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated.
 
-There's a pre-configured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a preconfigured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 When setting up provisioning, it's important to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. Review and configure the matching property (**Match objects using this attribute**) that is used to uniquely identify and match users/groups between the two systems.
 
@@ -56,15 +56,15 @@ When you configure provisioning to a SaaS application, one of the types of attri
 
 For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](../manage-apps/assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
-* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service provisions or de-provisions users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
+* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service provisions or deprovisions users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
 
 * **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../enterprise-users/groups-create-rule.md). Keep these caveats and recommendations in mind:
 
   * Dynamic groups can impact the performance of end-to-end provisioning from Azure AD to SaaS applications.
 
-  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../enterprise-users/groups-create-rule.md).
+  * How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../enterprise-users/groups-create-rule.md).
 
-  * When a user loses membership in the dynamic group, it's considered a de-provisioning event. Consider this scenario when creating rules for dynamic groups.
+  * When a user loses membership in the dynamic group, it's considered a deprovisioning event. Consider this scenario when creating rules for dynamic groups.
 
 * **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)). Instead, directly assign or otherwise [scope in](define-conditional-rules-for-provisioning-user-accounts.md) the groups that contain the users who need to be provisioned.
 
@@ -88,7 +88,7 @@ originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain
 
 ## Provisioning cycles: Initial and incremental
 
-When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
+When Azure AD is the source system, the provisioning service uses the [delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
 ### Initial cycle
 
@@ -157,7 +157,7 @@ Content-type: application/json
 }
 ```
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
-- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
+- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service is automatically disabled.
 
 ### Errors and retries
 
@@ -184,59 +184,58 @@ Performance depends on whether your provisioning job is running an initial provi
 
 All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](./check-status-user-account-provisioning.md).
 
-## De-provisioning
-The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when user access is removed.
+## Deprovisioning
+The Azure AD provisioning service keeps source and target systems in sync by deprovisioning accounts when user access is removed.
 
 The provisioning service supports both deleting and disabling (sometimes referred to as soft-deleting) users. The exact definition of disable and delete varies based on the target app's implementation, but generally a disable indicates that the user can't sign in. A delete indicates that the user has been removed completely from the application. For SCIM applications, a disable is a request to set the *active* property to false on a user. 
 
 **Configure your application to disable a user**
 
-Confirm the checkobx for updates is selected.
+Confirm the checkbox for updates is selected.
 
-Confirm the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
+Confirm the mapping for *active* for your application. If you're using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
 
 :::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
 
 
 **Configure your application to delete a user**
 
-The scenarios will trigger a disable or a delete: 
-* A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
-    30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+The scenario triggers a disable or a delete: 
+* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false). Thirty days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
 
 :::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Delete a user" lightbox="./media/how-provisioning-works/delete-user.png":::
 
-By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
+By default, the Azure AD provisioning service soft-deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
-If one of the four events occurs and the target application doesn't support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+When one of the four events occurs and the target application doesn't support soft-deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it's used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+If you see `IsSoftDeleted` in your attribute mappings, it's used to determine the state of the user and whether to send an update request with `active = false` to soft-delete the user.
 
 **Deprovisioning events**
 
-The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, if the target application doesn't support soft-deleting then the Azure AD provisioning service might send a hard-delete request to delete users rather than send a soft-delete.
 
 |Scenario|How to configure in Azure AD|
 |--|--|
-|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
-|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
-|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
-|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attriubte configuration experience](skip-out-of-scope-deletions.md).|
-|When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
-|When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
+|A user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You don't want anything to be done.|Remove `isSoftDeleted` from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
+|A user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You want to set a specific attribute to `true` or `false`.|Map `isSoftDeleted` to the attribute that you would like to set to false.|
+|A user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You want to send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
+|A user is deleted in Azure AD. You don't want anything done in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
+|A user is deleted in Azure AD. You want to set the value of an attribute in the target application.|Not supported.|
+|A user is deleted in Azure AD. You want to delete the user in the target application|Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 
 **Known limitations**
 
-* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app then a disable request is sent. At that point, the user isn't managed by the service and a delete request isn't sent when the user is deleted from the directory.
+* When a user or group is unassigned from an app and no longer managed with the provisioning service, a disable request is sent. At that point, the service doesn't manage the user and a delete request isn't sent when the user is deleted from the directory.
 * Provisioning a user that is disabled in Azure AD isn't supported. They must be active in Azure AD before they're provisioned.
-* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but won't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application doesn't support this, you can restart provisioning to update the group memberships. 
+* When a user goes from soft-deleted to active, the Azure AD provisioning service activates the user in the target app, but doesn't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application doesn't support maintaining the inactive state, you can restart provisioning to update the group memberships. 
 
 **Recommendation**
 
-When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
+When developing an application, always support both soft-deletes and hard-deletes. It allows customers to recover when a user is accidentally disabled.
 
 
 ## Next Steps

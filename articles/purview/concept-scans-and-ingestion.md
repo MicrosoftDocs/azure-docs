@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 04/20/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -64,7 +64,7 @@ If the toggle button is turned on, the new assets under a certain parent will be
 > * For any scans created or scheduled before the toggle button is introduced, the toggle state is set as on and can’t be changed. For any scans created or scheduled after the toggle button is introduced, the toggle state can’t be changed after the scan is saved. You need to create a new scan to change the toggle state.
 > * When the toggle button is turned off, for sources of storage type like Azure Data Lake Storage Gen 2 it may take up to 4 hours before the [browse by source type](how-to-browse-catalog.md#browse-by-source-type) experience becomes fully available after your scan job is completed.
 
-### Known limitations
+#### Known limitations
 When the toggle button is turned off:
 * The file entities under a partially selected parent will not be scanned.
 * If all existing entities under a parent are explicitly selected, the parent will be considered as fully selected and any new assets under the parent will be included when you run the scan again.
@@ -92,7 +92,8 @@ To keep deleted files out of your catalog, it's important to run regular scans. 
 When you enumerate large data stores like Data Lake Storage Gen2, there are multiple ways (including enumeration errors and dropped events) to miss information. A particular scan might miss that a file was created or deleted. So, unless the catalog is certain a file was deleted, it won't delete it from the catalog. This strategy means there can be errors when a file that doesn't exist in the scanned data store still exists in the catalog. In some cases, a data store might need to be scanned two or three times before it catches certain deleted assets.
 
 > [!NOTE]
-> Assets that are marked for deletion are deleted after a successful scan. Deleted assets might continue to be visible in your catalog for some time before they are processed and removed.
+> - Assets that are marked for deletion are deleted after a successful scan. Deleted assets might continue to be visible in your catalog for some time before they are processed and removed.
+> - Currently, source deletion detection is not supported for the following sources: Azure Databricks, Cassandra, DB2, Erwin, Google BigQuery, Hive Metastore, Looker, MongoDB, MySQL, Oracle, PostgreSQL, Salesforce, SAP BW, SAP ECC, SAP HANA, SAP S/4HANA, Snowflake, and Teradata. When object is deleted from the data source, the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Ingestion
 

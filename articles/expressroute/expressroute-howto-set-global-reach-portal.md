@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
@@ -48,7 +48,7 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
 
-1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
+1. Select **Save** to complete the Global Reach configuration. When the operation completes, you have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-configuration.png" alt-text="Screenshot of the save button for Global Reach configuration.":::
 
@@ -58,7 +58,7 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
 ### ExpressRoute circuits in different Azure subscriptions
 
-If the two circuits aren't in the same Azure subscription, you'll need authorization. In the following configuration, authorization is generated from circuit 2's subscription. The authorization key is then passed to circuit 1.
+If the two circuits aren't in the same Azure subscription, you need authorization. In the following configuration, authorization is generated from circuit 2's subscription. The authorization key is then passed to circuit 1.
 
 1. Generate an authorization key.
 
@@ -77,7 +77,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Screenshot of Add Global Reach with authorization key.":::
 
-1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
+1. Select **Save** to complete the Global Reach configuration. When the operation completes, you have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
 ## Verify the configuration
 

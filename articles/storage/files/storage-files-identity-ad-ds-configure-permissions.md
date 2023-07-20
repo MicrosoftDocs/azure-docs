@@ -2,8 +2,7 @@
 title: Control what a user can do at the directory and file level - Azure Files
 description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: kendownie

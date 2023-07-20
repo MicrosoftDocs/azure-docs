@@ -143,7 +143,9 @@ If you haven't already done so, create the following encryption keys. To automat
 
     ```xml
       <UserJourney Id="HelloWorldJourney">
-        <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
       </UserJourney>
     ```
     

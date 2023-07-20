@@ -12,10 +12,10 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 
 The following code example demonstrates how to connect to Service Bus using passwordless connections. The next section describes how to migrate to this setup for a specific service in more detail.
 
-A .NET Core application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
+A .NET application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
-var serviceBusClient = new ServiceBusClient(
-    new Uri("https://<your-service-bus-namespace>.blob.core.windows.net"),
+ServiceBusClient serviceBusClient = new(
+    new Uri($"https://{serviceBusNamespace}.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```

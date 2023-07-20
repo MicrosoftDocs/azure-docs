@@ -35,12 +35,12 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 ## Supported regions
 
-The following regions support workload profiles during preview:
+All regions are supported except for the following regions that are not supported during preview:
 
-- North Central US
-- North Europe
-- West Europe
-- East US
+- West US 2
+- Central US
+- UAE North
+- Germany West Central
 
 ## Profile types
 
@@ -52,9 +52,11 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-D4 | D4 | 4 | 16 | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | General purpose | per node |
+| Dedicated-D32 | D32 | 32 | 128 | General purpose | per node |
 | Dedicated-E4 | E4 | 4 | 32 | Memory optimized | per node |
 | Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
 | Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
+| Dedicated-E32 | E32 | 32 | 256 | Memory optimized | per node |
 
 Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
@@ -67,6 +69,10 @@ You can constrain the memory and CPU usage of each app inside a workload profile
 ## Scaling
 
 When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. Inversely, if the number of apps or replicas goes down, profile instances may be removed. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#consumption-dedicated) largely based on the number of running profile instances.
+
+## Networking
+
+When using workload profiles in the Consumption + Dedicated plan structure, additional networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
 
 ## Next steps
 

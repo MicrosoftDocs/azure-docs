@@ -11,7 +11,7 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -70,7 +70,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ## Atypical travel
 
-Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
+Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days or 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
 
 **To simulate an atypical travel risk detection, perform the following steps**:
 
@@ -87,7 +87,7 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
 
 **To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to **Azure Active Directory** > **App registrations**.
 3. Select **New registration** to register a new application or reuse an existing stale application.
 4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
@@ -114,7 +114,7 @@ This section provides you with steps for testing the user and the sign-in risk p
 
 To test a user risk security policy, perform the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure user risk policy**.
    1. Under **Assignments**
@@ -134,7 +134,7 @@ To test a user risk security policy, perform the following steps:
 
 To test a sign-in risk policy, perform the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure sign-in risk policy**.
    1. Under **Assignments**

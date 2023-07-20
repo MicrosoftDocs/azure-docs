@@ -52,7 +52,7 @@ sections:
   - name: Event Grid on IoT Edge
     questions:
       - question: |
-          Where happened to Event Grid on Azure IoT Edge?
+          What happened to Event Grid on Azure IoT Edge?
         answer: |
           On March 31, 2023, Event Grid on Azure IoT Edge support was retired. Use IoT Edge native capabilities instead. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md).
 

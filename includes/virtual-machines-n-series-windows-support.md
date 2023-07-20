@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/11/2019
+ ms.date: 04/18/2023
  ms.author: cynthn
  ms.custom: include
 ---
@@ -27,15 +27,21 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.
+Microsoft redistributes NVIDIA GRID driver installers for NV,NVv3 and NVads A10 v5-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.
 
 The GRID drivers redistributed by Azure don't work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers enable the graphics functionalities similar to NV-series.
 
 The NC-Series with Nvidia K80 GPUs don't support GRID/graphics applications.  
 
-The Nvidia extension always installs the latest driver. The following links to previous versions are provided to support dependencies on older driver versions.
+The Nvidia extension always installs the latest driver. 
 
-- [GRID 15.1 (528.24)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
+
+- [GRID 15.2 (528.89)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+
+The following links to previous versions are provided to support dependencies on older driver versions.
+
+For Windows 11, Windows 10  and Server 2019/20
 - [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe) 
 
 For Windows Server 2016 1607, 1709:
@@ -46,7 +52,7 @@ For Windows Server 2012 R2:
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 > [!Note]
-> vGPU 15.1 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3. In the meantime, update the following regkey before installing vGPU 15.1 driver.
+> vGPU 15.1/15.2 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3. In the meantime, update the following regkey before installing vGPU 15.1/15.2 driver.
 > >
 > To disable the remote call to ngx. 
 >

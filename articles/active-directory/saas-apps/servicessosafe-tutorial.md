@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Paste the value of Tenant ID value in **Azure Tenant ID** textbox from Azure portal.
 
-    b. Open the downloaded **Cerificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    b. Open the downloaded **Certificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
     c. In the **Login URL** box, paste the **Login URL** value that you copied from the Azure portal.
 

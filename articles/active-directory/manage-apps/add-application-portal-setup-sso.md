@@ -11,7 +11,8 @@ ms.workload: identity
 ms.date: 09/29/2022
 ms.author: jomondi
 ms.reviewer: ergleenl
-ms.custom: contperf-fy22q2, mode-other
+ms.custom: contperf-fy22q2, mode-other, enterprise-apps
+
 #Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
@@ -22,6 +23,8 @@ In this article, you use the Azure portal to enable single sign-on (SSO) for an 
 Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This article uses an enterprise application named **Azure AD SAML Toolkit 1** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
 
 It is recommended that you use a non-production environment to test the steps in this article.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
@@ -35,7 +38,7 @@ To configure SSO, you need:
 
 To enable SSO for an application:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
 1. Select **SAML** to open the SSO configuration page. After the application is configured, users can sign in to it by using their credentials from the Azure AD tenant.

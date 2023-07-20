@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: baa54168-d23a-49d8-94d1-28476138cd90
 ms.service: active-directory
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
-> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure Portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

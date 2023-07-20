@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 11/2/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Send events from API Management to Event Grid
@@ -86,5 +86,4 @@ API Management event data includes the `resourceUri`, which identifies the API M
 
 ## Next steps
 
-* [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md)
 * Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).

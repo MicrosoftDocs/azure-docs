@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/28/2023
+ms.date: 06/07/2023
 ---
 
 # Microsoft Purview accounts architectures and best practices  
@@ -15,7 +15,7 @@ To enable [Microsoft Purview governance solutions](/purview/purview#microsoft-pu
 
 ## Single Microsoft Purview account
 
-Consider deploying minimum number of Microsoft Purview (formerly Azure Purview) accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform. 
+Consider deploying minimum number of Microsoft Purview (formerly Azure Purview) accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform.
 
 Use [Microsoft Purview Data Map collections hierarchy](./concept-best-practices-collections.md) to lay out your organization's data management structure inside a single Microsoft Purview account. In this scenario, one account is deployed in an Azure subscription. Data sources from one or more Azure subscriptions can be registered and scanned inside the Microsoft Purview. You can also register and scan data sources from your on-premises or multicloud environments.
 
@@ -23,19 +23,33 @@ Use [Microsoft Purview Data Map collections hierarchy](./concept-best-practices-
 
 ## Multiple Microsoft Purview accounts
 
-Some organizations may require setting up multiple Microsoft Purview accounts. Review the following scenarios as few examples when defining your Microsoft Purview accounts architecture:  
+Some organizations may require setting up multiple Microsoft Purview accounts. Review the following scenarios as few examples when defining your Microsoft Purview accounts architecture.
 
-### Testing new features 
+### Tag your accounts
+
+When you use or create multiple Microsoft Purview accounts in your environment, use the tagging system in Azure to define them. You can add a tag when you create the resource under the Tags tab, or you can [add a tag later in the Azure portal using the Tags page in the resource](/azure/azure-resource-manager/management/tag-resources-portal).
+
+Add a tag called **Purview environment**, and give it one of the below values:
+
+|Value   |Meaning  |
+|----------|-----------|
+|Production|This account is being used or will be used in the future to support all my cataloging and governance requirements in production.|
+|Pre-Production|This account is being used or will be used in the future to validate cataloging and governance requirements before making it available to my users in production.|
+|Test|This account is being used or will be used in the future to test out capabilities in Microsoft Purview Governance. |
+|Dev|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+|Proof of Concept|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+
+### Testing new features
 
 It's recommended to create a new account when testing scan configurations or classifications in isolated environments. For some scenarios, there's a "versioning" feature in some areas of the platform such as glossary, however, it would be easier to have a "disposable" instance of Microsoft Purview to freely test expected functionality and then plan to roll out the feature into the production instance.  
 
 Additionally, consider using a test Microsoft Purview account when you can't perform a rollback. For example, currently you can't remove a glossary term attribute from a Microsoft Purview instance once it's added to your Microsoft Purview account. In this case, it's recommended using a test Microsoft Purview account first.
- 
-### Isolating Production and non-production environments 
+
+### Isolating Production and nonproduction environments
 
 Consider deploying separate instances of Microsoft Purview accounts for development, testing and production environments, specially when you have separate instances of data for each environment.  
 
-In this scenario, production and non-production data sources can be registered and scanned inside their corresponding Microsoft Purview instances.
+In this scenario, production and nonproduction data sources can be registered and scanned inside their corresponding Microsoft Purview instances.
 
 Optionally, you can register a data source in more than one Microsoft Purview instance, if needed.
 
@@ -71,7 +85,7 @@ This is where default Microsoft Purview account will help. An Azure global admin
 
 * Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default Microsoft Purview account and then set the flag as 'Yes' to the new Microsoft Purview account.
 
-* Setting up default account is a control plane operation and hence the Microsoft Purview governance portal will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default Microsoft Purview account.
+* Setting up default account is a control plane operation and hence the Microsoft Purview governance portal won't have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default Microsoft Purview account.
 
 ## Billing model 
 
@@ -86,13 +100,13 @@ For more information about cloud computing cost model in chargeback and showback
 Microsoft Purview is an Azure platform as a service solution. You can deploy a Microsoft Purview account inside your Azure subscription in any
 [supported Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview&regions=all). 
 
-If Microsoft Purview is not available in your primary Azure region, consider the following factors when choosing a secondary region to deploy your Microsoft Purview account:
+If Microsoft Purview isn't available in your primary Azure region, consider the following factors when choosing a secondary region to deploy your Microsoft Purview account:
 
 - Review the latency between your primary Azure region where data sources are deployed and your secondary Azure region, where Microsoft Purview account will be deployed. For more information, see [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
 
-- Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information see, [Where is metadata stored](concept-best-practices-security.md#where-is-metadata-stored)
+- Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information, see [Where is metadata stored](concept-best-practices-security.md#where-is-metadata-stored)
 
-- Review your network and security requirements if private network connectivity for user access or metadata ingestion is required. For more information see, [If Microsoft Purview isn't available in your primary region](concept-best-practices-network.md#if-microsoft-purview-isnt-available-in-your-primary-region)
+- Review your network and security requirements if private network connectivity for user access or metadata ingestion is required. For more information, see [If Microsoft Purview isn't available in your primary region](concept-best-practices-network.md#if-microsoft-purview-isnt-available-in-your-primary-region)
 
 ## Other considerations and recommendations 
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/03/2023
+ms.date: 04/03/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -23,7 +23,7 @@ When collaborating with external B2B guest users, it’s a good idea to protect 
 
 Example:
 
-:::image type="content" source="media/tutorial-mfa/aad-b2b-mfa-example.png" alt-text="Diagram showing a guest user signing into a company's apps.":::
+:::image type="content" source="media/tutorial-mfa/b2b-mfa-example.png" alt-text="Diagram showing a guest user signing into a company's apps.":::
 
 
 1. An admin or employee at Company A invites a guest user to use a cloud or on-premises application that is configured to require MFA for access.
@@ -71,20 +71,20 @@ To complete the scenario in this tutorial, you need:
 
 ## Test the sign-in experience before MFA setup
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com/).
 1. You should be able to access the Azure portal using only your sign-in credentials. No other authentication is required.
 1. Sign out.
 
 ## Create a Conditional Access policy that requires MFA
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Security**.
 1. Under **Protect**, select **Conditional Access**.
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
 
@@ -129,7 +129,7 @@ To complete the scenario in this tutorial, you need:
 
 ## Test your Conditional Access policy
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com/).
 1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::

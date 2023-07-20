@@ -31,6 +31,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 >* Cross-resource query as an alert isn't supported.
 >* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 > * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+> * Private Link is not supported with this feature.
 
 ## Function supportability
 

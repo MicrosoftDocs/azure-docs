@@ -339,6 +339,11 @@
             "source_path_from_root": "/articles/iot-edge/tutorial-python-module.md",
             "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-vs-code-develop-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
         }
     ]
 }

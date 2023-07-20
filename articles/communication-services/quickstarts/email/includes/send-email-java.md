@@ -13,6 +13,9 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
 
+> [!TIP]
+> Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
+
 ## Understanding the email object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
@@ -102,7 +105,9 @@ public class App
 
 ## Creating the email client with authentication
 
-### Option 1: Authenticate using a connection string
+There are a few different options available for authenticating an email client:
+
+#### [Connection String](#tab/connection-string)
 
 To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
@@ -117,7 +122,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-### Option 2: Authenticate using Azure Active Directory
+#### [Azure Active Directory](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -132,7 +137,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-### Option 3: Authenticate using AzureKeyCredential
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
@@ -145,7 +150,11 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
+---
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
+
+
 
 ## Basic email sending 
 
@@ -222,119 +231,6 @@ Make these replacements in the code:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
-
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
-
-## Advanced sending
-
-### Send an email message to multiple recipients
-
-To send an email message to multiple recipients, add the new addresses in the appropriate `EmailMessage` setter. These addresses can be added as `To`, `CC`, or `BCC` recipients.
-
-```java
-EmailMessage message = new EmailMessage()
-    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
-    .setSubject("Welcome to Azure Communication Services Email")
-    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
-    .setToRecipients("<recipient1@emaildomain.com>", "<recipient2@emaildomain.com>")
-    .setCcRecipients("<recipient3@emaildomain.com>")
-    .setBccRecipients("<recipient4@emaildomain.com>");
-
-SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
-PollResponse<EmailSendResult> response = poller.waitForCompletion();
-
-System.out.println("Operation Id: " + response.getValue().getId());
-```
-
-To customize the email message recipients further, you can instantiate the `EmailAddress` objects and pass that them to the appropriate `EmailMessage` setters.
-
-```java
-EmailAddress toAddress1 = new EmailAddress("<recipient1@emaildomain.com>")
-    .setDisplayName("Recipient");
-
-EmailAddress toAddress2 = new EmailAddress("<recipient2@emaildomain.com>")
-    .setDisplayName("Recipient 2");
-
-EmailMessage message = new EmailMessage()
-    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
-    .setSubject("Welcome to Azure Communication Services Email")
-    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
-    .setToRecipients(toAddress1, toAddress2)
-    .setCcRecipients(toAddress1, toAddress2)
-    .setBccRecipients(toAddress1, toAddress2)
-
-SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
-PollResponse<EmailSendResult> response = poller.waitForCompletion();
-
-System.out.println("Operation Id: " + response.getValue().getId());
-```
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
-
-### Send an email message with attachments
-
-We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
-
-```java
-BinaryData attachmentContent = BinaryData.fromFile(new File("C:/attachment.txt").toPath());
-EmailAttachment attachment = new EmailAttachment(
-    "attachment.txt",
-    "text/plain",
-    attachmentContent
-);
-
-EmailMessage message = new EmailMessage()
-    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
-    .setToRecipients("<emailalias@emaildomain.com>")
-    .setSubject("Welcome to Azure Communication Services Email")
-    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
-    .setAttachments(attachment);
-
-SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
-PollResponse<EmailSendResult> response = poller.waitForCompletion();
-
-System.out.println("Operation Id: " + response.getValue().getId());
-```
-
-For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
-
-### Throw an exception when email sending tier limit is reached
-
-The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `beginSend` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/azure/developer/java/sdk/logging-overview) to capture these response codes.
-
-Alternatively, you can manually define a custom policy as shown below. 
-
-```java
-import com.azure.core.http.HttpResponse;
-import com.azure.core.http.policy.ExponentialBackoff;
-
-public class CustomStrategy extends ExponentialBackoff {
-    @Override
-    public boolean shouldRetry(HttpResponse httpResponse) {
-        int code = httpResponse.getStatusCode();
-
-        if (code == HTTP_STATUS_TOO_MANY_REQUESTS) {
-            throw new RuntimeException(httpResponse);
-        }
-        else {
-            return super.shouldRetry(httpResponse);
-        }
-    }
-}
-```
-
-Add this retry policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
-
-```java
-import com.azure.core.http.policy.RetryPolicy;
-
-EmailClient emailClient = new EmailClientBuilder()
-    .connectionString(connectionString)
-    .retryPolicy(new RetryPolicy(new CustomStrategy()))
-    .buildClient();
-```

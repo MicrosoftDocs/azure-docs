@@ -16,7 +16,7 @@
         href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
 - name: How-to-guides
   items:
-  - name: Create Peering Service
+  - name: Manage Peering Service
     items:
       - name: Azure portal
         href: azure-portal.md
@@ -26,8 +26,6 @@
         href: cli.md
   - name: Access connection telemetry
     href: connection-telemetry.md
-  - name: Measure connection telemetry
-    href: measure-connection-telemetry.md
 - name: References
   items:
   - name: Azure PowerShell

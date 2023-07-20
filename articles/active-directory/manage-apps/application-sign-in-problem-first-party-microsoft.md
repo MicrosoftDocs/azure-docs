@@ -12,6 +12,7 @@ ms.date: 09/10/2018
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Problems signing in to a Microsoft application
@@ -103,6 +104,8 @@ Application access can be blocked due to a problem with a user that is assigned 
 - [Check a user’s assigned licenses](#check-a-users-assigned-licenses)
 
 - [Assign a user a license](#assign-a-user-a-license)
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ### Check if a user account exists in Azure Active Directory
 

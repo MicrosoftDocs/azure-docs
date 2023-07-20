@@ -4,6 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.date: 03/15/2023
 ms.devlang: javascript, typescript
+ms.custom: devx-track-js
 ms.topic: how-to
 ---
 
@@ -95,7 +96,7 @@ The trigger input is now the first argument to your function handler instead of 
 
 ## Define your function in code
 
-Say goodbye 👋 to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
+Say goodbye to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
 
 # [v4](#tab/v4)
 
@@ -250,7 +251,7 @@ const testInvocationContext = new InvocationContext({
 
 # [v3](#tab/v3)
 
-Not possible 😮
+Not possible.
 
 ---
 
@@ -364,3 +365,10 @@ The http request and response types are now a subset of the [fetch standard](htt
 If you see the following error, make sure you [set the `EnableWorkerIndexing` flag](#enable-v4-programming-model) and you're using the minimum version of all [requirements](#requirements):
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
+
+If you see the following error, make sure you're using Node.js version 18.x:
+
+> System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
+> Exception: undici_1.Request is not a constructor
+
+For any other issues or feedback, feel free to file an issue on our [GitHub repo](https://github.com/Azure/azure-functions-nodejs-library/issues).

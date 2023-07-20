@@ -42,6 +42,8 @@ Azure AD Connect or Azure AD Connect cloud sync synchronize your on-premises ide
 > Additional configuration is required when passwordless authentication to Azure AD joined devices is used.
 >
 > For FIDO2 security key based passwordless authentication and Windows Hello for Business Hybrid Cloud Trust, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md).
+>
+> For Windows Hello for Business Cloud Kerberos Trust, see [Configure and provision Windows Hello for Business - cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust-provision).
 > 
 > For Windows Hello for Business Hybrid Key Trust, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base).
 > 

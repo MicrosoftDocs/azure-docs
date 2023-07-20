@@ -100,7 +100,7 @@ Viewing your production tenant conditional access policies may need to be perfor
 1. Navigate to **Cloud apps or actions**.
 1. If the policy only applies to a select group of apps, then move on to the next policy. If not, then it will likely apply to your app as well when you move to production. You should copy the policy over to your test tenant.
 
-In a new tab or browser session, navigate to the [Azure portal](https://portal.azure.com), and sign into your test tenant.
+In a new tab or browser session, sign in to the [Azure portal](https://portal.azure.com) to access your test tenant.
 
 1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
 1. Click on **New policy**
@@ -119,7 +119,7 @@ Replicating permission grant policies ensures you don't encounter unexpected pro
 
 Replicating token lifetime policies ensures tokens issued to your application don't expire unexpectedly in production.
 
-Token lifetime policies can currently only be managed through PowerShell. Read about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md) to learn about identifying any token lifetime policies that apply to your whole production organization. Copy those policies to your test tenant.
+Token lifetime policies can currently only be managed through PowerShell. Read about [configurable token lifetimes](configurable-token-lifetimes.md) to learn about identifying any token lifetime policies that apply to your whole production organization. Copy those policies to your test tenant.
 
 ## Set up a test environment in your production tenant
 If you can safely constrain your test app in your production tenant, go ahead and set up your tenant for testing purposes.

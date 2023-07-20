@@ -96,7 +96,12 @@ sections:
           Can I select between automatic and manual upgrades for my cluster runtime?
         answer: |
           Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
-          
+
+      - question: |
+          Can I set up maintenance control for my cluster?
+        answer: |
+          Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
   - name: Applications
     questions:
       - question: |

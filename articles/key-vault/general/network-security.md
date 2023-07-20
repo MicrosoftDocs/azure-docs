@@ -26,10 +26,10 @@ By default, when you create a new key vault, the Azure Key Vault firewall is dis
 
 ### Key Vault Firewall Enabled (Trusted Services Only)
 
-When you enable the Key Vault Firewall, you'll be given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list are not trusted or insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
+When you enable the Key Vault Firewall, you'll be given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list are not trusted or are insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
 
 To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services).
-For how-to guide, follow the instructions here for [Portal, Azure CLI and PowerShell](how-to-azure-key-vault-network-security.md)
+For a how-to guide, follow the instructions here for [Portal, Azure CLI and PowerShell](how-to-azure-key-vault-network-security.md)
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
@@ -62,7 +62,7 @@ In this case, you should create the resource within a virtual network, and then 
 To understand how to configure a private link connection on your key vault, please see the document [here](./private-link-service.md).
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of key vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
