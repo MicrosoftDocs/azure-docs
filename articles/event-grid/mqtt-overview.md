@@ -1,5 +1,5 @@
 ---
-title: 'Overview of the MQTT Support in Azure Event Grid'
+title: 'Overview of MQTT Support in Azure Event Grid (preview)'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 05/23/2023
@@ -16,12 +16,13 @@ Azure Event Grid enables your MQTT clients to communicate with each other and wi
 
 You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples)
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
-> [!NOTE]
-> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
