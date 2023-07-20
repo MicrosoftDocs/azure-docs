@@ -294,10 +294,10 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
-            "select": "title, content, category"
             "k": 10
         },
     ],
+    "select": "title, content, category",
     "filter": "category eq 'Databases'"
 }
 ```
