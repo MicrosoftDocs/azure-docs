@@ -41,9 +41,9 @@ Returns a 64-bit integer.
 
 This example tests the function with various static values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts//query.novalidate.sql" highlight="2-4":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitnot/query.novalidate.sql" highlight="2-4":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts//result.novalidate.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitnot/result.novalidate.json":::
 
 ## Remarks
 
