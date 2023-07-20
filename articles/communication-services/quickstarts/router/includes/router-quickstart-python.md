@@ -139,7 +139,7 @@ worker = router_client.create_worker(
     router_worker = RouterWorker(
         total_capacity = 1,
         queue_assignments = {
-            queue.id: {}
+            "queue-1": {}
         },
         labels = {
             "Some-Skill": 11
@@ -205,6 +205,7 @@ To run the code, make sure you are on the directory where your `router-quickstar
 ```console
 python router-quickstart.py
 
+Azure Communication Services - Job Router Quickstart
 Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
