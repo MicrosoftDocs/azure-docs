@@ -9,14 +9,14 @@ ms.date: 07/18/2023
 
 # Microsoft Sentinel solution for SAP® applications - SAP Audit Controls workbook (Preview)
 
-This article describes the SAP Audit Controls workbook, which allows you to configure a control framework for SAP, so it can be used as base for auditing according to the SOX and NIST frameworks, or any customized framework.
+This article describes the SAP Audit Controls workbook. The workbook allows you to configure a control framework for SAP, so it can be used as base for auditing your Microsoft Sentinel configuration for compliance with the Sarbanes-Oxley (SOX) and NIST frameworks, or any other existing or custom framework.
 
-Available functionality:
+The following functionality is available in this workbook:
 
-Receive recommendations regarding the state of the different alert rules
-Modify the OOTB association of the different alert rules to the SOX or NIST control framework or apply your own control language
-Review the incidents and alerts detailed by the selected control framework
-Export the relevant incidents for auditing purposes
+- Receive recommendations regarding the state of the different alert rules
+- Modify the OOTB association of the different alert rules to the SOX or NIST control framework or apply your own control language
+- Review the incidents and alerts detailed by the selected control framework
+- Export the relevant incidents for auditing purposes
 
 
 ---
