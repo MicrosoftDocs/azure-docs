@@ -43,8 +43,6 @@ This example uses a container with a partition key path of `/pk`. There are thre
 
 This function returns the same static date and time for items within the same partition. For comparison, the nonstatic function gets a new date and time value for each item matched by the query.
 
-
-
 > [!NOTE]
 > It's possible for items in different logical partitions to exist in the same physical partition. In this scenario, the static date and time value would be identical.
 
