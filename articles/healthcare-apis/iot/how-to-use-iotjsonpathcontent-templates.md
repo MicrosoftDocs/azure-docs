@@ -20,7 +20,7 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 IotJsonPathContent templates can be used when the MedTech service ingests device messages [routed](../../iot-hub/iot-concepts-and-iot-hub.md#message-routing-sends-data-to-other-endpoints) from an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). When IotJsonPathContent templates are used within the [device mapping](overview-of-device-mapping.md), the MedTech service extracts the device ID and measurement timestamp from metadata provided by an IoT hub. The DeviceIdExpression and TimestampExpression shouldn't be included in IotJsonPathContent templates.
 
-The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: PatientIdExpression, ValueExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't supported.
+The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: PatientIdExpression, ValueExpression, etc.). IotJsonPathContent templates are similar to the [CalculatedContent templates](how-to-use-calculatedcontent-templates.md) except the DeviceIdExpression and TimestampExpression aren't supported.
 
 > [!NOTE]
 > JMESPath is not supported by IotJsonPathContent templates.
@@ -47,7 +47,7 @@ If your MedTech service is set up to ingest device messages from an IoT hub, you
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
 |Element|Description|JSONPath expression example|
-|:------|:----------|:------------------|
+|:------|:----------|:--------------------------|
 |typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match.|`$..[?(@heartRate)]`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.SystemProperties.iothub-connection-device-id`|
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.Body.encounterId`|

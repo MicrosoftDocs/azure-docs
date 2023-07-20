@@ -48,8 +48,8 @@ In the following example, `typeMatchExpression` is defined as:
 
 The CalculatedContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
-|Element|Description|JSONPath expression|JMESPath expression|
-|:------|:----------|:------------------|:------------------|
+|Element|Description|JSONPath expression example|JMESPath expression example|
+|:------|:----------|:--------------------------|:--------------------------|
 |typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match. The service evaluates all later expressions against the extracted token value matched here.|`$..[?(@heartRate)]`|``[Body][?contains(keys(@), `heartRate`)] \| @[0]``|
 |deviceIdExpression|The expression to extract the device identifier.|`$.matchedToken.deviceId`|`@.matchedToken.deviceId`|
 |timestampExpression|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|`@.matchedToken.endDate`|
