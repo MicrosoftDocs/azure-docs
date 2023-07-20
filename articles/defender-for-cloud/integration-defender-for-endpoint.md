@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 07/20/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -257,6 +257,15 @@ Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to ver
 ##### Enable for multiple subscriptions with a PowerShell script
 
 Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
+
+##### Manage automatic updates configuration for Linux
+
+In Windows, Defender for Endpoint version updates are provided via continuous knowledge base updates; in Linux you need to update the Defender for Endpoint package. When you use Defender for Servers with the `MDE.Linux` extension, automatic updates for Microsoft Defender for Endpoint are enabled by default. If you wish to manage the Defender for Endpoint version updates manually, you can disable automatic updates on your machines. To do so, add the following tag for machines onboarded with the `MDE.Linux` extension.
+
+- Tag name: 'ExcludeMdeAutoUpdate'
+- Tag value:  'true'
+
+This configuration is supported for Azure VMs and Azure Arc machines, where the `MDE.Linux` extension initiates auto-update.
 
 ### Enable the MDE unified solution at scale
 

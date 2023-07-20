@@ -37,7 +37,7 @@ To configure the admin consent workflow, you need:
 
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com)  with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com)  with one of the roles listed in the prerequisites.
 1. Search for and select **Azure Active Directory**.
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Consent and permissions**.
