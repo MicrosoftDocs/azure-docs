@@ -43,7 +43,7 @@ Logical decoding:
 2. Set the server parameter `wal_level` to `logical`.
 3. If you want to use pglogical extension, search for the `shared_preload_libraries`, and `azure.extensions` parameters, and select `pglogical` from the drop-down box.
 4. Update `max_worker_processes` parameter value to at least 16. Otherwise, you may run into issues like `WARNING: out of background worker slots`.
-5. Save the changes and restart the server to apply the `wal_level` change.
+5. Save the changes and restart the server to apply the changes.
 6. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
 7. Grant the admin user replication permissions.
    ```SQL
