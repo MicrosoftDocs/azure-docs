@@ -17,9 +17,13 @@ keywords:
 
 ## July 2023
 
-### Support for function calling 
+### Support for function calling
 
 - [Azure OpenAI now supports function calling](./how-to/function-calling.md) to enable you to work with functions in the chat completions API.
+
+### Embedding input array increase
+
+- Azure OpenAI now supports arrays with up to 16 inputs per API request with text-embedding-ada-002 Version 2.
 
 ## June 2023
 
