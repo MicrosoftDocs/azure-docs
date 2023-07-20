@@ -17,7 +17,7 @@ ms.devlang: javascript
 Continue to build your search-enabled website by following these steps:
 * Create a search resource
 * Create a new index
-* Import data with JavaScript using the [sample script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+* Import data with JavaScript using the [sample script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert-v4/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
 ## Create an Azure Cognitive Search resource
 
@@ -73,19 +73,19 @@ Create a new search resource using PowerShell and the **Az.Search** module. In t
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The ESM script uses the Azure SDK for Cognitive Search:
 
 * [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
 
-1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-website-functions-v4/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-website-functions-v4/bulk-insert-v4`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/bulk-insert/bulk_insert_books.js" :::
+    :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/bulk-insert-v4/bulk_insert_books.js" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, and run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert-v4`, and run the following command to install the dependencies. 
 
     ```bash
     npm install 
@@ -93,7 +93,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert-v4`, to run the following bash command to run the `bulk_insert_books.js` script:
 
     ```javascript
     npm start

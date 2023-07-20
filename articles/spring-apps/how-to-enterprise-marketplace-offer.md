@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, engagement-fy23, references_regions
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
 # Enterprise plan in Azure Marketplace

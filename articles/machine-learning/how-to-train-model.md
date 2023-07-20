@@ -15,7 +15,7 @@ ms.custom: sdkv2, ignite-2022, build-2023
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning provides multiple ways to submit ML training jobs. In this article, you'll learn how to submit jobs using the following methods:
 

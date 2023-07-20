@@ -43,4 +43,4 @@
 
 1. Go to **Azure Active Directory**. In the left pane, click **Enterprise applications**. You'll see **Azure VPN** listed.
 
-   :::image type="content" source="./media/vpn-gateway-vwan-azure-ad-tenant/vpn.png" alt-text="Screenshot of the Enterprise application page showing Azure V P N listed." lightbox="./media/vpn-gateway-vwan-azure-ad-tenant/vpn.png":::
+   :::image type="content" source="./media/vpn-gateway-vwan-tenant/vpn.png" alt-text="Screenshot of the Enterprise application page showing Azure V P N listed." lightbox="./media/vpn-gateway-vwan-tenant/vpn.png":::

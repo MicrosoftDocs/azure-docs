@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 06/02/2023
+  ms.date: 07/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -57,6 +57,8 @@ landingContent:
             url: overview-of-device-mapping.md
           - text: Overview of the FHIR destination mapping
             url: overview-of-fhir-destination-mapping.md 
+          - text: Overview of the MedTech service scenario-based mappings samples
+            url: overview-of-samples.md
       - linkListType: how-to-guide
         links:
           - text: Mapping debugger

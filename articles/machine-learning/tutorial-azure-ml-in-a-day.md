@@ -16,7 +16,7 @@ ms.custom: sdkv2, ignite-2022, build-2023, devx-track-python
 
 # Quickstart: Get started with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
 
@@ -495,7 +495,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

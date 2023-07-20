@@ -96,40 +96,39 @@ Below are sample requests to help outline what the sync engine currently sends v
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-    {
+      {
         "op": "Add",
         "path": "nickName",
         "value": "Babs"
-     }
-   ]
-}
-
+      }
+    ]
+  }
   ```
 
 **With feature flag**
   ```json
-{
-  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-  "Operations": [
-    {
-      "op": "add",
-      "path": "nickName",
-      "value": "Babs"
-    }
-  ]
-}
+  {
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
+      {
+        "op": "add",
+        "path": "nickName",
+        "value": "Babs"
+      }
+    ]
+  }
   ```
 
 **Requests to replace multiple attributes:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -165,12 +164,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "Eqpj"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -190,14 +189,14 @@ Below are sample requests to help outline what the sync engine currently sends v
             }
         }
     ]
-} 
+  }
   ```
 
 **Requests made to remove a group member:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -212,12 +211,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             ]
         }
     ]
-} 
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -227,9 +226,8 @@ Below are sample requests to help outline what the sync engine currently sends v
             "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
         }
     ]
-}
+  }
   ```
-
 
   * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
 

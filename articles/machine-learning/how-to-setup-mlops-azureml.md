@@ -15,7 +15,7 @@ ms.custom: cli-v2, sdk-v2
 
 # Set up MLOps with Azure DevOps
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning allows you to integrate with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
 

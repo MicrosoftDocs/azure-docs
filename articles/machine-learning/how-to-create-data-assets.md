@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, ignite-2022
+ms.custom: data4ml, ignite-2022, devx-track-azurecli
 ms.author: xunwan
 author: SturgeonMi
 ms.reviewer: franksolomon
@@ -14,7 +14,7 @@ ms.date: 06/20/2023
 ---
 
 # Create and manage data assets
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 This article shows how to create and manage data assets in Azure Machine Learning.

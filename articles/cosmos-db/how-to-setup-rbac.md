@@ -5,7 +5,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 07/12/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: ignite-2022
@@ -13,7 +13,7 @@ ms.custom: ignite-2022
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 
-[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.

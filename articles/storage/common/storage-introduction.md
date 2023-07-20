@@ -4,11 +4,11 @@ description: The Azure Storage platform is Microsoft's cloud storage solution. A
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/10/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: ignite-2022
 ---
 

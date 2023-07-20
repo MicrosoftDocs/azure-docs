@@ -2,11 +2,10 @@
 title: NFS file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/15/2022
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 

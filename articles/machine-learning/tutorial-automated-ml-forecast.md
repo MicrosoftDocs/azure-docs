@@ -238,7 +238,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
