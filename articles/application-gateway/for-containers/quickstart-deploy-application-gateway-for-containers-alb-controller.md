@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 07/12/2023
+ms.date: 07/19/2023
 ms.author: greglin
 ---
 
@@ -26,7 +26,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. Prepare your Azure subscription and your `az-cli` client.
 
 	```azurecli-interactive
-	# Login to your Azure subscription.
+	# Sign in to your Azure subscription.
 	SUBSCRIPTION_ID='<your subscription id>'
 	az login
 	az account set --subscription $SUBSCRIPTION_ID
@@ -41,14 +41,14 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az extension add --name alb
 	```
 
-2. Create an AKS cluster for your workload.
+2. Set an AKS cluster for your workload.
 
-	> **Prerequisites**
-	> The AKS cluster needs to be in the [regions where Application Gateway for Containers is available](overview.md#supported-regions)
+	> [!NOTE]
+	> The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
 	> AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
-        > AKS cluster should have workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable in use an existing AKS cluster section. 
+    > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable and use an existing AKS cluster section. 
 
-	If using an existing cluster, please ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
+	If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
 	
 	```azurecli-interactive
  	AKS_NAME='<your cluster name>'
@@ -76,11 +76,14 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--generate-ssh-key
 	```
 
-3. Install Helm.
+3. Install Helm (optional)
 
-	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
+[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
-	For linux users, the following command may be run
+Helm is already available in Azure Cloud Shell.  If you are using Azure CLI, no additional Helm installation is necessary. You can also install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
+
+- Windows: See the [instructions for installation](https://github.com/helm/helm#install).
+- Linux: The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
 	```bash
  	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 	```
@@ -106,7 +109,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
 	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
 	
-	echo "Setup federation with AKS OIDC issuer"
+	echo "Set up federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
 	az identity federated-credential create --name $IDENTITY_RESOURCE_NAME \
 	    --identity-name "azure-alb-identity" \
@@ -123,9 +126,9 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	### For new deployments
 	ALB Controller can be installed by running the following commands:
 
-	```bash
+	```azurecli-interactive
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm --install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+	helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
 	     --version 0.4.023901 \
 	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
@@ -135,7 +138,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	### For existing deployments
 	ALB can be upgraded by running the following commands (ensure you replace the namespace if you specified your own in the previous installation):
-	```bash
+	```azurecli-interactive
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 	helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
              --namespace azure-alb-system \
@@ -147,7 +150,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 1. Verify the ALB Controller pods are ready:
 
-    ```bash
+    ```azurecli-interactive
     kubectl get pods -n azure-alb-system
     ```
     You should see the following:
@@ -159,7 +162,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
-    ```bash
+    ```azurecli-interactive
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
@@ -187,7 +190,7 @@ If you wish to uninstall the ALB Controller, you may complete the following step
 
 2. To uninstall ALB Controller and its resources from your cluster run the following commands:
 
-	```bash
+	```azurecli-interactive
 	 helm uninstall alb-controller -n azure-alb-system
 	 kubectl delete ns azure-alb-system
 	 kubectl delete gatewayclass azure-alb-external
