@@ -1,4 +1,4 @@
----
+   ---
 title: Federation with a SAML/WS-Fed identity provider (IdP) for B2B
 description: Directly federate with a SAML or WS-Fed identity provider so guests can sign in to your Azure AD apps
 
@@ -150,7 +150,7 @@ Required claims for the SAML 2.0 token issued by the IdP:
 |Attribute Name |Value  |
 |---------|---------|
 |NameID Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | Emailaddress |
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | emailaddress |
 
 ### WS-Fed configuration
 
@@ -179,7 +179,7 @@ Required claims for the WS-Fed token issued by the IdP:
 |Attribute  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
-|Emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
+|emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
