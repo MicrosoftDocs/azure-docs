@@ -193,7 +193,7 @@ embedding = openai.Embedding.create(
   input=inputs,
   deployment_id="text-embedding-ada-002"
   #engine="text-embedding-ada-002"
-    )
+)
 ```
 
 </td>
