@@ -50,7 +50,7 @@ For more information about the governance capabilities of Microsoft Purview, for
     The list shows only locations that support the Microsoft Purview governance portal. The location you choose will be the region where your Microsoft Purview account and meta data will be stored. Sources can be housed in other regions.
 
       > [!Note]
-      > The Microsoft Purview, formerly Azure Purview, does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
+      > The Microsoft Purview, formerly Azure Purview, does not support moving accounts across regions, so be sure to deploy to the correct region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
 1. You can choose a name for your managed resource group. Microsoft Purview will create a managed storage account in this group that it will use during its processes.
 
