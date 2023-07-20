@@ -18,7 +18,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
 
 | Setting | Value |
 |--|--|
@@ -39,7 +39,7 @@ After you sign in with GitHub, enter the repository information.
 | Repository| Select **my-first-web-static-app**. |
 | Branch | Select **main**. |
 
-:::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
 
 > [!NOTE]
 > If you don't see any repositories:
@@ -49,3 +49,23 @@ After you sign in with GitHub, enter the repository information.
 ::: zone-end
 
 ::: zone pivot="azure-devops"
+
+In the _Basics_ section, begin by configuring your new app and linking it to an Azure DevOps repository.
+
+| Setting | Value |
+|--|--|
+| Subscription | Select your Azure subscription. |
+| Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
+| Name | Enter **my-first-static-web-app** in the textbox. |
+| Plan type | Select **Free**. |
+| Azure Functions and staging details | Select a region closest to you. |
+| Source | Select **DevOps**. |
+| Organization | Select your organization. |
+| Project | Select your project. |
+| Repository| Select **my-first-web-static-app**. |
+| Branch | Select **main**. |
+
+> [!NOTE]
+> Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.
+
+::: zone-end

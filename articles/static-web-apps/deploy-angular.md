@@ -102,7 +102,7 @@ Select **Go to resource**.
 
 ## Clean up resources
 
-[!INCLUDE [clean up](../../includes/static-web-apps/static-web-apps-tutorials-clean-up.md)]
+[!INCLUDE [clean up](../../includes/static-web-apps/static-web-apps-tutorials-portal-clean-up.md)]
 
 ## Next steps
 
