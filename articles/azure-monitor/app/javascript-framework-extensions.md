@@ -510,7 +510,7 @@ N/A
 
 - **React Native Plugin**: In addition to user agent info from the browser, which is collected by Application Insights web package, React Native also collects device information. Device information is automatically collected when you add the plug-in.
 - **React Native Manual Device Plugin**: Depending on what you set up when you added the extension to your code, this plugin either:
-   - Doesn't collect device information by default, which is required if you're building using React Native Expo
+   - Doesn't collect device information by default
    - Uses your own device info collection class
 
 #### [Angular](#tab/angular)
