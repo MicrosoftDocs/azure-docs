@@ -40,55 +40,56 @@ landingContent:
             url: getting-started.md    
       - linkListType: quickstart
         links:
-          - text: Deploy an ASP.NET web app
+          - text: ASP.NET
             url: quickstart-dotnetcore.md
-          - text: Deploy a Node.js web app
+          - text: Python
+            url: quickstart-python.md            
+          - text: Node.js
             url: quickstart-nodejs.md
-          - text: Deploy a PHP web app
+          - text: PHP
             url: quickstart-php.md           
-          - text: Deploy a Java app
-            url: quickstart-java.md
-          - text: Create a WordPress site
+          - text: WordPress
             url: quickstart-wordpress.md
-          - text: Deploy a Python web app
-            url: quickstart-python.md
-          - text: Run a custom container
-            url: quickstart-custom-container.md            
+          - text: Custom container
+            url: quickstart-custom-container.md                        
+          - text: Java
+            url: quickstart-java.md
 
-  - title: Develop apps
+
+  - title: Build a CRUD app
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Security in Azure App Service
-            url: overview-security.md    
       - linkListType: tutorial
         links:
-          - text: Build an ASP.NET app with Azure SQL Database
+          - text: ASP.NET and Azure SQL Database app
             url: app-service-web-tutorial-dotnet-sqldatabase.md
-          - text: Build an ASP.NET Core and Azure SQL Database app
+          - text: ASP.NET Core and Azure SQL Database app
             url: tutorial-dotnetcore-sqldb-app.md
-          - text: Deploy a Python (Django) web app with PostgreSQL
+          - text: Python (Django) and PostgreSQL app
             url: tutorial-python-postgresql-app.md            
-          - text: Build a PHP and MySQL app
+          - text: PHP and MySQL app
             url: tutorial-php-mysql-app.md
-          - text: Build a Node.js and MongoDB app
+          - text: Node.js and MongoDB app
             url: tutorial-nodejs-mongodb-app.md
-          - text: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
+          - text: Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
             url: tutorial-java-spring-cosmosdb.md
-          - text: Create a multi-container (preview) app
+          - text: A multi-container (preview) and MySQL app
             url: tutorial-multi-container-app.md                
       - linkListType: reference
         links:
           - text: REST API
             url: /rest/api/appservice/
 
-  - title: Common tasks
+  - title: Secure and deploy  
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Security in Azure App Service
+            url: overview-security.md        
       - linkListType: tutorial
         links:
           - text: Secure with custom domain and certificate
             url: tutorial-secure-domain-certificate.md
-          - text: Upload content with FTP
-            url: deploy-ftp.md
           - text: Continuous deployment to Azure App Service
             url: deploy-continuous-deployment.md
+          - text: Upload content with FTP
+            url: deploy-ftp.md
