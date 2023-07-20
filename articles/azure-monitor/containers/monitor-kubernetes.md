@@ -34,17 +34,29 @@ Responsibility for the [different layers of a a Kubernetes environment and the a
 
 Azure provides a complete set of services for monitoring the different layers of your Kubernetes infrastructure and the applications that depend on it. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools. 
 
+Your choice of which tools to deploy and their configuration will depend on the requirements of your particular environment in addition to any existing investment in cloud native technologies endorsed by the [Cloud Native Computing Foundation](https://www.cncf.io/). For example, you may use the managed offerings in Azure for Prometheus and Grafana, or you may choose to use your existing installation of these tools with your Kubernetes clusters in Azure. Your organization may be using alternative tools to Container insights to collect and analyze Kubernetes logs, such as Splunk or Datadog.
+
+Monitoring a complex environment such as Kubernetes involves collecting a significant amount of telemetry, much of which incurs a cost. You should collect the just enough data to meet their requirements and no more. This includes the amount of data collected, the frequency of collection, and the retention period. If you're  very cost conscious, you may choose to implement a subset of the full functionality in order to reduce your monitoring spend.
 
 ## Cluster administrator
 
 The cluster administrator, also known as the platform engineer, is responsible for the Kubernetes cluster itself. They provision and maintain the platform used by developers. They need to understand the health of the cluster and its components, and be able to troubleshoot any detected issues. They also need to understand the cost of the cluster and its components, and potentially to be able to allocate costs to different teams.
 
+:::image type="content" source="media/monitor-containers/layers-cluster-administrator.png" alt-text="Diagram of layers of Kubernetes environment for cluster administrator." lightbox="media/monitor-containers/layers-cluster-administrator.png"  border="false":::
+
+
 Large organizations may also have a fleet architect, which is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations for the fleet architect are included in the guidance below.
 
+The sections below provide the following details for the cluster administrator.
 
-### Monitoring services
+- [Monitoring services](#monitoring-services-for-cluster-administrator)
+- [Monitoring layers of the cluster](#monitoring-layers-of-the-cluster)
+- [Alerts](#alerts-for-cluster-administrator)
+- [Additional monitoring scenarios](#additional-cluster-monitoring-scenarios)
 
-Azure provides a complete set of services for monitoring the different layers of your Kubernetes infrastructure and the applications that depend on it. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools. The following table lists the services that are commonly used by the cluster administrator to monitor the health and performance of the Kubernetes cluster and its components.  
+### Monitoring services for cluster administrator
+
+The following table lists the services that are commonly used by the cluster administrator to monitor the health and performance of the Kubernetes cluster and its components. The following sections identify the steps for complete monitoring of your Kubernetes environment using the Azure services listed above. Functionality and integration options are provided for each to each to help you determine where you may need to modify this configuration to meet your particular requirements.
 
 | Service | Description |
 |:---|:---|
@@ -53,14 +65,6 @@ Azure provides a complete set of services for monitoring the different layers of
 | [Azure Arc-enabled Kubernetes](container-insights-enable-arc-enabled-clusters.md) | Allows you to attach to Kubernetes clusters running in other clouds so that you can manage and configure them in Azure. With the Arc agent installed, you can monitor AKS and hybrid clusters together using the same methods and tools, including Container insights. |
 | [Azure Managed Grafana](../../managed-grafana/overview.md) | Fully managed implementation of [Grafana](https://grafana.com/), which is an open-source data visualization platform commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.  |
 | [OpenCost](https://www.opencost.io/docs/azure-opencost) | Open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data in addition to [customer-specific Azure pricing](https://www.opencost.io/docs/azure-prices) to Azure storage to assist the cluster administrator in analyzing and categorizing costs. |
-
-
-### Configuration
-Your choice of which tools to deploy and their configuration will depend on the requirements of your particular environment in addition to any existing investment in cloud native technologies endorsed by the [Cloud Native Computing Foundation](https://www.cncf.io/). For example, you may use the managed offerings in Azure for Prometheus and Grafana, or you may choose to use your existing installation of these tools with your Kubernetes clusters in Azure. Your organization may be using alternative tools to Container insights to collect and analyze Kubernetes logs, such as Splunk or Datadog.
-
-Monitoring a complex environment such as Kubernetes involves collecting a significant amount of telemetry, much of which incurs a cost. The cluster administrator should collect the just enough data to meet their requirements and no more. This includes the amount of data collected, the frequency of collection, and the retention period. If you're  very cost conscious, you may choose to implement a subset of the full functionality in order to reduce your monitoring spend.
-
-The following sections identify the steps for complete monitoring of your Kubernetes environment using the Azure services listed above. Functionality and integration options are provided for each to each to help you determine where you may need to modify this configuration to meet your particular requirements.
 
 
 #### Enable scraping of Prometheus metrics
@@ -145,7 +149,7 @@ OpenCost can also breakdown relative usage of the cluster by different teams in 
 #### Collect Activity log for AKS clusters
 Configuration changes to your AKS clusters are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There's no cost for this data collection, and you can analyze or alert on the data using Log Analytics.
 
-### Monitoring 
+### Monitoring layers of the cluster
 This section describes common monitoring scenarios for each of the [levels of the Kubernetes cluster](monitor-kubernetes.md#layers-and-roles-of-kubernetes-environment) managed by the cluster administrator.
 
 #### Level 1 - Cluster level components
@@ -216,11 +220,11 @@ The Kubernetes objects and workloads level includes the following components:
 - In troubleshooting scenarios, Container Insights provides access to live AKS container logs (stdout/stderror), events and pod metrics. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real-time](container-insights-livedata-overview.md).
 
 
-## Alerts
+### Alerts for the cluster administrator
 
 [Alerts in Azure Monitor](..//alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. 
 
-### Alert types
+#### Alert types
 The following table describes the different types of custom alert rules that you can create based on the data collected by the services described above.
 
 | Alert type | Description |
@@ -229,12 +233,12 @@ The following table describes the different types of custom alert rules that you
 | Metric alert rules | Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the metrics explorer with the data you're currently analyzing. Metric alert rules can be useful to alert on AKS performance using any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics). |
 | Log alert rules | Use log alert rules to generate an alert from the results of a log query. For more information, see [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
 
-### Recommended alerts
+#### Recommended alerts
 Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. 
 
 
 
-## Additional monitoring scenarios
+### Additional cluster monitoring scenarios
 This section provides solutions to a variety of common scenarios that may be encountered by the cluster administrator using the configuration described above.
 
 **How can I monitor if my cluster upgrade was successful?**
@@ -273,19 +277,12 @@ This section provides solutions to a variety of common scenarios that may be enc
 
 
 
-
-
-
-
-
-
-
-
-
 ## Network engineer
 The Network Engineer is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
-### Azure services
+:::image type="content" source="media/monitor-containers/layers-network-engineer.png" alt-text="Diagram of layers of Kubernetes environment for network engineer." lightbox="media/monitor-containers/layers-network-engineer.png"  border="false":::
+
+### Azure services for network administrator
 
 The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
 
@@ -295,7 +292,7 @@ The following table lists the services that are commonly used by the network eng
 | [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Suite of tools in Azure to monitor the virtual networks used by your Kubernetes clusters and diagnose detected issues. |
 | [Network insights](../../network-watcher/network-insights-overview.md) | Feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to the network monitoring tools that are part of Network Watcher. |
 
-### Configure network monitoring
+#### Configure network monitoring
 
 [Network insights](../../network-watcher/network-insights-overview.md) is enabled by default and requires no configuration. Network Watcher is also typically [enabled by default in each Azure region](../../network-watcher/network-watcher-create.md). 
 
@@ -317,13 +314,20 @@ This section provides solutions to a variety of common scenarios that may be enc
 
 ## Developer
 
+In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
+
+:::image type="content" source="media/monitor-containers/layers-developer.png" alt-text="Diagram of layers of Kubernetes environment for developer." lightbox="media/monitor-containers/layers-developer.png"  border="false":::
+
+### Azure services for developer
+
 The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
+
 
 | Service | Description |
 |:---|:---|
 | [Application insights](../app/app-insights-overview.md) |  Feature of Azure Monitor that provides application performance monitoring (APM) to monitor applications running on your Kubernetes cluster from development, through test, and into production. Quickly identify and mitigate latency and reliability issues using distributed traces. Supports [OpenTelemetry](../app/opentelemetry-overview.md#opentelemetry) for vendor-neutral instrumentation. |
 
-### Enable Application insights to monitor your application
+#### Enable Application insights to monitor your application
 
 See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from the application running ion your cluster and decision criteria on the best method for your particular requirements. Once you have your application instrumented, create an [Availability test](../app/availability-overview.md) to create a recurring test to monitor its availability and responsiveness.
 
