@@ -157,50 +157,36 @@ else:
 
 In the example above, we don't do any validation or error handling so you'll want to make sure to add that to your code.
 
-For a full example of working with functions, see the (sample notebook on function calling)[https://aka.ms/oai/function-samples]. You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
+For a full example of working with functions, see the [sample notebook on function calling](https://aka.ms/oai/function-samples). You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
 
 ### Prompt engineering with functions
 
 When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
 
-#### Improving quality
+#### Improving quality and reliability
 If the model isn't calling your function when or how you expect, there are a few things you can try to improve the quality.
 
-##### Provide more details in your function definition
+* **Provide more details in your function definition** - It's important that you provide a meaningful `description` of the function and provide descriptions for any parameter that might not be obvious to the model. For example, in the description for the `location` parameter, you could include extra details and examples on the format of the location.
+    ```json
+    "location": {
+        "type": "string",
+        "description": "The location of the hotel. The location should include the city and the state's abbreviation (i.e. Seattle, WA)"
+    },
+    ```
+* **Provide more context in the system message** - The system message can also be used to provide more context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
+    ```json 
+    {"role": "system", "content": "You're an AI assistant designed to help users search for hotels. When a user asks for help finding a hotel, you should call the search_hotels function."}
+    ```
+* **Instruct the model to ask clarifying questions** - In some cases, you may want to instruct the model to ask clarifying questions. This is helpful to prevent from making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. To instruct the model to ask a clarifying question, you could include content like the following in your system message.
+    ```json
+    {"role": "system", "content": "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."}
+    ```
 
-It's important that you provide a meaningful `description` of the function and provide descriptions for any parameter that might not be obvious to the model. 
-
-For example, in the description for the `location` parameter, you could include extra details and examples on the format of the location.
-
-```json
-"location": {
-    "type": "string",
-    "description": "The location of the hotel. The location should include the city and the state's abbreviation (i.e. Seattle, WA)"
-},
-```
-
-##### Provide more context in the system message
-
-The system message can also be used to provide more context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
-
-```json 
-{"role": "system", "content": "You're an AI assistant designed to help users search for hotels. When a user asks for help finding a hotel, you should call the search_hotels function."}
-```
-
-#### Improving reliability
+#### Reducing errors
 
 Another area where prompt engineering can be valuable is in improving the quality and reliability of the function calls. The models have been trained to generate function calls matching the schema that you define, but the models may produce a function call that doesn't match the schema you defined or it may try to call a function that you didn't include. 
 
-If you find the model is generating function calls that weren't provided, try including a sentence that says "Only use the functions you have been provided with."
-
-#### Asking clarifying questions
-
-In some cases, you may want to instruct the model to ask clarifying questions. This is helpful to prevent from making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. 
-
-To instruct the model to ask a clarifying question, you could include content like the following in your system message:
-```json
-{"role": "system", "content": "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."}
-```
+If you find the model is generating function calls that weren't provided, try including a sentence that says `"Only use the functions you have been provided with."`
 
 
 ## Using function calling responsibly
@@ -213,6 +199,7 @@ Here are a few tips to help you use functions safely and securely:
 *	**Consider Real-World Impact**: Be aware of the real-world impact of function calls that you plan to execute, especially those that trigger actions such as executing code, updating databases, or sending notifications.
 *	**Implement User Confirmation Steps**: Particularly for functions that take actions, we recommend including a step where the user confirms the action before it's executed.
 
+To learn more about our recommendations on how to use Azure OpenAI models responsibly, see the [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context).
 
 ## Next steps
 

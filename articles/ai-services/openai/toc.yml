@@ -54,7 +54,7 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
-    - name: Work with functions
+    - name: Work with function calling
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
