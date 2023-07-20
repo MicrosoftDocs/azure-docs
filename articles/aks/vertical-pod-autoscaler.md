@@ -1,14 +1,14 @@
 ---
-title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
+title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/17/2023
 ---
 
-# Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
+# Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.  
+This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.  
 
 ## Benefits
 
@@ -28,8 +28,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ## Limitations
 
-* Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
-* With this preview release, you can't change the `controlledValue` and `updateMode`  of `managedCluster` object.
+Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
 
 ## Before you begin
 
@@ -39,45 +38,15 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
+## VPA admission controller
+
+VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller uses the `gencerts.sh` script to create the `vpa-tls-certs` secret. The webhook certificates are auto-renewed.
+
+For high availability, AKS supports two admission controller replicas.
+
 ## API Object
 
-The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported in this preview release is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
-
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-
-## Register the 'AKS-VPAPreview' feature flag
-
-Register the `AKS-VPAPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-VPAPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AKS-VPAPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is x.xx can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-vxx].
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
