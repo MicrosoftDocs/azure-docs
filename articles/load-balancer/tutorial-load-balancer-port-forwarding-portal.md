@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 > * Create a NAT gateway for outbound internet access for the backend pool
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+:::image type="content" source="media/tutorial-load-balancer-port-forwarding-portal/load-balancer-port-forwarding-resources-thumb.png" alt-text="Diagram of load balancer resources for deploying an inbound NAT rule for a virtual machine." lightbox="media/tutorial-load-balancer-port-forwarding-portal/load-balancer-port-forwarding-resources.png":::
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Sign in to Azure
 
@@ -36,7 +36,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual network and virtual machines
 
-A virtual network and subnet is required for the resources in the tutorial. In this section, you'll create a virtual network and virtual machines for the later steps.
+A virtual network and subnet is required for the resources in the tutorial. In this section, you create a virtual network and virtual machines for the later steps.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -85,7 +85,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 1. Select **Create**.
 
-1. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file will be downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you'll need the path to the key file in later steps.
+1. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file is downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you'll need the path to the key file in later steps.
 
 1. Follow the steps 1 through 7 to create another VM with the following values and all the other settings the same as **myVM1**:
 
@@ -109,7 +109,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 ## Create a load balancer
 
-You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
+You create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -250,7 +250,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 ## Create a NAT gateway
 
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. 
 
 For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
@@ -340,7 +340,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 ## Test the web server
 
-You'll open your web browser in this section and enter the IP address for the load balancer you retrieved in the previous step.
+In this section you test the web server by using the public IP address for the load balancer.
 
 1. Open your web browser.
 
