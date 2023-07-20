@@ -11,7 +11,7 @@ ms.topic: tutorial
 
 # Manage Azure Database for MySQL - Flexible Server using automation tasks (preview)
 
-[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
