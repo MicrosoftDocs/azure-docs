@@ -100,15 +100,20 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo dpkg -i cuda-keyring_1.1-1_all.deb
    ```
 
-4. Install CUDA toolkit and driver
+4. Update the APT repository cache
 
    ```
    sudo apt-get update
+   ```
+   
+5. Install CUDA toolkit and driver
+
+   ```
    sudo apt-get install cuda
    sudo apt-get install nvidia-gds
    ```
 
-5. Reboot the VM and proceed to verify the installation
+6. Reboot the VM and proceed to verify the installation
 
    ```
    sudo reboot
