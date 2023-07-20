@@ -52,13 +52,14 @@ This section contains an example of what that data would look like for each even
 
 > [!NOTE]
 > Possible values for `Status` are:
-> - `Delivered`: The message was successfully delivered to the intended destination.
+> - `Delivered`: The message was successfully handed over to the recipient Mail Transfer Agent (MTA).
+> - `Suppressed`: The recipient email had hard bounced previously, and all subsequent emails to this recipient are being suppressed as a result.
+> - `Bounced`: The email hard bounced, which may have happened because the email address does not exist or the domain is invalid.
+> - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing). For more information, see [Quarantined email messages in EOP](/microsoft-365/security/office-365-security/quarantine-about).
+> - `FilteredSpam`: The message was identified as spam, and was rejected or blocked (not quarantined).
 > - `Expanded`: A distribution group recipient was expanded before delivery to the individual members of the group.
 > - `Failed`: The message wasn't delivered.
-> - `Pending`: Delivery of the message is being attempted or reattempted.
-> - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing). For more information, see [Quarantined email messages in EOP](/microsoft-365/security/office-365-security/quarantine-about).
-> - `Filtered as spam`: The message was identified as spam, and was rejected or blocked (not quarantined).
-> - `Getting status`: The message was recently received by Microsoft 365, but no other status data is yet available. You can check again within a few minutes.
+
 
 > [!NOTE]
 > The values `Pending`, `Quarantined`, and `Filter as spam` are only available for searches less than 10 days. Also, there might be a 5-to-10-minute delay between the actual and reported delivery status.
