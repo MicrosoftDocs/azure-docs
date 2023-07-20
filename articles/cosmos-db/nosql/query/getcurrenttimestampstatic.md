@@ -54,4 +54,4 @@ This function returns the same static timestamp for items within the same partit
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentTimestamp` (nonstatic)](getcurrenttimestamp.md)
+- [`GetCurrentTimestamp`](getcurrenttimestamp.md)

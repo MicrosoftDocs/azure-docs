@@ -54,4 +54,4 @@ This function returns the same static nanosecond ticks for items within the same
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentTicks` (nonstatic)](getcurrentticks.md)
+- [`GetCurrentTicks`](getcurrentticks.md)

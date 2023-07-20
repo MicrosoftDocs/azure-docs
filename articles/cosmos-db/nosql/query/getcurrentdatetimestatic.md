@@ -29,7 +29,10 @@ GetCurrentDateTimeStatic()
 
 ## Return types
 
-Returns the current UTC date and time string value in the **round-trip** (ISO 8601) format. For more information on the round-trip format, see [.NET round-trip format](/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier). For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
+Returns the current UTC date and time string value in the **round-trip** (ISO 8601) format.
+
+> [!NOTE]
+> For more information on the round-trip format, see [.NET round-trip format](/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier). For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
 
 ## Examples
 
@@ -54,4 +57,4 @@ This function returns the same static date and time for items within the same pa
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentDateTime` (nonstatic)](getcurrentdatetime.md)
+- [`GetCurrentDateTime`](getcurrentdatetime.md)
