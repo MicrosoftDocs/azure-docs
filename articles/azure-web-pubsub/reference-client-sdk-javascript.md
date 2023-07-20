@@ -19,7 +19,7 @@ The client-side SDK aims to speed up developer's workflow; more specifically,
 - automatically retries after unintended drops of client connection
 - **reliably** deliveries messages in number and in order after recovering from connection drops
 
-As shown in the diagram below, your clients establish WebSocket connections with your Web PubSub resource. 
+As shown in the diagram, your clients establish WebSocket connections with your Web PubSub resource. 
 
 ![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
 
@@ -36,7 +36,7 @@ npm install @azure/web-pubsub-client
 ```
 
 ### 2. Connect with your Web PubSub resource
-A client uses `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain `Client Access URL`. For this quick guide, you can copy and paste one from Azure Portal shown below. (For production, your clients usually get `Client Access URL` generated on your application server. [See details below](#use-an-application-server-to-generate-client-access-url-programatically) )
+A client uses `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain `Client Access URL`. For this quick guide, you can copy and paste one from Azure portal shown. (For production, your clients usually get `Client Access URL` generated on your application server. [See details](#use-an-application-server-to-generate-client-access-url-programatically) )
 
 ![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
 
@@ -57,7 +57,7 @@ await client.start();
 ```
 
 ### 3. Join groups
-Note that a client can only receive messages from groups that it has joined and you need to add a callback to specify the logic of what to do when receiving messages.
+A client can only receive messages from groups that it has joined. You can add a callback to specify the logic of what to do when receiving messages.
 
 ```js
 // ...continues the code snippet from above
@@ -115,7 +115,7 @@ client.on("stopped", () => {
 In production, clients usually fetch `Client Access URL` from an application server. The server holds the `connection string` to your Web PubSub resource and generates the `Client Access URL` with help from the server-side library `@azure/web-pubsub`.
 
 #### 1. Application server 
-The code snippet below is an example of an application server exposes a `/negotiate` endpoint and returns `Client Access URL`.
+The code snippet is an example of an application server exposes a `/negotiate` endpoint and returns `Client Access URL`.
 
 ```js
 // This code snippet uses the popular Express framework
@@ -162,12 +162,12 @@ await client.start();
 A client can add callbacks to consume messages from an application server or groups. 
 
 ```js
-// Registers a listener for the "server-message". The callback will be invoked when your application server sends message to the connectionID, to or broadcast to all connections.
+// Registers a listener for the "server-message". The callback is invoked when your application server sends message to the connectionID, to or broadcast to all connections.
 client.on("server-message", (e) => {
   console.log(`Received message ${e.message.data}`);
 });
 
-// Registers a listener for the "group-message". The callback will be invoked when the client receives a message from the groups it has joined.
+// Registers a listener for the "group-message". The callback is invoked when the client receives a message from the groups it has joined.
 client.on("group-message", (e) => {
     console.log(`Received message from ${e.message.group}: ${e.message.data}`);
 });
@@ -177,10 +177,10 @@ client.on("group-message", (e) => {
 > For `group-message` event, the client can **only** receive messages from the groups that it has joined.
 
 ### Handle rejoin failure
-When a client is disconnected and fails to recover, all group contexts will be cleaned up in your Web PubSub resource. This means when the client re-connects, it needs to rejoin groups. By default, the client has `autoRejoinGroup` option enabled. 
+When a client is disconnected and fails to recover, all group contexts are cleaned up in your Web PubSub resource. This means when the client re-connects, it needs to rejoin groups. By default, the client has `autoRejoinGroup` option enabled. 
 
 However, you should be aware of `autoRejoinGroup`'s limitations. 
-- The client can only rejoin groups that it's originally joined by the client code _not_ by the server side code. 
+- The client can only rejoin groups that it's joined by the client code _not_ by the server side code. 
 - "Rejoin group" operations may fail due to various reasons, e.g. the client doesn't have permission to join the groups. In such cases, you need to add a callback to handle this failure.
 
 ```js
@@ -194,7 +194,7 @@ client.on("rejoin-group-failed", e => {
 ```
 
 ### Retry
-By default, the operation such as `client.joinGroup()`, `client.leaveGroup()`, `client.sendToGroup()`, `client.sendEvent()` has three retries. You can configure through the `messageRetryOptions`. If all retries have failed, an error will be thrown. You can keep retrying by passing in the same `ackId` as previous retries so that the Web PubSub service can deduplicate the operation.
+By default, the operation such as `client.joinGroup()`, `client.leaveGroup()`, `client.sendToGroup()`, `client.sendEvent()` has three retries. You can configure through the `messageRetryOptions`. If all retries have failed, an error is thrown. You can keep retrying by passing in the same `ackId` as previous retries so that the Web PubSub service can deduplicate the operation.
 
 ```js
 try {
@@ -209,7 +209,7 @@ try {
 ```
 
 ## JavaScript Bundle
-To use this client library in the browser, you need to use a bundler. For details on how to do this, please refer to our [bundling documentation](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
+To use this client library in the browser, you need to use a bundler. For details on how to create a bundle, refer to our [bundling documentation](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
 
 ## Troubleshooting
 ### Enable logs
@@ -222,4 +222,4 @@ export AZURE_LOG_LEVEL=verbose
 For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core/logger).
 
 ### Live Trace
-Use [Live Trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) from Azure Portal to inspect live message traffic through your Web PubSub resource.
+Use [Live Trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) from Azure portal to inspect live message traffic through your Web PubSub resource.
