@@ -322,9 +322,9 @@ The Azure Machine Learning Responsible AI dashboard provides a single interface 
 
 The dashboard offers a holistic assessment and debugging of models so you can make informed data-driven decisions. Having access to all of these tools in one interface empowers you to evaluate and debug your machine learning models by identifying model errors and fairness issues, diagnosing why those errors are happening, and informing your mitigation steps. 
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (aka which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md##model-responsible-ai-dashboard-preview)
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (aka which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#model-responsible-ai-dashboard-preview)
 
-See how you can generate this dashboard via the UI or the SDK. 
+See how you can generate this [dashboard via the UI or the SDK.](how-to-responsible-ai-insights-sdk-cli.md)
 
 ## Model explanations and feature importances
 
