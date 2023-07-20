@@ -39,7 +39,7 @@ You have four options to scope a reservation, depending on your needs:
     - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
-- **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
+- **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 
 While Azure applies reservation discounts on your usage, it processes the reservation in the following order:
 
@@ -88,7 +88,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
-- [Synapse Analytics - Pre-purchase](synapse-analytics-pre-purchase-plan.md)
+- [Synapse Analytics - Prepurchase](synapse-analytics-pre-purchase-plan.md)
 - [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Virtual machine software](buy-vm-software-reservation.md)
 
@@ -98,7 +98,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, Synapse Analytics - Pre-purchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
+Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 
