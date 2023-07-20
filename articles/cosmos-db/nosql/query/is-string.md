@@ -36,9 +36,9 @@ Returns a boolean expression.
   
 ## Examples
 
-The following example various values to see if they are a string.
+The following example various values to see if they're a string.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-string/query.sql" highlight="":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-string/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-string/result.json":::
 
