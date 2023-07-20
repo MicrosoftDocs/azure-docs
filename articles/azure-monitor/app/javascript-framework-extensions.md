@@ -339,7 +339,7 @@ This section covers configuration settings for the framework extensions for Appl
 
 #### [React](#tab/react)
 
-[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an exception occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the exception when it occurs.
+[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an uncaught exception when it occurs within a React application. When such an exception occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the exception when it occurs.
 
 ```javascript
 import React from "react";
