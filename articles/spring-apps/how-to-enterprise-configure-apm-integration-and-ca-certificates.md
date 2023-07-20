@@ -154,47 +154,43 @@ You can manage APM integration by configuring properties or secrets in the APM c
 
 ##### [Azure portal](#tab/azure-portal)
 
-Use the following steps to show, add, edit and delete the APM configuration:
+Use the following steps to show, add, edit, and delete the APM configuration:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Select **APM** in the navigation pane.
-1. Click **Add** button to create an APM configuration. If you want to enable the APM configuration globally, check **Enable globally**, all the subsequent builds and deployments will use the APM configuration automatically.
+1. In the navigation pane, select **APM**.
+1. Select **Add** to create an APM configuration. If you want to enable the APM configuration globally, check the **Enable globally** option. All the subsequent builds and deployments will use the APM configuration automatically.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with Add APM configuration button." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Add APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
-1. For an APM configuration, select the ellipsis (**...**) button, then select **Edit APM** to view the APM configuration.
+1. To view and edit the APM configuration, select **Edit APM**. You can review and change the APM configuration here. 
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Edit APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
-1. Review the APM configuration on the **Edit APM** page and you can make change when necessary.
+1. To delete an APM configuration, select **Delete**. Note that if the APM configuration is used by any build or deployment, you won't be able to delete it.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with Edit APM configuration panel open for the current APM configuration in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-apm.png":::
-
-1. To delete an APM configuration, select the ellipsis (**...**) button, then select **Delete** to delete the APM configuration. If the APM configuration is used by any build or deployment, it can't be deleted.
-
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with Delete APM configuration panel open for the current APM configuration in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Delete APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
 
 Use the following steps to view the APM configurations bound to the build:
 
 1. Navigate to your build page.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the build service page with current build highlighted in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the Azure portal showing the build service page with the current build in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
    
-1. Under **Settings** in the left navigation pane, select **APM bindings**.
+1. In the left navigation page, go to **Settings**, and then select **APM bindings**.
    
 1. On the **APM bindings** page, view the APM configurations bound to the build.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing APM configurations bound to the build." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing the APM configurations bound to the build." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png":::
 
 Use the following steps to view the APM configurations bound to the deployment:
 
 1. Navigate to your application page.
    
-1. Under **Settings** in the left navigation pane, select **APM bindings**.
+1. In the left navigation pane, go to **Settings**, and then select **APM bindings**.
    
 1. On the **APM bindings** page, view the APM configurations bound to the deployment.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing APM configurations bound to the deployment." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing xthe APM configurations bound to the deployment." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png":::
 
 ##### [Azure CLI](#tab/azure-cli)
 
