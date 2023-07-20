@@ -3,7 +3,7 @@
 title: Defender for Cloud Planning and Operations Guide
 description: Learn about planning to adopt Defender for Cloud and considerations about using it for operations tasks.
 author: meijei22
-ms.author: dcurwin
+ms.author: dacurwin
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 07/20/2023
