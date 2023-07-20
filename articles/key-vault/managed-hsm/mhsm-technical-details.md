@@ -86,5 +86,4 @@ Further reading:
 - [About the Managed HSM security domain](security-domain.md)
 - [Managed HSM access control](access-control.md)
 - [Local RBAC built in roles](built-in-roles.md)
-- [Azure security baseline for Key Vault - Managed HSM](/azure/baselines/key-vault-managed-hsm-security-baseline.md?toc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2F&bc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2Fbreadcrumb%2Ftoc.json)
 - [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1)
