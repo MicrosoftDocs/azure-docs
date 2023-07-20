@@ -38,11 +38,11 @@ Run an assessment as follows:
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
 
-2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
+2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
+    ![Screenshot of dropdown to choose assessment type as Web apps on Azure.](./media/tutorial-assess-webapps/assess.png)
 
-3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+3. 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps on App Service**. 
 
 4. Select **Edit** to review the assessment properties.
 
@@ -53,7 +53,9 @@ Run an assessment as follows:
     **Property** | **Details**
     --- | ---
     **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
-    **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
+    **Environment type** | 
+    **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter.
+
     - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
@@ -67,18 +69,19 @@ Run an assessment as follows:
         **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
         **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
 
+1. Select **Save** if you made any changes.
 1. In **Create assessment**, select **Next**.
-1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
+1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment.
 1. In **Select or create a group**, select **Create New** and specify a group name.
-1. Select the appliance, and select the servers that you want to add to the group. Select **Next**.
+1. Select the appliance and select the servers that you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
+    ![Screenshot of Refresh discovery and assessment tool data.](./media/tutorial-assess-webapps/tile-refresh.png)
 
-1. Select the number next to Azure App Service assessment.
+1. Select the number next to **Web apps on Azure** in the **Assessment** section. 
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
+    ![Screenshot of Navigation to created assessment..](./media/tutorial-assess-webapps/assessment-webapps-navigation.png)
 
 1. Select the assessment name, which you wish to view.
 
@@ -86,50 +89,56 @@ Run an assessment as follows:
 
 **To view an assessment**:
 
-1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Azure App Service assessment.
-2. Select the assessment name, which you wish to view.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Web apps on Azure assessment. 
+2. Select the assessment name, which you wish to view. 
 
-  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview.":::
+   The Overview screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
+
+     **Essentials**
+
+      **Field** | **Description**
+      ----- | -----
+      **Group** | 
+      **Status** | 
+      **Discovery source** |
+      **Target location** | 
+      **Currency** | 
+
+  ![Screenshot of Azure Azure App service assessment overview.](./media/tutorial-assess-webapps/assessment-webapps-summary.png)
+
+   **Assessed entities**
+
+   This section displays the number of servers selected for the assessments, number of Azure app service in the selected servers, and the number of distinct Sprint Boot app instances that were assessed. 
+
+   **Migration scenario**
+
+   This section provides a pictorial representation of the number of apps that are ready, ready with conditions, and not ready. In addition, it also lists the number of apps ready to migrate and the estimated cost for the migration.  
 
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
-#### Azure App Service readiness
+#### Azure app service readiness
 
-This indicates the distribution of the assessed web apps. You can drill down to understand the details around migration issues/warnings that you can remediate before migration to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md).
-You can also view the recommended App Service SKU and plan for migrating to Azure App Service.
-
-#### Azure App Service cost details
-
-An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
+This indicates the distribution of the assessed web apps. You can drill down to understand the details around migration issues/warnings that you can remediate before migration. [Learn More](concepts-azure-webapps-assessment-calculation.md).
 
 ### Review readiness
 
-1. Select **Azure App Service readiness**.
+1. In Assessments, select the name of the assessment that you want to view. 
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details.":::
+    ![Screenshot of Azure app service readiness details.](./media/tutorial-assess-webapps/assessment-webapps-readiness.png)
 
-1. Review Azure App Service readiness column in table, for the assessed web apps:
+1. Select Azure app service to view more details about each app and instances. Review the Azure app service readiness column in the table for the assessed web apps:  
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
     1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
     1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that web app.
 1. Review the recommended SKU for the web apps, which is determined as per the matrix below:
 
-    **Isolation required** | **Reserved instance** | **App Service plan/ SKU**
-    --- | --- | ---
-    Yes  | Yes | I1
-    Yes  | No  | I1
-    No  | Yes | P1v3
-    No  | No | P1v2
-
-    **Azure App Service readiness** | **Determine App Service SKU** | **Determine Cost estimates**
+    **Readiness** | **Determine size estimate** | **Determine cost estimates**
     --- | --- | ---
     Ready  | Yes | Yes
     Ready with conditions  | Yes  | Yes
     Not ready  | No | No
     Unknown  | No | No
-
-1. Select the App Service plan link in the Azure App Service readiness table to see the App Service plan details such as compute resources and other web apps that are part of the same plan.
 
 ### Review cost estimates
 
