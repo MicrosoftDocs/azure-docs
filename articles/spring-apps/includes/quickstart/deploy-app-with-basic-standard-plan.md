@@ -50,11 +50,6 @@ Use AZD to initialize the application from the Azure Developer CLI templates.
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
    ```
 
-1. Use the following command to set the template using the **standard** plan.
-
-   ```bash
-   azd env set PLAN standard
-   ```
 ---
 
 ## 3. Prepare the cloud environment
@@ -83,6 +78,12 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
    ```bash
    azd config set alpha.springapp on
+   ```
+
+1. Use the following command to set the template using the **standard** plan.
+
+   ```bash
+   azd env set PLAN standard
    ```
 
 1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
