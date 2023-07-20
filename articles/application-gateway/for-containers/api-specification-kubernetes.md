@@ -40,7 +40,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 <td><p>AffinityTypeApplicationCookie is a session affinity type for an application cookie</p>
 </td>
 </tr><tr><td><p>&#34;managed-cookie&#34;</p></td>
-<td><p>AffinityTypeManagedCookie is a session affinity type for an managed cookie</p>
+<td><p>AffinityTypeManagedCookie is a session affinity type for a managed cookie</p>
 </td>
 </tr></tbody>
 </table>
@@ -74,8 +74,7 @@ is in the process of being created, updated or deleted.</p>
 <h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionType is a type of condition associated with a
-Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
+<p>AlbConditionType is a type of condition associated with an Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
 field.</p>
 </div>
 <table>
@@ -118,7 +117,7 @@ has been accepted by the controller.</p>
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
 </td>
 </tr>
 </tbody>
@@ -210,7 +209,7 @@ AlbSpec
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
 </td>
 </tr>
 </table>
@@ -370,7 +369,7 @@ When the given BackendTLSPolicy is correctly configured</p>
 <td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service is not found</p>
 </td>
 </tr><tr><td><p>&#34;Degraded&#34;</p></td>
-<td><p>ReasonDegraded is the the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
+<td><p>ReasonDegraded is the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
 </td>
 </tr></tbody>
 </table>
@@ -2377,8 +2376,7 @@ field.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification
-This allows the specification of the following attributes:
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
 </div>
