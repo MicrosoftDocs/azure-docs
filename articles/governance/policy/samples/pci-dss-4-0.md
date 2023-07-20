@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for PCI DSS v4.0
 description: Details of the PCI DSS v4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/06/2023
+ms.date: 07/20/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -694,7 +694,7 @@ initiative definition.
 
 ## Requirement 12: Support Information Security with Organizational Policies and Programs
 
-### A comprehensive information security policy that governs and provides direction for protection of the entity’s information assets is known and current
+### A comprehensive information security policy that governs and provides direction for protection of the entity's information assets is known and current
 
 **ID**: PCI DSS v4.0 12.1.2
 **Ownership**: Shared
@@ -704,7 +704,7 @@ initiative definition.
 |[Establish an information security program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84245967-7882-54f6-2d34-85059f725b47) |CMA_0263 - Establish an information security program |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0263.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### A comprehensive information security policy that governs and provides direction for protection of the entity’s information assets is known and current
+### A comprehensive information security policy that governs and provides direction for protection of the entity's information assets is known and current
 
 **ID**: PCI DSS v4.0 12.1.4
 **Ownership**: Shared
@@ -1049,7 +1049,7 @@ initiative definition.
 |[Obtain design and implementation information for the security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22a02c9a-49e4-5dc9-0d14-eb35ad717154) |CMA_C1576 - Obtain design and implementation information for the security controls |Manual, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1576.json) |
 |[Obtain functional properties of security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44b71aa8-099d-8b97-1557-0e853ec38e0d) |CMA_C1575 - Obtain functional properties of security controls |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1575.json) |
 
-### Third-party service providers (TPSPs) support their customers’ PCI DSS compliance
+### Third-party service providers (TPSPs) support their customers' PCI DSS compliance
 
 **ID**: PCI DSS v4.0 12.9.1
 **Ownership**: Shared
@@ -1060,7 +1060,7 @@ initiative definition.
 |[Record disclosures of PII to third parties](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8b1da407-5e60-5037-612e-2caa1b590719) |CMA_0422 - Record disclosures of PII to third parties |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0422.json) |
 |[Require external service providers to comply with security requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e45863d-9ea9-32b4-a204-2680bc6007a6) |CMA_C1586 - Require external service providers to comply with security requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1586.json) |
 
-### Third-party service providers (TPSPs) support their customers’ PCI DSS compliance
+### Third-party service providers (TPSPs) support their customers' PCI DSS compliance
 
 **ID**: PCI DSS v4.0 12.9.2
 **Ownership**: Shared
@@ -2150,7 +2150,7 @@ initiative definition.
 |---|---|---|---|
 |[Review and update identification and authentication policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F29acfac0-4bb4-121b-8283-8943198b1549) |CMA_C1299 - Review and update identification and authentication policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1299.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.1
 **Ownership**: Shared
@@ -2161,7 +2161,7 @@ initiative definition.
 |[Enforce user uniqueness](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe336d5f4-4d8f-0059-759c-ae10f63d1747) |CMA_0250 - Enforce user uniqueness |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0250.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.2
 **Ownership**: Shared
@@ -2173,7 +2173,7 @@ initiative definition.
 |[Require use of individual authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08ad71d0-52be-6503-4908-e015460a16ae) |CMA_C1305 - Require use of individual authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1305.json) |
 |[Terminate customer controlled account credentials](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76d66b5c-85e4-93f5-96a5-ebb2fad61dc6) |CMA_C1022 - Terminate customer controlled account credentials |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1022.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.3
 **Ownership**: Shared
@@ -2184,7 +2184,7 @@ initiative definition.
 |[Identify and authenticate network devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5345d5-8dab-086a-7290-db43a3272198) |CMA_0296 - Identify and authenticate network devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0296.json) |
 |[Satisfy token quality requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F056a723b-4946-9d2a-5243-3aa27c4d31a1) |CMA_0487 - Satisfy token quality requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0487.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.4
 **Ownership**: Shared
@@ -2199,7 +2199,7 @@ initiative definition.
 |[Guest accounts with write permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94e1c2ac-cbbe-4cac-a2b5-389c812dee87) |External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveGuestAccountsWithWritePermissions_Audit.json) |
 |[Require approval for account creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde770ba6-50dd-a316-2932-e0d972eaa734) |CMA_0431 - Require approval for account creation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0431.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.5
 **Ownership**: Shared
@@ -2209,7 +2209,7 @@ initiative definition.
 |[Blocked accounts with owner permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0cfea604-3201-4e14-88fc-fae4c427a6c5) |Deprecated accounts with owner permissions should be removed from your subscription.  Deprecated accounts are accounts that have been blocked from signing in. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveBlockedAccountsWithOwnerPermissions_Audit.json) |
 |[Blocked accounts with read and write permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8d7e1fde-fe26-4b5f-8108-f8e432cbc2be) |Deprecated accounts should be removed from your subscriptions.  Deprecated accounts are accounts that have been blocked from signing in. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveBlockedAccountsWithReadWritePermissions_Audit.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.6
 **Ownership**: Shared
@@ -2219,7 +2219,7 @@ initiative definition.
 |[Disable authenticators upon termination](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9d48ffb-0d8c-0bd5-5f31-5a5826d19f10) |CMA_0169 - Disable authenticators upon termination |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0169.json) |
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.7
 **Ownership**: Shared
@@ -2233,7 +2233,7 @@ initiative definition.
 |[Guest accounts with write permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94e1c2ac-cbbe-4cac-a2b5-389c812dee87) |External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveGuestAccountsWithWritePermissions_Audit.json) |
 |[Identify and authenticate non-organizational users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1379836-3492-6395-451d-2f5062e14136) |CMA_C1346 - Identify and authenticate non-organizational users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1346.json) |
 
-### User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle
+### User identification and related accounts for users and administrators are strictly managed throughout an account's lifecycle
 
 **ID**: PCI DSS v4.0 8.2.8
 **Ownership**: Shared
