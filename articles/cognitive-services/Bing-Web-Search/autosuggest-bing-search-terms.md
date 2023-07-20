@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Autosuggest Bing search terms in your application
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 

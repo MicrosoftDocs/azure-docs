@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Language and region support for Bing Spell Check API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 These languages are supported by the Bing Spell Check API (only in `spell` mode).
 

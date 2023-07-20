@@ -122,8 +122,8 @@ sequenceDiagram
     
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     EdgeGateway->>ContosoIotHub: Here's my certificate 📜
-    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
+    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 

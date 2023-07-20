@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/12/2023
 ---
 
 # Deployment stacks (Preview)
@@ -35,8 +35,9 @@ Deployment stacks provide the following benefits:
 - [What-if](./deploy-what-if.md) isn't available in the preview.
 - Management group scoped deployment stacks can only deploy the template to subscription.
 - When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
+- There is an issue with the Azure CLI create command when the value `none` is passed to the `deny-settings-mode` parameter. Before the issue is fixed, use the `denyDelete` instead of `none`.
 - If you create or modify a deployment stack in the Azure portal, deny settings will be overwritten (support for deny settings in the Azure portal is currently in progress).
-- Management group deployment stacks not yet available in the Azure portal.
+- Management group deployment stacks are not yet available in the Azure portal.
 
 
 ## Create deployment stacks
@@ -250,7 +251,7 @@ az stack group create \
 ```
 
 > [!NOTE]
-> Azure CLI doesn't have a deployment stack set command.  Use the new command instead.
+> Azure CLI doesn't have a deployment stack set command.  Use the New command instead.
 
 # [Portal](#tab/azure-portal)
 
@@ -320,7 +321,7 @@ Currently not implemented.
 
 ---
 
-### Use the new command
+### Use the New command
 
 You get a warning similar to the following:
 

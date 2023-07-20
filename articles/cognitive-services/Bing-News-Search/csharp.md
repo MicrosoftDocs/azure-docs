@@ -16,7 +16,7 @@ ms.custom: seodec2018, devx-track-csharp, mode-api
 
 # Quickstart: Search for news using C# and the Bing News Search REST API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. 
 
@@ -44,7 +44,7 @@ The full code to this sample can be found on [GitHub](https://github.com/Azure-S
     using System.Collections.Generic;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     const string accessKey = "enter key here";
