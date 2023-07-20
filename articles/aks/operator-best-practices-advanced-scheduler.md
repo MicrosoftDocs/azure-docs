@@ -82,7 +82,7 @@ When this pod is deployed using `kubectl apply -f gpu-toleration.yaml`, Kubernet
 
 When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
 
-For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
+For more information about how to use multiple node pools in AKS, see [Create multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 ### Behavior of taints and tolerations in AKS
 
@@ -245,6 +245,6 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [aks-best-practices-isolation]: operator-best-practices-cluster-isolation.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
-[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[use-multiple-node-pools]: create-node-pools.md
+[taint-node-pool]: manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [use-gpus-aks]: gpu-cluster.md

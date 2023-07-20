@@ -101,7 +101,7 @@ az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-i
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - Learn how to upgrade you node image version with [Node Image Upgrade][node-image-upgrade]
-- Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+- Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
@@ -111,7 +111,7 @@ az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-i
 [upgrade-cluster]: upgrade-cluster.md
 [node-image-upgrade]: node-image-upgrade.md
 [github-schedule]: node-upgrade-github-actions.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-aks-nodepool-snapshot]:/cli/azure/aks/nodepool#az-aks-nodepool-add

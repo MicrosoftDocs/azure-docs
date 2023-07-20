@@ -393,7 +393,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[aks-taints]:  ../use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[aks-taints]:  ../manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
