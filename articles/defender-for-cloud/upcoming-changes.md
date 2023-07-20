@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 06/21/2023
+ms.date: 07/20/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -35,13 +35,11 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: August 2024**
 
-The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) As a result, the two Defender for Cloud plans that rely on features of the Log Analytics agent are impacted with updated strategies: [Defender for Servers](#defender-for-servers) and Defender for SQL Server on machines.
+The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) As a result, the two Defender for Cloud plans that rely on features of the Log Analytics agent are impacted with updated strategies: [Defender for Servers](#defender-for-servers) and [Defender for SQL Server on machines](#defender-for-sql-server-on-machines).
 
-- Defender for Servers MMA-based features and capabilities will be deprecated in their Log Analytics version in August 2024, and delivered over alternative infrastructures, before the MMA deprecation date.
-
-- In addition, the Azure monitoring Agent (AMA) won’t be a requirement of the Defender for Servers offering, but will remain required as part of Defender for SQL Server on machines.
-
-- As a result, the Defender for Servers features and capabilities in the following table, as well as the autoprovisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted accordingly.  
+- The Azure monitoring Agent (AMA) won’t be a requirement of the Defender for Servers offering, but will remain required as part of Defender for SQL.
+- As a result, Defender for Servers MMA-based features and capabilities will be deprecated in their Log Analytics version in August 2024, and delivered over alternative infrastructures, before the MMA deprecation date.
+- In addition, the currently shared autoprovisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted accordingly.
 
 #### Defender for Servers
 
@@ -51,7 +49,7 @@ The following table explains how each capability will be provided after the Log 
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Use the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. |
 | OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  We’ll provide a full list of deprecated detections. | OS detections are  provided by Defender for Endpoint  and are already GA. |
-| Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, as well as the preview version based on the Azure monitoring agent. | The next generation of this feature is currently under evaluation, further information will be provided soon. |
+| Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, along with the preview version based on the Azure monitoring agent. | The next generation of this feature is currently under evaluation, further information will be provided soon. |
 | Endpoint protection discovery recommendations                | The current [GA and preview recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender for CSPM, and won’t cover on-premises or Arc-connected machines. |
 | Missing OS patches (system  updates)                         | Recommendations based on the Log Analytics agent won’t be available after August 2024. | [New recommendations](release-notes.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga), based on integration  with Update Management Center, are already in GA, with no agent dependencies. |
 | OS misconfigurations (Azure Security Benchmark  recommendations) | The [current GA version](apply-security-baseline.md) based on the Log Analytics agent won’t be  available after August 2024.   The current preview version that uses the Guest  Configuration agent will be deprecated as the Microsoft Defender  Vulnerability Management integration becomes available. | A new version, based on integration with Premium  Microsoft Defender Vulnerability Management, will be available early in 2024,  as part of Defender for Servers plan 2. |
@@ -66,11 +64,23 @@ The following table explains how each capability will be provided after the Log 
 
 - The AMA autoprovisioning mechanism will still serve current customers with the Public Preview policy initiative enabled, but they won't be eligible for support. To disable the Azure Monitor agent provisioning, manually remove the policy initiative.
 
-- If MMA autoprovisioning is enabled and AMA agents are already installed on the machines, MMA won’t be provisioned, and AMA will remain functional.
+- If MMA autoprovisioning is enabled and AMA agents are already installed on the machines, MMA won’t be provisioned. However, AMA will remain functional.
 
-To ensure your servers are secured, receive all the security content of Defender for Servers, and are up-to-date with the alternative deliverables, verify that Defender for Endpoint integration and agentless disk scanning are enabled on your subscriptions.
+To ensure the security of your servers and receive all the security updates from Defender for Servers, make sure to have Defender for Endpoint integration and agentless disk scanning enabled on your subscriptions. This will also keep your servers up-to-date with the alternative deliverables.
 
 For more information about Defender for Endpoint integration enablement, see [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) and for information about Agentless scanning enablement, see [Learn about agentless scanning](concept-agentless-data-collection.md).
+
+#### Defender for SQL Server on machines
+
+The Defender for SQL Server on machines plan relies on the Log Analytics agent (MMA) / Azure monitoring agent (AMA) to provide Vulnerability Assessment and Advanced Threat Protection to IaaS SQL Server instances. The plan supports Log Analytics agent autoprovisioning in GA, and Azure Monitoring agent autoprovisioning in Public Preview.
+
+The following section describes the planned introduction of a new and improved SQL Server-targeted Azure monitoring agent (AMA) autoprovisioning process and the deprecation procedure of the Log Analytics agent (MMA). Customers who use the new autoprovisioning process will benefit from a simple and seamless agent configuration, reducing onboarding errors and providing broader protection coverage.
+
+| Milestone                                                 | Date          | More information                                             |
+| --------------------------------------------------------- | ------------- | ------------------------------------------------------------ |
+| SQL-targeted AMA autoprovisioning Public Preview release | October 2023  | The new autoprovisioning process will only target Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server). The current AMA autoprovisioning process and its related policy initiative will be deprecated. It can still be used customers, but they won't be eligible for support. |
+| SQL-targeted AMA autoprovisioning GA release             | December 2023 | GA release of a SQL-targeted AMA autoprovisioning process. Following the release, it will be defined as the default option for all new customers. |
+| MMA deprecation                                           | August 2024   | The current MMA autoprovisioning process and its related policy initiative will be deprecated. It can still be used customers, but they won't be eligible for support. |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
