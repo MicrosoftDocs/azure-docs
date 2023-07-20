@@ -1,5 +1,7 @@
 ---
 title: Supported instances and regions
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about instances and regions supported for NC2 on Azure.
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
