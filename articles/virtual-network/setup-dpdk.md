@@ -21,6 +21,9 @@ DPDK consists of sets of user-space libraries that provide access to lower-level
 
 DPDK can run on Azure virtual machines that are supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations. These implementations can take the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPNs, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
 
+> [!NOTE]
+> DPDK setup instructions for MANA VMs is available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
+
 ## Benefit
 
 **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in the user space reduces the cycle count by eliminating context switches. It also improves the rate of packets that are processed per second in Azure Linux virtual machines.
@@ -38,6 +41,8 @@ The following distributions from the Azure Marketplace are supported:
 | Debian 10    | 4.19.0-1-cloud+              |
 
 The noted versions are the minimum requirements. Newer versions are supported too.
+> [!NOTE]
+> DPDK requirements for MANA VMs are available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
 
 **Custom kernel support**
 
@@ -56,6 +61,9 @@ In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. 
 
 
 ## Install DPDK manually (recommended)
+
+> [!NOTE]
+> DPDK installation instructions for MANA VMs are available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
 
 ### Install build dependencies
 
