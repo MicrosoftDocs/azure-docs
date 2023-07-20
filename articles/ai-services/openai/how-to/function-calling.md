@@ -166,7 +166,8 @@ When you define a function as part of your request, the details are injected int
 #### Improving quality and reliability
 If the model isn't calling your function when or how you expect, there are a few things you can try to improve the quality.
 
-**Provide more details in your function definition** - It's important that you provide a meaningful `description` of the function and provide descriptions for any parameter that might not be obvious to the model. For example, in the description for the `location` parameter, you could include extra details and examples on the format of the location.
+**Provide more details in your function definition**
+It's important that you provide a meaningful `description` of the function and provide descriptions for any parameter that might not be obvious to the model. For example, in the description for the `location` parameter, you could include extra details and examples on the format of the location.
 ```json
 "location": {
     "type": "string",
@@ -174,12 +175,14 @@ If the model isn't calling your function when or how you expect, there are a few
 },
 ```
 
-**Provide more context in the system message** - The system message can also be used to provide more context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
+**Provide more context in the system message**
+The system message can also be used to provide more context to the model. For example, if you have a function called `search_hotels` you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
 ```json 
 {"role": "system", "content": "You're an AI assistant designed to help users search for hotels. When a user asks for help finding a hotel, you should call the search_hotels function."}
 ```
 
-**Instruct the model to ask clarifying questions** - In some cases, you may want to instruct the model to ask clarifying questions. This is helpful to prevent the model from making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. To instruct the model to ask a clarifying question, you could include content like the following in your system message.
+**Instruct the model to ask clarifying questions**
+In some cases, you may want to instruct the model to ask clarifying questions. This is helpful to prevent the model from making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. To instruct the model to ask a clarifying question, you could include content like the following in your system message.
 ```json
 {"role": "system", "content": "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."}
 ```
@@ -188,7 +191,7 @@ If the model isn't calling your function when or how you expect, there are a few
 
 Another area where prompt engineering can be valuable is in reducing errors in function calls. The models have been trained to generate function calls matching the schema that you define, but the models may produce a function call that doesn't match the schema you defined or it may try to call a function that you didn't include. 
 
-If you find the model is generating function calls that weren't provided, try including a sentence that says `"Only use the functions you have been provided with."`.
+If you find the model is generating function calls that weren't provided, try including a sentence in the system message that says `"Only use the functions you have been provided with."`.
 
 ## Using function calling responsibly
 Like any AI system, using function calling to integrate language models with other tools and systems presents potential risks. It’s important to understand the risks that function calling could present and take measures to ensure you use the capabilities responsibly.
