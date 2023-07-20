@@ -26,7 +26,7 @@ Azure Cognitive Services Translator is a cloud-based machine translation service
 
 ## Prerequisites
 
-- [Create a Translator resource](../../../cognitive-services/translator/create-translator-resource.md).
+- [Create a Translator resource](../../../ai-services/translator/create-translator-resource.md).
 
 ## Inputs
 
