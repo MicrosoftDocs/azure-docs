@@ -45,7 +45,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -268,7 +268,7 @@ Delete just the deployment instance from Azure Machine Learning at https:\//ml.a
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

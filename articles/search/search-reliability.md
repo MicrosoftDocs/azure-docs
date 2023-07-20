@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 06/20/2023
 ms.custom: subject-reliability, references_regions
 ---
 
@@ -15,9 +15,9 @@ ms.custom: subject-reliability, references_regions
 
 Across Azure, [reliability](../reliability/overview.md) means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
 
-+ Configure a service to use multiple replicas, paired with availability zone support.
++ Deploy a single search service with multiple replicas to scale indexing and query workloads. Within a region, replicas run within availability zones for extra reliability.
 
-+ Deploy multiple services across different geographic regions.
++ Deploy multiple search services across different geographic regions.
 
 All search workloads are fully contained within a single service that runs in a single geographic region. On a service, you can configure multiple replicas that automatically run in different availability zones. This capability is how you achieve high availability.
 
@@ -81,7 +81,7 @@ Your service must be deployed in a region that supports availability zones. Azur
 | West US 2 | January 30, 2021 or later |
 | West US 3 | June 02, 2021 or later |
 
-Availability Zones don't impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need three or more replicas for query high availability.
+Availability zones don't impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need three or more replicas for query high availability.
 
 ## Multiple services in separate geographic regions
 
@@ -89,7 +89,7 @@ Service redundancy is necessary if operational requirements include:
 
 + [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search doesn't provide instant failover in the event of an outage).
 
-+ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
++ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating more services in regions with close proximity to these users can equalize performance for all users.
 
 If you need two or more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
@@ -125,15 +125,17 @@ Here's a high-level visual of what that architecture would look like.
 
 If you're using the Azure Cognitive Search REST API to [push content to your search index](tutorial-optimize-indexing-push-api.md), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
-### Use Azure Traffic Manager to coordinate requests
+### Use Azure Traffic Manager and Azure Application Gateway to coordinate requests
 
-[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. One advantage of the Traffic Manager is that it can probe Azure Cognitive Search to confirm availability and route users to alternate search services if a service is down. In addition, if you're routing search requests through Azure Web Sites, Azure Traffic Manager can help you load balance cases where the web site is up, but search isn't. Here's an example of an architecture that uses Traffic Manager.
+[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. It doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search.
 
-![Cross-tab of services by region, with central Traffic Manager][3]
+To add health checks and failover capabilities for Azure Cognitive Search, you would typically use Azure Application Gateway or a load balancer in combination with Azure Traffic Manager. [Azure Application Gateway](/azure/application-gateway/overview) supports health probes, which can be configured to check the availability of specific backend services and perform load balancing accordingly.
+
+The architecture for this solution would consist of search-enabled client apps that connect to Application Gateway through Azure Traffic Manager, where each gateway endpoint connects to a backend search service in a specific region.
 
 ## Data residency
 
-When you deploy multiple search services in different geographic regions, your content is stored in your chosen region.
+When you deploy multiple search services in various geographic regions, your content is stored in your chosen region.
 
 Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). The storage account is one that you provide, and it could be in any region. 
 

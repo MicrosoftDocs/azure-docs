@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -42,8 +42,8 @@ In this quickstart, you use the following features to analyze and extract data a
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -65,8 +65,8 @@ In this quickstart, you use the following features to analyze and extract data a
 
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=setup) -->
 
 ### Install the client library with NuGet
 
@@ -76,13 +76,13 @@ In this quickstart, you use the following features to analyze and extract data a
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
  1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the NuGet package installation.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=install-package)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the NuGet package installation.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=install-package) -->
 
 ## Build your application
 
@@ -231,8 +231,8 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
 
 ### General document model output
 
@@ -349,8 +349,8 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-> [!div class="nextstepaction"]
-[I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+[I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
 
 ### Layout model output
 
@@ -506,7 +506,8 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-[I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+>[I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
 
 ### Prebuilt model output
 

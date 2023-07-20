@@ -1,12 +1,12 @@
 ---
 title: How - to identify outbound public IP addresses in Azure Spring Apps
 description: How to view the static outbound public IP addresses to communicate with external resources, such as Database, Storage, Key Vault, etc.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/17/2020
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # How to identify outbound public IP addresses in Azure Spring Apps
@@ -26,6 +26,9 @@ This article explains how to view static outbound public IP addresses of applica
 An Azure Spring Apps service has one or more outbound public IP addresses. The number of outbound public IP addresses may vary according to the plan and other factors.
 
 The outbound public IP addresses are usually constant and remain the same, but there are exceptions.
+
+> [!IMPORTANT]
+> If the Azure Spring Apps instance is deployed in your own virtual network, the static outbound IP might be changed after the Start/Stop Azure Spring Apps service instance operation.
 
 ## When outbound IPs change
 

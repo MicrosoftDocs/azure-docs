@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Configure authentication for models deployed as web services
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning allows you to deploy your trained machine learning models as web services. In this article, learn how to configure authentication for these deployments.
 

@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 06/27/2023
 ms.author: madsd
 ms.custom: "UpdateFrequency3, references_regions"
 ---
@@ -125,7 +125,8 @@ App Service Environment v3 is available in the following regions:
 | North Central US     | ✅                           |                             | ✅                           | 
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
-| Norway West          | ✅                           |                             | ✅                           | 
+| Norway West          | ✅                           |                             | ✅                           |
+| Poland Central       | ✅                           |                             |                               |
 | Qatar Central        | ✅                           | ✅                          |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
@@ -153,7 +154,7 @@ App Service Environment v3 is available in the following regions:
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
-| US DoD Central       |                              |                             | ✅                          |
+| US DoD Central       | ✅                           |                             | ✅                          |
 | US DoD East          |                              |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |

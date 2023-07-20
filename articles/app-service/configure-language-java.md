@@ -6,7 +6,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java, devx-track-azurecli
+ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 ---
@@ -241,6 +241,10 @@ Azure App Service supports out of the box tuning and customization through the A
 - [Configure TLS/SSL bindings](configure-ssl-bindings.md)
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
+
+### Copy App Content Locally
+
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This helps address file-locking issues.
 
 ### Set Java runtime options
 

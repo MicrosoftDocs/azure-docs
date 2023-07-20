@@ -1,23 +1,23 @@
 ---
-title: Assign eligibility for a group (preview) in Privileged Identity Management
-description: Learn how to assign eligibility for a group (preview) in Privileged Identity Management.
+title: Assign eligibility for a group in Privileged Identity Management
+description: Learn how to assign eligibility for a group in Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/12/2023
-ms.author: amsliu
+ms.date: 6/7/2023
+ms.author: billmath
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Assign eligibility for a group (preview) in Privileged Identity Management
+# Assign eligibility for a group in Privileged Identity Management
 
 In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group.
 
@@ -27,7 +27,7 @@ When a membership or ownership is assigned, the assignment:
 - Can't be removed within five minutes of it being assigned
 
 >[!NOTE]
->Every user who is eligible for membership in or ownership of a PIM for Groups must have an Azure AD Premium P2 license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
+>Every user who is eligible for membership in or ownership of a PIM for Groups must have a Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 ## Assign an owner or member of a group
 
@@ -38,7 +38,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
+1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
 
     :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
@@ -66,7 +66,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
     > For groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from another administrator with permission to reset an eligible user's passwords.
     - Active assignments don't require the member to perform any activations to use the role. Members or owners assigned as active have the privileges assigned to the role at all times.
 
-1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure PIM for Groups settings (preview) in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
+1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure PIM for Groups settings in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
 
     :::image type="content" source="media/pim-for-groups/pim-group-5.png" alt-text="Screenshot of where to configure the setting for add assignments." lightbox="media/pim-for-groups/pim-group-5.png":::
 
@@ -81,7 +81,7 @@ Follow these steps to update or remove an existing role assignment. You will nee
 
 1. [Sign in to the Azure portal](https://portal.azure.com) with appropriate role permissions.
 
-1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
+1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
 
     :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
@@ -98,5 +98,5 @@ Follow these steps to update or remove an existing role assignment. You will nee
 ## Next steps
 
 - [Activate your group membership or ownership in Privileged Identity Management](groups-activate-roles.md)
-- [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)
 

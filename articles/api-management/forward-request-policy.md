@@ -23,7 +23,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ## Policy statement
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
+<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ## Attributes
@@ -31,6 +31,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. Policy expressions are allowed. | No       | 300    |
+| http-version                             | The HTTP spec version to use when sending the HTTP response to the backend service. When using `2or1`, the gateway will favor HTTP /2 over /1, but fall back to HTTP /1 if HTTP /2 does not work. | No       | 1    |
 | follow-redirects | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller. Policy expressions are allowed.                                                                                                                                                                                                    | No       | `false`   |
 | buffer-request-body      | When set to `true`, request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | `false`   |
 | buffer-response | Affects processing of chunked responses. When set to `false`, each chunk received from the backend is immediately returned to the caller. When set to `true`, chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to `false` with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. Policy expressions aren't allowed. | No | `true` |
@@ -44,6 +45,27 @@ The `forward-request` policy forwards the incoming request to the backend servic
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Examples
+
+### Send request to HTTP/2 backend
+
+The following API level policy forwards all API requests to an HTTP/2 backend service.
+
+```xml
+<!-- api level -->
+<policies>
+    <inbound>
+        <base/>
+    </inbound>
+    <backend>
+        <forward-request http-version="2or1"/>
+    </backend>
+    <outbound>
+        <base/>
+    </outbound>
+</policies>
+```
+
+This is required for HTTP /2 or gRPC workloads and currently only supported in self-hosted gateway. Learn more in our [API gateway overview](api-management-gateways-overview.md).
 
 ### Forward request with timeout interval
 
@@ -62,7 +84,6 @@ The following API level policy forwards all API requests to the backend service 
         <base/>
     </outbound>
 </policies>
-
 ```
 
 ### Inherit policy from parent scope

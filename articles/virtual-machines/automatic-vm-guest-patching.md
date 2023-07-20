@@ -96,7 +96,6 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | microsoftcblmariner  | cbl-mariner | 1-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
-| microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
 | Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8-lvm, 8-lvm-gen2 |
 | Redhat  | RHEL-RAW | 8-raw, 8-raw-gen2 |
@@ -428,6 +427,9 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
+## Image End-of-Life (EOL)
+
+Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it will expose the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) will communicate necessary steps for customers and impacted partners. AzGPS will remove the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
 
 ## Next steps
 > [!div class="nextstepaction"]

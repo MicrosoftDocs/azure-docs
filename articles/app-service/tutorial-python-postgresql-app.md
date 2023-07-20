@@ -4,13 +4,13 @@ description: Create a Python Django or Flask web app with a PostgreSQL database 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/28/2023
-ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
-zone_pivot_groups: deploy-python-web-app-postgressql
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
+zone_pivot_groups: deploy-python-web-app-postgresql
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -546,18 +546,34 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     ---
 
-1. Run the `azd up` command to clone, provision and deploy the app resources. Provide the name of the template you wish to use for the `--template` parameter. The `azd up` command will also prompt you to login to Azure and provide a name and location for the app.
+1. Run the `azd init` command to initialize the `azd` app template. Include the `--template` parameter to specify the name of an existing `azd` template you wish to use. More information about working with templates is available on the [choose an `azd` template](/azure/developer/azure-developer-cli/azd-templates) page.
 
     ### [Flask](#tab/flask)
+
+    For this tutorial, Flask users should specify the [Python (Flask) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git) template.
     
     ```bash
-    azd up --template msdocs-flask-postgresql-sample-app
+    azd init --template msdocs-flask-postgresql-sample-app
     ```
     
     ### [Django](#tab/django)
-    
+
+    For this tutorial, Django users should specify the [Python (Django) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git) template.
+
     ```bash
-    azd up --template msdocs-django-postgresql-sample-app
+    azd init --template msdocs-django-postgresql-sample-app
+    ```
+
+1. Run the `azd auth login` command to sign-in to Azure.
+
+    ```bash
+    azd auth login
+    ```
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
+
+    ```bash
+    azd up
     ```
 
 1. When the `azd up` command finishes running, the URL for your deployed web app in the console will be printed. Click, or copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you by the `azd up` command.
@@ -577,7 +593,7 @@ The sections ahead review the steps that `azd` handled for you in more depth. Yo
 
 ### 1. Cloned and initialized the project
 
-The `azd up` command cloned the sample app project template to your machine. The project template includes the following components:
+The `azd init` command cloned the sample app project template to your machine. The project template includes the following components:
 
 * **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
 * **Bicep files**: Infrastructure as code (IaC) files that are used by `azd` to create the necessary resources in Azure.
@@ -774,7 +790,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
-- For basic access from a commmand-line tool, you can run `psql` from the app's SSH terminal.
+- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
 - To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 

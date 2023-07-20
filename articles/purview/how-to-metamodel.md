@@ -68,10 +68,6 @@ This article will get you started in building a metamodel for your Microsoft Pur
 
     :::image type="content" source="./media/how-to-metamodel/metamodel-assets-in-catalog.png" alt-text="Screenshot of left menu in the Microsoft Purview governance portal, the data map and business assets buttons highlighted." border="true":::
 
-1. Currently there's no integration with collections, so all assets created via the metamodel canvas will be listed under the data catalog.
-
-    :::image type="content" source="./media/how-to-metamodel/assets-page.png" alt-text="Screenshot of the business assets page." border="true":::
-
 1. To create a new asset, select **New asset**, select the asset type from the drop-down menu, give it a name, description, and complete any required attributes. Select **Create** to save your new asset.
 
     :::image type="content" source="./media/how-to-metamodel/select-new-asset.png" alt-text="Screenshot of the business assets page with the new asset button highlighted." border="true":::

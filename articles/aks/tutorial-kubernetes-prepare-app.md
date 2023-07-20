@@ -86,18 +86,16 @@ azure-voting-app-redis
 The following command uses the sample `docker-compose.yaml` file to create the container image, download the Redis image, and start the application.
 
 ```console
-docker-compose up -d
+docker compose up -d
 ```
 
-When completed, use the [`docker images`][docker-images] command to see the created images. Three images are downloaded or created. The *azure-vote-front* image contains the front-end application and uses the *nginx-flask* image as a base. The *redis* image is used to start a Redis instance.
+When completed, use the [`docker images`][docker-images] command to see the created images. Two images are downloaded or created. The *azure-vote-front* image contains the front-end application. The *redis* image is used to start a Redis instance.
 
 ```
 $ docker images
-
-REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
-mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        9 seconds ago       944MB
-mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
-tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
+REPOSITORY                                     TAG       IMAGE ID       CREATED       SIZE
+mcr.microsoft.com/oss/bitnami/redis            6.0.8     3a54a920bb6c   2 years ago   103MB
+mcr.microsoft.com/azuredocs/azure-vote-front   v1        4d4d08c25677   5 years ago   935MB
 ```
 
 Run the [`docker ps`][docker-ps] command to see the running containers.
@@ -123,7 +121,7 @@ Now that the application's functionality has been validated, the running contain
 To stop and remove the container instances and resources, use the [`docker-compose down`][docker-compose-down] command.
 
 ```console
-docker-compose down
+docker compose down
 ```
 
 When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, to use in the next tutorial.

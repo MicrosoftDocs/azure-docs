@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/03/2022
+ms.date: 07/04/2023
 ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
@@ -57,7 +57,6 @@ The following JSON response illustrates what the Analyze API returns when descri
 ```
 
 ## Use the API
-
 
 The image description feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Description` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
 

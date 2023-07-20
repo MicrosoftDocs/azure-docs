@@ -24,7 +24,7 @@ Azure AD Connect cloud sync is the future for accomplishing your hybrid identity
 
 |Step|Description|
 |-----|-----|
-|Choose the best sync tool|Before moving to cloud sync, you should verify that cloud sync is currently the best synchronization tool for you.  You can do this task by going through the wizard [here](https://setup.microsoft.com/azure/add-or-sync-users-to-microsoft-365).|
+|Choose the best sync tool|Before moving to cloud sync, you should verify that cloud sync is currently the best synchronization tool for you.  You can do this task by going through the wizard [here](https://aka.ms/EvaluateSyncOptions).|
 |Verify the pre-requisites for migrating|The following guidance is only for users who have installed Azure AD Connect using the Express settings and aren't synchronizing devices.  Also you should verify the cloud sync [pre-requisites](how-to-prerequisites.md).|
 |Back up your Azure AD Connect configuration|Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can role-back.  For more information, see [Import and export Azure AD Connect configuration settings](../connect/how-to-connect-import-export-config.md).|
 |Review the migration tutorial|To become familiar with the migration process, review the [Migrate to Azure AD Connect cloud sync for an existing synced AD forest](tutorial-pilot-aadc-aadccp.md) tutorial.  This tutorial guides you through the migration process in a sandbox environment.|

@@ -12,11 +12,10 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: mcleans
-
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET Core app

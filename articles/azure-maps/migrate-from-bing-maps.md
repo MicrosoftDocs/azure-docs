@@ -61,11 +61,13 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Location Recognition                  | ✓                  |
 | Locations (forward/reverse geocoding) | ✓                  |
 | Optimized Itinerary Routes            | Planned            |
-| Snap to roads                         | ✓                  |
+| Snap to roads                         | <sup>1</sup>       |
 | Spatial Data Services (SDS)           | Partial            |
 | Time Zone                             | ✓                  |
 | Traffic Incidents                     | ✓                  |
 | Configuration driven maps             | N/A                |
+
+<sup>1</sup> While there is no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
 
 Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
 
@@ -175,3 +177,6 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback
+[Basic snap to road logic]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=basic-snap-to-road-logic
+[Snap points to logical route path]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=snap-points-to-logical-route-path
+[Route - Get Route Directions]: https://learn.microsoft.com/rest/api/maps/route/get-route-directions

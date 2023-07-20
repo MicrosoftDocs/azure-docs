@@ -6,7 +6,7 @@ services: cognitive-services
 
 manager: nitinme
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java, devx-track-go
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to

@@ -3,7 +3,7 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
-ms.custom: devx-track-js
+ms.custom:
 ms.topic: include
 ---
 

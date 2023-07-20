@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 

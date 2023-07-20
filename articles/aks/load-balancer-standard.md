@@ -1,11 +1,11 @@
 ---
-title: Use a public load balancer
+title: Use a public load balancer in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 06/17/2023
 ms.author: allensu
 author: asudbring
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
@@ -27,6 +27,7 @@ This article covers integration with a public load balancer on AKS. For internal
 ## Before you begin
 
 * Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS. For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
+* For a full list of the supported annotations for Kubernetes services with type `LoadBalancer`, see [LoadBalancer annotations][lb-annotations].
 * This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
 * AKS manages the lifecycle and operations of agent nodes. Modifying the IaaS resources associated with the agent nodes isn't supported. An example of an unsupported operation is making manual changes to the load balancer resource group.
 
@@ -210,7 +211,7 @@ An outbound rule configures outbound NAT for all virtual machines identified by 
 
 While you can use an outbound rule with a single public IP address, outbound rules are great for scaling outbound NAT because they ease the configuration burden. You can use multiple IP addresses to plan for large-scale scenarios and outbound rules to mitigate SNAT exhaustion prone patterns. Each IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
 
-When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
+When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`--load-balancer-managed-outbound-ip-count`** parameter.
 
 Use the following command to update an existing cluster. You can also set this parameter to have multiple managed outbound public IPs.
 
@@ -232,7 +233,7 @@ az aks update \
 
 The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*.
 
-At cluster creation time, you can also use the **`load-balancer-managed-ip-count`** parameter to set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
+At cluster creation time, you can also set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
 
 ### Provide your own outbound public IPs or prefixes
 
@@ -510,6 +511,7 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[lb-annotations]: https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md

@@ -5,13 +5,12 @@ description: Use the Azure Storage client library for .NET to manage directories
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Use .NET to manage directories and files in Azure Data Lake Storage Gen2

@@ -62,12 +62,12 @@ The preceding command also outputs the `each` and `all` results to the specified
 
 ## Output to multiple files
 
-For translations with `spx translate`, separate files are created for the source language (such as `--source en-US`) and each target language (such as `--target de;fr;zh-Hant`).
+For translations with `spx translate`, separate files are created for the source language (such as `--source en-US`) and each target language (such as `--target "de;fr;zh-Hant"`).
 
 For example, to output translated SRT and WebVTT captions, run the following command: 
 
 ```console
-spx translate --source en-US --target de;fr;zh-Hant --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt
+spx translate --source en-US --target "de;fr;zh-Hant" --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt
 ```
 
 Captions should then be written to the following files: *caption.srt*, *caption.vtt*, *caption.de.srt*, *caption.de.vtt*, *caption.fr.srt*, *caption.fr.vtt*, *caption.zh-Hant.srt*, and *caption.zh-Hant.vtt*.

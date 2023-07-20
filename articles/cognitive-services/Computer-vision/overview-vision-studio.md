@@ -43,7 +43,7 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 
 1. From here, you can select any of the different features offered by Vision Studio. Some of them are outlined in the service quickstarts:
    * [OCR quickstart](quickstarts-sdk/client-library.md?pivots=vision-studio)
-   * [Image Analysis quickstart](quickstarts-sdk/image-analysis-client-library.md?pivots=vision-studio)
+   * Image Analysis [4.0 quickstart](quickstarts-sdk/image-analysis-client-library-40.md?pivots=vision-studio) and [3.2 quickstart](quickstarts-sdk/image-analysis-client-library.md?pivots=vision-studio)
    * [Face quickstart](quickstarts-sdk/identity-client-library.md?pivots=vision-studio)
 
 ## Pre-configured features

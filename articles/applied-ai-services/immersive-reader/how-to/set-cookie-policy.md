@@ -11,7 +11,7 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/06/2020
 ms.author: rwaller
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to set the cookie policy for the Immersive Reader

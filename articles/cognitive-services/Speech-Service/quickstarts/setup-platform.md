@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/16/2022
 ms.author: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-sdk
 ---
 

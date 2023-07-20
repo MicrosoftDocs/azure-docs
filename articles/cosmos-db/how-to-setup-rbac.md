@@ -13,7 +13,7 @@ ms.custom: ignite-2022
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 
-[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
@@ -40,6 +40,7 @@ The Azure Cosmos DB data plane role-based access control is built on concepts th
 
 > [!IMPORTANT]
 > This permission model covers only database operations that involve reading and writing data. It **does not** cover any kind of management operations on management resources, including:
+>
 > - Create/Replace/Delete Database
 > - Create/Replace/Delete Container
 > - Read/Replace Container Throughput
@@ -102,7 +103,7 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Database | &bull; Reading database metadata <br /> &bull; Listing the containers under the database <br /> &bull; For each container under the database, the allowed actions at the container scope |
 | Container | &bull; Reading container metadata <br /> &bull; Listing physical partitions under the container <br /> &bull; Resolving the address of each physical partition |
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Throughput is not included in the metadata for this action.
 
 ## Built-in role definitions
@@ -487,7 +488,7 @@ This section includes frequently asked questions about role-based access control
 
 ### Which Azure Cosmos DB APIs support role-based access control?
 
-Only the API for NoSQL is currently supported.
+The API for NoSQL is supported. Support for the API for MongoDB is in preview.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 

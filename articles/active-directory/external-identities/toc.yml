@@ -89,12 +89,16 @@
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md
+  - name: Enforce tenant restrictions
+    items:
+    - name: Tenant restrictions V2
+      href: tenant-restrictions-v2.md
   - name: Configure B2B direct connect 
     href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
     items:
     - name: Azure Active Directory
-      href: azure-ad-account.md
+      href: default-account.md
     - name: Microsoft account
       href: microsoft-account.md
     - name: Google federation

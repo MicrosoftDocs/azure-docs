@@ -4,7 +4,7 @@ description: This article provides information on the library that you can use t
 ms.topic: article
 ms.date: 09/06/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Event Hubs management libraries

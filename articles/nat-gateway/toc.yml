@@ -50,6 +50,8 @@ items:
     items:
     - name: NAT gateway security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: SNAT with NAT gateway
+    href: nat-gateway-snat.md
 - name: How-to
   items:
   - name: Manage NAT gateway

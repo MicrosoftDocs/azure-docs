@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 05/18/2023
+ms.date: 06/22/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,18 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.4.7         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.4.7         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.4.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.4.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.4.8
+
+*Date published: June 20, 2023*
+
+In this release, we've made the following changes:
+
+- We've changed the connection bar to always start expanded by default. You can minimize the connection bar by dragging it to a corner of the screen. To return the connection bar to its regular size, drag it to the center of the screen. 
+- You can now dismiss all in-app messages by swiping downwards.
+- Fixed an issue that caused graphics to look distorted in Lock to Landscape mode.
 
 ## Updates for version 10.4.7
 

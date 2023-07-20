@@ -2,11 +2,11 @@
 title: Transfer data to or from Azure Files by using AzCopy v10
 description: Transfer data with AzCopy and file storage. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/02/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Transfer data with AzCopy and file storage

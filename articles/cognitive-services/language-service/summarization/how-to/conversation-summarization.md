@@ -13,12 +13,9 @@ ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
-# How to use conversation summarization (preview)
+# How to use conversation summarization
 
 [!INCLUDE [availability](../includes/regional-availability.md)]
-
-> [!IMPORTANT] 
-> The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
 ## Conversation summarization types
 

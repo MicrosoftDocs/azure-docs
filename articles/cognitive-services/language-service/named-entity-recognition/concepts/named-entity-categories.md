@@ -13,10 +13,15 @@ ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021
 ---
 
-# Supported Named Entity Recognition (NER) entity categories
+# Supported Named Entity Recognition (NER) entity categories and entity types
 
-Use this article to find the entity categories that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
+Use this article to find the entity categories that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document. 
 
+> [!NOTE]
+> * Starting from API version 2023-04-15-preview, the category and subcategory fields are replaced with entity types and tags to introduce better flexibility. 
+
+# [Generally Available API](#tab/ga-api)
+ 
 ## Category: Person
 
 This category contains the following entity:
@@ -803,6 +808,219 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
+# [Preview API](#tab/preview-api)
+
+## Supported Named Entity Recognition (NER) entity categories 
+
+Use this article to find the entity types and the additional tags that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
+
+### Type: Address
+
+Specific street-level mentions of locations: house/building numbers, streets, avenues, highways, intersections referenced by name.
+
+### Type: Numeric
+
+Numeric values.
+
+This entity type could be tagged by the following entity tags:
+
+#### Age
+
+**Description:** Ages
+
+#### Currency
+
+**Description:** Currencies
+
+#### Number
+
+**Description:** Numbers without a unit
+
+#### NumberRange
+
+**Description:** Range of numbers
+
+#### Percentage
+
+**Description:** Percentages
+
+#### Ordinal
+
+**Description:** Ordinal Numbers
+
+#### Temperature
+
+**Description:** Temperatures
+
+#### Dimension
+
+**Description:** Dimensions or measurements
+
+This entity tag also supports tagging the entity type with the following tags:
+
+|Entity tag |Details            |
+|-----------|-------------------|
+|Length     |Length of an object|
+|Weight     |Weight of an object|
+|Height     |Height of an object|
+|Speed      |Speed of an object |
+|Area       |Area of an object  |
+|Volume     |Volume of an object|
+|Information|Unit of measure for digital information|
+
+## Type: Temporal
+
+Dates and times of day
+
+This entity type could be tagged by the following entity tags:
+
+#### Date
+
+**Description:** Calendar dates
+
+#### Time
+
+**Description:** Times of day
+
+#### DateTime
+
+**Description:** Calendar dates with time
+
+#### DateRange
+
+**Description:** Date range
+
+#### TimeRange
+
+**Description:** Time range
+
+#### DateTimeRange
+
+**Description:** Date Time range
+
+#### Duration
+
+**Description:** Durations
+
+#### SetTemporal
+
+**Description:** Set, repeated times
+
+## Type: Event
+
+Events with a timed period
+
+This entity type could be tagged by the following entity tags:
+
+#### SocialEvent
+
+**Description:** Social events
+
+#### CulturalEvent
+
+**Description:** Cultural events
+
+#### NaturalEvent
+
+**Description:** Natural events
+
+## Type: Location
+
+Particular point or place in physical space
+
+This entity type could be tagged by the following entity tags:
+#### GPE
+
+**Description:** GeoPolitialEntity
+
+This entity tag also supports tagging the entity type with the following tags:
+
+|Entity tag   |Details            |
+|-------------|-------------------|
+|City         |Cities             |
+|State        |States             |
+|CountryRegion|Countries/Regions  |
+|Continent    |Continents         |
+
+#### Structural
+
+**Description:** Manmade structures
+
+This entity tag also supports tagging the entity type with the following tags:
+
+|Entity tag   |Details            |
+|-------------|-------------------|
+|Airport      |Airports           |
+
+#### Geological
+
+**Description:** Geographic and natural features
+
+This entity tag also supports tagging the entity type with the following tags:
+
+|Entity tag   |Details            |
+|-------------|-------------------|
+|River        |Rivers             |
+|Ocean        |Oceans             |
+|Desert       |Deserts            |
+
+## Type: Organization
+
+Corporations, agencies, and other groups of people defined by some established organizational structure
+
+This entity type could be tagged by the following entity tags:
+
+#### MedicalOrganization
+
+**Description:** Medical companies and groups
+
+#### StockExchange
+
+**Description:** Stock exchange groups
+
+#### SportsOrganization
+
+**Description:** Sports-related organizations
+
+## Type: Person
+
+Names of individuals
+
+## Type: PersonType
+
+Human roles classified by group membership
+
+## Type: Email
+
+Email addresses
+
+## Type: URL
+
+URLs to websites
+
+## Type: IP
+
+Network IP addresses
+
+## Type: PhoneNumber
+
+Phone numbers
+
+## Type: Product
+
+Commercial, consumable objects
+
+This entity type could be tagged by the following entity tags:
+
+#### ComputingProduct
+
+**Description:** Computing products
+
+## Type: Skill
+
+Capabilities, skills, or expertise
+
+---
 
 ## Next steps
 

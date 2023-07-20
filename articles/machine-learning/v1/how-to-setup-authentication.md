@@ -10,16 +10,13 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, sdkv1
+ms.custom: UpdateFrequency5, has-adal-ref, contperf-fy21q2, subject-rbac-steps, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows using SDK v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-setup-authentication.md)
-> * [v2 (current version)](../how-to-setup-authentication.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
@@ -38,7 +35,7 @@ Azure AD Conditional Access can be used to further control or restrict access to
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](../how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
 
 ## Azure Active Directory
 

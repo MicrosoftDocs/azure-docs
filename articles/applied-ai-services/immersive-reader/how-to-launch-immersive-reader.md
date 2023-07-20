@@ -9,7 +9,7 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: rwaller
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-extended-java, devx-track-python
 zone_pivot_groups: immersive-reader-how-to-guides
 ---
 

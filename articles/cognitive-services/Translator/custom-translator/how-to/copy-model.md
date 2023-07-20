@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 03/31/2023
+ms.date: 06/01/2023
 ms.author: lajanuar
 ms.topic: how-to
 ---

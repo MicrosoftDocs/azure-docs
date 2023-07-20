@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Video Indexer API
 description: This article describes how to get started with Azure Video Indexer API.
-ms.date: 08/14/2022
+ms.date: 07/03/2023
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
@@ -105,8 +105,8 @@ When you're uploading videos by using the API, you have the following options:
 * Upload your video from a URL (preferred).
 * Send the video file as a byte array in the request body.
 * Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
-* There is an API request limit of 10 requests per second or 60 requests per minute.
-
+* There is an API request limit of 10 requests per second and up to 120 requests per minute.
+  
 ### Getting JSON output
 
 - When you call the API that gets video insights for the specified video, you get a detailed JSON output as the response content. [See details about the returned JSON in this article](video-indexer-output-json-v2.md).

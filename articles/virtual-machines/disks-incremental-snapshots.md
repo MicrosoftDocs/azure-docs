@@ -2,11 +2,10 @@
 title: Create an incremental snapshot
 description: Learn about incremental snapshots for managed disks, including how to create them using the Azure portal, Azure PowerShell module, and Azure Resource Manager.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 06/07/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -158,7 +157,7 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Check status of snapshots or disks
 
-Incremental snapshots of Premium SSD v2 or Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Premium SSD v2 or Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
+Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Premium SSD v2 or Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
 
 You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot and you can use the [Check disk creation status](#check-disk-creation-status) section to check the status of a background copy from a snapshot to a disk.
 

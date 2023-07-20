@@ -21,7 +21,7 @@ Azure Form Recognizer supports a wide variety of models that enable you to add i
 The following decision charts highlight the features of each **Form Recognizer v3.0** supported model and help you choose the best model to meet the needs and requirements of your application.
 
 > [!IMPORTANT]
-> Be sure to heck the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
+> Be sure to check the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
 
 ## Pretrained document-analysis models
 
@@ -59,4 +59,4 @@ The following decision charts highlight the features of each **Form Recognizer v
 
 ## Next steps
 
-* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)

@@ -155,4 +155,11 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 
 ## Disaster recovery: cross region failover
 
-When entire Azure regions or datacenters experience downtime, your mission-critical code needs to continue processing in a different region. See [Azure Functions geo-disaster recovery and high availability](../azure-functions/functions-geo-disaster-recovery.md) for guidance on how to setup a cross region failover
+When an entire Azure region, viz. all of the component availability zones experience downtime, your mission-critical code needs to continue processing in a different region. See [Azure Functions geo-disaster recovery and high availability](../azure-functions/functions-geo-disaster-recovery.md) for guidance on how to set up a cross region failover.
+
+
+> [!div class="nextstepaction"]
+>[Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+
+> [!div class="nextstepaction"]
+> [Reliability in Azure](./overview.md)

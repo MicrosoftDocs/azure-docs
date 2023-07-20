@@ -234,7 +234,7 @@ If the rare event that the Microsoft Entra Verified ID issuance service or Azure
 
 ### Plan for compliance
 
-Your organization may have specific compliance needs related to your industry, type of transactions, or country of operation. 
+Your organization may have specific compliance needs related to your industry, type of transactions, or country/region of operation. 
 
 **Data residency**: The Microsoft Entra Verified ID issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We don't store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service shouldn't impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
 

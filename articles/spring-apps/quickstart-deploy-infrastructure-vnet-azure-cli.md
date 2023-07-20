@@ -2,10 +2,10 @@
 title: Quickstart - Provision Azure Spring Apps using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-cli
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-java, mode-api, event-tier1-build-2022
+ms.custom: devx-track-azurecli, devx-track-java, devx-track-extended-java, mode-api, event-tier1-build-2022
 ms.author: vramasubbu
 ms.date: 05/31/2022
 ---
@@ -152,6 +152,6 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Deploy one of the following sample applications from the locations below:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
 * View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

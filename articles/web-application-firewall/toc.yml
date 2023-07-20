@@ -40,18 +40,6 @@
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Samples
-  items:
-  - name: Application Gateway
-    items:
-    - name: Azure PowerShell
-      href: ./ag/powershell-samples.md
-    - name: Resource Manager templates
-      href: ./ag/resource-manager-template-samples.md  
-  - name: Front Door
-    items:
-    - name: Resource Manager templates
-      href: ./afds/resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Application Gateway
@@ -72,6 +60,8 @@
       href: ./ag/bot-protection-overview.md
     - name: WAF engine
       href: ./ag/waf-engine.md
+    - name: Sensitive Data Protection
+      href: ./ag/waf-sensitive-data-protection.md
     - name: Best practices
       href: ./ag/best-practices.md
     - name: FAQ
@@ -100,6 +90,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+    - name: Application DDoS protection
+      href: ./shared/application-ddos-protection.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides
@@ -142,6 +134,8 @@
        href: ./ag/web-application-firewall-logs.md
      - name: Monitoring and logging
        href: ./ag/application-gateway-waf-metrics.md
+     - name: Mask sensitive data
+       href: ./ag/waf-sensitive-data-protection-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door

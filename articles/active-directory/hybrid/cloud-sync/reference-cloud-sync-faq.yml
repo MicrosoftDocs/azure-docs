@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 02/08/2023
+  ms.date: 06/21/2023
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ sections:
       - question: |
           What's the difference between Azure AD Connect sync and cloud sync?
         answer: |
-          With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. 
+          With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. See the detailed article [What is Azure AD Connect cloud sync](what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) for a detailed comparison.
 
       - question: |
           Can I use cloud sync to sync from multiple Active Directory forests?
@@ -80,9 +80,9 @@ sections:
           When you delete the configuration, cloud sync doesn't automatically remove the synced objects in Azure AD. To ensure you Don't have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
 
       - question: |
-          What does it mean that Exchange hybrid isn't supported?
+          Does cloud sync support Exchange hybrid?
         answer: |
-          The Exchange Hybrid Deployment feature allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently doesn't synchronize these attributes back into your on-premises directory and thus it'sn't supported as a replacement for Azure AD Connect.
+          Yes.  Cloud sync now supports Exchange hybrid scenarios.  For more information see [Exchange hybrid with cloud sync](exchange-hybrid.md)
 
       - question: |
           Can I install the cloud provisioning agent on Windows Server Core?

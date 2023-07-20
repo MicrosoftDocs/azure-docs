@@ -4,6 +4,7 @@ description: This tutorial demonstrates how to containerize ASP.NET applications
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
+ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/14/2021
 ---

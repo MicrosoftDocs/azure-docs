@@ -5,13 +5,12 @@ description: Language Understanding (LUIS) offers the ability to increase the en
 
 manager: nitinme
 ms.devlang: javascript
-ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-azurepowershell
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
 

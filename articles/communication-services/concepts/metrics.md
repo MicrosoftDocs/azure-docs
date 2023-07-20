@@ -39,7 +39,7 @@ The following operations are available on Chat API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| GetChatMessage       | Gets a message by message id. |
+| GetChatMessage       | Gets a message by message ID. |
 | ListChatMessages     | Gets a list of chat messages from a thread. |
 | SendChatMessage      | Sends a chat message to a thread. |
 | UpdateChatMessage    | Updates a chat message. |
@@ -58,7 +58,7 @@ The following operations are available on Chat API request metrics:
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
-If a request is made to an operation that isn't recognized, you'll receive a "Bad Route" value response.
+If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 
 ### SMS API requests
 
@@ -66,7 +66,7 @@ The following operations are available on SMS API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | Sends a SMS message. |
+| SMSMessageSent       | Sends an SMS message. |
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
 
@@ -121,6 +121,24 @@ The following operations are available on Network Traversal API request metrics:
 | IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
 :::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
+
+### Rooms API requests
+
+The following operations are available on Rooms API request metrics:
+
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateRoom                    | Creates a Room. |
+| DeleteRoom                    | Deletes a Room. |
+| GetRoom                       | Gets a Room by Room ID. |
+| PatchRoom                     | Updates a Room by Room ID. |
+| ListRooms                     | Lists all the Rooms for an ACS Resource. |
+| AddParticipants               | Adds participants to a Room.|
+| RemoveParticipants            | Removes participants from a Room. |
+| GetParticipants               | Gets list of participants for a Room. |
+| UpdateParticipants            | Updates list of participants for a Room. |
+
+:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
 
 ## Next steps
 

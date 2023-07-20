@@ -22,7 +22,7 @@ ms.date: 05/09/2023
 
 In this article, learn how to create and configure an Azure Cognitive Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview). 
 
-The Management RESt API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
+The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
 > [!div class="checklist"]
 > * [List search services](#list-search-services)

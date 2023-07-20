@@ -5,8 +5,7 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: "devx-track-csharp, seodec18"
-
+ms.custom: devx-track-csharp, seodec18, devx-track-dotnet
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 ## Overview
@@ -171,7 +170,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
+3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GenerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 

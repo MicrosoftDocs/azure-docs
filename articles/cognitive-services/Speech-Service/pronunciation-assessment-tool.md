@@ -64,9 +64,9 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 ### [Display](#tab/display)
 
-The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
+The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. Yellow indicates mispronunciations, gray indicates omissions, and red indicates insertions. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-full.png" alt-text="Screenshot of error types and scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
 
@@ -243,6 +243,13 @@ During recording a long paragraph, you can pause recording at any time. You can 
 After you press the stop button, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, and **Completeness score** at the bottom.
 
 :::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording." lightbox="media/pronunciation-assessment/pa-after-recording-display-score.png":::
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
 
 ## Next steps
 

@@ -80,12 +80,12 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 | **Display Name** | Name to be displayed in your workspace instead of the original column name. | Optional.|
 |**Timestamp**     | The timestamp of a data point. If omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
-|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
+|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country/region, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. For data sources support using a query to get data, there is no 'Ignore' option.       |
 
 If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
 
-| Row ID | Timestamp | Country | Language | Income |
+| Row ID | Timestamp | Country/Region | Language | Income |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -117,7 +117,7 @@ Consider the following scenarios:
 
     This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
-    | Country | Language | Income |
+    | Country/Region | Language | Income |
     |---------|----------|--------|
     | China   | ZH-CN    | 10000  |
     | (NULL)  | EN-US    | 999999 |
@@ -175,7 +175,7 @@ Consider the following scenarios:
     Consider the following before using the Auto roll up feature:
 
     * If you want to use *SUM* to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of *non-additive* metrics:
-      - Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
+      - Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country/region.
       - Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is **100,000**. If your data exceeds that limit, ingestion will fail for that timestamp.
 

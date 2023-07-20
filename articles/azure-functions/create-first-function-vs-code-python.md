@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 10/24/2022
+ms.date: 05/29/2023
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete
 zone_pivot_groups: python-mode-functions
@@ -14,8 +14,14 @@ In this article, you use Visual Studio Code to create a Python function that res
 
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
+::: zone pivot="python-mode-configuration"
+>[!NOTE]
+>There is now a v2 programming model for creating Python functions. To create your first function using [the new v2 programming model](create-first-function-vs-code-python.md?pivots=python-mode-decorators), select **v2** at the top of the article.
+::: zone-end
+::: zone pivot="python-mode-decorators" 
 >[!NOTE]
 >The v2 programming model provides a decorator based approach to create functions. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

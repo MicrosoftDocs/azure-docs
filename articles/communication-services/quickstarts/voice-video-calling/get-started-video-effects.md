@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-android-windows
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
 

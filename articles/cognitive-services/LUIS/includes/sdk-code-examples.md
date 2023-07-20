@@ -8,8 +8,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-js
-
+ms.custom: include file
 ---
 
 ## Code examples

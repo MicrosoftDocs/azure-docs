@@ -6,6 +6,7 @@ author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
+ms.custom: devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: rwaller

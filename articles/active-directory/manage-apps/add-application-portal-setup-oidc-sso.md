@@ -20,6 +20,8 @@ Add an application that supports [OpenID Connect (OIDC)](../develop/active-direc
 
 It is recommended that you use a non-production environment to test the steps in this page.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure OIDC-based SSO, you need:

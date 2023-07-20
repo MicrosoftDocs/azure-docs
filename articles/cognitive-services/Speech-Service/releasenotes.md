@@ -1,5 +1,5 @@
 ---
-title: What's new - Speech Service
+title: What's new - Speech service
 titleSuffix: Azure Cognitive Services
 description: Find out about new releases and features for the Azure Cognitive Service for Speech.
 services: cognitive-services
@@ -19,7 +19,7 @@ Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to
 
 ## Recent highlights
 
-* Speech SDK 1.28.0 was released in May 2023.
+* Speech SDK 1.30.0 was released in July 2023.
 * Speech to text and text to speech container versions were updated in March 2023.
 * Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
 * Custom Speech to text container disconnected mode was released in January 2023.

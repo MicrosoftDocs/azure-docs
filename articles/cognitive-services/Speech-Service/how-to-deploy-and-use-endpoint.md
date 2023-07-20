@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: caoling
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-nineteen
 ---
 

@@ -5,7 +5,7 @@
  author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 05/03/2023
+ ms.date: 05/10/2023
  ms.author: sethm
  ms.custom: include file
 ---
@@ -33,6 +33,9 @@
        :::image type="content" source="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
 
     1. Review the [**Availability zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
+
+       > [!NOTE]
+       > Availability zones, and the ability to edit cross region disaster recovery options, is a public preview feature. The availability zones option only appears in the notification hub details pane if you are participating in the preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
 
     1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 

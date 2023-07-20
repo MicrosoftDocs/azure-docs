@@ -3,7 +3,7 @@ title: How to register an Azure Storage Mover agent
 description: Learn about agent VM registration to run your migration jobs.
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 03/14/2023
 ---

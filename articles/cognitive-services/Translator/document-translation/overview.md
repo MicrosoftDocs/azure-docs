@@ -49,6 +49,8 @@ In our quickstart, you learn how to rapidly get started using Document Translati
 
 ## Supported document formats
 
+The [Get supported document formats method](reference/get-supported-document-formats.md) returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
+
 Document Translation supports the following document file types:
 
 | File type| File extension|Description|

@@ -256,6 +256,8 @@
       href: entity-suspend.md
     - name: Use Service Bus Explorer
       href: explorer.md
+    - name: Prepare for planned maintenance
+      href: prepare-for-planned-maintenance.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:

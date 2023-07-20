@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Create a Visual Search single-page web app
 

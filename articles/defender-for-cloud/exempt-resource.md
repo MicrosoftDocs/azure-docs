@@ -8,7 +8,7 @@ author: dcurwin
 ms.date: 01/02/2022
 ---
 
-# Exempting resources and recommendations from your secure score 
+# Exempting resources and recommendations from your secure score
 
 A core priority of every security team is to ensure analysts can focus on the tasks and incidents that matter to the organization. Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The **exempt** option is one such feature.
 
@@ -24,14 +24,13 @@ In such cases, you can create an exemption for a recommendation to:
 
 ## Availability
 
-| Aspect                          | Details                                                                                                                                                                                                                                                                                                                            |
-|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]                                                                                                                                                                                                                                             |
-| Pricing:                        | This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.                                                                                                                                                                 |
-| Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Aspect                          | Details                                                      |
+| ------------------------------- | ----------------------------------------------------------- |
+| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] |
+| Pricing:                        | This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.
+| Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). |
 | Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives can't be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                                                                                                                                                         |
-
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Define an exemption
 
@@ -57,12 +56,12 @@ To create an exemption rule:
 1. In the **Exempt** pane:
     1. Select the scope for this exemption rule:
         - If you select a management group, the recommendation will be exempted from all subscriptions within that group
-        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources"" and select the relevant ones from the list
+        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources" and select the relevant ones from the list
 
     1. Enter a name for this exemption rule.
     1. Optionally, set an expiration date.
     1. Select the category for the exemption:
-        - **Resolved through 3rd party (mitigated)** – if you're using a third-party service that Defender for Cloud hasn't identified. 
+        - **Resolved through 3rd party (mitigated)** – if you're using a third-party service that Defender for Cloud hasn't identified.
 
             > [!NOTE]
             > When you exempt a recommendation as mitigated, you aren't given points towards your secure score. But because points aren't *removed* for the unhealthy resources, the result is that your score will increase.
@@ -81,7 +80,7 @@ To create an exemption rule:
         :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls":::
 
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
-        
+
         :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources.":::
 
 1. To review your exempted resources, open the **Not applicable** tab:
@@ -104,7 +103,7 @@ To create an exemption rule:
 
 ## Monitor exemptions created in your subscriptions
 
-As explained earlier on this page, exemption rules are a powerful tool providing granular control over the recommendations affecting resources in your subscriptions and management groups. 
+As explained earlier on this page, exemption rules are a powerful tool providing granular control over the recommendations affecting resources in your subscriptions and management groups.
 
 To keep track of how your users are exercising this capability, we've created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
 
@@ -119,7 +118,6 @@ The asset inventory page of Microsoft Defender for Cloud provides a single page 
 The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendations.
 
 :::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions":::
-
 
 ## Find recommendations with exemptions using Azure Resource Graph
 
@@ -138,83 +136,30 @@ To view all recommendations that have exemption rules:
     | where type == "microsoft.security/assessments"
     // Get recommendations in useful format
     | project
-	['TenantID'] = tenantId,
-	['SubscriptionID'] = subscriptionId,
-	['AssessmentID'] = name,
-	['DisplayName'] = properties.displayName,
-	['ResourceType'] = tolower(split(properties.resourceDetails.Id,"/").[7]),
-	['ResourceName'] = tolower(split(properties.resourceDetails.Id,"/").[8]),
-	['ResourceGroup'] = resourceGroup,
-	['ContainsNestedRecom'] = tostring(properties.additionalData.subAssessmentsLink),
-	['StatusCode'] = properties.status.code,
-	['StatusDescription'] = properties.status.description,
-	['PolicyDefID'] = properties.metadata.policyDefinitionId,
-	['Description'] = properties.metadata.description,
-	['RecomType'] = properties.metadata.assessmentType,
-	['Remediation'] = properties.metadata.remediationDescription,
-	['Severity'] = properties.metadata.severity,
-	['Link'] = properties.links.azurePortal
-	| where StatusDescription contains "Exempt"    
+    ['TenantID'] = tenantId,
+    ['SubscriptionID'] = subscriptionId,
+    ['AssessmentID'] = name,
+    ['DisplayName'] = properties.displayName,
+    ['ResourceType'] = tolower(split(properties.resourceDetails.Id,"/").[7]),
+    ['ResourceName'] = tolower(split(properties.resourceDetails.Id,"/").[8]),
+    ['ResourceGroup'] = resourceGroup,
+    ['ContainsNestedRecom'] = tostring(properties.additionalData.subAssessmentsLink),
+    ['StatusCode'] = properties.status.code,
+    ['StatusDescription'] = properties.status.description,
+    ['PolicyDefID'] = properties.metadata.policyDefinitionId,
+    ['Description'] = properties.metadata.description,
+    ['RecomType'] = properties.metadata.assessmentType,
+    ['Remediation'] = properties.metadata.remediationDescription,
+    ['Severity'] = properties.metadata.severity,
+    ['Link'] = properties.links.azurePortal
+    | where StatusDescription contains "Exempt"    
     ```
 
-
 Learn more in the following pages:
+
 - [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 - [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
-
-
-
-
-
-## FAQ - Exemption rules
-
-- [What happens when one recommendation is in multiple policy initiatives?](#what-happens-when-one-recommendation-is-in-multiple-policy-initiatives)
-- [Are there any recommendations that don't support exemption?](#are-there-any-recommendations-that-dont-support-exemption)
-
-### What happens when one recommendation is in multiple policy initiatives?
-
-Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit. 
-
-For example, the recommendation **** is part of the default policy initiative assigned to all Azure subscriptions by Microsoft Defender for Cloud. It's also in XXXXX.
-
-If you try to create an exemption for this recommendation, you'll see one of the two following messages:
-
-- If you **have** the necessary permissions to edit both initiatives, you'll see:
-
-    *This recommendation is included in several policy initiatives: [initiative names separated by comma]. Exemptions will be created on all of them.*  
-
-- If you **don't have** sufficient permissions on both initiatives, you'll see this message instead:
-
-    *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
-
-### Are there any recommendations that don't support exemption?
-
-These generally available recommendations don't support exemption:
-
-- All advanced threat protection types should be enabled in SQL managed instance advanced data security settings
-- All advanced threat protection types should be enabled in SQL server advanced data security settings
-- Container CPU and memory limits should be enforced
-- Container images should be deployed from trusted registries only
-- Container with privilege escalation should be avoided
-- Containers sharing sensitive host namespaces should be avoided
-- Containers should listen on allowed ports only
-- Default IP Filter Policy should be Deny
-- Immutable (read-only) root filesystem should be enforced for containers
-- IoT Devices - Open Ports On Device
-- IoT Devices - Permissive firewall policy in one of the chains was found
-- IoT Devices - Permissive firewall rule in the input chain was found
-- IoT Devices - Permissive firewall rule in the output chain was found
-- IP Filter rule large IP range
-- Least privileged Linux capabilities should be enforced for containers
-- Machines should be configured securely
-- Overriding or disabling of containers AppArmor profile should be restricted
-- Privileged containers should be avoided
-- Running containers as root user should be avoided
-- Services should listen on allowed ports only
-- SQL servers should have an Azure Active Directory administrator provisioned
-- Usage of host networking and ports should be restricted
-- Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
 
 
 ## Next steps

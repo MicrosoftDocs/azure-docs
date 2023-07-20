@@ -281,7 +281,7 @@ Learn more about [MariaDB server - OrcasMariaDbStorageLimit (Scale the storage l
 
 Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization may lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
-Learn more about [MariaDB server - OrcasMariaDbCpuOverlaod (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
+Learn more about [MariaDB server - OrcasMariaDbCpuOverload (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
 
 ### Scale the MariaDB server to higher SKU
 
@@ -923,7 +923,7 @@ Learn more about [Database Instance - DisableIPv6Protocol (For improved file sys
 
 The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up incrementally the TCP window size for TCP connections which were idle for some time. By setting this parameter to zero as per SAP note: 302436, the maximum speed is used from beginning for previously idle TCP connections
 
-Learn more about [Database Instance - ParamterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - ParameterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter
 
@@ -937,11 +937,11 @@ Enable the tcp_sack parameter as per SAP note: 302436. This configuration certif
 
 Learn more about [Database Instance - TCPSackParameter (For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
+### In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
 
 Disable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in high-availability scenarios for HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - DisableTCPTimestamps (In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - DisableTCPTimestamps (In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter
 

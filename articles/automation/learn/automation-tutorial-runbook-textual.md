@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/16/2022
 ms.topic: tutorial 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
 ---
 

@@ -117,7 +117,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Lock the `releasever` variable. Be sure to run the command as `root`.
 
    ```bash
-   sudo echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+   sudo sh -c 'echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever'
    ```
 
    If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
@@ -164,6 +164,28 @@ To remove the version lock, use the following commands. Run the commands as `roo
    ```bash
    sudo yum update
    ```
+
+### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
+Run the following as root:
+1. Remove the `releasever` file:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Disable EUS repos:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+   ```
+
+1. Configure RHEL VM
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+
+1. Update your RHEL VM
+    ```bash
+    sudo yum update
+    ```
 
 ## The IPs for the RHUI content delivery servers
 

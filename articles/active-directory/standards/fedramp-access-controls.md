@@ -59,7 +59,7 @@ Each row in the following table provides prescriptive guidance to help you devel
 
 ## Next steps
 
-- [FedRAMP compliance overview](configure-azure-active-directory-for-fedramp-high-impact.md)
+- [FedRAMP compliance overview](configure-for-fedramp-high-impact.md)
 - [Configure identification and authentication controls to meet FedRAMP High Impact level](fedramp-identification-and-authentication-controls.md)
 - [Configure additional controls to meet FedRAMP High Impact level](fedramp-other-controls.md)
 

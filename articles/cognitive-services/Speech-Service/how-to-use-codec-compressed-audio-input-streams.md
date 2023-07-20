@@ -11,7 +11,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/25/2022
 ms.devlang: cpp, csharp, golang, java, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services
 ---
 

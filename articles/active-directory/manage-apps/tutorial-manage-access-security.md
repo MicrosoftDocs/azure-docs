@@ -25,6 +25,8 @@ Using the information in this tutorial, an administrator learns how to:
 > * Communicate a term of use to users of the application
 > * Create a collection in the My Apps portal
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

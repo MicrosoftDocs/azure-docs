@@ -6,6 +6,14 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.30.0: July 2023 release
+
+Updated to use Speech SDK 1.30.0
+
+### Speech CLI 1.29.0: June 2023 release
+
+Updated to use Speech SDK 1.29.0
+
 ### Speech CLI 1.28.0: May 2023 release
 
 Updated to use Speech SDK 1.28.0
@@ -179,7 +187,7 @@ As the ongoing pandemic continues to require our engineers to work from home, pr
 Stay healthy!
 
 ### 2020-October release
-SPX is the command-line interface to use the Azure Speech service without writing code.
+SPX is the command-line interface to use the Speech service without writing code.
 Download the latest version [here](../../spx-basics.md). <br>
 
 #### New features

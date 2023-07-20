@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Validate Azure Active Directory token
 
-The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 > [!NOTE]
 > To validate a JWT that was provided by another identity provider, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 

@@ -4,7 +4,7 @@ description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 06/21/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,12 +17,16 @@ ms.collection: M365-identity-device-management
 
 Token protection (sometimes referred to as token binding in the industry) attempts to reduce attacks using token theft by ensuring a token is usable only from the intended device. When an attacker is able to steal a token, by hijacking or replay, they can impersonate their victim until the token expires or is revoked. Token theft is thought to be a relatively rare event, but the damage from it can be significant. 
 
-Token protection creates a cryptographically secure tie between the token and the device (client secret) it's issued to. Without the client secret, the bound token is useless. When a user registers a Windows 10 or newer device in Azure AD, their primary identity is [bound to the device](../devices/concept-primary-refresh-token.md#how-is-the-prt-protected). This connection means that any issued sign-in token is tied to the device significantly reducing the chance of theft and replay attacks.
+Token protection creates a cryptographically secure tie between the token and the device (client secret) it's issued to. Without the client secret, the bound token is useless. When a user registers a Windows 10 or newer device in Azure AD, their primary identity is [bound to the device](../devices/concept-primary-refresh-token.md#how-is-the-prt-protected). What this means is that a policy can ensure that only bound sign-in session (or refresh) tokens, otherwise known as Primary Refresh Tokens (PRTs) are used by applications when requesting access to a resource.
 
 > [!IMPORTANT]
 > Token protection is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With this preview, we're giving you the ability to create a Conditional Access policy to require token protection for sign-in tokens (refresh tokens) for specific services. We support token protection for sign-in tokens in Conditional Access for desktop applications accessing Exchange Online and SharePoint Online on Windows devices.
+
+> [!IMPORTANT]
+> The following changes have been made to Token Protection since the initial public preview release:
+> * **Sign In logs output:** The value of the string used in "enforcedSessionControls" and "sessionControlsNotSatisfied" changed from "Binding" to "SignInTokenProtection" in late June 2023. Queries on Sign In Log data should be updated to reflect this change.
 
 > [!NOTE]
 > We may interchange sign in tokens and refresh tokens in this content. This preview doesn't currently support access tokens or web cookies.
@@ -47,9 +51,11 @@ This preview supports the following configurations:
    - PowerQuery extension for Excel
    - Extensions to Visual Studio Code which access Exchange or SharePoint
    - Visual Studio
+   - The new Teams 2.1 preview client gets blocked after sign out due to a bug. This bug should be fixed in an August release.
 - The following Windows client devices aren't supported:
    - Windows Server 
    - Surface Hub
+   - Windows-based Microsoft Teams Rooms (MTR) systems
 
 ## Deployment
 
@@ -96,6 +102,8 @@ The steps that follow help create a Conditional Access policy to require token p
        1. Select **Done**.
     1. Under **Client apps**:
        1. Set **Configure** to **Yes**.
+          > [!WARNING] 
+          > Not configuring the Client Apps condition, or leaving **Browser** selected may cause applications that use MSAL.js, such as Teams Web to be blocked.
        1. Under Modern authentication clients, only select **Mobile apps and desktop clients**. Leave other items unchecked.
        1. Select **Done**.
 1. Under **Access controls** > **Session**, select **Require token protection for sign-in sessions** and select **Select**.
@@ -124,7 +132,10 @@ Use Azure AD sign-in log to verify the outcome of a token protection enforcement
 
 You can also use [Log Analytics](../reports-monitoring/tutorial-log-analytics-wizard.md) to query the sign-in logs (interactive and non-interactive) for blocked requests due to token protection enforcement failure.
 
-Here's a sample Log Analytics query searching the non-interactive sign-in logs for the last seven days, highlighting **Blocked** versus **Allowed** requests by **Application**. 
+Here's a sample Log Analytics query searching the non-interactive sign-in logs for the last seven days, highlighting **Blocked** versus **Allowed** requests by **Application**. These queries are only samples and are subject to change.
+
+> [!NOTE]
+> **Sign In logs output:** The value of the string used in "enforcedSessionControls" and "sessionControlsNotSatisfied" changed from "Binding" to "SignInTokenProtection" in late June 2023. Queries on Sign In Log data should be updated to reflect this change.
 
 ```kusto
 //Per Apps query 
@@ -139,10 +150,10 @@ AADNonInteractiveUserSignInLogs
 //Add userPrinicpalName if you want to filter  
 // | where UserPrincipalName =="<user_principal_Name>" 
 | mv-expand todynamic(ConditionalAccessPolicies) 
-| where ConditionalAccessPolicies ["enforcedSessionControls"] contains '["Protection"]' 
+| where ConditionalAccessPolicies ["enforcedSessionControls"] contains '["SignInTokenProtection"]' 
 | where ConditionalAccessPolicies.result !="reportOnlyNotApplied" and ConditionalAccessPolicies.result !="notApplied" 
 | extend SessionNotSatisfyResult = ConditionalAccessPolicies["sessionControlsNotSatisfied"] 
-| extend Result = case (SessionNotSatisfyResult contains 'Protection', 'Block','Allow') 
+| extend Result = case (SessionNotSatisfyResult contains 'SignInTokenProtection', 'Block','Allow') 
 | summarize by Id,UserPrincipalName, AppDisplayName, Result 
 | summarize Requests = count(), Users = dcount(UserPrincipalName), Block = countif(Result == "Block"), Allow = countif(Result == "Allow"), BlockedUsers = dcountif(UserPrincipalName, Result == "Block") by AppDisplayName 
 | extend PctAllowed = round(100.0 * Allow/(Allow+Block), 2) 
@@ -168,10 +179,10 @@ AADNonInteractiveUserSignInLogs
 //Add userPrincipalName if you want to filter  
 // | where UserPrincipalName =="<user_principal_Name>" 
 | mv-expand todynamic(ConditionalAccessPolicies) 
-| where ConditionalAccessPolicies.enforcedSessionControls contains '["Protection"]' 
+| where ConditionalAccessPolicies.enforcedSessionControls contains '["SignInTokenProtection"]' 
 | where ConditionalAccessPolicies.result !="reportOnlyNotApplied" and ConditionalAccessPolicies.result !="notApplied" 
 | extend SessionNotSatisfyResult = ConditionalAccessPolicies.sessionControlsNotSatisfied 
-| extend Result = case (SessionNotSatisfyResult contains 'Protection', 'Block','Allow') 
+| extend Result = case (SessionNotSatisfyResult contains 'SignInTokenProtection', 'Block','Allow') 
 | summarize by Id, UserPrincipalName, AppDisplayName, ResourceDisplayName,Result  
 | summarize Requests = count(),Block = countif(Result == "Block"), Allow = countif(Result == "Allow") by UserPrincipalName, AppDisplayName,ResourceDisplayName 
 | extend PctAllowed = round(100.0 * Allow/(Allow+Block), 2) 

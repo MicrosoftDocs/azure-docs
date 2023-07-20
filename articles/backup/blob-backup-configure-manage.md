@@ -40,7 +40,7 @@ A [Backup vault](backup-vault-overview.md) is a management entity that stores re
 >[!NOTE]
 >The Backup vault is a new resource that is used for backing up new supported workloads and is different from the already existing Recovery Services vault.
 
-For instructions on how to create a Backup vault, see the [Backup vault documentation](backup-vault-overview.md#create-a-backup-vault).
+For instructions on how to create a Backup vault, see the [Backup vault documentation](create-manage-backup-vault.md#create-a-backup-vault).
 
 ## Grant permissions to the Backup vault on storage accounts
 

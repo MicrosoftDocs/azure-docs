@@ -22,6 +22,8 @@ ms.custom: enterprise-apps
 
 An [owner of an enterprise application](overview-assign-app-owners.md) in Azure Active Directory (Azure AD) can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. In this article, you learn how to assign an owner of an application.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Assign an owner
 
 :::zone pivot="portal"

@@ -18,7 +18,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Use Visual Studio to create a C# class library project.
-> * Create a function that responds to HTTP requests. 
+> * Create a function that responds to HTTP requests.
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions.
 
@@ -26,7 +26,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ## Prerequisites
 
-+ [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure to select the **Azure development** workload during installation. 
++ [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure to select the **Azure development** workload during installation.
 
 + [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
@@ -38,7 +38,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
 
-1. In **Configure your new project**, enter a **Project name** for your project, and then select **Next**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. 
+1. In **Configure your new project**, enter a **Project name** for your project, and then select **Next**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
 1. For the remaining **Additional information** settings, 
      
@@ -65,7 +65,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In the code, rename the Function1 class to `HttpExample`.
 
-1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`. 
+1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
 
 Your function definition should now look like the following code:
 
@@ -75,7 +75,7 @@ Now that you've renamed the function, you can test it on your local computer.
 
 ## Run the function locally
 
-Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.  
+Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
@@ -83,7 +83,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Publish the project to Azure
 
-Visual Studio can publish your local project to Azure. Before you can publish your project, you must have a function app in your Azure subscription. If you don't already have a function app in Azure, Visual Studio publishing creates one for you the first time you publish your project. In this article, you create a function app and related Azure resources. 
+Visual Studio can publish your local project to Azure. Before you can publish your project, you must have a function app in your Azure subscription. If you don't already have a function app in Azure, Visual Studio publishing creates one for you the first time you publish your project. In this article, you create a function app and related Azure resources.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
@@ -91,7 +91,7 @@ Visual Studio can publish your local project to Azure. Before you can publish yo
 
 1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
 
-1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
+1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running.
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure-v4.png" alt-text="Function app running":::
 
@@ -107,7 +107,7 @@ Visual Studio can publish your local project to Azure. Before you can publish yo
 
 ## Clean up resources
 
-*Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group. 
+*Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
 
 You created Azure resources to complete this quickstart. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). Other quickstarts in this collection build upon this quickstart. If you plan to work with subsequent quickstarts, tutorials, or with any of the services you've created in this quickstart, don't clean up the resources.
 
@@ -115,7 +115,7 @@ You created Azure resources to complete this quickstart. You may be billed for t
 
 ## Next steps
 
-In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function. 
+In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function.
 
 To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process.
 

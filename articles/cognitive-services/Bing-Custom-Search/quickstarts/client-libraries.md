@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
 ms.devlang: csharp, java, python
-ms.custom: devx-track-python, devx-track-csharp, mode-api
+ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-extended-java
 ---
 # Quickstart: Use the Bing Custom Search client library
 

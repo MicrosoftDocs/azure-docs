@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
+          - text: What is vector search?
+            url: vector-search-overview.md
           - text: What is semantic search?
             url: semantic-search-overview.md
       - linkListType: learn

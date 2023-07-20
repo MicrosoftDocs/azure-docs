@@ -37,7 +37,7 @@ With Anomaly Detector, you can either detect anomalies in one variable using Uni
 
 ### Univariate Anomaly Detection
 
-The Univariate Anomaly Detection API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
+The Univariate Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ![Line graph of detect pattern changes in service requests.](./media/anomaly_detection2.png)
 

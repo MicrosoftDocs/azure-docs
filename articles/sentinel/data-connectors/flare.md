@@ -3,7 +3,7 @@ title: "Flare connector for Microsoft Sentinel"
 description: "Learn how to install the connector Flare to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ ms.author: cwatson
 | --- | --- |
 | **Log Analytics table(s)** | Firework_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Flare Systems Inc.](https://flare.systems/company/contact/) |
+| **Supported by** | [Flare](https://flare.io/company/contact/) |
 
 ## Query samples
 

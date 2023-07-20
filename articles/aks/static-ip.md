@@ -68,6 +68,9 @@ This article shows you how to create a static public IP address and assign it to
 
 2. Create a file named `load-balancer-service.yaml` and copy in the contents of the following YAML file, providing your own public IP address created in the previous step and the node resource group name.
 
+    > [!IMPORTANT]
+    > Adding the `loadBalancerIP` property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead. To set service annotations, you can use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address.
+
     ```yaml
     apiVersion: v1
     kind: Service
@@ -86,9 +89,9 @@ This article shows you how to create a static public IP address and assign it to
 
 3. Use the `kubectl apply` command to create the service and deployment.
 
-```console
-kubectl apply -f load-balancer-service.yaml
-```
+    ```console
+    kubectl apply -f load-balancer-service.yaml
+    ```
 
 ## Apply a DNS label to the service
 

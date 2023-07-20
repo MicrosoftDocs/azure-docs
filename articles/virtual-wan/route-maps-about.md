@@ -5,7 +5,7 @@ description: Learn about Virtual WAN Route-maps.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 05/31/2023
 ms.author: cherylmc
 ms.custom: references_regions
 
@@ -45,8 +45,6 @@ Route-maps lets you perform route aggregation, route filtering, and gives you th
 * You can easily tag routes using the BGP Community attribute in order to manage routes.
 
 ### Key considerations
-
-[!INCLUDE [Route-maps regions](../../includes/virtual-wan-route-maps-regions.md)]
 
 * During Preview, hubs using Route-maps must be deployed in their own virtual WANs.
 * Route-maps is only available for virtual hubs running on the Virtual Machine Scale Sets infrastructure. For more information, see the [FAQ](virtual-wan-faq.md).

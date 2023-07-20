@@ -15,7 +15,7 @@ Replica pod scrapes metrics from `kube-state-metrics` and custom scrape targets 
 
 ## Metrics Throttling
 
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minuted Ingested % Utilization` are below 100%.
+In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
 

@@ -1,9 +1,9 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
-description: How to use the IoT Central REST API to manage data export in an application
+description: How to use the IoT Central REST API to manage data export in an application. Export data to desinations such as blob storage, event hubs, and service bus.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/15/2022
+ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -12,7 +12,7 @@ services: iot-central
 
 # How to use the IoT Central REST API to manage data exports
 
-The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-to-blob-storage.md).
+The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-to-blob-storage.md)
  in your IoT Central application.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -37,7 +37,7 @@ Use the following request to create or update a destination definition:
 PUT https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-* destinationId - Unique ID for the destination.
+`destinationId` is a  unique ID for the destination.
 
 The following example shows a request body that creates a blob storage destination:
 
@@ -110,7 +110,7 @@ The response to this request looks like the following example:
             "type": "blobstorage@v1",
             "authorization": {
                 "type": "connectionString",
-                "connectionString": DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
                 "containerName": "central-data"
             },
             "status": "waiting"
@@ -121,8 +121,7 @@ The response to this request looks like the following example:
             "type": "webhook@v1",
             "url": "https://eofnjsh68jdytan.m.pipedream.net",
             "headerCustomizations": {},
-            "status": "error",
-        }
+            "status": "error"
         }
     ]
 }

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 ## Set your environment variables
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll instantiate the client with your `key` and `endpoint` from the Azure portal. For this project, we'll use environment variables to store and access credentials.
+To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, instantiate the client with your `key` and `endpoint` from the Azure portal. For this project, we use environment variables to store and access credentials.
 
 > [!IMPORTANT]
 >
@@ -41,12 +41,12 @@ setx FR_ENDPOINT {yourEndpoint}
 
 ```
 
-* After you set your environment variables, you'll need to exit the shell, and reopen it before the changes will be available. The value will remain modified until you change it again.
+* After you set your environment variables, you'll need to exit the shell, and reopen it before the changes will be available. The value remains modified until you change it again.
 
-* Restart any running programs that will read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
+* Restart any running programs that read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=environment-variables)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
 
  Here are a few more helpful commands to use with environment variables:
 
@@ -93,8 +93,8 @@ export endpoint={yourEndpoint}
       source ~/.bash-profile
       ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=environment-variables)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
 
 Here are a few more helpful commands to use with environment variables:
 
@@ -141,8 +141,8 @@ export FR_ENDPOINT={yourEndpoint}
       source ~/.bashrc
       ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=environment-variables)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
 
 Here are a few more helpful commands to use with environment variables:
 

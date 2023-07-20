@@ -6,7 +6,7 @@ description: Learn how to use the Route Map dashboard to monitor routes, AS Path
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/31/2023
 ms.author: cherylmc
 
 ---
