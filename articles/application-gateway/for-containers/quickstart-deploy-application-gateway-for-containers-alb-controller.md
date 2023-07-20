@@ -109,6 +109,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 	IDENTITY_RESOURCE_NAME='azure-alb-identity'
 	
 	mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+	mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
 	
 	echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
 	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
@@ -118,7 +119,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 	sleep 60
  
 	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
-	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
+	az role assignment create --assignee-object-id $principalId --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
 	
 	echo "Set up federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
