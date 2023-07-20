@@ -67,7 +67,7 @@ When viewing the status of user processing history, the status values correspond
 |In Progress     | This state is reported when a workflow begins running tasks for a user.. The status remains in this state until all the workflow's tasks are processed for the user, or it fails.        |
 |Queued     | This state is reported when a user is identified by the Lifecycle Workflow engine that meets the execution conditions of a workflow. From here a user either enters a state of In progress if the workflow begins running for them, or canceled if the admin manually cancels the workflow.       |
 |Canceled     |  This state is reported for the following reasons: <br><br>**1.** If the workflow was deleted, all scheduled users it's set to run for are canceled.<br>**2.** If the workflow was disabled, all scheduled users it's set to run for are canceled.<br>**3**. If the workflow's schedule was disabled, all scheduled users it's set to run for are canceled.<br>**4.** If the workflow had a new version created and all tasks were disabled, all scheduled users it's set to run for are canceled.<br>**5.** If users don't meet the current execution conditions of the workflow's new version, the scheduled runs are canceled.<br>**6.**  If the user was queued to have the workflow run for them, but has a profile change and no longer meet the current execution conditions of the workflow immediately before it runs, the processing is canceled.      |
-|Completed with errors     | This state is reported if the workflow completed, but one or more tasks that are set as *true*  **continueOnError** have failed.       |
+|Completed with errors     | This state is reported if the workflow completed, but one or more tasks that are set have **continueOnError** set as *true* have failed.       |
 |Failed     |  This state is reported if a task with **continueOnError** set as *false* fails.      |
 
 For a complete guide on getting user processed summary information, see: [User workflow history using the Azure portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
@@ -109,7 +109,7 @@ When viewing the status of run history, the status values correspond to the foll
 |Queued      | This state is reported the first time a workflow is set to run.        |
 |In Progress     |  This state is reported as soon as the workflow begins processing its first task.       |
 |Canceled     |  This state is reported if it was *In Progress* at one point of time, and is now frozen in that state.       |
-|Completed with errors     | This state is reported if the workflow runs successfully for some, but not others. If a workflow enters the queued state, but all of its instances are canceled before executing, then it will also show a state as *Completed with errors* before ever entering a state of *In Progress*.        |
+|Completed with errors     | This state is reported if the workflow runs successfully for some, but not others. If a workflow enters the queued state, but all of its instances are canceled before executing, then it will also show this state before ever entering a state of *In Progress*.        |
 |Completed     |  This state is reported if the workflow ran successfully for every user.       |
 |Failed     |  This state is reported if all tasks failed for all users the workflow runs for. Canceled users aren't counted as failures in the report.      |
 
@@ -150,10 +150,10 @@ When viewing the status of task history, the status values correspond to the fol
 
 |Status  |Details  |
 |---------|---------|
-|Queued      | Once a workflow instance is scheduled for execution, task reports for all of the tasks within the workflow are also created with this status with Run record. Each task report encompasses all users but represents it for only one task.        |
-|In Progress     |  This state is reported as soon as the first tasks begins being processed.       |
-|Canceled     |  This state is reported if no tasks are processed before the workflow is canceled. If a workflow that contains the tasks is deleted then the status will also show as canceled.      |
-|Completed with errors     | This state is reported if a task is processed for a user, but not every task succeeded.       |
+|Queued      | This state is reported once a workflow instance is scheduled for execution, task reports for all of the tasks within the workflow are also created with this status with Run record. Each task report includes all users but represents a specific task.        |
+|In Progress     |  This state is reported as soon as the first task begins being processed.       |
+|Canceled     |  This state is reported if no tasks are processed before the workflow is canceled. If a workflow that contains the tasks is deleted, then the status will also show as canceled.      |
+|Completed with errors     | This state is reported if a task is processed for a user, but not every task succeeds.       |
 |Completed     |  This state is reported if all tasks ran successfully for every user.       |
 |Failed     |  This state is reported if all tasks failed.      |
 
