@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 07/18/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -147,7 +147,8 @@ Make sure the account has the permission of Log-on as a service. Otherwise self-
 You can associate a self-hosted integration runtime with multiple on-premises machines or virtual machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes are:
 
 - Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure for scan. This availability helps ensure continuity when you use up to four nodes.
-- Run more concurrent scans. Each self-hosted integration runtime can empower many scans at the same time, auto determined based on the machine's CPU/memory. You can install more nodes if you have more concurrency need. Each scan will be executed on one of the nodes. Having more nodes doesn't improve the performance of a single scan execution.
+- Run more concurrent scans. Each self-hosted integration runtime can empower many scan runs at the same time, auto determined based on the machine's CPU/memory. You can install more nodes if you have more concurrency need. 
+- When scanning sources like Azure Blob, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2 and Azure Files, each scan run can leverage all those nodes to boost the scan performance. For other sources, scan will be executed on one of the nodes.
 
 You can associate multiple nodes by installing the self-hosted integration runtime software from [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using the same authentication key.
 

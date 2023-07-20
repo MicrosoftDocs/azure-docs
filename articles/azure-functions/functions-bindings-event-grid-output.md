@@ -428,13 +428,13 @@ $message = $Request.Query.Message
 
 Push-OutputBinding -Name outputEvent -Value  @{
     id = "1"
-    EventType = "testEvent"
-    Subject = "testapp/testPublish"
-    EventTime = "2020-08-27T21:03:07+00:00"
-    Data = @{
+    eventType = "testEvent"
+    subject = "testapp/testPublish"
+    eventTime = "2020-08-27T21:03:07+00:00"
+    data = @{
         Message = $message
     }
-    DataVersion = "1.0"
+    dataVersion = "1.0"
 }
 
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{

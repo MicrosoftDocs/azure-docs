@@ -64,10 +64,14 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- July 13, 2023: Clarifying dfifferences in zonal replication between NFS on AFS and ANF in table in [Azure Storage types for SAP workload](./planning-guide-storage.md)
+- July 13, 2023: Statement that 512byte and 4096 sector size for Premium SSD v2 do not show any performance difference in [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
+- July 13, 2023: Replaced links in ANF section of [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md#) to new ANF related documentation
 - July 11, 2023: Add a note about Azure NetApp Files application volume group for SAP HANA in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for HANA Scale-out HA on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) and [HA for HANA scale-out on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) 
 - June 29, 2023: Update important considerations and sizing information in [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - June 26, 2023: Update important considerations and sizing information in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md) and [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md).
 - June 23, 2023: Updated Azure scheduled events for SLES in [Pacemaker set up guide](./high-availability-guide-suse-pacemaker.md#configure-pacemaker-for-azure-scheduled-events).
+- June 22, 2023: Statement that 512byte and 4096 sector size for Premium SSD v2 do not show any performance difference in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - June 1, 2023: Included virtual machine scale set with flexible orchestration guidelines in SAP workload [planning guide](./planning-guide.md).
 - June 1, 2023: Updated high availability guidelines in [HA architecture and scenarios](./sap-high-availability-architecture-scenarios.md), and added additional deployment option in [configuring optimal network latency with SAP applications](./proximity-placement-scenarios.md).
 - June 1, 2023: Release of [virtual machine scale set with flexible orchestration support for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md).

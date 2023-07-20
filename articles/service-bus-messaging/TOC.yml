@@ -289,8 +289,8 @@
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
-    - name: Messaging exceptions
-      href: service-bus-messaging-exceptions.md
+    - name: SDK troubleshooting guide
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
 - name: Reference

@@ -1,5 +1,5 @@
 ---
-title: Connect your Azure subscriptions to Microsoft Defender for Cloud
+title: Connect your Azure subscriptions
 description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
 ms.date: 07/10/2023
