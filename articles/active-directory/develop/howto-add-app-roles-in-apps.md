@@ -59,7 +59,7 @@ To create an app role by using the Azure portal's user interface:
 
 1. Select **Apply** to save your changes.
 
-When the app role is set to enabled, users who are assigned the app role will have it included in their tokens. If it is set to disabled, it becomes inactive and no longer assignable to new users, applications or groups. Any who were previously assigned the app role will still have it included in their tokens, but it will have no effect as it is no longer actively assignable. This setting controls the app role's usage and availability while being able to temporarily or permanently disabling it without removing it entirely. 
+When the app role is set to enabled, users who are assigned the app role has it included in their tokens. If set to disabled, it becomes inactive and no longer assignable to new users, applications or groups. Any who were previously assigned the app role will still have it included in their tokens, but it has no effect as it is no longer actively assignable. This setting controls the app role's usage and availability while being able to temporarily or permanently disabling it without removing it entirely. 
 
 ## Assign users and groups to roles
 
@@ -114,7 +114,7 @@ The **Status** column should reflect that consent has been **Granted for \<tenan
 
 ## Usage scenario of app roles
 
-If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
+If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application. These can be access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
 
 If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an access token to call the API, a roles claim is included in the token. Your next step is to add code to your web API to check for those roles when the API is called.
 
