@@ -1,6 +1,4 @@
-
-
-
+---
 
 title: Defender for Cloud Planning and Operations Guide
 description: Learn about planning to adopt Defender for Cloud and considerations about using it for operations tasks.
@@ -8,7 +6,7 @@ author: meijei22
 ms.author: dcurwin
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 07/19/2023
+ms.date: 07/20/2023
 ---
 
 # Planning and operations guide
@@ -190,7 +188,7 @@ As part of your security operations, you should adopt preventative measures to r
 
 ##  <a name='incident-response'></a>Incident response
 
-Defender for Cloud detects and alerts you to threats as they occur. Monitor for new security alerts, examine aggregated security incidents, and act as needed to investigate and remediate the attack. For more information on how Defender for Cloud threat protection works, see [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats.md).
+Defender for Cloud detects and alerts you to threats as they occur. Monitor for new security alerts, examine aggregated security incidents, and act as needed to investigate and remediate the attack. For more information on how Defender for Cloud threat protection works, see [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
 
 Your organization should have an incident response plan  which defines roles, responsibilities, and steps to help your team work together and resolve an incident. Your incident response plan may roughly have stages like those in the Microsoft Azure Security Response in the Cloud lifecycle.
 
