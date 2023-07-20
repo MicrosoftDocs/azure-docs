@@ -157,43 +157,43 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 **Example representation of a user with an extension attribute:**
 
 ```json
-   {
-     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-     "userName":"bjensen",
-     "id": "48af03ac28ad4fb88478",
-     "externalId":"bjensen",
-     "name":{
-       "formatted":"Ms. Barbara J Jensen III",
-       "familyName":"Jensen",
-       "givenName":"Barbara"
-     },
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-     "employeeNumber": "701984",
-     "costCenter": "4130",
-     "organization": "Universal Studios",
-     "division": "Theme Park",
-     "department": "Tour Operations",
-     "manager": {
-       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
-       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
-       "displayName": "John Smith"
-     }
-   },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
-     "CustomAttribute": "701984",
-   },
-   "meta": {
-     "resourceType": "User",
-     "created": "2010-01-23T04:56:22Z",
-     "lastModified": "2011-05-13T04:42:34Z",
-     "version": "W\/\"3694e05e9dff591\"",
-     "location":
- "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
-   }
- }
+{
+  "schemas":[
+    "urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  ],
+  "userName":"bjensen",
+  "id": "48af03ac28ad4fb88478",
+  "externalId":"bjensen",
+  "name":{
+    "formatted":"Ms. Barbara J Jensen III",
+    "familyName":"Jensen",
+    "givenName":"Barbara"
+  },
+  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+    "employeeNumber": "701984",
+    "costCenter": "4130",
+    "organization": "Universal Studios",
+    "division": "Theme Park",
+    "department": "Tour Operations",
+    "manager": {
+      "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+      "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+      "displayName": "John Smith"
+    }
+  },
+  "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
+    "CustomAttribute": "701984",
+  },
+  "meta": {
+    "resourceType": "User",
+    "created": "2010-01-23T04:56:22Z",
+    "lastModified": "2011-05-13T04:42:34Z",
+    "version": "W\/\"3694e05e9dff591\"",
+    "location": "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+  }
+}
 ```
-
 
 ## Provisioning a role to a SCIM app
 Use the steps in the example to provision roles for a user to your application. The description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
@@ -211,27 +211,27 @@ Use the steps in the example to provision roles for a user to your application. 
   - **Example request (POST)** 
 
     ```json
-     {
-       "schemas": [
-           "urn:ietf:params:scim:schemas:core:2.0:User"
-       ],
-       "externalId": "alias",
-       "userName": "alias@contoso.OnMicrosoft.com",
-       "active": true,
-       "displayName": "First Name Last Name",
-       "meta": {
-            "resourceType": "User"
-       },
-       "roles": [
-          {
-                "primary": true,
-                "type": "WindowsAzureActiveDirectoryRole",
-                "value": "Admin"
-          }
-       ]
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
     }
     ```
-  
+
   - **Example output (PATCH)** 
 
     ```json
