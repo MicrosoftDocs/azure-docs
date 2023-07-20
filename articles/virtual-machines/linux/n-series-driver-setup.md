@@ -122,18 +122,17 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
    sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/ /"
    ```
-
-   Info:
    
-   a. where `$distro/$arch` should be replaced by one of the following:
+   where `$distro/$arch` should be replaced by one of the following:
 
-      ```
-      ubuntu2004/arm64
-      ubuntu2004/x86_64
-      ubuntu2204/arm64
-      ubuntu2204/x86_64
-      ```
-   b. If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common`.
+   ```
+   ubuntu2004/arm64
+   ubuntu2004/x86_64
+   ubuntu2204/arm64
+   ubuntu2204/x86_64
+   ```
+   
+   If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common` to install it.
 
 5. Install the kernel headers and development packages, and remove outdated signing key
 
