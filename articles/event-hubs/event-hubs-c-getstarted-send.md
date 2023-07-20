@@ -59,6 +59,9 @@ In this section shows how to write a C app to send events to your event hub. The
     #include <string.h>
     #include <unistd.h>
     #include <stdlib.h>
+    #include <signal.h>
+
+    volatile sig_atomic_t stop = 0;
    
     #define check(messenger)                                                     \
       {                                                                          \
@@ -68,7 +71,13 @@ In this section shows how to write a C app to send events to your event hub. The
           die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
         }                                                                        \
       }
-   
+
+    void interrupt_handler(int signum){
+      if(signum == SIGINT){
+        stop = 1;
+      }
+    }
+        
     pn_timestamp_t time_now(void)
     {
       struct timeval now;
@@ -108,12 +117,13 @@ In this section shows how to write a C app to send events to your event hub. The
    
     int main(int argc, char** argv) {
         printf("Press Ctrl-C to stop the sender process\n");
+    	signal(SIGINT, interrupt_handler);
    
         pn_messenger_t *messenger = pn_messenger(NULL);
         pn_messenger_set_outgoing_window(messenger, 1);
         pn_messenger_start(messenger);
    
-        while(true) {
+        while(!stop) {
             sendMessage(messenger);
             printf("Sent message\n");
             sleep(1);

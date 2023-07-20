@@ -45,8 +45,6 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 
 The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
 
-`gpt-35-turbo` and `gpt-35-turbo-16k` share the same [quota](../how-to/quota.md).
-
 Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
 ## Embeddings models
@@ -195,7 +193,7 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 ```
 
 > [!NOTE]
-> There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from https://portal.azure.com. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
+> There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
 #### Example response
 
