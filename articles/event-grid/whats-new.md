@@ -17,9 +17,7 @@ The following features have been released as public preview features in May 2023
 - Pull.style event consumption using HTTP
 - MQTT v3.1.1 and v5.0 support
 
-> [!IMPORTANT]
-> The MQTT messaging and Pull-style event consumption using HTTP features are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
 
 
 Here are the articles that we recommend you read through to learn about these features. 

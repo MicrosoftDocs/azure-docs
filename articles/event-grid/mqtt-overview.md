@@ -8,15 +8,18 @@ ms.author: geguirgu
 ---
 # Overview of the MQTT Support in Azure Event Grid (Preview)
 
-Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
+Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. 
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
+Event Grid’s MQTT support enables you to accomplish the following scenarios:
+
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 - Broadcast alerts to a fleet of clients using the one-to-many messaging pattern. This pattern enables the application to publish only one message that the service replicates for every interested client.
 - Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the HTTP Push delivery functionality. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
 You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples)
-
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
