@@ -218,63 +218,63 @@ appInsights.loadAppInsights();
 
   1. Construct the plugin and add it as an `extension` to your existing Application Insights instance.
 
-  ```typescript
-  import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-  import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-
-  var RNMPlugin = new ReactNativePlugin();
-  var appInsights = new ApplicationInsights({
-      config: {
-          instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-          extensions: [RNMPlugin]
-      }
-  });
-  appInsights.loadAppInsights();
-  ```
-
-1. Do one of the following:
-
-   - Disable automatic device info collection.
-
      ```typescript
      import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+     import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
-     var RNMPlugin = new ReactNativeManualDevicePlugin();
-     var appInsights = new ApplicationInsights({
-         config: {
-             instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-             disableDeviceCollection: true,
-             extensions: [RNMPlugin]
-         }
-     });
-     appInsights.loadAppInsights();
-     ```
-
-   - Use your own device info collection class.
-
-     ```typescript
-     import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-     // Simple inline constant implementation
-     const myDeviceInfoModule = {
-         getModel: () => "deviceModel",
-         getDeviceType: () => "deviceType",
-         // v5 returns a string while latest returns a promise
-         getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
-     };
-
-     var RNMPlugin = new ReactNativeManualDevicePlugin();
-     RNMPlugin.setDeviceInfoModule(myDeviceInfoModule);
-
+     var RNMPlugin = new ReactNativePlugin();
      var appInsights = new ApplicationInsights({
          config: {
              instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
              extensions: [RNMPlugin]
          }
      });
-
      appInsights.loadAppInsights();
      ```
+
+  1. Do one of the following:
+
+     - Disable automatic device info collection.
+
+       ```typescript
+       import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+       var RNMPlugin = new ReactNativeManualDevicePlugin();
+       var appInsights = new ApplicationInsights({
+           config: {
+               instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+               disableDeviceCollection: true,
+               extensions: [RNMPlugin]
+           }
+       });
+       appInsights.loadAppInsights();
+       ```
+
+     - Use your own device info collection class.
+
+       ```typescript
+       import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+       // Simple inline constant implementation
+       const myDeviceInfoModule = {
+           getModel: () => "deviceModel",
+           getDeviceType: () => "deviceType",
+           // v5 returns a string while latest returns a promise
+           getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+       };
+
+       var RNMPlugin = new ReactNativeManualDevicePlugin();
+       RNMPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+       var appInsights = new ApplicationInsights({
+           config: {
+               instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+               extensions: [RNMPlugin]
+           }
+       });
+
+       appInsights.loadAppInsights();
+       ```
 
 #### [Angular](#tab/angular)
 
