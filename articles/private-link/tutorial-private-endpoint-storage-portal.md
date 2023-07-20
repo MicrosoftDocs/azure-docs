@@ -16,7 +16,7 @@ Azure Private endpoint is the fundamental building block for Private Link in Azu
 
 :::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial.":::
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
@@ -148,7 +148,7 @@ The storage access key is required for the later steps. Go to the storage accoun
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous steps to connect to the storage account across the private endpoint using **Microsoft Azure Storage Explorer**.
+In this section, you use the virtual machine you created in the previous steps to connect to the storage account across the private endpoint using **Microsoft Azure Storage Explorer**.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -161,8 +161,8 @@ In this section, you'll use the virtual machine you created in the previous step
 1. Select **Connect**.
 
 1. Open Windows PowerShell on the server after you connect.
-
-1. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
+d
+1. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps. The following example shows the output of the command.
 
     ```powershell
     Server:  UnKnown
@@ -186,7 +186,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. In the **Select Connection Method** screen, select **Connection string**, and then **Next**.
 
-1. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps. The storage account name will automatically populate in the box under **Display name**.
+1. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps. The storage account name automatically populates in the box under **Display name**.
 
 1. Select **Next**.
 
