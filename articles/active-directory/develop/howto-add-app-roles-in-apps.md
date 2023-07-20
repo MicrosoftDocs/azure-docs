@@ -59,6 +59,8 @@ To create an app role by using the Azure portal's user interface:
 
 1. Select **Apply** to save your changes.
 
+When the app role is set to enabled, users who are assigned the app role will have it included in their tokens. If it is set to disabled, it becomes inactive and no longer assignable to new users, applications or groups. Any who were previously assigned the app role will still have it included in their tokens, but it will have no effect as it is no longer actively assignable. This setting controls the app role's usage and availability while being able to temporarily or permanently disabling it without removing it entirely. 
+
 ## Assign users and groups to roles
 
 Once you've added app roles in your application, you can assign users and groups to the roles. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
