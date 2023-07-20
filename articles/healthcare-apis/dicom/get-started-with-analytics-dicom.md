@@ -187,4 +187,21 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 
 :::image type="content" source="media/fabric-connection-settings.png" alt-text="Enter the connection settings for the the Azure Data Lake Storage Gen2 account. " lightbox="media/fabric-connection-settings.png":::
 
-5. 
+5. Select an existing connection or create a new connection, selecting the Authentication kind you want to use. 
+
+> [!NOTE]
+> For authenticating between Azure Data Lake Storage Gen2 and Microsoft Fabric, there are a few options, including an organizational account and service principal; it is not recommended to use account keys or Shared Access Signature (SAS) tokens.
+
+6. Select **Next**.
+
+7. Enter a **Shortcut Name** that represents the data created by the Azure Data Factory pipeline.  For example, for the `instance` Delta table, the shortcut name should probably be **instance**. 
+
+8. Enter the **Sub Path** that matches the `ContainerName` parameter from [run parameters](#configure-trigger-run-parameters) configuration and the name of the table for the shortcut.  For example, use "/dicom/instance" for the `instance` Delta table. 
+
+9. Select **Create** to create the shortcut.
+
+10. Repeat steps 2-9 for adding the remaining shortcuts to the other Delta tables in the storage account (e.g. `series` and `study`).
+
+After the shortcuts have been created, expanding a table will show the names and types of the columns.  
+
+:::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Table columns are listed in the explorer view. " lightbox="media/fabric-shortcut-schema.png":::
