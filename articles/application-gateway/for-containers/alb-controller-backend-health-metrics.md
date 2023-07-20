@@ -184,7 +184,7 @@ The following Application Gateway for Containers specific metrics are currently 
 
 | Metric Name | Description                                                                           | 
 | ----------- | ------------------------------------------------------------------------------------- |
-| alb_connection_status | Status of the connection to the Application Gateway for Containers resource |
+| alb_connection_status | Status of whether ALB Controller is connected to Application Gateway for Containers and ready for changes to be made to Application Gateway for Containers |
 | alb_reconnection_count | This counter represents the total number of times an Application Gateway for Containers resource has been reconnected |
 | total_config_updates | This counter represents the total number of service routing config operations |
 | total_endpoint_updates | This counter represents the total number of backend pool config operations |
