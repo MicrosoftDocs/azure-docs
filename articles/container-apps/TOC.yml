@@ -72,9 +72,9 @@
     - name: Build a multiple app scenario
       expanded: true
       items:
-        - name: 1. Deploy a backend microservice app
+        - name: Deploy a backend microservice app
           href: tutorial-code-to-cloud.md
-        - name: 2. Deploy a frontend microservice app
+        - name: Deploy a frontend microservice app
           href: communicate-between-microservices.md
     - name: Continuous deployment
       items:
