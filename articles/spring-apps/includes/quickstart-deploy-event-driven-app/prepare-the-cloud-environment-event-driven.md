@@ -26,11 +26,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 [!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
 
-### 3.3. Create a Key Vault instance
-
-[!INCLUDE [provision-key-vault](../../includes/quickstart-deploy-event-driven-app/provision-key-vault.md)]
-
-### 3.4. Create an Azure Spring Apps instance
+### 3.3. Create an Azure Spring Apps instance
 
 Use the following steps to create an Azure Spring Apps instance:
 
@@ -61,7 +57,9 @@ Use the following steps to create an Azure Spring Apps instance:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment page." lightbox="../../media/quickstart-deploy-event-driven-app/notifications.png":::
 
-1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
+### 3.4 Connect app instance to Service Bus instance
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
 
 1. Select **Apps** in the navigation menu, then select **Create App**.
 
@@ -69,35 +67,11 @@ Use the following steps to create an Azure Spring Apps instance:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of the Azure portal showing the Create App pane with App name and Runtime platform options selected." lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
-1. Select **Create** to finish creating the Azure Spring Apps instance.
-
 1. After the app creation, select the app name you created in the previous step.
 
-1. On the **Configuration** page, select the **Environment variables** tab, enter *AZURE_KEY_VAULT_ENDPOINT* for **Key**, enter the Key Vault URI for **Value**, then select **Save**
+1. On the **Configuration** page, select the **Environment variables** tab, enter *SERVICE_BUS_CONNECTION_STRING* for **Key**, paste the Service Bus connection string for **Value**, then select **Save**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Environment variables tab of the App Configuration page." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png":::
-
-### 3.5. Configure the Key Vault access policy
-
-Use the following steps to configure the Key Vault access policy:
-
-1. Go to the Azure Spring Apps instance overview page.
-
-1. Select **Apps** on the navigation menu, then select the app name you created in the previous step.
-
-1. On the **App Overview** page, select **Identity** on the navigation menu, select the **on** state switch, then select **Save**. Select **Yes** when prompted with the message **Enable system assigned managed identity**.
-
-1. Go to the Key vault instance overview page.
-
-1. Select **Access policies** on the navigation menu, then select **Create**.
-
-1. On the **Create an access policy** page, select **Get** and **List** for **Secret permissions**, then select **Next**.
-
-1. In the search box, enter your Azure Spring Apps instance name.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy.png" alt-text="Screenshot of the Azure portal showing the Create an access policy page with an Azure Spring Apps instance name highlighted in the search box." lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy.png":::
-
-1. Select the principal of your Azure Spring Apps instance, select **Next**, select **Next** again to review the creation parameters, and then select **Create** to finish creating the access policy.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 

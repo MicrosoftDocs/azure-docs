@@ -18,28 +18,11 @@ zone_pivot_groups: spring-apps-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
-
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
 
 The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
 :::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram showing the Azure Spring Apps event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
-
-::: zone-end
-
-::: zone pivot="sc-standard"
-
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which uses the following Azure resources, as shown in the diagram:
-
-- Azure Spring Apps to host the Spring Boot app.
-- A Key Vault secret as a property source for securing a Service Bus connection string.
-- A subscription to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, which handles messages and sends message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase.
-- Azure Monitor for monitoring and logging.
-
-:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram-v2.png" alt-text="Diagram showing the Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram-v2.png" border="false":::
-
-::: zone-end
 
 ::: zone pivot="sc-standard"
 
