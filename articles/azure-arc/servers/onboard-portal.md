@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, perform the following steps:
 
-1. From your browser, go to the [Azure portal](https://portal.azure.com).
+1. From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 

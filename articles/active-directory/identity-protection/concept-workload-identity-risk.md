@@ -43,8 +43,7 @@ To make use of workload identity risk, including the new **Risky workload identi
    - Global Administrator
    - Security Administrator
    - Security Operator
-   - Security Reader
-Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+   - Security Reader Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
 ## Workload identity risk detections
 
@@ -64,7 +63,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
 1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
    1. Select the **Workload identity detections** tab.'
@@ -75,8 +74,8 @@ Organizations can find workload identities that have been flagged for risk in on
 
 You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
-- riskyServicePrincipals
-- servicePrincipalRiskDetections
+- `riskyServicePrincipals`
+- `servicePrincipalRiskDetections`
 
 ### Export risk data 
 
@@ -121,5 +120,3 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
-
-
