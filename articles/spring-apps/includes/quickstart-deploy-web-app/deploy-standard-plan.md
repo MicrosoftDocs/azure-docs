@@ -171,6 +171,12 @@ Use the following steps to connect your service instances:
    azd config set alpha.springapp on
    ```
 
+1. Run the following command to set the template with **standard** plan.
+
+   ```bash
+   azd env set PLAN standard
+   ```
+
 1. Run the following command to provision the template's infrastructure to Azure:
 
    ```bash
