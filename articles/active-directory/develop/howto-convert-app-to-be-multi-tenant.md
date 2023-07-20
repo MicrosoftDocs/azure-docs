@@ -32,7 +32,7 @@ You can also refer to the sample; [Build a multi-tenant SaaS web application tha
 
 ## Update registration to be multi-tenant
 
-By default, web app/API registrations in Azure AD are single-tenant upon creation. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal][AZURE-portal]. Change the setting to **Accounts in any organizational directory**.
+By default, web app/API registrations in Azure AD are single-tenant upon creation. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal]. Change the setting to **Accounts in any organizational directory**.
 
 When a single-tenant application is created via the Azure portal, one of the items listed on the **Overview** page is the **Application ID URI**. This is one of the ways an application is identified in protocol messages, and can be added at any time. The App ID URI for single tenant apps can be globally unique within that tenant. In contrast, for multi-tenant apps it must be globally unique across all tenants, which ensures that Azure AD can find the app across all tenants.
 
@@ -79,7 +79,7 @@ When a single-tenant application validates a token, it checks the signature of t
 
 ## Understand user and admin consent and make appropriate code changes
 
-For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, one can use the registration via the [Azure portal][AZURE-portal].
+For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, one can use the registration via the [Azure portal].
 
 For a multi-tenant application, the initial registration for the application resides in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
@@ -102,7 +102,7 @@ Certain delegated permissions also require a tenant administrator’s consent. F
 
 If your application uses permissions that require admin consent, consider adding a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests don't need the `prompt=consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
-A tenant administrator can disable the ability for regular users to consent to applications. If this capability is disabled, admin consent is always required for the application to be used in the tenant. If you want to test your application with end-user consent disabled, you can find the configuration switch in the [Azure portal][AZURE-portal] in the **[User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** section under **Enterprise applications**.
+A tenant administrator can disable the ability for regular users to consent to applications. If this capability is disabled, admin consent is always required for the application to be used in the tenant. If you want to test your application with end-user consent disabled, you can find the configuration switch in the [Azure portal] in the **[User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** section under **Enterprise applications**.
 
 The `prompt=consent` parameter can also be used by applications that request permissions that don't require admin consent. An example of when this would be used is if the application requires an experience where the tenant admin “signs up” one time, and no other users are prompted for consent from that point on.
 
@@ -144,7 +144,7 @@ The following diagram provides an overview of consent for a multi-tier app regis
 Users and administrators can revoke consent to your application at any time:
 
 * Users revoke access to individual applications by removing them from their [Access Panel Applications][AAD-Access-Panel] list.
-* Administrators revoke access to applications by removing them using the [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) section of the [Azure portal][AZURE-portal].
+* Administrators revoke access to applications by removing them using the [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) section of the [Azure portal].
 
 If an administrator consents to an application for all users in a tenant, users can't revoke access individually. Only the administrator can revoke access, and only for the whole application.
 
@@ -179,7 +179,6 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: /graph/
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
@@ -199,7 +198,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
 [AAD-V2-Dev-Guide]: v2-overview.md
-[AZURE-portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
