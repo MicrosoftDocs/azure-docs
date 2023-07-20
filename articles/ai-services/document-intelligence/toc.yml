@@ -138,9 +138,9 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note
+      href: /legal/cognitive-services/document-intelligence/fr-transparency-note
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations
+      href: /legal/cognitive-services/document-intelligence/fr-characteristics-and-limitations
   - name: Integration and responsible use
     href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use
   - name: Data, privacy, and security
