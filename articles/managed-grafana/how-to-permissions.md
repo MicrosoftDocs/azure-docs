@@ -64,7 +64,7 @@ Assign a role assignment using the [az role assignment create](/cli/azure/role/a
 
 In the code below, replace the following placeholders:
 
-- `<assignee>`: If its --assignee parameter then enter the assignee's object ID or user sign-in name or service principal name. If its --assignee-object-id parameter then enter object ids for users or groups or service principals or managed identities. For managed identities use the principal id. For service principals, use the object id and not the app id. For more information, refer [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+- `<assignee>`: If its --assignee parameter then enter the assignee's object ID or user sign-in name or service principal name. If its --assignee-object-id parameter then enter object IDs for users or groups or service principals or managed identities. For managed identities use the principal ID. For service principals, use the object ID and not the app ID. For more information, refer [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 - `<roleNameOrId>`: Enter the role's name or ID. For Monitoring Reader, enter `Monitoring Reader` or `43d0d8ad-25c7-4714-9337-8ba259a9fe05`.
 - `<scope>`: Enter the full ID of the resource Azure Managed Grafana needs access to.
 
