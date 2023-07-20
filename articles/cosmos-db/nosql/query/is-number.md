@@ -38,9 +38,9 @@ Returns a boolean expression.
 
 The following example various values to see if they're a number.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts//query.sql" highlight="2-9":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-number/query.sql" highlight="2-9":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts//result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-number/result.json":::
 
 ## Remarks
 
