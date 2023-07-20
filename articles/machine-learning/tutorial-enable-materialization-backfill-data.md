@@ -181,11 +181,7 @@ This list summarizes the required setup steps:
 
 ### Retrieve UAI properties
 
-   # [Python SDK](#tab/python)
-
-   Not applicable
-
-   # [Azure CLI](#tab/cli)
+   Run this code sample in the SDK to retrieve the UAI properties:
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=retrieve-uai-properties)]
 
@@ -215,7 +211,7 @@ This list summarizes the required setup steps:
 
    ---
 
-### Grant the blob data reader to your user account in the offline store
+### Grant the blob data reader role access to your user account in the offline store
 
    If the feature data is materialized, you need this role to read feature data from the offline materialization store.
 
@@ -224,6 +220,8 @@ This list summarizes the required setup steps:
    To learn more about access control, see the [access control document]() in the documentation resources.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
+
+   The following steps grant the blob data reader role access to your user account.
 
    1. Attach the offline materialization store and UAI, to enable the offline store on the feature store
 
