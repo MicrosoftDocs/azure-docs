@@ -40,7 +40,7 @@
        > [!NOTE]
        > Availability zones, and the ability to edit cross region disaster recovery options, are public preview features. Availability Zones are available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
 
-    1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
+    1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions. 
 
        :::image type="content" source="./media/notification-hubs-portal-create-new-hub/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="./media/notification-hubs-portal-create-new-hub/availability-zones.png":::
 
