@@ -95,8 +95,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: How Application Gateway for Containers works
-            url: ./for-containers/concepts-how-application-gateway-for-containers-works.md
+          - text: Application Gateway for Containers components
+            url: ./for-containers/application-gateway-for-containers-components.md
       - linkListType: quickstart
         links:
           - text: Deploy Application Gateway for Containers ALB Controller
