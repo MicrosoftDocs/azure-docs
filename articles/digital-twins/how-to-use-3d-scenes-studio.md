@@ -37,16 +37,18 @@ To use 3D Scenes Studio, you'll need the following resources:
 
 You'll need to configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. 
 
-Here are the minimum required CORS headers:
+These CORS headers are always required:
 * Authorization
-* Content-Type
-* Content-Length
 * x-ms-version
 * x-ms-blob-type
+
+These additional CORS headers are required if you're planning on using private links functionality:
+* Content-Type
+* Content-Length
 * x-ms-copy-source
 * x-ms-requires-sync
 
-Below is the [Azure CLI](/cli/azure/what-is-azure-cli) command that will set the minimum required methods, origins, and headers for CORS in your storage account. The command contains one placeholder for the name of your storage account.
+Below is the [Azure CLI](/cli/azure/what-is-azure-cli) command that will set the methods, origins, and headers listed above for CORS in your storage account. The command contains one placeholder for the name of your storage account.
 
 ```azurecli
 az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization Content-Type Content-Length x-ms-version x-ms-blob-type x-ms-copy-source x-ms-requires-sync --account-name <your-storage-account>
