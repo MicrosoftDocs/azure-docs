@@ -126,11 +126,12 @@ const job = await routerClient.createJob("job-1", {
 Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```javascript
-const worker = await routerClient.createWorker("worker-1", {
+let worker = await routerClient.createWorker("worker-1", {
     totalCapacity: 1,
     queueAssignments: { [queue.id]: {} },
     labels: { "Some-Skill": 11 },
-    channelConfigurations: { "voice": { capacityCostPerJob: 1 } }
+    channelConfigurations: { "voice": { capacityCostPerJob: 1 } },
+    availableForOffers: true
 });
 ```
 
@@ -172,6 +173,15 @@ Once the worker is ready to take on new jobs, the worker should close the job.  
 ```javascript
 await routerClient.closeJob("job-1", accept.assignmentId, { dispositionCode: "Resolved" });
 console.log(`Worker ${worker.id} has closed job ${accept.jobId}`);
+```
+
+## Delete the job
+
+Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
+```javascript
+await routerClient.deleteJob(accept.jobId);
+console.log(`Deleting job ${accept.jobId}`);
 ```
 
 ## Run the code
