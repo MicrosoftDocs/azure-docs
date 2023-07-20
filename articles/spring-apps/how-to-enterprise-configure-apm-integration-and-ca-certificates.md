@@ -174,7 +174,7 @@ Use the following steps to show, add, edit, and delete an APM configuration:
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Edit APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
-1. To delete the APM configuration, select **Delete**. Note that if the APM configuration is used by any build or deployment, you won't be able to delete it.
+1. To delete the APM configuration, select **Delete**. If the APM configuration is used by any build or deployment, you won't be able to delete it.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Delete APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
 
@@ -198,7 +198,7 @@ Use the following steps to view the APM configurations bound to the deployment:
    
 1. On the **APM bindings** page, view the APM configurations bound to the deployment.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing xthe APM configurations bound to the deployment." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing the APM configurations bound to the deployment." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png":::
 
 ##### [Azure CLI](#tab/azure-cli)
 
@@ -445,7 +445,7 @@ You can unbind a buildpack binding by using the **Unbind binding** command, or b
 
 To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
 
-:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
