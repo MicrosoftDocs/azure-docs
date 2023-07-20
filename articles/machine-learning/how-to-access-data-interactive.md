@@ -16,7 +16,7 @@ ms.custom: sdkv2
 
 # Access data from Azure cloud storage during interactive development
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Typically the beginning of a machine learning project involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and building prototypes of ML models to validate hypotheses. This *prototyping* phase of the project is highly interactive in nature that lends itself to developing in a Jupyter notebook or an IDE with a *Python interactive console*. In this article you'll learn how to:
 

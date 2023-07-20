@@ -15,10 +15,10 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022, devx-tr
 
 # Set up AutoML to train computer vision models with Python (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 
 > [!IMPORTANT]

@@ -184,8 +184,6 @@ Model based on throughput:
 
       * One for the contract download
 
-* Maximum signing performance of a Key Vault is 2,000 signing/~10 seconds. This is about 12,000 signings per minute. This means your solution can support up to 4,000 VC issuances per minute.
-
 * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
 
 * If you are planning a large rollout and onboarding of VCs, consider batching VC creation to ensure you don't exceed limits.

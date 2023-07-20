@@ -112,3 +112,11 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 ## Next steps
 
 - [Manage the Palo Alto Networks resource](palo-alto-manage.md)
+
+- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
+
+  > [!div class="nextstepaction"]
+  > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
+
+  > [!div class="nextstepaction"]
+  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview)

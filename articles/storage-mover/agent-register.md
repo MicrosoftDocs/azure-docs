@@ -14,8 +14,12 @@ STATUS: IN REVIEW
 
 CONTENT: final
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
+EDIT PASS: COMPLETE
+
+Initial doc score: 86
+Current doc score: 100 (1654 words and 0 issues)
 
 !########################################################
 -->
@@ -24,7 +28,13 @@ REVIEW Engineering: not reviewed
 
 The Azure Storage Mover service utilizes agents that carry out the migration jobs you configure in the service. The agent is a virtual machine / appliance that you run on a virtualization host, close to the source storage.
 
-In this article, you'll learn how to successfully register a previously deployed Storage Mover agent VM. Registration creates a trust relationship with your cloud service and enables the agent to receive migration jobs.
+You need to register an agent to create a trust relationship with your Storage Mover resource. This trust enables your agent to securely receive migration jobs and report progress. Agent registration can occur over either the public or private endpoint of your Storage Mover resource. A private endpoint, also known as the private link to a resource, can be deployed in an Azure virtual network (VNet).
+
+You can connect to an Azure VNET from other networks, like an on-premises corporate network. This type of connection is made through a VPN connection such as Azure Express Route. To learn more about this approach, refer to the [Azure ExpressRoute documentation](/azure/expressroute/) and [Azure Private Link](/azure/private-link) documentation.
+
+[!IMPORTANT] Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
+
+In this article, you learn how to successfully register a previously deployed Storage Mover agent virtual machine (VM).
 
 ## Prerequisites
 
@@ -40,7 +50,7 @@ There are two prerequisites before you can register an Azure Storage Mover agent
 
 Registration creates trust between the agent and the cloud resource. It allows you to remotely manage the agent and to give it migration jobs to execute.
 
-Registration is always initiated from the agent. For security purposes, trust can only be created by the agent reaching out to the Storage Mover service. The registration procedure utilizes your Azure credentials and permissions on the storage mover resource you've previously deployed. If you don't have a storage mover cloud resource or an agent VM deployed yet, refer to the [prerequisites section](#prerequisites).
+Registration is always initiated from the agent. In the interest of security, only the agent can establish trust by reaching out to the Storage Mover service. The registration procedure utilizes your Azure credentials and permissions on the storage mover resource you've previously deployed. If you don't have a storage mover cloud resource or an agent VM deployed yet, refer to the [prerequisites section](#prerequisites).
 
 ## Step 1: Connect to the agent VM
 
@@ -54,7 +64,7 @@ However, the agent VM is a Linux based appliance and copy/paste often doesn't wo
 
 ## Step 2: Test network connectivity
 
-Your agent needs to be connected to the internet. <!-- The article **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** showcases connectivity requirements and options. -->
+Your agent needs to be connected to the internet. 
 
 When logged into the administrative shell, you can test the agents connectivity state:
 
@@ -82,14 +92,14 @@ Choice: 3
 ```
 Select menu item 3) *Test network connectivity*.
 
-<!-- The **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** article can help troubleshoot in case you've encountered any issues. -->
+
 
 > [!IMPORTANT]
 > Only proceed to the registration step when your network connectivity test returns no issues.
 
 ## Step 3: Register the agent
 
-In this step, you'll register your agent with the storage mover resource you've deployed in an Azure subscription.
+In this step, you register your agent with the storage mover resource you've deployed in an Azure subscription.
 [Connect to the administrative shell](#step-1-connect-to-the-agent-vm) of your agent, then select menu item *4) Register*:
 
 ```StorageMoverAgent-AdministrativeShell
@@ -104,22 +114,23 @@ In this step, you'll register your agent with the storage mover resource you've 
 
 xdmsh> 4
 ```
-You'll be prompted for:
+You're prompted for:
 - Subscription ID
 - Resource group name
 - Storage mover resource name
-- Agent name: This name will be shown for the agent in the Azure portal. Select a name that clearly identifies this agent VM for you. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+- Agent name: This name is shown for the agent in the Azure portal. Select a name that clearly identifies this agent VM for you. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+- Private Link Scope: Provide the fully qualified resource ID of your Private Link Scope if you're utilizing private networking. You can find more information on Azure Private Link in the [Azure Private Link documentation](/azure/private-link/) article.
 
-Once you've supplied these values, the agent will attempt registration, and requires you to sign into Azure with the credentials that have permissions to the supplied subscription and storage mover resource.
+After you've supplied these values, the agent will attempt registration. During the registration process, you're required to sign into Azure with credentials that have permissions to your subscription and storage mover resource.
 
 > [!IMPORTANT]
 > The Azure credentials you use for registration must have owner permissions to the specified resource group and storage mover resource.
 
  For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Azure Active Directory.
 
-The agent will display the device auth URL: [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a unique sign-in code. Navigate to the displayed URL on an internet connected machine, enter the code, and sign into Azure with your credentials.
+The agent displays the device auth URL: [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a unique sign-in code. Navigate to the displayed URL on an internet connected machine, enter the code, and sign into Azure with your credentials.
 
-The agent will display detailed progress. Once the registration is complete, you'll be able to see the agent in the Azure portal. It will be under *Registered agents* in the storage mover resource you've registered the agent with.
+The agent displays detailed progress. Once the registration is complete, you're able to see the agent in the Azure portal. It is under *Registered agents* in the storage mover resource you've registered the agent with.
 
 ## Authentication and Authorization
 
@@ -140,7 +151,7 @@ The agent is also registered with the [Azure ARC service](../azure-arc/overview.
 
 Azure Storage Mover uses a system-assigned managed identity. A managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is also automatically removed.
 
-The process of deletion is automatically initiated when you unregister the agent. However, there are other ways to remove this identity. Doing so will incapacitate the registered agent and require the agent to be unregistered. Only the registration process can get an agent to obtain and maintain its Azure identity properly.
+The process of deletion is automatically initiated when you unregister the agent. However, there are other ways to remove this identity. Doing so incapacitates the registered agent and require the agent to be unregistered. Only the registration process can get an agent to obtain and maintain its Azure identity properly.
 
 > [!NOTE]
 > During public preview, there is a side effect of the registration with the Azure ARC service. A separate resource of the type *Server-Azure Arc* is also deployed in the same resource group as your storage mover resource. You won't be able to manage the agent through this resource.
@@ -154,13 +165,13 @@ The process of deletion is automatically initiated when you unregister the agent
 
 The registered agent needs to be authorized to access several services and resources in your subscription. The managed identity is its way to prove its identity. The Azure service or resource can then decide if the agent is authorized to access it.
 
-The agent is automatically authorized to converse with the Storage Mover service. You won't be able to see or influence this authorization short of destroying the managed identity, for instance by unregistering the agent.
+The agent is automatically authorized to converse with the Storage Mover service. You aren't able to see or influence this authorization short of destroying the managed identity, for instance by unregistering the agent.
 
 #### Just-in-time authorization
 
 Perhaps the most important resource the agent needs to be authorized for access is the Azure Storage that is the target for a migration job. Authorization takes place through [Role-based access control](../role-based-access-control/overview.md). For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role "Storage Blob Data Contributor" of the target container (not the whole storage account).
 
-This assignment is made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent won't be authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
+This assignment is made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent isn't authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
 
 > [!WARNING]
 > Access is granted to a specific agent just-in-time for running a migration job. However, the agent's authorization to access the target is not automatically removed. You must either manually remove the agent's managed identity from a specific target or unregister the agent to destroy the service principal. This action removes all target storage authorization as well as the ability of the agent to communicate with the Storage Mover and Azure ARC services.

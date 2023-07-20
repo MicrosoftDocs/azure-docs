@@ -94,7 +94,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneousl - public preview WebSDK or greater [1.14.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1141-beta1-2023-06-01)** | 9 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneousl - Public preview WebSDK or greater [1.14.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1141-beta1-2023-06-01)** | 9 videos + 1 screen sharing  |
 
 While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded.
 
@@ -104,7 +104,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 | Action                                                                      | Timeout in seconds |
 | --------------------------------------------------------------------------- | ------------------ |
-| Reconnect/removal participant                                               | 120                |
+| Reconnect/removal participant                                               | 60                |
 | Add or remove new modality from a call (Start/stop video or screen sharing) | 40                 |
 | Call Transfer operation timeout                                             | 60                 |
 | 1:1 call establishment timeout                                              | 85                 |

@@ -78,7 +78,7 @@ In this section, you’ll learn how to attach your Virtual Machine Scale Sets be
     az vmss update\
         --resource-group <resource-group> \
         --name <vmss-name> \
-        --add  virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools "{'id':'/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group> /providers/Microsoft.Network/loadBalancers/<Load Balancer Name>/backendAddressPools/<Backend address pool name >}" 
+        --add  virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools "{'id':'/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group> /providers/Microsoft.Network/loadBalancers/<Load Balancer Name>/backendAddressPools/<Backend address pool name >'}" 
     
     ```
 This example deploys a Virtual Machine Scale Set with the following defined values:  

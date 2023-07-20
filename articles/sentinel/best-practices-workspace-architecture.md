@@ -4,7 +4,7 @@ description: Learn about best practices for designing your Microsoft Sentinel wo
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 06/28/2023
 ---
 
 # Microsoft Sentinel workspace architecture best practices
@@ -138,7 +138,7 @@ Don't apply a resource lock to a Log Analytics workspace you'll use for Microsof
 
 If you do need to work with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Microsoft Sentinel instance in a single location](multiple-workspace-view.md).
 
-To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
+To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#use-cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 
 The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
 
@@ -152,12 +152,8 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
 
 ## Next steps
+
+In this article, you learned about key decision factors to help you determine the right workspace architecture for your organizations.
+
 > [!div class="nextstepaction"]
 > >[Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
-> [!div class="nextstepaction"]
-> >[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
-> [!div class="nextstepaction"]
-> >[On-board Microsoft Sentinel](quickstart-onboard.md)
-> [!div class="nextstepaction"]
-> >[Get visibility into alerts](get-visibility.md)
-

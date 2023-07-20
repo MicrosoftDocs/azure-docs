@@ -84,7 +84,7 @@ To detach your compute use the following steps:
 
 ## Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ## Next steps
 

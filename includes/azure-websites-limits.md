@@ -34,7 +34,7 @@ ms.author: msangapu
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>10</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging slots](../articles/app-service/deploy-staging-slots.md) per app| | | |5 |20 |20 |
-| [Testing in Production](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
+| [Testing in Production](../articles/app-service/deploy-staging-slots.md#route-production-traffic-automatically)| | | |X |X |X |
 | [Diagnostic Logs](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
 | Kudu | X | X | X | X | X | X |
 | [Authentication and Authorization](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |

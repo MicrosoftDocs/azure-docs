@@ -50,7 +50,7 @@ Autoscaling clusters based on the requirements of your workload helps reduce you
 
 AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each job completes, the cluster will release nodes and scale to your configured minimum node count.
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 You can also configure the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 

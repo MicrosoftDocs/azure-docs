@@ -21,7 +21,7 @@ Here's a screenshot showing what watermarking looks like when it's enabled:
 > [!IMPORTANT]
 > - Once watermarking is enabled on a session host, only clients that support watermarking can connect to that session host. If you try to connect from an unsupported client, the connection will fail and you'll get an error message that is not specific.
 >
-> - Watermarking is for remote desktops only. With remote apps, watermarking is not applied and the connection is allowed.
+> - Watermarking is for remote desktops only. With RemoteApp, watermarking is not applied and the connection is allowed.
 >
 > - If you connect to a session host directly (not through Azure Virtual Desktop) using the Remote Desktop Connection app (`mstsc.exe`), watermarking is not applied and the connection is allowed.
 
