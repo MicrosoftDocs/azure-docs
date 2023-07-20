@@ -516,7 +516,7 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Messaging-specific types are not yet supported.
+[!INCLUDE [functions-bindings-service-bus-trigger-dotnet-isolated-types](../../includes/functions-bindings-service-bus-trigger-dotnet-isolated-types.md)]
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 

@@ -161,8 +161,9 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
       image: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
     identity:
       type: managed
+    ````
 
-    ---
+  ---
 
   For information on attaching user-assigned managed identity, see [attach user assigned managed identity](./how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2).
 

@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/31/2023
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # SMB file shares in Azure Files

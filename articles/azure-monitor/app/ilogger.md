@@ -244,6 +244,28 @@ namespace ConsoleApp
 
 For more information, see [What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?](#what-application-insights-telemetry-type-is-produced-from-ilogger-logs-where-can-i-see-ilogger-logs-in-application-insights).
 
+## Logging scopes
+
+`ApplicationInsightsLoggingProvider` supports [log scopes](/dotnet/core/extensions/logging#log-scopes). Scopes are enabled by default. 
+
+If the scope is of type `IReadOnlyCollection<KeyValuePair<string,object>>`, then each key/value pair in the collection is added to the Application Insights telemetry as custom properties. In the following example, logs are captured as `TraceTelemetry` and has `("MyKey", "MyValue")` in properties.
+
+```csharp
+using (_logger.BeginScope(new Dictionary<string, object> { ["MyKey"] = "MyValue" }))
+{
+    _logger.LogError("An example of an Error level message");
+}
+```
+
+If any other type is used as a scope, it's stored under the property `Scope` in Application Insights telemetry. In the following example, `TraceTelemetry` has a property called `Scope` that contains the scope.
+
+```csharp
+    using (_logger.BeginScope("hello scope"))
+    {
+        _logger.LogError("An example of an Error level message");
+    }
+```
+
 ## Frequently asked questions
 
 ### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
@@ -260,7 +282,7 @@ builder.AddApplicationInsights(
 ```
 ### Why do some ILogger logs not have the same properties as others?
 
-Application Insights captures and sends `ILogger` logs by using the same `TelemetryConfiguration` information that's used for every other telemetry. But there's an exception. By default, `TelemetryConfiguration` isn't fully set up when you log from *Program.cs* or *Startup.cs*. Logs from these places won't have the default configuration, so they won't be running all `TelemetryInitializer` instances and `TelemetryProcessor` instances.
+Application Insights captures and sends `ILogger` logs by using the same `TelemetryConfiguration` information that's used for every other telemetry. But there's an exception. By default, `TelemetryConfiguration` isn't fully set up when you log from *Program.cs* or *Startup.cs*. Logs from these places don't have the default configuration, so they aren't running all `TelemetryInitializer` instances and `TelemetryProcessor` instances.
 
 ### I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights, and I want to log more custom telemetry manually. How should I do that?
 

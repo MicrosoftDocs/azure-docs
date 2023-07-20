@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Cosmos DB for NoSQL'
+title: 'Connect to Azure Cosmos DB for SQL API'
 description: This article outlines the process to register an Azure Cosmos DB instance in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos DB database
 author: athenads
 ms.author: athenadsouza
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 09/14/2022
 ms.custom: template-how-to, ignite-fall-2021, ignite-2022
 ---
-# Connect to Azure Cosmos DB for NoSQL in Microsoft Purview
+# Connect to Azure Cosmos DB for SQL API in Microsoft Purview
 
-This article outlines the process to register and scan Azure Cosmos DB for NoSQL instance in Microsoft Purview, including instructions to authenticate and interact with the Azure Cosmos DB database source
+This article outlines the process to register and scan Azure Cosmos DB for SQL API instance in Microsoft Purview, including instructions to authenticate and interact with the Azure Cosmos DB database source
 
 ## Supported capabilities
 
@@ -31,7 +31,7 @@ This article outlines the process to register and scan Azure Cosmos DB for NoSQL
 
 ## Register
 
-This section will enable you to register the Azure Cosmos DB for NoSQL instance and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
+This section will enable you to register the Azure Cosmos DB for SQL API instance and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
 
 ### Steps to register
 
@@ -54,7 +54,7 @@ It is important to register the data source in Microsoft Purview prior to settin
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-register-data-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
 
-1. Select the **Azure Cosmos DB for NoSQL** data source and select **Continue**
+1. Select the **Azure Cosmos DB for SQL API** data source and select **Continue**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 

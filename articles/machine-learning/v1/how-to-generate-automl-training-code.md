@@ -8,7 +8,7 @@ ms.author: rasavage
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 02/16/2022
 monikerRange: 'azureml-api-1'
