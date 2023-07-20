@@ -4,7 +4,7 @@ description: This article describes how to manage dynamic scoping (preview) oper
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/27/2023
+ms.date: 07/05/2023
 ms.topic: how-to
 ---
 

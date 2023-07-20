@@ -5,7 +5,7 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/12/2023
+ms.date: 07/05/2023
 ---
 
 # What's new in Update management center (Preview)
