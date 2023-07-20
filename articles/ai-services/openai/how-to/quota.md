@@ -8,13 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/20/2023
 ms.author: mbullwin
 ---
 
 # Manage Azure OpenAI Service quota
 
 Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article walks through the process of managing your Azure OpenAI quota.
+
+## Prerequisites
+
+**Cognitive Services Usages Reader** - This role provides the minimal access necessary to properly view quota usage.
+
+This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
 
 ## Introduction to quota
 
