@@ -51,14 +51,16 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `Status` are
-> `Delivered`: The message was successfully delivered to the intended destination.
-> `Expanded`: A distribution group recipient was expanded before delivery to the individual members of the group.
-> `Failed`: The message wasn't delivered.
-> `Pending`: Delivery of the message is being attempted or reattempted.
-> `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing). For more information, see [Quarantined email messages in EOP](/microsoft-365/security/office-365-security/quarantine-about).
-> `Filtered as spam`: The message was identified as spam, and was rejected or blocked (not quarantined).
-> `Getting status`: The message was recently received by Microsoft 365, but no other status data is yet available. You can check again within a few minutes.
+> Possible values for `Status` are:
+> - `Delivered`: The message was successfully delivered to the intended destination.
+> - `Expanded`: A distribution group recipient was expanded before delivery to the individual members of the group.
+> - `Failed`: The message wasn't delivered.
+> - `Pending`: Delivery of the message is being attempted or reattempted.
+> - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing). For more information, see [Quarantined email messages in EOP](/microsoft-365/security/office-365-security/quarantine-about).
+> - `Filtered as spam`: The message was identified as spam, and was rejected or blocked (not quarantined).
+> - `Getting status`: The message was recently received by Microsoft 365, but no other status data is yet available. You can check again within a few minutes.
+
+> [!NOTE]
 > The values `Pending`, `Quarantined`, and `Filter as spam` are only available for searches less than 10 days. Also, there might be a 5-to-10-minute delay between the actual and reported delivery status.
 
 ### Microsoft.Communication.EmailEngagementTrackingReportReceived event
@@ -84,7 +86,7 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `engagementType` are `View`, and `Click`. When the `engagementType` is `Click`, `engagementContext` is the link in the Email sent which was clicked.
+> Possible values for `engagementType` are `View` and `Click`. When the `engagementType` is `Click`, `engagementContext` is the link in the Email sent which was clicked.
 
 ## Tutorial
 For a tutorial that shows how to subscribe for email events using web hooks, see [Quickstart: Handle email events](../communication-services/quickstarts/email/handle-email-events.md). 
