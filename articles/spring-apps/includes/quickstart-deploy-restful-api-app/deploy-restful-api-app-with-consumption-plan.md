@@ -55,9 +55,10 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
     ```text
     Initializing a new project (azd init)
 
+    Downloading template code to: <your-local-path>
     (✓) Done: Initialized git repository
 
-    ? Enter a new environment name: [? for help] (<your-local-path>-dev) <your-env-name>
+    Enter a new environment name: <your-env-name>
 
     SUCCESS: New project initialized!
     You can view the template code in your directory: <your-local-path>
