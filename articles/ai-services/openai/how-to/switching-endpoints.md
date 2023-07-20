@@ -173,7 +173,7 @@ OpenAI currently allows a larger number of array inputs with text-embedding-ada-
 <td>
 
 ```python
-inputs = ["A", "B", "C"] #max array size defined: https://github.com/openai/openai-python/blob/b82a3f7e4c462a8a10fa445193301a3cefef9a4a/openai/embeddings_utils.py#L43
+inputs = ["A", "B", "C"] 
 
 embedding = openai.Embedding.create(
   input=inputs,
