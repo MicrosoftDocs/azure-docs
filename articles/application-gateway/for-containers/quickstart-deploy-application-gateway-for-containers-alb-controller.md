@@ -72,7 +72,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--node-vm-size $VM_SIZE \
 		--network-plugin azure \
  		--enable-oidc-issuer \
-	        --enable-workload-identity \
+ 		--enable-workload-identity \
 		--generate-ssh-key
 	```
 
