@@ -133,7 +133,7 @@ HDInsight can't depend on on-premises domain controllers or custom domain contro
 
 ### Choose correct Azure AD DS SKU 
 
-When creating your managed domain, [you can choose from different SKUs](https://learn.microsoft.com/en-us/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the AAD-DS instance for authentication requests determine which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
+When creating your managed domain, [you can choose from different SKUs](https://learn.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the AAD-DS instance for authentication requests determine which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
 
 ### Azure AD DS instance
 
