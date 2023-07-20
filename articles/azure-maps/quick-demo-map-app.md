@@ -19,7 +19,7 @@ In this quickstart, you will learn how to use Azure Maps to create a map that gi
 * Get your Azure Maps subscription key to use in the demo web application.
 * Download and open the demo map application.
 
-This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls](open-source-projects.md#third-part-map-control-plugins) that the Azure Maps team has created plugin's for.
+This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls](open-source-projects.md#third-party-map-control-plugins) that the Azure Maps team has created plugin's for.
 
 ## Prerequisites
 

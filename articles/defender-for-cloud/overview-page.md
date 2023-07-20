@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud's main dashboard or 'overview' page
+title: Main overview page
 description: Learn about the features of the Defender for Cloud overview page
 ms.date: 03/08/2023
 ms.topic: conceptual
