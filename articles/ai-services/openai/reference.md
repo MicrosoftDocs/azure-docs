@@ -229,7 +229,7 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```messages``` | array | Required |  | The messages to generate chat completions for, in the chat format. |
+| ```messages``` | array | Required |  | The collection of context messages associated with this chat completions request. Typical usage begins with a [chat message](#chatmessage) for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.|
 | ```temperature```| number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\nWe generally recommend altering this or `top_p` but not both. |
 | ```n``` | integer | Optional | 1 | How many chat completion choices to generate for each input message.  |
 | ```stream``` | boolean | Optional | false | If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message." |
