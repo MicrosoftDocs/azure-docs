@@ -128,7 +128,7 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```javascript
 let worker = await routerClient.createWorker("worker-1", {
     totalCapacity: 1,
-    queueIds: { [queue.id]: {} },
+    queueAssignments: { [queue.id]: {} },
     labels: { "Some-Skill": 11 },
     channelConfigurations: { "voice": { capacityCostPerJob: 1 } },
     availableForOffers: true
