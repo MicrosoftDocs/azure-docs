@@ -13,7 +13,7 @@ ms.date: 06/28/2023
 
 # RedisListTrigger Azure Function
 
-The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
+The `RedisListsTrigger` pops elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
 ## Scope of availability for functions triggers
 
@@ -104,12 +104,12 @@ TBD
 
 | Parameter | Description|
 |---|---|
-| `ConnectionString`| connection string to the cache instance, for example`<cacheName>.redis.cache.windows.net:6380,password|...`.|
-| `Keys`| Keys to read from, space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
-|  `PollingIntervalInMs`| How often to poll the Redis server in milliseconds. Default: 1000|
-|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
-| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-| `ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+|`ConnectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).|
+| `Key`| Key to read from. This field can be resolved using `INameResolver`. |
+| `PollingIntervalInMs`| How often to poll Redis in milliseconds. | - Default: `1000` |
+| `MessagesPerWorker`| How many messages each functions instance "should" process. Used to determine how many instances the function should scale to.| - Default: `100`|
+| `Count`| Number of entries to pop from Redis at one time. These are processed in parallel. | - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+| `ListPopFromBeginning`| Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: `true` |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"

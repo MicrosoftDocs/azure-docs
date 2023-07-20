@@ -326,7 +326,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 | Parameter | Description|
 |---|---|
 |  |
-| `ConnectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`). |
+| `ConnectionStringSetting`| Name of the setting in the `appsettings` that holds the cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`). |
 |  `Channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`. |
 
 ::: zone-end
@@ -337,7 +337,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 | Parameter | Description|
 |---|---|
 |`name`| Name of the variable holding the value returned by the function. |
-| `connectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |
+| `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |
 | `channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. |
 
 ::: zone-end
@@ -350,7 +350,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 | function.json property | Description|
 |---|---|
 |`type`| Trigger type. For the pubsub trigger, this is always `redisPubSubTrigger`. |
-| `connectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`)|
+| `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`)|
 | `channel`| Name of the pubsub channel that is being subscribed to |
 |  `name`| Name of the variable holding the value returned by the function. |
 | `direction` | Must be set to `in`.  |
