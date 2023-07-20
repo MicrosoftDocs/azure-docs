@@ -43,8 +43,8 @@ Example output:
 
 | NAME                                       | READY | STATUS  | RESTARTS |  AGE | IP         | NODE                             | NOMINATED NODE | READINESS GATES |
 | ------------------------------------------ | ----- | ------- | -------- | ---- | ---------- | -------------------------------- | -------------- | --------------- |
-| alb-controller-74df7896b-gfzfc             | 1/1   | Running | 0        |  60m | 10.1.0.247 | aks-userpool-21921599-vmss000000 | <none>         | <none>          |
-| alb-controller-bootstrap-5f7f8f5d4f-gbstq  | 1/1   | Running | 0        |  60m | 10.1.1.183 | aks-userpool-21921599-vmss000001 | <none>         | <none>          |
+| alb-controller-74df7896b-gfzfc             | 1/1   | Running | 0        |  60m | 10.1.0.247 | aks-userpool-21921599-vmss000000 | \<none\>         | \<none\>          |
+| alb-controller-bootstrap-5f7f8f5d4f-gbstq  | 1/1   | Running | 0        |  60m | 10.1.1.183 | aks-userpool-21921599-vmss000001 | \<none\>         | \<none\>          |
 
 Once you have the IP address of your alb-controller pod, you may validate the backend health service is running by browsing to http://\<pod-ip\>:8000.
 
