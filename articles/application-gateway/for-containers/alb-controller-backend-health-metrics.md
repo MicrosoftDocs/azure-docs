@@ -22,10 +22,10 @@ ALB Controller's backend health exposes three different experiences:
 ALB Controller's metric endpoint exposes both metrics and summary of backend health.  This endpoint enables exposure to Prometheus.
 
 Access to these endpoints can be reached via the following:
-1. Backend Health - http://<alb-controller-pod-ip>:8000/backendHealth
-  1. Output is JSON format
-1. Metrics - http://<alb-controller-pod-ip>:8001/metrics
-  1. Output is text format
+- Backend Health - http://\<alb-controller-pod-ip\>:8000/backendHealth
+   - Output is JSON format
+- Metrics - http://\<alb-controller-pod-ip\>:8001/metrics
+   - Output is text format
 
 Any clients or pods that have connectivity to this pod and port may access these endpoints. To restrict access, we recommend using [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to restrict access to certain clients.
 
@@ -60,7 +60,7 @@ Description: Prints the backend health of the ALB.
 Query Parameters:
         detailed: if true, prints the detailed view of the backend health
         alb-id: Resource ID of the Application Gateway for Containers to filter backend health for.
-        service-name: Service to filter backend health for. Expected format: <namespace>/<service>/<service-port-number>
+        service-name: Service to filter backend health for. Expected format: \<namespace\>/\<service\>/\<service-port-number\>
 
 Path: /
 Description: Prints the help
