@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and diagnostic errors with batch endpoints jobs
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia

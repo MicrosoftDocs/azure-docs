@@ -30,6 +30,8 @@
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
+  - name: Analyze an IoT/OT firmware image
+    href: tutorial-analyze-firmware.md    
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support 
@@ -60,6 +62,9 @@
       href: concept-customizable-security-alerts.md
   - name: Security recommendations for IoT Hub
     href: concept-recommendations.md
+  - name: Firmware analysis (preview)
+    displayName: IoT, OT, firmware, analysis
+    href: overview-firmware-analysis.md
 - name: How-to guides
   items:
   - name: Install Defender for IoT micro agent for Edge

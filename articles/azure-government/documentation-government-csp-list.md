@@ -358,7 +358,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
-|[R3 LLC](https://www.r3.com)|
+|[R3 LLC](https://www.r3-it.com)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|

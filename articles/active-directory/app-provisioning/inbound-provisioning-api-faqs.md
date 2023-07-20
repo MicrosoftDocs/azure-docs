@@ -48,7 +48,7 @@ Yes, the provisioning API supports on-premises AD domains as a target.
 
 ## How do we get the /bulkUpload API endpoint for our provisioning app?
 
-The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Azure AD" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information** and copy the **Provisioning API Endpoint** URL. It has the format:
+The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Azure AD" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information**,copy the **Provisioning API Endpoint** URL. It has the format:
 
 ```http
 https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/bulkUpload
@@ -139,7 +139,7 @@ You can retrieve the unique API endpoint for each job from the Provisioning blad
 
 To process terminations, identify an attribute in your source that will be used to set the ```accountEnabled``` flag in Azure AD. If you are provisioning to on-premises Active Directory, then map that source attribute to the `accountDisabled` attribute. 
 
-By default, the value associated with the SCIM User Core schema attribute ```active``` determines the status of the user's account in the target directory.
+By default, the value associated with the SCIM Core User schema attribute ```active``` determines the status of the user's account in the target directory.
 
 If the attribute is set to **true**, the default mapping rule enables the account. If the attribute is set to **false**, then the default mapping rule disables the account. 
 

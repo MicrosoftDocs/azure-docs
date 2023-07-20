@@ -34,7 +34,7 @@ The following roles provide read access to audit and sign-in logs. Always use th
 
 ## Access the activity logs in the portal
 
-1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs**.
 1. Adjust the filter according to your needs.
     - For more information on the filter options for audit logs, see [Azure AD audit log categories and activities](reference-audit-activities.md). 
@@ -186,4 +186,3 @@ You can also export your logs to an independent log analysis tool, such as [Splu
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in activity report API reference](/graph/api/resources/signin)
-

@@ -41,7 +41,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
 * Azure Stack HCI
-* Azure Linux 1.0, 2.0
+* Azure Linux (CBL-Mariner) 1.0, 2.0
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Debian 10, 11, and 12
 * CentOS Linux 7 and 8

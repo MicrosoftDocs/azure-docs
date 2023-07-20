@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
+title: Regulatory compliance checks
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 ms.topic: tutorial
 ms.date: 06/18/2023
