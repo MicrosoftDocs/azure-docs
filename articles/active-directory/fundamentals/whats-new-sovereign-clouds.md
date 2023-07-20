@@ -21,6 +21,53 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
 
+## June 2023 
+
+### General Availability - Apply RegEx Replace to groups claim content 
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** SSO             
+
+Today, when group claims are added to tokens Azure Active Directory attempts to include all of the groups the user is a member of.  In larger organizations where users are members of hundreds of groups this can often exceed the limits of what can go in the token.  This feature enables more customers to connect their apps to Azure Active Directory by making connections easier and more robust through automation of the application’s creation process. This specifically allows the set of groups included in the token to be limited to only those that are assigned to the application. For more information, see: [Regex-based claims transformation](../develop/saml-claims-customization.md#regex-based-claims-transformation).
+
+---
+
+### General Availability - Azure Active Directory SSO integration with Cisco Unified Communications Manager
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** Platform              
+
+Cisco Unified Communications Manager (Unified CM) provides reliable, secure, scalable, and manageable call control and session management. When you integrate Cisco Unified Communications Manager with Azure Active Directory, you can:
+
+- Control in Azure Active Directory who has access to Cisco Unified Communications Manager.
+- Enable your users to be automatically signed-in to Cisco Unified Communications Manager with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
+
+
+For more information, see: [Azure Active Directory SSO integration with Cisco Unified Communications Manager](../saas-apps/cisco-unified-communications-manager-tutorial.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+**Type:** Plan for Change  
+**Service category:** Microsoft Authenticator App                      
+**Product capability:** User Authentication             
+
+Microsoft Authenticator app’s number matching feature has been Generally Available since Nov 2022! If you haven't already used the rollout controls (via Azure portal Admin UX and MSGraph APIs) to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
+
+If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services are rolling out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md)
+
+---
+
 ## May 2023
 
 ### General Availability - Admins can now restrict users from self-service accessing their BitLocker keys
