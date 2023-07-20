@@ -152,11 +152,11 @@ Triggers not only define when to run a pipeline, they also include [parameters](
 > *  `@trigger().outputs.windowStartTime` and 
 > * `@trigger().outputs.windowEndTime`
 >
-> Schedule triggers on the other hand use 
+> Schedule triggers use different system variables:  
 > * `@trigger().scheduledTime` and 
 > * `@trigger().startTime`
 >
-> See [here](../../data-factory/concepts-pipeline-execution-triggers.md#trigger-type-comparison) for additional comparisons between these triggers.
+> Learn more about [trigger types](../../data-factory/concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
 4. Select **Save** to create the new trigger.  Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.  
 
@@ -164,3 +164,27 @@ Triggers not only define when to run a pipeline, they also include [parameters](
 
 After the trigger is published, it can be triggered manually using the **Trigger now** option.  If the start time was set for a value in the past, the pipeline will start immediately.  
 
+## Monitoring pipeline runs
+Trigger runs and their associated pipeline runs can be monitored in the **Monitor** tab. Here, users can browse when each pipeline ran, how long it took to execute, and potentially debug any problems that arose.
+
+:::image type="content" source="media/data-factory-monitor.png" alt-text="Monitor view showing list of pipeline runs." lightbox="media/data-factory-monitor.png":::
+
+## Microsoft Fabric
+[Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](https://learn.microsoft.com/fabric/onelake/onelake-overview). With the use of [Microsoft Fabric Lakehouse](https://learn.microsoft.com/fabric/data-engineering/lakehouse-overview), data in OneLake can be managed, structured, and analyzed in a single location. Any data outside of OneLake, written to Azure Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric’s suite of tools.
+
+### Creating shortcuts
+1. Navigate to the lakehouse created in the prerequisites.  In the **Explorer** view, select the triple-dot menu (...) next to the **Tables** folder.  
+
+2. Select **New shortcut** to create a new shortcut to the storage account that contains the DICOM analytics data.
+
+:::image type="content" source="media/fabric-create-shortcut.png" alt-text="Create new shortcut to the storage account. " lightbox="media/fabric-create-shortcut.png":::
+
+3. Select **Azure Data Lake Storage Gen2** as the source for the shortcut.
+
+:::image type="content" source="media/fabric-new-shortcut.png" alt-text="Select Azure Data Lake Storage Gen2 as the shortcut source. " lightbox="media/fabric-new-shortcut.png":::
+
+4. Under **Connection settings**, enter the **URL** used in the [Linked Services](#create-linked-service-for-azure-data-lake-storage-gen2) section above.  
+
+:::image type="content" source="media/fabric-connection-settings.png" alt-text="Enter the connection settings for the the Azure Data Lake Storage Gen2 account. " lightbox="media/fabric-connection-settings.png":::
+
+5. 
