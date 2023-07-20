@@ -17,7 +17,7 @@ At the same time, it is our belief that every service in the cloud must be fully
 
 ## The Managed HSM hardware environment
 
-A customer's Managed HSM pool in any given Azure region is housed in a [secure Azure datacenter](../../security/fundamentals/physical-security), with three instances spread over several servers, each deployed in a different rack to ensure redundancy. Each server has a [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated Marvell Liquid Security HSM Adapter with multiple cryptographic cores used to create fully isolated HSM partitions including fully isolated credentials, data storage, access control, etc.
+A customer's Managed HSM pool in any given Azure region is housed in a [secure Azure datacenter](../../security/fundamentals/physical-security.md), with three instances spread over several servers, each deployed in a different rack to ensure redundancy. Each server has a [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated Marvell Liquid Security HSM Adapter with multiple cryptographic cores used to create fully isolated HSM partitions including fully isolated credentials, data storage, access control, etc.
 
 The physical separation of the instances inside the datacenter is critical to ensuring that the loss of a single component (top-of-rack switch, power management unit in a rack, etc.) can't affect all the instances of a pool. These servers are dedicated to the Azure Security HSM team, and are not shared with other Azure teams, and no customer workloads are deployed to these servers. Physical access controls, including locked racks, are used to prevent unauthorized access to the servers. These controls meet FedRAMP-High, PCI, SOC 1/2/3, ISO 270x, and other security and privacy standards, and are regularly independently verified as part of [Azure's compliance program](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1). The HSMs have enhanced physical security, validated to meet FIPS 140-2 Level 3 and the entire Managed HSM service is built on top of the standard [secure Azure platform](../../security/fundamentals/platform.md) including [Trusted Launch](../../virtual-machines/trusted-launch.md), which protects against advanced persistent threats (APTs).
 
@@ -86,5 +86,5 @@ Further reading:
 - [About the Managed HSM security domain](security-domain.md)
 - [Managed HSM access control](access-control.md)
 - [Local RBAC built in roles](built-in-roles.md)
-- [Azure security baseline for Key Vault - Managed HSM](/azure/baselines/key-vault-managed-hsm-security-baseline?toc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2F&bc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2Fbreadcrumb%2Ftoc.json)
+- [Azure security baseline for Key Vault - Managed HSM](/azure/baselines/key-vault-managed-hsm-security-baseline.md?toc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2F&bc=%2Fazure%2Fkey-vault%2Fmanaged-hsm%2Fbreadcrumb%2Ftoc.json)
 - [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1)
