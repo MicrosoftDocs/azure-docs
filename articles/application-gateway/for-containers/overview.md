@@ -41,7 +41,7 @@ Application Gateway for Containers offers some entirely new features at release,
 - Traffic splitting 
 - Weighted round robin 
 - Mutual authentication to the backend target
-- Kubernetes support for Ingress & Gateway API
+- Kubernetes support for Ingress and Gateway API
 - Flexible [deployment strategies](#deployment-strategies)
 - Improved AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
 
