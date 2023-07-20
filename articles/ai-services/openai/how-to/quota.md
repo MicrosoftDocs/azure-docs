@@ -18,9 +18,8 @@ Quota provides the flexibility to actively manage the allocation of rate limits 
 
 ## Prerequisites
 
-**Cognitive Services Usages Reader** - This role provides the minimal access necessary to properly view quota usage.
-
-This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
+> [!IMPORTANT]
+> Quota requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
 
 ## Introduction to quota
 
