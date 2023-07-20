@@ -39,6 +39,9 @@ Get started with Azure Communication Services Job Router by setting up your clie
 [!INCLUDE [Use Job Router with Java SDK](./includes/router-quickstart-java.md)]
 ::: zone-end
 
+# Next Steps
+Explore Job Router How-To's [tutorials](https://learn.microsoft.com/en-us/azure/communication-services/concepts/router/concepts#check-out-our-how-to-guides)
+
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
