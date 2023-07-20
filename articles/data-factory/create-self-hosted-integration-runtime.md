@@ -461,6 +461,20 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 > [!NOTE]
 > It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
 
+### Self-contained Interactive Authoring
+In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection is not established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allow list [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
+
+> ![NOTE]
+> If the self-hosted integration runtime fails to establish a connection to Azure Relay, its status will be marked as "limited".
+
+ :::image type="content" source="media/create-self-hosted-integration-runtime/self-contained-interactive-authoring.png" alt-text="self-contained interactive authoring":::
+
+> ![NOTE]
+> While self-contained interactive authoring is enabled, all interactive authoring traffic will be routed exclusively through this functionality, bypassing Azure Relay. The traffic will only be redirected back to Azure Relay once you choose to disable this feature.
+
+> ![NOTE]
+> Both "Get IP" and "Send log" are not supported when self-contained interactive authoring is enabled.
+
 ### Get URL of Azure Relay
 
 One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the service portal. Follow these steps:

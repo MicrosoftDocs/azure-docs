@@ -53,6 +53,11 @@ Enabling Private Link for each of the preceding communication channels offers th
    - The command communications between the self-hosted IR and Data Factory can be performed securely in a private network environment. The traffic between the self-hosted IR and Data Factory goes through Private Link.
 - **Not currently supported**:
    - Interactive authoring that uses a self-hosted IR, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
+   Please notice that the traffic will go through private link if the self-contained interactive authoring is enabled. See [Self-contained Interactive Authoring](create-self-hosted-integration-runtime.md#self-contained-interactive-authoring).
+
+   > ![NOTE]
+   > Both "Get IP" and "Send log" are not supported when self-contained interactive authoring is enabled.
+
    - The new version of the self-hosted IR that can be automatically downloaded from Microsoft Download Center if you enable auto-update isn't supported at this time.
 
    For functionality that isn't currently supported, you need to configure the previously mentioned domain and port in the virtual network or your corporate firewall.

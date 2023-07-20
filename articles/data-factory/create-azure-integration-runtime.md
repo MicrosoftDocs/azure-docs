@@ -54,7 +54,7 @@ Use the following steps to create an Azure IR using UI.
 
     ---
        
-1. Select **Integration runtimes** on the left pane, and then select **+New**.
+2. Select **Integration runtimes** on the left pane, and then select **+New**.
 
     # [Azure Data Factory](#tab/data-factory)
     
@@ -66,15 +66,17 @@ Use the following steps to create an Azure IR using UI.
     
     ---
 
-1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
+3. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
    :::image type="content" source="media/create-azure-integration-runtime/integration-runtime-setup.png" alt-text="Screenshot showing the Azure self-hosted integration runtime option."::: 
-1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
+4. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
    :::image type="content" source="media/create-azure-integration-runtime/new-azure-integration-runtime.png" alt-text="Screenshot that shows create an Azure integration runtime.":::
-1. Enter a name for your Azure IR, and select **Create**.
+5. Enter a name for your Azure IR, and select **Create**.
    :::image type="content" source="media/create-azure-integration-runtime/create-azure-integration-runtime.png" alt-text="Screenshot that shows the final step to create the Azure integration runtime.":::
-1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
+6. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
    :::image type="content" source="media/create-azure-integration-runtime/integration-runtime-in-the-list.png" alt-text="Screenshot showing the Azure integration runtime in the list.":::
-   
+7. You can repair Azure integration runtime by clicking **repair** button if the status is showns as **Limited**.
+:::image type="content" source="media/create-azure-integration-runtime/repair-azure-integration-runtime.png" alt-text="Screenshot showing the Azure integration runtime repair.":::
+
 > [!NOTE]
 > If you want to enable managed virtual network on Azure IR, please see [How to enable managed virtual network](managed-virtual-network-private-endpoint.md)
 
