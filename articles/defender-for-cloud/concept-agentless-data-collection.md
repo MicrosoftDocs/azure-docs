@@ -41,6 +41,6 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 This article explains how agentless scanning works and how it helps you collect data from your machines.
 
-- Learn more about how to [enable vulnerability assessment with agentless scanning](enable-vulnerability-assessment-agentless.md).
+- Learn more about how to [enable agentless scanning for VMs](enable-vulnerability-assessment-agentless.md).
 
 - Check out Defender for Cloud's [common questions](faq-data-collection-agents.yml) for more information on agentless scanning for machines.
