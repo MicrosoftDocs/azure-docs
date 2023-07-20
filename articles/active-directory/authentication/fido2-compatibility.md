@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 06/29/2023
 
-author: janicericketts
-ms.author: jricketts
-manager: martinco
+author: justinha
+ms.author: justinha
+manager: amycolannino
 ms.reviewer: 
 
 ms.collection: M365-identity-device-management

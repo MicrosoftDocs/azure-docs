@@ -564,6 +564,8 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
+    - name: How to use Azure OpenAI models 
+      href: how-to-use-openai-models-in-azure-ml.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with Prompt flow 

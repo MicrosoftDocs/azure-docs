@@ -296,21 +296,25 @@ Prior to a scheduled shutdown, users will see a notification alerting them that 
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStartStopSchedule, RecurrenceTrigger, RecurrencePattern
-from azure.ai.ml import MLClient
 from azure.ai.ml.constants import TimeZone
+from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
-subscription_id = "sub-id"
-resource_group = "rg-name"
-workspace = "ws-name"
-# get a handle to the workspace
+# authenticate
+credential = DefaultAzureCredential()
+
+# Get a handle to the workspace
 ml_client = MLClient(
-    DefaultAzureCredential(), subscription_id, resource_group, workspace
+    credential=credential,
+    subscription_id="<SUBSCRIPTION_ID>",
+    resource_group_name="<RESOURCE_GROUP>",
+    workspace_name="<AML_WORKSPACE_NAME>",
 )
 
 ci_minimal_name = "ci-name"
+ci_start_time = "2023-06-21T11:47:00" #specify your start time in the format yyyy-mm-ddThh:mm:ss
 
-rec_trigger = RecurrenceTrigger(start_time="yyyy-mm-ddThh:mm:ss", time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
+rec_trigger = RecurrenceTrigger(start_time=ci_start_time, time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
 myschedule = ComputeStartStopSchedule(trigger=rec_trigger, action="start")
 com_sch = ComputeSchedules(compute_start_stop=[myschedule])
 

@@ -1,5 +1,5 @@
 ---
-title: Improving your security posture with recommendations in Microsoft Defender for Cloud
+title: Improving your security posture with recommendations
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
 ms.date: 01/10/2023

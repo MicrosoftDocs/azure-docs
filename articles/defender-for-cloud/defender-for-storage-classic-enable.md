@@ -1,5 +1,5 @@
 ---
-title: Enable and configure Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
+title: Enable and configure Microsoft Defender for Storage (classic)
 description: Learn about how to enable and configure Microsoft Defender for Storage (classic).
 ms.date: 06/15/2023
 author: dcurwin

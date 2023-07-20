@@ -154,7 +154,7 @@ First, you'll need to create a user-assigned identity resource.
 1. Run the `az webapp identity assign` command to assign the identity to the app.
 
     ```azurepowershell-interactive
-    az webapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
+    az webapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-id>
     ```
 
 # [Azure PowerShell](#tab/ps)
@@ -377,7 +377,7 @@ az webapp identity remove --name <app-name> --resource-group <group-name>
 To remove one or more user-assigned identities:
 
 ```azurecli-interactive
-az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
+az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-id1> <identity-id2> ...
 ```
 
 You can also remove the system assigned identity by specifying `[system]` in `--identities`.

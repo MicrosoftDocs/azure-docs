@@ -103,7 +103,7 @@ To ensure people outside of your organization can request access packages and ge
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
 
 > [!NOTE]
-> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure Portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
+> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
 
 ### Review your SharePoint Online external sharing settings
 

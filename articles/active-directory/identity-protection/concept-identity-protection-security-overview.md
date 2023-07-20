@@ -5,8 +5,8 @@ description: Learn how the Security overview gives you an insight into your orga
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 08/22/2022
+ms.topic: reference
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
