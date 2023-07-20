@@ -35,7 +35,7 @@
 
        :::image type="content" source="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
 
-    1. Review the [**Availability zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
+    1. Review the [**Availability Zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
 
        > [!NOTE]
        > Availability zones, and the ability to edit cross region disaster recovery options, are public preview features. Availability Zones are available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
@@ -46,4 +46,4 @@
 
     1. Select **Create**.
 
-1. Once the deployment is complete select **Go to resource**. 
+1. When the deployment is complete select **Go to resource**. 
