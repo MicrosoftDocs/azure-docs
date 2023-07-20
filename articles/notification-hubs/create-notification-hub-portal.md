@@ -45,16 +45,16 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
 1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
 
-       :::image type="content" source="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
+ :::image type="content" source="./media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/create-notification-hub-portal/notification-hub-details.png":::
 
 1. Review the [**Availability zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
 
-       > [!NOTE]
-       > Availability zones, and the ability to edit cross region disaster recovery options, are public preview features. Availability Zones is available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
+> [!NOTE]
+> Availability zones, and the ability to edit cross region disaster recovery options, are public preview features. Availability Zones is available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
 
 1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 
-       :::image type="content" source="./media/notification-hubs-portal-create-new-hub/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="./media/notification-hubs-portal-create-new-hub/availability-zones.png":::
+:::image type="content" source="./media/create-notification-hub-portal/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="./media/create-notification-hub-portal/availability-zones.png":::
 
 1. Select **Create**.
 
