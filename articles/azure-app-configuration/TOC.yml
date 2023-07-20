@@ -250,6 +250,8 @@
                 href: ./rest-api-locks.md
               - name: Revisions
                 href: ./rest-api-revisions.md
+              - name: Snapshots
+                href: ./rest-api-snapshot.md
             - name: Protocol
               items:
               - name: Authentication

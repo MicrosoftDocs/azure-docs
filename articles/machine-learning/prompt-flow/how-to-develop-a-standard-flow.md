@@ -41,7 +41,7 @@ At the left, it's the flatten view, the main working area where you can author t
 At the right, it's the graph view for visualization only. It shows the flow structure you're developing, including the tools and their links. You can zoom in, zoom out, auto layout, etc.
 
 > [!NOTE]
-> You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view the do the inline edit.
+> You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view, then do the inline edit.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
 

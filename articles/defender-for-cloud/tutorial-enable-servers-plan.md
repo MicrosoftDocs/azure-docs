@@ -1,12 +1,11 @@
 ---
-title: Protect servers with Defender for Servers - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your servers with Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect servers with Defender for Servers
+# Protect your servers with Defender for Servers
 
 Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux machines that run in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and on-premises environments. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 

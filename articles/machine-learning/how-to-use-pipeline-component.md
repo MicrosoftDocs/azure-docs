@@ -15,7 +15,7 @@ ms.custom: sdkv2, cliv2, devx-track-python
 
 # How to use pipeline component to build nested pipeline job (V2) (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 When developing a complex machine learning pipeline, it's common to have sub-pipelines that use multi-step to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will help you share your work and better collaborate with team members.
 
@@ -23,7 +23,7 @@ By using a pipeline component, the author can focus on developing sub-tasks and 
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

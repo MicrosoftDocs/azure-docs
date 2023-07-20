@@ -6,7 +6,7 @@ ms.date: 05/04/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
 
-# Azure Schema Registry in Azure Event Hubs
+# Use Azure Schema Registry in Event Hubs from Apache Kafka and other apps
 In many event streaming and messaging scenarios, the event or message payload contains structured data. Schema-driven formats such as [Apache Avro](https://avro.apache.org/) are often used to serialize or deserialize such structured data. 
 
 An event producer uses a schema to serialize event payload and publish it to an event broker such as Event Hubs. Event consumers read event payload from the broker and deserialize it using the same schema. So, both producers and consumers can validate the integrity of the data with the same schema. 
@@ -18,7 +18,7 @@ An event producer uses a schema to serialize event payload and publish it to an 
 
 :::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="Schema Registry" border="false":::
 
-With schema-driven serialization frameworks like Apache Avro, moving serialization metadata into shared schemas can also help with **reducing the per-message overhead**. That's because each message won't need to have the metadata (type information and field names) as it's the case with tagged formats such as JSON. 
+With schema-driven serialization frameworks like Apache Avro, moving serialization metadata into shared schemas can also help with **reducing the per-message overhead**. It's because each message doesn't need to have the metadata (type information and field names) as it's the case with tagged formats such as JSON. 
 
  > [!NOTE]
 > The feature isn't available in the **basic** tier.

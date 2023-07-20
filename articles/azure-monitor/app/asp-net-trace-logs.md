@@ -255,6 +255,5 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 [availability]: ./availability-overview.md
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
-[portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [start]: ./app-insights-overview.md

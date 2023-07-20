@@ -9,7 +9,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 07/14/2023
 ---
 
 # Create and manage runtimes (preview)
@@ -55,13 +55,13 @@ You need to assign enough permission to use runtime in Prompt flow. To assign a 
 
 ### Create compute instance runtime in UI
 
-If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 1. Select add compute instance runtime in runtime list page.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
 1. Select compute instance you want to use as runtime.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
-    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 1. Select create new custom application or existing custom application as runtime.
     1. Select create new custom application as runtime.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
@@ -77,7 +77,6 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
         > [!NOTE]
         > - We are going to perform an automatic restart of your compute instance. Please ensure that you do not have any tasks or jobs running on it, as they may be affected by the restart.
-        > - To build your custom environment, please use an image from public docker hub. We do not support custom environments built with images from ACR at this time.
 
     1. To use an existing custom application as a runtime, choose the option "existing".
         This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
@@ -175,6 +174,7 @@ You can also assign these permissions manually through the UI.
 
     > [!NOTE]
     > This operation may take several minutes to take effect.
+    > If your compute instance behind VNet, please follow [Compute instance behind VNet](#compute-instance-behind-vnet) to configure the network.
 
 To learn more:
 - [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
@@ -205,7 +205,8 @@ Go to runtime detail page and select update button at the top. You can change ne
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
-If you used a custom environment, you need to rebuild it using latest Prompt flow image first, and then update your runtime with the new custom environment.
+> [!NOTE]
+> If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
 
 ## Troubleshooting guide for runtime
 
@@ -223,13 +224,61 @@ If you just assigned the permissions, it will take a few minutes to take effect.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
 
-First, go to the Compute Instance terminal and run `docker ps` to find the root cause. You can follow the steps in the [Manually customize conda packages in CI runtime](how-to-customize-environment-runtime.md#manually-customize-conda-packages-in-ci-runtime) section.
+First, go to the Compute Instance terminal and run `docker ps` to find the root cause. 
 
 Use  `docker images`  to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime, which will attempt to restart the runtime and compute instance.
 
 #### Run failed due to "No module named XXX"
 
 This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+#### Request timeout issue
+
+##### Request timeout error shown in UI
+
+**MIR runtime request timeout error in the UI:**
+
+:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+
+Error in the example says "UserError: Upstream request timeout".
+
+**Compute instance runtime request timeout error:**
+
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+
+Error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing".
+
+#### How to identify which node consume the most time
+
+1. Check the runtime logs
+
+2. Trying to find below warning log format
+
+    {node_name} has been running for {duration} seconds.
+
+    For example:
+
+   - Case 1: Python script node running for long time.
+
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+
+        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300s), then you can check the node details to see what's the problem.
+
+   - Case 2: LLM node running for long time.
+
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+
+        In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
+
+        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+
+        You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
+
+        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
+
+3. If you can't find anything in runtime logs to indicate it's a specific node issue
+
+    Please contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
 
 ### Compute instance runtime related
 
@@ -243,9 +292,12 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 
 This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-#### Compute instance behind vnet
+#### Compute instance behind VNet
 
-This is known limitation, currently compute instance runtime didn't support vent.
+If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
+- See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
+- If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
+- Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 ### Managed endpoint runtime related
 

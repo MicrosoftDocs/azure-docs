@@ -5,8 +5,8 @@ description: Configure Microsoft Defender for Storage to detect anomalies in acc
 services: storage
 author: dcurwin
 
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: dacurwin

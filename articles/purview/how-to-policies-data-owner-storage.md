@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 04/03/2023
+ms.date: 07/06/2023
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (Preview)
@@ -100,10 +100,10 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 ## Next steps
 Check blog, demo and related tutorials:
-
 * [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
-* [Blog: What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
-* [Blog: Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
-* [Blog: Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
+* Doc: [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+* Doc: [Provision access to all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+* Blog: [What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* Blog: [Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
+* Blog: [Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
+* Blog: [Grant users access to data assets in your enterprise via API](https://aka.ms/AAlg655)
