@@ -145,6 +145,8 @@
     - name: Defender for Containers support matrices
       displayName: Containers, features availability, environment information
       href: support-matrix-defender-for-containers.md
+    - name: Defender for Containers CSPM support matrices
+      href: support-agentless-containers-posture.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution
@@ -223,8 +225,6 @@
     items:
     - name: Agentless Container Posture (Preview)
       href: concept-agentless-containers.md
-    - name: Support and prerequisites
-      href: support-agentless-containers-posture.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
@@ -300,12 +300,6 @@
     items:
     - name: Onboard agentless containers for CSPM
       href: how-to-enable-agentless-containers.md
-    - name: View and remediate vulnerability assessment findings for registry images 
-      href: view-and-remediate-vulnerability-assessment-findings.md
-    - name: View and remediate vulnerabilities for images running on your AKS clusters 
-      href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
-    - name: Disable vulnerability assessment findings on Container registry images
-      href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
@@ -559,8 +553,18 @@
     - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
-    - name: Vulnerability assessment for Agentless Container registry
-      href: agentless-container-registry-vulnerability-assessment.md
+    - name: Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management
+      items:
+      - name: Overview
+        href: agentless-container-registry-vulnerability-assessment.md
+      - name: Enable vulnerability assessment
+        href: enable-vulnerability-assessment.md
+      - name: View and remediate vulnerabilities for registry images 
+        href: view-and-remediate-vulnerability-assessment-findings.md
+      - name: View and remediate vulnerabilities for running images
+        href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
+      - name: Disable vulnerabilities on images
+        href: disable-vulnerability-findings-containers.md  
     - name: Vulnerability assessment for Amazon Elastic Container Registry
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
