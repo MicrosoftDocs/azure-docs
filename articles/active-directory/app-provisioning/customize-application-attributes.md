@@ -210,7 +210,7 @@ Use the steps in the example to provision roles for a user to your application. 
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
-   ```json
+    ```json
     {
       "schemas": [
           "urn:ietf:params:scim:schemas:core:2.0:User"
@@ -229,22 +229,25 @@ Use the steps in the example to provision roles for a user to your application. 
                "value": "Admin"
          }
       ]
-   }
-   ```
+    }
+    ```
   
   - **Example output (PATCH)** 
     
-   ```json
-   "Operations": [
-     {
-       "op": "Add",
-       "path": "roles",
-       "value": [
-         {
-           "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-         }
-       ]
-   ```  
+    ```json
+    "Operations": [
+      {
+        "op": "Add",
+        "path": "roles",
+        "value": [
+          {
+            "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+          }
+        ]
+      }
+    ]
+    ```
+
 The request formats in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
