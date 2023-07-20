@@ -77,7 +77,7 @@ If your machine is patched using Automation Update management, and has Automatic
 1. Select **Configure Automatic Updates**.
 1. Select or deselect the **Install updates for other Microsoft products** option.
 
-   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/workbooks/configure-updates-group-policy-expanded.png":::
+   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/configure-wu-agent/configure-updates-group-policy-expanded.png":::
 
 
 ## Make WSUS configuration settings
