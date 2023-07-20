@@ -1,5 +1,5 @@
 ---
-title: Connect your GCP project to Microsoft Defender for Cloud
+title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/28/2023

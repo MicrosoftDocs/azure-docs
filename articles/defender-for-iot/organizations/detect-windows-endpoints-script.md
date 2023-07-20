@@ -102,8 +102,6 @@ After [downloading and running](#download-and-run-the-script) the script, then [
 
 1. Your devices applications report is shown in the **My reports** area.
 
-Based on this information, the Windows device installed applications CVE list will be displayed in Azure if the sensor is cloud-connected.
-
 ## Next steps
 
 For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md) and [Import extra data for detected OT devices](how-to-import-device-information.md).
