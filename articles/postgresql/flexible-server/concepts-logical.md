@@ -37,7 +37,7 @@ Logical decoding:
 * Extracts changes across all tables in a database.
 
 
-## Pre-requisites for logical replication and logical decoding
+## Prerequisites for logical replication and logical decoding
 
 1. Go to server parameters page on the portal.
 2. Set the server parameter `wal_level` to `logical`.
@@ -102,7 +102,7 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed pre-requisite tasks listed above.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed prerequisite tasks listed above.
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
