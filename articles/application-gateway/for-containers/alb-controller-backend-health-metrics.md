@@ -1,5 +1,5 @@
 ---
-title: ALB Controller - Backend Health \& Metrics
+title: ALB Controller - Backend Health and Metrics
 description: Identify and troubleshoot issues using ALB Controller's backend health & metrics endpoints for Application Gateway for Containers.
 services: application-gateway
 author: greglin
@@ -10,7 +10,7 @@ ms.date: 07/21/2023
 ms.author: greglin
 ---
 
-# ALB Controller - Backend Health
+# ALB Controller - Backend Health and Metrics
 
 Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
