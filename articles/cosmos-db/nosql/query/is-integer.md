@@ -42,6 +42,10 @@ This example demonstrates the function with various static values.
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/result.json":::
 
+## Remarks
+
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+
 ## See also
 
 - [System functions](system-functions.yml)
