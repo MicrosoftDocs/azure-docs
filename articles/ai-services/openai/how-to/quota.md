@@ -46,6 +46,7 @@ Post deployment you can adjust your TPM allocation by selecting **Edit deploymen
 
 > [!IMPORTANT]
 > Quotas and limits are subject to change, for the most up-date-information consult our [quotas and limits article](../quotas-limits.md).
+> At this time, creating deployments and assigning quota requires the [Cognitive Services OpenAI Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) set at the subscription level (not the resource or resource group level)
 
 ## Model specific settings
 
