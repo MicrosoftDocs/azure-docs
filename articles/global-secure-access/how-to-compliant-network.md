@@ -45,7 +45,7 @@ To enable the required setting to allow the compliant network check, an administ
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 1. Browse to **Microsoft Entra ID Conditional Access** > **Named locations**.
-   1. Confirm you have a location called **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
+   1. Confirm you have a location called **All Compliant Network locations** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
 :::image type="content" source="media/how-to-compliant-network/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 
@@ -69,7 +69,7 @@ The following example shows a Conditional Access policy that requires Exchange O
    1. Set **Configure** to **Yes**
    1. Under **Include**, select **Any location**.
    1. Under **Exclude**, select **Selected locations**
-      1. Select the **All Network Access locations of my tenant** location.
+      1. Select the **All Compliant Network locations** location.
    1. Select **Select**.
 1. Under **Access controls**: 
    1. **Grant**, select **Block Access**, and select **Select**.
