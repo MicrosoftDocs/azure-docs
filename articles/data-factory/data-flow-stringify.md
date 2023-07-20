@@ -19,7 +19,7 @@ Use the stringify transformation to turn complex data types into strings. This c
 
 ## Configuration
 
-In the stringify transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the stringify transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The stringify transformation also contains the following configuration settings.
 
 :::image type="content" source="media/data-flow/stringify.png" alt-text="Stringify settings":::
 
