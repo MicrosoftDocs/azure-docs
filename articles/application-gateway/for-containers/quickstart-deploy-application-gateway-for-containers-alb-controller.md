@@ -178,28 +178,29 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
 
-## Next Steps - Link your ALB controller to Application Gateway for Containers
+## Next Steps 
 
-Now that you have successfully installed an ALB Controller on your cluster you can provision the Application Gateway For Containers resources in Azure.
+Now that you have successfully installed an ALB Controller on your cluster, you can provision the Application Gateway For Containers resources in Azure. 
+
+The next step is to link your ALB controller to Application Gateway for Containers. How you create this link depends on your deployment strategy.
 
 There are two deployment strategies for management of Application Gateway for Containers:
-
 - **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
-   - Quickstart guide for bring your own (BYO) strategy can [be found here](quickstart-create-application-gateway-for-containers-byo-deployment.md)
-- **Managed by ALB controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates an Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
-  - Quickstart guide for managed by ALB controller strategy can [be found here](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md)
+   - To use a BYO deployment, see [Create Application Gateway for Containers - bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
+- **Managed by ALB controller:** In this deployment strategy, ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates an Application Gateway for Containers resource when an **ApplicationLoadBalancer** custom resource is defined on the cluster. The service lifecycle is based on the lifecycle of the custom resource.
+  - To use an ALB managed deployment, see [Create Application Gateway for Containers managed by ALB Controller](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md)
 
 ## Uninstall Application Gateway for Containers and ALB Controller
 
-If you wish to uninstall the ALB Controller, you may complete the following steps.
+If you wish to uninstall the ALB Controller, complete the following steps.
 
-1. To delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
+1. Delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
 
 ```azurecli-interactive
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-2. To uninstall ALB Controller and its resources from your cluster run the following commands:
+2. Uninstall ALB Controller and its resources from your cluster run the following commands:
 
 ```azurecli-interactive
 helm uninstall alb-controller
