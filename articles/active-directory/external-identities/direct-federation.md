@@ -1,4 +1,4 @@
-   ---
+---
 title: Federation with a SAML/WS-Fed identity provider (IdP) for B2B
 description: Directly federate with a SAML or WS-Fed identity provider so guests can sign in to your Azure AD apps
 
