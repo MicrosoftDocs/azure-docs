@@ -32,6 +32,10 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 To export a file, first you need to copy the file to the data out folder in the data pipeline.
 
+  > [!NOTE]
+  > Supported filename characters are: a-z, A-Z, 0-9, -, _, .
+  > Data pipeline will only process files in /mount/datapipeline/dataout.
+
 1. Type *Modeling and Simulation Workbench* in the global search and select **Modeling and Simulation Workbench** under **Services**.
 
 1. Select your Modeling and Simulation Workbench from the resource list.
