@@ -207,7 +207,7 @@ To use the data collector with a custom Blob storage container, connect the stor
 
 Next, ensure that your Azure Machine Learning endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Add the identity to your endpoint. Assign the role `Storage Blob Data Contributor` to this identity with the Blob storage container which will be used the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal-managed-identity).
 
-Then, update your deployment YAML to include the `data` property within each collection. The `data.name` is a required parameter used to specify the name of the data asset to be registered with the collected data. The `data.path` is a required parameter used to specify the fully-formed AzureML datastore path which is connected to your Azure Blob storage container. The `data.version` is an optional parameter used to specify the version of the data asset (defaults to 1).
+Then, update your deployment YAML to include the `data` property within each collection. The `data.name` is a required parameter used to specify the name of the data asset to be registered with the collected data. The `data.path` is a required parameter used to specify the fully-formed Azure Machine Learning datastore path, which is connected to your Azure Blob storage container. The `data.version` is an optional parameter used to specify the version of the data asset (defaults to 1).
 
 Here is an example YAML configuration of how you would do so:
 
