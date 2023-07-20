@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. You can further generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis, and what-if perturbations. Learn more about how you can generate a [Responsible AI dashboard.](concept-responsible-ai-dashboard.md)
 
 For example, automated ML generates the following charts based on experiment type.
 
@@ -309,9 +309,26 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 
 ![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
+## Responsible AI dashboard for model debugging (preview)
+
+The Azure Machine Learning Responsible AI dashboard provides a single interface to help you implement Responsible AI in practice effectively and efficiently. It brings together several mature Responsible AI tools in the areas of: 
+
+* Model performance and fairness assessment 
+* Data exploration 
+* Machine learning interpretability 
+* Error analysis 
+* Counterfactual analysis and perturbations 
+* Causal inference 
+
+The dashboard offers a holistic assessment and debugging of models so you can make informed data-driven decisions. Having access to all of these tools in one interface empowers you to evaluate and debug your machine learning models by identifying model errors and fairness issues, diagnosing why those errors are happening, and informing your mitigation steps. 
+
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (aka which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md##model-responsible-ai-dashboard-preview)
+
+See how you can generate this dashboard via the UI or the SDK. 
+
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
 
 For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK (v1)](./v1/how-to-machine-learning-interpretability-automl.md).
 
