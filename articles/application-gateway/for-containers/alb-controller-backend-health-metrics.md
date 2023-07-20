@@ -40,6 +40,7 @@ kubectl get pods -n azure-alb-system -o wide
 ```
 
 Example output:
+
 | NAME                                       | READY | STATUS  | RESTARTS |  AGE | IP         | NODE                             | NOMINATED NODE | READINESS GATES |
 | ------------------------------------------ | ----- | ------- | -------- | ---- | ---------- | -------------------------------- | -------------- | --------------- |
 | alb-controller-74df7896b-gfzfc             | 1/1   | Running | 0        |  60m | 10.1.0.247 | aks-userpool-21921599-vmss000000 | <none>         | <none>          |
