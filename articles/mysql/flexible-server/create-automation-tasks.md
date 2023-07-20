@@ -51,7 +51,7 @@ Creating an automation task doesn't immediately incur charges. The automation ta
    |||
 
 ## Stop server task
-Here's example to configure stop tasks for a MySQL Flexible Server.
+Here's an example to configure stop tasks for a MySQL Flexible Server.
 
 1. Select  **Stop MySQL Flexible server** task. 
 
@@ -98,7 +98,7 @@ You can scale a server up or down based on a recurring time schedule. You need t
 |Notify Me| Turn on or off to receive notifications.|
 |Enter email| Provide email to receive notifications.|
 
-Here's screenshot of the Scale automation task:
+Here's a screenshot of the Scale automation task:
 ![Screenshot that shows scale automation task.](media/create-automation-tasks/scale-server-on-schedule.png)
 
 
