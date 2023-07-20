@@ -1,6 +1,6 @@
 ---
 title: View Azure virtual network topology
-description: Learn how to view the resources in a virtual network and the relationships between them using the Azure portal, PowerShell, and Azure CLI.
+description: Learn how to view the resources in a virtual network and the relationships between them using the Azure portal, PowerShell, or the Azure CLI.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
@@ -11,10 +11,10 @@ ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, ign
 
 # View the topology of an Azure virtual network
 
+In this article, you learn how to view resources and the relationships between them in an Azure virtual network. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology tool of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
+
 > [!NOTE]
 > Try the new [Topology (Preview)](network-insights-topology.md) experience which offers visualization of Azure resources across multiple subscriptions and regions. Use this [Azure portal link](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview) to try Topology (Preview).
-
-In this article, you learn how to view resources and the relationships between them in an Azure virtual network. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology tool of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
 
 ## Prerequisites
 
