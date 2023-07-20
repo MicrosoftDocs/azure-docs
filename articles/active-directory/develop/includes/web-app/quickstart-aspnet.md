@@ -35,7 +35,7 @@ You have two options to start building your application: automatic or manual con
 ### Automatic configuration
 If you want to automatically configure your app and then download the code sample, follow these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal page for app registration</a>.
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal page for app registration</a>.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in one click.
 

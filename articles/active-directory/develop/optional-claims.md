@@ -148,8 +148,8 @@ Complete the following steps to configure groups optional claims through the app
    
    Multiple token types can be listed:
 
-   - IdToken for the OIDC ID token
-   - AccessToken for the OAuth access token
+   - idToken for the OIDC ID token
+   - accessToken for the OAuth access token
    - Saml2Token for SAML tokens.
 
    The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens.
