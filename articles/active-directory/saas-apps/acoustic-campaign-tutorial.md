@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Acoustic Campaign
 
-In this article, you'll learn how to integrate Acoustic Campaign with Azure Active Directory (Azure AD).Acoustic Campaign is platform that helps you create marketing campaigns that resonate with people, build a loyal following, and drive revenue.When you integrate Acoustic Campaign with Azure AD, you can:
+In this article, you'll learn how to integrate Acoustic Campaign with Azure Active Directory (Azure AD). Acoustic Campaign is platform that helps you create marketing campaigns that resonate with people, build a loyal following, and drive revenue. When you integrate Acoustic Campaign with Azure AD, you can:
 
 * Control in Azure AD who has access to Acoustic Campaign.
 * Enable your users to be automatically signed-in to Acoustic Campaign with their Azure AD accounts.
