@@ -176,13 +176,6 @@ Console.WriteLine($"Deleting job {accept.Value.JobId}");
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `router-quickstart.py` file is.
-
-```console
-python router-quickstart.py
-
-## Run the code
-
 Run the application using `dotnet run` and observe the results.
 
 ```console
