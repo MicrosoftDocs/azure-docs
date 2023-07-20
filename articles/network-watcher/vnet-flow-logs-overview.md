@@ -57,7 +57,7 @@ Key properties of VNet flow logs include:
 - Logs are collected at 1-minute intervals through the Azure platform and don't affect your Azure resources or network traffic.
 - Logs are written in the JSON (JavaScript Object Notation) format 
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state & throughput information.
-- All traffic flows in your network are evaluated through the rules in the applicable network security group (NSG) rules (../virtual-network/network-security-groups-overview.md) or AVNM security admin rules (../virtual-network-manager/concept-security-admins.md)
+- All traffic flows in your network are evaluated through the rules in the applicable [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md) or [AVNM security admin rules](../virtual-network-manager/concept-security-admins.md)
 -   For more information, see [Log Format](#log-format).
 
 ## Log format
@@ -104,6 +104,7 @@ VNet flow logs have the following properties:
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
 				- `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload. 
 
+Traffic in your virtual networks is Unencrypted(NX) by default. For encrypted traffic, enable [Virtual Network encryption](../virtual-network/virtual-network-encryption-overview.md)
 `Flow encryption` has the following possible encryption statuses:
 
 | Encryption Status | Description |
