@@ -20,9 +20,6 @@ In this tutorial, you'll learn how to integrate TonicDM with Azure Active Direct
 * Enable your users to be automatically signed-in to TonicDM with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Prerequisites
 
 To configure Azure AD integration with TonicDM, you need the following items:
