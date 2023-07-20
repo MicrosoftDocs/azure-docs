@@ -24,7 +24,7 @@ To create a glossary term, follow these steps:
 1. On the **Business glossary** page, select the glossary you would like to create the new term for, then select **+ New term**. A term can only be added to one glossary at a time.
 
    > [!NOTE]
-   > For more information about creating and managing glossaries see the [manage glossaries page.](how-to-create-manage-glossary.md)
+   > Each glossary supports a maximum of 100,000 terms. For more information about creating and managing glossaries see the [manage glossaries page.](how-to-create-manage-glossary.md)
 
    A pane opens with the **System default** template selected. Choose the template, or templates, that you want to use to create a glossary term, and then select **Continue**.
    Selecting multiple templates will allow you to use the custom attributes from those templates.
@@ -93,9 +93,10 @@ To create a glossary term, follow these steps:
                                                                           
 1. Add **Resources** and **Acronym** information. If the term is part of a hierarchy, you can add parent terms at **Parent** on the **Overview** tab.
 
-1. Add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
+1. To establish relationships with other terms, add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of tab for related terms and the box for adding synonyms." border="true":::
+
 
 1. Optionally, select the **Contacts** tab to add experts and stewards to your term.
 

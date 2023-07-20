@@ -25,7 +25,7 @@ Before you begin, ensure that you have the following prerequisite.
 
    If you don't already have an agent, you can install it.
 
-   1. Go to the [Azure portal](https://portal.azure.com).
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Download the latest Auth Agent.
    1. Install the feature by running either of the following commands.
       * `.\AADConnectAuthAgentSetup.exe`  
