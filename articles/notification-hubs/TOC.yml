@@ -41,7 +41,7 @@
     items:
     - name: Notification Hubs updates for iOS 13+
       href: push-notification-updates-ios-13.md
-    - name: Setup your iOS app to work with Azure Notification Hubs
+    - name: Set up your iOS app to work with Azure Notification Hubs
       href: ios-sdk-get-started.md
     - name: Initial configuration to receive push notification from Azure Notification Hubs
       href: ios-sdk-current.md

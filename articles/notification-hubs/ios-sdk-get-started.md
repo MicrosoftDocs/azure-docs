@@ -11,7 +11,7 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Setup your iOS app to work with Azure Notification Hubs
+# Tutorial: Set up your iOS app to work with Azure Notification Hubs
 
 This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
 

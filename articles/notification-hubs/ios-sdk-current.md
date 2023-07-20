@@ -42,7 +42,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 1. In Xcode, create a new Xcode project and select the **iOS** Tab and **App** template.
 
-   :::image type="content" source="media/ios-sdk/image1-new.png" alt-text="Select template":::
+   :::image type="content" source="media/ios-sdk/image1-new.png" alt-text="Diagram that shows Xcode setup for new app":::
 
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you set the bundle identifier in the Apple Developer portal. The Bundle Identified in the new project window should populate to match the bundle identified in the Apple Developer portal. This is case sensitive.
 
