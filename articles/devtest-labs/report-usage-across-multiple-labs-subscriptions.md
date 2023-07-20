@@ -6,6 +6,7 @@ ms.custom: ignite-2022
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Report Azure DevTest Labs usage across multiple labs and subscriptions
