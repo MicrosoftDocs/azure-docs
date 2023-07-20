@@ -52,9 +52,4 @@ These steps use AZD to initialize the event-driven application from the Azure De
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
    ```
 
-1. Use the following command to set the template using the **standard** plan.
-
-   ```bash
-   azd env set PLAN standard
-   ```
 ---

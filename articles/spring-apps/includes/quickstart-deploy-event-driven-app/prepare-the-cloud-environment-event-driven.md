@@ -75,7 +75,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in:
 
    ```bash
    azd auth login
@@ -85,6 +85,12 @@ Use the following steps to create an Azure Spring Apps instance:
 
    ```bash
    azd config set alpha.springapp on
+   ```
+
+1. Use the following command to set the template using the **standard** plan:
+
+   ```bash
+   azd env set PLAN standard
    ```
 
 1. Use the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
