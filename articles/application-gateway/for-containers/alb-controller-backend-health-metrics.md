@@ -12,7 +12,7 @@ ms.author: greglin
 
 # ALB Controller - Backend Health and Metrics
 
-Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
+Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
 ALB Controller's backend health exposes three different experiences:
 1. Summarized backend health by Application Gateway for Containers resource
@@ -21,7 +21,7 @@ ALB Controller's backend health exposes three different experiences:
 
 ALB Controller's metric endpoint exposes both metrics and summary of backend health.  This endpoint enables exposure to Prometheus.
 
-Access to these endpoints can be reached via the following:
+Access to these endpoints can be reached via the following URLs:
 - Backend Health - http://\<alb-controller-pod-ip\>:8000/backendHealth
    - Output is JSON format
 - Metrics - http://\<alb-controller-pod-ip\>:8001/metrics
@@ -33,7 +33,7 @@ Any clients or pods that have connectivity to this pod and port may access these
 
 ### Discovering backend health
 
-Execute the following kubectl command to identify your ALB Controller pod and its corresponding IP address.
+Run the following kubectl command to identify your ALB Controller pod and its corresponding IP address.
 
 ```bash
 kubectl get pods -n azure-alb-system -o wide
@@ -110,7 +110,7 @@ Example output:
 
 ### Summarized backend health by Kubernetes service
 
-This experience will search for the health summary status of a given service.
+This experience searches for the health summary status of a given service.
 
 This experience may be accessed by specifying the name of the namespace, service, and port number of the service in the following format of the query string to the alb-controller pod: _\<namespace\>/\<service\>/\<service-port-number\>_
 
@@ -140,7 +140,7 @@ Example output:
 
 ### Detailed backend health for a specified Kubernetes service
 
-This experience will show all endpoints that make up the service, including their corresponding health status and IP address.  Endpoint status is reported as either _HEALTHY_ or _UNHEALTHY_.
+This experience shows all endpoints that make up the service, including their corresponding health status and IP address.  Endpoint status is reported as either _HEALTHY_ or _UNHEALTHY_.
 
 This experience may be accessed by specifying detailed=true in the query string to the alb-controller pod.
 
