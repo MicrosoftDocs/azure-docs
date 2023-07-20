@@ -29,8 +29,6 @@ Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transp
 >[!CAUTION]
 >Custom applications are not supported with SMB Continuous Availability and cannot be used with SMB Continuous Availability enabled volumes.
 
-**Custom applications are not supported with SMB Continuous Availability.**
-
 ## I'm running IBM MQ on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the NFS protocol?
 
 If you're running the [IBM MQ application in a shared files configuration](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-sharing-mq-files), where the IBM MQ data and logs are stored on an Azure NetApp Files volume, the following considerations are recommended to improve resilience during storage service maintenance events:
