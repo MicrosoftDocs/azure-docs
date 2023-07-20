@@ -29,6 +29,8 @@ The following dependencies are also referenced in an Application Gateway for Con
 - Subnet Delegation
 - User-assigned Managed Identity
 
+The architecture of Application Gateway for Containers is summarized in the following figure:
+
 ![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/overview/application-gateway-for-containers-kubernetes-conceptual.png)
 
 For details about how Application Gateway for Containers accepts incoming requests and routes them to a backend target, see [Application Gateway for Containers components](application-gateway-for-containers-components.md).
@@ -39,7 +41,7 @@ Application Gateway for Containers offers some entirely new features at release,
 - Traffic splitting 
 - Weighted round robin 
 - Mutual authentication to the backend target
-- Improved AKS orchestration
+- Kubernetes support for Ingress & Gateway API
 - Flexible [deployment strategies](#deployment-strategies)
 - Improved AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
 
