@@ -1,6 +1,6 @@
 ---
-title: Real User Measurements with Visual Studio Mobile Center - Azure Traffic Manager
-description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
+title: Real User Measurements with Visual Studio App Center - Azure Traffic Manager
+description: Set up your mobile application developed using Visual Studio App Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: greg-lindsay
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.devlang: java
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/16/2018
+ms.date: 07/13/2023
 ms.author: greglin
 ms.custom: template-how-to, devx-track-java
 ---
 
-# How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center
+# How to send Real User Measurements to Traffic Manager with Visual Studio App Center
 
-You can set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager by following the steps:
+You can set up your mobile application developed using Visual Studio App Center to send Real User Measurements to Traffic Manager by following the steps:
 
 >[!NOTE]
 > Currently, sending Real User Measurements to Traffic manager is only supported for Android.
@@ -44,9 +44,9 @@ To obtain the RUM Key using Azure portal using the following procedure:
  
 6. Click the **Copy** button to copy the RUM Key. 
 
-## Step 2: Instrument your app with the RUM package of Mobile Center SDK
+## Step 2: Instrument your app with the RUM package of App Center SDK
 
-If you're new to Visual Studio Mobile Center, visit its [website](https://mobile.azure.com). For detailed instructions on SDK integration, see
+If you're new to Visual Studio App Center, visit its [website](https://mobile.azure.com). For detailed instructions on SDK integration, see
 [Getting Started with the Android SDK](/mobile-center/sdk/getting-started/Android).
 
 To use Real User Measurements, complete the following procedure:
@@ -87,13 +87,13 @@ To use Real User Measurements, complete the following procedure:
 
     ```java
     RealUserMeasurements.setRumKey("<Your RUM Key>");
-    MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
+    MobileCenter.start(getApplication(), "<Your App Center AppSecret>", RealUserMeasurements.class);
     ```
 
 ## Next steps
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
-- Learn more about [Mobile Center](/mobile-center/)
-- [Sign up](https://mobile.azure.com) for Mobile Center
+- Learn more about [App Center](/appcenter)
+- [Set up](/appcenter/dashboard/#set-up-your-app-center-account) an App Center account
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 - Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)

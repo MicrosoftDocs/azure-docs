@@ -5,11 +5,11 @@ description: Azure Storage supports account failover for geo-redundant storage a
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: jammart
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 

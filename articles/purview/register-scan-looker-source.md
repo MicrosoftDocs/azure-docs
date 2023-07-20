@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/18/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -137,7 +137,7 @@ To create and run a new scan, follow these steps:
 
         :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="trigger scan" border="true":::
 
-1. Select **Test connection** (available when using self-hosted integration runtime).
+1. Select **Test connection** to validate the settings.
 
 1. Select **Continue**.
 

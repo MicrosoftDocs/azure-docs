@@ -114,11 +114,11 @@ This section provides specific instructions for migrating the hub.
 
 1. Select **Export template** from the list of properties and settings for the hub.
 
-   :::image type="content" source="./media/migrate-hub-arm/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT Hub." border="true":::
+   :::image type="content" source="./media/migrate-hub-arm/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT hub." border="true":::
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again.
 
-   :::image type="content" source="./media/migrate-hub-arm/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT Hub." border="true":::
+   :::image type="content" source="./media/migrate-hub-arm/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT hub." border="true":::
 
 ### View the template
 
@@ -533,4 +533,4 @@ Don't clean up until you're certain the new hub is up and running and the device
 
 ## Next steps
 
-You have migrated an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
+You have migrated an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).

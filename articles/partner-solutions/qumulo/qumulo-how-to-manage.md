@@ -43,3 +43,10 @@ To delete your Qumulo file system, you delete your deployment of Azure Native Qu
 ## Next steps
 - [Quickstart: Get started with Azure Native Qumulo Scalable File Service](qumulo-create.md)
 - [Troubleshoot Azure Native Qumulo Scalable File Service](qumulo-troubleshoot.md)
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)

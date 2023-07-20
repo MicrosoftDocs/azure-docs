@@ -19,7 +19,7 @@ manager: femila
 >
 >Learn about how to create a host pool in Azure Virtual Desktop at [Tutorial: Create a host pool](../create-host-pools-azure-marketplace.md).
 
-Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
+Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish desktop and application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 

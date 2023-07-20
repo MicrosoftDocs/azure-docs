@@ -20,7 +20,7 @@ In this article, you learn how to import your own data in the designer to create
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data component** - Use the [Import Data](../algorithm-module-reference/import-data.md) component to directly access data from online data sources.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Use Azure Machine Learning datasets
 

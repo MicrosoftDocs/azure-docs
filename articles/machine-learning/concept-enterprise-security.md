@@ -83,7 +83,7 @@ You don't have to pick one or the other. For example, you can use a managed virt
 
 * __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
     For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
 

@@ -358,7 +358,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
-|[R3 LLC](https://www.r3.com)|
+|[R3 LLC](https://www.r3-it.com)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
@@ -455,7 +455,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Turnkey Technologies, Inc.](https://www.turnkeytec.com)|
 |[Tyto Athene LLC](https://gotyto.com/)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
+|[UDRI - SSG](https://udayton.edu/)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|

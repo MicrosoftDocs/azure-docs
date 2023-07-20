@@ -90,7 +90,7 @@ This article focused on how to secure your pods. To implement some of these area
 
 <!-- EXTERNAL LINKS -->
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
-[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#selinuxoptions-v1-core
+[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#selinuxoptions-v1-core
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
 [azure-sdk-download]: https://azure.microsoft.com/downloads/
 

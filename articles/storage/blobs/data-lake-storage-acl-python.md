@@ -5,10 +5,9 @@ description: Use Python manage access control lists (ACL) in storage accounts th
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc

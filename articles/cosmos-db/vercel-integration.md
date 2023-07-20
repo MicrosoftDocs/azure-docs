@@ -94,7 +94,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 ## Integrate Cosmos DB with Vercel using marketplace template
 
-We have an [Azure Cosmos DB Next.js Starter](https://aka.ms/azurecosmosdb-vercel-template), which a great ready-to-use template with guided structure and configuration, saving you time and effort in setting up the initial project setup. Click on Deploy to Deploy on Vercel and View Repo to view the (source code)[https://github.com/Azure/azurecosmosdb-vercel-starter].
+We have an [Azure Cosmos DB Next.js Starter](https://aka.ms/azurecosmosdb-vercel-template), which a great ready-to-use template with guided structure and configuration, saving you time and effort in setting up the initial project setup. Click on Deploy to Deploy on Vercel and View Repo to view the [source code](https://github.com/Azure/azurecosmosdb-vercel-starter).
 
 1. Choose the GitHub repository, where you want to clone the starter repo.
    :::image type="content" source="./media/integrations/vercel/create-git-repository.png" alt-text="Screenshot to create the repository." lightbox="./media/integrations/vercel/create-git-repository.png":::

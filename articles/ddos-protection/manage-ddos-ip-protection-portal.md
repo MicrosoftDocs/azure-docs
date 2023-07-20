@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 06/13/2023
+ms.date: 06/22/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
@@ -16,11 +16,12 @@ ms.custom: template-quickstart
 Get started with Azure DDoS IP Protection by using the Azure portal.
 In this quickstart, you'll enable DDoS IP protection and link it to a public IP address.
 
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address.":::
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Sign in to the Azure portal at https://portal.azure.com. 
+- Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Enable DDoS IP Protection on a public IP address
 

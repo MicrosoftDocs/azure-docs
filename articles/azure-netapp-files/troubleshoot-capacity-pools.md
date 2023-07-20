@@ -38,6 +38,12 @@ This article describes resolutions to issues you might have when managing capaci
 | Cannot change QoS type from manual to auto | Once the QoS type is changed to manual, you cannot change it to auto. Given this, there are three options: <ul><li> Do not move the volume if it must be in a capacity pool with QoS type auto.</li><li> Create a new capacity pool with QoS type manual enabled, then you can move the volume to the new capacity pool. </li><li> Change the destination pool to QoS type manual from auto. Then perform the move. </li></ul> For information about QoS, see [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md#qos_types). | 
 | Cannot change a volume from a Double Encrypted Pool to a Single Encrypted Pool or from a Single Encrypted Pool to a Double Encrypted Pool | The destination pool must be of the same encryption type as the source pool. |
 
+## Issues for double-encryption capacity pools  
+
+|     Error condition    |     Resolution    |
+|-|-|
+| Out of storage capacity when creating or resizing volumes under double-encryption capacity pools: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` |  The error indicates insufficient resources in the region to support hardware-level data encryption. Retry the operation after some time. Resources may have been freed in the cluster, region, or zone in the interim.  |
+
 ## Next steps  
 
 * [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
