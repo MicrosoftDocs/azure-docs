@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 # Onboarding Peering Service model
 
-Onboarding process of Peering Service is comprised of two models as listed below:
+Onboarding process of Peering Service is composed of two models as listed below:
 
  - Onboarding Peering Service connection
 

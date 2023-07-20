@@ -18,13 +18,12 @@ A connection typically refers to a logical information set, identifying a Peerin
 - Connectivity partner
 - Connectivity partner Primary service location
 - Connectivity partner Backup service location
-- Customer's physical location
 - IP prefixes
 
 Customer can establish a single connection or multiple connections as per the requirement. A connection is also used as a unit of telemetry collection. For instance, to opt for telemetry alerts, customer must define the connection that will be monitored.
 
 > [!NOTE]
-> When you sign up for Peering Service, we analyze your Windows and Microsoft 365 telemetry in order to provide you with latency measurements for your selected prefixes. Currently telemetry data is supported for /24 or bigger size prefixes only.
+> When you sign up for Peering Service, we analyze your Windows and Microsoft 365 telemetry in order to provide you with latency measurements for your selected prefixes.
 > For more information about connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).
 
 ## How to create a peering service connection?
