@@ -37,7 +37,7 @@ The main resource you need to run this sample is an Azure Spring Apps instance. 
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+From a browser, sign in to the [Azure portal](https://portal.azure.com). The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
