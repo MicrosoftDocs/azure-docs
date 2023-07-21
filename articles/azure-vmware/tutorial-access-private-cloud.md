@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Windows VM to access the Azure VMware Solution vCenter
-> * Sign into vCenter Server from this VM
+> * Sign in to vCenter Server from this VM
 
 ## Create a new Windows virtual machine
 
