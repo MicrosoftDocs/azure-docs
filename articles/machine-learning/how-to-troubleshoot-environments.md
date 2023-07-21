@@ -14,6 +14,13 @@ ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
+:::moniker range="azureml-api-2"
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+:::moniker-end
+:::moniker range="azureml-api-1"
+[!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
+:::moniker-end
+
 # Troubleshooting environment issues
 
 In this article, learn how to troubleshoot common problems you may encounter with environment image builds and learn about AzureML environment vulnerabilities.
