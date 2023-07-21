@@ -74,6 +74,8 @@ items:
       href: dicom-services-faqs.yml
     - name: API versioning for DICOM service
       href: api-versioning-dicom-service.md
+    - name: DICOM Service API v2 Changes
+      href: dicom-service-v2-api-changes.md
     - name: DICOM Conformance Statement
       expanded: true
       items: 

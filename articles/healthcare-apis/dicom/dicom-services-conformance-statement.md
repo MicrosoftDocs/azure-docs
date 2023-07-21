@@ -12,6 +12,9 @@ ms.author: mmitrik
 
 # DICOM Conformance Statement v1
 
+> [!NOTE]
+> API version 2 is the latest API version and should be used in place of v1.  See the [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md) for details.
+
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
