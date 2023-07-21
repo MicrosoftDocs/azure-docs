@@ -49,7 +49,7 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
       * Upload the **conda.yml** file you [uploaded in Tutorial #1](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development)
       * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
-## Start the spark session
+### Start the spark session
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
 
@@ -95,7 +95,7 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-core-sdk)]
 
-1. Enable recurrent materialization on the `transactions` feature set
+## 1. Enable recurrent materialization on the `transactions` feature set
 
 In tutorial part 2, we enabled materialization, and we performed backfill on the transactions feature set. Backfill is an on-demand, one-time operation that computes and places feature values in the materialization store. However, to perform inference of the model in production, you might want to set up recurrent materialization jobs to keep the materialization store up-to-date. These jobs run on user-defined schedules. The recurrent job schedule works this way:
 
@@ -128,7 +128,7 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
    ---
 
-1. Run the batch-inference pipeline
+## 2. Run the batch-inference pipeline
 
    The batch-inference has these steps:
 

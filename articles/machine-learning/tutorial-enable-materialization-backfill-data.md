@@ -129,7 +129,7 @@ This list summarizes the required setup steps:
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=set-offline-store-params)]
 
-1.  Storage containers
+1. Storage containers
 
    Option 1: create new storage and container resources
 
@@ -159,7 +159,7 @@ This list summarizes the required setup steps:
 
    ---
 
-1.  Set up user assigned managed identity (UAI)
+1. Set up user assigned managed identity (UAI)
 
     The system-managed materialization jobs will use the UAI. For example, the recurrent job in part 3 of this tutorial uses this UAI.
 
@@ -225,45 +225,45 @@ This list summarizes the required setup steps:
 
 #### 1. Attach the offline materialization store and UAI, to enable the offline store on the feature store
 
-      # [Python SDK](#tab/python)
+   # [Python SDK](#tab/python)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
 
-      # [Azure CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
 
-      Action: inspect file `xxxx`. This command attaches the offline store and the UAI, to update the feature store.
+   Action: inspect file `xxxx`. This command attaches the offline store and the UAI, to update the feature store.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=dump_featurestore_yaml)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=dump_featurestore_yaml)]
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
 
-      ---
+   ---
 
 #### 2. Enable offline materialization on the transactions feature set
 
-      Once materialization is enabled on a feature set, you can perform a backfill, as explained in this tutorial. You can also schedule recurrent materialization jobs. Tutorial part 3 covers this topic.
+   Once materialization is enabled on a feature set, you can perform a backfill, as explained in this tutorial. You can also schedule recurrent materialization jobs. Tutorial part 3 covers this topic.
 
-      # [Python SDK](#tab/python)
+   # [Python SDK](#tab/python)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
 
-      # [Azure CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
 
-      ---
+   ---
 
-      Optionally, you can save the feature set asset as YAML
+   Optionally, you can save the feature set asset as YAML
 
-      # [Python SDK](#tab/python)
+   # [Python SDK](#tab/python)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=dump-txn-fset-yaml)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=dump-txn-fset-yaml)]
 
-      # [Azure CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
 
-      Not applicable
+   Not applicable
 
-      ---
+   ---
 
 #### 3. Backfill data for the transactions feature set
 
