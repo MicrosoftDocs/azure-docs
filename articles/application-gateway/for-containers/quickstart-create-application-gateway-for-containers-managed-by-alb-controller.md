@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 07/20/2023
+ms.date: 07/21/2023
 ms.author: greglin
 ---
 
@@ -20,14 +20,14 @@ This guide assumes you're following the **managed by ALB controller** [deploymen
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't already deployed the ALB Controller.
+Ensure you have first deployed ALB Controller into your Kubernetes cluster.  See [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) if you haven't already deployed the ALB Controller.
 
 ### Prepare your virtual network / subnet for Application Gateway for Containers
 
-If you do not have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation.
+If you don't have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation.
 
 # [New subnet in AKS managed virtual network](#tab/new-subnet-aks-vnet)
-If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, execute the following command to find the cluster's virtual network:
+If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, run the following command to find and assign the cluster's virtual network. This information is used in the next step.
 ```azurecli-interactive
 AKS_NAME='<your cluster name>'
 RESOURCE_GROUP='<your resource group name>'
@@ -38,7 +38,7 @@ read -d '' VNET_NAME VNET_RESOURCE_GROUP VNET_ID <<< $(az network vnet show --id
 ```
 
 # [New subnet in non-AKS managed virtual network](#tab/new-subnet-non-aks-vnet)
-If you wish to create a subnet in an existing virtual network, execute the following command to set the variables for reference to the vnet and subnet prefix to be used during creation.
+If you wish to create a subnet in an existing virtual network, run the following command to set the variables for reference to the vnet and subnet prefix to be used during creation.
 
 > [!WARNING]
 > Upon creation of the subnet in the next step, ensure you establish connectivity between this virtual network/subnet and the AKS node pool to enable communication between Application Gateway for Containers and the pods running in AKS.
@@ -50,9 +50,9 @@ VNET_NAME=<name of the virtual network to use>
 
 ---
 
-Execute the following command to create a new subnet containing at least 250 available IP addresses and enable subnet delegation for the Application Gateway for Containers association resource:
+Run the following command to create a new subnet containing at least 250 available IP addresses and enable subnet delegation for the Application Gateway for Containers association resource:
 ```azurecli-interactive
-SUBNET_ADDRESS_PREFIX='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+SUBNET_ADDRESS_PREFIX='<network address and prefix for an address space under the vnet that has at least 250 available addresses (/24 or larger subnet)>'
 ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 az network vnet subnet create \
   --resource-group $VNET_RESOURCE_GROUP \
