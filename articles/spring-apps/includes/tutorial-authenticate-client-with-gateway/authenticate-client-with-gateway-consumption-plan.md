@@ -29,7 +29,7 @@ Use the following steps to clone and run the app locally.
    ./mvnw clean package
    ```
 
-1. Enter the spa project directory, and use the following command to install the dependencies:
+1. Enter the SPA project directory, and use the following command to install the dependencies:
 
    ```bash
    npm install @azure/msal-node
@@ -185,7 +185,7 @@ Use the following command to rebuild the sample project:
 
 #### Update the configuration of the SPA application
 
-Update the configuration in the `spa` application script file `spa/server.js`. Be sure to replace the placeholders with your own values you created in the previous step.
+Update the configuration in the `SPA` application script file `spa/server.js`. Be sure to replace the placeholders with your own values you created in the previous step.
 
 ```javascript
 const SpringCloudGatewayURL = "<URL exposed by gateway-service>"
@@ -251,7 +251,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 ### 4.2 Run SPA app locally
 
-In the spa project directory, use the following command to run locally:
+In the SPA project directory, use the following command to run locally:
 
 ```shell
 node server.js
