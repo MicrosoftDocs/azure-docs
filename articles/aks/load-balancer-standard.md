@@ -319,7 +319,7 @@ az aks create \
 By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. 
 
 > [!IMPORTANT]
-> There is a hard limit of 1024 ports regardless of whether front-end IPs are added when the node size is less than 50.
+> There is a hard limit of 1024 ports regardless of whether front-end IPs are added when the node size is less than or equal to 50 (1-50).
 
 To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
 

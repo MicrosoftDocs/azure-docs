@@ -81,7 +81,7 @@ The following code shows an example of a [HostBuilder] pipeline:
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. 
 
-A [HostBuilder] is used to build and return a fully initialized [IHost] instance, which you run asynchronously to start your function app. 
+A [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
@@ -111,7 +111,12 @@ Dependency injection is simplified, compared to .NET class libraries. Rather tha
 
 The following example injects a singleton service dependency:  
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
+```csharp
+.ConfigureServices(services =>
+{
+    services.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+})
+```
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
@@ -172,7 +177,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ## Execution context
 
-.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
+.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
 
 ## Bindings 
 
@@ -218,13 +223,13 @@ The following service-specific bindings are currently included in the preview:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<.sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
@@ -301,15 +306,77 @@ This section shows how to work with the underlying HTTP request and response obj
 
 ## Logging
 
-In .NET isolated, you can write to logs by using an [ILogger] instance obtained from a [FunctionContext] object passed to your function. Call the [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). 
+In .NET isolated, you can write to logs by using an [`ILogger`][ILogger] instance obtained from a [FunctionContext] object passed to your function. Call the [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). 
 
-The following example shows how to get an [ILogger] and write logs inside a function:
+The following example shows how to get an [`ILogger`][ILogger] and write logs inside a function:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
-Use various methods of [ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
+Use various methods of [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-An [ILogger] is also provided when using [dependency injection](#dependency-injection).
+An [`ILogger`][ILogger] is also provided when using [dependency injection](#dependency-injection).
+
+As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeExceptions` property to "true" as part of configuring the builder:
+
+```csharp
+    var host = new HostBuilder()
+        .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
+        {
+            options.EnableUserCodeExceptions = true;
+        })
+        .Build();
+```
+
+### Application Insights
+
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. To do this, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0-preview5 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
+
+```dotnetcli
+dotnet add package Microsoft.ApplicationInsights.WorkerService
+dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights --prerelease
+```
+
+You then need to call to `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file:
+
+```csharp    
+    var host = new HostBuilder()
+        .ConfigureFunctionsWorkerDefaults()
+        .ConfigureServices(services => {
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.ConfigureFunctionsApplicationInsights();
+        })
+        .Build();
+    
+    host.Run();
+```
+
+The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` listening to a Functions-defined `ActivitySource`. This creates dependency telemetry needed to support distributed tracing in Application Insights. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](../azure-monitor/app/worker-service.md).
+
+> [!IMPORTANT]
+> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You may need to apply changes in both places if your scenario requires customization at both layers.
+
+The rest of your application continues to work with `ILogger`. However, by default, the Application Insights SDK adds a logging filter that instructs `ILogger` to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
+
+```csharp
+    var host = new HostBuilder()
+        .ConfigureFunctionsWorkerDefaults()
+        .ConfigureServices(services => {
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.ConfigureFunctionsApplicationInsights();
+            services.Configure<LoggerFilterOptions>(options =>
+            {
+                LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+                    == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
+                if (defaultRule is not null)
+                {
+                    options.Rules.Remove(defaultRule);
+                }
+            });
+        })
+        .Build();
+    
+    host.Run();
+```
 
 ## Debugging when targeting .NET Framework
 
