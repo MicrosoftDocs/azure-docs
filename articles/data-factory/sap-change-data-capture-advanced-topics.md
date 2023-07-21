@@ -45,7 +45,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
 - **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be:
 
-::: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well).
+::: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well). :::
 
 ### Parametrizing the filter conditions for source partitioning
 
@@ -55,15 +55,15 @@ In the **Optimize** tab, a source partitioning scheme (see [optimizing performan
 
 The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
-::: \{ "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> \} :::
+```json { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> } ```
 
 For example
 
-::: \{ "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" \} :::
+```json { "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" } ```
 
 corresponds to a SQL WHERE clause ... WHERE "VBELN" = '0000001000', or
 
-::: \{ "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" \} :::
+```json { "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" } ```
 
 corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
 
@@ -76,14 +76,16 @@ The resulting overall filter condition for one partition, which is an array of s
 
 As an example, the condition
 
-::: [
+```json
+    [
         { "fieldName": "BUKRS", "sign": "I", "option": "EQ", "low": "1000" },
         { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2020", "high": "2025" },
         { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2023" }
     ]
-:::
+```
 corresponds to a SQL WHERE clause
-::: ... WHERE ("BUKRS" = '1000') AND ("GJAHR" BETWEEN '2020' AND '2025') AND NOT ("GJAHR" = '2023')
+
+... WHERE ("BUKRS" = '1000') AND ("GJAHR" BETWEEN '2020' AND '2025') AND NOT ("GJAHR" = '2023')
 
 Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format \"YYYYMMDD\".
 
@@ -103,4 +105,4 @@ Azure Data Factory pipelines can be executed via **triggered** or **debug runs**
 For SAP CDC, there's one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management.md#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (that is, change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
 
 >[!NOTE]
-   > To test stability of a change data capture process with SAP CDC over a longer period of time (e.g., multiple days), data flow and pipeline need to be published, and **triggered** runs need to be executed.
+   > To test stability of a change data capture process with SAP CDC over a longer period of time (say, multiple days), data flow and pipeline need to be published, and **triggered** runs need to be executed.
