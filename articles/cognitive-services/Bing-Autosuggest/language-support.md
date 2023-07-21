@@ -64,5 +64,5 @@ The following lists the languages supported by Bing Autosuggest API.
 
 ## See also
 
-- [Azure Cognitive Services Documentation page](../index.yml)
+- [Azure AI services documentation page](../../ai-services/index.yml)
 - [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
