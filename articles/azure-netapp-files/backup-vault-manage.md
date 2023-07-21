@@ -23,13 +23,13 @@ Backup vaults store the backups for your Azure NetApp Files subscription in addi
 
 1. In your Azure NetApp Files subscription, navigate to the **Backup Vaults** menu.
 
-1. Select **+ Add Backup Vault**. Assign a name to your backup vault and then select **Create**.
+1. Select **+ Add Backup Vault**. Assign a name to your backup vault then select **Create**.
 
   :::image type="content" source="../media/azure-netapp-files/backup-vault-create.png" alt-text="Screenshot of backup vault creation." lightbox="../media/azure-netapp-files/backup-vault-create.png":::
 
 ## Migrate backups to a backup vault
 
-If you have existing backups, you must migrate them to a backup vault before you can restore from any backups. 
+If you have existing backups, you must migrate them to a backup vault before you can restore from a backups. 
 
 1. Navigate to **Backups**.
 1. From the banner above the backups, select **Assign Backup Vault**.
