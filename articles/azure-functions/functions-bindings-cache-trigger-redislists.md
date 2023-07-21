@@ -29,7 +29,10 @@ The `RedisListsTrigger` pops elements from a list and surfaces those entries to 
 
 ::: zone pivot="programming-language-csharp"
 
+
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
+
+### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -40,6 +43,13 @@ public static void ListsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+
+### [Isolated process](#tab/isolated-process)
+
+```csharp
+//TBD
+```
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -66,17 +76,84 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-TBD
+index.js
+
+```javascript
+module.exports = async function (context, entry) {
+    context.log(entry);
+}
+```
+
+function.js
+
+```javascript
+{
+  "bindings": [
+    {
+      "type": "redisListTrigger",
+      "listPopFromBeginning": true,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "listTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "index.js"
+}
+```
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
+
+
+run.ps1
+
+```powershell
+param($entry, $TriggerMetadata)
+Write-Host $entry
+
+```
+
+function.json
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "redisListTrigger",
+      "listPopFromBeginning": true,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "listTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "run.ps1"
+}
+```
+
 
 TBD
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
+
+__init__.py
+
+```python
+import logging
+
+def main(entry: str):
+    logging.info(entry)
+```
 
 ```json
 {
@@ -108,7 +185,7 @@ TBD
 | `Key`| Key to read from. This field can be resolved using `INameResolver`. |
 | `PollingIntervalInMs`| How often to poll Redis in milliseconds. | - Default: `1000` |
 | `MessagesPerWorker`| How many messages each functions instance "should" process. Used to determine how many instances the function should scale to.| - Default: `100`|
-| `Count`| Number of entries to pop from Redis at one time. These are processed in parallel. | - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+| `Count`| Number of entries to pop from Redis at one time. These are processed in parallel. | - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/).|
 | `ListPopFromBeginning`| Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: `true` |
 
 ::: zone-end
@@ -119,12 +196,12 @@ TBD
 | Parameter  | Description|
 |---|---|
 | `name` | "entry" |
-| `connectionStringSetting` | "redisLocalhost" |
-| `key` | "listTest" |
-| `pollingIntervalInMs` | 100 |
-| `messagesPerWorker` | 10 |
-| `count` | 1 |
-| `listPopFromBeginning` | false |
+| `connectionStringSetting` | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...`|
+| `key` | This field can be resolved using INameResolver. |
+| `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000 |
+| `messagesPerWorker` | How many messages each functions instance should process. Used to determine how many instances the function should scale to. Default: 100 |
+| `count` | Number of entries to read from Redis at one time. These are processed in parallel. Default: 10 |
+| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. |
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
@@ -136,39 +213,47 @@ The following table explains the binding configuration properties that you set i
 
 |function.json Property | Description|
 |---|---|
-| `type` | Name of the trigger |
-| `listPopFromBeginning` | Set to true. |
-| `connectionString` | Connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password|...`|
-| `key` | Name of the key to check. |
-| `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000|
-| `messagesPerWorker`| (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale to. Default: 100 |
-| `count` |  Number of entries to pull from Redis each time. |
-| `name` |? |
+| `type` | Name of the trigger. |
+| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to true. |
+| `connectionString` | CThe name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...`|
+| `key` | This field can be resolved using INameResolver. |
+| `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000 |
+| `messagesPerWorker` | How many messages each functions instance should process. Used to determine how many instances the function should scale to. Default: 100 |
+| `count` |  Number of entries to read from Redis at one time. These are processed in parallel. Default: 10  |
+| `name` | ? |
 | `direction` | Set to `in`.  |
 
 ::: zone-end
 
 See the Example section for complete examples.
 
+## Output
+<!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes.  -->
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+
+| Output Type | Description|
+|---|---|
+|  |
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+
+<!--Any usage information specific to isolated worker process, including types. -->
+
+::: zone-end
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot=""
+
+::: zone-end
+
 ## Usage
 
-All triggers return a `RedisMessageModel` object that has two fields:
-
-- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
-- `Message`: The pubsub message, list element, or stream element.
+All triggers TBD
 
 ::: zone pivot="programming-language-csharp"
 
-```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.Redis
-{
-  public class RedisMessageModel
-  {
-    public string Trigger { get; set; }
-    public string Message { get; set; }
-  }
-}
-```
+TBD
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
@@ -176,12 +261,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-```java
-public class RedisMessageModel {
-    public String Trigger;
-    public String Message;
-}
-```
+TBD
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
@@ -199,13 +279,9 @@ TBD
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-```python
-class RedisMessageModel:
-    def __init__(self, trigger, message):
-        self.Trigger | trigger
-        self.Message | message
-```
+TBD
 <!--Any usage information from the Python tab in ## Usage. -->
+
 ::: zone-end
 
 ## Next steps

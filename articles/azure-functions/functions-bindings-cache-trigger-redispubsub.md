@@ -52,6 +52,11 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-csharp"
 
+[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
+
+### [In-process](#tab/in-process)
+
+
 This sample listens to the channel `pubsubTest`.
 
 ```csharp
@@ -88,6 +93,14 @@ public static void KeyeventTrigger(
     logger.LogInformation(message);
 }
 ```
+
+### [Isolated process](#tab/isolated-process)
+
+```csharp
+//TBD
+```
+---
+
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -139,9 +152,9 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-First, create a new folder called `PubSubTrigger` and add two files to the folder: `index.js` and `function.json`. Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
+Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
 
-```node
+```javascript
 module.exports = async function (context, message) {
     context.log(message);
 }
@@ -200,7 +213,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-First, create a new folder called `PubSubTrigger` and add two files to the folder: `run.ps1` and `function.json'. Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
+Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
 
 ```powershell
 param($message, $TriggerMetadata)
@@ -258,11 +271,8 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
->[!NOTE]
->The [v2 programming model](functions-reference-python) for Python in Azure Functions is not yet supported.
->
 
-First, create a new folder called `PubSubTrigger` and add two files to the folder: `__init__.py` and `function.json'. Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
+Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
 
 ```python
 import logging
@@ -341,7 +351,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 |---|---|
 |`name`| Name of the variable holding the value returned by the function. |
 | `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |
-| `channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. |
+| `channel`| The pubsub channel that the trigger should listen to. Supports glob-style channel patterns. |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -352,7 +362,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 | function.json property | Description|
 |---|---|
-|`type`| Trigger type. For the pubsub trigger, this is always `redisPubSubTrigger`. |
+|`type`| Trigger type. For the pubsub trigger, this is `redisPubSubTrigger`. |
 | `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`)|
 | `channel`| Name of the pubsub channel that is being subscribed to |
 |  `name`| Name of the variable holding the value returned by the function. |
@@ -366,14 +376,27 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 
 ## Output
+<!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes. -->
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+
 | Output Type | Description|
 |---|---|
 |  |
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
 | `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+
+
+::: zone-end
+
+## Usage
+
+All triggers TBD
+
+::: zone pivot="programming-language-csharp"
+
+TBD
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
@@ -381,26 +404,28 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-| Output Type | Description|
-|---|---|
-|  |
-| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
-| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
-| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+TBD
 
+<!--Any usage information from the Java tab in ## Usage. -->
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell"
+
+TBD
+<!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-powershell"
 
-| Output Type | Description|
-|---|---|
-|  |
-| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
-| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
-| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+TBD
+<!--Any usage information from the PowerShell tab in ## Usage. -->
 
 ::: zone-end
+::: zone pivot="programming-language-python"
 
+TBD
+<!--Any usage information from the Python tab in ## Usage. -->
+
+::: zone-end
 
 ## Next steps
 
