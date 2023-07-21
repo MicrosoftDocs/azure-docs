@@ -18,4 +18,4 @@ The ALB Controller is a Kubernetes deployment that orchestrates configuration an
 
 ## Release history
 
-July 24, 2023 - Initial release of ALB Controller
+July 24, 2023 - 0.4.023921 - Initial release of ALB Controller
