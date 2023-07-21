@@ -506,29 +506,29 @@ This is important step to optimize the integration with the cluster and improve 
 
    1. Prepare the hook as `root`.  
 
-    ```bash
-     mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
-     chown -R hn1adm:sapsys /hana/shared/myHooks
-    ```
+       ```bash
+        mkdir -p /hana/shared/myHooks
+        cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+        chown -R hn1adm:sapsys /hana/shared/myHooks
+       ```
 
    1. Stop HANA on both nodes. Execute as <sid\>adm:  
 
-    ```bash
-    sapcontrol -nr 03 -function StopSystem
-    ```
+       ```bash
+       sapcontrol -nr 03 -function StopSystem
+       ```
 
    1. Adjust `global.ini` on each cluster node.  
 
-    ```output
-    [ha_dr_provider_SAPHanaSR]
-    provider = SAPHanaSR
-    path = /hana/shared/myHooks
-    execution_order = 1
+       ```output
+       [ha_dr_provider_SAPHanaSR]
+       provider = SAPHanaSR
+       path = /hana/shared/myHooks
+       execution_order = 1
     
-    [trace]
-    ha_dr_saphanasr = info
-    ```
+       [trace]
+       ha_dr_saphanasr = info
+       ```
 
 3. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Use the `visudo` command to edit the 20-saphana dropin file, as `root`.
 
