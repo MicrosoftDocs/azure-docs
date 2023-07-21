@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 07/20/2022
 ms.custom: references_regions
 
 ---
@@ -175,6 +175,9 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 ## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+
+## Why is my cluster create/update taking so long?
+If you have issues with create and update cluster operations, make sure you don't have any assigned policies or service constraints that may block your AKS cluster from managing resources like VMs, load balancers, tags, etc.
 
 ## Can I restore my cluster after deleting it?
 
