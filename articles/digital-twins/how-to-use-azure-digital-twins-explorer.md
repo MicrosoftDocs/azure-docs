@@ -345,6 +345,8 @@ You can view a flat list of the models in your instance in the **Models** panel.
 
 You can use the **Model Graph** panel to view a graphical representation of the models in your instance, along with the relationships, inheritance, and components that connect them to each other.
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 #### View model definition
 
 To see the full definition of a model, find that model in the **Models** pane and select the menu dots next to the model name. Then, select **View Model**. Doing so will display a **Model Information** modal showing the raw DTDL definition of the model.
