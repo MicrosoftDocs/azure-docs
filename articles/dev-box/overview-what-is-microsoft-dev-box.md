@@ -29,7 +29,7 @@ Microsoft Dev Box bridges the gap between development teams and IT, by bringing 
 ## Scenarios for Microsoft Dev Box
 
 Organizations can use Microsoft Dev Box in a range of scenarios.
-### Platform scenarios
+### Platform engineering scenarios
 
 Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Platform engineers can:
 
