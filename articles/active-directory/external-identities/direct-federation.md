@@ -191,7 +191,7 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 
 ### To configure federation in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
 2. In the left pane, select **Azure Active Directory**.
 3. Select **External Identities** > **All identity providers**.
 4. Select **New SAML/WS-Fed IdP**.

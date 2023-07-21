@@ -8,6 +8,9 @@ ms.date: 05/24/2023
 ---
 
 # Create, view, and manage event subscriptions in namespace topics
+This article shows you how to create, view, and manage event subscriptions to namespace topics in Azure Event Grid. 
+
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Create an event subscription
 

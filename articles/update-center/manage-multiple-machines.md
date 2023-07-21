@@ -29,7 +29,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 ## View update management center (Preview) status 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update management center(Preview)**.
 
