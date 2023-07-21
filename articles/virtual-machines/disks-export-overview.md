@@ -22,15 +22,15 @@ If you're using Azure Active Directory (Azure AD) to control resource access, yo
 
 ## Private links
 
-You can use private endpoints to restrict the export and import of managed disks and more securely access data over a private link from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. To learn more, see either the [portal](disks-enable-private-links-for-import-export-portal.md) or [CLI](linux/disks-export-import-private-links-cli.md) articles.
+You can use private endpoints to restrict the upload and download of managed disks and more securely access data over a private link from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. To learn more, see either the [portal](disks-enable-private-links-for-import-export-portal.md) or [CLI](linux/disks-export-import-private-links-cli.md) articles.
 
 ## Custom role
 
-To limit the amount of people who can export or import a managed disk, you can create a [custom RBAC role](../role-based-access-control/custom-roles-powershell.md) that doesn't have the following permissions:
+To limit the number of people who can upload or download a managed disk using Azure RBAC, create a [custom RBAC role](../role-based-access-control/custom-roles-powershell.md) that doesn't have the following permissions:
 
 - Microsoft.Compute/disks/download/action
 - Microsoft.Compute/disks/upload/action
 - Microsoft.Compute/snapshots/download/action
 - Microsoft.Compute/snapshots/upload/action
 
-Any custom role without those permissions can't export or import managed disks.
+Any custom role without those permissions can't upload or download managed disks.
