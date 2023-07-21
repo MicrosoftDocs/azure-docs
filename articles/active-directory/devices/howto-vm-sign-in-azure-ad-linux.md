@@ -12,7 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps, devx-track-linux
 ms.collection: M365-identity-device-management
 ---
 # Log in to a Linux virtual machine in Azure by using Azure AD and OpenSSH
