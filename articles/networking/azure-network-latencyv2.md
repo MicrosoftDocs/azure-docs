@@ -36,7 +36,6 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 
 #### [Middle East / Africa](#tab/MiddleEast)
 
-
 ---
 
 #### [US](#tab/US/Americas)
@@ -86,7 +85,7 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|23||38|
 |West US 3|17|37||
 
-#### [Canada / Brazil](#tab/Canada/americas)
+#### [Canada / Brazil](#tab/Canada/Americas)
 
 |Source|Brazil</br>South|Canada</br>Central|Canada</br>East|
 |---|---|---|---|
@@ -520,7 +519,7 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|210|211|195|
 |West US 3|232|233|217|
 
-#### [UAE / Qatar](#tab/uae-qatar/middleeast)
+#### [UAE / Qatar](#tab/uae-qatar/MiddleEast)
 
 |Source|Qatar Central|UAE Central|UAE North|
 |---|---|---|---|
@@ -568,7 +567,7 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|262|254|256|
 |West US 3|250|237|239|
 
-### [South Africa](#tab/southafrica/middleeast)
+### [South Africa](#tab/southafrica/MiddleEast)
 
 |Source|South Africa North|South Africa West|
 |---|---|---|
