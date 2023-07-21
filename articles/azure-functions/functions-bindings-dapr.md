@@ -196,6 +196,15 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+
+## Demo
+
+Learn how to use the Dapr Functions portal from a demo presented during the Dapr Community Call.
+
+> [!VIDEO https://youtu.be/HaupRpC-UIc?t=690]
+
+::: zone-end
 
 ## Next steps
 
