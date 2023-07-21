@@ -81,7 +81,7 @@ Listing of APAC Regions including ...
 
 #### [Canada](#tab/Canada/NorthAmerica)
 
-|Source|Brazil South|Canada Central|Canada East|
+|Source|Brazil</br>South|Canada</br>Central|Canada</br>East|
 |---|---|---|---|
 |Australia Central|323|204|212|
 |Australia Central 2|323|204|212|
@@ -129,7 +129,7 @@ Listing of APAC Regions including ...
 
 #### [Australia](#tab/Australia/APAC)
 
-| Source | Australia Central | Australia Central 2 | Australia East | Australia Southeast |
+| Source | Australia</br>Central | Australia</br>Central 2 | Australia</br>East | Australia</br>Southeast |
 |--------|-------------------|---------------------|----------------|---------------------|
 | Australia Central | NaN | 2 | 8 | 14 |
 | Australia Central 2 | 2 | NaN | 8 | 14 |
@@ -177,7 +177,7 @@ Listing of APAC Regions including ...
 
 #### [Middle East](#tab/MiddleEast/APAC)
 
-| Source | Qatar Central | South Africa North | South Africa West | UAE Central | UAE North |
+| Source | Qatar</br>Central | South</br>Africa N | South </br>Africa W | UAE</br>Central | UAE</br>North |
 | --- | --- | --- | --- | --- | --- |
 | Australia Central | 191 | 384 | 399 | 170 | 170 |
 | Australia Central 2 | 191 | 384 | 399 | 170 | 171 |
