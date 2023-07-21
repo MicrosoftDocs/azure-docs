@@ -16,6 +16,10 @@ This article provides details about changes to the ALB Controller for Applicatio
 
 The ALB Controller is a Kubernetes deployment that orchestrates configuration and deployment of Application Gateway for Containers. It uses both ARM and configuration APIs to propagate configuration to the Application Gateway for Containers Azure deployment.
 
+Each release of ALB Controller has a documented helm chart version and supported Kubernetes cluster version.
+
+Instructions for new or existing deployemnts of ALB Controller are found in the following links: [New Deployment](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments) | [Upgrade existing deployment](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
+
 ## Release history
 
 July 24, 2023 - 0.4.023921 - Initial release of ALB Controller
