@@ -1,5 +1,5 @@
 ---
-title: Important changes coming to Microsoft Defender for Cloud
+title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
 ms.date: 06/21/2023
@@ -12,24 +12,29 @@ ms.date: 06/21/2023
 
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/mdc/upcoming-rss`
+
 If you're looking for the latest release notes, you can find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 ## Planned changes
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023
+| [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
-| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
+| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
-### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled". 
+### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
 **Estimated date for change: June 2023**
 
-The `Key Vaults should have purge protection enabled` recommendation is deprecated from the (regulatory compliance dashboard/Azure security benchmark initiative) and replaced with a new combined recommendation `Key Vaults should have deletion protection enabled`. 
+The `Key Vaults should have purge protection enabled` recommendation is deprecated from the (regulatory compliance dashboard/Azure security benchmark initiative) and replaced with a new combined recommendation `Key Vaults should have deletion protection enabled`.
 
 | Recommendation name | Description | Effect(s) | Version |
 |--|--|--|--|
@@ -43,17 +48,17 @@ See the [full index of Azure Policy built-in policy definitions for Key Vault](.
 
 The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
-
 Security DevOps recommendations impacted:
--	Code repositories should have code scanning findings resolved (preview)
--	Code repositories should have secret scanning findings resolved (preview)
--	Code repositories should have dependency vulnerability scanning findings resolved (preview)
--	Code repositories should have infrastructure as code scanning findings resolved (preview)
--	GitHub repositories should have code scanning enabled (preview)
--	GitHub repositories should have Dependabot scanning enabled (preview)
--	GitHub repositories should have secret scanning enabled (preview)
 
-The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`. 
+- Code repositories should have code scanning findings resolved (preview)
+- Code repositories should have secret scanning findings resolved (preview)
+- Code repositories should have dependency vulnerability scanning findings resolved (preview)
+- Code repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
+
+The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`.
 
 The format for resource IDs will be changed from:
 
@@ -65,20 +70,21 @@ To:
 `Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
 
 As a part of the migration, source code management system specific recommendations will be created for security findings:
--	GitHub repositories should have code scanning findings resolved (preview)
--	GitHub repositories should have secret scanning findings resolved (preview)
--	GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
--	GitHub repositories should have infrastructure as code scanning findings resolved (preview)
--	GitHub repositories should have code scanning enabled (preview)
--	GitHub repositories should have Dependabot scanning enabled (preview)
--	GitHub repositories should have secret scanning enabled (preview)
--	Azure DevOps repositories should have code scanning findings resolved (preview)
--	Azure DevOps repositories should have secret scanning findings resolved (preview)
--	Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
 
-Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud. 
+- GitHub repositories should have code scanning findings resolved (preview)
+- GitHub repositories should have secret scanning findings resolved (preview)
+- GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
+- GitHub repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
+- Azure DevOps repositories should have code scanning findings resolved (preview)
+- Azure DevOps repositories should have secret scanning findings resolved (preview)
+- Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
 
-Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time. 
+Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud.
+
+Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.
 
 Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations.
 
@@ -88,9 +94,9 @@ The recommendations page's experience will have minimal impact and deprecated as
 
 **Estimated date for change: July 2023**
 
-To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
 
-If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings. 
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
 
 Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
 
@@ -104,35 +110,35 @@ Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentle
 
 ### Business model and pricing updates for Defender for Cloud plans
 
-**Estimated date for change: July 2023**
+**Estimated date for change: August 2023**
 
-Microsoft Defender for Cloud has three plans that offer service layer protection: 
+Microsoft Defender for Cloud has three plans that offer service layer protection:
 
-- Defender for Key Vault 
+- Defender for Key Vault
 
-- Defender for Azure Resource Manager 
+- Defender for Azure Resource Manager
 
-- Defender for DNS 
+- Defender for DNS
 
-These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure. 
+These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
 
-**Business model and pricing changes summary**: 
- 
-Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price. 
- 
-- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model. 
+**Business model and pricing changes summary**:
 
-- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model 
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan. 
+- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
 
-For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
+- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model
+
+- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan.
+
+For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
 
 ### Change to the Log Analytics daily cap
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
 
-Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types: 
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types:
 
 - WindowsEvent
 - SecurityAlert
@@ -146,7 +152,7 @@ Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclud
 - SysmonEvent
 - ProtectionStatus
 - Update
-- UpdateSummary 
+- UpdateSummary
 - CommonSecurityLog
 - Syslog
 
@@ -157,3 +163,4 @@ Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+

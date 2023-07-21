@@ -152,7 +152,31 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
     | Memory Optimized | 32 | MemoryOptimized | Standard_E32ds_v4 |
 
 - The MySQL version, region, subscription and resource for the target flexible server must be equal to that of the source single server.
-- The storage size for target flexible server should be equal to or greater than on the source single server. 
+- The storage size for target flexible server should be equal to or greater than on the source single server.
+
+## How long does MySQL Import take to migrate my Single Server instance?
+
+Below is the benchmarked performance based on storage size :
+  | Single Server Storage Size | MySQL Import time |
+    | ------------- |:-------------:|
+    | 1 GiB | 0 min 23 secs |
+    | 10 GiB | 4 min 24 secs |
+    | 100 GiB | 10 min 29 secs |
+    | 500 GiB | 13 min 15 secs |
+    | 1 TB | 22 min 56 secs |
+    | 10 TB | 2 hrs 5 min 30 secs |
+From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
+
+Below is the benchmarked performance based on varying number of tables for 10 GiB storage size:
+  | Number of tables in Single Server instance | MySQL Import time |
+    | ------------- |:-------------:|
+    | 100 | 4 min 24 secs |
+    | 200 | 4 min 40 secs |
+    | 800 | 4 min 52 secs |
+    | 14,400 | 17 min 41 secs |
+    | 28,800 | 19 min 18 secs |
+    | 38,400 | 22 min 50 secs |
+ As the number of files increases, each file/table in the database may become very small. This will result in a consistent amount of data being transferred, but there will be more frequent file-related operations, which may impact the performance of Mysql Import.
 
 ## Post-import steps
 

@@ -908,6 +908,8 @@ items:
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor managed virtual network integration runtime
+      href: monitor-managed-virtual-network-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Run Data Pipelines with Service Level Agreements

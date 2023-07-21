@@ -164,7 +164,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
     | Field name | Contains | Running the query in this field<br>results in... |
     | - | :-: | :-: |
-    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
+    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert;<br>limited to 10240 bytes  |
     | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
 
     In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
