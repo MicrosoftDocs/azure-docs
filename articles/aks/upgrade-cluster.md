@@ -237,6 +237,7 @@ All of the following criteria must be met in order for the stop to occur:
 * If performed via REST, the upgrade operation uses a preview API version of `2023-01-02-preview` or later.
 * If performed via Azure CLI, the `aks-preview` CLI extension 0.5.134 or later must be installed.
 * The last seen usage of deprecated APIs for the targeted version you're upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
+* Even API usage that is actually watching for deprecated resources is covered here. Look at the [Verb][k8s-api] for the distinction.
 
 ### Mitigating stopped upgrade operations
 
@@ -260,11 +261,11 @@ After receiving the error message, you have two options to mitigate the issue. Y
 
     :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
-3. Wait 12 hours from the time the last deprecated API usage was seen.
+3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it is a [watch][k8s-api].
 
 4. Retry your cluster upgrade.
 
-You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs.
+You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated api usage to understand, if it is a [watch][k8s-api] use case.
 
 ### Bypass validation to ignore API changes
 
@@ -353,5 +354,6 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [release-tracker]: release-tracker.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
 [k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement
+[k8s-api]: https://kubernetes.io/docs/reference/using-api/api-concepts/
 [container-insights]:/azure/azure-monitor/containers/container-insights-log-query#resource-logs
 [support-policy-user-customizations-agent-nodes]: support-policies.md#user-customization-of-agent-nodes

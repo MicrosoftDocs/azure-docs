@@ -184,7 +184,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         az group create --name $resourceGroup --location $region
         ```
 
-    1. Create a key vault instance with a premium SKU in your preferred region.
+    1. Create a key vault instance with a premium SKU and select your preferred region. The standard SKU is not supported.
 
         ```azurecli-interactive
         $KeyVault = <name of key vault>

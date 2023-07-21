@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/10/2022
 ms.author: owenrichards
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 # Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
@@ -49,7 +49,7 @@ You've now completed the registration of your single-page application (SPA) and 
 
 Follow the [tutorial](tutorial-v2-javascript-auth-code.md) for further guidance.
 
-## Redirect URI: [MSAL.js 1.0 with implicit flow](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
+## Redirect URI: [MSAL.js 1.0 with implicit flow](/javascript/api/overview/msal-overview)
 
 Follow these steps to add a redirect URI for a single-page app that uses MSAL.js 1.3 or earlier and the implicit grant flow. Applications that use MSAL.js 1.3 or earlier do not support the auth code flow.
 

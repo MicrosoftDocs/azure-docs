@@ -1,5 +1,5 @@
 ---
-title: The regulatory compliance dashboard in Microsoft Defender for Cloud
+title: The regulatory compliance dashboard
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
 ms.date: 06/18/2023

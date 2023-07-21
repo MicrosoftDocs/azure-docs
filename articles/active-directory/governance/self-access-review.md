@@ -2,7 +2,7 @@
 title: Review your access to resources in access reviews
 description: Learn how to review your own access to resources in access reviews.
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/27/2021
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -62,7 +62,7 @@ You can also view your pending access reviews by using your browser to open **My
 
 1. Review your access and decide if you still need access.
 
-    If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
+    If the request is to review access for others, the page looks different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
     ![Screenshot that shows an open access review that asks if you still need access to a group.](./media/self-access-review/review-access-preview.png)
 
