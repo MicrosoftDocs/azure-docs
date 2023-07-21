@@ -198,7 +198,7 @@ Entitlement management also allows you to get visibility into state of a guest u
 - **Blank** - The lifecycle for the user is not determined. This happens when a user had an access package assigned before managing user lifecycle was possible.
 
 > [!NOTE]
-> If a guest user is set as **Governed** then their account will be deleted from the tenant 30 days after their last access package assignment expires. 
+> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
 
 You can directly convert ungoverned users to governed by using the **Mark Guests as Governed ( preview)** functionality in the top menu bar. 
 
