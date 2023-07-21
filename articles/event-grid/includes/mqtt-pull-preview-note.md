@@ -11,5 +11,4 @@
 ---
 
 > [!IMPORTANT]
-> The MQTT messaging and Pull-style event consumption features are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The MQTT messaging and Pull-based event consumption features are currently in PREVIEW. They are provided without a service level agreement and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
