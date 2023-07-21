@@ -165,9 +165,6 @@ Click on **User Access** from the left panel in SkyDesk Email and then enter you
 
 ![Screenshot shows User Access selected from Control Panel.](./media/skydeskemail-tutorial/create-users.png)
 
-> [!NOTE]
-> If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
-
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
