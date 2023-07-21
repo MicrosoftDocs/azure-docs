@@ -125,6 +125,8 @@ if response_message.get("function_call"):
     available_functions = {
             "search_hotels": search_hotels,
     }
+    function_to_call = available_functions[function_name] 
+
     function_args = json.loads(response_message["function_call"]["arguments"])
     function_response = function_to_call(**function_args)
 
