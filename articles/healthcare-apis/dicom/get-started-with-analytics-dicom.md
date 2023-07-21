@@ -66,7 +66,7 @@ Azure Data Factory pipelines read from data sources and write to data sinks, typ
 #### Create linked service for Azure Data Lake Storage Gen2
 1. In the Azure Data Factory Studio, select **Manage**  from the navigation menu. Under **Connections** select **Linked services** and then select **New**.
 
-2. On the New linked service panel, search for "Azure Data Lake Storage Gen2".  Select the **REST** tile and then **Continue**.
+2. On the New linked service panel, search for "Azure Data Lake Storage Gen2".  Select the **Azure Data Lake Storage Gen2** tile and then **Continue**.
 
 :::image type="content" source="media/data-factory-adlsg2.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adlsg2.png":::
 
@@ -100,7 +100,7 @@ Azure Data Factory pipelines are a collection of activities that perform a task,
 4. Select **Use this template** to create the new pipeline.  
 
 ## Scheduling a pipeline
-Pipelines are scheduled by triggers. There are different types of triggers, including schedule (which allows pipelines to be triggered on a wall-clock schedule) and manual triggers (which triggers pipelines on-demand). In this example, a tumbling window trigger is used to periodically run the pipeline given a starting point and regular interval. For more information about triggers, see [pipeline execution and triggers article](../../data-factory/concepts-pipeline-execution-triggers.md). 
+Pipelines are scheduled by triggers. There are different types of triggers, including schedule (which allows pipelines to be triggered on a wall-clock schedule) and manual triggers (which triggers pipelines on-demand). In this example, a tumbling window trigger is used to periodically run the pipeline given a starting point and regular interval. For more information about triggers, see the [pipeline execution and triggers article](../../data-factory/concepts-pipeline-execution-triggers.md). 
 
 ### Create a new tumbling window trigger
 1. Select **Author** from the navigation menu.  Select the pipeline for the DICOM service and select **Add trigger** and **New/Edit** from the menu bar.
@@ -224,6 +224,13 @@ This query will select all of the contents from the `instance` table. When ready
 After a few seconds, the results of the query should appear in a table beneath the cell like (the time may be longer if this is the first Spark query in the session as the Spark context will need to be initialized).
 
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
+
+## Summary
+In this topic, you learned how to:
+* Use Azure Data Factory templates to create a pipeline from the DICOM service to an Azure Data Lake Storage Gen2 account
+* Configure a trigger to extract DICOM metadata on an hourly schedule
+* Use shortcuts to connect DICOM data in a storage account to a Microsoft Fabric lakehouse
+* Use notebooks to query for DICOM data in the lakehouse
 
 ## Next steps
 

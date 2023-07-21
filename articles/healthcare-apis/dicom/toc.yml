@@ -13,6 +13,8 @@ items:
       href: get-started-with-dicom.md
     - name: Deploy DICOM service using Portal
       href: deploy-dicom-services-in-azure.md
+    - name: Get started using DICOM data in analytics workloads
+      href: get-started-with-analytics-dicom.md
 - name: How-to guides
   expanded: true
   items:
