@@ -3,13 +3,13 @@ title: Tutorial - Authenticate client with gateway on Azure Spring Apps
 description: Learn how to authenticate client with gateway on Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 07/21/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
-# Quickstart: Authenticate client with gateway on Azure Spring Apps
+# Tutorial: Authenticate client with gateway on Azure Spring Apps
 
 > [!NOTE]
 > The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
