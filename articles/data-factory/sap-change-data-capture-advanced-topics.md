@@ -43,7 +43,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot
     - **fullLoad** for **Full on every run**, which extracts a current full data snapshot without initiating a change data capture process.
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
-- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be: ["VBELN", "POSNR"] (or ["MANDT","VBELN","POSNR"] in case the client field is taken into account as well).
+- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well).
 
 ### Parametrizing the filter conditions for source partitioning
 
@@ -59,7 +59,7 @@ The format in step 1 follows the JSON standard: each partition consists of an ar
 
 ::: { "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" } ::: corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
 
-The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions which explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
+The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions that explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
 2. **excluding** conditions ("sign": "E") for the same field name are combined with **OR** (again, mentally, put brackets around the resulting condition)
 3. the resulting conditions of steps 1 and 2 are
@@ -77,7 +77,7 @@ As an example, the condition
 corresponds to a SQL WHERE clause
 ::: ... WHERE ( "BUKRS" = '1000' ) AND ( "GJAHR" BETWEEN '2020' AND '2025' ) AND NOT ( "GJAHR" = '2023')
 
-Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format "YYYYMMDD".
+Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format \"YYYYMMDD\".
 
 ### Parametrizing the Checkpoint Key
 
@@ -92,7 +92,7 @@ For more information on the checkpoint key, see [Transform data with the SAP CDC
 
 Azure Data Factory pipelines can be executed via **triggered** or **debug runs**. A fundamental difference between these two options is, that debug runs execute the dataflow and pipeline based on the current version modeled in the user interface, while triggered runs execute the last published version of a dataflow and pipeline.
 
-For SAP CDC, there's one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management.md#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (i.e. change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
+For SAP CDC, there's one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management.md#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (that is, change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
 
 >[!NOTE]
    > To test stability of a change data capture process with SAP CDC over a longer period of time (e.g., multiple days), data flow and pipeline need to be published, and **triggered** runs need to be executed.
