@@ -40,4 +40,4 @@ Queue Storage contains the following components:
 - [Get started with Queue Storage using .NET](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 - [Get started with Queue Storage using Java](/azure/storage/queues/storage-quickstart-queues-java?tabs=powershell%2Cpasswordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 - [Get started with Queue Storage using Python](storage-python-how-to-use-queue-storage.md)
-- [Get started with Queue Storage using Node.js](storage-nodejs-how-to-use-queues.md)
+- [Get started with Queue Storage using Node.js](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
