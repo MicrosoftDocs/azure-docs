@@ -12,7 +12,7 @@ ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
-# LEFT (NoSQL query)
+# RIGHT (NoSQL query)
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
