@@ -53,13 +53,19 @@ In the **Optimize** tab, a source partitioning scheme (see [optimizing performan
 1. Define a parameter for the source partitioning scheme on pipeline level.
 2. Ingest the parameter into the mapping data flow.
 
-The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW.
+The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
-::: { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> } :::, for example
+::: \{ "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> \} :::
 
-::: { "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" } ::: corresponds to a SQL WHERE clause ... WHERE "VBELN" = '0000001000', or
+For example
 
-::: { "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" } ::: corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
+::: \{ "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" \} :::
+
+corresponds to a SQL WHERE clause ... WHERE "VBELN" = '0000001000', or
+
+::: \{ "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" \} :::
+
+corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
 
 The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions that explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
