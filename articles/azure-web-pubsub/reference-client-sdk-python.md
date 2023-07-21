@@ -22,7 +22,7 @@ The client-side SDK aims to speed up developer's workflow; more specifically,
 
 As shown in the diagram, your clients establish WebSocket connections with your Web PubSub resource. 
 
-![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
+:::image type="content" source="./media/reference-client-sdk-python/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
 ## Getting started
 
@@ -41,7 +41,7 @@ pip install azure-messaging-webpubsubclient
 
 A client uses a `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the `Client Access URL`. For this quick start, you can copy and paste one from Azure portal shown.
 
-![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
+:::image type="content" source="./media/reference-client-sdk-python/get-client-access-url.png" alt-text="Screenshot showing how to get Client Access Url on Azure portal":::
 
 As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
@@ -84,34 +84,33 @@ client.send_to_group(group_name, "hello world", "text");
 ### Add callbacks for `connected`, `disconnected` and `stopped` events
 1. When a client is successfully connected to your Web PubSub resource, the `connected` event is triggered.
 
-```python
-client.on("connected", lambda e: print(f"Connection {e.connection_id} is connected"))
-```
+    ```python
+    client.on("connected", lambda e: print(f"Connection {e.connection_id} is connected"))
+    ```
 
 2. When a client is disconnected and fails to recover the connection, the `disconnected` event is triggered.
 
-```python
-client.on("disconnected", lambda e: print(f"Connection disconnected: {e.message}"))
-```
+    ```python
+    client.on("disconnected", lambda e: print(f"Connection disconnected: {e.message}"))
+    ```
 
 3. The `stopped` event is triggered when the client is disconnected **and** the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `auto_reconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
 
-```python
-client.on("stopped", lambda : print("Client has stopped"))
-```
+    ```python
+    client.on("stopped", lambda : print("Client has stopped"))
+    ```
 
 ### A client consumes messages from the application server or joined groups
 
 A client can add callbacks to consume messages from your application server or groups. Note, for `group-message` event the client can _only_ receive group messages that it has joined.
 
-```python
-# Registers a listener for the "server-message". The callback is invoked when your application server sends message to the connectionID, to or broadcast to all connections.
-client.on("server-message", lambda e: print(f"Received message {e.data}"))
+  ```python
+  # Registers a listener for the "server-message". The callback is invoked when your application server sends message to the connectionID, to or broadcast to all connections.
+  client.on("server-message", lambda e: print(f"Received message {e.data}"))
 
-# Registers a listener for the "group-message". The callback is invoked when the client receives a message from the groups it has joined.
-client.on("group-message", lambda e: print(f"Received message from {e.group}: {e.data}"))
-```
-
+  # Registers a listener for the "group-message". The callback is invoked when the client receives a message from the groups it has joined.
+  client.on("group-message", lambda e: print(f"Received message from {e.group}: {e.data}"))
+  ```
 ---
 ### Handle rejoin failure
 When a client is disconnected and fails to recover, all group contexts are cleaned up in your Web PubSub resource. This means when the client reconnects, it needs to rejoin groups. By default, the client has `auto_rejoin_groups` option enabled. 

@@ -21,7 +21,7 @@ The client-side SDK aims to speed up developer's workflow; more specifically,
 
 As shown in the diagram, your clients establish WebSocket connections with your Web PubSub resource. 
 
-![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
+:::image type="content" source="./media/reference-client-sdk-javascript/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
 ## Getting started
 
@@ -38,7 +38,7 @@ npm install @azure/web-pubsub-client
 ### 2. Connect with your Web PubSub resource
 A client uses `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain `Client Access URL`. For this quick guide, you can copy and paste one from Azure portal shown. (For production, your clients usually get `Client Access URL` generated on your application server. [See details](#use-an-application-server-to-generate-client-access-url-programatically) )
 
-![get_client_url](./media/howto-websocket-connect/generate-client-url.png)
+:::image type="content" source="./media/reference-client-sdk-javascript/get-client-access-url.png" alt-text="Screenshot showing how to get Client Access Url on Azure portal":::
 
 As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
