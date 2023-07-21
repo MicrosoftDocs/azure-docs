@@ -43,11 +43,9 @@ To get started with passwordless sign-in, see [Enable passwordless sign-in with 
 The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
 
 > [!NOTE]
-> Between July 17 and 21, 2023, the notification behavior for passwordless phone sign-in and multifactor authentication (MFA) push notifications will change so that sign-ins from unfamiliar locations will no longer generate notifications. Similar to [unfamiliar location](howto-password-smart-lockout.md) in Smart lockout, a location becomes "familiar" during the first 14 days of use, or the first 10 logins. 
+> Starting in August, 2023, the notification behavior for passwordless phone sign-in and multifactor authentication (MFA) push notifications changes to where sign-ins from unfamiliar locations no longer generate notifications. Similar to [unfamiliar location](howto-password-smart-lockout.md) in Smart lockout, a location becomes "familiar" during the first 14 days of use, or the first 10 logins. If the location is unfamiliar, or the relevant Google or Apple service responsible for push notifications is unavailable, users should open Microsoft Authenticator or Authenticator Lite in a relevant companion app like Outlook, refresh by either pulling down or hitting **Refresh**, and approve the request. 
 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
-
-In locations where the relevant Google or Apple service responsible for push notifications is unavailable, users may not receive their push notifications. In these cases, users should open Microsoft Authenticator or Authenticator Lite in a relevant companion app like Outlook, refresh by either pulling down or hitting **Refresh**, and approve the request. 
 
 In China, the *Notification through mobile app* method on Android devices doesn't work because as Google play services (including push notifications) are blocked in the region. However, iOS notifications do work. For Android devices, alternate authentication methods should be made available for those users.
 
