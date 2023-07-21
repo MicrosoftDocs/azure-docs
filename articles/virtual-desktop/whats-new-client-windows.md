@@ -22,7 +22,7 @@ The following table lists the current versions available for the public and Insi
 
 ## Updates for version 1.2.4487 (Insider)
 
-*Date published: July 11, 2023*
+*Date published: July 21, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
