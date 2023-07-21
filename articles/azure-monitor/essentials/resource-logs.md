@@ -91,7 +91,7 @@ The `AzureDiagnostics` table looks like this example:
 
 Most Azure resources write data to the workspace in either **Azure diagnostics** or **resource-specific** mode without giving you a choice. For more information, see [Common and service-specific schemas for Azure resource logs](./resource-logs-schema.md).
 
-All Azure services eventually use the resource-specific mode. As part of this transition, some resources allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings because this mode makes the data easier to manage. It also might help you avoid complex migrations later.
+All Azure services will eventually use the resource-specific mode. As part of this transition, some resources allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings because this mode makes the data easier to manage. It also might help you avoid complex migrations later.
   
    ![Screenshot that shows the Diagnostics settings mode selector.](media/resource-logs/diagnostic-settings-mode-selector.png)
 
