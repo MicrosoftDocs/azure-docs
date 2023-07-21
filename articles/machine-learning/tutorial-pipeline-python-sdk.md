@@ -104,7 +104,7 @@ ml_client = MLClient(
 
 If you have been following along with the other tutorials in this series and already registered the data, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`. Then you may skip this section. To learn about data more in depth or if you would rather complete the data tutorial first, see [Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
 
-* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
+* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. `Data` assets from other sources can be created as well.
 
 
 
@@ -582,7 +582,7 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
 > [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute=azureml:serverless` in this code.
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute="serverless"` in this code.
 
 ```pythons
 # the dsl decorator tells the sdk that we are defining an Azure Machine Learning pipeline
@@ -590,7 +590,7 @@ from azure.ai.ml import dsl, Input, Output
 
 
 @dsl.pipeline(
-    compute=cpu_compute_target, # to use serverless compute, change this to: compute=azureml:serverless
+    compute=cpu_compute_target, # to use serverless compute, change this to: compute="serverless"
     description="E2E data_perp-train pipeline",
 )
 def credit_defaults_pipeline(

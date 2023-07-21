@@ -2,7 +2,7 @@
 title: Managed app with managed identity
 description: Configure an Azure Managed Application with managed identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 07/19/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -11,7 +11,7 @@ ms.custom: subject-rbac-steps
 > [!NOTE]
 > Managed identity support for Azure Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize managed identity.
 
-Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (Azure AD), see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The Azure platform manages the identity and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (Azure AD), see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
@@ -32,15 +32,16 @@ Creating a managed application with a managed identity requires another property
 
 ```json
 {
-"identity": {
-  "type": "SystemAssigned, UserAssigned",
-  "userAssignedIdentities": {
-    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
+  "identity": {
+    "type": "SystemAssigned, UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
+    }
   }
 }
 ```
 
-There are two common ways to create a managed application with **identity**: [createUiDefinition.json](./create-uidefinition-overview.md) and [Azure Resource Manager templates](../templates/syntax.md). For simple single create scenarios, _createUiDefinition_ should be used to enable managed identity, because it provides a richer experience. However, when dealing with advanced or complex systems that require automated or multiple managed application deployments, templates can be used.
+There are two common ways to create a managed application with `identity`: [createUiDefinition.json](./create-uidefinition-overview.md) and [Azure Resource Manager templates](../templates/syntax.md). For simple single create scenarios, _createUiDefinition_ should be used to enable managed identity, because it provides a richer experience. However, when dealing with advanced or complex systems that require automated or multiple managed application deployments, templates can be used.
 
 ### Using createUiDefinition
 
@@ -204,7 +205,7 @@ Managed identity can also be used to deploy a managed application that requires 
 
 ### Authoring the createUiDefinition with a linked resource
 
-When linking the deployment of the managed application to existing resources, both the existing Azure resource and a user-assigned managed identity with the applicable role assignment on that resource must be provided.
+When you link the deployment of the managed application to existing resources, both the existing Azure resource and a user-assigned managed identity with the applicable role assignment on that resource must be provided.
 
  A sample _createUiDefinition.json_ that requires two inputs: a network interface resource ID and a user assigned managed identity resource ID.
 

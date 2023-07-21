@@ -1046,6 +1046,8 @@
         href: ./extensions/chef.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
+      - name: Tenable
+        href: ./extensions/tenable.md
     - name: Restrict extension installation
       items:
       - name: Linux
