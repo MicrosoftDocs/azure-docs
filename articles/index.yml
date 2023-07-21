@@ -143,7 +143,7 @@ productDirectory:
     # Card
     - title: Azure Cognitive Search
       summary: AI-powered cloud search service for mobile and web app development
-      imageSrc: search/media/service-icons/cognitive-search.svg
+      imageSrc: ./search/media/service-icons/cognitive-search.svg
       azureCategories:
         - ai-machine-learning
         - mobile
