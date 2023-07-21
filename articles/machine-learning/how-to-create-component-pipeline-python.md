@@ -256,7 +256,7 @@ Reference for more available credentials if it doesn't work for you: [configure 
 
 #### Get a handle to a workspace with compute
 
-Create a `MLClient` object to manage Azure Machine Learning services.
+Create a `MLClient` object to manage Azure Machine Learning services. If you use [serverless compute (preview)](https://learn.microsoft.com/azure/machine-learning/how-to-use-serverless-compute?view=azureml-api-2&tabs=python) then there is no need to create these computes.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 
