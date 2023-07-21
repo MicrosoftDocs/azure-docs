@@ -103,15 +103,13 @@ No.
 
 ### Can I get my VPN gateway IP address before I create it?
 
-Zone-redundant and zonal gateways (gateway SKUs that have _AZ_ in the name) both rely on a _Standard SKU_ Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method. Therefore, you'll have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource you intend to use for it.
+Azure Standard SKU public IP resources must use a static allocation method. Therefore, you'll have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource you intend to use for it.
 
-For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), you can't obtain the VPN gateway IP address before it's created. The IP address changes only if you delete and re-create your VPN gateway.
+### Can I request a static public IP address for my VPN gateway?
 
-### Can I request a Static Public IP address for my VPN gateway?
+We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUS that do not have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways. 
 
-Zone-redundant and zonal gateways (gateway SKUs that have *AZ* in the name) both rely on a *Standard SKU* Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method.
-
-For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does my VPN tunnel get authenticated?
 
