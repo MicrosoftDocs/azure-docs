@@ -260,13 +260,13 @@ in certain markets, as such the market of the user is specified using the `setMk
 <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language-code}&setMkt={market}&UR={region-code}" async defer></script>
 ```
 
-Here's an example of Bing Maps with the language set to "fr-FR".
+Here's an example of Bing Maps with the language set to `fr-FR`.
 
 ![Localized Bing Maps map](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)
 
 **After: Azure Maps**
 
-Azure Maps only provides options for setting the language and regional view of the map. A market parameter isn't used to limit features. There are two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace that results in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to `"Auto"`:
+Azure Maps only provides options for setting the language and regional view of the map. A market parameter isn't used to limit features. There are two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace that results in all map control instances in your app defaulting to these settings. The following sets the language to French (`fr-FR`) and the regional view to `"Auto"`:
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -290,7 +290,7 @@ map = new atlas.Map('myMap', {
 > [!NOTE]
 > Azure Maps can load multiple map instances on the same page with different language and region settings. It is also possible to update these settings in the map after it has loaded. For a list of supported languages in Azure Maps, see [Localization support in Azure Maps].
 
-Here's an example of Azure Maps with the language set to "fr" and the user region set to "fr-FR".
+Here's an example of Azure Maps with the language set to "fr" and the user region set to `fr-FR`.
 
 ![Localized Azure Maps map](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)
 
@@ -807,14 +807,14 @@ map.events.add('click', marker, function () {
 
 When visualizing many data points on the map, points overlap each other, the map looks cluttered and it becomes difficult to see and use. Clustering of point data can be used to improve this user experience and also improve performance. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points.
 
-The following example loads a GeoJSON feed of earthquake data from the past week and add it to the map. Clusters are rendered as scaled and colored circles depending on the number of points they contain.
+The following example loads a GeoJSON feed of earthquake data from the past week and adds it to the map. Clusters are rendered as scaled and colored circles depending on the number of points they contain.
 
 > [!NOTE]
 > There are several different algorithms used for pushpin clustering. Bing Maps uses a simple grid-based function, while Azure Maps uses a more advanced and visually appealing point-based clustering method.
 
 **Before: Bing Maps**
 
-In Bing Maps, GeoJSON data can be loaded using the GeoJSON module. Pushpins can be clustered by loading in the clustering module and using the clustering layer it contains.
+In Bing Maps, GeoJSON data can be loaded using the GeoJSON module. Pushpins are clustered by loading in the clustering module and using the clustering layer it contains.
 
 ```html
 <!DOCTYPE html>
@@ -901,7 +901,7 @@ In Azure Maps, data is added and managed by a data source. Layers connect to dat
 
 * `cluster` – Tells the data source to cluster point data.
 * `clusterRadius` - The radius in pixels to cluster points together.
-* `clusterMaxZoom` - The maximum zoom level that clustering occurs. Any additional zooming results in all points being rendered as symbols.
+* `clusterMaxZoom` - The maximum zoom level that clustering occurs. Any other zooming results in all points being rendered as symbols.
 * `clusterProperties` - Defines custom properties that are calculated using expressions against all the points within each cluster and added to the properties of each cluster point.
 
 When clustering is enabled, the data source sends clustered and unclustered data points to layers for rendering. The data source is capable of clustering hundreds of thousands of data points. A clustered data point has the following properties on it:
@@ -1419,7 +1419,7 @@ Running this code in a browser displays a map that looks like the following imag
 
 **After: Azure Maps**
 
-In Azure Maps, GeoJSON is the main data format used in the web SDK, additional spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
+In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
 
 ```html
 <!DOCTYPE html>
@@ -1687,114 +1687,91 @@ Learn more about migrating from Bing Maps to Azure Maps.
 > [!div class="nextstepaction"]
 > [Migrate a web service](migrate-from-bing-maps-web-services.md)
 
-<!------------End Links-------------------------------------------------------------------------------------------------->
-[road tiles]: /rest/api/maps/render/getmaptile
-[satellite tiles]: /rest/api/maps/render/getmapimagerytile
-[Cesium]: https://www.cesium.com/
-<!--[Cesium code samples]: https://samples.azuremaps.com/?search=Cesium-->
-[Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
-[Leaflet]: https://leafletjs.com/
-[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet
-[Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
-[OpenLayers]: https://openlayers.org/
-<!--[OpenLayers code samples]: https://samples.azuremaps.com/?search=openlayers-->
-[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
-
-<!--- If developing using a JavaScript framework, one of the following open-source projects may be useful ---->
-[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
-[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
-[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
-[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
-
-<!-----------         Key features support       ---------------------------->
-[Contour layer code samples]: https://samples.azuremaps.com/?search=contour
-[Gridded Data Source module]: https://github.com/Azure-Samples/azure-maps-gridded-data-source
-[Animation module]: https://github.com/Azure-Samples/azure-maps-animations
-[Spatial IO module]: how-to-use-spatial-io-module.md
-[open-source modules for the web SDK]: open-source-projects.md#open-web-sdk-modules
-
-<!--- Topics  --->
-[Load a map]: #load-a-map
-[Localizing the map]: #localizing-the-map
-[Setting the map view]: #setting-the-map-view
-[Adding a pushpin]: #adding-a-pushpin
-[Adding a custom pushpin]: #adding-a-custom-pushpin
-[Adding a polyline]: #adding-a-polyline
-[Adding a polygon]: #adding-a-polygon
-[Display an infobox]: #display-an-infobox
-[Pushpin clustering]: #pushpin-clustering
-[Add a heat map]: #add-a-heat-map
-[Overlay a tile layer]: #overlay-a-tile-layer
-[Show traffic data]: #show-traffic-data
+[Add a Bubble layer]: map-add-bubble-layer.md
+[Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
 [Add a ground overlay]: #add-a-ground-overlay
-[Add KML data to the map]: #add-kml-data-to-the-map
-[Add drawing tools]: #add-drawing-tools
-
-<!--- Additional resources  -->
 [Add a heat map layer]: map-add-heat-map-layer.md
+[Add a heat map]: #add-a-heat-map
+[Add a polygon to the map]: map-add-shape.md#use-a-polygon-layer
+[Add a popup]: map-add-popup.md
+[Add a Symbol layer]: map-add-pin.md
+[Add controls to a map]: map-add-controls.md
+[Add drawing tools]: #add-drawing-tools
+[Add HTML Markers]: map-add-custom-html.md
+[Add KML data to the map]: #add-kml-data-to-the-map
+[Add lines to the map]: map-add-line-layer.md
+[Add tile layers]: map-add-tile-layer.md
+[Adding a custom pushpin]: #adding-a-custom-pushpin
+[Adding a polygon]: #adding-a-polygon
+[Adding a polyline]: #adding-a-polyline
+[Adding a pushpin]: #adding-a-pushpin
+[Animation module]: https://github.com/Azure-Samples/azure-maps-animations
+[atlas.data namespace]: /javascript/api/azure-maps-control/atlas.data
+[atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
+[atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
+[atlas.layer.ImageLayer.getCoordinatesFromEdges]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
+[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
+[Azure Active Directory]: azure-maps-authentication.md#azure-ad-authentication
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps Glossary]: glossary.md
+[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
+[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
+[Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
+[Cesium]: https://www.cesium.com/
+[Choose a map style]: choose-map-style.md
+[Cluster point data]: clustering-point-data-web-sdk.md
+[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
+[Contour layer code samples]: https://samples.azuremaps.com/?search=contour
+[Create a data source]: create-data-source-web-sdk.md
+[Display an infobox]: #display-an-infobox
+[Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
+[free account]: https://azure.microsoft.com/free/
+[Gridded Data Source module]: https://github.com/Azure-Samples/azure-maps-gridded-data-source
 [Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
 [Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions
-[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
-[Choose a map style]: choose-map-style.md
-[Supported map styles]: supported-map-styles.md
-
-[Create a data source]: create-data-source-web-sdk.md
-[Add a Symbol layer]: map-add-pin.md
-[Add a Bubble layer]: map-add-bubble-layer.md
-[Cluster point data]: clustering-point-data-web-sdk.md
-[Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
-[Symbol layer text option]: /javascript/api/azure-maps-control/atlas.textoptions
 [HTML marker class]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HTML marker options]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
-[Add HTML Markers]: map-add-custom-html.md
-
-[Add lines to the map]: map-add-line-layer.md
+[Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
+[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet
+[Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
+[Leaflet]: https://leafletjs.com/
 [Line layer options]: /javascript/api/azure-maps-control/atlas.linelayeroptions
-
-[Add a polygon to the map]: map-add-shape.md#use-a-polygon-layer
-[Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
+[Load a map]: #load-a-map
+[Localization support in Azure Maps]: supported-languages.md
+[Localizing the map]: #localizing-the-map
+[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
+[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
+[OpenLayers]: https://openlayers.org/
+[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-web-sdk-modules
+[open-source modules for the web SDK]: open-source-projects.md#open-web-sdk-modules
+[Overlay a tile layer]: #overlay-a-tile-layer
+[Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
-
-[Add a popup]: map-add-popup.md
-[Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
-[Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
-[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [Popup class]: /javascript/api/azure-maps-control/atlas.popup
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
-
-[Add tile layers]: map-add-tile-layer.md
-[Tile layer class]: /javascript/api/azure-maps-control/atlas.layer.tilelayer
-[Tile layer options]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
-
+[Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
+[Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
+[Pushpin clustering]: #pushpin-clustering
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
+[road tiles]: /rest/api/maps/render/getmaptile
+[satellite tiles]: /rest/api/maps/render/getmapimagerytile
+[Setting the map view]: #setting-the-map-view
+[Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
+[Show traffic data]: #show-traffic-data
 [Show traffic on the map]: map-show-traffic.md
-[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
-[Traffic control]: https://samples.azuremaps.com/?sample=traffic-controls
-
-[Overlay an image]: map-add-image-layer.md
-[Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
-
-[atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
 [SimpleDataLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer
 [SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
-
-[Use the drawing tools module]: set-drawing-options.md
-[Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
-
-<!--------------------------------------->
-
-[free account]: https://azure.microsoft.com/free/
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Spatial IO module]: how-to-use-spatial-io-module.md
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
-[Azure Active Directory]: azure-maps-authentication.md#azure-ad-authentication
-[Use the Azure Maps map control]: how-to-use-map-control.md
-[atlas.data namespace]: /javascript/api/azure-maps-control/atlas.data
-[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
-[atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
+[Supported map styles]: supported-map-styles.md
+[Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
+[Symbol layer text option]: /javascript/api/azure-maps-control/atlas.textoptions
+[Tile layer class]: /javascript/api/azure-maps-control/atlas.layer.tilelayer
+[Tile layer options]: /javascript/api/azure-maps-control/atlas.tilelayeroptions
+[Traffic control]: https://samples.azuremaps.com/?sample=traffic-controls
+[Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
 [turf js]: https://turfjs.org
-[Azure Maps Glossary]: glossary.md
-[Add controls to a map]: map-add-controls.md
-[Localization support in Azure Maps]: supported-languages.md
-[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-web-sdk-modules
-[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
-[atlas.layer.ImageLayer.getCoordinatesFromEdges]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Use the Azure Maps map control]: how-to-use-map-control.md
+[Use the drawing tools module]: set-drawing-options.md
+[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps

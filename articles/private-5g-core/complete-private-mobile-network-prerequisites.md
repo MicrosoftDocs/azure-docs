@@ -156,6 +156,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
@@ -174,6 +176,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
@@ -297,9 +301,8 @@ Do the following for each site you want to add to your private mobile network. D
 | 6. | Configure a name, DNS name, and (optionally) time settings. </br></br>**Do not** configure an update. | [Tutorial: Configure the device settings for Azure Stack Edge Pro 2](../databox-online/azure-stack-edge-pro-2-deploy-set-up-device-update-time.md) |
 | 7. | Configure certificates and configure encryption-at-rest for your Azure Stack Edge Pro 2 device. After changing the certificates, you may have to reopen the local UI in a new browser window to prevent the old cached certificates from causing problems.| [Tutorial: Configure certificates for your Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-deploy-configure-certificates?pivots=single-node) |
 | 8. | Activate your Azure Stack Edge Pro 2 device. </br></br>**Do not** follow the section to *Deploy Workloads*. | [Tutorial: Activate Azure Stack Edge Pro 2](../databox-online/azure-stack-edge-pro-2-deploy-activate.md) |
-| 9. | Configure compute on your Azure Stack Edge Pro 2 device. | [Tutorial: Configure compute on Azure Stack Edge Pro 2](../databox-online/azure-stack-edge-pro-2-deploy-configure-compute.md) |
-| 10. | Enable VM management from the Azure portal. </br></br>Enabling this immediately after activating the Azure Stack Edge Pro 2 device occasionally causes an error. Wait one minute and retry.   | Navigate to the ASE resource in the Azure portal, go to **Edge services**, select **Virtual machines** and select **Enable**.   |
-| 11. | Run the diagnostics tests for the Azure Stack Edge Pro 2 device in the local web UI, and verify they all pass. </br></br>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</br></br>- Port 2 - management</br>- Port 3 - access network</br>- Port 4 - data networks</br></br>For all other ports, you can ignore the warning. </br></br>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](../databox-online/azure-stack-edge-gpu-troubleshoot.md) |
+| 9. | Enable VM management from the Azure portal. </br></br>Enabling this immediately after activating the Azure Stack Edge Pro 2 device occasionally causes an error. Wait one minute and retry.   | Navigate to the ASE resource in the Azure portal, go to **Edge services**, select **Virtual machines** and select **Enable**.   |
+| 10. | Run the diagnostics tests for the Azure Stack Edge Pro 2 device in the local web UI, and verify they all pass. </br></br>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</br></br>- Port 2 - management</br>- Port 3 - access network</br>- Port 4 - data networks</br></br>For all other ports, you can ignore the warning. </br></br>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](../databox-online/azure-stack-edge-gpu-troubleshoot.md) |
 
 > [!IMPORTANT]
 > You must ensure your Azure Stack Edge Pro 2 device is compatible with the Azure Private 5G Core version you plan to install. See [Packet core and Azure Stack Edge (ASE) compatibility](./azure-stack-edge-packet-core-compatibility.md). If you need to upgrade your Azure Stack Edge Pro 2 device, see [Update your Azure Stack Edge Pro 2](../databox-online/azure-stack-edge-gpu-install-update.md?tabs=version-2106-and-later).

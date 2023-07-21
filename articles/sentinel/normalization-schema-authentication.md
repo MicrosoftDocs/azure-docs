@@ -225,7 +225,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
 | <a name="targetdomaintype"></a>**TargetDomainType** | Conditional | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
 | **TargetFQDN** | Optional | String | The target device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [TargetDomainType](#targetdomaintype) reflects the format used.   |
-| <a name = "dstdescription"></a>**DstDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
+| <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
@@ -276,7 +276,7 @@ These are the changes in version 0.1.2 of the schema:
 - Added the fields `ActorScope`, `TargetUserScope`, `SrcDvcScopeId`, `SrcDvcScope`, `TargetDvcScopeId`, `TargetDvcScope`, `DvcScopeId`, and `DvcScope`.
 
 These are the changes in version 0.1.3 of the schema:
-- Added the fields `SrcPortNumber`, `ActorOriginalUserType`,  `ActorScopeId`, `TargetOriginalUserType`,  `TargetUserScopeId`, `SrcDescription`, `SrcRiskLevel`, `SrcOriginalRiskLevel`, and `DstDescription`.
+- Added the fields `SrcPortNumber`, `ActorOriginalUserType`,  `ActorScopeId`, `TargetOriginalUserType`,  `TargetUserScopeId`, `SrcDescription`, `SrcRiskLevel`, `SrcOriginalRiskLevel`, and `TargetDescription`.
 - Added inspection fields
 - Added target system geo-location fields.
 

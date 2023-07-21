@@ -16,7 +16,7 @@ show_latex: true
 
 # Set up AutoML training for tabular data with the Azure Machine Learning CLI and Python SDK 
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
@@ -30,6 +30,10 @@ If you prefer a no-code experience, you can also [Set up no-code AutoML training
 # [Python SDK](#tab/python)
 
 To use the **SDK** information, install the Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
+
+To install the SDK you can either, 
+* Create a compute instance, which already has installed the latest Azure Machine Learning Python SDK and is pre-configured for ML workflows. See [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) for more information.
+* Install the SDK on your local machine 
 
 # [Azure CLI](#tab/azurecli)
 

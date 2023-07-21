@@ -5,8 +5,8 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 04/26/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup Server

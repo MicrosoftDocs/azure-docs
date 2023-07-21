@@ -7,17 +7,15 @@ author: fanche
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 04/13/2023
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 06/19/2023
 ms.author: askaur
-manager: jasha
-ms.custom: public_preview
+manager: visho
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # How to secure webhook endpoint
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing their identity. Call Automation has two ways of communicating events that can be secured; the shared IncomingCall event sent by Azure Event Grid, and all other mid-call events sent by the Call Automation platform via webhook.
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 06/26/2023
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -137,7 +137,7 @@ For a full list of sections and properties that are available for defining datas
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **SharePointOnlineLResource**. | Yes |
-| listName | The name of the SharePoint Online List. | Yes |
+| listName | The name of the SharePoint Online List. Note that the apostrophe (') is not allowed in file names. | Yes |
 
 **Example**
 

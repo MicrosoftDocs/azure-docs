@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
+ms.custom: developer, devx-track-js
 ---
 
 # Call an API in your Node.js daemon application - prepare client app and web API

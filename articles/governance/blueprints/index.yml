@@ -106,6 +106,6 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/blueprint/management/management-blueprint
+            url: /dotnet/api/microsoft.azure.management.blueprint
           - text: REST
             url: /rest/api/blueprints/

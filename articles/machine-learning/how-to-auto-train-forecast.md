@@ -16,7 +16,7 @@ show_latex: true
 
 # Set up AutoML to train a time-series forecasting model with SDK and CLI
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 In this article, you'll learn how to set up AutoML for time-series forecasting with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).

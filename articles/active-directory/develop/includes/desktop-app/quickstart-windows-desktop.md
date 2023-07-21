@@ -57,7 +57,7 @@ To register your application and add the app's registration information to your 
 
 [Download the WPF sample application](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 #### Step 3: Configure the project
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
@@ -159,7 +159,7 @@ authResult = await app.AcquireTokenSilent(scopes, firstAccount)
 | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

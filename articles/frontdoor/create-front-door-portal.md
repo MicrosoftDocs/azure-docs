@@ -19,8 +19,9 @@ In this quickstart, you'll learn how to create an Azure Front Door profile using
 
 With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
 
-> [!NOTE]
-> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Prerequisites
 
@@ -77,7 +78,7 @@ In this example, we create two Web App instances that are deployed in two differ
 
 Use the following steps to create two Web Apps used in this example.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the top left-hand side of the portal, select **+ Create a resource**. Then search for **Web App**. Select **Create** to begin configuring the first Web App.
 

@@ -2,16 +2,15 @@
 title: Use Azure Container Storage Preview with Azure managed disks
 description: Configure Azure Container Storage Preview for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
 # Use Azure Container Storage Preview with Azure managed disks
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Azure managed disks as its storage.
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool **name** value can be whatever you want.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1alpha1
@@ -84,7 +83,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
 
-1. Paste in the following code. The PVC `name` value can be whatever you want.
+1. Paste in the following code and save the file. The PVC `name` value can be whatever you want.
 
    ```yml
    apiVersion: v1
@@ -126,7 +125,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
-1. Paste in the following code.
+1. Paste in the following code and save the file.
 
    ```yml
    kind: Pod

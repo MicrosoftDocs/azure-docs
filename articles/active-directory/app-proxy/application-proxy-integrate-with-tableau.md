@@ -33,7 +33,7 @@ Application Proxy supports the OAuth 2.0 Grant Flow, which is required for Table
 
 ## Publish your applications in Azure 
 
-To publish Tableau, you need to publish an application in the Azure Portal.
+To publish Tableau, you need to publish an application in the Azure portal.
 
 For:
 
@@ -76,4 +76,3 @@ Your application is now ready to test. Access the external URL you used to publi
 ## Next steps
 
 For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
-

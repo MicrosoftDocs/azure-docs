@@ -136,6 +136,8 @@
     href: encryption-overview.md
   - name: Key management in Azure
     href: key-management.md
+  - name: Choosing a key management solution
+    href: key-management-choose.md
   - name: Double encryption
     href: double-encryption.md
   - name: Azure Certificate Authorities

@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 05/31/2023
 --- 
 
@@ -32,7 +33,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 ## Set up a workload identity
 
-1. Start by setting up some environment variables. Change the values to suit your AKS cluster. 
+1. Start by setting up some environment variables. Change the values to suit your AKS cluster.
  
     ```bash
     export RESOURCE_GROUP="rg-keda-integration"
@@ -42,9 +43,11 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     export FEDERATED_IDENTITY_CREDENTIAL_NAME="kedaFedIdentity" 
     export SERVICE_ACCOUNT_NAMESPACE="keda"
     export SERVICE_ACCOUNT_NAME="keda-operator"
+    export AKS_CLUSTER_NAME="aks-cluster-name"
     ```
 
-    + `SERVICE_ACCOUNT_NAME` - KEDA must use the service account that was used to create federated credentials.
+    + `SERVICE_ACCOUNT_NAME` - KEDA must use the service account that was used to create federated credentials. This can be any user defined name.
+    + `AKS_CLUSTER_NAME`- The name of the AKS cluster where you want to deploy KEDA.
     + `SERVICE_ACCOUNT_NAMESPACE` Both KEDA and service account must be in same namespace.
     + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that's created for KEDA. 
     + `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that's created for KEDA to use to authenticate with Azure.
@@ -65,13 +68,13 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 1. Store the OIDC issuer url in an environment variable to be used later.
     
     ```bash
-    export AKS_OIDC_ISSUER="$(az aks show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query "oidcIssuerProfile.issuerUrl" -otsv)"
+    export AKS_OIDC_ISSUER="$(az aks show -n $AKS_CLUSTER_NAME -g $RESOURCE_GROUP --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
     
 1. Create a user assigned identity for KEDA. This identity is used by KEDA to authenticate with Azure Monitor. 
     
     ```azurecli
-     az identity create --name $USER_ASSIGNED_IDENTITY_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --subscription     $SUBSCRIPTION
+     az identity create --name $USER_ASSIGNED_IDENTITY_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --subscription $SUBSCRIPTION
     ```
     
     The output will be similar to the following:
@@ -93,25 +96,25 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 1. Store the `clientId` and `tenantId` in environment variables to use later.  
     ```bash
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query     'clientId' -otsv)"
-    export TENANT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query 'tenantId'     -otsv)"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query 'clientId' -otsv)"
+    export TENANT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query 'tenantId' -otsv)"
     ```
     
-1. Assign the *Monitoring Data Reader* role to the identity for your Azure Monitor workspace. This role allows the identity to read metrics from your workspace. 
+1. Assign the *Monitoring Data Reader* role to the identity for your Azure Monitor workspace. This role allows the identity to read metrics from your workspace. Replace the *Azure Monitor Workspace resource group* and *Azure Monitor Workspace name* with the resource group and name of the Azure Monitor workspace which is configured to collect metrics from the AKS cluster.
     
     ```azurecli
     az role assignment create \
     --assignee $USER_ASSIGNED_CLIENT_ID \
     --role "Monitoring Data Reader" \
-    --scope /subscriptions/$SUBSCRIPTION/resourceGroups/<Azure Monitor Workspace resource group>/providers/microsoft.monitor/accounts/    <Azure monitor workspace name>
+    --scope /subscriptions/$SUBSCRIPTION/resourceGroups/<Azure Monitor Workspace resource group>/providers/microsoft.monitor/accounts/<Azure monitor workspace name>
     ```
     
     
-1. Create the KEDA namespace, then create Kubernetes service account. This service account is used by KEDA to authenticate with Azure. 
+1. Create the KEDA namespace, then create Kubernetes service account. This service account is used by KEDA to authenticate with Azure.
     
     ```azurecli
     
-    az aks get-credentials -n $CLUSTER_NAME -g $RESOURCE_GROUP
+    az aks get-credentials -n $AKS_CLUSTER_NAME -g $RESOURCE_GROUP
     
     kubectl create namespace keda
     
@@ -128,13 +131,13 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 1. Check your service account by running
     ```bash
-    kubectl describe serviceaccount workload-identity-sa -n keda
+    kubectl describe serviceaccount $SERVICE_ACCOUNT_NAME -n keda
     ```
 
 1. Establish a federated credential between the service account and the user assigned identity. The federated credential allows the service account to use the user assigned identity to authenticate with Azure.
 
     ```azurecli
-    az identity federated-credential create --name $FEDERATED_IDENTITY_CREDENTIAL_NAME --identity-name $USER_ASSIGNED_IDENTITY_NAME     --resource-group $RESOURCE_GROUP --issuer $AKS_OIDC_ISSUER --subject     system:serviceaccount:$SERVICE_ACCOUNT_NAMESPACE:$SERVICE_ACCOUNT_NAME --audience api://AzureADTokenExchange
+    az identity federated-credential create --name $FEDERATED_IDENTITY_CREDENTIAL_NAME --identity-name $USER_ASSIGNED_IDENTITY_NAME --resource-group $RESOURCE_GROUP --issuer $AKS_OIDC_ISSUER --subject     system:serviceaccount:$SERVICE_ACCOUNT_NAMESPACE:$SERVICE_ACCOUNT_NAME --audience api://AzureADTokenExchange
     ```
 
     > [!Note]
@@ -144,7 +147,14 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 KEDA can be deployed using YAML manifests, Helm charts, or Operator Hub. This article uses Helm charts. For more information on deploying KEDA, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/)
 
-Deploy KEDA using the following command. 
+Add helm repository:
+
+```bash 
+helm repo add kedacore https://kedacore.github.io/charts
+helm repo update
+```
+
+Deploy KEDA using the following command:
 
 ```bash 
 helm install keda kedacore/keda --namespace keda \
@@ -252,5 +262,3 @@ kubectl logs -n keda keda-operator-5d9f7d975-mgv7r
 ```
 
 Ensure the identity has the `Monitoring Data Reader` role on the Azure Monitor workspace.
-
-

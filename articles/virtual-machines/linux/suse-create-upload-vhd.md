@@ -6,11 +6,11 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
-
 ---
 # Prepare a SLES or openSUSE Leap virtual machine for Azure
 

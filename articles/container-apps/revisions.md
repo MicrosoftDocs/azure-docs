@@ -33,7 +33,7 @@ You can use revisions to:
 - Release a new version of your app.
 - Quickly revert to an earlier version of your app.
 - Split traffic between revisions for [A/B testing](https://wikipedia.org/wiki/A/B_testing).
-- Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [BlueGreenDeployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+- Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [blue-green deployment](blue-green-deployment.md).
 
 ## Revision lifecycle
 
