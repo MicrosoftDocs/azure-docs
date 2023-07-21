@@ -221,7 +221,7 @@ Now that you've created and loaded all components and input data to build the pi
 > To use [serverless compute (preview)](how-to-use-serverless-compute.md), add `from azure.ai.ml.entities import ResourceConfiguration` to the top.
 > Then replace:
 > * `default_compute=cpu_compute_target,` with `default_compute="serverless",`
-> * `train_node.compute = gpu_compute_target` with `train_node.resources = "ResourceConfiguration(instance_type="Standard_NC6",instance_count=2)`
+> * `train_node.compute = gpu_compute_target` with `train_node.resources = "ResourceConfiguration(instance_type="Standard_NC6s_v3",instance_count=2)`
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
