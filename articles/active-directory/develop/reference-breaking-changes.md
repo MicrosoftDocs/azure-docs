@@ -174,7 +174,7 @@ To help prevent phishing attacks, the device code flow now includes a prompt tha
 
 The prompt that appears looks like this:
 
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign in to the Azure CLI?'":::
 
 ## May 2020
 

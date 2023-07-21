@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: shreyaaithal 
 ms.author: shaithal 
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-linux
 ms.date: 05/03/2023
 ---
 

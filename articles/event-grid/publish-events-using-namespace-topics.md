@@ -12,27 +12,14 @@ ms.date: 05/24/2023
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 Follow the steps in this article if you need to send application events to Event Grid so that they're received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-delivery-overview.md)).
 
->[!Important]
-> Namespaces, namespace topics, and event subscriptions associated to namespace topics are iniatially available in the following regions:
->
->- East US
->- Central US
->- South Central US
->- West US 2
->- East Asia
->- Southeast Asia
->- North Europe
->- West Europe
->- UAE North
-
-
->[!Important]
-> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
-
->[!Important]
-> Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
+>[!NOTE]
+> - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North
+> - The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
+> - Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -130,7 +117,7 @@ key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id -
 ```
 ### Publish an event
 
-Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. Please note that the following operations were first available with API version `2023-06-01-preview`.
+Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. Note that the following operations were first available with API version `2023-06-01-preview`.
 
 ```azurecli-interactive
 publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
@@ -189,7 +176,7 @@ Finally, submit a request to acknowledge the event received:
 curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$acknowledge_request_payload" $acknowledge_operation_uri
 ```
 
-If the acknowledge operation is executed before the lock token expires (300 seconds as set when we created the event subscription), you should see a response like the following:
+If the acknowledge operation is executed before the lock token expires (300 seconds as set when we created the event subscription), you should see a response like the following example:
 
 ```json
 {"succeededLockTokens":["CiYKJDQ4NjY5MDEyLTk1OTAtNDdENS1BODdCLUYyMDczNTYxNjcyMxISChDZae43pMpE8J8ovYMSQBZS"],"failedLockTokens":[]}
