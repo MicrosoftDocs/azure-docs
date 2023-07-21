@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
+ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-linux
 ---
 
 # Connect to Elastic SAN Preview volumes - Linux
