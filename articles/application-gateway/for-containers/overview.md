@@ -38,12 +38,11 @@ For details about how Application Gateway for Containers accepts incoming reques
 ## Features and benefits
 
 Application Gateway for Containers offers some entirely new features at release, such as:
-- Traffic splitting 
-- Weighted round robin 
+- Traffic splitting / Weighted round robin 
 - Mutual authentication to the backend target
 - Kubernetes support for Ingress and Gateway API
 - Flexible [deployment strategies](#deployment-strategies)
-- Increased performance, offering near real-time updates to add or move pods, routes and probes
+- Increased performance, offering near real-time updates to add or move pods, routes, and probes
 
 Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs. 
 
