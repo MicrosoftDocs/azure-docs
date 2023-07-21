@@ -19,6 +19,8 @@ To enable Azure AD integration for Azure Monitor Logs and remove reliance on the
 1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics).
 1. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Azure AD authentication for Application Insights (preview)](../app/azure-ad-authentication.md).
 
+## Permissions required
+
 ## Disable local authentication for Log Analytics
 
 After you've removed your reliance on the Log Analytics agent, you can disable local authentication for Log Analytics workspaces. Then you can ingest and query telemetry authenticated exclusively by Azure AD.
