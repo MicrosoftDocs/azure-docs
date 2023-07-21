@@ -1,7 +1,7 @@
 ---
 
 title: SSL offloading with Application Gateway for Containers - Gateway API (preview)
-description: Learn how to configure SSL offloading with Application Gateway for Containers.
+description: Learn how to configure SSL offloading with Application Gateway for Containers usihng the Gateway API.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
