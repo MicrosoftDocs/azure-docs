@@ -286,7 +286,7 @@ The Responsible AI dashboard appears for that model as shown in this image:
 In the dashboard, you'll find four components activated for your Automated ML’s best model: 
 
 | Component | What does the component show? | How to read the chart?  
-| ----|---- |
+| ----|---- | ---- |
 | [Error Analysis](concept-error-analysis.md) | Use error analysis when you need to: 
 Gain a deep understanding of how model failures are distributed across a dataset and across several input and feature dimensions. 
 Break down the aggregate performance metrics to automatically discover erroneous cohorts in order to inform your targeted mitigation steps.  [Error Analysis Charts](how-to-responsible-ai-dashboard.md) 
