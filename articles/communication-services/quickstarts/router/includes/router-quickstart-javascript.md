@@ -141,7 +141,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```javascript
-await new Promise(r => setTimeout(r, 3000));
+await new Promise(r => setTimeout(r, 10000));
 worker = await routerClient.getWorker(worker.id);
 for (const offer of worker.offers) {
     console.log(`Worker ${worker.id} has an active offer for job ${offer.jobId}`);
