@@ -90,7 +90,7 @@ There are several ways to enable Defender for Storage on subscriptions:
 
 To enable Defender for Storage at the subscription level using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select the subscription for which you want to enable Defender for Storage.
 
@@ -116,7 +116,7 @@ If you want to disable the plan, toggle the status button to **Off** for the Sto
 
 To enable and configure Defender for Storage at scale with an Azure built-in policy to ensure that consistent security policies are applied across all existing and new storage accounts within the subscriptions, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to the Policy dashboard.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Policy dashboard.
 1. In the Policy dashboard, select **Definitions** from the left-side menu.
 1. In the “Security Center” category, search for and then select the **Configure Microsoft Defender for Storage to be enabled**. This policy will enable all Defender for Storage capabilities: Activity Monitoring, Malware Scanning and Sensitive Data Threat Detection. You can also get it here: [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#security-center)
     If you want to enable a policy without the configurable features, use **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only)**.
@@ -252,7 +252,7 @@ The steps below include instructions on how to set up logging and an Event Grid 
 
 To enable and configure Microsoft Defender for Storage for a specific account using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your storage account.
 1. In the storage account menu, in the **Security + networking** section, select **Microsoft Defender for Cloud**.
 1. **On-upload Malware Scanning** and **Sensitive data threat detection** are enabled by default. You can disable the features by unselecting them.
@@ -478,7 +478,7 @@ The override setting is usually used for the following scenarios:
 
 To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your storage account that you want to configure custom settings.
 
@@ -556,4 +556,3 @@ To override Defender for Storage subscription-level settings to configure settin
     }
 
 1. Make sure you add the parameter `overrideSubscriptionLevelSettings` and its value is set to `true`. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings.
-

@@ -8,6 +8,7 @@ ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-linux
 ms.workload: infrastructure-services
 ms.date: 07/19/2023
 ms.author: mamccrea
