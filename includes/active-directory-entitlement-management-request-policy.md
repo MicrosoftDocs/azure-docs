@@ -126,7 +126,7 @@ Use the following steps to add approvers after selecting how many stages you req
 ### Single-stage approval
 
 > [!NOTE]
-> To use *Sponsors of approvers* for Approval you must have an Entra Identity governance license. For more information, see: [Compare generally available features of Microsoft Azure AD](https://www.microsoft.com/security/business/microsoft-entra-pricing?rtc=1)
+> To use *Sponsors of approvers* for Approval you must have an Entra Identity governance license. For more information, see: [Microsoft Entra Identity Governance](https://portal.azure.com/?Microsoft_Azure_ELMAdmin_EnableLicenseResource=true&EnablePreviewFeatureOptIn=true&EnableMultiIDPSupport=true&EnableCrossCloud=true&TargetLifecycle=true&Microsoft_Azure_ELMAdmin_EnableDynamicsResource=true&ResetLogiAppConfiguration=true&UseIdpType=true&EnableRegexPattern=true&SoftDeletedUserGrants=true&Microsoft_Azure_ELMAdmin_EnableDirectoryRole=true&TenantRolesAndAdministrators=true&Microsoft_Azure_ELMAdmin_ShowServicePrincipals=true&EnablePolicyNotifications=true&Microsoft_Azure_ELMAdmin_EnableSync=true&EnableCatalogReports=true&PartnerSearchV2=true&EnableUserSponsors=true&EnableGracePeriodSupport=true&ShowSPAdminURL=true&EnableApproverToModifyRequest=true#)
 
 1. Add the **First Approver**:
     
