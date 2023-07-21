@@ -94,7 +94,7 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-service-instance.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-web-app/create-service-instance.png":::
 
-1. Fill out the **Standard consumption & dedicated (preview)** form with the following information:
+1. Fill out the **basics** form with the following information:
 
    | Setting         | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
 -----------------|----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -107,12 +107,14 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-consumption.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-consumption.png":::
 
-1. (Optional) Create Container Apps Environment to select, Fill out the **Basics** tab with the following information:
+1. (Optional) Fill out the **Basics** tab with the following information to create Container Apps Environment:
       - **Environment name**: *myacaenv*
       - **Plan**: **Consumption**
       - **Zone redundancy**: **Disabled**
+
     :::image type="content" source="../../media/quickstart-deploy-web-app/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment." lightbox="../../media/quickstart-deploy-web-app/create-container-apps-environment.png":::
-    Then select **Create** to create the Container Apps Environment.
+
+Then select **Create** to create the Container Apps Environment.
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
@@ -142,6 +144,7 @@ Use the following steps to connect your service instances:
     - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
     - **SPRING_DATASOURCE_USERNAME**: *myadmin*
     - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
+
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal showing the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
 
 1. Select **Save** to save the connection properties.
