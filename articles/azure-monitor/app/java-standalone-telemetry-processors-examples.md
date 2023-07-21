@@ -449,8 +449,8 @@ For example, given `http.url = http://example.com/user/12345622` is updated to `
         "actions": [
           {
             "key": "http.url",
-            "pattern": "/user/([^/]+)",
-            "replace": "/user/****",
+            "pattern": "^(?<userGroupName>[a-zA-Z.:\/]+)\d+",
+            "replace": "${userGroupName}**",
             "action": "mask"
           }
         ]
