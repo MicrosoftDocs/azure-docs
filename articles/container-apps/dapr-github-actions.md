@@ -7,7 +7,7 @@ ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
 ms.date: 07/10/2023
-ms.custom: template-tutorial, engagement
+ms.custom: template-tutorial, engagement, devx-track-linux
 ---
 
 # Tutorial: Deploy a Dapr application with GitHub Actions for Azure Container Apps

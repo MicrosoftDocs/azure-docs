@@ -4847,7 +4847,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
-            "redirect_url": "/azure/ai-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+            "redirect_url": "/azure/ai-services/cognitive-services-support-options",
             "redirect_document_id": false
         },
         {
