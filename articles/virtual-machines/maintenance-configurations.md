@@ -61,7 +61,7 @@ This scope is integrated with [update management center](../update-center/overvi
 - The value of **Repeat** should be at least 6 hours.
 
 >[!IMPORTANT]
-> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that old schedules will remain unchanged; however, we strongly recommend updating your existing schedules to include these new changes.**
+> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
 
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
 
