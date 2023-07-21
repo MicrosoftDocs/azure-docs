@@ -13,9 +13,11 @@ Retention policies define when to remove or archive data in a [Log Analytics wor
 
 This article describes how to configure data retention and archiving.
 
-## Permissions
+## Permissions required
 
-To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- To configure data retention and archive policies, you must have `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+- To get the retention and archive policy by table, you need `microsoft.operationalinsights/workspaces/sharedkeys/action` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+- To set data retention for classic Application Insights resources, you need `microsoft.insights/components/write` permissons, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example.
 
 ## How retention and archiving work
 
