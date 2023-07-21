@@ -53,7 +53,7 @@ This section contains an example of what that data would look like for each even
 > [!NOTE]
 > Possible values for `Status` are:
 > - `Delivered`: The message was successfully handed over to the intended destination (recipient Mail Transfer Agent).
-> - `Suppressed`: The recipient email had hard bounced previously, and all subsequent emails to this recipient are being suppressed as a result.
+> - `Suppressed`: The recipient email had hard bounced previously, and all subsequent emails to this recipient are being temporarily suppressed as a result.
 > - `Bounced`: The email hard bounced, which may have happened because the email address does not exist or the domain is invalid.
 > - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing).
 > - `FilteredSpam`: The message was identified as spam, and was rejected or blocked (not quarantined).
