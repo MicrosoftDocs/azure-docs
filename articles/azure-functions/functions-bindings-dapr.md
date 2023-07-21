@@ -138,16 +138,16 @@ For examples using these types, see [the GitHub repository for the extension](ht
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
 ## Try out the Dapr Functions extension
 
 Learn how to use the Dapr Functions extension via the provided samples.
 
-::: zone pivot="programming-language-csharp"
-
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] |  |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr extension with the Kafka bindings Dapr component. |
 | [.NET In-process][dapr-in-proc] | Learn how to use Azure Functions in-process model to integrate with multiple Dapr components in .NET, like Service Invocation, Pub/sub, Bindings, and State Management. |
 | [.NET Isolated][dapr-isolated] | Integrate with Dapr components in .NET using the Azure Functions out-of-proc (OOP) execution model. |
 
@@ -160,10 +160,14 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 ::: zone pivot="programming-language-javascript"
 
+## Try out the Dapr Functions extension
+
+Learn how to use the Dapr Functions extension via the provided samples.
+
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] |  |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr extension with the Kafka bindings Dapr component. |
 | [JavaScript][dapr-js] | Run a JavaScript Dapr function application and integrate with Dapr Service Invocation, Pub/sub, Bindings, and State Management using Azure Functions. |
 
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
@@ -173,6 +177,10 @@ Learn how to use the Dapr Functions extension via the provided samples.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+## Try out the Dapr Functions extension
+
+Learn how to use the Dapr Functions extension via the provided samples.
 
 | Samples | Description |
 |-|-| 
