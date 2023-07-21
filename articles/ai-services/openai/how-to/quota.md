@@ -8,13 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 07/20/2023
 ms.author: mbullwin
 ---
 
 # Manage Azure OpenAI Service quota
 
 Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article walks through the process of managing your Azure OpenAI quota.
+
+## Prerequisites
+
+> [!IMPORTANT]
+> Quota requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
 
 ## Introduction to quota
 
@@ -98,6 +103,12 @@ To minimize issues related to rate limits, it's a good idea to use the following
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
+
+## Resource deletion
+
+When an attempt to delete an Azure OpenAI resource is made from the Azure portal if any deployments are still present deletion is blocked until the associated deployments are deleted. Deleting the deployments first allows quota allocations to be properly freed up so they can be used on new deployments.
+
+However, if you delete a resource using the REST API or some other programmatic method, this bypasses the need to delete deployments first. When this occurs, the associated quota allocation will remain unavailable to assign to a new deployment for 48 hours until the resource is purged. To trigger an immediate purge for a deleted resource to free up quota, follow the [purge a deleted resource instructions](/azure/ai-services/manage-resources?tabs=azure-portal#purge-a-deleted-resource).
 
 ## Next steps
 

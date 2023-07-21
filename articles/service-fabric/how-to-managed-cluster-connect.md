@@ -12,31 +12,31 @@ ms.date: 07/11/2022
 
 Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
 
-## Use Azure portal
+## Use the Azure portal
 
-Navigate to your managed cluster resource by
+To navigate to your managed cluster resource:
 
- 1) Going to https://portal.azure.com/
+ 1. Go to https://portal.azure.com/
 
- 2) Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
+ 2. Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
 
- 3) Select your cluster
+ 3. Select your cluster
 
- 4) In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
+ 4. In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
 
 ## Use Service Fabric Explorer
 
 [Service Fabric Explorer](https://github.com/Microsoft/service-fabric-explorer) (SFX) is an application for inspecting and managing application and cluster health of a Microsoft Azure Service Fabric cluster. 
 
-To navigate to SFX for your managed cluster
+To navigate to SFX for your managed cluster:
  
- 1) Going to https://portal.azure.com/
+ 1. Sign in to the [Azure portal](https://portal.azure.com/).
  
- 2) Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
+ 2. Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters".
 
- 3) Select your cluster
+ 3. Select your cluster.
 
- 4) Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`
+ 4. Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`.
 
 ## Use PowerShell Modules
 

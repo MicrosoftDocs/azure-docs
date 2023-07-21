@@ -6,6 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
 ms.date: 06/09/2023
 ---

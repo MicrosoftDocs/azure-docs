@@ -6,7 +6,7 @@ ms.author: yuchungchen
 ms.date: 05/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add HTML markers to the map

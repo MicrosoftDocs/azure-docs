@@ -11,7 +11,7 @@ ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../sdk-overview.md)
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../sdk-overview.md)
 
 In this quickstart you'll, use the Document Intelligence REST API to analyze and extract data and values from forms and documents:
 
