@@ -5,7 +5,7 @@ services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: reference
+ms.topic: quickstart
 ms.date: 07/14/2023
 ms.author: mmitrik
 ---
@@ -18,12 +18,11 @@ This article details how to get started using DICOM data in analytics workloads 
 Before getting started, ensure you have done the following:
 
 * Deploy an instance of the [DICOM Service](deploy-dicom-services-in-azure.md).
-* Create a [storage account with Azure Data lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) being sure to enable the hierarchical namespace. 
+* Create a [storage account with Azure Data lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace. 
     * Create a container to store DICOM metadata, e.g. named "dicom".  
 * Create an instance of [Azure Data Factory (ADF)](../../data-factory/quickstart-create-data-factory.md).
     * Ensure that a [system assigned managed identity](../../data-factory/data-factory-service-identity.md) has been enabled.
-    * Ensure that a Git repository has been configured for the data factory in order to load custom pipeline templates. This can be configured when provisioning or later in the **Manage** tab of the Azure Data Factory Studio.
-* Create a [Lakehouse](https://learn.microsoft.com/fabric/data-engineering/tutorial-build-lakehouse) in Microsoft Fabric.
+* Create a [Lakehouse](/fabric/data-engineering/tutorial-build-lakehouse) in Microsoft Fabric.
 * Add role assignments to the ADF system assigned managed identity for the DICOM Service and the ADLS Gen2 storage account.
     * Add the **DICOM Data Reader** role to grant permission to the DICOM service.
     * Add the **Storage Blob Data Contributor** role to grant permission to the ADLS Gen2 account.
@@ -170,7 +169,7 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 :::image type="content" source="media/data-factory-monitor.png" alt-text="Monitor view showing list of pipeline runs." lightbox="media/data-factory-monitor.png":::
 
 ## Microsoft Fabric
-[Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](https://learn.microsoft.com/fabric/onelake/onelake-overview). With the use of [Microsoft Fabric Lakehouse](https://learn.microsoft.com/fabric/data-engineering/lakehouse-overview), data in OneLake can be managed, structured, and analyzed in a single location. Any data outside of OneLake, written to Azure Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric’s suite of tools.
+[Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](/fabric/onelake/onelake-overview). With the use of [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview), data in OneLake can be managed, structured, and analyzed in a single location. Any data outside of OneLake, written to Azure Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric’s suite of tools.
 
 ### Creating shortcuts
 1. Navigate to the lakehouse created in the prerequisites.  In the **Explorer** view, select the triple-dot menu (...) next to the **Tables** folder.  
@@ -207,7 +206,7 @@ After the shortcuts have been created, expanding a table will show the names and
 :::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Table columns are listed in the explorer view. " lightbox="media/fabric-shortcut-schema.png":::
 
 ### Running notebooks
-Once the tables have been created in the lakehouse, they can be queried from [Microsoft Fabric notebooks](https://learn.microsoft.com/fabric/data-engineering/how-to-use-notebook).  Notebooks may be created directly from the lakehouse by selecting **Open Notebook** from the menu bar. 
+Once the tables have been created in the lakehouse, they can be queried from [Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook).  Notebooks may be created directly from the lakehouse by selecting **Open Notebook** from the menu bar. 
 
 On the notebook page, the contents of the lakehouse can still be viewed on the left-hand side, including the newly added tables. At the top of the page, select the language for the notebook (the language may also be configured for individual cells). The following example will use Spark SQL.
 
@@ -225,3 +224,13 @@ This query will select all of the contents from the `instance` table. When ready
 After a few seconds, the results of the query should appear in a table beneath the cell like (the time may be longer if this is the first Spark query in the session as the Spark context will need to be initialized).
 
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
+
+## Next steps
+
+Learn more about Azure Data Factory pipelines:
+
+* [Pipelines and activities in Azure Data Factory](../../data-factory/concepts-pipelines-activities.md)
+
+Learn more about using Microsoft Fabric notebooks:
+
+* [How to use Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook)
