@@ -193,6 +193,7 @@ print(f"Worker {worker.id} has closed job {accept.job_id}")
 ## Delete the job
 
 Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
 ```python
 router_client.delete_job(accept.job_id)
 print(f"Deleting {accept.job_id}")
@@ -206,10 +207,11 @@ To run the code, make sure you are on the directory where your `router-quickstar
 python router-quickstart.py
 
 Azure Communication Services - Job Router Quickstart
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
