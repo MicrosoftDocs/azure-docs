@@ -46,7 +46,7 @@ This first example evaluates a static boolean expression and returns one of two 
 
 This example evaluates one of two potential expressions on multiple items in a container based on an expression that evaluates a boolean property.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/seed.json" range="1-2,4-12,14-22" highlight="5,14":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/seed.json" range="1-2,4-12,14-22" highlight="4-9,13-18":::
 
 The query uses fields in the original items.
 
