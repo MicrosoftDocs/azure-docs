@@ -15,9 +15,13 @@ This article describes how to configure data retention and archiving.
 
 ## Permissions required
 
-- To configure data retention and archive policies, you must have `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
-- To get the retention and archive policy by table, you need `microsoft.operationalinsights/workspaces/sharedkeys/action` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
-- To set data retention for classic Application Insights resources, you need `microsoft.insights/components/write` permissons, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example.
+| Action | Permissions required |
+|:-------|:---------------------|
+| Configure data retention and archive policies | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Get the retention and archive policy by table | `microsoft.operationalinsights/workspaces/sharedkeys/action` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Set data retention for classic Application Insights resources | `microsoft.insights/components/write` permissons, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
+| Purge data from a Application Insights Classic resource | `Microsoft.Insights/components/purge/action` permissions, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
 
 ## How retention and archiving work
 
