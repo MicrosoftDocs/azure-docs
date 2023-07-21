@@ -69,7 +69,7 @@ items:
     items:
     - name: Deployment errors
       href: troubleshoot-errors-deployment.md
-    - name: Error logs
+    - name: Service log errors
       href: troubleshoot-errors-logs.md
 - name: Samples
   expanded: false
