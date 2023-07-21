@@ -28,12 +28,18 @@
       href: application-gateway-for-containers-metrics.md
 - name: How-to guides
   items:
-  - name: Backend MTLS
-    href: how-to-backend-mtls.md
-  - name: SSL Offloading
-    href: how-to-ssl-offloading.md
-  - name: Traffic Splitting / Weighted Round Robin
-    href: how-to-traffic-splitting.md
+    - name: Gateway API
+     items:
+         - name: Backend MTLS
+            href: how-to-backend-mtls-gateway-api.md
+          - name: SSL Offloading
+            href: how-to-ssl-offloading-gateway-api.md
+          - name: Traffic Splitting / Weighted Round Robin
+            href: how-to-traffic-splitting-gateway-api.md
+    - name: Ingress API
+      items:
+        - name: SSL Offloading
+          href: how-to-ssl-offloading-ingress-api.md
   - name: Troubleshoot
     href: troubleshooting-guide.md
 - name: Kubernetes Reference
