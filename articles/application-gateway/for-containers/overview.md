@@ -93,7 +93,7 @@ Application Gateway for Containers is currently offered in the following regions
 - West US
 - West Europe
 
-### Implementation of gateway API
+### Implementation of Gateway API
 
 ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
 

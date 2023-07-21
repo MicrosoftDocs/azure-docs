@@ -1,6 +1,6 @@
 ---
 
-title: Backend MTLS with Application Gateway for Containers - gateway API (preview)
+title: Backend MTLS with Application Gateway for Containers - Gateway API (preview)
 description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
 author: greglin
@@ -11,7 +11,7 @@ ms.date: 07/21/2023
 ms.author: greglin
 ---
 
-# Backend MTLS with Application Gateway for Containers - gateway API (preview)
+# Backend MTLS with Application Gateway for Containers - Gateway API (preview)
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
