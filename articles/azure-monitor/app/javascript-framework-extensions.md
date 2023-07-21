@@ -97,7 +97,7 @@ npm install @microsoft/applicationinsights-react-js
 
 - **React Native Plugin**
 
-  By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+  By default, the React Native Plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
 
   Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
 
@@ -111,7 +111,7 @@ npm install @microsoft/applicationinsights-react-js
 
 - **React Native Manual Device Plugin**
 
-  If you're using React Native Expo, add this plugin instead of the React Native Plugin. The React Native Plugin uses the `react-native-device-info package` package, which React Native Expo doesn't support.
+  If you're using React Native Expo, add the React Native Manual Device Plugin instead of the React Native Plugin. The React Native Plugin uses the `react-native-device-info package` package, which React Native Expo doesn't support.
 
   ```bash
 
@@ -427,7 +427,7 @@ The `AppInsightsErrorBoundary` requires two props to be passed to it. They're th
 
 #### [React Native](#tab/reactnative)
 
-**TEMPORARY EDIT TO EXPOSE THIS LINE IN GITHUB** Exception tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
+The tracking of uncaught exceptions is enabled by default. If you want to disable the tracking of uncaught exceptions, set `disableExceptionCollection` to `true`.
 
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -509,8 +509,8 @@ N/A
 #### [React Native](#tab/reactnative)
 
 - **React Native Plugin**: In addition to user agent info from the browser, which is collected by Application Insights web package, React Native also collects device information. Device information is automatically collected when you add the plug-in.
-- **React Native Manual Device Plugin**: Depending on what you set up when you added the extension to your code, this plugin either:
-   - Doesn't collect device information by default
+- **React Native Manual Device Plugin**: Depending on how you configured the plugin when you added the extension to your code, this plugin either:
+   - Doesn't collect device information
    - Uses your own device info collection class
 
 #### [Angular](#tab/angular)
