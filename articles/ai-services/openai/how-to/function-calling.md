@@ -125,8 +125,10 @@ if response_message.get("function_call"):
     available_functions = {
             "search_hotels": search_hotels,
     }
+    function_to_call = available_functions[function_name] 
+
     function_args = json.loads(response_message["function_call"]["arguments"])
-    function_response = fuction_to_call(**function_args)
+    function_response = function_to_call(**function_args)
 
     # Add the assistant response and function response to the messages
     messages.append( # adding assistant response to messages
@@ -208,5 +210,5 @@ To learn more about our recommendations on how to use Azure OpenAI models respon
 ## Next steps
 
 * [Learn more about Azure OpenAI](../overview.md).
-* For more examples on working with functions, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/oai/function-samples)
+* For more examples on working with functions, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/oai/functions-samples)
 * Get started with the GPT-35-Turbo model with [the GPT-35-Turbo quickstart](../chatgpt-quickstart.md).

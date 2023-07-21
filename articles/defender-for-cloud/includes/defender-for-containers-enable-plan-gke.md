@@ -15,7 +15,7 @@ To protect your GKE clusters, you'll need to enable the Containers plan on the r
 
 **To protect Google Kubernetes Engine (GKE) clusters**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 
@@ -51,7 +51,7 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 **To deploy the solution to specific clusters**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
@@ -84,7 +84,7 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 ## View your GKE cluster alerts
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Security alerts**.
 

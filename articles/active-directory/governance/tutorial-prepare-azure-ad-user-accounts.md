@@ -168,7 +168,7 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 
 For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
- 1. Sign in to Azure portal.
+ 1. Sign in to the Azure portal.
  2. On the right, select **Azure Active Directory**.
  3. Select **Users**.
  4. Select **Melva Prince**.

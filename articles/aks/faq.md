@@ -3,8 +3,7 @@ title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 07/20/2022
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-linux
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
