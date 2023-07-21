@@ -165,8 +165,8 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 8. Install CUDA toolkit and driver
 
    ```
-   sudo apt-get install cuda
-   sudo apt-get install nvidia-gds
+   sudo apt-get install -y cuda
+   sudo apt-get install -y nvidia-gds
    ```
 
    Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and then proceed.
