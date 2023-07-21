@@ -78,23 +78,23 @@ Before you proceed with this article, make sure you complete parts 1 and 2 of th
 
    ---
 
-   ### Initialize the project workspace variables
+1. Initialize the project workspace variables
 
    This is the current workspace, and the tutorial notebook runs in this resource.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=init-ws-crud-client)]
 
-   ### Initialize the feature store variables
+1. Initialize the feature store variables
 
    Make sure that you update the `featurestore_name` and `featurestore_location` values shown, to reflect what you created in part 1 of this tutorial.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=init-fs-crud-client)]
 
-   ### Initialize the feature store consumption client
+1. Initialize the feature store consumption client
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=init-fs-core-sdk)]
 
-   ### Create a compute cluster
+1. Create a compute cluster
 
    We'll create a compute cluster named `cpu-cluster` in the project workspace. We need this compute cluster when we run the training / batch inference jobs.
 
@@ -200,7 +200,7 @@ In this step, you select a list of features, run a training pipeline, and regist
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=export-as-frspec)]
 
-## Train in the cloud with pipelines
+## Train in the cloud with pipelines, and register the model
 
 In this step, you manually trigger the training pipeline. In a production scenario, a ci/cd pipeline could trigger it, based on changes to the feature-retrieval spec in the source repository. You can register the model if it's satisfactory.
 

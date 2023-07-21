@@ -280,8 +280,6 @@ First, register a feature set asset with the feature store. You can then reuse t
 
    Observation data typically involves the core data used for training and inferencing. This data joins with the feature data to create the full training data resource. Observation data is data captured during the event itself. Here, it has core transaction data, including transaction ID, account ID, and transaction amount values. Since we use it for training, it also has an appended target variable (**is_fraud**).
 
-   Refer to the documentation resources to learn more about core concepts, including observation data.
-
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=load-obs-data)]
 
 1. Get the registered feature set, and list its features

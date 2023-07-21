@@ -50,11 +50,11 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
       * Upload the **conda.yml** file you [uploaded in Tutorial #1](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development)
       * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
-### Start the spark session
+## Start the spark session
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
 
-### Set up the root directory for the samples
+## Set up the root directory for the samples
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=root-dir)]
 
@@ -64,7 +64,7 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
 
    ### [Azure CLI](#tab/cli)
 
-   ### Set up the CLI
+   **Set up the CLI**
 
    1. Install the Azure Machine Learning extension
 
@@ -84,7 +84,7 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
 
    The tutorial notebook runs from this current workspace
 
-  [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=init-ws-crud-client)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=init-ws-crud-client)]
 
 1. Initialize the feature store variables
 
@@ -96,7 +96,7 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-core-sdk)]
 
-## 1. Enable recurrent materialization on the `transactions` feature set
+## Enable recurrent materialization on the `transactions` feature set
 
 We enabled materialization in tutorial part 2, and we also performed backfill on the transactions feature set. Backfill is an on-demand, one-time operation that computes and places feature values in the materialization store. However, to handle inference of the model in production, you might want to set up recurrent materialization jobs to keep the materialization store up-to-date. These jobs run on user-defined schedules. The recurrent job schedule works this way:
 
@@ -115,7 +115,7 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=enable-recurrent-mat-txns-fset)]
 
-## (Optional) Save the feature set asset yaml
+## (Optional) Save the feature set asset yaml file
 
    We use the updated settings to save the yaml file
 
@@ -129,7 +129,7 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
    ---
 
-## 2. Run the batch-inference pipeline
+## Run the batch-inference pipeline
 
    The batch-inference has these steps:
 
