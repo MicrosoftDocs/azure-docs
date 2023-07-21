@@ -269,7 +269,7 @@ Use the following steps to package the app, provision the Azure resources requir
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
-   (✓) Done: Deploying service boot-for-azure
+   (✓) Done: Deploying service simple-todo-web
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
    
    
