@@ -1,6 +1,6 @@
 ---
-title: Quickstart API-driven inbound provisioning with cURL
-description: Learn how to get started with API-driven inbound provisioning using cURL.
+title: Quickstart API-driven inbound provisioning with Postman
+description: Learn how to get started quickly with API-driven inbound provisioning using Postman
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,38 +8,64 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/19/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
 
-# Quickstart API-driven inbound provisioning with cURL (Public preview)
+# Quickstart API-driven inbound provisioning with Postman (Public preview)
 
 ## Introduction
-[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it is [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
+This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with Postman.
 
 ## Pre-requisites
 
 * You have configured [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). 
-* You have [configured a service principal and it has access](inbound-provisioning-api-grant-access.md) to the inbound provisioning API. Make note of the `ClientId` and `ClientSecret` of your service principal app for use in this tutorial. 
+* You have [configured a service principal and it has access](inbound-provisioning-api-grant-access.md) to the inbound provisioning API. Make note of the `TenantId`, `ClientId` and `ClientSecret` of your service principal app for use in this tutorial. 
 
-## Upload user data to the inbound provisioning API
 
-1. Retrieve the **client_id** and **client_secret** of the service principal that has access to the inbound provisioning API. 
-1. Use OAuth **client_credentials** grant flow to get an access token. Replace the variables `[yourClientId]`, `[yourClientSecret]` and `[yourTenantId]` with values applicable to your setup and run the following cURL command. Copy the access token value generated 
-     ```
-     curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=[yourClientId]&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=[yourClientSecret]&grant_type=client_credentials" "https://login.microsoftonline.com/[yourTenantId]/oauth2/v2.0/token"
-     ```
-1. Copy the [bulk request with SCIM Enterprise User Schema](#bulk-request-with-scim-enterprise-user-schema) and save the contents in a file called scim-bulk-upload-users.json.
-1. Replace the variable `[InboundProvisioningAPIEndpoint]` with the provisioning API endpoint associated with your provisioning app. Use the `[AccessToken]` value from the previous step and run the following curl command to upload the bulk request to the provisioning API endpoint. 
-     ```
-     curl -v "[InboundProvisioningAPIEndpoint]" -d @scim-bulk-upload-users.json -H "Authorization: Bearer [AccessToken]" -H "Content-Type: application/scim+json"
-     ```
-1. Upon successful upload, you will receive HTTP 202 Accepted response code. 
-1. The provisioning service starts processing the bulk request payload immediately and you can see the provisioning details by accessing the provisioning logs of the inbound provisioning app. 
+### Upload user data to the inbound provisioning API
+In this step, you'll configure the Postman app and invoke the API using the configured service account. 
 
-## Verify processing of the bulk request payload
+1. Download and install the [Postman app](https://www.postman.com/downloads/). 
+1. Open the Postman desktop app. 
+1. From the **Workspaces** menu, select **Create Workspace** to create a new Workspace called **Microsoft Entra ID Provisioning API**. 
+1. Download the following Postman collections and save it in your local directory.
+    - [Entra ID Inbound Provisioning.postman_collection.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Entra%20ID%20Inbound%20Provisioning.postman_collection.json) (Request collection)
+    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD)- 
+    - [Test-API2AD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD) 
+1. Use the **Import** option in Postman to import both of these files into your Workspace.  
+     :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Postman Import Elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::
+1. Click the **Environments** menu and open the **Test-API2AAD** environment. 
+1. Retrieve the values of **client_id**, **client_secret**, and **token_endpoint** from your registered app.
+     :::image type="content" source="media/inbound-provisioning-api-postman/retrieve-authentication-details.png" alt-text="Screenshot of registered app." lightbox="media/inbound-provisioning-api-postman/retrieve-authentication-details.png":::
+1. Paste the values in the table for each variable under the column **Initial value** and **Current value**. 
+     :::image type="content" source="media/inbound-provisioning-api-postman/postman-authentication-variables.png" alt-text="Screenshot of authentication variables" lightbox="media/inbound-provisioning-api-postman/postman-authentication-variables.png":::     
+1. Open your provisioning app landing page and copy-paste the value of **Job ID** for the `jobId` variable and the value of **Provisioning API endpoint** for the `bulk_upload_endpoint` variable
+      :::image type="content" source="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png" alt-text="Screenshot of Provisioning API endpoint." lightbox="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png":::
+1. Leave the value of **ms_graph_resource_id** unchanged and save the environment collection. Make sure that both **Initial value** and **Current value** columns are populated. 
+1. Next, open the collection **Entra ID Inbound Provisioning**.
+1. From the **Environment** dropdown, select **Test-API2AAD**.
+1. Select the **Authorization** tab associated with the collection. 
+1. Make sure that authorization is configured to use OAuth settings. 
+     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png" alt-text="Provisioning OAuth configuration." lightbox="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png":::
+1. The **Advanced options** section should show the following configuration:
+     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-advanced-options.png" alt-text="Provisioning Advanced options." lightbox="media/inbound-provisioning-api-postman/provisioning-advanced-options.png":::
+1. Click on **Get New Access Token** to initiate the process to procure an access token. 
+1. Select the option **Use Token** to use the access token with all requests in this collection. 
+     >[!NOTE]
+     >The OAuth access token generated using `client_credentials` grant type is valid for one hour. You can decode the token using [https://jwt.io](https://jwt.io) and check when it expires. Requests fail after the token expires. If your access token has expired, click **Get New Access Token** in Postman to get a new access token. 
+   The token is automatically copied into the **Current token** section of the Authorization tab. You can now use the token to make API calls. Let's start with the first call in this collection. 
+1. Open the request **SCIM bulk request upload**.
+1. Under the **Authorization tab**, make sure that type is set to **Inherit auth from parent**.
+1. Change to the **Request body** tab, to view and edit the sample SCIM bulk request. When you're done editing, click **Send**.
 
+If the API invocation is successful, you see the message `202 Accepted.` Under Headers, the **Location** attribute points to the provisioning logs API endpoint. 
+
+## Verify processing of bulk request payload
+You can verify the processing either from the Microsoft Entra portal or using Postman.
+
+### Verify processing from Microsoft Entra portal 
 1. Log in to [Microsoft Entra portal](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
@@ -57,6 +83,16 @@ ms.reviewer: cmmdesai
       * The **Provision User** step calls out the final processing step and changes applied to the user account.
       * Use the **Modified properties** tab to view attribute updates.
 
+### Verify processing using provisioning logs API in Postman
+This section shows how you can query provisioning logs in Postman using the same service account (service principal) that you configured.
+
+1. Open the workspace **Microsoft Entra ID Provisioning API** in your Postman desktop app. 
+2. The collection **Entra ID Inbound Provisioning** contains three sample requests that enable you to query the provisioning logs. 
+3. You can open any of these predefined requests. 
+4. If you don't have a valid access token or you're not sure if the access token is still valid, go to the collection object's root Authorization tab and use the option **Get New Access Token** to get a fresh token. 
+5. Click **Send** to get provisioning log records. 
+Upon successful execution, you'll get a `200 HTTP` response from the server along with the provisioning log records. 
+
 ## Appendix
 
 ### Bulk request with SCIM Enterprise User Schema
@@ -66,7 +102,7 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "Quick_start_with_curl"
+  "name": "Quick_start_with_Postman"
 }-->
 ```http
 {
@@ -203,7 +239,7 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 }
 ```
 
-## Next steps
+## Next Steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)

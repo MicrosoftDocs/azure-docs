@@ -45,6 +45,12 @@ items:
         href: inbound-provisioning-api-grant-access.md
       - name: Quickstart using cURL
         href: inbound-provisioning-api-curl-tutorial.md
+      - name: Quickstart with Postman
+        href: inbound-provisioning-api-postman.md
+      - name: Quickstart with Graph Explorer
+        href: inbound-provisioning-api-graph-explorer.md
+      - name: Quickstart with Powershell
+        href: inbound-provisioning-api-powershell.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
@@ -73,8 +79,6 @@ items:
   - name: How-to guides
     expanded: true
     items:
-    - name: Configure inbound provisioning with Powershell
-      href: inbound-provisioning-api-powershell.md
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
     - name: Include or exclude users and groups from scope
