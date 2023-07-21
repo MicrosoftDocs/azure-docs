@@ -127,7 +127,7 @@ The real power of the simple data layer comes when:
 - Features in the data set have several style properties individually set on them; or
 - You're not sure what the data set exactly contains.
 
-For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides. For the source code for this sample, see [Simple data layer options source code].
+For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
 
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
 
@@ -136,7 +136,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 ------------------------------------>
 
 > [!NOTE]
-> This simple data layer uses the [popup template](map-add-popup.md#add-popup-templates-to-the-map) class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
+> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
 > - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
@@ -147,7 +147,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 
 As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It then uses expressions to search for valid style properties on individual features.
 
-Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different Azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github) defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. All GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
+Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different Azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. All GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
 If the reader comes across a less common style property, it converts it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
@@ -237,27 +237,36 @@ If the feature is a `Polygon` or a `MultiPolygon`, and has a `height` property w
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+> [SimpleDataLayer]
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+> [SimpleDataLayerOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Read and write spatial data](spatial-io-read-write-spatial-data.md)
+> [Read and write spatial data]
 
 > [!div class="nextstepaction"]
-> [Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
+> [Add an OGC map layer]
 
 > [!div class="nextstepaction"]
-> [Connect to a WFS service](spatial-io-connect-wfs-service.md)
+> [Connect to a WFS service]
 
 > [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
+> [Leverage core operations]
 
 > [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+> [Supported data format details]
 
+[Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
+[Connect to a WFS service]: spatial-io-connect-wfs-service.md
+[GitHub's GeoJSON map support]: https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojsontopojson-files-on-github
+[Leverage core operations]: spatial-io-core-operations.md
+[popup template]: map-add-popup.md#add-popup-templates-to-the-map
+[Read and write spatial data]: spatial-io-read-write-spatial-data.md
+[Simple data layer options.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20data%20layer%20options/Simple%20data%20layer%20options.html
 [Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options
-[Simple data layer options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20data%20layer%20options/Simple%20data%20layer%20options.html
+[SimpleDataLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer
+[SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
+[Supported data format details]: spatial-io-supported-data-format-details.md
