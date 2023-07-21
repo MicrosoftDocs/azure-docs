@@ -211,7 +211,7 @@ VM instances go through different states, including provisioning and power state
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **VM-22: Use maintenance configurations for the VM**
 
-To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](./virtual-machines/maintenance-configurations.md).
+To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](../virtual-machines/maintenance-configurations.md).
 
 
 # [Azure Resource Graph](#tab/graph)
