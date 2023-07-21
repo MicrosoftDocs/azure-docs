@@ -19,7 +19,7 @@ This article shows code samples that use version 11.x of the Azure Queue Storage
 
 ## Create a Queue Storage client
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#create-the-queue-storage-client)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#create-the-queue-storage-client)
 
 The [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) class enables you to retrieve queues stored in Queue Storage. Here's one way to create the service client:
 
@@ -34,7 +34,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 ## Create a queue
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#create-a-queue)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#create-a-queue)
 
 This example shows how to create a queue:
 
@@ -55,7 +55,7 @@ queue.CreateIfNotExists();
 
 ## Insert a message into a queue
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#insert-a-message-into-a-queue)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#insert-a-message-into-a-queue)
 
 To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. The following code example creates a queue (if it doesn't already exist) and inserts the message `Hello, World`:
 
@@ -80,7 +80,7 @@ queue.AddMessage(message);
 
 ## Peek at the next message
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#peek-at-the-next-message)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#peek-at-the-next-message)
 
 You can peek at the message in the front of a queue without removing it from the queue by calling the [`PeekMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) method.
 
@@ -104,7 +104,7 @@ Console.WriteLine(peekedMessage.AsString);
 
 ## Change the contents of a queued message
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#change-the-contents-of-a-queued-message)
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -127,7 +127,7 @@ queue.UpdateMessage(message,
 
 ## Dequeue the next message
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#dequeue-the-next-message)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#dequeue-the-next-message)
 
 Your code dequeues a message from a queue in two steps. When you call [`GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), you get the next message in a queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [`DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
 
@@ -151,7 +151,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## Use the async-await pattern with common Queue Storage APIs
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#use-the-async-await-pattern-with-common-queue-storage-apis)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#use-the-async-await-pattern-with-common-queue-storage-apis)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -182,7 +182,7 @@ Console.WriteLine("Deleted message");
 
 ## Use additional options for dequeuing messages
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#use-additional-options-for-dequeuing-messages)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#use-additional-options-for-dequeuing-messages)
 
 The following code example uses the [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. The timeout starts for all messages at the same time, so after five minutes have passed since the call to `GetMessages`, any messages that haven't been deleted will become visible again.
 
@@ -206,7 +206,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 ## Get the queue length
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#get-the-queue-length)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#get-the-queue-length)
 
 You can get an estimate of the number of messages in a queue. The [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) method returns queue attributes including the message count. The [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) property returns the last value retrieved by the `FetchAttributes` method, without calling Queue Storage.
 
@@ -233,7 +233,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## Delete a queue
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#delete-a-queue)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#delete-a-queue)
 
 To delete a queue and all the messages contained in it, call the [`Delete`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) method on the queue object.
 
