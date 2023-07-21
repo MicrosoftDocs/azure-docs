@@ -176,8 +176,8 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
-## Why is my cluster create, update taking so long?
-If you have an issue with creates, updates, double-check that you don't assign any policy or service limits, quotas, and constraints which block AKS cluster to manage resources like VM, Load Balancer, tags, etc.
+## Why is my cluster create/update taking so long?
+If you have issues with create and update cluster operations, make sure you don't have any assigned policies or service constraints that may block your AKS cluster from managing resources like VMs, load balancers, tags, etc.
 
 ## Can I restore my cluster after deleting it?
 
