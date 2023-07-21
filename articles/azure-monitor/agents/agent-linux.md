@@ -2,9 +2,9 @@
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
+ms.custom: devx-track-linux
 ms.date: 06/01/2023
 ms.reviewer: JeffWo
-
 ---
 
 # Install the Log Analytics agent on Linux computers
