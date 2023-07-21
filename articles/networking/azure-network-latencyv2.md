@@ -25,8 +25,6 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 
 Listing of Western Hemisphere regions including US, Canada, and Brazil.
 
-#### [Middle East / Africa](#tab/MiddleEast)
-
 #### [Europe](#tab/Europe)
 
 Listing of European regions including UK, France, Germany, and Switzerland.
@@ -34,6 +32,11 @@ Listing of European regions including UK, France, Germany, and Switzerland.
 #### [Asia / Pacific](#tab/AsiaPacific)
 
 Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
+
+
+#### [Middle East / Africa](#tab/MiddleEast)
+
+
 ---
 
 #### [US](#tab/US/Americas)
@@ -83,7 +86,6 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|23||38|
 |West US 3|17|37||
 
-
 #### [Canada / Brazil](#tab/Canada/americas)
 
 |Source|Brazil</br>South|Canada</br>Central|Canada</br>East|
@@ -132,7 +134,6 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|182|64|73|
 |West US 3|162|66|73|
 
-### [Fran]
 #### [Australia](#tab/Australia/AsiaPacific)
 
 | Source | Australia</br>Central | Australia</br>Central 2 | Australia</br>East | Australia</br>Southeast |
@@ -228,6 +229,199 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US|106|113|
 |West US 2|99|105|
 |West US 3|108|115|
+
+#### [Western Europe](#tab/WesternEurope/Europe)
+
+|Source|France Central|France South|West Europe|
+|---|---|---|---|
+|Australia Central|238|227|245|
+|Australia Central 2|238|227|245|
+|Australia East|233|222|240|
+|Australia Southeast|230|219|237|
+|Brazil South|184|193|184|
+|Canada Central|99|109|100|
+|Canada East|109|118|109|
+|Central India|126|115|132|
+|Central US|104|113|105|
+|East Asia|180|169|187|
+|East US|82|91|83|
+|East US 2|86|95|87|
+|France Central||13|11|
+|France South|14||23|
+|Germany North|18|25|13|
+|Germany West Central|10|17|8|
+|Japan East|212|201|219|
+|Japan West|226|215|234|
+|Korea Central|215|204|222|
+|Korea South|209|198|216|
+|North Central US|98|108|99|
+|North Europe|17|26|18|
+|Norway East|28|41|21|
+|Norway West|24|33|17|
+|Qatar Central|117|105|124|
+|South Africa North|172|161|183|
+|South Africa West|158|171|158|
+|South Central US|112|122|114|
+|South India|156|146|169|
+|Southeast Asia|147|137|156|
+|Sweden Central|36|43|22|
+|Switzerland North|15|12|13|
+|Switzerland West|12|8|17|
+|UAE Central|111|100|118|
+|UAE North|112|101|119|
+|UK South|8|18|9|
+|UK West|13|22|14|
+|West Central US|118|129|119|
+|West Europe|10|21||
+|West India|123|112|130|
+|West US|141|151|143|
+|West US 2|140|149|142|
+|West US 3|130|140|131|
+
+#### [Central Europe](#tab/CentralEurope/Europe)
+
+|Source|Germany North|Germany West Central|Switzerland North|Switzerland West|
+|---|---|---|---|---|
+|Australia Central|248|242|237|234|
+|Australia Central 2|248|242|237|234|
+|Australia East|243|237|232|228|
+|Australia Southeast|240|234|229|226|
+|Brazil South|195|189|196|192|
+|Canada Central|110|105|111|107|
+|Canada East|120|114|120|117|
+|Central India|135|129|124|121|
+|Central US|115|109|115|112|
+|East Asia|191|185|179|176|
+|East US|93|87|93|90|
+|East US 2|97|91|98|94|
+|France Central|17|10|15|11|
+|France South|25|17|12|8|
+|Germany North||10|15|19|
+|Germany West Central|9||7|10|
+|Japan East|223|217|211|208|
+|Japan West|0|231|226|222|
+|Korea Central|226|220|214|211|
+|Korea South|220|214|208|204|
+|North Central US|109|103|109|106|
+|North Europe|28|23|30|25|
+|Norway East|20|26|31|34|
+|Norway West|23|24|29|32|
+|Qatar Central|127|121|116|112|
+|South Africa North|184|180|175|171|
+|South Africa West|168|163|170|166|
+|South Central US|124|117|124|120|
+|South India|160|162|158|157|
+|Southeast Asia|161|155|149|146|
+|Sweden Central|18|27|33|36|
+|Switzerland North|15|7||6|
+|Switzerland West|18|10|6||
+|UAE Central|120|116|110|106|
+|UAE North|122|116|111|107|
+|UK South|21|14|20|16|
+|UK West|23|17|25|21|
+|West Central US|130|124|129|126|
+|West Europe|13|9|14|17|
+|West India|133|127|122|118|
+|West US|153|147|153|149|
+|West US 2|151|145|151|148|
+|West US 3|141|135|141|138|
+
+#### [Norway / Sweden](#tab/NorwaySweden/Europe)
+
+|Source|Norway East|Norway West|Sweden Central|
+|---|---|---|---|
+|Australia Central|262|258|265|
+|Australia Central 2|262|258|266|
+|Australia East|257|253|261|
+|Australia Southeast|254|250|258|
+|Brazil South|203|197|206|
+|Canada Central|117|107|128|
+|Canada East|126|117|138|
+|Central India|149|144|153|
+|Central US|122|127|133|
+|East Asia|204|200|208|
+|East US|99|95|109|
+|East US 2|104|100|114|
+|France Central|28|23|35|
+|France South|41|33|43|
+|Germany North|23|23|19|
+|Germany West Central|26|23|27|
+|Japan East|236|232|240|
+|Japan West|251|247|255|
+|Korea Central|239|235|243|
+|Korea South|233|229|237|
+|North Central US|115|115|127|
+|North Europe|37|33|45|
+|Norway East||9|9|
+|Norway West|9||16|
+|Qatar Central|140|137|144|
+|South Africa North|200|196|204|
+|South Africa West|177|171|180|
+|South Central US|130|131|141|
+|South India|181|177|185|
+|Southeast Asia|174|170|178|
+|Sweden Central|9|16||
+|Switzerland North|31|29|33|
+|Switzerland West|34|32|36|
+|UAE Central|135|131|139|
+|UAE North|136|132|140|
+|UK South|27|23|37|
+|UK West|29|25|40|
+|West Central US|135|140|150|
+|West Europe|22|16|27|
+|West India|146|142|150|
+|West US|160|164|170|
+|West US 2|157|162|168|
+|West US 3|147|150|159|
+
+#### [UK / North Europe](#tab/UKNorthEurope/Europe)
+
+|Source|UK South|UK West|North Europe|
+|---|---|---|---|
+|Australia Central|243|245|251|
+|Australia Central 2|243|245|251|
+|Australia East|238|240|246|
+|Australia Southeast|235|237|243|
+|Brazil South|178|180|170|
+|Canada Central|93|96|84|
+|Canada East|103|106|93|
+|Central India|130|132|137|
+|Central US|98|100|89|
+|East Asia|185|187|193|
+|East US|76|79|67|
+|East US 2|80|84|71|
+|France Central|8|12|17|
+|France South|18|22|26|
+|Germany North|22|25|29|
+|Germany West Central|14|17|22|
+|Japan East|217|219|231|
+|Japan West|231|234|238|
+|Korea Central|220|222|228|
+|Korea South|214|216|222|
+|North Central US|92|95|83|
+|North Europe|11|14||
+|Norway East|27|29|35|
+|Norway West|23|25|32|
+|Qatar Central|122|124|130|
+|South Africa North|173|174|179|
+|South Africa West|152|154|160|
+|South Central US|106|110|97|
+|South India|161|167|169|
+|Southeast Asia|153|158|163|
+|Sweden Central|37|40|45|
+|Switzerland North|20|25|29|
+|Switzerland West|17|21|25|
+|UAE Central|116|118|124|
+|UAE North|116|119|125|
+|UK South||5|11|
+|UK West|6||14|
+|West Central US|112|115|103|
+|West Europe|9|11|17|
+|West India|127|130|135|
+|West US|136|139|127|
+|West US 2|134|137|125|
+|West US 3|124|127|115|
+
 
 #### [Korea](#tab/Korea/AsiaPacific)
 
@@ -326,7 +520,7 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|210|211|195|
 |West US 3|232|233|217|
 
-#### [UAE / Qatar](#tab/MiddleEast/uae-qatar)
+#### [UAE / Qatar](#tab/uae-qatar/middleeast)
 
 |Source|Qatar Central|UAE Central|UAE North|
 |---|---|---|---|
@@ -374,7 +568,7 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US 2|262|254|256|
 |West US 3|250|237|239|
 
-### [South Africa](#tab/middleeast/southafrica)
+### [South Africa](#tab/southafrica/middleeast)
 
 |Source|South Africa North|South Africa West|
 |---|---|---|
@@ -421,7 +615,6 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US|312|294|
 |West US 2|310|291|
 |West US 3|296|277|
-
 
 ---
 
