@@ -63,7 +63,7 @@ The following tools and services are used in this scenario.
 
 + [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
 
-+ [Azure Key Vault](../key-vault/general/overview.md), you can create key vault using [Azure portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -179,7 +179,7 @@ Conditions that will prevent you from adopting this approach include:
 > 
 > The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
-1. [Sign into Azure portal](https://portal.azure.com/).
+1. [Sign into Azure portal](https://portal.azure.com).
 
 1. Select **+ Create a new resource**.
 
@@ -239,7 +239,7 @@ Conditions that will prevent you from adopting this approach include:
 
 ### [**Register an app**](#tab/register-app)
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
+1. In the [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
