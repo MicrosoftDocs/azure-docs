@@ -484,7 +484,6 @@ Now that you have the Logic App connector resource set up and configured, let's 
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
 
-
 ---
 
 :::moniker-end
