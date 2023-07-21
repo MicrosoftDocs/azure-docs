@@ -177,7 +177,7 @@ Learn how to use the Dapr Functions extension via the provided samples.
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] |  |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr extension with the Kafka bindings Dapr component. |
 | [Python v1][dapr-python] | Run a Dapr-ized Python application and use the Azure Functions Python v1 programming model to integrate with Dapr components. |
 | [Python v2][dapr-python-2] | Launch a Dapr application using the Azure Functions Python v2 programming model to integrate with Dapr components. |
 

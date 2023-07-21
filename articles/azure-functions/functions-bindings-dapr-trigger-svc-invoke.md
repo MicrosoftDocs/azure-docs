@@ -171,7 +171,7 @@ The following table explains the parameters for the `DaprServiceInvocationTrigge
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -181,6 +181,33 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to `daprServiceInvocationTrigger`.|
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**direction** | Must be set to `in`.  |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_service_invocation_trigger` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | The argument name. In the example, this value is set to `payload`. |
+|**method_name** | The name of the variable that represents the Dapr data. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprServiceInvocationTrigger`.|
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`.  |
+
+---
 
 ::: zone-end
 

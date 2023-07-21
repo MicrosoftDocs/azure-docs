@@ -192,9 +192,10 @@ The following table explains the parameters for the `DaprStateOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
+
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 |function.json property | Description|
@@ -204,6 +205,36 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**stateStore** | The name of the state store. |
 |**key** | The name of the key to save state within the state store. |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_state_output` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | Must be set to `state`. |
+|**state_store** | The name of the state store. |
+|**key** | The name of the key to save state within the state store. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the _function.json_ file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprState`. |
+|**direction** | Must be set to `out`. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**stateStore** | The name of the state store. |
+|**key** | The name of the key to save state within the state store. |
+
+---
 
 ::: zone-end
 

@@ -187,7 +187,7 @@ The following table explains the parameters for `DaprSecretInput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -200,6 +200,38 @@ The following table explains the binding configuration properties that you set i
 |**key** | The secret key value. |
 |**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
 |**metadata** | The metadata namespace. |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_secret_input` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | Must be set to `secret`. |
+|**secret_store_name** | The name of the secret store. |
+|**key** | The secret key value. |
+|**metadata** | The metadata namespace. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprSecret`. |
+|**direction** | Must be set to `in`. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
+
+---
 
 ::: zone-end
 

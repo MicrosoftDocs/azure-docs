@@ -173,7 +173,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopic
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the _function.json_ file.
@@ -182,6 +182,35 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 |**type** | Must be set to `daprTopicTrigger`. |
 |**pubsubname** | The name of the Dapr pub/sub component type. |
+|**topic** | Name of the topic. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`.  |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_topic_trigger` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | The argument name. In the example, this value is set to `subEvent`. |
+|**pub_sub_name** | The name of the Dapr subscription component type. |
+|**topic** | The subscription topic. |
+|**route** | The subscription route. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the _function.json_ file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprTopicTrigger`. |
+|**pubsubname** | The name of the Dapr subscription component type. |
 |**topic** | Name of the topic. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**direction** | Must be set to `in`.  |

@@ -174,7 +174,7 @@ The following table explains the parameters for the `DaprBindingOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -186,6 +186,36 @@ The following table explains the binding configuration properties that you set i
 |**bindingname** | The name of the binding. |
 |**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_binding_output` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | Set a unique argument name. In the example, this value is set to `messages`. |
+|**binding_name** | The name of the binding event. |
+|**operation** | The binding operation name/identifier. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBinding`. |
+|**direction** | Must be set to `out`. |
+|**bindingname** | The name of the binding. |
+|**operation** | The binding operation. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+
+---
 
 ::: zone-end
 

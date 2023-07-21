@@ -172,7 +172,7 @@ The following table explains the parameters for `DaprStateInput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -183,8 +183,39 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Must be set to `in`.  |
 |**dataType** | The data type used by the state store. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
-|**stateStore** | The name of the binding. |
+|**stateStore** | The name of the state store. |
 |**key** | The name of the key to retrieve from the specified state store. |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_state_input` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | Name of the argument. In the example, this value is set to `data`. |
+|**state_store** | The name of the state store. |
+|**key** | The secret key value.The name of the key to retrieve from the specified state store. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprState`. |
+|**direction** | Must be set to `in`.  |
+|**dataType** | The data type used by the state store. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**stateStore** | The name of the state store. |
+|**key** | The name of the key to retrieve from the specified state store. |
+
+--- 
 
 ::: zone-end
 

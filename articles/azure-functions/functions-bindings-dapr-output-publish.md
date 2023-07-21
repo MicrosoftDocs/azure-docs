@@ -177,9 +177,10 @@ The following table explains the parameters for the `DaprPublishOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
+
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 |function.json property | Description|
@@ -187,8 +188,38 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to `daprPublish`. |
 |**direction** | Must be set to `out`. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
-|**pubsubname** | The name of the pub/sub component service. |
-|**topic** | The name of the pub/sub topic. |
+|**pubsubname** | The name of the publisher component service. |
+|**topic** | The name/identifier of the publisher topic. |
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Configuration
+
+# [Python v2](#tab/v2)
+
+The following table explains the binding configuration properties for `@dapp.dapr_publish_output` that you set in your Python code.
+
+|Property | Description|
+|---------|----------------------|
+|**arg_name** | Must be set to `pubEvent`. |
+|**pub_sub_name** | The name of the publisher event. |
+|**topic** | The publisher topic name/identifier. |
+
+# [Python v1](#tab/v1)
+
+The following table explains the binding configuration properties that you set in the _function.json_ file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprPublish`. |
+|**direction** | Must be set to `out`. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**pubsubname** | The name of the publisher component service. |
+|**topic** | The name/identifier of the publisher topic. |
+
+---
 
 ::: zone-end
 
