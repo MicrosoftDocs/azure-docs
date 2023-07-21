@@ -175,7 +175,9 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
-   (✓) Done: Deploying service boot-for-azure
+   ...
+   
+   Deploying service demo (Fetching endpoints for spring app service)
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
    
    
