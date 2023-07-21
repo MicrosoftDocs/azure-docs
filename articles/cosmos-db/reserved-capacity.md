@@ -31,7 +31,7 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 We calculate purchase recommendations based on your hourly usage pattern. Usage over last 7, 30 and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All services** > **Reservations** > **Add**.
 
@@ -55,7 +55,7 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All services** > **Reservations** > **Add**.  
 
