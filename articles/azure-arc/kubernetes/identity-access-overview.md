@@ -31,7 +31,7 @@ For more information, see [Use cluster connect to securely connect to Azure Arc-
 
 ### Azure AD and Azure RBAC without cluster connect
 
-If you don't want to use cluster connect, you can authenticate and authorize users so they can access the connected cluster by using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Using [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md) lets you control the access granted to users in your tenant, managing access directly from Azure using familiar Azure identity and access features. You can also configure roles at the subscription or resource group scope, letting them roll out to all connected clusters within that scope.
+If you don't want to use cluster connect, you can authenticate and authorize users so they can access the connected cluster by using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Using [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md) lets you control the access that's granted to users in your tenant, managing access directly from Azure using familiar Azure identity and access features. You can also configure roles at the subscription or resource group scope, letting them roll out to all connected clusters within that scope.
 
 Azure RBAC supports [conditional access](azure-rbac.md#use-conditional-access-with-azure-ad), allowing you to enable [just-in-time cluster access](azure-rbac.md#configure-just-in-time-cluster-access-with-azure-ad) or limit access to approved clients or devices.
 
@@ -76,7 +76,7 @@ If you're using cluster connect with Azure AD authentication, you have the optio
 
 [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) provides granular filtering of user actions. With Kubernetes RBAC, you assign users or groups permission to create and modify resources or view logs from running application workloads. You can create roles to define permissions, and then assign those roles to users with role bindings. Permissions may be scoped to a single namespace or across the entire cluster.
 
-If you're using cluster connect with the [service account token authentication option](cluster-connect.md#service-account-token-authentication-option)., you must use Kubernetes RBAC to provide connectivity to the `apiserver` of the cluster. This connectivity doesn't require any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner.
+If you're using cluster connect with the [service account token authentication option](cluster-connect.md#service-account-token-authentication-option), you must use Kubernetes RBAC to provide connectivity to the `apiserver` of the cluster. This connectivity doesn't require any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner.
 
 If you're using [cluster connect with Azure AD authentication](cluster-connect.md#azure-active-directory-authentication-option), you also have the option to use Kubernetes RBAC instead of Azure RBAC.
 
