@@ -137,7 +137,7 @@ status:
   - lastTransitionTime: "2023-06-19T21:03:29Z"
     message: alb-id=/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.ServiceNetworking/trafficControllers/alb-zzz
     observedGeneration: 1
-    reason: Programmed
+    reason: Ready
     status: "True"
     type: Deployment
 ```
