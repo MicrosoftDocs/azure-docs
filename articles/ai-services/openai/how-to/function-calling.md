@@ -134,7 +134,7 @@ if response_message.get("function_call"):
     messages.append( # adding assistant response to messages
         {
             "role": response_message["role"],
-            "name": response_message["function_call"]["name"],
+            "name": function_name,
             "content": response_message["function_call"]["arguments"],
         }
     )
