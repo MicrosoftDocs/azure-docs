@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # View, add, and remove assignments for an access package in entitlement management
 
-In entitlement management, you can see who has been assigned to access packages, their policy, status, and user lifecycle(preview). If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for access packages.
+In entitlement management, you can see who has been assigned to access packages, their policy, status, and user lifecycle (preview). If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for access packages.
 
 ## Prerequisites
 
@@ -189,7 +189,7 @@ $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 
-## Managing users lifecycle (Preview)  
+## Manage user lifecycle (preview)  
 
 Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
 
@@ -216,7 +216,7 @@ To manage user lifecycle, you'd follow these steps:
     :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection.":::
 1. Select save.
 
-## Managing user lifecycle programmatically 
+## Manage user lifecycle programmatically 
 
 To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
 
