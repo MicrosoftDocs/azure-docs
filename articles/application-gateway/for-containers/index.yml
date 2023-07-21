@@ -53,9 +53,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: SSL Offloading
-            url: how-to-ssl-offloading.md
+            url: how-to-ssl-offloading-gateway-api.md
           - text: Backend Mutual Authentication (mTLS)
-            url: how-to-backend-mtls.md
+            url: how-to-backend-mtls-gateway-api.md
 
 # Card
   - title: Application Gateway for Containers Kubernetes Reference
