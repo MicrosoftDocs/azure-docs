@@ -225,9 +225,7 @@ Create a token cache helper class that initializes a token cache. The applicatio
 
 ## Create the WPF desktop app UI
 
-Modify the *MainWindow.xaml* file to add the UI elements for the app. 
-
-Open the *MainWindow.xaml* file in the root folder of the app and add the following piece of code with the `<Grid></Grid>` control section.
+Modify the *MainWindow.xaml* file to add the UI elements for the app. Open the *MainWindow.xaml* file in the root folder of the app and add the following piece of code with the `<Grid></Grid>` control section.
 
 ```xaml
     <StackPanel Background="Azure">
@@ -383,9 +381,9 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
 
 ## Add code to the App.xaml.cs file
 
-*App.xaml* is where you declare resources that are used across the app. It's the entry point for your app. *App.xaml.cs8 is the code behind file for *App.xaml*. *App.xaml.cs* also defines the start window for your application.
+*App.xaml* is where you declare resources that are used across the app. It's the entry point for your app. *App.xaml.cs8 is the code behind file for *App.xaml*. *App.xaml.cs* also defines the start window for your application. 
 
-1. Open the *App.xaml.cs* file in the root folder of the app and add the following code in the file.
+Open the *App.xaml.cs* file in the root folder of the app and add the following code in the file.
 
     ```csharp
     using System.Windows;
