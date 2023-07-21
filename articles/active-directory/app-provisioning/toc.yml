@@ -51,6 +51,8 @@ items:
         href: inbound-provisioning-api-graph-explorer.md
       - name: Quickstart with Powershell
         href: inbound-provisioning-api-powershell.md
+      - name: Quickstart with Azure Logic Apps
+        href: inbound-provisioning-api-logic-apps.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
