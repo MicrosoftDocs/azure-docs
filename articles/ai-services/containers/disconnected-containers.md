@@ -52,7 +52,7 @@ Access is limited to customers that meet the following requirements:
 
 ### Create a new resource
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
 
 2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
@@ -171,12 +171,3 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure AI services containers overview](../cognitive-services-container-support.md)
-
-
-
-
-
-
-
-
-

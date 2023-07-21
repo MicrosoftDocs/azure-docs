@@ -94,7 +94,7 @@ Replicating conditional access policies ensures you don't encounter unexpected b
 
 Viewing your production tenant conditional access policies may need to be performed by a company administrator.
 
-1. Sign into the [Azure portal](https://portal.azure.com) using your production tenant account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your production tenant account.
 1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
 1. View the list of policies in your tenant. Click the first one.
 1. Navigate to **Cloud apps or actions**.
@@ -110,7 +110,7 @@ In a new tab or browser session, sign in to the [Azure portal](https://portal.az
 
 Replicating permission grant policies ensures you don't encounter unexpected prompts for admin consent when moving to production.
 
-1. Sign into the [Azure portal](https://portal.azure.com) using your production tenant account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your production tenant account.
 1. Click on **Azure Active Directory**.
 1. Go to **Enterprise applications**.
 1. From your production tenant, go to **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent** settings. Copy the settings there to your test tenant.
