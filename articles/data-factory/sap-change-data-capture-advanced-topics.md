@@ -19,12 +19,12 @@ Learn about advanced topics for the SAP CDC connector like metadata driven data 
 
 ## Parametrizing an SAP CDC mapping data flow
 
-One of the key strengths of pipelines and mapping data flows in Azure Data Factory and Azure Synapse Analytics is the support for metadata driven data integration. With this, it is possible to design a single (or very few) parametrized pipeline that can be used to handle integration of potentially hundreds or even thousands of sources.
+One of the key strengths of pipelines and mapping data flows in Azure Data Factory and Azure Synapse Analytics is the support for metadata driven data integration. With this feature, it is possible to design a single (or few) parametrized pipeline that can be used to handle integration of potentially hundreds or even thousands of sources.
 The SAP CDC connector has been designed with this principle in mind: all relevant properties, whether it is the source object, run mode, key columns, etc., can be provided via parameters to maximize flexibility and reuse potential of SAP CDC mapping data flows.
 
 To understand the basic concepts of parametrizing mapping data flows, read [Parameterizing mapping data flows](parameters-data-flow.md).
 
-Mapping data flows do not necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. With this, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). With this, the complete source (or sink) configuration is maintained in a one place, which provides a better overview and simplies parametrizing a mapping data flow.
+Mapping data flows do not necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). This provides a better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
 
 ### Parametrizing source and run mode
 
@@ -37,7 +37,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **HANA** for SAP HANA Information Views
     - **SAPI** for SAP DataSources/Extractors
     - when using SAP Landscape Transformation Replication Server (SLT) as a source, the ODP context name is "SLT~<Queue Alias>". The **Queue Alias** value can be found under **Administration Data** in the SLT configuration in the SLT cockpit (SAP transaction LTRC).
-    - **ODP_SELF** and **RANDOM** are ODP contexts used for technical validation and testing, and will typically not be relevant.
+    - **ODP_SELF** and **RANDOM** are ODP contexts used for technical validation and testing, and are typically not relevant.
 - **ODP name**: provide the ODP name you want to extract data from.
 - **Run mode**: valid parameter values are
     - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot
@@ -47,11 +47,11 @@ When **Source type** is **Inline**, the following properties can be parametrized
 
 ### Parametrizing the filter conditions for source partitioning
 
-In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. This is typically done in two steps:
+In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
 1. Define a parameter for the source partitioning scheme on pipeline level.
 2. Ingest the parameter into the mapping data flow.
 
-The format in step 1 follows the JSON standard: each partition is defined by an array of conditions. Each of these conditions is a JSON object with a struture aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW.
+The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a struture aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW.
 
 ::: { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> } :::, for example
 
@@ -59,7 +59,7 @@ The format in step 1 follows the JSON standard: each partition is defined by an 
 
 ::: { "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" } ::: corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
 
-The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. Note that there are no logical conjunctions which explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, i.e., "sign": "I" - for **excluding**):
+The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions which explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
 2. **excluding** conditions ("sign": "E") for the same field name are combined with **OR** (again, mentally, put brackets around the resulting condition)
 3. the resulting conditions of steps 1 and 2 are
@@ -92,7 +92,7 @@ For more information on the checkpoint key, see [Transform data with the SAP CDC
 
 Azure Data Factory pipelines can be executed via **triggered** or **debug runs**. A fundamental difference between these two options is, that debug runs execute the dataflow and pipeline based on the current version modeled in the user interface, while triggered runs execute the last published version of a dataflow and pipeline.
 
-For SAP CDC, there is an additional aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process (e.g., in a production environment where consistency of a change data capture process needs to be preserved), debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (i.e. change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
+For SAP CDC, there is one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (i.e. change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
 
 >[!NOTE]
    > To test stability of a change data capture process with SAP CDC over a longer period of time (e.g., multiple days), data flow and pipeline need to be published, and **triggered** runs need to be executed.
