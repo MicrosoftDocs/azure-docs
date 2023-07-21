@@ -110,7 +110,7 @@ Use the following steps to deploy the microservice applications using the [Maven
 1. Use the following command to build and deploy each application:
 
    ```bash
-   ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw azure-spring-apps:deploy
    ```
 
 1. For the **OAuth2 login** prompt, authorize the login to Azure based on the OAuth2 protocol.
