@@ -135,25 +135,24 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
+    a. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
 
 | Training data size | Validation technique |
 |---|-----|
 |**Larger than 20,000 rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
 |**Smaller than 20,000& rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
     
-    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
+    b. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
     
-        >[!IMPORTANT]
-        > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+     >[!IMPORTANT]
+     > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+     * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
+     * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-data-assets.md#create-data-assets).         
+     * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
+     * The test dataset shouldn't be the same as the training dataset or the validation dataset.
+     * Forecasting jobs don't support train/test split.
         
-        * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-data-assets.md#create-data-assets).         
-        * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
-        * The test dataset shouldn't be the same as the training dataset or the validation dataset.
-        * Forecasting jobs don't support train/test split.
-        
-        ![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
         
 ## Customize featurization
 
