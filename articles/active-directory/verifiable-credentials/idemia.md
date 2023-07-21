@@ -26,11 +26,10 @@ The result is a trusted customer identity that gives service providers the assur
 
 Before you can continue with the steps below you need to meet the following requirements: 
 
-    - A tenant configured for Entra Verified ID service on your Azure account. 
-    
-        - If you do not have an existing tenant, you can create an Azure account for free. 
-    - You need to have completed the onboarding process with IDEMIA. 
-        - Register on the IDEMIA Experience Portal where you can easily create your own Microsoft VC Entra Application with a few steps low code integration. 
+- A tenant configured for Entra Verified ID service on your Azure account. 
+  - If you do not have an existing tenant, you can create an Azure account for free. 
+- You need to have completed the onboarding process with IDEMIA. 
+  - Register on the IDEMIA Experience Portal where you can easily create your own Microsoft VC Entra Application with a few steps low code integration. 
 
 >[!IMPORTANT]
 >Before you proceed, you must have received the URL from IDEMIA for users to be issued Verified IDs. If you have not yet received it, follow up with IDEMIA before you attempt following the steps documented below.
@@ -40,28 +39,20 @@ Before you can continue with the steps below you need to meet the following requ
 
 Users of Microsoft Azure AD verifiable credentials can in association with IDEMIA Identity Proofing solution: 
 
-    - Secure access to high-value applications and sensitive resources. 
-    
-    - Have faster remote onboarding of employees, partners and customers thanks to a trustworthy self-service enrollment by digitally validating information. 
-    
-    - Reduce support phone calls and security questions with a simpler, more secure process to verify identity. 
-    
+- Secure access to high-value applications and sensitive resources. 
+- Have faster remote onboarding of employees, partners and customers thanks to a trustworthy self-service enrollment by digitally validating information. 
+- Reduce support phone calls and security questions with a simpler, more secure process to verify identity. 
+
 This provides a safer, faster and easier way to verify users: 
 
-    - More protection against breaches. 
-    
-    - Credentials verified by IDEMIA’s industry-leading ID verification platform. 
-    
-    - Meets regulatory requirements by default. 
-    
-    - No custom integration. 
-    
-    - No need to store PII. 
-    
-    - Lower cost. 
-    
-    - Verify once, use everywhere. 
-    
+- More protection against breaches.
+- Credentials verified by IDEMIA’s industry-leading ID verification platform.
+- Meets regulatory requirements by default.
+- No custom integration.
+- No need to store PII.
+- Lower cost.
+- Verify once, use everywhere.
+
 /media/idemia/verified-id-deployment-diagram.jpg
 
 ## Configure IDEMIA as your identity verification proofing solution
