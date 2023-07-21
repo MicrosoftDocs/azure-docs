@@ -19,7 +19,7 @@ This article shows code samples that use version 11.x of the Azure Queue Storage
 
 ## Create a Queue Storage client
 
-Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#create-the-queue-storage-client)
+Related article: [Get started with Azure Queue Storage using .NET](storage-quickstart-queues-dotnet.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 The [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) class enables you to retrieve queues stored in Queue Storage. Here's one way to create the service client:
 
