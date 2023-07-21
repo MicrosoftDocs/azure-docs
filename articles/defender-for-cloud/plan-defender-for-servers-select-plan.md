@@ -1,5 +1,5 @@
 ---
-title: Select a Defender for Servers plan in Microsoft Defender for Cloud
+title: Select a Defender for Servers plan
 description: Select a Microsoft Defender for Servers plan in Microsoft Defender for Cloud to protect Azure, AWS, and GCP servers and on-premises machines.
 ms.topic: conceptual
 ms.author: dacurwin
@@ -62,6 +62,10 @@ You can choose from two Defender for Servers paid plans:
 | **[Docker host hardening](harden-docker-hosts.md)** | Assesses containers hosted on Linux machines running Docker containers, and then compares them with the Center for Internet Security (CIS) Docker Benchmark. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | Not supported in Plan 1| :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure virtual machines by using cloud APIs to collect data. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
+
+>[!Note]
+>Once a plan is enabled, a 30-day trial period begins. There is no way to stop, pause, or extend this trial period.
+>To enjoy the full 30-day trial, make sure to plan ahead to meet your evaluation purposes.
 
 ## Select a vulnerability assessment solution
 

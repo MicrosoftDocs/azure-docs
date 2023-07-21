@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.service: backup
 ms.date: 05/05/2023
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Kubernetes Service using PowerShell (preview) 

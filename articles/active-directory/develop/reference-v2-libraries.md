@@ -30,7 +30,7 @@ A single-page application runs entirely in the browser and fetches page data (HT
 
 Because a SPA's code runs entirely in the browser, it's considered a *public client* that's unable to store secrets securely.
 
-[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
+[!INCLUDE [active-directory-develop-libraries-spa](./includes/libraries/libraries-spa.md)]
 
 ## Web application
 
@@ -38,7 +38,7 @@ A web application runs code on a server that generates and sends HTML, CSS, and 
 
 Because a web application's code runs on the web server, it's considered a *confidential client* that can store secrets securely.
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 ## Desktop application
 
@@ -46,7 +46,7 @@ A desktop application is typically binary (compiled) code that displays a user i
 
 Because a desktop application runs on the user's desktop, it's considered a *public client* that's unable to store secrets securely.
 
-[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
+[!INCLUDE [develop-libraries-desktop](./includes/libraries/libraries-desktop.md)]
 
 ## Mobile application
 
@@ -54,7 +54,7 @@ A mobile application is typically binary (compiled) code that displays a user in
 
 Because a mobile application runs on the user's mobile device, it's considered a *public client* that's unable to store secrets securely.
 
-[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
+[!INCLUDE [develop-libraries-mobile](./includes/libraries/libraries-mobile.md)]
 
 ## Service / daemon
 
@@ -62,7 +62,7 @@ Services and daemons are commonly used for server-to-server and other unattended
 
 A service or daemon that runs on a server is considered a *confidential client* that can store its secrets securely.
 
-[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
+[!INCLUDE [develop-libraries-daemon](./includes/libraries/libraries-daemon.md)]
 
 ## Next steps
 

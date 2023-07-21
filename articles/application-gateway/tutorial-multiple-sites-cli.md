@@ -177,21 +177,21 @@ In order to ensure that more specific rules are processed first, use the rule pr
 ```azurecli-interactive
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name wccontosoRule \
+  --name contosoRule \
   --resource-group myResourceGroupAG \
-  --http-listener wccontosoListener \
+  --http-listener contosoListener \
   --rule-type Basic \
   --priority 200 \
-  --address-pool wccontosoPool
+  --address-pool contosoPool
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name shopcontosoRule \
+  --name fabrikamRule \
   --resource-group myResourceGroupAG \
-  --http-listener shopcontosoListener \
+  --http-listener fabrikamListener \
   --rule-type Basic \
   --priority 100 \
-  --address-pool shopcontosoPool
+  --address-pool fabrikamPool
 
 ```
 
@@ -221,7 +221,7 @@ for i in `seq 1 2`; do
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName

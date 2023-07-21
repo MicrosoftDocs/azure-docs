@@ -42,6 +42,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Australia Southeast
 *   Brazil South
 *   Canada Central
+*   Central India
 *   Central US
 *   East Asia
 *   East US
@@ -63,6 +64,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Southeast Asia
 *   Sweden Central
 *   Switzerland North
+*   Switzerland West
 *   UAE Central
 *   UAE North
 *   UK South
@@ -109,6 +111,7 @@ The following table describes what’s supported for each network features confi
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
+|    Traffic routed via NVA from peered VNet | Yes    | No |
 
 \* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 

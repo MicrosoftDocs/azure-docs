@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/26/2023
+ms.date: 07/07/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -21,7 +21,7 @@ This article explains the common tasks that an Enterprise Agreement (EA) adminis
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 > 
-> As of April 24, 2023 EA customers won't be able to manage their Azure Government EA enrollments from [Azure portal](https://portal.azure.com) instead they can manage it from [Azure Government portal](https://portal.azure.us).
+> As of August 14, 2023 EA customers won't be able to manage their Azure Government EA enrollments from the [Azure portal](https://portal.azure.com). Instead, they can manage it from the [Azure Government portal](https://portal.azure.us).
 
 ## Manage your enrollment
 
@@ -222,7 +222,7 @@ After account ownership is confirmed, you can create subscriptions and purchase 
 
 If you're a new EA account owner with a .onmicrosoft.com account, you might not have a forwarding email address by default. In that situation, you might not receive the activation email. If this situation applies to you, use the following steps to activate your account ownership.
 
-1. Sign into the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
 1. Navigate to **Cost Management + Billing** and select a billing scope.
 1. Select your account.
 1. In the left menu under **Settings**, select **Activate Account**.

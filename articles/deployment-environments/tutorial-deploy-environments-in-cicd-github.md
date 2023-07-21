@@ -407,7 +407,7 @@ az keyvault secret set \
 
 ## 4. Connect the catalog to your dev center
 
-A catalog is a repository that contains a set of catalog items. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use catalog items from the catalog to create environments.                                                         
+A catalog is a repository that contains a set of environment definitions. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use environment definitions from the catalog to create environments.                                                         
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 

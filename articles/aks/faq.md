@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 07/20/2022
 ms.custom: references_regions
 
 ---
@@ -70,6 +70,9 @@ To enable this architecture, each AKS deployment spans two resource groups:
 
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
 2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever you delete the cluster. You should only use this cluster for resources that share the cluster's lifecycle.
+
+   > [!NOTE]
+   > Modifying any resource under the node resource group in the AKS cluster is an unsupported action and will cause cluster operation failures. You can prevent changes from being made to the node resource group by [blocking users from modifying resources](cluster-configuration.md#fully-managed-resource-group-preview) managed by the AKS cluster.
 
 ## Can I provide my own name for the AKS node resource group?
 
@@ -172,6 +175,9 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 ## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+
+## Why is my cluster create/update taking so long?
+If you have issues with create and update cluster operations, make sure you don't have any assigned policies or service constraints that may block your AKS cluster from managing resources like VMs, load balancers, tags, etc.
 
 ## Can I restore my cluster after deleting it?
 

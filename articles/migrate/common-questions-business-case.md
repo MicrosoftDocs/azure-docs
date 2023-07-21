@@ -5,7 +5,8 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.service: azure-migrate
+ms.date: 07/17/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -20,7 +21,7 @@ This article answers common questions about Business case in Azure Migrate. If y
 
 ### How can I export the business case?
 
-You can click on export from the Business case to export it in an .xlsx file. If you see the **Export** gesture as disabled, you need to recalculate the business case by modifying any one assumption (Azure or on-premises) in the Business Case and click on Save. For example:
+You can select export from the Business case to export it in an .xlsx file. If you see the **Export** gesture as disabled, you need to recalculate the business case by modifying any one assumption (Azure or on-premises) in the Business Case and select **Save**. For example:
 
 1. Go to a business case and select **Edit assumptions** and choose **Azure assumptions**.
 1. Select **Reset** next to **Performance history duration date range is outdated** warning. You could also choose to change any other setting.
@@ -46,13 +47,13 @@ Currently, you can create a Business case on servers and workloads discovered us
 
 ### Why is the Build business case feature disabled?
 
-The **Build business case** feature will be enabled only when you have discovery performed using an Azure Migrate appliance for servers and workloads in your VMware, Hyper-V and Physical/Baremetal environment. The Business case feature is not supported for servers and/or workloads imported via a .csv file.
+The **Build business case** feature will be enabled only when you have discovery performed using an Azure Migrate appliance for servers and workloads in your VMware, Hyper-V and Physical/Baremetal environment. The Business case feature isn't supported for servers and/or workloads imported via a .csv file.
 
 ### Why can’t I build business case from my project?
 
-You will not be able to create a business case if your project is in one of these 3 project regions:
+You won't be able to create a business case if your project is in one of these two project regions:
 
-Germany West Central, East Asia and Switzerland North.
+Germany West Central and Sweden Central
 
 To verify in an existing project:
 1. You can use the https://portal.azure.com/ URL to get started
@@ -60,9 +61,9 @@ To verify in an existing project:
 3. On the **Azure Migrate: Discovery and assessment** tool, select **Overview**.
 4. Under Project details, select **Properties**.
 5. Check the Project location.
-6. The Business case feature is not supported in the following regions:
+6. The Business case feature isn't supported in the following regions:
 
-    Germany West Central, East Asia and Switzerland North.
+    Germany West Central and Sweden Central
 
 ### Why can't I change the currency during business case creation?
 Currently, the currency is defaulted to USD.
@@ -84,7 +85,7 @@ Currently, the currency is defaulted to USD.
 
 There are multiple possibilities for this issue.
 
-- Discovery hasn't completed - Wait for the discovery to complete. It is recommended to wait for at least 24 hours.
+- Discovery hasn't completed - Wait for the discovery to complete. It's recommended to wait for at least 24 hours.
 - Check and resolve any discovery issues.
 - Changes to discovery happened after creating the Business case.
 
@@ -107,7 +108,7 @@ To deep dive into sizing, readiness, and Azure cost estimates, you can create re
 
 
 ### Does the Azure SQL recommendation logic include SQL consolidation?
-No, it does not include SQL consolidation.
+No, it doesn't include SQL consolidation.
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 ---
 
 # Use GitHub Actions with Azure Machine Learning
-[!INCLUDE [v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [v2](includes/machine-learning-dev-v2.md)]
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
 This article will teach you how to create a GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
@@ -24,7 +24,7 @@ GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` pat
 
 ## Prerequisites
 
-[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 

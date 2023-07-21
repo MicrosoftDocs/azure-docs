@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Enable and manage soft delete for containers
