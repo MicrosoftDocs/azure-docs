@@ -447,6 +447,6 @@ Run your app and sign in to test the application
 
 ## See also
 
-[Sign in users in a sample Electron desktop application by using Azure AD for customers](./how-to-desktop-app-electron-sample-sign-in.md)
-[Sign in users in a sample .NET MAUI desktop application by using Azure AD for customers](./how-to-desktop-app-maui-sample-sign-in.md)
-[Customize branding for your sign-in experience](./how-to-customize-branding-customers.md)
+- [Sign in users in a sample Electron desktop application by using Azure AD for customers](./how-to-desktop-app-electron-sample-sign-in.md)
+- [Sign in users in a sample .NET MAUI desktop application by using Azure AD for customers](./how-to-desktop-app-maui-sample-sign-in.md)
+- [Customize branding for your sign-in experience](./how-to-customize-branding-customers.md)
