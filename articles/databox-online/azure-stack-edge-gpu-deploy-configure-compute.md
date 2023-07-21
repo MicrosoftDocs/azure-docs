@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/02/2023
+ms.date: 07/21/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -27,7 +27,8 @@ In this tutorial, you learn how to:
 > * Configure compute
 > * Get Kubernetes endpoints
 
- 
+ [!INCLUDE [deprecation-notice-managed-iot-edge](../../includes/azure-stack-edge-deprecation-notice-managed-iot-edge.md)]
+
 ## Prerequisites
 
 Before you set up a compute role on your Azure Stack Edge Pro device:

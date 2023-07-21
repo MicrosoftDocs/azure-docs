@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro 2 device. 
 
-This procedure can take around 20 to 30 minutes to complete.
+This procedure takes 20 to 30 minutes to complete.
 
 [!INCLUDE [deprecation-notice-managed-iot-edge](../../includes/azure-stack-edge-deprecation-notice-managed-iot-edge.md)]
 
