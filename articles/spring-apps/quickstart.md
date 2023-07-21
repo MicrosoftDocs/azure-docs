@@ -127,7 +127,7 @@ az spring app logs \
 
 From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
-:::image type="content" source="media/quickstart/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+:::image type="content" source="media/quickstart/logs.png" alt-text="Azure Spring Apps logs." lightbox="media/quickstart/logs.png":::
 
 ::: zone-end
 
@@ -150,7 +150,7 @@ Use the following steps to stream your application logs:
 1. Open the **Azure Explorer** window, expand the node **Azure**, expand the service node **Azure Spring Apps**, and expand the Azure Spring Apps instance you created, then select the instance *demo* of the app you created.
 2. Right-click and select **Start Streaming Logs**, then select **OK**, and you will see real-time application logs.
 
-   :::image type="content" source="media/quickstart/app-stream-log.png" alt-text="Azure Spring Apps streaming logs.":::
+   :::image type="content" source="media/quickstart/app-stream-log.png" alt-text="Azure Spring Apps streaming logs." lightbox="media/quickstart/app-stream-log.png":::
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
