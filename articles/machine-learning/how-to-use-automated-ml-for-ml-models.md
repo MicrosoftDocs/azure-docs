@@ -35,7 +35,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
 
 [![Azure Machine Learning studio navigation pane](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png#lightbox)
 
@@ -55,8 +55,6 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     >* The value you want to predict (target column) must be present in the data.
 
     1. To create a new dataset from a file on your local computer, select **+Create dataset** and then select **From local file**. 
-
-    1. In the **Basic info** form, give your dataset a unique name and provide an optional description. 
 
     1. Select **Next** to open the **Datastore and file selection form**. , you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
     
@@ -80,7 +78,7 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling (v1)](v1/how-to-connect-data-ui.md#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. 
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You're also able to view a preview of the dataset and sample statistics. 
@@ -106,16 +104,11 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     
     Select **Create**. Creation of a new compute can take a few minutes.
 
-    >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling (v1)](v1/how-to-connect-data-ui.md#profile) for more details).
-
     Select **Next**.
 
 1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp) for more information.
 
     1. For **classification**, you can also enable deep learning.
-    
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md).
 
     1. For **forecasting** you can, 
     
@@ -130,7 +123,6 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality isn't currently available for [certain forecasting algorithms (SDK v1)](./v1/how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model).
    Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis, and what-if perturbations. [Learn more about how you can generate a Responsible AI dashboard.](./concept-responsible-ai-dashboard.md)
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you don't spend more time on the training job than necessary.
@@ -143,9 +135,12 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
-    
-        1. Forecasting tasks only supports k-fold cross validation.
+    1. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
+
+| Training data size | Validation technique |
+|---|-----|
+|**Larger than 20,000 rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
+|**Smaller than 20,000& rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
     
     1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
     
@@ -153,7 +148,7 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
         * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset (v1)](./v1/how-to-create-register-datasets.md#tabulardataset).         
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-data-assets.md#create-data-assets).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset shouldn't be the same as the training dataset or the validation dataset.
         * Forecasting jobs don't support train/test split.
@@ -269,18 +264,19 @@ To better understand your model, you can see various insights about your model u
 
 To generate a Responsible AI dashboard for a particular model, 
 
-1. While submitting an Automated ML job, proceed to the **Task settings** section on the left nav bar and select the **View additional configuration settings** option. 
-1. In the new wizard appearing post that selection, check the “Explain best model” checkbox. 
+1. While submitting an Automated ML job, proceed to the **Task settings** section on the left nav bar and select the **View additional configuration settings** option.
+   
+1. In the new form appearing post that selection, select the **Explain best model** checkbox. 
 
 
 
     ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
-1. Proceed to the **Compute** page of the setup wizard and choose the “Serverless” as your compute.
+1. Proceed to the **Compute** page of the setup form and choose the **Serverless** as your compute.
 
    ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
-1. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the “View Responsible AI dashboard” link: 
+1. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the **View Responsible AI dashboard** link: 
 
  ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
@@ -326,7 +322,7 @@ The **Edit and submit** button opens the **Create a new Automated ML job** wizar
 Once you have the best model at hand, it's time to deploy it as a web service to predict on new data.
 
 >[!TIP]
-> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model (v1)](./v1/how-to-deploy-and-where.md) to the workspace. 
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model)](./how-to-deploy-online-endpoints.md) to the workspace. 
 >
 > Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 
@@ -352,7 +348,7 @@ Automated ML helps you with deploying the model without writing code:
     Compute type| Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md).
     Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts (v1)](./v1/how-to-deploy-and-where.md).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts](how-to-deploy-online-endpoints.md).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
@@ -366,6 +362,5 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service (SDK v1)](v1/how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
