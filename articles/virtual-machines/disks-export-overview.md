@@ -12,3 +12,10 @@ ms.custom: references_regions
 # Options for securing a managed disk
 
 There are a few options for securing Azure managed disks.
+
+First, you can 
+
+Via Azure RBAC by creating a custom role without the operations required for exporting and importing.
+Setting NetworkAccessPolicy to DenyAll for all the disks and snapshots in a subscription via an Azure policy
+Enabling AzureAD authentication for exporting and importing
+Enabling private links for exporting and importing data from secured Microsoft network.
