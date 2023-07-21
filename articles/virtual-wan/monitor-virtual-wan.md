@@ -31,11 +31,11 @@ Metrics in Azure Monitor are numerical values that describe some aspect of a sys
 
 For a list of the platform metrics collected for Virtual WAN, see [Monitoring Virtual WAN data reference metrics](monitor-virtual-wan-reference.md#metrics).
 
-### <a name="metrics-steps"></a>View gateway metrics
+### <a name="metrics-steps"></a>View metrics for Virtual WAN
 
 The following steps help you locate and view metrics:
 
-1. In the portal, navigate to the virtual hub that has the gateway.
+1. In the portal, navigate to the virtual hub.
 
 1. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
 
@@ -47,12 +47,14 @@ The following steps help you locate and view metrics:
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted." lightbox="./media/monitor-virtual-wan-reference/metrics-page.png":::
 
+1. To see metrics for the virtual hub router, you can select **Metrics** from the virtual hub **Overview** blade. 
+
 
 ## Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. 
 
-For a list of supported logs in Virtual WAN, see [Monitoring Virtual WAN data reference logs](monitor-virtual-wan-reference.md#diagnostic).
+For a list of supported logs in Virtual WAN, see [Monitoring Virtual WAN data reference logs](monitor-virtual-wan-reference.md#diagnostic). All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md).
 
 ### <a name="create-diagnostic"></a>Create diagnostic setting to view logs
 
@@ -66,14 +68,14 @@ The following steps help you create, edit, and view diagnostic settings:
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub." lightbox="./media/monitor-virtual-wan-reference/select-hub-gateway.png":::
 
-1. On the right part of the page, click on the **View in Azure Monitor** link to the right of **Logs**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or simply archive to a storage account.
+1. On the right part of the page, click on the **View in Azure Monitor** link to the right of **Logs**.
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs." lightbox="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png":::
 
 1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
 
     :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
-1. For more information and troubleshooting on creating diagnostic settings via Azure portal, CLI, PowerShell, etc., you can visit [create diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md). All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md).
+1. After clicking **Save**, you should start seeing logs appear in this log analytics workspace within a few hours. 
 1. To monitor a **secured hub (with Azure Firewall)**, then diagnostics and logging configuration must be done from accessing the **Diagnostic Setting** tab:
 
       :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings." lightbox="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" :::
@@ -99,3 +101,4 @@ Virtual WAN uses Network Insights to provide users and operators with the abilit
 * See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
 * See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for additional details on **Azure Monitor Metrics**. 
 * See [All resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md) for a list of all supported metrics.
+* See [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for more information and troubleshooting on creating diagnostic settings via Azure portal, CLI, PowerShell, etc., you can visit 
