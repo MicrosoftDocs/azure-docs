@@ -153,7 +153,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 	helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
              --namespace azure-alb-system \
-	     --version 0.4.023901 \
+	     --version 0.4.023921 \
 	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
 
