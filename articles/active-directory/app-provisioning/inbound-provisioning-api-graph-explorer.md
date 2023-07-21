@@ -29,12 +29,15 @@ This tutorial describes how you can quickly test [API-driven inbound provisionin
 
 1. Open a new browser tab or browser window.
 1. Launch the URL https://aka.ms/ge to access Microsoft Graph Explorer.
-1. Click on the user profile icon to sign in.
+1. Click on the user profile icon to sign in. 
+
      [![Image showing the user profile icon.](media/inbound-provisioning-api-graph-explorer/provisioning-user-profile-icon.png)](media/inbound-provisioning-api-graph-explorer/provisioning-user-profile-icon.png#lightbox)
 1. Complete the login process with a user account that has *Global Administrator* role.
 1. Upon successful login, the Tenant information shows your tenant name.
+
      [![Screenshot of Tenant name.](media/inbound-provisioning-api-graph-explorer/provisioning-tenant-name.png)](media/inbound-provisioning-api-graph-explorer/provisioning-tenant-name.png#lightbox)
-     You're now ready to invoke the API. 
+
+   You're now ready to invoke the API. 
 1. In the API request panel, set the HTTP request type to **POST**. 
 1. Copy and paste the provisioning API endpoint retrieved from the provisioning app overview page.
 1. Under the Request headers panel, add a new key value pair of **Content-Type = application/scim+json**.

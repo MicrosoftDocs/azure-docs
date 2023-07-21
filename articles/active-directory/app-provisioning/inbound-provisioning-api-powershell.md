@@ -24,6 +24,7 @@ This tutorial describes how to use a PowerShell script to implement Microsoft En
 This tutorial addresses the following integration scenario: 
 * Your system of record generates periodic CSV file exports containing worker data. 
 * You want to use an unattended PowerShell script to automatically provision records from the CSV file to your target directory (on-premises Active Directory or Microsoft Entra ID). 
+* The PowerShell script simply reads data from the CSV file and uploads it to the provisioning API endpoint. The API-driven inbound provisioning app configured in Microsoft Entra ID performs the task of applying your IT managed provisioning rules to create/update/enable/disable accounts in the target directory.
 
 :::image type="content" source="media/inbound-provisioning-api-powershell/powershell-integration-overview.png" alt-text="Architecture overview of PowerShell-based integration." lightbox="media/inbound-provisioning-api-powershell/powershell-integration-overview.png":::
 
