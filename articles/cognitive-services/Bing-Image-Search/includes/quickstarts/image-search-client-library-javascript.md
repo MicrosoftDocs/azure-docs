@@ -61,7 +61,7 @@ Use this quickstart to make your first image search using the Bing Image Search 
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 
-    If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.
+    If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL, along with the total number of returned images.
     ```javascript
     sendQuery().then(imageResults => {
         if (imageResults == null) {
