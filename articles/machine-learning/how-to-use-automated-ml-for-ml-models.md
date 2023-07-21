@@ -269,19 +269,19 @@ To generate a Responsible AI dashboard for a particular model,
 
 
 
-    ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
+    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
 
 1. Proceed to the **Compute** page of the setup form and choose the **Serverless** as your compute.
 
-   ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/compute-serverless.png)
+   ![Serverless compute selection](media/how-to-use-automated-ml-for-ml-models/compute-serverless.png)
 
 1. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the **View Responsible AI dashboard** link: 
 
- ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
+ ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
 
 The Responsible AI dashboard appears for that model as shown in this image:
 
-  ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png)
+  ![Responsible AI dashboard](media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png)
 
 In the dashboard, you'll find four components activated for your Automated ML’s best model: 
 
