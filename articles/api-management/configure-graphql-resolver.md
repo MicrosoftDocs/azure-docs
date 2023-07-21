@@ -68,7 +68,7 @@ The following steps create a resolver using an HTTP-based data source. The gener
 
 List and manage the resolvers for a GraphQL API on the API's **Resolvers** tab. 
 
-:::image type="content" source="media/configure-graphql-resolver/resolvers-tab.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/resolvers-tab.png":::
+:::image type="content" source="media/configure-graphql-resolver/resolvers-tab.png" alt-text="Screenshot of managing resolvers for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/resolvers-tab.png":::
 
 On the **Resolvers** tab:
 
