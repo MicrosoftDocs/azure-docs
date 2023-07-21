@@ -327,7 +327,7 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="sql"
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code_mysql_aad.md)]
+[!INCLUDE [code sample for sql aad connection](./includes/code_sql_aad.md)]
 
 
 :::zone-end
