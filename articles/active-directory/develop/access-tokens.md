@@ -78,10 +78,10 @@ If a user with a token with a one hour lifetime performs an interactive sign-in 
 
 Not all applications should validate tokens. Only in specific scenarios should applications validate a token:
 
-- Web APIs must validate access tokens sent to them by a client. They must only accept tokens containing their `aud` claim.
-- Confidential web applications like ASP.NET Core must validate ID tokens sent to them by using the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
+- Web APIs must validate access tokens sent to them by a client. They must only accept tokens containing one of their AppId URIs as the `aud` claim.
+- Web apps must validate ID tokens sent to them by using the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
 
-If none of the above scenarios apply, there's no need to validate the token, and may present a security and reliability risk when basing decisions on the validity of the token. Public clients like native or single-page applications don't benefit from validating tokens because the application communicates directly with the IDP where SSL protection ensures the tokens are valid.
+If none of the above scenarios apply, there's no need to validate the token, and may present a security and reliability risk when basing decisions on the validity of the token. Public clients like native, desktop or single-page applications don't benefit from validating ID tokens because the application communicates directly with the IDP where SSL protection ensures the ID tokens are valid. They shouldn't validate the access tokens, as these are for the web API to validate, not the client.
 
 APIs and web applications must only validate tokens that have an `aud` claim that matches the application. Other resources may have custom token validation rules. For example, you can't validate tokens for Microsoft Graph according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
 
@@ -91,28 +91,70 @@ The Azure AD middleware has built-in capabilities for validating access tokens, 
 
 ### Validate the issuer
 
-[OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) says "The Issuer Identifier \[...\] MUST exactly match the value of the iss (issuer) Claim." For applications which use a tenant-specific metadata endpoint (like [https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration) or [https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration)), this is all that is needed.
-Azure AD makes available a tenant-independent version of the document for multi-tenant apps at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration). This endpoint returns an issuer value `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use this tenant-independent endpoint to validate tokens from every tenant with the following modifications:
+Web apps validating ID tokens, and web APIs validating access tokens need to validate the issuer of the token (`iss` claim) against the issuer available in the OpenID connect metadata document associated with the application configuration (authority). The metadata document to verify against depends on:
+- the version of the token
+- the accounts supported by your application.
 
- 1. Instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match.
+#### v1.0 and v2.0 tokens
 
- 1. The application should use the `issuer` property returned from the keys endpoint to restrict the scope of keys.
-    - Keys that have an issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` may be used with any matching token issuer.
-    - Keys that have an issuer value like `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` should only be used with exact match.
-    Azure AD's tenant-independent key endpoint ([https://login.microsoftonline.com/common/discovery/v2.0/keys](https://login.microsoftonline.com/common/discovery/v2.0/keys)) returns a document like:
-    ```
-    {
-      "keys":[
-        {"kty":"RSA","use":"sig","kid":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","x5t":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","n":"spv...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
-        {"kty":"RSA","use":"sig","kid":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","x5t":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","n":"wEM...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
-        {"kty":"RSA","use":"sig","kid":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","x5t":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","n":"rv0...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0"}
-      ]
-    }
-    ```
+- When your web app/API is validating a v1.0 token (`ver` claim ="1.0"), it needs to read the OpenID Connect metadata document from the v1.0 endpoint (`https://login.microsoftonline.com/{example-tenant-id}/.well-known/openid-configuration`), even if the authority configured for your web API is a v2.0 authority.
+- When your web app/API is validating a v2.0 token (`ver` claim ="2.0"), it needs to read the OpenID Connect metadata document from the v2.0 endpoint (`https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration`), even if the authority configured for your web API is a v1.0 authority.
 
-1. Applications that use Azure AD's tenant ID (`tid`) claim as a trust boundary instead of the standard issuer claim should ensure that the tenant-id claim is a GUID and that the issuer and tenant ID match.
+The examples below suppose that your application is validating a v2.0 access token (and therefore reference the v2.0 versions of the OIDC metadata documents and keys). Just remove the "/v2.0" in the URL if you validate v1.0 tokens.
 
-Using tenant-independent metadata is more efficient for applications which accept tokens from many tenants.
+#### Single tenant applications
+
+[OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) says "The Issuer Identifier \[...\] MUST exactly match the value of the iss (issuer) Claim." For applications that use a tenant-specific metadata endpoint (like [https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration) or [https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration)), this is all that is needed.
+
+This applies to applications which authority is:
+- Accounts in one organizational directory (**example-tenant-id** only): `https://login.microsoftonline.com/{example-tenant-id}`
+- Personal Microsoft accounts only: `https://login.microsoftonline.com/consumers` (**consumers** being a nickname for the tenant 9188040d-6c67-4c5b-b112-36a304b66dad)
+
+
+##### Multi-tenant applications
+
+Azure AD also supports multi-tenant applications. These applications support:
+- Accounts in any organizational directory (any Azure AD directory): `https://login.microsoftonline.com/organizations`
+- Accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox): `https://login.microsoftonline.com/common`
+
+For these applications Azure AD exposes tenant-independent versions of the OIDC document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) and [https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration) respectively. These endpoints return an issuer value, which is a template parametrized by the `tenantid`: `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use these tenant-independent endpoints to validate tokens from every tenant with the following modifications: instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match (`tid` claim of the token).
+
+### Validate the signing key 
+
+From the OpenID Connect document, your application accesses the keys used to sign the tokens. It gets the corresponding keys document by accessing the URL exposed in the **jwks_uri** property of the OpenIdConnect document.
+
+```json
+ "jwks_uri": "https://login.microsoftonline.com/{example-tenant-id}/discovery/v2.0/keys",
+``` 
+
+As above, `{example-tenant-id}` can be replaced by a GUID, a domain name, or **common**, **organizations** and **consumers**
+
+Your application needs to validate that the key used to sign the token is among the keys exposed in this document. The key used to sign the token is described by the **kid** claim (and sometimes the **x5x** claim) of the **header** of the JWT token. See  [Validate the signature](#validate-the-signature) below for details.
+
+### Validate the signing key issuer
+In addition to the issuer of the token, applications using the v2.0 endpoint needs to validate the signing key issuer.
+
+The "keys" documents exposed by Azure AD v2.0 contains, for each key, the issuer that uses this signing key. See, for instance,  the
+tenant-independent "common" key endpoint ([https://login.microsoftonline.com/common/discovery/v2.0/keys](https://login.microsoftonline.com/common/discovery/v2.0/keys)) returns a document like:
+    
+  ```json
+  {
+    "keys":[
+      {"kty":"RSA","use":"sig","kid":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","x5t":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","n":"spv...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
+      {"kty":"RSA","use":"sig","kid":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","x5t":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","n":"wEM...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
+      {"kty":"RSA","use":"sig","kid":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","x5t":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","n":"rv0...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0"}
+    ]
+  }
+  ```
+  
+The application should use the `issuer` property returned from the keys endpoint to restrict the scope of keys:
+- Keys that have an issuer value with a GUID like `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` should only be used when the `iss` claim in the token matches the value exactly.
+- Keys that have a templated issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` need to ensure that:
+  - the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant to back to the issuer back to the scope of the signing key creating a chain of trust.
+  - Multi-tenant applications must use `tid`` claim when they locate data associated with the subject of the claim. In other words, the `tid`` claim must be part of the key used to access the user's data.
+
+
+Using tenant-independent metadata is more efficient for applications that accept tokens from many tenants.
 > [!NOTE]
 > With Azure AD tenant-independent metadata, claims should be interpreted within the tenant, just as under standard OpenID Connect, claims are interpreted within the issuer. That is, `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{example-tenant-id}/v2.0","tid":"{example-tenant-id}"}` and `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{another-tenand-id}/v2.0","tid":"{another-tenant-id}"}` describe different users, even though the `sub` is the same, because claims like `sub` are interpreted within the context of the issuer/tenant.
 
