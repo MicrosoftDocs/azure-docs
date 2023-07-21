@@ -11,4 +11,4 @@
 ---
 
 > [!IMPORTANT]
-> The MQTT messaging and Pull-based event consumption features are currently in PREVIEW. They are provided without a service level agreement and are not recommended for production workloads. 
+> The MQTT Messaging and Pull Delivery features are currently in PREVIEW. 

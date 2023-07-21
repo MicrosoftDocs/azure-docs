@@ -11,4 +11,4 @@
 ---
 
 > [!IMPORTANT]
-> The Pull-based event consumption feature is currently in PREVIEW. It’s provided without a service level agreement and is not recommended for production workloads. 
+> The Pull Delivery feature is currently in PREVIEW.
