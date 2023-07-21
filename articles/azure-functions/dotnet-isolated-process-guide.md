@@ -62,8 +62,8 @@ A .NET Functions isolated worker process project uses a unique set of packages, 
 
 The following packages are required to run your .NET functions in an isolated worker process:
 
-+ [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)
-+ [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
++ [Microsoft.Azure.Functions.Worker]
++ [Microsoft.Azure.Functions.Worker.Sdk]
 
 ### Extension packages
 
@@ -189,7 +189,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types-preview).
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types).
 
 For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
 
@@ -213,23 +213,28 @@ The data written to an output binding is always the return value of the function
 
 The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
 
-### SDK types (preview)
+### SDK types
 
-For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage.
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
 
-To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.15.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1) and [Microsoft.Azure.Functions.Worker.Sdk 1.11.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0-preview1). Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+| Dependency | Version requirement |
+|-|-|
+|[Microsoft.Azure.Functions.Worker]| For **Generally Available** extensions in the table below: 1.18.0 or later<br/>For extensions that have **preview support**: 1.15.0-preview1 |
+|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.12.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
 
-The following service-specific bindings are currently included in the preview:
+When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+
+Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings offer additional SDK types:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<.sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
@@ -438,6 +443,10 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 
 [supported-versions]: #supported-versions
+
+[Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
+[Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/
+
 [HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
 [IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
 [ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
