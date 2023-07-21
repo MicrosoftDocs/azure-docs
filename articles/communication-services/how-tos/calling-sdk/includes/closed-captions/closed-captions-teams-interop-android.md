@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Android how-to guide for enabling Closed captions during a Teams interop call .
+description: Android how-to guide for enabling Closed captions during a Teams interop call.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -100,7 +100,7 @@ public void addOnActiveCaptionLanguageChangedListener() {
 
 ## Start captions
 
-Once you've got all your listeners setup you can now start captions.
+Once you've set up all your listeners, you can now start adding captions.
 
 ``` java
 public void startCaptions() {
@@ -158,7 +158,7 @@ public void setSpokenLanguage() {
 
 ### Get supported caption language 
 
-If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check will be done against their own user account if they meeting organizer doesn't have a Teams premium license.
+If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
 
 ``` java
 // ISO 639-1 formatted language code
