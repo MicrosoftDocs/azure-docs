@@ -5,7 +5,7 @@ description: This article provides documentation for Application Gateway for Con
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: application-gateway-for-containers
+ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 7/24/2023
 ms.author: greglin

@@ -4,7 +4,7 @@ description: Identify and troubleshoot issues using ALB Controller's backend hea
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: application-gateway-for-containers
+ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/21/2023
 ms.author: greglin
