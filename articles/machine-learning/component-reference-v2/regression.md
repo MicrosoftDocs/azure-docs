@@ -55,7 +55,7 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
         * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](../concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](../how-to-connect-data-ui.md).         
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](../how-to-create-data-assets.md).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
         * Forecasting jobs do not support train/test split.
