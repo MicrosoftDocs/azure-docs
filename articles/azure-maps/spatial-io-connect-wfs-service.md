@@ -106,23 +106,26 @@ client = new atlas.io.ogc.WfsClient({
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient]
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
+> [Leverage core operations]
 
 > [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+> [Supported data format details]
 
-[Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
-[WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
-[WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer
-
+[Leverage core operations]: spatial-io-core-operations.md
 [Simple WFS example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20WFS%20example/Simple%20WFS%20example.html
+[Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
+[Supported data format details]: spatial-io-supported-data-format-details.md
 [WFS filter example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20filter%20examples/WFS%20filter%20examples.html
+[WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
 [WFS service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20service%20explorer/WFS%20service%20explorer.html
+[WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer
+[WfsClient]: /JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient
+[WfsServiceOptions]: /JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions
