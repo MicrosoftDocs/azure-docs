@@ -60,3 +60,10 @@ The next step after this tutorial is to build a WPF desktop app that authenticat
 
 - The Application (client) ID of the WPF desktop app that you registered.
 - The Directory (tenant) subdomain where you registered your WPF desktop app.
+
+## Next steps
+
+In the next tutorial, you configure your WPF desktop app.
+
+> [!div class="nextstepaction"]
+> [Build your WPF desktop app >](./tutorial-wpf-dotnet-sign-in-build-app.md)

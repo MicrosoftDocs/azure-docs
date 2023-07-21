@@ -14,7 +14,7 @@ ms.date: 07/20/2023
 
 # Tutorial: Authenticate users to your WPF desktop application
 
-In this tutorial, you build your Windows Presentation Form (WPF) app and sign in and sign out a user using Azure Active Directory (Azure AD) for customers.
+In this tutorial, you build your Windows Presentation Form (WPF) desktop app and sign in and sign out a user using Azure Active Directory (Azure AD) for customers.
 
 In this tutorial, you learn how to:
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Registration details for the WPF desktop you created in the [prepare tenant tutorial](./tutorial-wpf-dotnet-sign-in-prepare-tenant.md). You need the following details:
+- Registration details for the WPF desktop app you created in the [prepare tenant tutorial](./tutorial-wpf-dotnet-sign-in-prepare-tenant.md). You need the following details:
   - The Application (client) ID of the WPF desktop app that you registered.
   - The Directory (tenant) subdomain where you registered your WPF desktop app.
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 
 ## Install packages
 
-Install configuration providers that help our app to read configuration data from key-value pairs in our app settings file. The configuration abstractions provide the ability to bind configuration values to instances of .NET objects.
+Install configuration providers that help our app to read configuration data from key-value pairs in our app settings file. These configuration abstractions provide the ability to bind configuration values to instances of .NET objects.
 
 ```dotnetcli
 dotnet add package Microsoft.Extensions.Configuration
@@ -51,7 +51,7 @@ dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.Extensions.Configuration.Binder
 ```
 
-Install the Microsoft Identity Client library contains all the key components that you need to acquire a token. You also install the Microsoft Identity Client Broker library which handles interactions with desktop authentication brokers.
+Install the Microsoft Authentication Library (MSAL) that contains all the key components that you need to acquire a token. You also install the MSAL broker library that handles interactions with desktop authentication brokers.
 
 ```dotnetcli
 dotnet add package Microsoft.Identity.Client
@@ -75,7 +75,7 @@ dotnet add package Microsoft.Identity.Client.Broker
     - Replace `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. 
     - Replace `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-After creating the app settings file, we will create another file called *AzureAdConfig.cs* that will help you read the configs from the app settings file.
+After creating the app settings file, we'll create another file called *AzureAdConfig.cs* that will help you read the configs from the app settings file.
 
 1. Create the *AzureAdConfig.cs* file in the root folder of the app.
 1. In the *AzureAdConfig.js* file, define the getters and setters for the `ClientId` and `Authority` properties. Add the following code:
@@ -94,10 +94,10 @@ After creating the app settings file, we will create another file called *AzureA
 ## Modify the project file
 
 1. Navigate to the *sign-in-dotnet-wpf.csproj* file in the root folder of the app.
-1. In this file, take the following 2 steps:
+1. In this file, take the following two steps:
     
     - Modify the *sign-in-dotnet-wpf.csproj* file to instruct your app to copy the *appsettings.json* file to the output directory when the project is compiled. Add the following piece of code to the *sign-in-dotnet-wpf.csproj* file:
-    - Set the target framework to target windows10.0.19041.0 build to help with reading cached token from the token cache as will be seen in the token cache helper class.
+    - Set the target framework to target *windows10.0.19041.0* build to help with reading cached token from the token cache as you'll see in the token cache helper class.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -128,10 +128,10 @@ After creating the app settings file, we will create another file called *AzureA
 
 ## Create a token cache helper class
 
-Create a token cache helper class that initializes a token cache. The application attempts to read the token from the cache before it attempts to acquire a new token. If the token is not found in the cache, the application acquires a new token. Upon signing-out, the cache is cleared of all accounts and all corresponding access tokens.
+Create a token cache helper class that initializes a token cache. The application attempts to read the token from the cache before it attempts to acquire a new token. If the token isn't found in the cache, the application acquires a new token. Upon signing-out, the cache is cleared of all accounts and all corresponding access tokens.
 
 1. Create a *TokenCacheHelper.cs* file in the root folder of the app.
-1. Open the *TokenCacheHelper.cs* file. Add the packages and namespaces to the file. In the follwoing steps, you'll populate this file with the code logic by ading the relvant logic to the `TokenCacheHelper` class.
+1. Open the *TokenCacheHelper.cs* file. Add the packages and namespaces to the file. In the following steps, you populate this file with the code logic by adding the relevant logic to the `TokenCacheHelper` class.
 
     ```csharp
     using System.IO;
@@ -144,7 +144,7 @@ Create a token cache helper class that initializes a token cache. The applicatio
     }
     ```
 
-1. Add constructor to the `TokenCacheHelper` class that defines the cache file path. For packaged desktop apps (MSIX packages, also called desktop bridge) the executing assembly folder is read-only. In that case we need to use `Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin"` which is a per-app read/write folder for packaged apps.
+1. Add constructor to the `TokenCacheHelper` class that defines the cache file path. For packaged desktop apps (MSIX packages, also called desktop bridge) the executing assembly folder is read-only. In that case we need to use `Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin"` that is a per-app read/write folder for packaged apps.
 
     ```csharp
     namespace sign_in_dotnet_wpf
@@ -169,7 +169,7 @@ Create a token cache helper class that initializes a token cache. The applicatio
     
     ```
 
-1. Add code to handle token cache serialization. Since desktop apps are public client apps, they should try to get a token from the cache before acquiring a token by another method. The `ITokenCache` interface implements the public access to cache operations. ITokenCache interface contains the methods to subscribe to the cache serialization events, while the interface ITokenCacheSerializer exposes the methods that you need to use in the cache serialization events, in order to serialize/deserialize the cache. TokenCacheNotificationArgs Contains parameters used by`Microsoft.Identity.Client` (MSAL) call accessing the cache. ITokenCacheSerializer interface is available in TokenCacheNotificationArgs callback.
+1. Add code to handle token cache serialization. The `ITokenCache` interface implements the public access to cache operations. `ITokenCache` interface contains the methods to subscribe to the cache serialization events, while the interface `ITokenCacheSerializer` exposes the methods that you need to use in the cache serialization events, in order to serialize/deserialize the cache. `TokenCacheNotificationArgs` contains parameters used by`Microsoft.Identity.Client` (MSAL) call accessing the cache. `ITokenCacheSerializer` interface is available in `TokenCacheNotificationArgs` callback.
 
     Add the following code to the `TokenCacheHelper` class:
 
@@ -227,41 +227,34 @@ Create a token cache helper class that initializes a token cache. The applicatio
 
 Modify the *MainWindow.xaml* file to add the UI elements for the app. 
 
-1. Open the *MainWindow.xaml* file in the root folder of the app.
-1. Add the following piece of code between the `<Grid></Grid>` elements. <Grid> contro
+Open the *MainWindow.xaml* file in the root folder of the app and add the following piece of code with the `<Grid></Grid>` control section.
 
-    ```xaml
-    <window ...>
-        <Grid>
-            <!-- Add this code -->
-            <StackPanel Background="Azure">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="SignInButton" Content="Sign-In" HorizontalAlignment="Right" Padding="5" Click="SignInButton_Click" Margin="5" FontFamily="Segoe Ui"/>
-                    <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
-                </StackPanel>
-                <Label Content="Authentication Result" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
-                <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
-                <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
-                <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
-            </StackPanel>
-            <!-- End of section to add -->
-        </Grid>
-    </window>
-    ```
+```xaml
+    <StackPanel Background="Azure">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="SignInButton" Content="Sign-In" HorizontalAlignment="Right" Padding="5" Click="SignInButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+            <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+        </StackPanel>
+        <Label Content="Authentication Result" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+        <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
+    </StackPanel>
+```
 
-    This code adds the following key UI elements:
+This code adds key UI elements. The methods and objects handling the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
 
-    - A button that signs in the user. This button calls the `SignInButton_Click` method when clicked on by the user. This method is defined in the *MainWindow.xaml.cs* file that we create in the next step.
-    - A button that signs out the user. This button calls the `SignOutButton_Click` method when clicked on by the user. This method is defined in the *MainWindow.xaml.cs* file that we create in the next step.
-    - A text box that displays the authentication result details after the user attempts to sign in. Information displayed here is returned by the `ResultText` object. This object is defined in the *MainWindow.xaml.cs* file that we create in the next step.
-    - A text box that displays the token details after the user successfully signs in. Information displayed here is returned by the `TokenInfoText` object. This object is defined in the *MainWindow.xaml.cs* file that we create in the next step.
+- A button that signs in the user. This button calls the `SignInButton_Click` method when clicked on by the user. 
+- A button that signs out the user. This button calls the `SignOutButton_Click` method when clicked on by the user.
+- A text box that displays the authentication result details after the user attempts to sign in. Information displayed here's returned by the `ResultText` object.
+- A text box that displays the token details after the user successfully signs in. Information displayed here's returned by the `TokenInfoText` object. 
 
 ## Add code to the MainWindow.xaml.cs file
 
 The *MainWindow.xaml.cs* file contains the code that provides th runtime logic for the behavior of the UI elements in the *MainWindow.xaml* file. 
 
 1. Open the *MainWindow.xaml.cs* file in the root folder of the app.
-1. Add the following code in the file to import the packages, and define placeholders for the methods we shall be populating with code.
+1. Add the following code in the file to import the packages, and define placeholders for the methods we create.
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -290,7 +283,7 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
     }
     ```
 
-1. Add the following code to the `SignInButton_Click` method. This method is called when the user clicks on the **Sign-In** button.
+1. Add the following code to the `SignInButton_Click` method. This method is called when the user selects the **Sign-In** button.
 
     ```csharp
     private async void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -342,37 +335,37 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
     }
     ```
 
-    `GetAccountsAsync()` returns all the available accounts in the user token cache for the application. The `IAccount` interface represents information about a single account. An IAccount is used as a parameter of PublicClientApplication methods acquiring tokens and is returned in the AuthenticationResult.Account property.
+    `GetAccountsAsync()` returns all the available accounts in the user token cache for the app. The `IAccount` interface represents information about a single account.
 
-    To acquire tokens, first, the app attempts to acquire the token silently using the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. The AcquireTokenSilent method may fail for example because the user signed out. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an MsalUiRequiredException exception.  If a MsalUiRequiredException exception is thrown, the application acquires a token interactively.
+    To acquire tokens, the app attempts to acquire the token silently using the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. The `AcquireTokenSilent` method may fail, for example,  because the user signed out. When MSAL detects that the issue can be resolved by requiring an interactive action, it throws an `MsalUiRequiredException` exception. This exception causes the app to acquire a token interactively.
 
-    Calling the AcquireTokenInteractive method results in a window that prompts users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired). After AcquireTokenInteractive is executed for the first time, AcquireTokenSilent is the usual method to use to obtain tokens 
+    Calling the `AcquireTokenInteractive` method results in a window that prompts users to sign in. Apps usually require users to sign in interactively the first time they need to authenticate. They might also need to sign in when a silent operation to acquire a token. After `AcquireTokenInteractive` is executed for the first time, `AcquireTokenSilent` becomes the usual method to use to obtain tokens 
     
-1. Add the following code to the `SignOutButton_Click` method. This method is called when the user clicks on the **Sign-Out** button.
+1. Add the following code to the `SignOutButton_Click` method. This method is called when the user selects the **Sign-Out** button.
 
     ```csharp
     private async void SignOutButton_Click(object sender, RoutedEventArgs e)
+    {
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
-            var accounts = await App.PublicClientApp.GetAccountsAsync();
-            if (accounts.Any())
+            try
             {
-                try
-                {
-                    await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
-                    this.ResultText.Text = "User has signed-out";
-                    this.TokenInfoText.Text = string.Empty;
-                    this.SignInButton.Visibility = Visibility.Visible;
-                    this.SignOutButton.Visibility = Visibility.Collapsed;
-                }
-                catch (MsalException ex)
-                {
-                    ResultText.Text = $"Error signing-out user: {ex.Message}";
-                }
+                await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
+                this.ResultText.Text = "User has signed-out";
+                this.TokenInfoText.Text = string.Empty;
+                this.SignInButton.Visibility = Visibility.Visible;
+                this.SignOutButton.Visibility = Visibility.Collapsed;
+            }
+            catch (MsalException ex)
+            {
+                ResultText.Text = $"Error signing-out user: {ex.Message}";
             }
         }
+    }
     ```
      
-    The `SignOutButton_Click` method removes users from the MSAL user cache, which effectively tells MSAL to forget the current user so that a future request to acquire a token succeeds only if it's made to be interactive.
+    The `SignOutButton_Click` method clears the cache of all accounts and all corresponding access tokens. The next time the user attempts to sign in, they'll have to do so interactively.
 
 1. Add the following code to the `DisplayBasicTokenInfo` method. This method displays basic information about the token.
 
@@ -390,11 +383,9 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
 
 ## Add code to the App.xaml.cs file
 
+*App.xaml* is where you declare resources that are used across the app. It's the entry point for your app. *App.xaml.cs8 is the code behind file for *App.xaml*. *App.xaml.cs* also defines the start window for your application.
 
-App.xaml is where you declare resources that are used across the app. It's the entry point for your app. App.xaml.cs is the code behind file for App.xaml. App.xaml.cs also defines the start window for your application.
-
-1. Open the *App.xaml.cs* file in the root folder of the app.
-1. Add the following code in the file.
+1. Open the *App.xaml.cs* file in the root folder of the app and add the following code in the file.
 
     ```csharp
     using System.Windows;
@@ -445,8 +436,17 @@ App.xaml is where you declare resources that are used across the app. It's the e
 Run your app and sign in to test the application
 
 1. In your terminal, navigate to the root folder of your WPF app and run the app by running the command `dotnet run` in your terminal.
-1. After you launch the sample you should see a window with a **Sign-In** button. Select the **Sign-In** button.
+1. After you launch the sample, you should see a window with a **Sign-In** button. Select the **Sign-In** button.
+
+    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-sign-in-screen.png" alt-text="Sign-in screen for a WPF desktop application.":::
+
 1. On the sign-in page, enter your account email address. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. Follow through this flow to create a new account and sign in.
-1. Once you sign in, you'll see a screen displaying successful sign-in and basic information about your user account stored in the retrieved token.
+1. Once you sign in, you see a screen displaying successful sign-in and basic information about your user account stored in the retrieved token.
 
     :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-succesful-sign-in.png" alt-text="Successful sign-in for desktop WPF app.":::
+
+## See also
+
+[Sign in users in a sample Electron desktop application by using Azure AD for customers](./how-to-desktop-app-electron-sample-sign-in.md)
+[Sign in users in a sample .NET MAUI desktop application by using Azure AD for customers](./how-to-desktop-app-maui-sample-sign-in.md)
+[Customize branding for your sign-in experience](./how-to-customize-branding-customers.md)
