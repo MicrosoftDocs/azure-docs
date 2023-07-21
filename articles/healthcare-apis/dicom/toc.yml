@@ -77,10 +77,10 @@ items:
     - name: DICOM Conformance Statement
       expanded: true
       items: 
-        - name: V1
-          href: dicom-services-conformance-statement.md
         - name: V2
           href: dicom-services-conformance-statement-v2.md
+        - name: V1
+          href: dicom-services-conformance-statement.md
 - name: References
   expanded: true
   items:
