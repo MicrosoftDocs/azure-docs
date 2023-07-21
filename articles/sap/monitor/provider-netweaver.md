@@ -83,7 +83,7 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
     ```    
     3. Repeat the previous steps for each instance profile (or) you can restart the SAP system in lower environments as another option.
     
-#### Powershell script to unprotect web methods
+#### PowerShell script to unprotect web methods
     
 You can refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/Windows) 
 to unprotect the web-methods in the SAP Windows virtual machine.
@@ -102,7 +102,7 @@ Below steps need to be performed as a pre-requisite to enable RFC
 
      **Transport to import role in SAP System** 
     
-    You can also refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/SAP%20Role%20Transport) to import role in PFCG and generate profile for successfully configuring Netweaver provider for you SAP system.
+    You can also refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/SAP%20Role%20Transport) to import role in PFCG and generate profile for successfully configuring Netweaver provider for your SAP system.
     
 3. **Create and authorize a new RFC user**.
     1. Create an RFC user.
