@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 07/21/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement-fy23
@@ -247,7 +247,7 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 
 ### Support for customer-managed account failover
 
-All geo-redundant offerings support [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
+All geo-redundant offerings support [Microsoft-managed failover](#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
@@ -255,6 +255,13 @@ All geo-redundant offerings support [Microsoft-managed failover](storage-disaste
 | **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
 
 > [!IMPORTANT]
+>
+> **Classic storage accounts**
+>
+> Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+>
+> **Azure Data Lake Storage Gen2**
+>
 > Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
 >
 > - (Asia Pacific) Central India
@@ -266,21 +273,6 @@ All geo-redundant offerings support [Microsoft-managed failover](storage-disaste
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-Two important exceptions to consider are:
-
-> [!div class="checklist"]
-> * [Classic storage accounts](#classic-storage-accounts)
-> * [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2)
-
-#### Classic storage accounts
-
-Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
-
-#### Azure Data Lake Storage Gen2
-
-Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace enabled (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
-
-> [!IMPORTANT]
 > In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
 
 For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
