@@ -6,7 +6,7 @@ ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 07/19/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
 ---
 
@@ -45,6 +45,7 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 1. Ensure the user is provisioned as a Chamber User or a Chamber Admin on the **chamber** resource. They should be set up as an IAM role directly for that chamber, not as a parent resource with inherited permission.
 1. Ensure the user has a valid email set for their Azure AD profile, and that their Azure AD alias matches their email alias. For example, an Azure AD sign in alias of _jane.doe_ must also have an email alias of _jane.doe_. Jane Doe can't sign in to Azure AD with jadoe or any other variation.
+1. Validate your /mount/sharehome folder has available space. The /mount/sharedhome directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/private directory instead for all your data storage and tool installation needs.
 1. Validate your folder permission settings are correct within your chamber. User provisioning may not work properly if the folder permission settings aren't correct. You can check folder permissions in a terminal session using the *ls -al* command for each /mount/sharedhome/\<useralias\>/.ssh folder, results should match below expectations:
 
      ```text
@@ -53,7 +54,7 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
       /mount/sharedhome/<useralias>/.ssh/ private key (id_rsa): 600 (-rw-------)
      ```
 
-1. If it's still not working, try a *refresh* by reprovisioning the user. When removing user role assignment, the /mount/sharedhome/\<useralias\> folder is removed. Make sure data is backed up if necessary before removing user role assignment.
+1. If it's still not working, try a *refresh* by reprovisioning the user. The /mount/sharedhome/\<useralias\> folder is removed when removing user role assignment. Make sure data is backed up if necessary before removing user role assignment.
     1. Remove user's Chamber Admin or Chamber User role assignment at chamber level.
     1. Wait 5 minutes.
     1. Then add the user's role assignment back at chamber level.
@@ -111,6 +112,7 @@ An *all licenses are in use for the remote desktop error* means that all license
 
 ### Data import to chamber not working
 
+1. Verify your file is in root folder and filename contains only valid characters; alphanumerics, underscores, periods, and hyphens.
 1. Check the networking and chamber connector settings for the chamber. Validate your network access.
     - If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     - If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
@@ -133,6 +135,7 @@ An *all licenses are in use for the remote desktop error* means that all license
 
 Complete the following steps if you're unable to export data from the chamber using the SAS URI
 
+1. Verify your file is in root folder and filename contains only valid characters; alphanumerics, underscores, periods, and hyphens.
 1. Check the networking and chamber connector settings for the chamber. Validate your network access.
     - If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     - If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.

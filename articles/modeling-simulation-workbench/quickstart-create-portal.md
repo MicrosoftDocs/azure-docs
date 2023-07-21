@@ -5,7 +5,7 @@ author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
-ms.date: 01/01/2023
+ms.date: 07/19/2023
 ms.topic: quickstart
 # Customer intent: As a Modeling and Simulation Workbench owner, I want to create and perform initial setup so that Modeling and Simulation Workbench chamber users can run EDA applications.
 ---
@@ -188,9 +188,6 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
    - **Name**: Enter *myModSimWorkbench*.
    - **Region**: Select *East US*.
-   - **Modeling and Simulation Workbench IP address space**: Enter *10.10.0.0/16*.
-   > [!NOTE]
-   > IP address space should allow for all possible chambers and workloads. If you deploy more than one workbench, make sure you don't provide conflicting IP address space between them.
    - **Application (client) ID URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppClientId* you documented in the **Add secrets to Key Vault** step.
    - **Client secret value URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppSecretValue* you documented in the **Add secrets to Key Vault** step.
 

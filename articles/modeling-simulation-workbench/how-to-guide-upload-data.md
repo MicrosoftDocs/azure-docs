@@ -41,6 +41,10 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Use the AzCopy command to upload your file. For example, `azcopy copy <sourceFilePath> "<uploadURL>"`
 
+  > [!NOTE]
+  > Supported filename characters are alphanumerics, underscores, periods, and hyphens.
+  > Data pipeline will only process files at root, it will not process sub-folders.
+
 1. The uploaded file resource with the source filename displays under **Chamber | Data Pipeline | File**.
 
 1. The Chamber Admin and Users can access the uploaded file from the chamber by accessing the path: */mount/datapipeline/datain*.
@@ -53,4 +57,4 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ## Next steps
 
-To learn how to export data from an Azure Modeling and Simulation Workbench chamber, check out[Export data.](./how-to-guide-download-data.md)
+To learn how to export data from an Azure Modeling and Simulation Workbench chamber, check out [Export data.](./how-to-guide-download-data.md)
