@@ -19,7 +19,10 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-In this article, you learn about running Oracle solutions using the Azure infrastructure. 
+In this article, you learn about running Oracle solutions using the Azure infrastructure.
+
+> [!Important]
+> Oracle RAC and Oracle RAC OneNode are not supported in Azure Bare-Metal Infrastructure.
 
 ## Oracle databases on Azure infrastructure
 Oracle supports running its Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. You can run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace. 
