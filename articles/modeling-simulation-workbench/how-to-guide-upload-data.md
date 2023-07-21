@@ -42,7 +42,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 1. Use the AzCopy command to upload your file. For example, `azcopy copy <sourceFilePath> "<uploadURL>"`
 
   > [!NOTE]
-  > Supported filename characters are: a-z, A-Z, 0-9, -, _, .
+  > Supported filename characters are alphanumerics, underscores, periods, and hyphens.
   > Data pipeline will only process files at root, it will not process sub-folders.
 
 1. The uploaded file resource with the source filename displays under **Chamber | Data Pipeline | File**.
