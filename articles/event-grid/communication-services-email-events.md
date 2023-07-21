@@ -51,7 +51,14 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `Status` are `Delivered`, `Expanded`, `Bounced`, `Suppressed`, `FilteredSpam` and `Failed`.
+> Possible values for `Status` are:
+> - `Delivered`: The message was successfully handed over to the intended destination (recipient Mail Transfer Agent).
+> - `Suppressed`: The recipient email had hard bounced previously, and all subsequent emails to this recipient are being temporarily suppressed as a result.
+> - `Bounced`: The email hard bounced, which may have happened because the email address does not exist or the domain is invalid.
+> - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing).
+> - `FilteredSpam`: The message was identified as spam, and was rejected or blocked (not quarantined).
+> - `Expanded`: A distribution group recipient was expanded before delivery to the individual members of the group.
+> - `Failed`: The message wasn't delivered.
 
 ### Microsoft.Communication.EmailEngagementTrackingReportReceived event
 
@@ -76,7 +83,7 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `engagementType` are `View`, and `Click`. When the `engagementType` is `Click`, `engagementContext` is the link in the Email sent which was clicked.
+> Possible values for `engagementType` are `View` and `Click`. When the `engagementType` is `Click`, `engagementContext` is the link in the Email sent which was clicked.
 
 ## Tutorial
 For a tutorial that shows how to subscribe for email events using web hooks, see [Quickstart: Handle email events](../communication-services/quickstarts/email/handle-email-events.md). 
