@@ -130,7 +130,7 @@ training:
     # training settings 
 ```
 
-We add more detail in subsequent sections of this how-to guide, assuming the YAML text is stored at the path, `./automl-forecasting-job.yml`.
+We add more detail to this configuration in subsequent sections of this how-to guide, assuming the YAML text is stored at the path, `./automl-forecasting-job.yml`.
 
 ---
 
@@ -217,7 +217,7 @@ forecasting_job.set_limits(
 
 # [Azure CLI](#tab/cli)
 
-We now configure general properties of the AutoML job like the [primary metric](how-to-configure-auto-train.md#primary-metric), the name of the target column in the training data, the cross-validation settings, and resource limits on the job. See the [forecasting job](reference-automated-ml-forecasting.md) and [limits](reference-automated-ml-forecasting.md#limits) reference documents for more information and a full list of parameters.
+We now configure general properties of the AutoML job like the [primary metric](how-to-configure-auto-train.md#primary-metric), the name of the target column in the training data, the cross-validation settings, and resource limits on the job. See the [forecasting job](reference-automated-ml-forecasting.md), [training parameters](reference-automated-ml-forecasting.md#training), and [limits](reference-automated-ml-forecasting.md#limits) reference documents for more information and a full list of parameters.
 
 ```yml
 $schema: https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLJob.schema.json
@@ -921,9 +921,9 @@ inputs:
     test_data_input:
         type: uri_folder
         path: "./test_data"
-    target_column_name: # target column name
-    time_column_name: # time column name
-    forecast_horizon: # horizon
+    target_column_name: <target column name>
+    time_column_name: <time column name>
+    forecast_horizon: <forecast horizon>
     primary_metric: normalized_root_mean_squared_error
     cv_folds: auto
 
@@ -1023,7 +1023,7 @@ For more details on rolling evaluation, see our [forecasting model evaluation ar
  
 ## Forecasting at scale: many models
 
-The many models components in AutoML enable you to train and manage millions of models in parallel. For more information on many models concepts, see our [many models article](concept-automl-forecasting-at-scale.md#many-models).
+The many models components in AutoML enable you to train and manage millions of models in parallel. For more information on many models concepts, see the [many models article section](concept-automl-forecasting-at-scale.md#many-models).
 
 
 ### Many models training configuration
@@ -1293,7 +1293,7 @@ After the job finishes, the evaluation metrics can be downloaded locally using t
 
 ## Forecasting at scale: hierarchical time series
 
-The hierarchical time series (HTS) components in AutoML enable you to train a large number of models on data with hierarchical structure. For more information, see our [HTS article](concept-automl-forecasting-at-scale.md#hierarchical-time-series-forecasting).
+The hierarchical time series (HTS) components in AutoML enable you to train a large number of models on data with hierarchical structure. For more information, see the [HTS article section](concept-automl-forecasting-at-scale.md#hierarchical-time-series-forecasting).
 
 ### HTS training configuration
 
@@ -1568,9 +1568,9 @@ After the job finishes, the evaluation metrics can be downloaded locally using t
 
 See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs) for detailed code examples of advanced forecasting configuration including:
 
-* [deep learning models](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
-* [holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [manual configuration for lags and rolling window aggregation features](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced.ipynb)
+* [Deep learning models](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
+* [Holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [Manual configuration for lags and rolling window aggregation features](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced.ipynb)
 
 ## Next steps
 
