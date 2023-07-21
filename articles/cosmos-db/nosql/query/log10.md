@@ -11,7 +11,7 @@ ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
-# LOG (NoSQL query)
+# LOG10 (NoSQL query)
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
