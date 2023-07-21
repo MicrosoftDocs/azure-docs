@@ -41,7 +41,7 @@
     - name: SSL Offloading
       href: how-to-ssl-offloading-ingress-api.md
   - name: Troubleshoot
-   href: troubleshooting-guide.md
+    href: troubleshooting-guide.md
 - name: Kubernetes Reference
   items:
   - name: API Specification
