@@ -26,9 +26,9 @@ This article describes some items you should check to help you troubleshoot enti
 
 ## Administration
 
-* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Azure AD Premium P2 subscription, then it may take 8 hours for this license renewal to be visible.
+* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance subscription, then it may take 8 hours for this license renewal to be visible.
 
-* If your tenant's Azure AD Premium P2 license has expired, then you won't be able to process new access requests or perform access reviews.  
+* If your tenant's Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license has expired, then you won't be able to process new access requests or perform access reviews.  
 
 * If you get an access denied message when creating or viewing access packages, and you're a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 

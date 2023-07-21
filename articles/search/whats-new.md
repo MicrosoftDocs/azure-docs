@@ -7,8 +7,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/16/2023
-ms.custom: references_regions 
+ms.date: 06/29/2023
+ms.custom: references_regions
 ---
 
 # What's new in Azure Cognitive Search
@@ -17,6 +17,13 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## June 2023
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**Vector search public preview**](vector-search-overview.md) | Feature | Adds vector fields to a search index for similarity search over vector representations of data. |
+| [**2023-07-01-Preview Search REST API**](/rest/api/searchservice/index-preview) | API | New preview version of the Search REST APIs that adds support for vector search. This API version is inclusive of all preview features. If you're using earlier previews, switch to **2023-07-01-preview** with no loss of functionality.  |
 
 ## May 2023
 
@@ -48,7 +55,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 | October | [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search). This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
 | September | [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md). This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
 | September |  [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md). This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
-| August | [Tutorial: Index large data from Apache Spark](search-synapseml-cognitive-services.md). This tutorial explains how to use the SynapseML open-source library to push data from Apache Spark into a search index. It also shows you how to make calls to Cognitive Services to get AI enrichment without skillsets and indexers. |
+| August | [Tutorial: Index large data from Apache Spark](search-synapseml-cognitive-services.md). This tutorial explains how to use the SynapseML open-source library to push data from Apache Spark into a search index. It also shows you how to make calls to Azure AI services to get AI enrichment without skillsets and indexers. |
 | June | [Semantic search (preview)](semantic-search-overview.md). New support for Storage Optimized tiers (L1, L2). |
 | June | **General availability** - [Debug Sessions](cognitive-search-debug-session.md).|
 | May | **Retired** - [Power Query connector preview](/previous-versions/azure/search/search-how-to-index-power-query-data-sources).  |
@@ -62,10 +69,11 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 <a name="new-service-name"></a>
 
-## Service re-brand
+## Service rebrand
 
 Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations.
 
 ## Service updates
 
 [Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
+

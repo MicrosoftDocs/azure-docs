@@ -31,7 +31,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server version 6.7 or 7.
+- vCenter Server version 6.7, 7 or 8.
 
 - A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 

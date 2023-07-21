@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan
 description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan.
-author: karlerickson
+author: KarlErickson
 ms.author: haojianzhong
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan
