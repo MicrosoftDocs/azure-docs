@@ -79,26 +79,30 @@ You may also specify the map settings to use a proxy service. The proxy service 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [OgcMapLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
+> [OgcMapLayer]
 
 > [!div class="nextstepaction"]
-> [OgcMapLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
+> [OgcMapLayerOptions]
 
 See the following articles, which contain code samples you could add to your maps:
 
 > [!div class="nextstepaction"]
-> [Connect to a WFS service](spatial-io-connect-wfs-service.md)
+> [Connect to a WFS service]
 
 > [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
+> [Leverage core operations]
 
 > [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+> [Supported data format details]
 
-[OGC map layer]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-example
-[OGC map layer options]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-options
-[OGC Web Map Service explorer]: https://samples.azuremaps.com/spatial-io-module/ogc-web-map-service-explorer
-
-[OGC map layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20map%20layer%20example/OGC%20map%20layer%20example.html
+[Connect to a WFS service]: spatial-io-connect-wfs-service.md
+[Leverage core operations]: spatial-io-core-operations.md
 [OGC map layer options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20map%20layer%20options/OGC%20map%20layer%20options.html
+[OGC map layer options]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-options
+[OGC map layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20map%20layer%20example/OGC%20map%20layer%20example.html
+[OGC map layer]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-example
 [OGC Web Map Service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20Web%20Map%20Service%20explorer/OGC%20Web%20Map%20Service%20explorer.html
+[OGC Web Map Service explorer]: https://samples.azuremaps.com/spatial-io-module/ogc-web-map-service-explorer
+[OgcMapLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer
+[OgcMapLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions
+[Supported data format details]: spatial-io-supported-data-format-details.md
