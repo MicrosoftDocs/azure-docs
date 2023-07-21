@@ -110,7 +110,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### Set the maximum download size of a user's OneDrive
 
-To prevent that OneDrive automatically uses a large amount of disk space on the lab virtual machine when syncing files, you can configure a maximum size threshold. When a lab user has a OneDrive that's larger than the threshold (in MB), the user receives a prompt to choose which folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files to the machine. This setting is used in combination with [automatic sign-in of users to OneDrive](#silently-sign-in-users-to-onedrive) and where [on-demand files](#use-onedrive-files-on-demand) isn't enabled.
+To prevent that OneDrive automatically uses a large amount of disk space on the lab virtual machine when syncing files, you can configure a maximum size threshold. When a lab user has a OneDrive that's larger than the threshold (in MB), the user receives a prompt to choose which folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files to the machine. This setting is used where [on-demand files](#use-onedrive-files-on-demand) isn't enabled.
 
 Use the following PowerShell script to set the maximum size threshold. In our example, `1111-2222-3333-4444` is the organization ID and `0005000` sets a threshold of 5 GB.
 
