@@ -83,7 +83,7 @@ This section outlines variations and considerations when using Microsoft Cost Ma
 
 
 ### Azure China Commercial Marketplace
-
+ 
 To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
 
 #### Azure Retail Rates API for China
