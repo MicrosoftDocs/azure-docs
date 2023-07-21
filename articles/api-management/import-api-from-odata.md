@@ -36,8 +36,3 @@ In this article, you learn how to:
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

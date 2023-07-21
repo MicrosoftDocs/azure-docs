@@ -135,6 +135,8 @@ Also, configure authentication to your backend using an appropriate method for y
 1. View the response. To troubleshoot, [trace](api-management-howto-api-inspector.md) the call.
 1. When testing is complete, exit the test console.
 
+---
+
 ## Production considerations
 
 * See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
@@ -142,8 +144,6 @@ Also, configure authentication to your backend using an appropriate method for y
 * For guidance to deploy, manage, and migrate APIs at scale, see:
     * [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops)
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
-
----
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
