@@ -175,7 +175,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```java
-Thread.sleep(3000);
+Thread.sleep(10000);
 worker = routerClient.getWorker(worker.getId());
 for (RouterJobOffer offer : worker.getOffers()) {
     System.out.printf("Worker %s has an active offer for job %s\n", worker.getId(), offer.getJobId());
