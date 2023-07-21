@@ -42,7 +42,7 @@ When screen capture protection is enabled, users can't share their Remote Deskto
 
 ## Enable screen capture protection
 
-Screen capture protection is configured on session hosts and enforced on the client. You configure the settings by using Intune or Group Policy.
+Screen capture protection is configured on session hosts and enforced by the client. You configure the settings by using Intune or Group Policy.
 
 To configure screen capture protection:
 
@@ -54,7 +54,7 @@ To configure screen capture protection:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session and test screen capture protection is working by taking a screenshot or sharing your screen. The content should be blocked or hidden.
+1. Connect to a remote session and test screen capture protection is working by taking a screenshot or sharing your screen. The content should be blocked or hidden. Any existing sessions will need to sign out and back in again to take effect.
 
 ## Next steps
 
