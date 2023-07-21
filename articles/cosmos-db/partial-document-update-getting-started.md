@@ -7,6 +7,7 @@ ms.author: abtripathi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
+ms.custom: ignite-fall-2021, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ms.date: 05/23/2023
 ---
 

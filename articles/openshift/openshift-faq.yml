@@ -6,7 +6,7 @@ metadata:
   ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
-  ms.date: 03/09/2023
+  ms.date: 06/04/2023
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
@@ -104,6 +104,15 @@ sections:
           - [Exposing a registry](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
           - [Accessing the registry](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
           
+      - question: Can I move/migrate my cluster between Azure tenants?
+        answer: Moving your ARO cluster between tenants is currently unsupported.
+
+      - question: Can I move my ARO clusters from the current Azure subscription to another?
+        answer: Moving your ARO cluster and its associated resources between subscriptions isn't supported.
+
+      - question: Can I move my ARO clusters or ARO infrastructure resources to other resource groups or rename them?
+        answer: Moving or renaming your ARO cluster and its associated resources isn't supported.
+
   - name: Networking
     questions:
       - question: Can I deploy a cluster into an existing virtual network?

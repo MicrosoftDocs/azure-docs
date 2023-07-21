@@ -27,7 +27,7 @@ In this article, you learn how to:
 > -   Test the API in the Azure portal
 
 > [!NOTE]
-> API Management supports automated import of a Logic App (Consumption) resource. which runs in the multi-tenant Logic Apps environment. Learn more about [single-tenant versus muti-tenant Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+> API Management supports automated import of a Logic App (Consumption) resource. which runs in the multi-tenant Logic Apps environment. Learn more about [single-tenant versus multi-tenant Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 ## Prerequisites
 

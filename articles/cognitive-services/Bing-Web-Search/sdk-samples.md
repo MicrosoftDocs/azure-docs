@@ -7,6 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
+ms.custom: devx-track-extended-java, devx-track-python
 ms.topic: sample
 ms.date: 05/15/2019
 ms.author: aahi
@@ -14,7 +15,7 @@ ms.author: aahi
 
 # Bing Web Search SDK samples
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Web Search SDK is available in Python, Node.js, C#, and Java. Code samples, prerequisites, and build instructions are provided on GitHub. The following scenarios are covered:
 

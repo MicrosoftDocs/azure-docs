@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/12/2023
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-dotnet
 ---
 
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK

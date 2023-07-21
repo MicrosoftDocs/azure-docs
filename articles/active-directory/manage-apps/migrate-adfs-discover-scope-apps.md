@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/30/2023
 ms.author: jomondi
@@ -35,7 +35,7 @@ Discover applications using ADFS:
  
 ## Using other identity providers (IdPs)
 
-- If you’re currently using Okta, refer to our [Okta to Azure AD migration guide](migrate-applications-from-okta-to-azure-active-directory.md).
+- If you’re currently using Okta, refer to our [Okta to Azure AD migration guide](migrate-applications-from-okta.md).
 
 - If you’re currently using Ping Federate, then consider using the [Ping Administrative API](https://docs.pingidentity.com/r/en-us/pingfederate-112/pf_admin_api) to discover applications.
 

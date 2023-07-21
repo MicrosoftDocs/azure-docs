@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab by using Bicep.
 ms.topic: how-to
 ms.date: 05/23/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Create a lab in Azure Lab Services using a Bicep file

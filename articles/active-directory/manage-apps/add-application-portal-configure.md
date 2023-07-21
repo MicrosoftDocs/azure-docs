@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
 ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
@@ -20,6 +20,8 @@ ms.custom: enterprise-apps
 # Configure enterprise application properties
 
 This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
@@ -36,7 +38,7 @@ Application properties control how the application is represented and how the ap
 
 To configure the application properties:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. On the **Properties** pane, you may want to configure the following properties for your application:

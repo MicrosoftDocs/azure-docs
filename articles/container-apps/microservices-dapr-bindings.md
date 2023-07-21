@@ -5,6 +5,7 @@ description: Deploy a sample Dapr Bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 04/11/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
@@ -189,7 +190,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
@@ -367,7 +368,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
@@ -544,7 +545,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 

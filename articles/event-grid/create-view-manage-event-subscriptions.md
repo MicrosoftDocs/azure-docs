@@ -29,7 +29,7 @@ ms.date: 05/24/2023
 
     :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-filters.png" alt-text="Screenshot showing Event Grid event subscription create filters.":::
 
-6. In the **Additional features** tab, set the lock duration in minutes and select **Create**.
+6. In the **Additional features** tab, set the lock duration in minutes, specify maximum delivery count, and then select **Create**.
 
     :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-additional-features.png" alt-text="Screenshot showing Event Grid event subscription create additional features.":::
 

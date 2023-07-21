@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota increases.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 author: SimranArora904
 ms.author: siarora
 ms.reviewer: larryfr
@@ -74,7 +74,7 @@ Available resources:
 
 + **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ **Clusters per region** have a default limit of 200. This limit is shared between training clusters, compute instances and MIR endpoint deployments. (A compute instance is considered a single-node cluster for quota purposes.) Cluster quota can be increased up to a value of 500 per region within a given subscription.
++ **Clusters per region** have a default limit of 200 and it can be increased up to a value of 500 per region within a given subscription.. This limit is shared between training clusters, compute instances and MIR endpoint deployments. (A compute instance is considered a single-node cluster for quota purposes.) Starting 8/30/2023, cluster quota limits will automatically be increased from 200 to 500 on your behalf when usage is approaching close to the 200 default limit, eliminating the need to file for a support ticket.
 
 > [!TIP]
 > To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
@@ -119,11 +119,11 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 <sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
 
-<sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
+<sup>3</sup> The default limit for some subscriptions may be different. For example, when you request a limit increase it may show 100 instead. If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
-To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
+To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
 
 ### Azure Machine Learning kubernetes online endpoints
 
@@ -150,7 +150,7 @@ The sum of kubernetes online endpoints and managed online endpoints under each s
 
 ### Azure Machine Learning integration with Synapse
 
-Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. This utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and requesting for quota increase under the "Machine Learning Service: Virtual Machine" category.
+Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. This utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and [requesting for quota increase](#request-quota-increases) for ESv3 series under the "Machine Learning Service: Virtual Machine Quota" category.
  
  To view quota usage, navigate to Machine Learning studio and select the subscription name that you would like to see usage for. Select "Quota" in the left panel.
 

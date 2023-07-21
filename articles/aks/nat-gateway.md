@@ -24,7 +24,8 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 ## Create an AKS cluster with a managed NAT gateway
 
-* Create an AKS cluster with a new managed NAT gateway using the [`az aks create`][az-aks-create] command with the `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` parameters. If you want the NAT gateway to operate out of availability zones, specify the zones using `--zones`.
+* Create an AKS cluster with a new managed NAT gateway using the [`az aks create`][az-aks-create] command with the `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` parameters. If you want the NAT gateway to operate out of a specific availability zone, specify the zones using `--zones`.
+* A managed NAT gateway resource cannot be used across multiple availability zones. When you deploy a managed NAT gateway instance, it is deployed to "no zone". No zone NAT gateway resources are deployed to a single availability zone for you by Azure. For more information on non-zonal deployment model, see [non-zonal NAT gateway](/azure/nat-gateway/nat-availability-zones#non-zonal).
 
     ```azurecli-interactive
     az aks create \
@@ -37,6 +38,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
     ```
 
     > [!IMPORTANT]
+    > Zonal configuration for your NAT gateway resource can be done with user-assigned NAT gateway resources. See [Create an AKS cluster with a user-assigned NAT gateway](#create-an-aks-cluster-with-a-user-assigned-nat-gateway] for more details.
     > If no value for the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
@@ -91,6 +93,9 @@ This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-ku
         --location southcentralus \
         --public-ip-addresses myNatGatewayPip
     ```
+   > [!Important]
+   > A single NAT gateway resource cannot be used across multiple availability zones. To ensure zone-resiliency, it is recommended to deploy a NAT gateway resource to each availability zone and assign to subnets containing AKS clusters in each zone. For more information on this deployment model, see [NAT gateway for each zone](/azure/nat-gateway/nat-availability-zones#zonal-nat-gateway-resource-for-each-zone-in-a-region-to-create-zone-resiliency).
+   > If no zone is configured for NAT gateway, the default zone placement is "no zone", in which Azure places NAT gateway into a zone for you.
 
 5. Create a virtual network using the [`az network vnet create`][az-network-vnet-create] command.
 
@@ -148,33 +153,33 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
   1. Install or update `aks-preview` using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
-    ```azurecli
-    # Install aks-preview
+        ```azurecli
+        # Install aks-preview
 
-    az extension add --name aks-preview
+        az extension add --name aks-preview
 
-    # Update aks-preview
+        # Update aks-preview
 
-    az extension update --name aks-preview
-    ```
+        az extension update --name aks-preview
+        ```
 
   2. Register the feature flag using the [`az feature register`][az-feature-register] command.
 
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
-    ```
+        ```azurecli
+        az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+        ```
 
   3. Check the registration status using the [`az feature list`][az-feature-list] command.
 
-    ```azurecli
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
-    ```
+        ```azurecli
+        az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+        ```
 
   4. Refresh the registration of the `Microsoft.ContainerService` resource provider us
 
-    ```azurecli
-    az provider register --namespace Microsoft.ContainerService
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ContainerService
+        ```
 
 * Your clusters must have a managed NAT gateway (which may increase the overall cost).
 * If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].

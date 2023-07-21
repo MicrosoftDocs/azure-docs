@@ -7,6 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
+ms.custom: devx-track-js
 ms.topic: conceptual
 ms.date: 01/05/2022
 ms.author: aahi
@@ -14,7 +15,7 @@ ms.author: aahi
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Azure Cognitive Services on Azure.
 

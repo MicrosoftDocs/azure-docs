@@ -5,6 +5,7 @@ author: terencefan
 ms.author: tefa
 ms.date: 11/15/2021
 ms.service: azure-web-pubsub
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ---
 

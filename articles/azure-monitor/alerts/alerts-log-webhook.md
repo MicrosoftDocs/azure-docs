@@ -89,7 +89,7 @@ The following sample payload is for a standard webhook when it's used for log al
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The `"Severity"` field value changes if you've [switched to the current scheduledQueryRules API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) from the [legacy Log Analytics Alert API](./api-alerts.md).
+> The `"Severity"` field value changes if you've [switched to the current scheduledQueryRules API](./alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {

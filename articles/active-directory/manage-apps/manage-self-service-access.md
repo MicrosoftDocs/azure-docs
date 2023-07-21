@@ -37,6 +37,8 @@ Using this feature, you can:
 
 - Optionally automatically assign self-service assigned users to an application role directly.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To enable self-service application access, you need:

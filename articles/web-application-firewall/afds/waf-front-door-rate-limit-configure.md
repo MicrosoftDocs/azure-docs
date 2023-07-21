@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 10/05/2022
+ms.date: 05/19/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
@@ -13,7 +13,7 @@ zone_pivot_groups: web-application-firewall-configuration
 
 # Configure a Web Application Firewall rate limit rule
 
-The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular socket IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
+The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
 This article shows how to configure a WAF rate limit rule on Azure Front Door Standard and Premium tiers.
 
@@ -23,7 +23,7 @@ This article shows how to configure a WAF rate limit rule on Azure Front Door St
 
 Suppose you're responsible for a public website. You've just added a page with information about a promotion your organization is running. You're concerned that, if clients visit that page too often, some of your backend services might not scale quickly and the application might have performance issues.
 
-You decide to create a rate limiting rule that restricts each socket IP address to a maximum of 1000 requests per minute. You'll only apply this rule to requests that contain `*/promo*` in the request URL.
+You decide to create a rate limiting rule that restricts each source IP address to a maximum of 1000 requests per minute. You only apply this rule to requests that contain `*/promo*` in the request URL.
 
 > [!TIP]
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -94,6 +94,11 @@ You decide to create a rate limiting rule that restricts each socket IP address 
    - **Operator:** Contains
    - **Match values:** */promo*
 
+1. For **Action**, choose either **Log** or **Block**
+
+   - Rate Limit rules only support Log and Block actions, Allow isn't supported.
+
+
    :::image type="content" source="../media/waf-front-door-rate-limit-configure/custom-rule.png" alt-text="Screenshot of the Azure portal showing the custom rule configuration." :::
 
 1. Select **Add**.
@@ -104,7 +109,7 @@ You decide to create a rate limiting rule that restricts each socket IP address 
 
 ## Use prevention mode on the WAF
 
-By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
+By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF doesn't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
 
 It's a good practice to [tune your WAF](waf-front-door-tuning.md) before using prevention mode, to avoid false positive detections and your WAF blocking legitimate requests.
 
@@ -216,7 +221,7 @@ $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 
 ## Create a custom rate limit rule
 
-Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) cmdlet to create the rate limit rule, which includes the match condition you defined in the previous step as well as the rate limit request threshold.
+Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) cmdlet to create the rate limit rule, which includes the match condition you defined in the previous step and the rate limit request threshold.
 
 The following example sets the limit to 1000:
 
@@ -230,11 +235,11 @@ $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
   -Priority 1
 ```
 
-When any socket IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
+When any source IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
 ## Create a WAF policy
 
-Use the [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) cmdlet to create a WAF policy, which includes the custom rule you just created:
+Use the [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) cmdlet to create a WAF policy, which includes the custom rule you created:
 
 ```azurepowershell
 $wafPolicy = New-AzFrontDoorWafPolicy `
@@ -372,7 +377,7 @@ az network front-door waf-policy rule create \
   --defer
 ```
 
-When any socket IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
+When any source IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
 ## Add a match condition
 

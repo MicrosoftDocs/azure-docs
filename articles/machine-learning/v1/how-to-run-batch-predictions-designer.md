@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: designer, event-tier1-build-2022
+ms.custom: UpdateFrequency5, designer, event-tier1-build-2022
 ---
 
 # Run batch predictions using Azure Machine Learning designer
@@ -30,7 +30,7 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Create a batch inference pipeline
 

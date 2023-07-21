@@ -5,14 +5,13 @@ summary: Learn how to use BareMetal Infrastructure to create, deploy, and manage
 
 metadata:
   title: BareMetal Infrastructure documentation 
+  author: jjaygbay1
+  ms.author: jacobjaygbay
   description: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
   services: baremetal-infrastructure 
   ms.service: baremetal-infrastructure
   ms.topic: landing-page
-  author: jjaygbay1
-  ms.author: jjaygbay
   ms.date: 06/01/2023
-
 
 # card 1
 landingContent:

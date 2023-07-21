@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

@@ -1,23 +1,23 @@
 ---
-title: Update the Network Watcher extension to the latest version 
+title: Update Network Watcher extension to the latest version 
 description: Learn how to update the Azure Network Watcher extension to the latest version.
 services: virtual-machines
 author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 07/12/2023
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, template-concept, engagement-fy23
+ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
 ---
 
-# Update the Network Watcher extension to the latest version
+# Update Azure Network Watcher extension to the latest version
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure virtual machine (VM) that has the Network Watcher extension installed.
 
 ## Latest version
@@ -46,7 +46,7 @@ az vm extension image list --name 'NetworkWatcherAgentWindows' --publisher 'Micr
 
 ## Update your extension using a PowerShell script
 
-Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, see the next section. 
+If you have large deployments, use a PowerShell script to update multiple VMs at once. The following PowerShell script updates Network Watcher extension of all Windows VMs in a subscription: 
 
 ```powershell
 <# 
@@ -66,7 +66,7 @@ param(
     [Parameter(Mandatory=$false)] 
     [Switch] $NoUpdate = $false, 
     [Parameter(Mandatory=$false)] 
-    [string] $MinVersion = "1.4.2423.1" 
+    [string] $MinVersion = "1.4.2573.1" 
 )  
 function NeedsUpdate($version) 
 { 
@@ -133,7 +133,7 @@ To update your extension, you need to know your extension version.
 
 You can check your extension version by using the Azure portal, the Azure CLI, or PowerShell.
 
-#### Use the Azure portal
+#### Use the Azure portal
 
 1. Go to the **Extensions** pane of your VM in the Azure portal.
 1. Select the **AzureNetworkWatcher** extension to see the details pane.
@@ -153,7 +153,6 @@ Information about the extension appears multiple times in the JSON output. The f
 You should see something like the below:
 ![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
 
-
 #### Use PowerShell
 
 Run the following commands from a PowerShell prompt:
@@ -165,7 +164,6 @@ Locate the Azure Network Watcher extension in the output and identify the ve
 
 You should see something like the below:
 ![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
-
 
 ### Update your extension
 

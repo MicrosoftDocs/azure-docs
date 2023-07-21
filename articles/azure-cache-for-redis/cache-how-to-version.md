@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 06/02/2023
 ---
 
 # Set Redis version for Azure Cache for Redis
@@ -15,7 +15,8 @@ ms.date: 09/08/2022
 In this article, you'll learn how to configure the Redis software version to be used with your cache instance. Azure Cache for Redis offers the latest major version of Redis and at least one previous version. It will update these versions regularly as newer Redis software is released. You can choose between the two available versions. Keep in mind that your cache will be upgraded to the next version automatically if the version it's using currently is no longer supported.
 
 > [!NOTE]
-> At this time, Redis 6 does not support Access Control Lists (ACL) or geo-replication between a Redis 4 cache and Redis 6 cache.
+> At this time, Redis 6 does not directly support Access Control Lists (ACL) but ACLs can be setup through [Active AD](cache-configure-role-based-access-control.md). For more information, seee to [Use Azure Active Directory for cache authentication](cache-azure-active-directory-for-authentication.md)
+> Presently, Redis 6 does not support geo-replication between a Redis 4 cache and Redis 6 cache.
 >
 
 ## Prerequisites

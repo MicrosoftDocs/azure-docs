@@ -4,9 +4,10 @@ description: In this article, learn how to prepare for System Center Data Protec
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Prepare to back up workloads to Azure with System Center DPM
 
 This article explains how to prepare for System Center Data Protection Manager (DPM) backups to Azure, using the Azure Backup service.

@@ -10,12 +10,12 @@ author: minthigpen
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
 ---
 
 # Use the Python interpretability package to explain ML models & predictions (preview)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -32,7 +32,7 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](../how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
 

@@ -122,7 +122,7 @@ Use Event Grid to build serverless solutions with Azure Functions Apps, Logic Ap
 #### Receive events from Azure services
 :::image type="content" source="media/overview/receive-events-azure.png" alt-text="Diagram that shows Blob Storage publishing events to Event Grid over HTTP. Event Grid sends those events to event handlers, which are either webhooks or Azure services." lightbox="media/overview/receive-events-azure-high-res.png" border="false":::
 
-Azure services make their [events available](system-topics.md) so that you can automate your operations. For example, you can configure Event Grid to receive an event when a new blob has been created on an Azure Storage Account so that your downstream application can read and process its content.
+Event Grid can receive events from 20+ Azure services so that you can automate your operations. For example, you can configure Event Grid to receive an event when a new blob has been created on an Azure Storage Account so that your downstream application can read and process its content. For a list of all supported Azure services and events, see [System topics](system-topics.md).
 
 #### Receive events from your applications
 :::image type="content" source="media/overview/receive-events-apps.png" alt-text="Diagram that shows customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-events-apps-high-res.png" border="false":::

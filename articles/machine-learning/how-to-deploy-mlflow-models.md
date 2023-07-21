@@ -16,11 +16,8 @@ ms.devlang: azurecli
 
 # Guidelines for deploying MLflow models
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-deploy-mlflow-models.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to perform management of the deployment.
 

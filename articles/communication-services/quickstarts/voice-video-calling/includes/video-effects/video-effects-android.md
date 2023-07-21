@@ -54,8 +54,8 @@ private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
 }
  
 // Subscribe to the events
-videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectStarted);
-videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectStopped);
+videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectEnabled);
+videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectDisabled);
 videoEffectsFeature.addOnVideoEffectErrorListener(this::handleOnVideoEffectError);
 ```
 
@@ -89,8 +89,8 @@ private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
 VideoEffectsLocalVideoStreamFeature videoEffectsFeature;
 public void createVideoEffectsFeature() {
     videoEffectsFeature = currentVideoStream.feature(Features.LOCAL_VIDEO_EFFECTS);
-    videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectStarted);
-    videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectStopped);
+    videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectEnabled);
+    videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectDisabled);
     videoEffectsFeature.addOnVideoEffectErrorListener(this::handleOnVideoEffectError);
 }
 

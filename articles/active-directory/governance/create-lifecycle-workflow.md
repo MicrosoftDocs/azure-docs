@@ -1,5 +1,5 @@
 ---
-title: Create a lifecycle workflow (preview) - Azure AD
+title: Create a lifecycle workflow - Azure AD
 description: This article guides you in creating a lifecycle workflow. 
 author: OWinfreyATL
 ms.author: owinfrey
@@ -7,14 +7,14 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 01/26/2023
+ms.date: 06/22/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
 
-# Create a lifecycle workflow (preview)
+# Create a lifecycle workflow
 
-Lifecycle workflows (preview) allow for tasks associated with the lifecycle process to be run automatically for users as they move through their lifecycle in your organization. Workflows consist of:
+Lifecycle workflows allow for tasks associated with the lifecycle process to be run automatically for users as they move through their lifecycle in your organization. Workflows consist of:
 
 - **Tasks**: Actions taken when a workflow is triggered.
 - **Execution conditions**: The who and when of a workflow. These conditions define which users (scope) this workflow should run against, and when (trigger) the workflow should run.
@@ -23,7 +23,8 @@ You can create and customize workflows for common scenarios by using templates, 
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Create a lifecycle workflow by using a template in the Azure portal
 
@@ -35,9 +36,9 @@ To create a workflow based on a template:
 
 1. Select **Azure Active Directory** > **Identity Governance**.
 
-1. On the left menu, select **Lifecycle Workflows (Preview)**.
+1. On the left menu, select **Lifecycle Workflows**.
 
-1. Select **Workflows (Preview)**.
+1. Select **Workflows**.
 
 1. On the **Choose a workflow** page, select the workflow template that you want to use.
 

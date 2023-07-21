@@ -13,7 +13,7 @@ ms.custom: include file
 
 > [!IMPORTANT]
 > Instead of upgrading to the latest version of Azure AD Connect, see if cloud sync is right for you. 
-> For more information, see [sync users to Azure AD](https://setup.microsoft.com/azure/add-or-sync-users-to-microsoft-365)
+> For more information, evaluate your options using the [Wizard to evaluate sync options](https://aka.ms/EvaluateSyncOptions)
 
 
 

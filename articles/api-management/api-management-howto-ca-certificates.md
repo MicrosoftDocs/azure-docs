@@ -9,7 +9,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # How to add a custom CA certificate in Azure API Management

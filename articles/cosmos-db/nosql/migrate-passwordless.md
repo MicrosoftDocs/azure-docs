@@ -5,10 +5,10 @@ description: Learn to migrate existing applications away from connection strings
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 04/05/2023
+ms.date: 06/01/2023
 ms.service: cosmos-db
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---
 
 # Migrate an application to use passwordless connections with Azure Cosmos DB for NoSQL
@@ -27,6 +27,8 @@ The following tutorial explains how to migrate an existing application to connec
 
 ### Migrate the app code to use passwordless connections
 
+## [.NET](#tab/dotnet)
+
 1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
@@ -41,12 +43,125 @@ The following tutorial explains how to migrate an existing application to connec
 
 1. Identify the locations in your code that create a `CosmosClient` object to connect to Azure Cosmos DB. Update your code to match the following example.
 
-   ```csharp
+    ```csharp
+    DefaultAzureCredential credential = new();
+
     using CosmosClient client = new(
         accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT"),
-        tokenCredential: new DefaultAzureCredential()
+        tokenCredential: credential
     );
-   ```
+    ```
+
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Cosmos DB. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    endpoint := os.Getenv("COSMOS_ENDPOINT")
+    client, err := azblob.NewClient(endpoint, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
+
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
+    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Identify the locations in your code that create a `CosmosClient` or `CosmosAsyncClient` object to connect to Azure Cosmos DB. Update your code to match the following example:
+
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+    String endpoint = System.getenv("COSMOS_ENDPOINT");
+    
+    CosmosClient client = new CosmosClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .consistencyLevel(ConsistencyLevel.EVENTUAL)
+        .buildClient();
+    ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    import { DefaultAzureCredential } from "@azure/identity";
+    ```
+
+1. Identify the locations in your code that create a `CosmosClient` object to connect to Azure Cosmos DB. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    const endpoint = process.env.COSMOS_ENDPOINT;
+
+    const cosmosClient = new CosmosClient({ 
+        endpoint, 
+        aadCredentials: credential
+    });
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+    endpoint = os.environ["COSMOS_ENDPOINT"]
+
+    client = CosmosClient(
+        url = endpoint,
+        credential = credential
+    )
+    ```
+
+---
 
 ### Run the app locally
 
@@ -111,23 +226,7 @@ az role assignment create \
     --scope "<cosmosdb-resource-id>"
 ```
 
-### Update the application code
-
-You need to configure your application code to look for the specific managed identity you created when it's deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
-
-1. On the managed identity overview page, copy the client ID value to your clipboard.
-1. Update the `DefaultAzureCredential` object to specify this managed identity client ID:
-
-    ```csharp
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    var credential = new DefaultAzureCredential(
-        new DefaultAzureCredentialOptions
-        {
-            ManagedIdentityClientId = "<managed-identity-client-id>"
-        });
-    ```
-
-3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 

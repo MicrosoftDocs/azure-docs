@@ -10,7 +10,7 @@ ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 11/04/2022
-ms.custom: contperf-fy21q1,contperfq1
+ms.custom: contperf-fy21q1,contperfq1, contperf-fy23q2
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
@@ -18,6 +18,8 @@ ms.custom: contperf-fy21q1,contperfq1
 This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
 
 For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./v1/algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
+
+Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-foundation-models.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
 
 ## Deep learning, machine learning, and AI
 
@@ -34,8 +36,10 @@ Consider the following definitions to understand deep learning vs. machine learn
    1. Test and deploy the model.
    1. Consume the deployed model to do an automated predictive task. (In other words, call and use the deployed model to receive the predictions returned by the model.)
 
-- **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning. 
- 
+- **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning.
+
+- **Generative AI** is a subset of artificial intelligence that uses techniques (such as deep learning) to generate new content. For example, you can use generative AI to create images, text, or audio. These models leverage massive pre-trained knowledge to generate this content.
+
 By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
 
 ## Techniques of deep learning vs. machine learning 
@@ -75,7 +79,7 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 
 ### Object detection
 
-Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
+Deep learning has been applied in many object detection use cases. Object detection is used to identify objects in an image (such as cars or people) and provide specific location for each object with a bounding box.
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 

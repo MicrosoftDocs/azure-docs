@@ -135,7 +135,7 @@ Though we don't recommend that you use it, the [username/password flow](scenario
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 

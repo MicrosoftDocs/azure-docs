@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 #Customer intent: As an application developer, I want to learn about customizing the UI prompt behaviors in MSAL.js library so I can decide if this platform meets my application development needs and requirements.
 ---
 

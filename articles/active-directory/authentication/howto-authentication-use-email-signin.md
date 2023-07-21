@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/01/2023
 
 ms.author: justinha
 author: calui
@@ -135,11 +135,11 @@ Email as an alternate login ID applies to [Azure AD B2B collaboration](../extern
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or PowerShell to set up the feature.
+During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or Graph PowerShell to set up the feature.
 
 ### Azure portal
 
-1. Sign in to the [Azure portal][azure-portal] as a *Global Administrator*.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
 
@@ -159,7 +159,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you can currently only enable email as an alternate login ID using PowerShell or the Microsoft Graph API. You need *Global Administrator* privileges to complete the following steps:
+You need *Global Administrator* privileges to complete the following steps:
 
 1. Open a PowerShell session as an administrator, then install the *Microsoft.Graph* module using the `Install-Module` cmdlet:
 
@@ -453,7 +453,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy

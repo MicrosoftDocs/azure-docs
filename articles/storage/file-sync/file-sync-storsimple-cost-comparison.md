@@ -2,11 +2,10 @@
 title: Comparing the costs of StorSimple to Azure File Sync
 description: Learn how you can save money and modernize your storage infrastructure by migrating from StorSimple to Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Comparing the costs of StorSimple to Azure File Sync

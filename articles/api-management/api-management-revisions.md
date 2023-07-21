@@ -8,7 +8,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/22/2022
 ms.author: jodowns
-ms.custom: fasttrack-new, devx-track-azurepowershell
+ms.custom: fasttrack-new
 ---
 # Revisions in Azure API Management
 

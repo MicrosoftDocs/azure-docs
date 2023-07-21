@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/17/2023
+ms.date: 06/07/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -443,6 +443,58 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 
 `File` customizer is suitable only for small (less than 20 MB) file downloads. For larger file downloads, use a script or inline command. For example, in Linux you can use `wget` or `curl`. In Windows, you can use `Invoke-WebRequest`.
 
+
+### The builder continually fails to run Windows-Restart with the error code 1190
+
+#### Error
+
+```output
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] (telemetry) Starting provisioner windows-restart
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 10
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 10' exited with code: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> azure-arm: A system shutdown has already been scheduled.(1190)
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 60 /c "packer restart test"
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 60 /c "packer restart test"' exited with code: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Reboot already in progress, waiting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:08 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to reboot with timeout: 15m0s
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to become available...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Some builds didn't complete successfully and had errors:
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 machine readable: azure-arm,error []string{"Timeout waiting for machine to restart."}
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT --> azure-arm: Timeout waiting for machine to restart.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR ==> Builds finished but no artifacts were created.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT 
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 [INFO] (telemetry) Finalizing.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Builds finished but no artifacts were created.
+```
+
+#### Cause
+
+The windows update step declares prematurely in images based on Windows Server 2016.
+
+#### Solution
+
+Increase `restartTimeout` from 15 minutes to 30 minutes.
+
 ### Error waiting on Azure Compute Gallery
 
 #### Error
@@ -524,7 +576,7 @@ Increase the build VM size.
 
 ### The build finished but no artifacts were created
 
-#### Error
+#### Warning
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -542,13 +594,10 @@ Increase the build VM size.
 Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
 ```
 
-#### Cause
-
-The build timed out while it was waiting for the required Azure resources to be created.
 
 #### Solution
 
-Rerun the build to try again.
+The above warning can safely be ignored.
 
 ### Resource not found
 

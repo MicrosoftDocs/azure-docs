@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -64,7 +64,7 @@ An Authentication Policy Administrator can restrict access to specific security 
 
 ## A user can't register a new method during sign-in 
 
-Some methods can't be registered during sign-in, or they need more setup beyond the combined registration. For more information, see [Registering authentication methods](concept-authentication-strengths.md#registering-authentication-methods).
+Some methods can't be registered during sign-in, or they need more setup beyond the combined registration. For more information, see [Register passwordless authentication methods](concept-authentication-strengths.md#register-passwordless-authentication-methods).
  
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/register.png" alt-text="Screenshot of a sign-in error when they are unable to register the method."::: 
 

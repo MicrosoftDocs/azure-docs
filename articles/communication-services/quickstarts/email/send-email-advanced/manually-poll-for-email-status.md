@@ -9,6 +9,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: devx-track-dotnet
 ---
 
 # Quickstart: Manually poll for email status when sending email

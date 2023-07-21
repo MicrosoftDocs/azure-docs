@@ -250,7 +250,7 @@ After you disable Okta provisioning, the Azure AD Connect server can synchronize
 
 After you disable Okta provisioning, the Azure AD cloud sync agent can synchronize objects.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Browse to **Azure Active Directory**.
 3. Select **Azure AD Connect**.
 4. Select **Cloud Sync**.
@@ -263,6 +263,6 @@ After you disable Okta provisioning, the Azure AD cloud sync agent can synchroni
 
 ## Next steps
 
-- [Tutorial: Migrate your applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
-- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate your applications from Okta to Azure AD](migrate-applications-from-okta.md)
+- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation.md)
 - [Tutorial: Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)

@@ -1,6 +1,6 @@
 ---
 title: Move from IoT Central to a PaaS solution
-description: This article discusses to move between application platform as a service (aPaaS) and platform as a service (PaaS) Azure IoT solution approaches.
+description: This article discusses how to move between application platform as a service (aPaaS) and platform as a service (PaaS) Azure IoT solution approaches.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/28/2022
@@ -44,10 +44,12 @@ So that you can seamlessly migrate devices from your IoT Central applications to
 
 - The device must be an IoT Plug and Play device that uses a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) model. IoT Central requires all devices to have a DTDL model. These models simplify the interoperability between an IoT PaaS solution and IoT Central.
 
-- The device must follow the [IoT Central data formats for telemetry, property, and commands](concepts-telemetry-properties-commands.md).
-
+- The device must follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
 - IoT Central uses the DPS to provision the devices. The PaaS solution must also use DPS to provision the devices.
 - The updatable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Move existing data out of IoT Central
 

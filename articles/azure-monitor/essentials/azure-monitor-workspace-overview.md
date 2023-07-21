@@ -67,6 +67,12 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Azure Monitor workspaces are currently only supported in public clouds.
 - Azure Monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
+## Data considerations
+Data stored in the Azure Monitor Workspace is handled in accordance with all standards described in the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1). Several considerations exist specific to data stored in the Azure Monitor Workspace:
+- Data is physically stored in the same region that the Azure Monitor Workspace is provisioned in
+- Data is encrypted at rest using a Microsoft-managed key
+- Data is retained for 18 months
+- For details about the Azure Monitor managed service for Prometheus' support of PII/EUII data, please see details [here](./prometheus-metrics-overview.md)
 
 ## Next steps
 

@@ -5,11 +5,12 @@ description: Overview of migration of classic storage accounts to the Azure Reso
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
 ---
 
 # Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024
