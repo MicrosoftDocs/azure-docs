@@ -20,7 +20,7 @@ Each release of ALB Controller has a documented helm chart version and supported
 
 Instructions for new or existing deployemnts of ALB Controller are found in the following links:
 - [New deployment of ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments)
-- [Update existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
+- [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
 
 ## Release history
 
