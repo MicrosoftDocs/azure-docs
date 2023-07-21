@@ -144,7 +144,7 @@ In the future, you can fetch the same dataset from the workspace using `credit_d
 ## Create a compute resource to run your pipeline
 
 > [!NOTE]
-> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment-for-pipeline-steps).
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md) to run this pipeline, you can skip this compute creation step and proceed directly to [create a job environment](#create-a-job-environment-for-pipeline-steps).
 
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
