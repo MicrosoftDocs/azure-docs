@@ -16,13 +16,13 @@ This quickstart shows you how to create a project in Azure Deployment Environmen
 
 A platform engineering team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications.
 
-The following graphic shows the steps you perform in the [Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md) quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. You must perform these steps before you can create a project.
+The following diagram shows the steps you perform in the [Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md) quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. You must perform these steps before you can create a project.
 
-:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2a.png" alt-text="Graphic showing the stages required to configure a dev center for Deployment Environments.":::
+:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2-a.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
  
-The following graphic shows the steps you perform in this quickstart to configure a project associated with a dev center for Deployment Environments in the Azure portal.
+The following diagram shows the steps you perform in this quickstart to configure a project associated with a dev center for Deployment Environments in the Azure portal.
 
-:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2b.png" alt-text="Graphic showing the stages required to configure a project for Deployment Environments.":::
+:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2-b.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
 
 First, you create a project. Then, assign the dev center managed identity the Owner role to the subscription. Then, you configure the project by creating a project environment type. Finally, you give the development team access to the project by assigning the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role to the project.
 
