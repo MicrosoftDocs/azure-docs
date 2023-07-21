@@ -152,7 +152,7 @@ Yes, you can soft-delete a user by using the **DELETE** method in the bulk reque
 
 ## How can we prevent accidental disabling/deletion of users?
 
-To prevent and recover from accidental deletions, we recommend [configuring accidental deletion threshold](accidental-deletions.md) in the provisioning app and [enabling the on-premises Active Directory recycle bin](/azure/active-directory/hybrid/connect/how-to-connect-sync-recycle-bin.md). In your provisioning app's **Attribute Mapping** blade, under **Target object actions** disable the **Delete** operation.  
+To prevent and recover from accidental deletions, we recommend [configuring accidental deletion threshold](accidental-deletions.md) in the provisioning app and [enabling the on-premises Active Directory recycle bin](../hybrid/connect/how-to-connect-sync-recycle-bin.md). In your provisioning app's **Attribute Mapping** blade, under **Target object actions** disable the **Delete** operation.  
 
 **Recovering deleted accounts**
 * If the target directory for the operation is Azure AD, then the matched user is soft-deleted. The user can be seen on the Microsoft Azure portal **Deleted users** page for the next 30 days and can be restored during that time.
