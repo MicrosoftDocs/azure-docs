@@ -12,6 +12,8 @@ ms.date: 07/17/2023
 
 You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to Azure NetApp Files to join the on-premises AD domain. 
 
+<!-- add diagram -->
+
 ## Steps
 
 Before you can connect your on-premises environment to Azure AD, you must have:
@@ -47,9 +49,9 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     
 :::image type="content" source="../media/azure-netapp-files/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="../media/azure-netapp-files/multi-value-string-editor.png":::
 
-### Sync CIFS password from on-premises AD to Azure AD Kerberos Application 
+### Sync CIFS password from on-premises AD to Azure AD application 
 
-1. Sign on to Active Directory in your on-premises environment.
+1. In your on-premises environment, sign into Active Directory.
 2. Open PowerShell. 
 1. Install the [Hybrid Authentication Management module](/azure/azure-sql/managed-instance/winauth-azuread-setup-incoming-trust-based-flow) for synchronizing passwords. 
 
@@ -101,10 +103,10 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     :::image type="content" source="../media/azure-netapp-files/define-host-name-to-kerberos.png" alt-text="Screenshot to define how-name-to-Kerberos real mappings." lightbox="../media/azure-netapp-files/define-host-name-to-kerberos.png":::
     
 1. Manually add DNS mapping in the hosts. 
-    Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the hybrid credentials retrieved during the machine creation. Cloud user credentials don't have the correct permission to modify the `/etc/hosts/` file. 
-1. Mount using the mount info provided in the Azure NetApp Files. 
-net use * \\ NETBIOS-1234.contoso.com\volume1 
-1. Confirm the mounted volume is using Kerberos and not NTLM authentication. Open a Command Prompt to issue the `klist` command and observe the output in the cloud TGT (`krbtgt`) and CIFS server ticket information.  
+    Open `C:\Windows\System32\drivers\etc\hosts` as an administrator. Add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the hybrid credentials retrieved during the machine creation. Cloud user credentials don't have the correct permission to modify the `/etc/hosts/` file. 
+1. Mount using the mount info provided in the Azure NetApp Files. Open a command prompt and run:
+`net use * \\ NETBIOS-1234.contoso.com\volume1`
+1. Confirm the mounted volume is using Kerberos and not NTLM authentication. In the command prompt, issue the `klist` command and observe the output in the cloud TGT (`krbtgt`) and CIFS server ticket information.  
 
     :::image type="content" source="../media/azure-netapp-files/klist-output.png" alt-text="Screenshot of CLI output." lightbox="../media/azure-netapp-files/klist-output.png":::
 
