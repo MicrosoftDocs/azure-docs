@@ -11,9 +11,9 @@ ms.service: azure-maps
 
 # Add a map layer from the Open Geospatial Consortium (OGC)
 
-The `atlas.layer.OgcMapLayer` class can overlay Web Map Services (WMS) imagery and Web Map Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving pre-rendered and georeferenced map tiles.
+The `atlas.layer.OgcMapLayer` class can overlay Web Map Services (WMS) imagery and Web Map Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving prerendered and georeferenced map tiles.
 
-The following sections outline the web map service features that are supported by the `OgcMapLayer` class.
+The following sections outline the web map service features supported by the `OgcMapLayer` class.
 
 **Web Map Service (WMS)**
 
@@ -32,8 +32,8 @@ The following sections outline the web map service features that are supported b
 
 - Supported versions: `1.0.0`
 - Tiles must be square, such that `TileWidth == TileHeight`.
-- CRS supported: `EPSG:3857` or `GoogleMapsCompatible` 
-- TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. On an azure map, the zoom level is a value between `"0"` and `"22"`. So, `"0"` is supported, but `"00"` isn't supported.
+- CRS supported: `EPSG:3857` or `GoogleMapsCompatible`
+- TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. In Azure Maps, the zoom level is a value between `"0"` and `"22"`. So, `"0"` is supported, but `"00"` isn't supported.
 - Supported operations:
 
     | Operation | Description |
@@ -66,7 +66,7 @@ The [OGC map layer options] sample demonstrates the different OGC map layer opti
 
 The [OGC Web Map Service explorer] sample overlays imagery from the Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers. You may select which layers in the service are rendered on the map. You may also view the associated legends for these layers. For the source code for this sample, see [OGC Web Map Service explorer source code].
 
-:::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-web-map-service-explorer.png"alt-text="A screenshot that shows a map with a WMTS layer that comes from the world geology survey. On the left of the map is a drop-down list showing the OGC services which can be selected.":::
+:::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-web-map-service-explorer.png"alt-text="A screenshot that shows a map with a WMTS layer that comes from the world geology survey. Left of the map is a drop-down list showing the OGC services that can be selected.":::
 
 <!----------------------------------------------
 <iframe height='750' scrolling='no' title='OGC Web Map Service explorer' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
