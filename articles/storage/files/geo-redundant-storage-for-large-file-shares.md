@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares (preview) signific
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 07/21/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
