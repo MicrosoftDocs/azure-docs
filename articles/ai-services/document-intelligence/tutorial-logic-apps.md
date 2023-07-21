@@ -102,7 +102,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 At this point, you should have a Document Intelligence resource and a OneDrive folder all set. Now, it's time to create a Logic App resource.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/#home).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
 1. Select **➕ Create a resource** from the Azure home page.
 
