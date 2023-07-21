@@ -16,7 +16,7 @@ In this article, you'll learn how to secure an Azure Cognitive Search service so
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
 + [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
-+ [Create a Azure virtual machine in the same virtual network](#create-a-virtual-machine)
++ [Create an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
 + [Connect to search using a browser session on the virtual machine](#connect-to-the-vm)
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).

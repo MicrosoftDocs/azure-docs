@@ -63,7 +63,7 @@ You can deploy a BIG-IP in different topologies. This guide focuses on a network
 
 To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-1. Log into the [Azure portal](https://portal.azure.com/#home) using an account with permissions to create VMs. For example, Contributor.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) using an account with permissions to create VMs, such as Contributor.
 2. In the top ribbon search box, type **marketplace**
 3. Select **Enter**.
 4. Type **F5** into the Marketplace filter.

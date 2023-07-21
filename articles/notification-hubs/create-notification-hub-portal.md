@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 manager: femila
 ms.reviewer: rebpen
-ms.date: 05/03/2023
+ms.date: 07/17/2023
 ms.topic: quickstart
 ms.service: notification-hubs
 ms.workload: mobile
