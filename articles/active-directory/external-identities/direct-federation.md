@@ -191,7 +191,7 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 
 ### To configure federation in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an External Identity Provider Administrator or a Global Administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator. 
 2. In the left pane, select **Azure Active Directory**.
 3. Select **External Identities** > **All identity providers**.
 4. Select **New SAML/WS-Fed IdP**.
@@ -276,7 +276,7 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations can no longer sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
 To remove a configuration for an IdP in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**.
 1. Select **External Identities**.
 1. Select **All identity providers**.
 1. Under **SAML/WS-Fed identity providers**, scroll to the identity provider in the list or use the search box.

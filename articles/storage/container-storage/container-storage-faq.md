@@ -32,7 +32,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-delete-aks-resource-group"></a>
   **I've created an Elastic SAN storage pool, and I'm trying to delete my resource group where my AKS cluster is located and it's not working. Why?**  
-  Sign into the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
+  Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
 
 * <a id="azure-container-storage-autoupgrade"></a>
   **Is there any performance impact when upgrading to a new version of Azure Container Storage?**  
