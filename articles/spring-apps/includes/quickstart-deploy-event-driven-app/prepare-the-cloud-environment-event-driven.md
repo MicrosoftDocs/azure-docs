@@ -38,16 +38,16 @@ Use the following steps to create an Azure Spring Apps instance:
 
 1. Fill out the **Basics** form with the following information:
 
-   Use the following table as a guide for completing the form, the recommended **Plan** is `Standard`.
+   Use the following table as a guide for completing the form. The recommended **Plan** is **Standard**.
 
-   | Setting        | Suggested value                  | Description                                                                                                                                                                                                                                                                                        |
-   |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | Resource group | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan           | *Standard*                       | The plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                           |
-   | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
+   | Setting            | Suggested value                  | Description                                                                                                                                                                                                                                                                                        |
+   |--------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
+   | **Resource group** | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Plan**           | **Standard**                     | The plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                           |
+   | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | **Zone Redundant** | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-event-driven-app/create-basics.png":::
 
@@ -75,7 +75,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in:
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
