@@ -31,6 +31,9 @@ This article describes how to use the **Alerts** dashboard in Permissions Manage
 
     - **Alerts**
     - **Alert Triggers**
+      
+- Select the **Authorization system**(s) and/or **folder**(s) to display alerts and alert triggers in scope of the selected view. 
+- Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
 
 ## View information about alerts
 
@@ -55,7 +58,6 @@ The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one
 - **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
 
-Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
 
 
 ## View information about alert triggers

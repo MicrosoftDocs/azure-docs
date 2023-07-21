@@ -2,11 +2,10 @@
 title: Data protection overview for Azure Files
 description: Learn how to protect your data in Azure Files. Understand the concepts and processes involved with backup and recovery of Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Azure Files data protection overview
