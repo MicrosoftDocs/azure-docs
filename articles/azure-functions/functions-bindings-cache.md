@@ -121,7 +121,7 @@ Add the extension bundle by adding or replacing the following code in your _host
 ::: zone-end
 
 ## Redis connection string
-Azure Cache for Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `ConnectionStringSetting` parameter. In local development, this can be defined using the [local.settings.json](../azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings) can be used. 
+Azure Cache for Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `ConnectionStringSetting` parameter. In local development, this can be defined using the [local.settings.json](/azure/azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) can be used. 
 
 
 ## Next steps

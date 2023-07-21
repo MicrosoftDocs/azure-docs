@@ -179,13 +179,13 @@ def main(entry: str):
 
 ## Attributes
 
-| Parameter | Description|
+| Parameter | Description |
 |---|---|
 |`ConnectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).|
 | `Key`| Key to read from. This field can be resolved using `INameResolver`. |
-| `PollingIntervalInMs`| How often to poll Redis in milliseconds. | - Default: `1000` |
+| `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: `1000` |
 | `MessagesPerWorker`| How many messages each functions instance "should" process. Used to determine how many instances the function should scale to.| - Default: `100`|
-| `Count`| Number of entries to pop from Redis at one time. These are processed in parallel. | - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/).|
+| `Count`| Number of entries to pop from Redis at one time. These are processed in parallel. - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/).|
 | `ListPopFromBeginning`| Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: `true` |
 
 ::: zone-end
@@ -193,7 +193,7 @@ def main(entry: str):
 
 ## Annotations
 
-| Parameter  | Description|
+| Parameter  | Description |
 |---|---|
 | `name` | "entry" |
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...`|
@@ -214,12 +214,12 @@ The following table explains the binding configuration properties that you set i
 |function.json Property | Description|
 |---|---|
 | `type` | Name of the trigger. |
-| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to true. |
+| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to `true`. |
 | `connectionString` | CThe name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...`|
-| `key` | This field can be resolved using INameResolver. |
+| `key` | This field can be resolved using `INameResolver`. |
 | `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000 |
 | `messagesPerWorker` | How many messages each functions instance should process. Used to determine how many instances the function should scale to. Default: 100 |
-| `count` |  Number of entries to read from Redis at one time. These are processed in parallel. Default: 10  |
+| `count` |  Number of entries to read from the cache at one time. These are processed in parallel. Default: 10  |
 | `name` | ? |
 | `direction` | Set to `in`.  |
 
@@ -240,10 +240,6 @@ See the Example section for complete examples.
 | `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
 <!--Any usage information specific to isolated worker process, including types. -->
-
-::: zone-end
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot=""
 
 ::: zone-end
 
