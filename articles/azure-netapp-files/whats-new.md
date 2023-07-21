@@ -20,6 +20,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2023
+
 * [Set NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
 
 ## June 2023
