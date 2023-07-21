@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to 
 ms.date: 02/10/2023
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster

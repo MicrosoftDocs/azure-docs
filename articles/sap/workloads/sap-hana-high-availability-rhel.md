@@ -10,7 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-linux
 ms.workload: infrastructure
 ms.date: 04/06/2023
 ms.author: radeltch
