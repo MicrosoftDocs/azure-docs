@@ -36,7 +36,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **BW** for SAP BW or SAP BW/4HANA InfoProviders
     - **HANA** for SAP HANA Information Views
     - **SAPI** for SAP DataSources/Extractors
-    - when SAP Landscape Transformation Replication Server (SLT) is used as a source, the ODP context name is "SLT~<Queue Alias>". The **Queue Alias** value can be found under **Administration Data** in the SLT configuration in the SLT cockpit (SAP transaction LTRC).
+    - when SAP Landscape Transformation Replication Server (SLT) is used as a source, the ODP context name is SLT~\<Queue Alias\>. The **Queue Alias** value can be found under **Administration Data** in the SLT configuration in the SLT cockpit (SAP transaction LTRC).
     - **ODP_SELF** and **RANDOM** are ODP contexts used for technical validation and testing, and are typically not relevant.
 - **ODP name**: provide the ODP name you want to extract data from.
 - **Run mode**: valid parameter values are
@@ -47,7 +47,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
 
 ### Parametrizing the filter conditions for source partitioning
 
-In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
+In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture.md#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
 1. Define a parameter for the source partitioning scheme on pipeline level.
 2. Ingest the parameter into the mapping data flow.
 
@@ -86,13 +86,13 @@ When using a parametrized data flow to extract data from multiple SAP CDC source
 >[!NOTE]
    > A best practice to ensure uniqueness of the **Checkpoint Key** is to add the checkpoint key value to the set of parameters for your dataflow. 
 
-For more information on the checkpoint key, see [Transform data with the SAP CDC connector](connector-sap-change-data-capture#transform-data-with-the-sap-cdc-connector).
+For more information on the checkpoint key, see [Transform data with the SAP CDC connector](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector).
 
 ## Debugging
 
 Azure Data Factory pipelines can be executed via **triggered** or **debug runs**. A fundamental difference between these two options is, that debug runs execute the dataflow and pipeline based on the current version modeled in the user interface, while triggered runs execute the last published version of a dataflow and pipeline.
 
-For SAP CDC, there's one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (i.e. change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
+For SAP CDC, there's one more aspect that needs to be understood: to avoid an impact of debug runs on an existing change data capture process, debug runs use a different "subscriber process" value (see [Monitor SAP CDC data flows](sap-change-data-capture-management.md#monitor-sap-cdc-data-flows)) than triggered runs. Thus, they create separate subscriptions (i.e. change data capture processes) within the SAP system. In addition, the "subscriber process" value for debug runs has a life time limited to the browser UI session.
 
 >[!NOTE]
    > To test stability of a change data capture process with SAP CDC over a longer period of time (e.g., multiple days), data flow and pipeline need to be published, and **triggered** runs need to be executed.
