@@ -90,7 +90,7 @@ def sample_extractive_summarization(client):
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.textanalytics import (
         TextAnalyticsClient,
-        ExtractSummaryAction
+        ExtractiveSummaryAction
     ) 
 
     document = [
@@ -104,7 +104,7 @@ def sample_extractive_summarization(client):
     poller = client.begin_analyze_actions(
         document,
         actions=[
-            ExtractSummaryAction(max_sentence_count=4)
+            ExtractiveSummaryAction(max_sentence_count=4)
         ],
     )
 
