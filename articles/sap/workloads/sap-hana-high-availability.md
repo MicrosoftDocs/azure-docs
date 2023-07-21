@@ -599,6 +599,8 @@ sudo crm configure ms msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<H
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
+sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 100
+
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
   operations \$id="rsc_ip_<HANA SID>_HDB<instance number>-operations" \
@@ -619,6 +621,8 @@ sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: c
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
 sudo crm resource cleanup rsc_SAPHana_<HANA SID>_HDB<instance number>
+
+sudo crm configure property priority-fencing-delay=30
 
 sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
