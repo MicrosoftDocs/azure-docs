@@ -12,7 +12,7 @@ When you want the function to process a single message, the Service Bus trigger 
 | --- | --- |
 | `string` | The message as a string. Use when the message is simple text. |
 | `byte[]` | The bytes of the message. |
-| JSON serializable types | When a event contains JSON data, Functions tries to deserialize the JSON data into a plain-old CLR object (POCO) type. |
+| JSON serializable types | When an event contains JSON data, Functions tries to deserialize the JSON data into a plain-old CLR object (POCO) type. |
 | [ServiceBusReceivedMessage] | _(Preview<sup>1</sup>)_<br/>The message object. |
 
 When you want the function to process a batch of messages, the Service Bus trigger can bind to the following types:
