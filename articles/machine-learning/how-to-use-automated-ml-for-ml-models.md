@@ -135,7 +135,7 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    a. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
+a. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
 
 | Training data size | Validation technique |
 |---|-----|
