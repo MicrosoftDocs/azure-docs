@@ -74,6 +74,17 @@ The following are the minimum browser version requirements.
 
 ### macOS
 
+| Browser | Lightning  | NFC<sup>1</sup> | BLE<sup>1</sup> |
+|---------|------|-----|-----|
+| Edge    | &#x2705; | N/A | N/A |
+| Chrome   | &#x2705; | N/A | N/A |
+| Firefox<sup>2</sup>   | &#x2705; | N/A | N/A |
+| Safari<sup>2</sup>   | &#x2705; | N/A | N/A |
+| Native apps<sup>3</sup>  | &#10060; | N/A | N/A |
+
+<sup>1</sup>NFC and BLE security keys aren't supported on macOS by Apple.
+<sup>2</sup>New security key registration doesn't work on these macOS browsers because they don't prompt to set up biometrics and PIN.
+<sup>3</sup>We're wrorking to add native app support on macOS.
 
 ### ChromeOS
 
