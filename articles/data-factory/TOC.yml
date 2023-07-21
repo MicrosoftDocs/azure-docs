@@ -1298,9 +1298,7 @@ items:
     - name: Manage the SAP CDC process
       href: sap-change-data-capture-management.md
     - name: Advanced topics
-      href: sap-change-data-capture-advanced-topics.md
-    - name: Frequently asked questions
-      href: sap-change-data-capture-faq.md     
+      href: sap-change-data-capture-advanced-topics.md    
       displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:

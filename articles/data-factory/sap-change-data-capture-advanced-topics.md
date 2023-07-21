@@ -43,9 +43,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot
     - **fullLoad** for **Full on every run**, which extracts a current full data snapshot without initiating a change data capture process.
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
-- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be:
-
-::: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well). :::
+- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well). 
 
 ### Parametrizing the filter conditions for source partitioning
 
@@ -55,17 +53,23 @@ In the **Optimize** tab, a source partitioning scheme (see [optimizing performan
 
 The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
-```json { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> } ```
+```json
+{ "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> }
+```
 
 For example
 
-```json { "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" } ```
+```json
+{ "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" }
+```
 
-corresponds to a SQL WHERE clause ... WHERE "VBELN" = '0000001000', or
+corresponds to a SQL WHERE clause ... **WHERE "VBELN" = '0000001000'**, or
 
-```json { "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" } ```
+```json
+{ "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" }
+```
 
-corresponds to a SQL WHERE clause ... WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'
+corresponds to a SQL WHERE clause ... **WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'**
 
 The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions that explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
