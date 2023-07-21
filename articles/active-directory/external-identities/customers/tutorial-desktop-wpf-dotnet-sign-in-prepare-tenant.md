@@ -66,4 +66,4 @@ The next step after this tutorial is to build a WPF desktop app that authenticat
 In the next tutorial, you configure your WPF desktop app.
 
 > [!div class="nextstepaction"]
-> [Build your WPF desktop app >](./tutorial-wpf-dotnet-sign-in-build-app.md)
+> [Build your WPF desktop app >](./tutorial-desktop-wpf-dotnet-sign-in-build-app.md)

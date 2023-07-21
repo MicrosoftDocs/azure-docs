@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Registration details for the WPF desktop app you created in the [prepare tenant tutorial](./tutorial-wpf-dotnet-sign-in-prepare-tenant.md). You need the following details:
+- Registration details for the WPF desktop app you created in the [prepare tenant tutorial](./tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md). You need the following details:
   - The Application (client) ID of the WPF desktop app that you registered.
   - The Directory (tenant) subdomain where you registered your WPF desktop app.
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
