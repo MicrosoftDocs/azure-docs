@@ -16,14 +16,14 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
-  - name: Backend Health and Metrics
-    href: alb-controller-backend-health-metrics.md
-  - name: Diagnostic Logs
-    href: diagnostics.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Health monitoring
     items:
+    - name: Backend Health and Metrics
+      href: alb-controller-backend-health-metrics.md
+    - name: Diagnostic Logs
+      href: diagnostics.md
     - name: Metrics
       href: application-gateway-for-containers-metrics.md
 - name: How-to guides
