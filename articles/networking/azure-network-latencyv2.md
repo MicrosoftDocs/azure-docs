@@ -31,7 +31,7 @@ Listing of APAC Regions including ...
 
 ---
 
-#### [US](#tab/NorthAmerica/US)
+#### [US](#tab/US/NorthAmerica)
 |Source|West US|West US 2|West US 3|
 |---|---|---|---|
 |Australia Central|144|164|158|
@@ -79,7 +79,7 @@ Listing of APAC Regions including ...
 |West US 3|17|37||
 
 
-#### [Canada](#tab/NorthAmerica/Canada)
+#### [Canada](#tab/Canada/NorthAmerica)
 
 |Source|Brazil South|Canada Central|Canada East|
 |---|---|---|---|
@@ -127,7 +127,7 @@ Listing of APAC Regions including ...
 |West US 2|182|64|73|
 |West US 3|162|66|73|
 
-#### [Australia](#tab/APAC/Australia)
+#### [Australia](#tab/Australia/APAC)
 
 | Source | Australia Central | Australia Central 2 | Australia East | Australia Southeast |
 |--------|-------------------|---------------------|----------------|---------------------|
@@ -175,7 +175,7 @@ Listing of APAC Regions including ...
 | West US 2 | 164 | 164 | 160 | 172 |
 | West US 3 | 158 | 158 | 156 | 167 |
 
-#### [Middle East](#tab/APAC/MiddleEast)
+#### [Middle East](#tab/MiddleEast/APAC)
 
 | Source | Qatar Central | South Africa North | South Africa West | UAE Central | UAE North |
 | --- | --- | --- | --- | --- | --- |
