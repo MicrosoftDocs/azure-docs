@@ -125,6 +125,9 @@ Use the following steps to add approvers after selecting how many stages you req
 
 ### Single-stage approval
 
+> [!NOTE]
+> To use *Sponsors of approvers* for Approval you must have an Entra Identity governance license. For more information, see: [Compare generally available features of Microsoft Azure AD](https://www.microsoft.com/security/business/microsoft-entra-pricing?rtc=1)
+
 1. Add the **First Approver**:
     
     If the policy is set to *For users in your directory*, you can select either **Manager as approver**, **Sponsors as approvers**(Preview), or you can add a specific user by selecting **Add approvers** after selecting Choose specific approvers from the dropdown menu.
