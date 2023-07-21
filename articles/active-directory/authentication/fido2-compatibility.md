@@ -62,15 +62,15 @@ The following are the minimum browser version requirements.
 
 ## Browser support for each platform
 
+The following tables show which transports are supported for each platform.
 
 ### Windows
 
 | Browser | USB  | NFC | BLE |
 |---------|------|-----|-----|
-| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Safari   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Edge    | &#x2705; | &#x2705; | &#x2705; |
+| Chrome   | &#x2705; | &#x2705; | &#x2705; |
+| Firefox   | &#x2705; | &#x2705; | &#x2705; |
 
 ### macOS
 
@@ -84,22 +84,33 @@ The following are the minimum browser version requirements.
 
 <sup>1</sup>NFC and BLE security keys aren't supported on macOS by Apple.
 <sup>2</sup>New security key registration doesn't work on these macOS browsers because they don't prompt to set up biometrics and PIN.
-<sup>3</sup>We're wrorking to add native app support on macOS.
+<sup>3</sup>We're working to add native app support on macOS.
 
 ### ChromeOS
 
+| Browser | USB  | NFC | BLE |
+|---------|------|-----|-----|
+| Chrome  | &#x2705; | &#10060; | &#10060; |
+
+- Security key registration isn't supported on ChromeOS or Chrome browser.
 
 ### Linux
+
+| Browser | USB  | NFC | BLE |
+|---------|------|-----|-----|
+| Edge    | &#10060; | &#10060; | &#10060; |
+| Chrome  | &#x2705; | &#10060; | &#10060; |
+| Firefox | &#10060; | &#10060; | &#10060; |
 
 
 ### iOS
 
 | Browser | Lightning  | NFC | BLE |
-|---------|------|-----|-----|
-| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Safari   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+|---------|------------|-----|-----|
+| Edge    |  &#x2705;  | N/A | N/A | 
+| Chrome  |  &#x2705;  | N/A | N/A |
+| Firefox |  &#x2705;  | N/A | N/A |
+| Safari  |  &#x2705;  | N/A | N/A |
 
 - For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
 - Authentication for native apps in iOS isn't available yet.
@@ -108,12 +119,13 @@ The following are the minimum browser version requirements.
 
 | Browser | USB  | NFC | BLE |
 |---------|------|-----|-----|
-| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
-| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Edge    | N/A  | N/A | N/A |
+| Chrome  | N/A  | N/A | N/A |
+| Firefox | N/A  | N/A | N/A |
+| Native apps  | &#10060; | N/A | N/A |
 
 - Security key PIN for user verification isn't currently supported with Android.
-- Authentication for native apps in Android isn't available yet.
+- We're working to add native app support on Android.
 
 ## Next steps
 [Enable passwordless security key sign-in](./howto-authentication-passwordless-security-key.md)
