@@ -16,6 +16,8 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial #1: develop and register a feature set with managed feature store (preview)
 
+This tutorial series shows how features seamlessly integrate all phases of the ML lifecycle: prototyping, training and operationalization.
+
 Azure Machine Learning managed feature store lets you discover, create and operationalize features. The machine learning lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the machine learning lifecycle. To learn more about basic feature store concepts, see [what is managed feature store](./concept-what-is-managed-feature-store.md) and [top level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
 
 This tutorial is the first part of a four part series. Here, you'll learn how to:
@@ -186,9 +188,7 @@ We'll build a feature set named `transactions` that has rolling, window aggregat
 
 1. Locally develop the feature set
 
-   A feature set specification is a self-contained feature set definition that you can locally develop and test.
-
-   Here, we create these rolling window aggregate features:
+   A feature set specification is a self-contained feature set definition that you can locally develop and test. Here, we create these rolling window aggregate features:
 
    * transactions three-day count
    * transactions amount three-day sum

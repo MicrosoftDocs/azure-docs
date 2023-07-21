@@ -19,10 +19,10 @@ ms.custom: sdkv2, build-2023
 
 This tutorial series shows how features seamlessly integrate all phases of the ML lifecycle: prototyping, training and operationalization.
 
-Part 1 of this tutorial showed how to create a feature set spec with custom transformations. Part 2 of the tutorial showed how to enable materialization and perform a backfill. This tutorial shows how to experiment with features, as a way to improve model performance. This tutorial also shows how a feature store increases agility in the experimentation and training flows. It shows how to:
+Part 1 of this tutorial showed how to create a feature set spec with custom transformations, and use that feature set to generate training data. Part 2 of the tutorial showed how to enable materialization and perform a backfill. Tutorial 3 shows how to experiment with features, as a way to improve model performance. This tutorial also shows how a feature store increases agility in the experimentation and training flows. It shows how to:
 
 > [!div class="checklist"]
-> * Prototype a new `accounts` feature set spec, using existing precomputed values as features. You'll then register the local feature set spec as a feature set in the feature store. This differs from part 1 of the tutorial, where we created a feature set that had custom transformations
+> * Prototype a new `accounts` feature set spec, using existing precomputed values as features. Then, register the local feature set spec as a feature set in the feature store. This differs from tutorial part 1, where we created a feature set that had custom transformations
 > * Select features for the model from the `transactions` and `accounts` feature sets, and save them as a feature-retrieval spec
 > * Run a training pipeline that uses the feature retrieval spec to train a new model. This pipeline uses the built-in feature-retrieval component, to generate the training data
 
@@ -31,7 +31,7 @@ Part 1 of this tutorial showed how to create a feature set spec with custom tran
 
 ## Prerequisites
 
-Before you proceed with this article, make sure you complete parts 1 and 2 of this tutorial.
+Before you proceed with this article, make sure you complete parts 1 and 2 of this tutorial series.
 
 ## Set up
 
