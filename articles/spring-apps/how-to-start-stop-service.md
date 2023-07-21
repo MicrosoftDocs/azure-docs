@@ -26,7 +26,7 @@ To reduce your costs further, you can completely stop your Azure Spring Apps ser
 
 ## Limitations
 
-- You can stop and start your Azure Spring Apps service instance to help you save costs, but you shouldn't stop and start a running instance for service recovery, e.g., recover from an invalid virtual network configuration.
+- You can stop and start your Azure Spring Apps service instance to help you save costs, but you shouldn't stop and start a running instance for service recovery, for example, recover from an invalid virtual network configuration.
 - The state of a stopped Azure Spring Apps service instance is preserved for up to 90 days. If your cluster is stopped for more than 90 days, you can't recover the cluster state.
 - You can only start, view, or delete a stopped Azure Spring Apps service instance. You must start your service instance before performing any update operation, such as creating or scaling an app.
 - You have to wait for at least 30 minutes to start or stop an Azure Spring Apps service instance if you have just stopped or started an instance successfully, but you can retry to start/stop if your last operation was failed.
