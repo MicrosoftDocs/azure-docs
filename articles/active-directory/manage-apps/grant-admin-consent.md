@@ -84,7 +84,7 @@ where:
 
 As always, carefully review the permissions an application requests before granting consent.
 
-For more information regarding constructing the tenant-wide admin consent URL, see [Grant tenant-wide admin consent to an application](../develop/v2-admin-consent.md)
+For more information on constructing the tenant-wide admin consent URL, see [Admin consent on the Microsoft identity platform](../develop/v2-admin-consent.md).
 
 :::zone-end
 
