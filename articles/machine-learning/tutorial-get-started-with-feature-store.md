@@ -47,7 +47,10 @@ Before you proceed with this article, make sure you cover these prerequisites:
 
    (Optional): If you use a new resource group for this tutorial, you can easily delete all the resources by deleting the resource group
 
-## Prepare the notebook environment for development
+## Set up
+
+### Prepare the notebook environment for development
+
 Note: This tutorial uses an Azure Machine Learning Spark notebook for development.
 
 1. In the Azure Machine Learning studio environment, first select **Notebooks** in the left nav, and then select the **Samples** tab. Navigate to the **featurestore_sample** directory
@@ -119,17 +122,17 @@ Not applicable
 
 This tutorial uses two SDKs:
 1. The Feature Store CRUD SDK
-    * You use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations for feature store, feature set, and feature store entity.
+   * You use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations for feature store, feature set, and feature store entity.
 
 1. The feature store core SDK
    
    This SDK (azureml-featurestore) is intended for feature set development and consumption. Later steps in this tutorial describe these operations:
    
-    * Feature set specification development
-    * Feature data retrieval
-    * List and Get registered feature sets
-    * Generate and resolve feature retrieval specs
-    * Generate training and inference data using point-in-time joins
+   * Feature set specification development
+   * Feature data retrieval
+   * List and Get registered feature sets
+   * Generate and resolve feature retrieval specs
+   * Generate training and inference data using point-in-time joins
 
 This tutorial doesn't require explicit installation of those SDKs, because the earlier **conda YAML** instructions cover this step.
 
@@ -265,7 +268,7 @@ First, register a feature set asset with the feature store. You can then reuse t
 
    ---
 
-### Explore the feature store UI
+## Explore the feature store UI
 
 * Open the [Azure Machine Learning global landing page](https://ml.azure.com/home).
 * Select `Feature stores` in the left nav

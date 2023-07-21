@@ -141,7 +141,7 @@ To onboard precomputed features, you can create a feature set spec without writi
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=dump-accts-fset-spec)]
 
-## Experiment with unregistered features locally
+## Locally experiment with unregistered features
 
 As you develop features, you might want to locally test and validate them, before you register them with the feature store or run training pipelines in the cloud. A combination of a local unregistered feature set (`accounts`), and a feature set registered in the feature store (`transactions`), generates training data for the ML model.
 
@@ -216,10 +216,10 @@ In this step, you manually trigger the training pipeline. In a production scenar
    
    1. Register the model: This step registers the model
 
-   > [!NOTE]
-   > In part 2 of this tutorial, you ran a backfill job to materialize data for the `transactions` feature set. The feature retrieval step reads feature values from the offline store for this feature set. The behavior will be the same, even if you use the `get_offline_features()` API.
+      > [!NOTE]
+      > In part 2 of this tutorial, you ran a backfill job to materialize data for the `transactions` feature set. The feature retrieval step reads feature values from the offline store for this feature set. The behavior will be the same, even if you use the `get_offline_features()` API.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=run-training-pipeline)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=run-training-pipeline)]
 
    1. Inspect the training pipeline and the model
 

@@ -50,11 +50,11 @@ Before you proceed with this article, make sure you complete parts 1, 2, and 3 o
       * Upload the **conda.yml** file you [uploaded in Tutorial #1](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development)
       * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
-## Start the spark session
+### Start the spark session
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
 
-## Set up the root directory for the samples
+### Set up the root directory for the samples
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=root-dir)]
 
@@ -102,10 +102,10 @@ We enabled materialization in tutorial part 2, and we also performed backfill on
 
 * Interval and frequency values define a window. For example, values of
 
-  * interval = 3
-  * frequency = Hour
+     * interval = 3
+     * frequency = Hour
 
-    define a three-hour window.
+  define a three-hour window.
 
 * The first window starts at the start_time defined in the RecurrenceTrigger, and so on.
 * The first recurrent job is submitted at the start of the next window after the update time.
@@ -133,7 +133,9 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
    The batch-inference has these steps:
 
-   1. Feature retrieval: this uses the same built-in feature retrieval component used in the training pipeline, covered in tutorial part 3. For pipeline training, we provided a feature retrieval spec as a component input. However, for batch inference, we pass the registered model as the input, and the component looks for the feature retrieval spec in the model artifact. Additionally, for training, the observation data had the target variable. However, the batch inference observation data doesn't have the target variable. The feature retrieval step joins the observation data with the features, and outputs the data for batch inference.
+   1. Feature retrieval: this uses the same built-in feature retrieval component used in the training pipeline, covered in tutorial part 3. For pipeline training, we provided a feature retrieval spec as a component input. However, for batch inference, we pass the registered model as the input, and the component looks for the feature retrieval spec in the model artifact.
+   
+   Additionally, for training, the observation data had the target variable. However, the batch inference observation data doesn't have the target variable. The feature retrieval step joins the observation data with the features, and outputs the data for batch inference.
 
    1. Batch inference: This step uses the batch inference input data from previous step, runs inference on the model, and appends the predicted value as output.
 
@@ -150,9 +152,9 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
       * Paste the Data field value in the following cell, with separate name and version values (note that the last character is the version, preceded by a `:`).
       * Note the `predict_is_fraud` column that the batch inference pipeline generated
 
-   Explanation: In the batch inference pipeline (`/project/fraud_mode/pipelines/batch_inference_pipeline.yaml`) outputs, since we didn't provide `name` or `version` values in the `outputs` of the `inference_step`, the system created an untracked data asset with a guid as the name value, and 1 as the version value. In this cell, we derive and then display the data path from the asset:
+      Explanation: In the batch inference pipeline (`/project/fraud_mode/pipelines/batch_inference_pipeline.yaml`) outputs, since we didn't provide `name` or `version` values in the `outputs` of the `inference_step`, the system created an untracked data asset with a guid as the name value, and 1 as the version value. In this cell, we derive and then display the data path from the asset:
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=inspect-batch-inf-output-data)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable recurrent materialization and run batch inference.ipynb?name=inspect-batch-inf-output-data)]
 
 ## Cleanup
 
