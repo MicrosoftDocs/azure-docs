@@ -154,7 +154,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo dpkg -i cuda-keyring_1.1-1_all.deb
    ```
 
-   Note: When prompt regarding different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
+   Note: When prompt on different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
 
 7. Update the APT repository cache
 
