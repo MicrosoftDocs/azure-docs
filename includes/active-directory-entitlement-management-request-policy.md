@@ -89,7 +89,7 @@ Follow these steps if you want to bypass access requests and allow administrator
 
     ![Access package - Requests - None administrator direct assignments only](./media/entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account is created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
 1. Skip down to the [Enable requests](#enable-requests) section.
 
@@ -99,7 +99,7 @@ In the Approval section, you specify whether an approval is required when users 
 
 - Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
 - Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
-- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
+- The approver can be a Manager, Sponsor of user, Internal sponsor, or External sponsor depending on who the policy is governing access.
 - Approval from every selected approver isn't required for single or 2-stage approval.
 - The approval decision is based on whichever approver reviews the request first.
 
@@ -117,7 +117,7 @@ Follow these steps to specify the approval settings for requests for the access 
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
-1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
+1. Now determine if requests require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval, **2** for 2-stage approval, or **3** for 3-stage approval.
 
     ![Access package - Requests - Approval settings](./media/entitlement-management-request-policy/approval.png)
 
@@ -127,23 +127,27 @@ Use the following steps to add approvers after selecting how many stages you req
 
 1. Add the **First Approver**:
     
-    If the policy is set to *For users in your directory*, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    If the policy is set to *For users in your directory*, you can select either **Manager as approver**, **Sponsors as approvers**(Preview), or you can add a specific user by selecting **Add approvers** after selecting Choose specific approvers from the dropdown menu.
     
     ![Access package - Requests - For users in directory - First Approver](./media/entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    If this policy is set to *For users not in your directory*, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    If this policy is set to *For users not in your directory*, you can select either **External sponsor**, **Internal sponsor**, or you can add a specific user by selecting **Add approvers** or groups under Choose specific approvers.
     
     ![Access package - Requests - For users out of directory - First Approver](./media/entitlement-management-request-policy/out-directory-first-approver.png)
     
 1. If you selected **Manager** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see: [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+
+1. If you selected **Sponsors** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the sponsor for the user requesting access.
+
+    Sponsors are found by entitlement management using the **Sponsors** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see: [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md). 
 
 1. If you selected **Choose specific approvers**, select **Add approvers** to select one or more users or groups in your directory to be approvers.
 
 1. In the box under **Decision must be made in how many days?**, specify the number of days that an approver has to review a request for this access package.
 
-    If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
+    If a request isn't approved within this time period, it is automatically denied. The user has to submit another request for the access package.
 
 1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
 
@@ -151,11 +155,11 @@ Use the following steps to add approvers after selecting how many stages you req
 
 ### 2-stage approval
 
-If you selected a 2-stage approval, you'll need to add a second approver.
+If you selected a 2-stage approval, you need to add a second approver.
 
 1. Add the **Second Approver**: 
     
-    If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
+    If the users are in your directory, you can select **Sponsors as approvers**(Preview). Or, add a specific user by selecting **Add approvers** after selecting Choose specific approvers from the dropdown menu.
 
     ![Access package - Requests - For users in directory - Second Approver](./media/entitlement-management-request-policy/in-directory-second-approver.png)
 
@@ -167,9 +171,22 @@ If you selected a 2-stage approval, you'll need to add a second approver.
 
 1. Set the Require approver justification toggle to **Yes** or **No**.
 
+### 3-stage approval
+
+If you selected a 3-stage approval, you need to add a third approver.
+
+1. Add the Third Approver:
+
+    If the users are in your directory, add a specific user as the second approver by selecting **Add approvers** under **Choose specific approvers**.
+    ![Access package - Requests - For users in directory - Additional Approver](./media/entitlement-management-request-policy/in-directory-third-approver.png)
+
+1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?**. 
+
+1. Set the Require approver justification toggle to **Yes** or **No**.
+
 ### Alternate approvers
 
-You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
+You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
 
 When you specify alternate approvers, if the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers. The request is sent per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
 
@@ -188,7 +205,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Access package - Policy - Add Alternate Approvers](./media/entitlement-management-request-policy/alternate-approvers-add.png)
 
-    If you select Manager as approver for the First Approver, you'll have an extra option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
+    If you select Manager as approver for the First Approver, you have an extra option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout). The user will then have to submit another request for the access package. 
 
@@ -211,15 +228,15 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 > [!NOTE]
 > You will need to have a Global administrator role to add verified ID requirements to an access package. Identity Governance administrator, User administrator, Catalog owner, or Access package manager will be able to add verified ID requirements to access packages soon.
 
-Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package will need to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](../articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
+Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package needs to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](../articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
 
-1. Click + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](../articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
+1. Select + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](../articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
     :::image type="content" source="media/entitlement-management-request-policy/access-package-select-issuer.png" alt-text="Access package select issuer.":::
 1. Select the credential type(s) you want users to present during the request process. 
     :::image type="content" source="media/entitlement-management-request-policy/access-package-select-credential.png" alt-text="Select access package credential.":::
     > [!NOTE]
     > If you select multiple credential types from one issuer, users will be required to present credentials of all selected types. Similarly, if you include multiple issuers, users will be required to present credentials from each of the issuers you include in the policy. To give users the option of presenting different credentials from various issuers, configure separate policies for each issuer/credential type you’ll accept.
-1. Click Add to add the verified ID requirement to the access package policy. 
+1. Select Add to add the verified ID requirement to the access package policy. 
 
 ## Add Requestor information to an access package
 
