@@ -215,8 +215,6 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 |West US 2|210|142|99|105|122|116|195|162|211|
 |West US 3|232|151|108|115|135|124|217|175|233|
 
-
-
 ### [Australia](#tab/Australia)
 
 | Source | Australia Central | Australia Central 2 | Australia East | Australia Southeast |
@@ -266,6 +264,57 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 | West US 3 | 158 | 158 | 156 | 167 |
 
 ---
+
+#### [US](#tab/NorthAmerica/US)
+Source,West US,West US 2,West US 3
+Australia Central,144,164,158
+Australia Central 2,144,164,158
+Australia East,148,160,156
+Australia Southeast,159,171,167
+Brazil South,180,182,163
+Canada Central,61,63,65
+Canada East,69,73,73
+Central India,218,210,232
+Central US,39,38,43
+East Asia,149,141,151
+East US,64,64,51
+East US 2,60,64,47
+France Central,142,142,130
+France South,151,149,140
+Germany North,155,152,143
+Germany West Central,147,145,135
+Japan East,106,98,108
+Japan West,113,105,115
+Korea Central,130,123,135
+Korea South,123,116,125
+North Central US,49,47,51
+North Europe,132,130,119
+Norway East,160,157,147
+Norway West,164,162,150
+Qatar Central,264,261,250
+South Africa North,312,309,296
+South Africa West,294,291,277
+South Central US,34,45,20
+South India,202,195,217
+Southeast Asia,169,162,175
+Sweden Central,170,168,159
+Switzerland North,153,151,142
+Switzerland West,149,148,138
+UAE Central,258,254,238
+UAE North,258,256,239
+UK South,136,134,124
+UK West,139,137,128
+West Central US,25,24,31
+West Europe,147,145,134
+West India,221,210,233
+West US,,23,17
+West US 2,23,,38
+West US 3,17,37,
+
+
+#### [Canada](#tab/NorthAmerica/Canada)
+
+
 
 > [!IMPORTANT]
 > Monthly latency numbers across Azure regions do not change regulary. Given this, you can expect an update of this table every 6 to 9 months outside of the addition of new regions. When new regions come online, we will update this document as soon as data is available.
