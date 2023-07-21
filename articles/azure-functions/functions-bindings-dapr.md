@@ -202,7 +202,7 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 Learn how to use the Dapr Functions portal from a demo presented during the Dapr Community Call.
 
-> [!VIDEO https://youtu.be/HaupRpC-UIc?t=690]
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HaupRpC-UIc?start=690" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ::: zone-end
 
