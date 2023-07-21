@@ -18,7 +18,7 @@ In this article, you learn how to use the Azure portal to view various metrics a
 
 All peering partners (direct or exchange) can view the routes they have announced to Microsoft through their peering sessions under **Received Routes** tab under the **Settings** section  of their Peering's page. 
 
-    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png" alt-text="Screenshot shows how to view recieved routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png" alt-text="Screenshot shows how to view recieved routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png":::
 
 ## View peering metrics
 
@@ -30,19 +30,19 @@ All peering partners can view the following metrics for their peering under **Co
 -  Flap events count 
 -  Packet drop rate 
 
-    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png" alt-text="Screenshot shows how to view various metrics relating a peering in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png" alt-text="Screenshot shows how to view various metrics relating a peering in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png":::
 
 ## View registered prefix latency
 
 Microsoft Azure Peering Service partners and communication services partners can view their registered prefix latency under the **Overview** section of the Registered Prefix page.
 
-    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view registered prefix latency in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view registered prefix latency in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png":::
 
 ## View customer prefix latency
 
 Microsoft Azure Peering Service Exchange Route Server partners can view the average latency for all their customer prefixes under a specific registered asn under the **Overview** section of the Registered ASN page.
 
-    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png" alt-text="Screenshot shows how to view the average customer prefix latency under a specific registered asn in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png" alt-text="Screenshot shows how to view the average customer prefix latency under a specific registered asn in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png":::
 
 ## View peering service metrics
 
