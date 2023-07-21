@@ -50,7 +50,7 @@ The table in this section summarizes the locales and voices supported for Text t
 Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
 > [!TIP]
-> Check the the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
+> Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
 

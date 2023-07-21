@@ -128,7 +128,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp
-await Task.Delay(TimeSpan.FromSeconds(3));
+await Task.Delay(TimeSpan.FromSeconds(10));
 worker = await routerClient.GetWorkerAsync(worker.Value.Id);
 foreach (var offer in worker.Value.Offers)
 {
