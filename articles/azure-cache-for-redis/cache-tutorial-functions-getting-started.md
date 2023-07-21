@@ -31,7 +31,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 ## Set up Visual Studio Code
 
-1. If you haven't installed the Azure Functions extension for VS Code, search for **Azure Functions** on the extensions menu, and then select **Install**. If you don't have the C# extension installed, install it, too.
+1. If you haven't installed the Azure Functions extension for VS Code, search for **Azure Functions** on the **EXTENSIONS** menu, and then select **Install**. If you don't have the C# extension installed, install it, too.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VS Code.":::
 
@@ -49,10 +49,9 @@ Creating the cache can take a few minutes. You can move to the next section whil
    - **.NET 6.0 LTS** as the .NET runtime.
    - **Skip for now** as the project template.
 
-   > [!NOTE]
-   > If you don't have the .NET Core SDK installed, you're prompted to do so.
+   If you don't have the .NET Core SDK installed, you're prompted to do so.
 
-1. Confirm that the new project appears on the **Explorer** pane.
+1. Confirm that the new project appears on the **EXPLORER** pane.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VS Code.":::
 
@@ -86,7 +85,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 ## Set up the example code
 
-1. Go back to VS Code and add a file to the project called _RedisFunctions.cs_.
+1. Go back to VS Code and add a file called _RedisFunctions.cs_ to the project.
 
 1. Copy and paste the following code sample into the new file:
 
@@ -185,7 +184,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. To test the trigger functionality, try creating and deleting the `keyspaceTest` key.
 
-   You can use any way you prefer to connect to the cache. An easy way is to use the built-in console tool in the Azure Cache for Redis portal. Bring up the cache instance in the Azure portal, and then select **Console** to open it.
+   You can use any way you prefer to connect to the cache. An easy way is to use the built-in console tool in the Azure Cache for Redis portal. Go to the cache instance in the Azure portal, and then select **Console** to open it.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C-Sharp code and a connection string.":::
 
@@ -229,7 +228,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
     > [!IMPORTANT]
     > Redis triggers aren't currently supported on consumption functions.
 
-1. Wait a few minutes for the new function app to be created. It appears in under **Function App** in your subscription. Right-click the new function app, and then select **Deploy to Function App**.
+1. Wait a few minutes for the new function app to be created. It appears under **Function App** in your subscription. Right-click the new function app, and then select **Deploy to Function App**.
 
     :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of selections for deploying to a function app in VS Code.":::
 
@@ -239,11 +238,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. In the Azure portal, go to your new function app and select **Configuration** from the resource menu.
 
-1. On the working pane, go to **Application settings**. In the **Connection strings** section, select **New connection string**, and then:
+1. On the working pane, go to **Application settings**. In the **Connection strings** section, select **New connection string**.
 
-   1. For **Name**, enter **redisConnectionString**.
-   1. For **Value**, enter your connection string.
-   1. Set **Type** to **Custom**, and select **Ok** to close the menu.
+1. For **Name**, enter **redisConnectionString**.
+
+1. For **Value**, enter your connection string.
+
+1. Set **Type** to **Custom**, and then select **Ok** to close the menu.
 
 1. Select **Save** on the configuration page to confirm. The function app restarts with the new connection string information.
 
@@ -253,7 +254,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. Wait for Log Analytics to connect, and then use the Redis console to activate any of the triggers. Confirm that triggers are being logged here.
 
-    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the Resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
+    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
 
 ## Next steps
 
