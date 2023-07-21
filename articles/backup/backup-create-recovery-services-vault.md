@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 07/21/2023
 ms.custom: references_regions, engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
