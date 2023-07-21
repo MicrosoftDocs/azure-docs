@@ -36,6 +36,8 @@ HMaster will check for the WAL directory on the region servers before bringing b
 
 2. Restart the HMaster service from the Ambari UI.
 
+If you are using hbase-2.x, see more information in [how to use hbck2 to assign namespace and meta table](how-to-use-hbck2-tool.md#assign-and-unassign)
+
 ## Scenario: Atomic renaming failure
 
 ### Issue
