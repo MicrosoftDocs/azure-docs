@@ -82,9 +82,12 @@ sudo reboot
 With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
 
 1. Find latest NVIDIA driver version compatible with Azure
-
+   
    ```
    sudo apt-get update
+   ```
+
+   ```
    NVIDIA_DRIVER_VERSION=$(sudo apt-cache search 'linux-modules-nvidia-[0-9]+-azure$' | awk '{print $1}' | sort | tail -n 1 | head -n 1 | awk -F"-" '{print $4}')
    ```
 
@@ -120,6 +123,9 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
    ```
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
+   ```
+
+   ```
    sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/ /"
    ```
    
@@ -148,7 +154,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo dpkg -i cuda-keyring_1.1-1_all.deb
    ```
 
-   Note: When prompt to install cuda-keyring, select `Y` to proceed.
+   Note: When prompt regarding different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
 
 7. Update the APT repository cache
 
@@ -182,7 +188,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
     nvidia-smi
     ```
 
-    b. Verify CUDA driver is installed and loaded
+    b. Verify CUDA toolkit is installed and loaded
 
     ```
     dpkg -l | grep -i cuda
