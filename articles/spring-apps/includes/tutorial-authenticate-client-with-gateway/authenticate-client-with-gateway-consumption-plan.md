@@ -32,7 +32,7 @@ Use the following steps to clone and run the app locally.
 1. Enter the spa project directory, and use the following command to install the dependencies:
 
    ```bash
-   npm install
+   npm install @azure/msal-node
    ```
 
 ## 3. Prepare the cloud environment
