@@ -279,8 +279,6 @@ The **Twins** panel shows a flat list of your twins and their associated relatio
 
 You can create a new digital twin from its model definition in the **Models** panel.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin-large.png":::
@@ -326,13 +324,13 @@ You can also choose to delete all of the twins in your instance at the same time
 
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 The **Models** panel:
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Models panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel.png":::
 
 The **Model Graph** panel:
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Model Graph panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 You can use these panels to [view your models](#view-models).
 
@@ -415,8 +413,6 @@ With this panel, you can complete the following model management activities:
 * [Upload models](#upload-models) into your Azure Digital Twins instance
 * [Delete models](#delete-models) from your instance
 * [Refresh models](#refresh-models) to reload the list of all models into this panel
-
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 For information about the viewing experience for models, see [Explore models and the Model Graph](#explore-models-and-the-model-graph).
 
