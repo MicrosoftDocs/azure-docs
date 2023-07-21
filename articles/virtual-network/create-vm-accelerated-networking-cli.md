@@ -6,7 +6,7 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-linux
 ---
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
