@@ -57,9 +57,9 @@ AKS collects the same kinds of monitoring data as other Azure resources that are
 | Container insights | Container insights collects various logs and metric data from cluster including standard output (stdout) and standard error (stderr) streams and stores them in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). Analyze this data with views and workbooks included with Container insights or with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md).  |
 
 
-## Control plane logs
+## Resource logs
 
-Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md) in Azure Monitor. Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where the data for Container insights is stored.
+Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md#create-diagnostic-settings) in Azure Monitor. Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where the data for Container insights is stored.
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
 
@@ -83,8 +83,6 @@ The following Azure services and features of Azure Monitor can be used for addit
 > When you select **Logs** from the menu for an AKS cluster, Log Analytics is opened with the query scope set to the current cluster. This means that log queries will only include data from that resource. If you want to run a query that includes data from other clusters or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 
-
-### Resource logs
 
 If the [diagnostic setting for your cluster](#control-plane-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
 
