@@ -43,7 +43,9 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot
     - **fullLoad** for **Full on every run**, which extracts a current full data snapshot without initiating a change data capture process.
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
-- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well).
+- **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be:
+
+::: \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well).
 
 ### Parametrizing the filter conditions for source partitioning
 
