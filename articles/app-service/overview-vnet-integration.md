@@ -77,12 +77,12 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 >
 > Sample calculation:
 >
-> For each App Service plan instance, you need:
-> 4 Windows Container apps = 4 IP addresses
-> 1 IP address per App Service plan instance
+> For each App Service plan instance, you need:  
+> 4 Windows Container apps = 4 IP addresses  
+> 1 IP address per App Service plan instance  
 > 4 + 1 = 5 IP addresses
 >
-> For 10 instances:
+> For 10 instances:  
 > 5 x 10 = 50 IP addresses per App Service plan
 >
 > Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
