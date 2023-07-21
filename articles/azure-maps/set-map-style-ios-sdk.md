@@ -74,7 +74,7 @@ map.setCameraOptions([
 ])
 ```
 
-Often it is desirable to focus the map over a set of data. A bounding box can be calculated from features using the `BoundingBox.fromData(_:)` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the point size of data points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
+Often it's desirable to focus the map over a set of data. A bounding box can be calculated from features using the `BoundingBox.fromData(_:)` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the point size of data points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
 
 ```swift
 //Set the camera of the map using a bounding box.
@@ -90,7 +90,7 @@ map.setCameraBoundsOptions([
 ])
 ```
 
-The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
+The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map often shows the full bounding box area, and are often only tight vertically or horizontally.
 
 ### Animate map view
 
@@ -98,7 +98,7 @@ When setting the camera options of the map, animation options can also be used t
 
 | Option | Description |
 |--------|-------------|
-| `animationDuration(_ duration: Double)` | Specifies how long the camera will animate between the views in milliseconds (ms). |
+| `animationDuration(_ duration: Double)` | Specifies how long the camera animates between the views in milliseconds (ms). |
 | `animationType(_ animationType: AnimationType)` | Specifies the type of animation transition to perform.<br/><br/> - `.jump` - an immediate change.<br/> - `.ease` - gradual change of the camera's settings.<br/> - `.fly` - gradual change of the camera's settings following an arc resembling flight. |
 
 The following code shows how to animate the map view using a `.fly` animation over a duration of three seconds.
@@ -112,7 +112,7 @@ map.setCameraOptions([
 ])
 ```
 
-The following demonstrates the above code animating the map view from New York to Seattle.
+The following animation demonstrates the above code animating the map view from New York to Seattle.
 
 :::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-animate-camera.gif" alt-text="Map animating the camera from New York to Seattle.":::
 
