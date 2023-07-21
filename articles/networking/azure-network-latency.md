@@ -264,6 +264,7 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 | West US | 143 | 144 | 148 | 160 |
 | West US 2 | 164 | 164 | 160 | 172 |
 | West US 3 | 158 | 158 | 156 | 167 |
+
 ---
 
 > [!IMPORTANT]
