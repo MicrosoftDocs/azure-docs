@@ -54,7 +54,7 @@ To configure screen capture protection:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session and test screen capture protection is working by taking a screenshot or sharing your screen. The content should be blocked or hidden. Any existing sessions will need to sign out and back in again for the change to take effect.
+1. Connect to a remote session with a supported client and test screen capture protection is working by taking a screenshot or sharing your screen. The content should be blocked or hidden. Any existing sessions will need to sign out and back in again for the change to take effect.
 
 ## Next steps
 

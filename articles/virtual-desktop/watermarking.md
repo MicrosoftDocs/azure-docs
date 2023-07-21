@@ -57,7 +57,7 @@ To enable watermarking:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session with a supported client, where you should see QR codes appear. For any changes you make to the policy and apply to the session host, you'll need to disconnect and reconnect to your remote session to see the difference.
+1. Connect to a remote session with a supported client, where you should see QR codes appear. Any existing sessions will need to sign out and back in again for the change to take effect.
 
 ## Find session information
 
