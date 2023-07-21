@@ -12,6 +12,8 @@ This article describes the main concepts related to the new resource model that 
 > [!NOTE]
 > For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
 
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 ## Events
 
 An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice may have an `orderId` attribute and a `URL` attribute to the order’s state representation.

@@ -4,6 +4,7 @@ description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Ent
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/06/2023

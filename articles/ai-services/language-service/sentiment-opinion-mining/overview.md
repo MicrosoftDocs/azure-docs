@@ -62,6 +62,15 @@ Follow these steps to get the most out of your model:
 
 6. **Classify text**: Use your custom model for sentiment analysis tasks.
 
+## Development options
+
+|Development option  |Description  |
+|---------|---------|
+|Language studio     | Language Studio is a web-based platform that lets you try entity linking with text examples without an Azure account, and your own data when you sign up.       |
+|REST API     | Integrate sentiment analysis into your applications programmatically using the REST API.    |
+
+For more information, see [sentiment analysis quickstart](./custom/quickstart.md).   
+
 ## Reference documentation
 
 As you use Custom sentiment analysis, see the following reference documentation and samples for the Language service:
