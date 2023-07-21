@@ -76,7 +76,8 @@ To configure file content changes, follow these steps:
 
     :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
-1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. Select **Upload file content for all settings**, and then select **Save**.
+1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
+1. Select **Upload file content for all settings**, and then select **Save**. It ensures that the file content changes for all the files residing in this DCR will be tracked.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
 
