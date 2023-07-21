@@ -34,8 +34,7 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
 1. For **classification**, you can also enable deep learning.
     
-If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](../v1/how-to-configure-cross-validation-data-splits.md).
-
+If deep learning is enabled, validation is limited to _train_validation split_. 
 
 4. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
