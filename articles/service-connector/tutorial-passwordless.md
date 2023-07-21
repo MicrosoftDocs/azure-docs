@@ -31,7 +31,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 * An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
-### Setup environment
+### Set up environment
 
 #### Account
 
