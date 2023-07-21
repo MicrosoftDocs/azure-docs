@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 02/07/2023
+ms.date: 07/21/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
