@@ -12,7 +12,7 @@ ms.author: sherrywang
 Based on feedback we’ve received from customers we’re happy to announce that we're extending the retirement date by 1 year to 6 September 2023, for the Azure NC-Series virtual machine to give you more time to plan your migration. 
 
 As we continue to bring modern and optimized virtual machine instances to Azure using the latest innovations in datacenter technologies, we thoughtfully plan how we retire aging hardware. 
-With this in mind, we're retiring our NC (v1) GPU VM sizes, powered by NVIDIA Tesla K80 GPUs on 6 September 6 2023.
+With this in mind, we're retiring our NC (v1) GPU VM sizes, powered by NVIDIA Tesla K80 GPUs on 6 September 2023.
 
 ## How does the NC-series migration affect me?  
 
