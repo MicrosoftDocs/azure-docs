@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 07/20/2023
+ms.topic: article
+ms.date: 06/08/2023
 ms.author: danlep
 ---
 
@@ -25,7 +25,7 @@ Currently, API Management supports resolvers that can access the following data 
 * A resolver is a resource containing a policy definition that's invoked only when a matching object type and field in the schema is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
-* You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, you might want to add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
+* You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
 
 > [!IMPORTANT]
 > * If you use the preview `set-graphql-resolver` policy in policy definitions, you should migrate to the managed resolvers described in this article.
@@ -67,6 +67,8 @@ The following steps create a resolver using an HTTP-based data source. The gener
 ## Manage resolvers
 
 List and manage the resolvers for a GraphQL API on the API's **Resolvers** tab. 
+
+:::image type="content" source="media/configure-graphql-resolver/resolvers-tab.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/resolvers-tab.png":::
 
 On the **Resolvers** tab:
 

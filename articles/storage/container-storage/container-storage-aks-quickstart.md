@@ -163,7 +163,7 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 
 # [Azure portal](#tab/portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
 1. Locate and select your AKS cluster. Select **Settings** > **Properties** from the left navigation.
 1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
