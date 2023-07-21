@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 07/19/2023
+ms.date: 07/21/2023
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---

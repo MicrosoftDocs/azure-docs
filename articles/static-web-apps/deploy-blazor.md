@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 11/22/2022
+ms.date: 07/21/2023
 ms.author: cshoe
 ---
 
