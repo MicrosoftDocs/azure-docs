@@ -142,7 +142,7 @@ The following steps help you locate and view metrics:
 
 ## <a name="diagnostic"></a>Diagnostic logs
 
-The following diagnostic logs are available, unless otherwise specified.
+The following diagnostic logs are available, unless otherwise specified. These Resource Logs aren't collected and stored until [you create a diagnostic setting](#view-diagnostic) and route them to one or more locations. 
 
 ### <a name="s2s-diagnostic"></a>Site-to-site VPN gateway diagnostics
 
@@ -188,6 +188,10 @@ The following steps help you create, edit, and view diagnostic settings:
 1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
 
     :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
+1. For more information and troubleshooting on creating diagnostic settings via Azure portal, CLI, PowerShell, etc., you can visit [create diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
+
+> [!IMPORTANT]
+> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ### Log Analytics sample query
 
