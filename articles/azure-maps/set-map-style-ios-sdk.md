@@ -3,7 +3,7 @@ title: Set a map style in iOS maps | Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps iOS SDK in either the layout file or the activity class to adjust the style.
 author: dubiety
 ms.author: yuchungchen 
-ms.date: 10/22/2021
+ms.date: 07/22/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,14 +11,12 @@ services: azure-maps
 
 # Set map style in the iOS SDK (Preview)
 
-This article shows you two ways to set map styles using the Azure Maps iOS SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps](supported-map-styles.md).
+This article shows you two ways to set map styles using the Azure Maps iOS SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps].
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document.
-
-> [!IMPORTANT]
-> The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+- Complete the [Create an iOS app] quickstart.
+- An [Azure Maps account].
 
 ## Set map style in the map control init
 
@@ -99,7 +97,7 @@ When setting the camera options of the map, animation options can also be used t
 | Option | Description |
 |--------|-------------|
 | `animationDuration(_ duration: Double)` | Specifies how long the camera animates between the views in milliseconds (ms). |
-| `animationType(_ animationType: AnimationType)` | Specifies the type of animation transition to perform.<br/><br/> - `.jump` - an immediate change.<br/> - `.ease` - gradual change of the camera's settings.<br/> - `.fly` - gradual change of the camera's settings following an arc resembling flight. |
+| `animationType(_ animationType: AnimationType)` | Specifies the type of animation transition to perform.<br><br> - `.jump` - an immediate change.<br> - `.ease` - gradual change of the camera's settings.<br> - `.fly` - gradual change of the camera's settings following an arc resembling flight. |
 
 The following code shows how to animate the map view using a `.fly` animation over a duration of three seconds.
 
@@ -120,5 +118,11 @@ The following animation demonstrates the above code animating the map view from 
 
 See the following articles for more code samples to add to your maps:
 
-- [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Add a symbol layer]
+- [Add a bubble layer]
+
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a symbol layer]: add-symbol-layer-ios.md
+[Azure Maps account]: https://azure.microsoft.com/services/azure-maps
+[Create an iOS app]: quick-ios-app.md
+[supported map styles in Azure Maps]: supported-map-styles.md
