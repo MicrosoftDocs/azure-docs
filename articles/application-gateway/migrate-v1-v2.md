@@ -4,8 +4,9 @@ description: This article shows you how to migrate Azure Application Gateway and
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/05/2023
 ms.author: greglin
 ---
 
@@ -23,6 +24,17 @@ There are two stages in a migration:
 2. Migrate the client traffic
 
 This article primarily helps with the configuration migration. The traffic migration would vary depending on customer’s needs and environment. But we have included some general recommendations further in this [article](#traffic-migration).
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An existing Application Gateway V1 Standard.
+* Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
+* If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Configuration migration 
 
@@ -107,6 +119,31 @@ To run the script:
       ```
 
      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
+
+   * **sslCertificates from Keyvault: Optional**.You can download the certificates stored in Azure Key Vault and pass it to migration script.To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
+
+     ```azurepowershell
+      $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
+      $certificateName = ConvertTo-SecureString <cert-name> -AsPlainText -Force
+      $password = ConvertTo-SecureString <password> -AsPlainText -Force
+      
+      $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
+      $secretByte = [Convert]::FromBase64String($pfxSecret)
+      $x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
+      $x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+      $pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
+      
+      # Write to a file
+      [IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+      ```
+      For each of the cert downloaded from the Keyvault, you can create a new PSApplicationGatewaySslCertificate object via the New-AzApplicationGatewaySslCertificate command shown here. You need the path to your TLS/SSL Cert file and the password.
+
+       ```azurepowershell
+      //Convert the downloaded certificate to SSL object
+      $password = ConvertTo-SecureString  <password> -AsPlainText -Force 
+      $cert = New-AzApplicationGatewaySSLCertificate -Name <certname> -CertificateFile <Cert-File-Path-1> -Password $password 
+       ```
+     
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
 
       ```azurepowershell

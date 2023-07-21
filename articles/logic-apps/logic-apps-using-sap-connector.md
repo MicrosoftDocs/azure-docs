@@ -129,6 +129,8 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
     > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
     > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
+* By default, the preview SAP built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
 * To use either the SAP managed connector trigger named **When a message is received from SAP** or the SAP built-in trigger named **Register SAP RFC server for trigger**, complete the following tasks:
 
   * Set up your SAP gateway security permissions or Access Control List (ACL). In the **Gateway Monitor** (T-Code SMGW) dialog box, which shows the **secinfo** and **reginfo** files, open the **Goto** menu, and select **Expert Functions** > **External Security** > **Maintenance of ACL Files**.
@@ -492,7 +494,7 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
    - **sapnco.dll**
    - **sapnco_utils.dll**
 
-1. To SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. For more information, see [SNC prerequisites](#snc-prerequisites-standard):
+1. For SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. For more information, see [SNC prerequisites](#snc-prerequisites-standard):
 
    - **sapcrypto.dll**
    - **sapgenpse.exe**

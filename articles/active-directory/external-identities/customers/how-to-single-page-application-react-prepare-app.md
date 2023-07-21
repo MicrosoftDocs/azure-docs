@@ -150,9 +150,10 @@ Identity related **npm** packages must be installed in the project to enable use
     // };
     ```
 
-1. Replace the following values with the values from the Azure admin center:
-    - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the **Overview** page of the registered application.
-    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
+1. Replace the following values with the values from the Azure portal:
+    - Find the `Enter_the_Application_Id_Here` value and replace it with the **Application ID (clientId)** of the app you registered in the Microsoft Entra admin center.
+    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, [learn how to read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+2. Save the file.
 
 ## Modify *index.js* to include the authentication provider
 

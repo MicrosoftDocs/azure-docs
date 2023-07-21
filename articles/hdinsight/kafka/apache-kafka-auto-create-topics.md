@@ -4,7 +4,7 @@ description: Learn how to configure Apache Kafka on HDInsight to automatically c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/06/2022
+ms.date: 06/22/2023
 ---
 
 # How to configure Apache Kafka on HDInsight to automatically create topics

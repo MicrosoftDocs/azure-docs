@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/15/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Troubleshoot issues applying artifacts on DevTest Labs virtual machines

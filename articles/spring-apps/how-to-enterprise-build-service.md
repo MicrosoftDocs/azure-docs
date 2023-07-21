@@ -1,12 +1,12 @@
 ---
 title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
 description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Use Tanzu Build Service
@@ -58,7 +58,7 @@ When you create a new Azure Spring Apps Enterprise service instance using the Az
 
 The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size here after you've created the service instance.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing the Build Service page with the dropdown menu to edit allocate resources showing." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Build service on demand
 

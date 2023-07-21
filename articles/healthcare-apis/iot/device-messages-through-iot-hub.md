@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 05/16/2023
+ms.date: 07/05/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -23,7 +23,7 @@ For enhanced workflows and ease of use, you can use the MedTech service to recei
 > [!TIP]
 > To learn how the MedTech service transforms and persists device data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
-In this tutorial, you learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Open an ARM template in the Azure portal.
@@ -124,7 +124,7 @@ When deployment is completed, the following resources and access roles are creat
 
   * **Azure Event Hubs Data Sender** role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). The **Azure Event Hubs Data Sender** role isn't used in this tutorial.
 
-* IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the event hub.
+* IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to route device messages to the event hub.
 
 * [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md), which provides send access from the IoT hub to the event hub. The managed identity has the **Azure Event Hubs Data Sender** role in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
@@ -211,7 +211,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before sending it to the MedTech service device event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent mappings](how-to-use-iot-jsonpath-content-mappings.md). 
+   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
    >
    > You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
    >
@@ -246,9 +246,19 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn about other methods for deploying the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
-> [!div class="nextstepaction"] 
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

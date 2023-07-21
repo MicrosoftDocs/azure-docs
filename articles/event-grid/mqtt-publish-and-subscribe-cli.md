@@ -2,7 +2,7 @@
 title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
 description: 'Quickstart guide to use Azure Event Grid MQTT and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
@@ -32,24 +32,24 @@ In this article, you use the Azure CLI to do the following tasks:
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 
 ## Generate sample client certificate and thumbprint
-If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/).  Consider installing manually for Windows.
+If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. After a successful installation of Step, you should open a command prompt in your user profile folder (Win+R type %USERPROFILE%).
 
-Once you installed Step, in Windows PowerShell, run the command to create root and intermediate certificates.
+To create root and intermediate certificates, run the following command:
 
 ```powershell
-.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
 ```
 
 Using the CA files generated to create certificate for the client.
 
 ```powershell
-.\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
 ```
 
 To view the thumbprint, run the Step command.
 
 ```powershell
-.\step certificate fingerprint client1-authnID.pem
+step certificate fingerprint client1-authnID.pem
 ```
 
 > [!IMPORTANT]

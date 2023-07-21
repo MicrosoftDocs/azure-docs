@@ -1,5 +1,5 @@
 ---
-title: Archive of what's new in Microsoft Defender for Cloud
+title: Archive of what's new
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 author: dcurwin
 ms.author: dacurwin
@@ -2050,7 +2050,7 @@ Learn more in:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 - [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
-- [FAQ - Regulatory compliance dashboard](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [FAQ - Regulatory compliance dashboard](faq-regulatory-compliance.yml)
 
 ### Four new recommendations related to guest configuration (in preview)
 

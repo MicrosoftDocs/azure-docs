@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/17/2023
+ms.date: 06/26/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,27 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+
+
+### Migrate to site-based licenses
+
+Existing customers can now migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
+
+On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
+
+:::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365."  lightbox="media/release-notes/migrate-to-365.png":::
+
+Make sure to edit any relevant sites to match your newly licensed site sizes. For example:
+
+:::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal."  lightbox="media/release-notes/edit-site-size.png":::
+
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
 
 ## June 2023
 

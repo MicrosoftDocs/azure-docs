@@ -311,13 +311,13 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *rhel.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```bash
-    sudo ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
     ```bash
-    sudo pwd
+    pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
@@ -325,7 +325,7 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Now check that the group memberships are being resolved correctly:
 
     ```bash
-    sudo id
+    id
     ```
 
     You should see your group memberships from the managed domain.

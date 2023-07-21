@@ -32,7 +32,7 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
@@ -44,7 +44,7 @@ If ID tokens are not enabled for your app and one is requested, the Microsoft id
 
 > *The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is 'code'*.
 
-Requesting an ID token by specifying a `response_type` of `code` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
+Requesting an ID token by specifying a `response_type` of `id_token` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
 
 ## Fetch the OpenID configuration document
 
@@ -71,7 +71,7 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 > [!TIP]
 > Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](./supported-accounts-validation.md).
 
-To find the OIDC configuration document in the Azure portal, navigate to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) and then:
 
 1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.
@@ -113,7 +113,7 @@ The configuration metadata is returned in JSON format as shown in the following 
 To authenticate a user and request an ID token for use in your application, direct their user-agent to the Microsoft identity platform's _/authorize_ endpoint. The request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) but with these distinctions:
 
 * Include the `openid` scope in the `scope` parameter.
-* Specify `code` in the `response_type` parameter.
+* Specify `id_token` in the `response_type` parameter.
 * Include the `nonce` parameter.
 
 Example sign-in request (line breaks included only for readability):

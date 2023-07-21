@@ -108,7 +108,7 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 
 <!-- LINKS - external -->
 [kured]: https://github.com/kubereboot/kured
-[kured-install]: https://github.com/kubereboot/kured/tree/main/cmd/kured
+[kured-install]: https://github.com/kubereboot/charts/tree/main/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

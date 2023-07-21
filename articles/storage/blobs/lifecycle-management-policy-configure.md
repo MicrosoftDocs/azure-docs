@@ -6,8 +6,8 @@ author: normesta
 
 ms.author: normesta
 ms.date: 05/02/2023
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
@@ -38,6 +38,7 @@ To enable last access time tracking with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. In the **Data management** section, select **Lifecycle management**.
+1. Check the checkbox "Enable access tracking"
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing how to enable last access tracking in Azure portal.](media/lifecycle-management-policy-configure/last-access-tracking-enable.png)
