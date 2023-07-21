@@ -285,17 +285,17 @@ The Responsible AI dashboard appears for that model as shown in this image:
 
 In the dashboard, you'll find four components activated for your Automated ML’s best model: 
 
-| Component | What does the component show? | How to read the chart?  
+| Component | What does the component show? | How to read the chart?  |
 | ----|---- | ---- |
 | [Error Analysis](concept-error-analysis.md) | Use error analysis when you need to: 
 Gain a deep understanding of how model failures are distributed across a dataset and across several input and feature dimensions. 
-Break down the aggregate performance metrics to automatically discover erroneous cohorts in order to inform your targeted mitigation steps.  [Error Analysis Charts](how-to-responsible-ai-dashboard.md) 
+Break down the aggregate performance metrics to automatically discover erroneous cohorts in order to inform your targeted mitigation steps. |  [Error Analysis Charts](how-to-responsible-ai-dashboard.md) |
 | [Model Overview and Fairness](concept-fairness-ml.md) | Use this component to:
 Gain a deep understanding of your model performance across different cohorts of data. 
-Understand your model fairness issues by looking at the disparity metrics. These metrics can evaluate and compare model behavior across subgroups identified in terms of sensitive (or nonsensitive) features.  | [Model Overview and Fairness Charts](how-to-responsible-ai-dashboard.md#model-overview-and-fairness-metrics) 
+Understand your model fairness issues by looking at the disparity metrics. These metrics can evaluate and compare model behavior across subgroups identified in terms of sensitive (or nonsensitive) features.  | [Model Overview and Fairness Charts](how-to-responsible-ai-dashboard.md#model-overview-and-fairness-metrics) |
 | [Model Explanations](how-to-machine-learning-interpretability.md) | Use the model explanation component to generate human-understandable descriptions of the predictions of a machine learning model by looking at: 
 Global explanations: For example, what features affect the overall behavior of a loan allocation model? 
-Local explanations: For example, why was a customer's loan application approved or rejected? | [Model Explainability Charts](how-to-responsible-ai-dashboard.md#feature-importances-model-explanations) 
+Local explanations: For example, why was a customer's loan application approved or rejected? | [Model Explainability Charts](how-to-responsible-ai-dashboard.md#feature-importances-model-explanations) |
 | [Data Analysis](concept-data-analysis.md) | Use data analysis when you need to: 
 Explore your dataset statistics by selecting different filters to slice your data into different dimensions (also known as cohorts). 
 Understand the distribution of your dataset across different cohorts and feature groups. 
