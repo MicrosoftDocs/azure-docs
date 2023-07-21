@@ -30,7 +30,8 @@ You can review and download the sample code for this quick start on [GitHub](htt
 In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
-mkdir acs-rooms-quickstart && cd acs-rooms-quickstart
+mkdir acs-rooms-quickstart
+cd acs-rooms-quickstart
 ```
 
 ### Install the package
@@ -50,6 +51,7 @@ Create a new file called `rooms-quickstart.py` and add the basic program structu
 ```python
 import os
 from datetime import datetime, timedelta
+from azure.core.exceptions import HttpResponseError
 from azure.communication.rooms import (
     RoomsClient,
     RoomParticipant,
@@ -70,8 +72,8 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 
 ```python
 #Find your Communication Services resource in the Azure portal
-self.connection_string = '<connection_string>'
-self.rooms_client = RoomsClient.from_connection_string(self.connection_string)
+connection_string = '<connection_string>'
+rooms_client = RoomsClient.from_connection_string(connection_string)
 ```
 
 ## Create a room
@@ -89,8 +91,7 @@ Also, import the namespace of the package at the top of your `rooms-quickstart.p
 
 ```python
 from azure.communication.identity import (
-    CommunicationIdentityClient,
-    CommunicationUserIdentifier
+    CommunicationIdentityClient
 )
 ```
 
@@ -98,7 +99,7 @@ Now, the `CommunicationIdentityClient` can be initialized and used to create use
 
 ```python
 # Create identities for users who will join the room
-identity_client = CommunicationIdentityClient.from_connection_string(self.connection_string)
+identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
 user1 = identity_client.create_user()
 user2 = identity_client.create_user()
 user3 = identity_client.create_user()
@@ -107,8 +108,8 @@ user3 = identity_client.create_user()
 Then, create the list of room participants by referencing those users:
 
 ```python
-participant_1 = RoomParticipant(communication_identifier=self.user1, role=ParticipantRole.PRESENTER)
-participant_2 = RoomParticipant(communication_identifier=self.user2, role=ParticipantRole.CONSUMER)
+participant_1 = RoomParticipant(communication_identifier=user1, role=ParticipantRole.PRESENTER)
+participant_2 = RoomParticipant(communication_identifier=user2, role=ParticipantRole.CONSUMER)
 participants = [participant_1, participant_2]
 ```
 
@@ -118,10 +119,10 @@ Create a new `room` using the `participants` defined in the code snippet above:
 ```python
 # Create a room
 valid_from = datetime.now()
-valid_until = valid_from + relativedelta(months=+1)
+valid_until = valid_from + timedelta(weeks=4)
 
 try:
-    create_room = self.rooms_client.create_room(
+    create_room = rooms_client.create_room(
         valid_from=valid_from,
         valid_until=valid_until,
         participants=participants
@@ -141,7 +142,7 @@ Retrieve the details of an existing `room` by referencing the `id`:
 # Retrieves the room with corresponding ID
 room_id = create_room.id
 try:
-    get_room = self.rooms_client.get_room(room_id=room_id)
+    get_room = rooms_client.get_room(room_id=room_id)
     print("\nRetrieved room with id: ", get_room.id)
 except HttpResponseError as ex:
     print(ex)
@@ -154,10 +155,10 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 ```python
 # Update the lifetime of a room
 valid_from =  datetime.now()
-valid_until = valid_from + relativedelta(months=+1,days=+20)
+valid_until = valid_from + timedelta(weeks=7)
 
 try:
-    updated_room = self.rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
+    updated_room = rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
      print("\nUpdated room with validFrom: " + updated_room.valid_from + " and validUntil: " + updated_room.valid_until)
 except HttpResponseError as ex:
     print(ex)
@@ -170,16 +171,16 @@ To retrieve all active rooms created under your resource, use the `list_rooms` m
 ```python
 # List all active rooms
 try:
-    rooms = self.rooms_client.list_rooms()
+    rooms = rooms_client.list_rooms()
     count = 0
-        for room in rooms:
-            if count == 1:
-                break
-            print("\nPrinting the first room in list"
-              "\nRoom Id: " + room.id +
-              "\nCreated date time: " + str(room.created_at) +
-              "\nValid From: " + str(room.valid_from) + "\nValid Until: " + str(room.valid_until))
-            count += 1
+    for room in rooms:
+        if count == 1:
+            break
+        print("\nPrinting the first room in list"
+            "\nRoom Id: " + room.id +
+            "\nCreated date time: " + str(room.created_at) +
+            "\nValid From: " + str(room.valid_from) + "\nValid Until: " + str(room.valid_until))
+        count += 1
 except HttpResponseError as ex:
     print(ex)
 ```
@@ -193,14 +194,14 @@ To add new participants or update existing participants in a `room`, use the `ad
 try:
     # Update existing user2 from consumer to attendee
     participants = []
-    participants.append(RoomParticipant(self.user2, ParticipantRole.ATTENDEE))
+    participants.append(RoomParticipant(communication_identifier=user2, role=ParticipantRole.ATTENDEE))
 
     # Add new participant user3
-    participants.append(RoomParticipant(self.user3, ParticipantRole.CONSUMER))
-    self.rooms_client.add_or_update_participants(room_id=room_id, participants=participants)
-    print("\Add or update participants in room")
+    participants.append(RoomParticipant(communication_identifier=user3, role=ParticipantRole.CONSUMER))
+    rooms_client.add_or_update_participants(room_id=room_id, participants=participants)
+    print("\nAdd or update participants in room")
 
-except Exception as ex:
+except HttpResponseError as ex:
     print('Error in adding or updating participants to room.', ex)
 ```
 
@@ -213,10 +214,10 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 ```python
 # Get list of participants in room
 try:
-    participants = self.rooms_client.list_participants(room_id)
+    participants = rooms_client.list_participants(room_id)
     print('\nParticipants in Room Id :', room_id)
-        for p in participants:
-            print(p.communication_identifier.properties['id'], p.role)
+    for p in participants:
+        print(p.communication_identifier.properties['id'], p.role)
 except HttpResponseError as ex:
     print(ex)
 
@@ -230,7 +231,7 @@ To remove a participant from a `room` and revoke their access, use the `remove_p
 # Remove Participants
 try:
     participants = [user2]
-    self.rooms_client.remove_participants(room_id=room_id, participants=participants)
+    rooms_client.remove_participants(room_id=room_id, participants=participants)
     print("\nRemoved participants from room")
 
 except HttpResponseError as ex:
@@ -244,8 +245,8 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```python
 # Delete Room
 
-self.rooms_client.delete_room(room_id=room)
-print("\nDeleted room with id: " + room)
+rooms_client.delete_room(room_id=room_id)
+print("\nDeleted room with id: " + room_id)
 
 ```
 

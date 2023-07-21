@@ -9,8 +9,7 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.date: 12/13/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: contperf-fy21q1
 ---
 

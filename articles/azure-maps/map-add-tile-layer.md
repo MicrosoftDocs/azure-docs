@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-For a fully functional sample that shows how to create a tile layer that points to a set of tiles using the x, y, zoom tiling system, see the [Tile Layer using X, Y, and Z] sample in the [Azure Maps Samples]. The source of the tile layer in this sample is a nautical chart from the [OpenSeaMap project], an OpenStreetMaps project licensed under ODbL.
+For a fully functional sample that shows how to create a tile layer that points to a set of tiles using the x, y, zoom tiling system, see the [Tile Layer using X, Y, and Z] sample in the [Azure Maps Samples]. The source of the tile layer in this sample is a nautical chart from the [OpenSeaMap project], an OpenStreetMaps project licensed under ODbL. For the source code for this sample, see [Tile Layer using X, Y, and Z source code].
 
 :::image type="content" source="./media/map-add-tile-layer/tile-layer.png"alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
 
@@ -60,7 +60,7 @@ For a fully functional sample that shows how to create a tile layer that points 
 
 A web-mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and height parameters to the value supported by the service, be sure to set this value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
 
-For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Service (WMS), see the [WMS Tile Layer] sample in the [Azure Maps Samples].
+For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Service (WMS), see the [WMS Tile Layer] sample in the [Azure Maps Samples]. For the source code for this sample, see [WMS Tile Layer source code].
 
 The following screenshot shows the [WMS Tile Layer] sample that overlays a web-mapping service of geological data from the [U.S. Geological Survey (USGS)] on top of the map and below the labels.
 
@@ -81,7 +81,7 @@ A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standar
 * `{TileRow}` => `{y}`
 * `{TileCol}` => `{x}`
 
-For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Tile Service (WMTS), see the [WMTS Tile Layer] sample in the [Azure Maps Samples].
+For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Tile Service (WMTS), see the [WMTS Tile Layer] sample in the [Azure Maps Samples]. For the source code for this sample, see [WMTS Tile Layer source code].
 
 The following screenshot shows the [WMTS Tile Layer] sample overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map] on top of a map, below roads and labels.
 
@@ -96,7 +96,7 @@ The following screenshot shows the [WMTS Tile Layer] sample overlaying a web-map
 
 ## Customize a tile layer
 
-The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out.
+The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out. For the source code for this sample, see [Tile Layer Options source code].
 
 :::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png"alt-text="A screenshot of Tile Layer Options sample.":::
 
@@ -121,10 +121,16 @@ See the following articles for more code samples to add to your maps:
 > [Add an image layer](./map-add-image-layer.md)
 
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Tile Layer using X, Y, and Z]: https://samples.azuremaps.com/?search=tile%20layer&sample=tile-layer-using-x%2C-y%2C-and-z
+[Tile Layer Options]: https://samples.azuremaps.com/tile-layers/tile-layer-options
+[WMS Tile Layer]: https://samples.azuremaps.com/tile-layers/wms-tile-layer
+[WMTS Tile Layer]: https://samples.azuremaps.com/tile-layers/wmts-tile-layer
+[Tile Layer using X, Y, and Z]: https://samples.azuremaps.com/tile-layers/tile-layer-using-x,-y-and-z
+
+[Tile Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/Tile%20Layer%20Options/Tile%20Layer%20Options.html
+[WMS Tile Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/WMS%20Tile%20Layer/WMS%20Tile%20Layer.html
+[WMTS Tile Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/WMTS%20Tile%20Layer/WMTS%20Tile%20Layer.html
+[Tile Layer using X, Y, and Z source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/Tile%20Layer%20using%20X,%20Y%20and%20Z/Tile%20Layer%20using%20X,%20Y%20and%20Z.html
+
 [OpenSeaMap project]: https://openseamap.org/index.php
-[WMS Tile Layer]: https://samples.azuremaps.com/?search=tile%20layer&sample=wms-tile-layer
 [U.S. Geological Survey (USGS)]: https://mrdata.usgs.gov/
-[WMTS Tile Layer]: https://samples.azuremaps.com/?search=tile%20layer&sample=wmts-tile-layer
 [U.S. Geological Survey (USGS) National Map]:https://viewer.nationalmap.gov/services
-[Tile Layer Options]: https://samples.azuremaps.com/?search=tile%20layer&sample=tile-layer-options

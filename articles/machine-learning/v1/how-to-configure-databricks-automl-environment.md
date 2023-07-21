@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom:
+ms.custom: UpdateFrequency5
 monikerRange: 'azureml-api-1'
 ---
 

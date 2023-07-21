@@ -17,7 +17,7 @@ ms.custom: aaddev, devx-track-dotnet
 
 # Logging in MSAL.NET
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Configure logging in MSAL.NET
 

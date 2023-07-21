@@ -7,7 +7,7 @@ ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-azurecli
 ms.devlang: azurecli
 # Customer intent: As a new user of IoT Central, I want to learn how to use the data export feature so that I can integrate my IoT Central application with other backend services.
 ---

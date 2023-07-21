@@ -17,9 +17,6 @@ ms.date: 11/16/2022
 
 In this article, learn how to securely integrate with Azure Machine Learning from Azure Synapse. This integration enables you to use Azure Machine Learning from notebooks in your Azure Synapse workspace. Communication between the two workspaces is secured using an Azure Virtual Network.
 
-> [!TIP]
-> You can also perform integration in the opposite direction, using Azure Synapse spark pool from Azure Machine Learning. For more information, see [Link Azure Synapse and Azure Machine Learning](v1/how-to-link-synapse-ml-workspaces.md).
-
 ## Prerequisites
 
 * An Azure subscription.

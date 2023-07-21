@@ -5,11 +5,11 @@ description: Authorize access to Azure tables using Azure Active Directory (Azur
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 02/09/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Authorize access to tables using Azure Active Directory

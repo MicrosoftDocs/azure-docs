@@ -166,9 +166,6 @@ The function app restarts after the change is made to the site config.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Target the correct runtime during local dev environment](functions-run-local.md#changing-core-tools-versions)
-
-> [!div class="nextstepaction"]
 > [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
 
 [`linuxFxVersion`]: functions-app-settings.md#linuxfxversion

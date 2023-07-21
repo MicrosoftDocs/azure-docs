@@ -23,7 +23,7 @@ Users can bootstrap Passwordless methods in one of two ways:
 - Using existing Azure AD Multi-Factor Authentication methods 
 - Using a Temporary Access Pass (TAP) 
 
-A Temporary Access Pass is a time-limited passcode that can be configured for single or multiple. Users can sign in with a Temporary Access Pass to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
+A Temporary Access Pass is a time-limited passcode that can be configured for single use or multiple. Users can sign in with a Temporary Access Pass to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
 
@@ -76,7 +76,7 @@ These roles can perform the following actions related to a Temporary Access Pass
 - Authentication Administrators can create, delete, and view a Temporary Access Pass on members  (except themselves)
 - Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
-1. Sign in to the Azure portal by using of the preceding roles. 
+1. Sign in to the Azure portal by using one of the preceding roles. 
 1. Select **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.
 1. If needed, select the option to **Try the new user authentication methods experience**.
 1. Select the option to **Add authentication methods**.
