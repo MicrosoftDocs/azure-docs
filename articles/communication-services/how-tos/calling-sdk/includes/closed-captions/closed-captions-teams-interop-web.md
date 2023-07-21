@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Web how-to guide for enabling Closed captions during a Teams interop call .
+description: Web how-to guide for enabling Closed captions during a Teams interop call.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -44,7 +44,7 @@ let captionsCallFeature: SDK.CaptionsCallFeature = teamsCall.feature(SDK.Feature
 ```
 
 ## Get teams captions object
-You will now need to get and cast the Teams Captions object to utilize Teams Captions specific features
+You need to get and cast the Teams Captions object to utilize Teams Captions specific features
 ``` typescript
 let teamsCaptions: SDK.TeamsCaptions;
 if (captionsCallFeature.captions.captionsType === 'TeamsCaptions') {
@@ -80,7 +80,7 @@ const spokenLanguageChangedHandler = () => {
 teamsCaptions.on('SpokenLanguageChanged', spokenLanguageChangedHandler)
 ```
 
-### Add a listner to receive caption language changed status
+### Add a listener to receive caption language changed status
 ```typescript
 const captionLanguageChangedHandler = () => {
     if (teamsCaptions.activeCaptionLanguage !== currentCaptionLanguage) {
@@ -91,7 +91,7 @@ teamsCaptions.on('CaptionLanguageChanged', captionLanguageChangedHandler)
 ```
 
 ## Start captions
-Once you've got all your listeners setup you can now start captions.
+Once you've set up all your listeners, you can now start adding captions.
 ``` typescript
 try {
     await teamsCaptions.startCaptions({ spokenLanguage: 'en-us' });
@@ -120,7 +120,7 @@ teamsCaptions.off('CaptionsReceived', captionsReceivedHandler);
 
 ### Get a list of supported spoken languages
 Get a list of supported spoken languages that your users can select from when enabling closed captions.
-The property will return an array of langauges in bcp 47 format. 
+The property returns an array of languages in bcp 47 format. 
 ``` typescript
 const spokenLanguages = teamsCaptions.supportedSpokenLanguages; 
 ```
@@ -147,9 +147,9 @@ try {
 ## Caption language support
 
 ### Get a list of supported caption languages
-If your organization has an active Teams premium license you can allow your users to leverage translated captions provided by Teams captions. As for users with a Microsoft 365 identity, if the meeting organizer does not have an active Teams premium license, captions language check will be done against the Microsoft 365 users account.
+If your organization has an active Teams premium license, you can allow your users to use translated captions provided by Teams captions. As for users with a Microsoft 365 identity, if the meeting organizer doesn't have an active Teams premium license, captions language check is done against the Microsoft 365 users account.
 
-The property returns an array of two-letter langauge codes in `ISO 639-1` standard. 
+The property returns an array of two-letter language codes in `ISO 639-1` standard. 
 
 ``` typescript
 const captionLanguages = teamsCaptions.supportedCaptionLanguages;
