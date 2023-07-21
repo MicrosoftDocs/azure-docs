@@ -142,7 +142,7 @@ a. Specify the type of validation to be used for your training job. If you do no
 |**Larger than 20,000 rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
 |**Smaller than 20,000& rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
     
-    b. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
+b. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
     
      >[!IMPORTANT]
      > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
