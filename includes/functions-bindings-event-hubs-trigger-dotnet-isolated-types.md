@@ -12,7 +12,7 @@ When you want the function to process a single event, the Event Hubs trigger can
 | --- | --- |
 | `string` | The event as a string. Use when the event is simple text. |
 | `byte[]` | The bytes of the event. |
-| JSON serializable types | When a event contains JSON data, Functions tries to deserialize the JSON data into a plain-old CLR object (POCO) type. |
+| JSON serializable types | When an event contains JSON data, Functions tries to deserialize the JSON data into a plain-old CLR object (POCO) type. |
 | [Azure.Messaging.EventHubs.EventData] | _(Preview<sup>1</sup>)_<br/>The event object.<br/>If you are migrating from any older versions of the Event Hubs SDKs, note that this version drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).|
 
 When you want the function to process a batch of events, the Event Hubs trigger can bind to the following types:
