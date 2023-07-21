@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Learn how to enable screen capture protection in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 07/21/2023
 ms.author: daknappe
 ---
 
@@ -14,9 +14,9 @@ Screen capture protection, alongside [watermarking](watermarking.md), helps prev
 
 There are two supported scenarios for screen capture protection, depending on the version of Windows you're using:
 
-- **Block screen capture on client**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This prevents screen capture from the client of the application running in the remote session.
+- **Block screen capture on client**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This prevents screen capture from the client of applications running in the remote session.
 
-- **Block screen capture on client and server**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This prevents screen capture from the client of the application running in the remote session, but also prevents tools and services within the session host from capturing the screen.
+- **Block screen capture on client and server**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This prevents screen capture from the client of applications running in the remote session, but also prevents tools and services within the session host from capturing the screen.
 
 When screen capture protection is enabled, users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams. With Teams, neither the local Teams app or using [Teams with media optimization](teams-on-avd.md) can share protected content.
 
