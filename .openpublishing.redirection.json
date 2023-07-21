@@ -13339,6 +13339,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/PCIv3_2_1_2018_audit.md",
+          "redirect_url": "/azure/governance/policy/samples/pci-dss-3-2-1",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/pci_dss_v4.0.md",
+          "redirect_url": "/azure/governance/policy/samples/pci-dss-4-0",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
