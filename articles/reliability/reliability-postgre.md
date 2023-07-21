@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.service: postgresql
 ms.custom: references_regions, subject-reliability
-ms.date: 07/11/2023
+ms.date: 07/20/2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Database for PostgreSQL - Flexible Server so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
