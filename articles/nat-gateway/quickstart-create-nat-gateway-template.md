@@ -5,7 +5,7 @@ description: This quickstart shows how to create a NAT gateway by using the Azur
 author: asudbring
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 07/21/2023
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 # Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
@@ -14,6 +14,8 @@ ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 # Quickstart: Create a NAT gateway - ARM template
 
 Get started with Azure NAT Gateway by using an Azure Resource Manager template (ARM template). This template deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
+
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
