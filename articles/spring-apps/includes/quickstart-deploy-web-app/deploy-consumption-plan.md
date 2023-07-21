@@ -114,7 +114,7 @@ Use the following steps to create a service instance:
 
     :::image type="content" source="../../media/quickstart-deploy-web-app/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment." lightbox="../../media/quickstart-deploy-web-app/create-container-apps-environment.png":::
 
-Then select **Create** to create the Container Apps Environment.
+    Then select **Create** to create the Container Apps Environment.
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
