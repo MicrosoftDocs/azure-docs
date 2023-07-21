@@ -77,7 +77,7 @@ As an example, the condition
 corresponds to a SQL WHERE clause
 ::: ... WHERE ( "BUKRS" = '1000' ) AND ( "GJAHR" BETWEEN '2020' AND '2025' ) AND NOT ( "GJAHR" = '2023')
 
-Make sure to use the SAP internal format for the low and high values, including leading zeroes, or expressing calendar dates has an 8-character string with the format <YYYYMMDD>.
+Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format "YYYYMMDD".
 
 ### Parametrizing the Checkpoint Key
 
