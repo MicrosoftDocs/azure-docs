@@ -5,6 +5,7 @@ description: This article helps to troubleshoot deploying the Microsoft Enterpri
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: devx-track-linux
 ms.topic: troubleshooting
 ms.date: 02/02/2023
 
@@ -13,9 +14,8 @@ author: ryschwa-msft
 manager: 
 ms.reviewer: 
 
-#Customer intent: As an IT admin, I want to learn how to discover and fix issues related to the Microsoft Enterprise SSO plug-in on macOS and iOS.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT admin, I want to learn how to discover and fix issues related to the Microsoft Enterprise SSO plug-in on macOS and iOS.
 ---
 # Troubleshooting the Microsoft Enterprise SSO Extension plugin on Apple devices
 

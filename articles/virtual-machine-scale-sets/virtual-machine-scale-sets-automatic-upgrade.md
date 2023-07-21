@@ -6,6 +6,7 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
+ms.custom: devx-track-linux
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ---
