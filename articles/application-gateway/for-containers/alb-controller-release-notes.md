@@ -18,7 +18,9 @@ The ALB Controller is a Kubernetes deployment that orchestrates configuration an
 
 Each release of ALB Controller has a documented helm chart version and supported Kubernetes cluster version.
 
-Instructions for new or existing deployemnts of ALB Controller are found in the following links: [New Deployment](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments) | [Upgrade existing deployment](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
+Instructions for new or existing deployemnts of ALB Controller are found in the following links:
+- [New deployment of ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments)
+- [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
 
 ## Release history
 
