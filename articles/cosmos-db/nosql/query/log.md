@@ -38,7 +38,7 @@ Returns a numeric expression.
 
 The following example returns the logarithm value of various values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log-base/query.sql" highlight="":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log-base/query.sql" highlight="2-3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/log-base/result.json":::
 
