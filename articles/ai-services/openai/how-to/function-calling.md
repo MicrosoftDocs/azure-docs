@@ -126,7 +126,7 @@ if response_message.get("function_call"):
             "search_hotels": search_hotels,
     }
     function_args = json.loads(response_message["function_call"]["arguments"])
-    function_response = fuction_to_call(**function_args)
+    function_response = function_to_call(**function_args)
 
     # Add the assistant response and function response to the messages
     messages.append( # adding assistant response to messages
