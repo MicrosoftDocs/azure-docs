@@ -63,7 +63,7 @@ To set up Log Analytics for a new object:
 
 1. Sign in to the Azure portal and go to **Azure Virtual Desktop**.
 
-2. Navigate to the object (such as a host pool, app group, or workspace) that you want to capture logs and events for.
+2. Navigate to the object (such as a host pool, application group, or workspace) that you want to capture logs and events for.
 
 3. Select **Diagnostic settings** in the menu on the left side of the screen.
 
@@ -71,7 +71,7 @@ To set up Log Analytics for a new object:
 
     The options shown in the Diagnostic Settings page will vary depending on what kind of object you're editing.
 
-    For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
+    For example, when you're enabling diagnostics for an application group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Remember to enable diagnostics for each Azure Resource Manager object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.

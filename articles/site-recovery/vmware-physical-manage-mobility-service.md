@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 03/31/2023
+ms.date: 05/02/2023
 ---
 
 # Manage the Mobility agent 
@@ -74,8 +74,8 @@ Uninstall from the UI or from a command prompt.
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
-    ```
-    ./uninstall.sh -Y
+   ```bash
+   ./uninstall.sh -Y
    ```
    
 ## Install Site Recovery VSS provider on source machine

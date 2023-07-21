@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 03/04/2023
+ms.date: 04/21/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -45,10 +45,10 @@ Each HBv3 VM size is similar in physical layout, features, and performance of a 
 | HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
-Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
-Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
-Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
-Standard_HB120r-16s_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
+Standard_HB120-96rs_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
+Standard_HB120-64rs_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
+Standard_HB120-32rs_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
+Standard_HB120-16rs_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
@@ -122,12 +122,15 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 12 SP5+, WinServer 2016+           |
+| OS Support for SRIOV RDMA      | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+           |
 | Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
 > Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+
+> [!IMPORTANT] 
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps
 

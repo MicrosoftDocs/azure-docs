@@ -81,10 +81,10 @@ In this section, you will configure the Azure Cosmos DB for NoSQL account as the
 1. From the same terminal window, restart the Striim server by executing the following commands:
 
    ```bash
-   Systemctl stop striim-node
-   Systemctl stop striim-dbms
-   Systemctl start striim-dbms
-   Systemctl start striim-node
+   systemctl stop striim-node
+   systemctl stop striim-dbms
+   systemctl start striim-dbms
+   systemctl start striim-node
    ```
 
 1. Striim will take a minute to start up. If you’d like to see the status, run the following command: 

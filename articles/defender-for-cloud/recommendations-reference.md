@@ -1,11 +1,11 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: memildin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 01/24/2023
-ms.author: memildin
+ms.author: dacurwin
 ms.custom: generated
 ---
 # Security recommendations - a reference guide
@@ -14,7 +14,7 @@ This article lists the recommendations you might see in Microsoft Defender for C
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
+Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
 the Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security 
 and compliance best practices based on common compliance frameworks. This widely respected benchmark 
 builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
@@ -66,6 +66,28 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-networking](../../includes/asc-recs-networking.md)]
 
+## API recommendations
+
+|Recommendation|Description & related policy|Severity|
+|----|----|----|
+|(Preview) Microsoft Defender for APIs should be enabled|Enable the Defender for APIs plan to discover and protect API resources against attacks and security misconfigurations. [Learn more](defender-for-apis-deploy.md)|High|
+(Preview) Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
+(Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
+(Preview) API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High
+
+## API management recommendations
+
+|Recommendation|Description & related policy|Severity|
+|----|----|----|
+|(Preview) API Management subscriptions should not be scoped to all APIs|API Management subscriptions should be scoped to a product or an individual API instead of all APIs, which could result in excessive data exposure.|Medium|
+(Preview) API Management calls to API backends should not bypass certificate thumbprint or name validation| API Management should validate the backend server certificate for all API calls. Enable SSL certificate thumbprint and name validation to improve the API security.|Medium|
+(Preview) API Management direct management endpoint should not be enabled|The direct management REST API in Azure API Management bypasses Azure Resource Manager role-based access control, authorization, and throttling mechanisms, thus increasing the vulnerability of your service.|Low|
+(Preview) API Management APIs should use only encrypted protocols|APIs should be available only through encrypted protocols, like HTTPS or WSS. Avoid using unsecured protocols, such as HTTP or WS to ensure security of data in transit.|High
+(Preview) API Management secret named values should be stored in Azure Key Vault|Named values are a collection of name and value pairs in each API Management service. Secret values can be stored either as encrypted text in API Management (custom secrets) or by referencing secrets in Azure Key Vault. Reference secret named values from Azure Key Vault to improve security of API Management and secrets. Azure Key Vault supports granular access management and secret rotation policies.|Medium
+(Preview) API Management should disable public network access to the service configuration endpoints|To improve the security of API Management services, restrict connectivity to service configuration endpoints, like direct access management API, Git configuration management endpoint, or self-hosted gateways configuration endpoint.| Medium
+(Preview) API Management minimum API version should be set to 2019-12-01 or higher|To prevent service secrets from being shared with read-only users, the minimum API version should be set to 2019-12-01 or higher.|Medium
+(Preview) API Management calls to API backends should be authenticated|Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends.|Medium
+
 ## Deprecated recommendations
 
 |Recommendation|Description & related policy|Severity|
@@ -76,6 +98,11 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
+|Java should be updated to the latest version for web apps|Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Web app) |Medium |
+|Python should be updated to the latest version for function apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Function app) |Medium |
+|Python should be updated to the latest version for web apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Web app) |Medium |
+|Java should be updated to the latest version for function apps |Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Function app) |Medium |
+|PHP should be updated to the latest version for web apps |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality.<br>Using the latest PHP version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app) |Medium |
 ||||
 
 ## Next steps

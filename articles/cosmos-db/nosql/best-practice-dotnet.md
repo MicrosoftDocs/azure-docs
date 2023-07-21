@@ -5,10 +5,10 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 07/12/2023
 ms.author: esarroyo
 ms.reviewer: mjbrown
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, devx-track-dotnet
 ---
 
 # Best practices for Azure Cosmos DB .NET SDK
@@ -26,7 +26,7 @@ Watch the video below to learn more about using the .NET SDK from an Azure Cosmo
 |---------|---------|---------|
 |<input type="checkbox"/> |    SDK Version    |   Always using the [latest version](sdk-dotnet-v3.md) of the Azure Cosmos DB SDK available for optimal performance.     |
 | <input type="checkbox"/>   |    Singleton Client     |       Use a [single instance](/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true) of `CosmosClient` for the lifetime of your application for [better performance](performance-tips-dotnet-sdk-v3.md#sdk-usage).     |
-| <input type="checkbox"/>  |     Regions     |   Make sure to run your application in the same [Azure region](../distribute-data-globally.md) as your Azure Cosmos DB account, whenever possible to reduce latency. Enable 2-4 regions and replicate your accounts in multiple regions for [best availability](../distribute-data-globally.md). For production workloads, enable [automatic failover](../how-to-manage-database-account.md#configure-multiple-write-regions). In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity. To learn how to add multiple regions using the .NET SDK visit [here](tutorial-global-distribution.md)   |
+| <input type="checkbox"/>  |     Regions     |   Make sure to run your application in the same [Azure region](../distribute-data-globally.md) as your Azure Cosmos DB account, whenever possible to reduce latency. Enable 2-4 regions and replicate your accounts in multiple regions for [best availability](../distribute-data-globally.md). For production workloads, enable [service-managed failover](../how-to-manage-database-account.md#configure-multiple-write-regions). In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity. To learn how to add multiple regions using the .NET SDK visit [here](tutorial-global-distribution.md)   |
 | <input type="checkbox"/>   |   Availability and Failovers     |  Set the [ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions?view=azure-dotnet&preserve-view=true) or [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion?view=azure-dotnet&preserve-view=true) in the v3 SDK, and the [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet&preserve-view=true) in the v2 SDK using the  [preferred regions list](./tutorial-global-distribution.md?tabs=dotnetv3%2capi-async#preferred-locations). During failovers, write operations are sent to the current write region and all reads are sent to the first region within your preferred regions list. For more information about regional failover mechanics, see the [availability troubleshooting guide](troubleshoot-sdk-availability.md). |
 |  <input type="checkbox"/> |    CPU     |  You may run into connectivity/availability issues due to lack of resources on your client machine. Monitor your CPU utilization on nodes running the Azure Cosmos DB client, and scale up/out if usage is high.      |
 | <input type="checkbox"/>   |    Hosting      |   Use [Windows 64-bit host](performance-tips-query-sdk.md#use-local-query-plan-generation) processing for best performance, whenever possible. For Direct mode latency-sensitive production workloads, we highly recommend using at least 4-cores and 8-GB memory VMs whenever possible.
@@ -98,7 +98,7 @@ services.AddSingleton<CosmosClient>(serviceProvider =>
 
 ## Best practices when using Gateway mode
 
-Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `Documents.Client.ConnectionPolicy.MaxConnectionLimit` to a higher value.
+Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `CosmosClientOptions.GatewayModeMaxConnectionLimit` to a higher value.
 
 ## Best practices for write-heavy workloads
 
@@ -107,6 +107,21 @@ For workloads that have heavy create payloads, set the `EnableContentResponseOnW
 > [!IMPORTANT]
 > Setting `EnableContentResponseOnWrite` to `false` will also disable the response from a trigger operation.
 
+## Best practices for multi-tenant applications
+
+Applications that distribute usage across multiple tenants where each tenant is represented by a different database, container, or partition key **within the same Azure Cosmos DB account** should use a single client instance. A single client instance can interact with all the databases, containers, and partition keys within an account, and it's best practice to use the [singleton pattern](performance-tips-dotnet-sdk-v3.md#sdk-usage). 
+
+However, when each tenant is represented by a **different Azure Cosmos DB account**, it's required to create a separate client instance per account. The singleton pattern still applies for each client (one client for each account for the lifetime of the application), but if the volume of tenants is high, the number of clients can be difficult to manage. [Connections](sdk-connection-modes.md#direct-mode) can increase beyond the limits of the compute environment and cause [connectivity issues](conceptual-resilient-sdk-applications.md#client-instances-and-connections). 
+
+It's recommended in these cases to:
+
+* Understand the limitations of the compute environment (CPU and connection resources). We recommend using VMs with at least 4-cores and 8-GB memory whenever possible.
+* Based on the limitations of the compute environment, determine the number of client instances (and therefore number of tenants) a single compute instance can handle. You can [estimate the number of connections](sdk-connection-modes.md#volume-of-connections) that will be opened per client depending on the connection mode chosen.
+* Evaluate tenant distribution across instances. If each compute instance can successfully handle a certain limited amount of tenants, load balancing and routing of tenants to different compute instances would allow for scaling as the number of tenants grow.
+* For sparse workloads, consider using a Least Frequently Used cache as the structure to hold the client instances and dispose clients for tenants that haven't been accessed within a time window. One option in .NET is [MemoryCacheEntryOptions](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions), where [RegisterPostEvictionCallback](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.registerpostevictioncallback) can be used to **dispose inactive clients** and [SetSlidingExpiration](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.setslidingexpiration) can be used to define the maximum time to hold inactive connections.
+* Evaluate using [Gateway mode](sdk-connection-modes.md#available-connectivity-modes) to reduce the number of network connections.
+* When using [Direct mode](sdk-connection-modes.md#direct-mode) consider adjusting [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) and [CosmosClientOptions.PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) on the [direct mode configuration](tune-connection-configurations-net-sdk-v3.md) to close unused connections and keep the [volume of connections](sdk-connection-modes.md#volume-of-connections) under control.
+
 ## Next steps
 
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
@@ -114,5 +129,4 @@ For a sample application that's used to evaluate Azure Cosmos DB for high-perfor
 To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

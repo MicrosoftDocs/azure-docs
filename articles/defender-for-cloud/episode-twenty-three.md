@@ -3,7 +3,7 @@ title: Defender Threat Intelligence  | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Microsoft Defender Threat Intelligence (Defender TI)
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Defender threat Intelligence | Defender for Cloud in the Field
@@ -21,9 +21,9 @@ ms.date: 01/24/2023
 
 - [08:45](/shows/mdc-in-the-field/threat-intelligence#time=08m45s) - Demonstration
 
-
 ## Recommended resources
-  - [Learn more](https://learn.microsoft.com/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) about Defender TI.
+
+  - [Learn more](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) about Defender TI.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)

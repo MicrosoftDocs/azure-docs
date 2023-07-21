@@ -46,7 +46,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > > [!div class="nextstepaction"]
 > > [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > 
 > ## Step 3: Your app is configured and ready to run
@@ -139,14 +139,14 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 > public async Task<IActionResult> Index()
 > {
->     var user = await _graphServiceClient.Me.Request().GetAsync();
->     ViewData["ApiResult"] = user.DisplayName;
+>     var user = await _graphServiceClient.Me.GetAsync();
+>     ViewData["ApiResult"] = user?.DisplayName;
 > 
 >     return View();
 > }
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

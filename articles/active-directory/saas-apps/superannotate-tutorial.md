@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 05/25/2023
 ms.author: jeedes
 
 ---
@@ -81,13 +81,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| ---------------|  --------- |
     | groups | user.groups [ApplicationGroup] |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, copy the **App Federation Metadata Url** or download the **Federation Metadata XML** and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ## Configure SuperAnnotate SSO
 
-To configure single sign-on on **SuperAnnotate** side, you need to send the **App Federation Metadata Url** to [SuperAnnotate support team](mailto:support@superannotate.com). They set this setting to have the SAML SSO connection set properly on both sides
+To configure single sign-on on **SuperAnnotate** side, you need to set up the copied **App Federation Metadata Url** or the downloaded **Federation Metadata XML** in the SSO setup page of the SuperAnnotate side to have the SAML SSO connection set properly on both sides.
 
 ### Create SuperAnnotate test user
 

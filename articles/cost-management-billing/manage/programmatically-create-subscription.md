@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.reviewer: andalmia
 ms.author: banders 
 ---

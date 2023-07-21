@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 07/26/2022
-ms.custom: mvc, devx-track-js, mode-ui
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure portal

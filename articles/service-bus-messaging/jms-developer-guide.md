@@ -2,7 +2,8 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.date: 02/12/2022
+ms.custom: devx-track-extended-java
+ms.date: 05/02/2023
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
@@ -54,7 +55,7 @@ Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionF
 To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively.
 
 > [!IMPORTANT]
-> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Azure Active Directory (AAD) backed authentication. When using AAD backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#assigning-azure-roles-for-access-rights) to the identity as needed.
+> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Azure Active Directory (Azure AD) backed authentication. When using Azure AD backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) to the identity as needed.
 
 # [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
 
@@ -173,6 +174,9 @@ A session can be created from the connection object as shown below.
 ```java
 Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 ```
+
+> [!NOTE]
+> JMS API doesn't support receiving messages from service bus queues or topics with messaging sessions enabled. 
 
 #### Session modes
 

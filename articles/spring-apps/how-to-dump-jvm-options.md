@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Apps.
 
@@ -89,7 +89,7 @@ To ensure that you can access your files, be sure that the target path of your g
     }
 ```
 
-Alternately, you can use the following command to append to persistent storage.
+Alternatively, you can use the following command to append to persistent storage.
 
 ```azurecli
 az spring app append-persistent-storage \

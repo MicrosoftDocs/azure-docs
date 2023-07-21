@@ -19,6 +19,16 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## June 2023
+
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+
+## May 2023
+
+Azure RBAC is now the recommended authorization system for the Azure Key Vault data plane. Azure RBAC is built on Azure Resource Manager and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource).
+
+For more information, please visit [Azure role-based access control (Azure RBAC) vs. access policies | Microsoft Learn](rbac-access-policy.md)
+
 ## February 2023
 
 Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance) to learn how to enforce the new built-in policy.

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 07/18/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -37,7 +37,7 @@ The IP address associated with an inbound endpoint is always part of the private
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the fifth IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be a static IP address if you use [PowerShell to provison the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). If you use the Azure portal to provision the inbound endpoint, then typically the fifth IP address in the subnet is assigned. If the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
 
 ## Outbound endpoints
 

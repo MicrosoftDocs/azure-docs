@@ -131,6 +131,7 @@ Additionally it is required to validate your DNS configurations on Azure virtual
 -  If custom DNS server is used, you should add corresponding DNS forwarders inside your DNS servers for the following zones:
   
    -  Purview.azure.com
+   -  purviewstudio.azure.com
    -  Blob.core.windows.net
    -  Queue.core.windows.net
    -  Servicebus.windows.net

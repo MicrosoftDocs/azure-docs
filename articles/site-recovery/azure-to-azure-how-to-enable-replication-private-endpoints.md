@@ -222,7 +222,7 @@ following role permissions depending on the type of storage account:
 
 The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the Azure portal, navigate to your Azure SQL Server page.
+1. In the Azure portal, navigate to the cache storage account you created.
 
 1. Select **Access control (IAM)**.
 

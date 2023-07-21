@@ -7,6 +7,7 @@ ms.subservice: scheduled-events
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-python
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt 
@@ -19,6 +20,8 @@ ms.reviwer: mimckitt
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
+
+Scheduled events provide proactive notifications about upcoming events, for reactive information about events that have already happened see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
@@ -87,14 +90,14 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Enabling and disabling Scheduled Events
-Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
-
-Scheduled Events is disabled for your service if it doesn't make a request for 24 hours.
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes. Scheduled Events is disabled for your service if it doesn't make a request to the endpoint for 24 hours.	
 
 ### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This will prevent delays in recovering your application back to a good state.  
+	
+Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
 
 ## Use the API
 
@@ -172,10 +175,9 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
-| Preempt | 30 seconds |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
 
-Once an event is scheduled it will move into the started state after it's either approved or the not before time passes. However in rare cases the operation will be cancelled by Azure before it starts. In that case the event will be removed from the Events array and the impact won't not occur as previously scheduled. 
+Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be cancelled by Azure before it starts. In that case the event will be removed from the Events array, and the impact will not occur as previously scheduled. 
 	
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there's a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.

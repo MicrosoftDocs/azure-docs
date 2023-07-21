@@ -4,7 +4,7 @@ description: Learn how to plan your Azure VMware Solution deployment.
 ms.topic: tutorial
 ms.custom: "contperf-fy21q4, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 4/11/2023
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -82,7 +82,7 @@ Azure VMware Solution requires a /22 CIDR network, for example, `10.0.0.0/22`. T
 
 ## Define the IP address segment for VM workloads
 
-Like with any VMware vSphere environment, the VMs must connect to a network segment.  As the production deployment of Azure VMware Solution expands, there's often a combination of L2 extended segments from on-premises and local NSX-T network segments.
+Like with any VMware vSphere environment, the VMs must connect to a network segment.  As the production deployment of Azure VMware Solution expands, there's often a combination of L2 extended segments from on-premises and local NSX-T Data Center network segments.
 
 For the initial deployment, identify a single network segment (IP network), for example, `10.0.4.0/24`. This network segment is used primarily for testing purposes during the initial deployment.  The address block shouldn't overlap with any network segments on-premises or within Azure and shouldn't be within the /22 network segment already defined.
   

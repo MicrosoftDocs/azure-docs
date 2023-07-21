@@ -2,6 +2,7 @@
 title: Linter rule - artifacts parameters
 description: Linter rule - artifacts parameters
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 08/05/2022
 ---
 

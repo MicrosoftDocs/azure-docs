@@ -5,8 +5,7 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.workload: Infrastructure-services
-ms.date: 01/19/2023
+ms.date: 06/05/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -20,7 +19,7 @@ ms.custom: template-how-to, engagement-fy23
 
 Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you'll learn how to create, change, and delete a Peering Service connection using the Azure portal.
+In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,9 +37,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
+    :::image type="content" source="./media/azure-portal/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/azure-portal/peering-service-portal-search.png":::
+
 1. Select **+ Create**.
 
-1. In **Create a peering service connection**, enter or select the following information on the **Basics** page:
+1. On the **Basics** of **Create a peering service connection**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -65,14 +66,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the **provider primary peering location** closest to your network location. This is the peering service location between Microsoft and the Partner.
 
-1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet will be the default failover route in the event of primary peering service location failure.
+1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet is the default failover route in the event of primary peering service location failure.
 
 1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix.
 
     :::image type="content" source="./media/azure-portal/peering-service-configuration.png" alt-text="Screenshot of the Configuration tab of Create a peering service connection in Azure portal."::: 
 
 1. Select **Review + create**.
-    
 
 1. Review the settings, and then select **Create**.
 
@@ -111,7 +111,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).
 

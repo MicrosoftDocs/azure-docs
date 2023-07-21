@@ -99,7 +99,7 @@ If the majority of your data comes from one of these following tables:
 - KubeServices
 - KubeEvents
 
-You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the Prometheus metrics addon (../essentials/prometheus-metrics-overview.md)
+You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the [Prometheus metrics addon](container-insights-prometheus.md)
 
 Otherwise, the majority of your data belongs to the ContainerLog table. and you can follow the steps below to reduce your ContainerLog costs.
 
@@ -135,7 +135,7 @@ The following examples show what changes you can apply to your cluster by modify
         enabled = false
     ```
 
-1. To clean up jobs that are finished, specify the cleanup policy in the job definition by modifying the following code in the ConfigMap file:
+1. To clean up jobs that are finished, specify the cleanup policy in your job definition yaml. Following is example Job definition with clean up policy. For more details, refer to [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/#clean-up-finished-jobs-automatically).
 
     ```
     apiVersion: batch/v1

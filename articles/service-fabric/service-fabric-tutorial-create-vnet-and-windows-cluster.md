@@ -47,7 +47,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install [Azure PowerShell](/powershell/azure/install-az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
 * [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 

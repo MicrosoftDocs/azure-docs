@@ -41,9 +41,11 @@ items:
   expanded: true
 - name: Resources
   items:
+  - name: Monitor copy and job run logs
+    href: log-monitoring.md
+  - name: Troubleshoot job run error codes
+    href: status-code.md
   - name: Collect a support bundle
     href: troubleshooting.md
   - name: Release notes
     href: release-notes.md
-
-  

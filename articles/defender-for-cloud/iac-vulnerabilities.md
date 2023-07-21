@@ -190,7 +190,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 The IaC scanning tools that are included with Microsoft Security DevOps, are [Template Analyzer](https://github.com/Azure/template-analyzer) (which contains [PSRule](https://aka.ms/ps-rule-azure)) and [Terrascan](https://github.com/tenable/terrascan). 
 
-Template Analyzer runs rules on ARM and Bicep templates. You can learn more about [Template Analyzer's rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-bpa-rules.md#built-in-rules).
+Template Analyzer runs rules on ARM and Bicep templates. You can learn more about [Template Analyzer's rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-rules.md#built-in-rules).
 
 Terrascan runs rules on ARM, CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform templates. You can learn more about the [Terrascan rules](https://runterrascan.io/docs/policies/).
 

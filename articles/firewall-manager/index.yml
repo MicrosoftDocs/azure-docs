@@ -58,3 +58,11 @@ landingContent:
         links:
           - text: Secure your cloud network using the Azure portal
             url: secure-cloud-network.md
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

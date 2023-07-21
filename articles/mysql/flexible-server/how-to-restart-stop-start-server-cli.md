@@ -3,6 +3,7 @@ title: Restart/Stop/start - Azure portal - Azure Database for MySQL - Flexible S
 description: This article describes how to restart/stop/start operations in Azure Database for MySQL through the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: code-sidd 
 ms.author: sisawant
@@ -112,4 +113,3 @@ az mysql flexible-server restart
 ## Next steps
 - Learn more about [networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md)
 - [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
-

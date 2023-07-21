@@ -29,7 +29,7 @@ landingContent:
           - text: Understand Microsoft Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
-            url: catalog-permissions.md
+            url: concept-elastic-data-map.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
           - text: Share and receive data
@@ -206,11 +206,15 @@ landingContent:
           
           
    #Card
-  - title: Troubleshooting Microsoft Purview
+  - title: Troubleshoot Microsoft Purview
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Troubleshooting Purview scans - SHIR 
+        - text: Troubleshoot source connections
+          url: troubleshoot-connections.md
+        - text: Troubleshoot Self Hosted Integration Runtime
           url: scanning-shir-troubleshooting.md
+        - text: Troubleshoot private endpoints
+          url: catalog-private-link-troubleshoot.md
           
           

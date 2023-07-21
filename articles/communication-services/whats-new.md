@@ -1,98 +1,185 @@
 ---
-title: What's new in Azure Communication Services #Required; page title is displayed in search results. Include the brand.
-description: All of the latest additions to Azure Communication Services #Required; article description that is displayed in search results. 
-author: sroons #Required; your GitHub user alias, with correct capitalization.
-ms.author: serooney #Required; microsoft alias of author; optional team alias.
-ms.service: azure-communication-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/12/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept, references_regions #Required; leave this attribute/value as-is.
+title: What's new in Azure Communication Services
+description: All of the latest additions to Azure Communication Services
+author: sroons
+ms.author: serooney
+ms.service: azure-communication-services
+ms.topic: conceptual
+ms.date: 06/12/2023
+ms.custom: template-concept, references_regions
 ---
-
 
 # What's new in Azure Communication Services
 
-We're adding new capabilities to Azure Communication Services all the time, so we created this page to share the latest developments in the platform. Bookmark this page and make it your go-to resource to find out all the latest capabilities of Azure Communication Services. 
+We've created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
+
+<br>
+<br>
+<br>
+
+## New features
+Get detailed information on the latest Azure Communication Services feature launches.
+### Call Automation and Call Recording
+:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A portion of a high-level architecture diagram showing how call automation is configured.":::
+
+Use Azure Communication Services call automation to transform your customer experiences. Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. 
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-2023-transforming-customer-experiences-with-automated-ai/ba-p/3827857)
+
+[Try out a sample](https://aka.ms/acs-ca-demo)
+
+[Read the Call Automation conceptual docs](./concepts/call-automation/call-automation.md)
+<br>
+<br>
 
 
-## Updated documentation
-We heard your feedback and made it easier to find the documentation you need as quickly and easily as possible. We're making our docs more readable, easier to understand, and more up-to-date. There's a new landing page design and an updated, better organized table of contents. We've added some of the content you've told us you need and will be continuing to do so, and we're editing existing documentation as well. Don't hesitate to use the feedback link at the top of each page to tell us if a page needs refreshing. Thanks!
+### Virtual Rooms
+:::image type="content" source="./media/whats-new-images/05-23/rooms.png" alt-text="A photograph of office towers.":::
 
-## Teams interoperability (General Availability)
-Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](./concepts/ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
+ Azure Communication Services Virtual Rooms is a new set of APIs that allows developers to control who can join a call, when they meet, and how they collaborate during group meetings. Azure Communication Services Rooms is now Generally Available.
+
+[Read more about the Rooms APIs](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-virtual-rooms-is-now-generally/ba-p/3845412)
+
+[Try the virtual rooms quickstart](./quickstarts/rooms/join-rooms-call.md)
+
+[Read the virtual rooms conceptual documentation](./concepts/rooms/room-concept.md)
+<br>
+<br>
+
+
+### Calling SDK for Windows
+:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Diagram showing windows laptop integrating with Azure Communication Services.":::
+
+Add first-class calling capabilities to your Windows applications. Use this SDK to natively create rich audio and video experiences in Windows for your customers, tailored to your specific needs and preferences. With the Calling SDK for Windows, you can implement real-time communication features such as voice and video calls, Microsoft Teams meeting integration, screen sharing, and raw media access. Azure Communication Services Calling SDK for Windows is now generally available.
+
+[Read more about the calling SDK for Windows](https://techcommunity.microsoft.com/t5/azure-communication-services/add-first-class-calling-capabilities-to-your-windows/ba-p/3836731)
+
+[Read the calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)
+
+[Check out the calling SDK quickstart](./quickstarts/voice-video-calling/get-started-with-video-calling.md)
+
+<br>
+<br>
+
+## Blog posts and case studies 
+Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
+Services features.
+
+
+### Generate and send SMS and email using Azure OpenAI services and Azure Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/contoso-school-anim.gif" alt-text="Animation showing what the final app will look like.":::
+
+Learn how to us openAI and Azure Communication Services to send automated alerts.
+
+[Read the blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/generate-and-send-sms-and-email-using-azure-openai-services-and/ba-p/3836098)
+
+[Read the step-by-step instructions](https://github.com/pnp/powerplatform-samples/blob/main/samples/contoso-school/lab/manual.md)
+
+[Check out the pre-built solution](https://github.com/pnp/powerplatform-samples/tree/main/samples/contoso-school)
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+### Azure Communications Services at Microsoft Build
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="The Microsoft Build banner.":::
+
+A recap of all of the Azure Communication Services sessions and discussions at Microsoft Build. 
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-communication-apps-for-microsoft-teams-users-with-azure/ba-p/3775688)
+
+[View the UI Library documentation](https://azure.github.io/communication-ui-library/)
+
+
+<br>
+<br>
+
+## From the community
+See examples and get inspired by what's being done in the community of Azure Communication Services users.
+
+
+### Build AI-assisted communication workflows for customer engagement
+:::image type="content" source="./media/whats-new-images/05-23/customer-service-workflow.png" alt-text="Screenshot of the architecture of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
+
+Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk about how to use Azure Communication Services features and tools to build intelligent workflows that businesses can use to improve customer engagement.
+
+[Watch the video](https://youtu.be/EYTjH1xrmtI)
+
+[Learn more about Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services/)
+
+[Learn more about Azure Event Grid](../event-grid/overview.md)
+
+
+<br>
+<br>
+
+### Create custom virtual meetings apps with Azure Communication Services and Microsoft Teams
+:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="A diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
+
+Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create virtual meetings applications that use Azure Communication Services and interop seamlessly with Microsoft Teams
+
+[Watch the video](https://youtu.be/IBCp_-dk_m0)
+
+[Learn how to set up the Microsoft Teams virtual appointments app](https://learn.microsoft.com/microsoft-365/frontline/virtual-appointments-app)
+
+[Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
+
+
+<br>
+<br>
+
+### Building an SMS generator with short URLs using Azure Functions, Storage, and Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="A visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
+
+Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
+
+[Watch the video](https://youtu.be/Knctudbao1o)
+
+[Read the accompanying tutorial](https://aka.ms/sms-shorturl)
+
+[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
+
+
+<br>
+<br>
+
+### Building on the Microsoft Cloud: Audio/video calling from a custom app
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="A graphic showing the Microsoft Build event banner.":::
+
+Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan Wahlin as they share how Microsoft Cloud services can empower your apps with audio/video communication. 
+
+[Watch the video](https://build.microsoft.com/sessions/78b513e3-6e5b-4c4a-a3da-d663219ed674?source=/speakers/2432ad6b-4c45-44ae-b1d6-2c0334e7eb33)
+
+[Read the accompanying tutorial](https://aka.ms/mscloud-acs-teams-tutorial)
+
+[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
+
+
+<br>
+<br>
 
 <br>
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
+### View of May's new features
+:::image type="content" source="./media/whats-new-images/05-23/new-features.png" alt-text="Screenshot of SMS insights dashboard data graphic." :::
 
-To learn more about teams interoperability, visit the [teams interop overview page](./concepts/teams-interop.md)
+In May, we launched a host of new features, including:
+* Simulcast support on Edge/Chrome desktop
+* Inline image support and other Teams interoperability improvements
+* Skip setup screen for UI Library native
+* Raised hand
+* Power Automate inbound SMS connector
+* and others...
 
-## New calling features
-Our calling team has been working hard to expand and improve our feature set in response to your requests. Some of the new features we've enabled include:
+[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-may-2023-feature-updates/ba-p/3813869) of all new features added to Azure Communication Services in April.
 
-### Background blur and custom backgrounds (Public Preview)
-Background blur gives users a way to remove visual distractions behind a participant so that callers can engage in a conversation without disruptive activity or confidential information appearing in the background. This feature is especially useful in a context such as telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information. Background blur can be applied across all virtual appointment scenarios to protect user privacy, including telebanking and virtual hearings. In addition to enhanced confidentiality, the custom backgrounds capability allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience. This feature is currently available on Web Desktop and will be expanding to other platforms in the future.  
+<br>
+<br>
 
-:::image type="content" source="./media/whats-new-images/cy23Q1/custom-background.png" alt-text="Screenshot showing custom background in an Azure Communication Services call.":::  
-*Figure 1: Custom background*
-
-To learn more about custom backgrounds and background blur, visit the overview on [adding visual effects to your call](./concepts/voice-video-calling/video-effects.md).
-
-### Raw media access (Public Preview)
-The video media access API provides support for developers to get real-time access to video streams so that they can capture, analyze, and process video content during active calls. Developers can access the incoming call video stream directly on the call object and send custom outgoing video stream during the call. This feature sets the foreground services to support different kinds of video and audio manipulation. Outgoing video access can be captured and implemented with screen sharing, background blur, and video filters before being published to the recipient, allowing viewers to build privacy into their calling experience. In more complex scenarios, video access can be fitted with a virtual environment to support augmented reality. Spatial audio can be injected into remote incoming audio to add music to enhance a waiting room lobby. 
-
-To learn more about raw media access visit the [media access overview](./concepts/voice-video-calling/media-access.md)
-
-Other new calling features include:
-- Webview support for iOS and Android
-- Early media support in call flows
-- Chat composite for mobile native development
-- Added browser support for JS Calling SDK
-- Call readiness tools
-- Simulcast
-
-Take a look at our feature update blog posts from [January](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-calling-features-update/ba-p/3735073) and [February](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-february-2023-feature-updates/ba-p/3737486) for more detailed information and links to numerous quickstarts.
-
-## Rooms (Public Preview)
-Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling. 
-
-To learn more about rooms, visit the [overview page](./concepts/rooms/room-concept.md)
-
-## Sample Builder Rooms integration
-
-**We are excited to announce that we have integrated Rooms into our Virtual Appointment Sample.**
-
-Azure Communication Services (ACS) provides the concept of a room. Rooms allow developers to build structured conversations such as scheduled virtual appointments or virtual events. Rooms allow control through roles and permissions and enable invite-only experiences. Rooms currently allow voice and video calling.
-
-## Enabling a faster sample building experience
-
-Data indicates that ~40% of customers abandon the Sample Builder due to the challenging nature of the configuration process, particularly during the Microsoft Bookings setup. To address this issue, we've implemented a solution that streamlines the deployment process by using Rooms for direct virtual appointment creation within the Sample Builder. This change results in a significant reduction of deployment time, as the configuration of Microsoft Bookings isn't enforced, but rather transformed into an optional feature that can be configured in the deployed Sample. Additionally, we've incorporated a feedback button into the Sample Builder and made various enhancements to its accessibility. With Sample Builder, customers can effortlessly customize and deploy their applications to Azure or their Git repository, without the need for any coding expertise.  
+<br>
 
 
-:::image type="content" lightbox="./media/whats-new-images/cy23Q1/sample-builder-rooms-1-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-rooms-1.png" alt-text="Screenshot showing sample Builder scheduling experience.":::  
-*Figure 2: Scheduling experience options.*
-
-
-:::image type="content" lightbox="./media/whats-new-images/cy23Q1/2023-03-15_10-40-38-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Screenshot showing sample Builder feedback form.":::  
-*Figure 3:  Feedback form.*
-
-
-Sample Builder is already in General Availability and can be accessed [on Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourceGroups/serooney-tests/providers/Microsoft.Communication/CommunicationServices/email-tests/sample_applications).  
-
-
-## Call Automation (Public Preview)
-Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
-
-ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the following high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.
-
-:::image type="content" source="./media/whats-new-images/cy23Q1/call-automation-architecture.png" alt-text="Diagram of call automation architecture.":::
-*Figure 4: Call Automation Architecture*
-
-To learn more, visit our [Call Automation overview article](./concepts/call-automation/call-automation.md).
-
-## Phone number expansion now in General Availability (Generally Available)
- We're excited to announce that we have launched Phone numbers in Canada, United Kingdom, Italy, Ireland and Sweden from Public Preview into General Availability. ACS Direct Offers are now generally available in the following countries and regions: **United States, Puerto Rico, Canada, United Kingdom, Italy, Ireland** and **Sweden**. 
-
-To learn more about the different ways you can acquire a phone number in these regions, visit the [article on how to get and manage phone numbers](./quickstarts/telephony/get-phone-number.md), or [reaching out to the IC3 Service Desk](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). 
-
-Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub.
+Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub. For more blog posts, as they're released, visit the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)

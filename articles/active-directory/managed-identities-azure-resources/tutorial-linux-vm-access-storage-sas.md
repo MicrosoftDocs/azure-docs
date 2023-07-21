@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: barclayn
 manager: amycolannino
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial

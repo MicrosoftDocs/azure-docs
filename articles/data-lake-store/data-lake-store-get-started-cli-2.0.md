@@ -4,10 +4,10 @@ description: Use the Azure CLI to create a Data Lake Storage Gen1 account and pe
 
 author: normesta
 ms.service: data-lake-store
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: normesta
-
 ---
 # Get started with Azure Data Lake Storage Gen1 using the Azure CLI
 

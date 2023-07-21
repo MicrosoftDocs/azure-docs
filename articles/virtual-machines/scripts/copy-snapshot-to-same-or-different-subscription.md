@@ -4,8 +4,7 @@ description: Azure CLI Script Sample - Copy (or move) snapshot of a managed disk
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/22/2023

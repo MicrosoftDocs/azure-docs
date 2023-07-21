@@ -177,9 +177,9 @@ Next, create the configuration file that your static web app uses to interface w
 
     The `init` command creates the *staticwebapp.database.config.json* file in the *swa-db-connections* folder.
 
-1. Paste in this sample schema into the *staticwebapp.schema.config.json* file you generated.
+1. Paste in this sample schema into the *staticwebapp.database.schema.gql* file you generated.
 
-    Since Cosmos DB for NoSQL is a schema agnostic database, Azure Static Web Apps database connections can't extract the schema of your database. The *staticwebapp.schema.config.json* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
+    Since Cosmos DB for NoSQL is a schema agnostic database, Azure Static Web Apps database connections can't extract the schema of your database. The *staticwebapp.database.schema.gql* file allows you to specify the schema of your Cosmos DB for NoSQL database for Static Web Apps.
 
     ```gql
     type Person @model {
@@ -192,7 +192,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   "data-source": {
     "database-type": "cosmosdb_nosql",
     "options": {
@@ -232,7 +232,7 @@ Next, create the configuration file that your static web app uses to interface w
 }
 ```
 
-Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).
+Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](/azure/data-api-builder/configuration-file).
 
 | Feature | Explanation |
 |---|---|

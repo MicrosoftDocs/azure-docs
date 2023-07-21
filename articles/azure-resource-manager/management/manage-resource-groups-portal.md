@@ -3,6 +3,7 @@ title: Manage resource groups - Azure portal
 description: Use Azure portal to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 03/26/2019
 ms.author: jgao
 ---
@@ -46,7 +47,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 
     ![browse resource groups](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the addition columns you could add to the display:
+3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the additional columns you could add to the display:
 
 ## Open resource groups
 
@@ -86,7 +87,7 @@ For more information, see [Lock resources to prevent unexpected changes](lock-re
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources-portal.md).
 
 ## Export resource groups to templates
 

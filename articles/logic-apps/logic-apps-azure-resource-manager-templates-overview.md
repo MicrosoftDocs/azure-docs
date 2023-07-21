@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 08/20/2022
 ---
 

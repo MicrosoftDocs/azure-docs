@@ -1,13 +1,10 @@
 ---
 title: Slider UI element
 description: Describes the Microsoft.Common.Slider UI element for Azure portal. Enables users to set a value from a range of options.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.author: davidsmatlak
-
 ---
+
 # Microsoft.Common.Slider UI element
 
 The Slider control lets users select from a range of allowed values.

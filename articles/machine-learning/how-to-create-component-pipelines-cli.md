@@ -10,13 +10,13 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022, build-2023
 ms.devlang: azurecli, cliv2
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can create pipelines without using components, but components offer the greatest amount of flexibility and reuse. Azure Machine Learning Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in Azure Machine Learning Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
@@ -66,6 +66,9 @@ az ml compute list
 
 If you don't have it, create a cluster called `cpu-cluster` by running:
 
+> [!NOTE]
+> Skip this step to use [serverless compute (preview)](./how-to-use-serverless-compute.md).
+
 ```azurecli
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
 ```
@@ -92,6 +95,10 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 ## Understand the pipeline definition YAML
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
+
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace `default_compute: azureml:cpu-cluster` with `default_compute: azureml:serverless` in this file.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 

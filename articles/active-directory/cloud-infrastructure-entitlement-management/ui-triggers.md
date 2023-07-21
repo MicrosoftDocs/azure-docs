@@ -12,15 +12,15 @@ ms.date: 02/23/2022
 ms.author: jfields
 ---
 
-# View information about activity triggers
+# View information about alerts and alert triggers
 
-This article describes how to use the **Activity triggers** dashboard in Permissions Management to view information about activity alerts and triggers.
+This article describes how to use the **Alerts** dashboard in Permissions Management to view information about alerts and alert triggers.
 
-## Display the Activity triggers dashboard
+## Display the Alerts dashboard
 
-- In the Permissions Management home page, select **Activity triggers** (the bell icon).
+- In the Permissions Management home page, select **Alerts** (the bell icon).
 
-    The **Activity triggers** dashboard has four tabs:
+    The **Alerts** dashboard has four tabs:
 
     - **Activity**
     - **Rule-Based Anomaly**

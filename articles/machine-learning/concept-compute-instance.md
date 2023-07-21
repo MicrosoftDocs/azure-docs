@@ -4,13 +4,14 @@ titleSuffix: Azure Machine Learning
 description: Learn about the Azure Machine Learning compute instance, a fully managed cloud-based workstation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jcioffi
 author: jesscioffi
 ms.reviewer: sgilley
 ms.date: 10/19/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
@@ -42,9 +43,9 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 * Secure your compute instance with **[No public IP](./how-to-secure-training-vnet.md)**.
 * The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it's single node. 
-* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of)**.
+* You can [create a compute instance](how-to-create-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-compute-instance.md?tabs=python#create-on-behalf-of)**.
 * You can also **[use a setup script](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
-* To save on costs, **[create  a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown)
+* To save on costs, **[create  a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown)
 
 
 ## Tools and environments
@@ -72,7 +73,7 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |R kernel||
 
-You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench) when you create the instance.
+You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|
@@ -90,7 +91,7 @@ Python packages are all installed in the **Python 3.8 - AzureML** environment. C
 
 ## Accessing files
 
-Notebooks and Python scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
+Notebooks and Python scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your "User files" directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
 The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, RStudio, and Posit Workbench. This means that the notebooks and other files you create in Jupyter, JupyterLab, RStudio, or Posit are automatically stored on the file share and available to use in other compute instances as well.
 
@@ -100,23 +101,26 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you're writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files won't be accessible from other compute instances.
 
-Don't store training data on the notebooks file share. You can use the `/tmp` directory on the compute instance for your temporary data.  However, don't write large files of data on the OS disk of the compute instance. OS disk on compute instance has 128-GB capacity. You can also store temporary training data on temporary disk mounted on /mnt. Temporary disk size is based on the VM size chosen and can store larger amounts of data if a higher size VM is chosen. You can also mount [datastores and datasets](v1/concept-azure-machine-learning-architecture.md#datasets-and-datastores). Any software packages you install are saved on the OS disk of compute instance. Note customer managed key encryption is currently not supported for OS disk. The OS disk for compute instance is encrypted with Microsoft-managed keys. 
+Don't store training data on the notebooks file share. You can use the `/tmp` directory on the compute instance for your temporary data.  However, don't write large files of data on the OS disk of the compute instance. OS disk on compute instance has 128-GB capacity. You can also store temporary training data on temporary disk mounted on /mnt. Temporary disk size is based on the VM size chosen and can store larger amounts of data if a higher size VM is chosen. Any software packages you install are saved on the OS disk of compute instance. Note customer managed key encryption is currently not supported for OS disk. The OS disk for compute instance is encrypted with Microsoft-managed keys. 
 
+:::moniker range="azureml-api-1"
+You can also mount [datastores and datasets](v1/concept-azure-machine-learning-architecture.md?view=azureml-api-1&preserve-view=true#datasets-and-datastores). 
+:::moniker-end
 ## Create
 
-Follow the steps in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a basic compute instance.  
+Follow the steps in [Create resources you need to get started](quickstart-create-resources.md) to create a basic compute instance.  
 
-For more options, see [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
+For more options, see [create a new compute instance](how-to-create-compute-instance.md?tabs=azure-studio#create).
 
-As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-manage-compute-instance.md#create-on-behalf-of)**.
+As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-compute-instance.md#create-on-behalf-of)**.
 
 You can also **[use a setup script](how-to-customize-compute-instance.md)** for an automated way to customize and configure the compute instance.
 
 Other ways to create a compute instance:
 * Directly from the integrated notebooks experience.
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
-* With [Azure Machine Learning SDK](how-to-create-manage-compute-instance.md?tabs=python#create)
-* From the [CLI extension for Azure Machine Learning](how-to-create-manage-compute-instance.md?tabs=azure-cli#create)
+* With [Azure Machine Learning SDK](how-to-create-compute-instance.md?tabs=python#create)
+* From the [CLI extension for Azure Machine Learning](how-to-create-compute-instance.md?tabs=azure-cli#create)
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. Don't stop the compute instance through the OS terminal by doing a sudo shutdown.
 
@@ -141,5 +145,5 @@ You can use compute instance as a local inferencing deployment target for test/d
 
 ## Next steps
 
-* [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
+* [Create resources you need to get started](quickstart-create-resources.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

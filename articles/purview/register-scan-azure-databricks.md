@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -18,9 +18,9 @@ This article outlines how to register Azure Databricks, and how to authenticate 
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](#lineage) | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No| [Yes](#lineage) | No |
 
 When scanning Azure Databricks source, Microsoft Purview supports:
 
@@ -41,11 +41,17 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 - The Databricks workspace info is captured.
 - The relationship between tables and storage assets is captured.
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
+
+* You need an Azure Key Vault, and to [grant Microsoft Purview permissions to access secrets](manage-credentials.md#grant-microsoft-purview-access-to-your-azure-key-vault).
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
@@ -53,7 +59,7 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure that Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](/cpp/windows/latest-supported-vc-redist).
 
 * In your Azure Databricks workspace:
 
@@ -143,7 +149,10 @@ Use the following steps to scan Azure Databricks to automatically identify asset
 
       `/mnt/ADLS2=abfss://samplelocation1@azurestorage1.dfs.core.windows.net/;/mnt/Blob=wasbs://samplelocation2@azurestorage2.blob.core.windows.net`
 
-    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Azure Databricks to be scanned.
+
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables.
 
     :::image type="content" source="media/register-scan-azure-databricks/scan.png" alt-text="Screenshot of setting up Azure Databricks scan." border="true":::
 

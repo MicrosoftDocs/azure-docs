@@ -17,6 +17,16 @@ The Microsoft Purview governance portal uses **Collections** in the Microsoft Pu
 > [!IMPORTANT]
 > This article refers to permissions required for the Microsoft Purview governance portal, and applications like the Microsoft Purview Data Map, Data Catalog, Data Estate Insights, etc. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
 
+## Permissions to access the Microsoft Purview governance portal
+
+There are two main ways to access the Microsoft Purview governance portal, and you'll need specific permissions for either:
+
+- To access your Microsoft Purview governance portal directly at [https://web.purview.azure.com](https://web.purview.azure.com), you'll need at least a [reader role](#roles) on a collection in your Microsoft Purview Data Map.
+- To access your Microsoft Purview governance portal through the [Azure portal](https://portal.azure.com) by searching for your Microsoft Purview account, opening it, and selecting **Open Microsoft Purview governance portal**, you'll need at least a **Reader** role under **Access Control (IAM)**.
+
+> [!NOTE]
+> If you created your account using a service principal, to be able to access the Microsoft Purview governance portal you will need to [grant a user collection admin permissions on the root collection](#administrator-change).
+
 ## Collections
 
 A collection is a tool that the Microsoft Purview Data Map uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to the Microsoft Purview governance portal's resources are managed from collections in the Microsoft Purview Data Map.
@@ -82,14 +92,7 @@ You can assign roles to users, security groups, and service principals from your
 After creating a Microsoft Purview (formerly Azure Purview) account, the first thing to do is create collections and assign users to roles within those collections.
 
 > [!NOTE]
-> If you created your account using a service principal, to be able to access the Microsoft Purview governance portal and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
-> You can use [this Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin):
->
->   ```azurecli
->   az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
->   ```
->
-> The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
+> If you created your account using a service principal, to be able to access the Microsoft Purview governance portal and assign permissions to users, you will need to [grant a user collection admin permissions on the root collection](#administrator-change).
 
 ### Create collections
 
@@ -122,7 +125,7 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 
 ## Administrator change
 
-There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the account is automatically assigned collection admin to the root collection. To update the root collection admin, there are four options:
+There may be a time when your [root collection admin](#roles) needs to change, or an admin needs to be added after an account is created by an application. By default, the user who creates the account is automatically assigned collection admin to the root collection. To update the root collection admin, there are four options:
 
 - You can manage root collection administrators in the [Azure portal](https://portal.azure.com/):
     1. Sign in to the Azure portal and search for your Microsoft Purview account.

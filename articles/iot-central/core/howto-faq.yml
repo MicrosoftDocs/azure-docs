@@ -1,10 +1,10 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Azure IoT Central frequently asked questions | Microsoft Docs"
+  title: "Azure IoT Central frequently asked questions"
   description: "Azure IoT Central frequently asked questions (FAQ) and answers"
   author: dominicbetts
   ms.author: dobett
-  ms.date: 06/09/2022
+  ms.date: 06/12/2023
   ms.topic: faq
   ms.service: iot-central
   services: iot-central
@@ -123,9 +123,9 @@ sections:
         answer: |
           If the device status is **Waiting for Approval** on the **Devices** page, it means the **Auto approve** option is disabled:
           
-          :::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot showing application with auto-approve option disabled.":::
+          :::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot showing application with autoapprove option disabled.":::
           
-          An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button:
+          An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials has the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button:
           
           :::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot showing how to approve a device":::
           
@@ -177,5 +177,5 @@ sections:
       - question: |
           Can I extend the audit log to store more than 30 days of data?
         answer: |
-          Currently, you can't store more tha 30 days of data in the audit log. Entries older than 30 days are deleted automatically.
+          Currently, you can't store more than 30 days of data in the audit log. Entries older than 30 days are deleted automatically.
   

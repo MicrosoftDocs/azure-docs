@@ -8,6 +8,7 @@ ms.author: parinitarahi
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 03/20/2023
 ---

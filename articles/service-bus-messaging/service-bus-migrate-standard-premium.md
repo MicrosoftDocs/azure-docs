@@ -128,11 +128,11 @@ Here is a list of features not supported by Premium and their mitigation -
 
 ### Express entities
 
-   Express entities that don't commit any message data to storage are not supported in Premium. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
+Express entities that don't commit any message data to storage are not supported in the **Premium** tier. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
 
-   During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
+During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
 
-   If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
+If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
 
 ### RBAC settings
 The role-based access control (RBAC) settings on the namespace aren't migrated to the premium namespace. You'll need to add them manually after the migration. 

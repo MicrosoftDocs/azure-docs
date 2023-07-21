@@ -4,13 +4,13 @@ title: Defender for Cloud for your multicloud environment # < 60 chars
 summary: Microsoft Defender for Cloud connects to your multicloud environments with agentless, API-based methods for CSPM insight. You can leverage Azure Arc to use Defender plans for CWP. # < 160 chars
 
 metadata:
-  title: The Defender for Cloud multicloud solution # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: See all of the docs that relate to multicloud scenarios in Microsoft Defender for Cloud on one page. # Required; article description that is displayed in search results. < 160 chars.
+  title: The Defender for Cloud multicloud solution
+  description: See all of the docs that relate to multicloud scenarios in Microsoft Defender for Cloud on one page.
   services: defender-for-cloud
-  author: bmansheim
-  ms.author: benmansheim
+  author: dcurwin
+  ms.author: dacurwin
   manager: raynew
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
   ms.date: 06/29/2022
 

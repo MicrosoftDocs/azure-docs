@@ -5,9 +5,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/21/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
+ms.date: 07/18/2023
+ms.custom: template-how-to
 ---
 
 # Connect to and manage Salesforce in Microsoft Purview
@@ -16,9 +16,9 @@ This article outlines how to register Salesforce, and how to authenticate and in
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No| No | No| No|
 
 When scanning Salesforce source, Microsoft Purview supports extracting technical metadata including:
 
@@ -27,6 +27,10 @@ When scanning Salesforce source, Microsoft Purview supports extracting technical
 
 When setting up scan, you can choose to scan an entire Salesforce organization, or scope the scan to a subset of objects matching the given name(s) or name pattern(s).
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -34,14 +38,14 @@ When setting up scan, you can choose to scan an entire Salesforce organization, 
 - You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 - A Salesforce connected app, which will be used to access your Salesforce information.
   - If you need to create a connected app, you can follow the [Salesforce documentation](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_basics.htm&type=5).
-  - You will need to [enable OAuth for you Salesforce application](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_api_integration.htm&type=5).
+  - You will need to [enable OAuth for your Salesforce application](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_api_integration.htm&type=5).
 
 > [!NOTE]
 > **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.), **you will need to configure a self hosted integration runtime to connect to it**.
 
 - If your data store isn't publicly accessible, set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
     - Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
-    - Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    - Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
     - Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce.
 
 ### Required permissions for scan
@@ -126,6 +130,8 @@ To create and run a new scan, follow these steps:
         > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="scan Salesforce" border="true":::
+
+1. Select **Test connection** to validate the settings (available when using Azure Integration Runtime).
 
 1. Select **Continue**.
 

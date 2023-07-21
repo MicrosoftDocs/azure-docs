@@ -52,6 +52,7 @@ The following list presents the set of features that are currently available in 
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        |
+|                   | Receive your screen sharing stream                                                                                  | ❌        |
 |                   | Share content in "content-only" mode                                                                                | ✔️        |
 |                   | Receive video stream with content for "content-only" screen sharing experience                                      | ✔️        |
 |                   | Share content in "standout" mode                                                                                    | ❌        |
@@ -67,6 +68,8 @@ The following list presents the set of features that are currently available in 
 |                   | Adding Teams user honors Teams guest access configuration                                                           |   ✔️      |
 |                   | Add a phone number                                                                                                  | ✔️        |
 |                   | Remove a participant                                                                                                | ✔️        |
+|                   | Admit participants in the lobby into the Teams meeting                                                             |   ✔️      |
+|                   | Be admitted from the lobby into the Teams meeting                                                                   |   ✔️      |
 |                   | Adding Teams users honors information barriers                                                                       |   ✔️      |
 | Device Management | Ask for permission to use audio and/or video                                                                        | ✔️        |
 |                   | Get camera list                                                                                                     | ✔️        |
@@ -85,8 +88,8 @@ The following list presents the set of features that are currently available in 
 |                   | See Large gallery view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ |
-|                   | Add and remove video stream from spotlight                                                                          | ❌ |
-|                   | Allow video stream to be selected for spotlight                                                                     | ❌ |
+|                   | Add and remove video stream from spotlight                                                                          | ✔️ |
+|                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      |
@@ -94,8 +97,8 @@ The following list presents the set of features that are currently available in 
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
 |                   | Manage Teams closed captions                                                                                        | ❌ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
-| Engagement        | Raise and lower hand                                                                                                | ❌ |
-|                   | Indicate other participants' raised and lowered hands | ❌ |
+| Engagement        | Raise and lower hand                                                                                                | ✔️ |
+|                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
 |                   | Trigger reactions                                                                                                   | ❌ |
 |                   | Indicate other participants' reactions                                                                              | ❌ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
@@ -143,7 +146,7 @@ The following list presents the set of features that are currently available in 
 |                   | Honor setting "Spam filtering"                                                                                       |   ✔️      |
 |                   | Honor setting "SIP devices can be used for calls"                                                                    |   ✔️      |
 | DevOps            | [Azure Metrics](../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../logging-and-diagnostics.md)                                                                   | ✔️ |
+|                   | [Azure Monitor](../analytics/logs/voice-and-video-logs.md)                                                                   | ✔️ |
 |                   | [Azure Communication Services Insights](../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |

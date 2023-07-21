@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-python
 ---
 
 # Introduction to Microsoft Spark Utilities
@@ -281,14 +281,14 @@ mssparkutils.fs.ls("Your directory path")
 
 ### View file properties
 
-Returns file properties including file name, file path, file size, and whether it is a directory and a file.
+Returns file properties including file name, file path, file size, file modification time, and whether it is a directory and a file.
 
 :::zone pivot = "programming-language-python"
 
 ```python
 files = mssparkutils.fs.ls('Your directory path')
 for file in files:
-    print(file.name, file.isDir, file.isFile, file.path, file.size)
+    print(file.name, file.isDir, file.isFile, file.path, file.size, file.modifyTime)
 ```
 ::: zone-end
 
@@ -297,7 +297,7 @@ for file in files:
 ```scala
 val files = mssparkutils.fs.ls("/")
 files.foreach{
-    file => println(file.name,file.isDir,file.isFile,file.size)
+    file => println(file.name,file.isDir,file.isFile,file.size,file.modifyTime)
 }
 ```
 
@@ -319,7 +319,7 @@ foreach(var File in Files) {
 ```r
 files <- mssparkutils.fs.ls("/")
 for (file in files) {
-    writeLines(paste(file$name, file$isDir, file$isFile, file$size))
+    writeLines(paste(file$name, file$isDir, file$isFile, file$size, file$modifyTime))
 }
 ```
 
@@ -610,7 +610,7 @@ After the run finished, you will see a snapshot link named '**View notebook run:
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline.
 
-- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+- When you call an *exit()* function from a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep the Spark session alive.
 
 - When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.
 

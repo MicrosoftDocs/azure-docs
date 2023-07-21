@@ -11,6 +11,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 03/07/2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Data encryption with Azure Machine Learning
@@ -90,6 +91,7 @@ For an example of creating a workspace using an existing Azure Container Registr
 * [Create a workspace with Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
+:::moniker range="azureml-api-1"
 ### Azure Container Instance
 
 > [!IMPORTANT]
@@ -97,7 +99,7 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](includes/machine-learning-sdk-v1.md)]
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
 
@@ -112,6 +114,7 @@ For more information on creating and using a deployment configuration, see the f
 * [Where and how to deploy](./v1/how-to-deploy-and-where.md)
 
 For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
+:::moniker-end
 
 ### Azure Kubernetes Service
 
@@ -157,7 +160,9 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
+:::moniker range="azureml-api-1"
 To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
+:::moniker-end
 
 ## Data collection and handling
 
@@ -183,8 +188,15 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ## Next steps
 
-* [Connect to Azure storage](how-to-access-data.md)
-* [Get data from a datastore](how-to-create-register-datasets.md)
+:::moniker range="azureml-api-2"
+* [Use datastores](how-to-datastore.md)
+* [Create data assets](how-to-create-data-assets.md)
+* [Access data in a training job](how-to-read-write-data-v2.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Connect to Azure storage](./v1/how-to-access-data.md)
+* [Get data from a datastore](./v1/how-to-create-register-datasets.md)
 * [Connect to data](v1/how-to-connect-data-ui.md)
 * [Train with datasets](v1/how-to-train-with-datasets.md)
-* [Customer-managed keys](concept-customer-managed-keys.md).
+:::moniker-end
+* [Customer-managed keys](concept-customer-managed-keys.md)

@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 01/13/2023
+ms.date: 06/07/2023
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-ui
@@ -67,6 +67,18 @@ For more information about the governance capabilities of Microsoft Purview, for
     >
     > :::image type="content" source="media/create-catalog-portal/select-kafka-configuration.png" alt-text="Screenshot showing Kafka configuration option on the Microsoft Purview account page in the Azure Portal.":::
 
+1. On the **Tags** tab, add a tag called **Purview environment**, and give it one of the below values:
+
+    |Value   |Meaning  |
+    |----------|-----------|
+    |Production|This account is being used or will be used in the future to support all my cataloging and governance requirements in production.|
+    |Pre-Production|This account is being used or will be used in the future to validate cataloging and governance requirements before making it available to my users in production.|
+    |Test|This account is being used or will be used in the future to test out capabilities in Microsoft Purview Governance. |
+    |Dev|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+    |Proof of Concept|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+
+    :::image type="content" source="media/create-catalog-portal/tag-resource.png" alt-text="Screenshot showing the tags tab, with a Purview environment tag added with the value Production.":::
+
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created account will appear in the list on your **Microsoft Purview accounts** page.
 
     :::image type="content" source="media/create-catalog-portal/create-resource.png" alt-text="Screenshot showing the Create Microsoft Purview account screen with the Review + Create button highlighted":::
@@ -75,10 +87,9 @@ For more information about the governance capabilities of Microsoft Purview, for
 
 After your account is created, you'll use the Microsoft Purview governance portal to access and manage it. There are two ways to open the Microsoft Purview governance portal:
 
-* Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the "Open Microsoft Purview governance portal" tile on the overview page.
+- You can browse directly to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account name, and sign in to your workspace.
+- Alternatively, open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the **Open Microsoft Purview governance portal** tile on the overview page.
     :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Screenshot showing the Microsoft Purview account overview page, with the Microsoft Purview governance portal tile highlighted.":::
-
-* Alternatively, you can browse to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account name, and sign in to your workspace.
 
 ## Next steps
 

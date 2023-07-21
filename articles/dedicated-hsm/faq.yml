@@ -34,11 +34,6 @@ sections:
       - question: |
           What are the onboarding and use restrictions for Dedicated HSM?
         answer: |
-          Customers must have an assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
-         
-      - question: |
-          What are the onboarding and use restrictions for Dedicated HSM?
-        answer: |
           Customers must have an assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM. 
           
       - question: |

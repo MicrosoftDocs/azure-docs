@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energy Preview
+title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energy
 description: Find out how to troubleshoot manifest ingestion by using Airflow task logs.
 author: bharathim
 ms.author: bselvaraj
@@ -10,7 +10,7 @@ ms.date: 02/06/2023
 
 # Troubleshoot manifest ingestion problems by using Airflow task logs
 
-This article helps you troubleshoot workflow problems with manifest ingestion in Azure Data Manager for Energy Preview by using Airflow task logs.
+This article helps you troubleshoot workflow problems with manifest ingestion in Azure Data Manager for Energy by using Airflow task logs.
 
 ## Manifest ingestion DAG workflow types
 
@@ -65,7 +65,7 @@ The workflow run failed in `Update_status_running_task` or `Update_status_finish
 
 ### Possible reasons
 
-* The data partition ID is incorrect.
+* Call to partition API wasn't authenticated as the data partition ID is incorrect.
 * A key name in the execution context of the request body is incorrect.
 * The workflow service isn't running or is throwing 5xx errors.
 
@@ -80,7 +80,7 @@ Check the Airflow task logs for `update_status_running_task` or `update_status_f
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
         | where DagName == "Osdu_ingest"
         | where DagTaskName == "update_status_running_task"
         | where LogLevel == "ERROR" // ERROR/DEBUG/INFO/WARNING
@@ -121,7 +121,7 @@ Check the Airflow task logs for `validate_manifest_schema_task` or `process_mani
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
     | where DagName has "Osdu_ingest"
     | where DagTaskName == "validate_manifest_schema_task" or DagTaskName has "process_manifest_task"
     | where LogLevel == "ERROR"
@@ -175,7 +175,7 @@ Check the Airflow task logs for `provide_manifest_integrity_task` or `process_ma
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
         | where DagName has "Osdu_ingest"
         | where DagTaskName == "provide_manifest_integrity_task" or DagTaskName has "process_manifest_task"
         | where Content has 'Search query "'or Content has 'response ids: ['
@@ -217,7 +217,7 @@ Check the Airflow task logs for `process_single_manifest_file_task` or `process_
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
     | where DagName has "Osdu_ingest"
     | where DagTaskName == "process_single_manifest_file_task" or DagTaskName has "process_manifest_task"
     | where LogLevel == "ERROR"

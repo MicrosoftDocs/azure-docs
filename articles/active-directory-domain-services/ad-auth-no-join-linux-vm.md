@@ -22,7 +22,7 @@ Currently Linux distribution can work as member of Active Directory domains, whi
 To complete the authentication flow we assume, you already have:
 
 * An Active Directory Domain Services already configured.
-* A Linux VM (for the test we use CentosOS based machine).
+* A Linux VM (**for the test we use CentosOS based machine**).
 * A network infrastructure that allows communication between Active Directory and the Linux VM.
 * A dedicated User Account for read AD objects.
 * The Linux VM need to have these packages installed:
@@ -63,21 +63,21 @@ Review the information that you provided, and if everything is correct, click Fi
 
 On your Linux VM, install the following packages: *sssd sssd-tools sssd-ldap openldap-client*:
 
-```console
-yum install -y sssd sssd-tools sssd-ldap openldap-clients
+```bash
+sudo dnf install -y sssd sssd-tools sssd-ldap openldap-clients
 ```
 
 After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
 
-```console
-ldapsearch -H ldaps://contoso.com -x \
+```bash
+sudo ldapsearch -H ldaps://contoso.com -x \
         -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
         -b CN=Users,DC=contoso,DC=com
 ```
 
 If the LDAP query works fine, you will obtain an output with some information like follow:
 
-```console
+```config
 extended LDIF
 
 LDAPv3
@@ -113,7 +113,7 @@ dSCorePropagationData: 16010101000000.0Z
 > [!NOTE]
 > If your get and error run the following command:
 >
-> ldapsearch -H ldaps://contoso.com -x \
+> sudo ldapsearch -H ldaps://contoso.com -x \
 >       -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
 >       -b CN=Users,DC=contoso,DC=com -d 3
 >
@@ -125,13 +125,13 @@ Create */etc/sssd/sssd.conf* with a content like the following. Remember to upda
 
 Command for file creation:
 
-```console
-vi /etc/sssd/sssd.conf
+```bash
+sudo vi /etc/sssd/sssd.conf
 ```
 
 Example sssd.conf:
 
-```bash
+```config
 [sssd]
 config_file_version = 2
 domains = default
@@ -184,14 +184,14 @@ Save the file with *ESC + wq!* command.
 
 Set the permission to sssd.conf to 600 with the following command:
 
-```console
-chmod 600 /etc/sssd/sssd.conf
+```bash
+sudo chmod 600 /etc/sssd/sssd.conf
 ```
 
 After that create an obfuscated password for the Bind DN account. You must insert the Domain password for ReadOnlyUser:
 
-```console
-sss_obfuscate --domain default
+```bash
+sudo sss_obfuscate --domain default
 ```
 
 The password will be placed automatically in the configuration file.
@@ -200,27 +200,27 @@ The password will be placed automatically in the configuration file.
 
 Start the sssd service:
 
-```console
-service sssd start
+```bash
+sudo systemctl start sssd
 ```
 
 Now configure the service with the *authconfig* tool:
 
-```console
-authconfig --enablesssd --enablesssdauth --enablemkhomedir --updateall
+```bash
+sudo authconfig --enablesssd --enablesssdauth --enablemkhomedir --updateall
 ```
 
 At this point restart the service:
 
-```console
-systemctl restart sssd
+```bash
+sudo systemctl restart sssd
 ```
 
 ## Test the configuration
 
 The final step is to check that the flow works properly. To check this, try logging in with one of your AD users in Active Directory. We tried with a user called *ADUser*. If the configuration is correct, you will get the following result:
 
-```console
+```output
 [centosuser@centos8 ~]su - ADUser@contoso.com
 Last login: Wed Oct 12 15:13:39 UTC 2022 on pts/0
 [ADUser@Centos8 ~]$ exit

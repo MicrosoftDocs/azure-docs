@@ -346,7 +346,7 @@ az backup restore restore-disks \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
-    --restore-mode OriginalLocation \
+    --restore-mode AlternateLocation \
     --storage-account mystorageaccount \
 
 --target-resource-group "Target_RG" \

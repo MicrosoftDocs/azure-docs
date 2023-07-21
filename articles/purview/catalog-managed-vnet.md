@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/17/2023
+ms.date: 07/18/2023
 ms.custom: references_regions
 # Customer intent: As a Microsoft Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Microsoft Purview account.
 ---
@@ -126,11 +126,14 @@ Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview
 > [!NOTE]
 > The following guide shows how to register and scan an Azure Data Lake Storage Gen 2 using Managed VNet Runtime. 
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-azure-portal.png" alt-text="Screenshot that shows the Microsoft Purview account":::
 
-2. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Integration runtimes**.
+2. Navigate to the **Data Map --> Integration runtimes**.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet.png" alt-text="Screenshot that shows Microsoft Purview Data Map menus":::
 
@@ -164,7 +167,9 @@ Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview
 
 ### Deploy managed private endpoints for data sources
 
-To scan any data sources using Managed VNet Runtime, you need to deploy and approve a managed private endpoint for the data source prior to create a new scan. To deploy and approve a managed private endpoint for a data source, follow these steps selecting data source of your choice from the list:
+You can use managed private endpoints to connect your data sources to ensure data security during transmission. If your data source allows public access and you want to connect via public network, you can skip this step. Scan run can be executed as long as the integration runtime can connect to your data source.
+
+To deploy and approve a managed private endpoint for a data source, follow these steps selecting data source of your choice from the list:
 
 1. Navigate to **Management**, and select **Managed private endpoints**.
    

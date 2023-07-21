@@ -3,10 +3,10 @@ title: "Azure Operator Nexus: Before you start Network Fabric Controller and Clu
 description: Prepare for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 03/03/2023
+ms.custom: template-how-to
 ---
 
 # Operator Nexus Azure resources prerequisites
@@ -43,7 +43,7 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Microsoft.ResourceConnector 
   - Microsoft.Resources
 
-## Dependant Azure resources setup
+## Dependent Azure resources setup
 - Establish [ExpressRoute](/azure/expressroute/expressroute-introduction) connectivity
   from your on-premises network to an Azure Region:
   - ExpressRoute circuit [creation and verification](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)

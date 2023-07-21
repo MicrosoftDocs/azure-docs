@@ -1,8 +1,8 @@
 ---
 title: Test the Defender for Storage data security features - Microsoft Defender for Cloud
 description: Learn how to test the Malware Scanning, sensitive data threat detection, and activity monitoring provided by Defender for Storage.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.date: 03/23/2023
 ms.topic: how-to
 ---

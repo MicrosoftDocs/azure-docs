@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 02/16/2023
 ---
 

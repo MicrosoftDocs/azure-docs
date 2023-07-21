@@ -64,10 +64,10 @@ This is the list of addresses from which [availability web tests](./availability
 If you're using Azure network security groups, add an *inbound port rule* to allow traffic from Application Insights availability tests. Select **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
 
 >[!div class="mx-imgBorder"]
->![Screenshot that shows selecting Inbound security rules and then selecting Add.](./media/ip-addresses/add-inbound-security-rule.png)
+>:::image type="content" source="./media/ip-addresses/add-inbound-security-rule.png" lightbox="./media/ip-addresses/add-inbound-security-rule.png" alt-text="Screenshot that shows selecting Inbound security rules and then selecting Add.":::
 
 >[!div class="mx-imgBorder"]
->![Screenshot that shows the Add inbound security rule tab.](./media/ip-addresses/add-inbound-security-rule2.png)
+>:::image type="content" source="./media/ip-addresses/add-inbound-security-rule2.png" lightbox="./media/ip-addresses/add-inbound-security-rule2.png" alt-text="Screenshot that shows the Add inbound security rule tab.":::
 
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 

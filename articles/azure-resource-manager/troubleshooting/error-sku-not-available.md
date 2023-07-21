@@ -2,7 +2,8 @@
 title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.custom: devx-track-arm-template, devx-track-bicep
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for SKU not available

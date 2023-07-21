@@ -34,7 +34,7 @@ This guide assumes that your cloud only or hybrid identities have been establish
 
 ### Guided walkthrough
 
-For a guided walkthrough of many of the recommendations in this article, see the [Set up Azure AD](https://go.microsoft.com/fwlink/?linkid=2221308) guide.
+For a guided walkthrough of many of the recommendations in this article, see the [Set up Azure AD](https://go.microsoft.com/fwlink/?linkid=2224193) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221308).
 
 ## Guidance for Azure AD Free, Office 365, or Microsoft 365 customers.
 
@@ -94,7 +94,7 @@ The following table is intended to highlight the key actions for the following l
 
 The following table is intended to highlight the key actions for the following license subscriptions:
 
-- Azure Active Directory Premium P2 (Azure AD P2)
+- Azure Active Directory Premium P2
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (E5, A5)
 
@@ -130,5 +130,5 @@ The following table is intended to highlight the key actions for the following l
 
 ## Next steps
 
-- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](active-directory-deployment-plans.md).
+- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](deployment-plans.md).
 - Organizations can use [identity secure score](identity-secure-score.md) to track their progress against other Microsoft recommendations.

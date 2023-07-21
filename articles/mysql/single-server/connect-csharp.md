@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: csharp
 author: savjani
 ms.author: pariks
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.date: 06/20/2022
 ---
 

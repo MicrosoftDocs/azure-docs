@@ -181,22 +181,4 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
-
-> [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
-
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
 > [Data retention across Microsoft Defender for IoT](references-data-retention.md)

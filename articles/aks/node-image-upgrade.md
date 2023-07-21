@@ -19,7 +19,7 @@ This article shows you how to upgrade AKS cluster node images and how to update 
 
 Check for available node image upgrades using the [`az aks nodepool get-upgrades`][az-aks-nodepool-get-upgrades] command.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool get-upgrades \
     --nodepool-name mynodepool \
     --cluster-name myAKSCluster \
@@ -45,7 +45,7 @@ The example output shows `AKSUbuntu-1604-2020.10.28` as the `latestNodeImageVers
 
 Compare the latest version with your current node image version using the [`az aks nodepool show`][az-aks-nodepool-show] command.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool show \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -65,7 +65,7 @@ In this example, there's an available node image version upgrade, which is from 
 
 Upgrade the node image using the [`az aks upgrade`][az-aks-upgrade] command with the `--node-image-only` flag.
 
-```azurecli
+```azurecli-interactive
 az aks upgrade \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -77,13 +77,13 @@ You can check the status of the node images using the `kubectl get nodes` comman
 >[!NOTE]
 > This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
 
-```azurecli
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
 When the upgrade is complete, use the [`az aks show`][az-aks-show] command to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
-```azurecli
+```azurecli-interactive
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster
@@ -93,7 +93,7 @@ az aks show \
 
 To update the OS image of a node pool without doing a Kubernetes cluster upgrade, use the [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] command with the `--node-image-only` flag.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -106,13 +106,13 @@ You can check the status of the node images with the `kubectl get nodes` command
 >[!NOTE]
 > This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
 
-```azurecli
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
 When the upgrade is complete, use the [`az aks nodepool show`][az-aks-nodepool-show] command to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool show \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -125,7 +125,7 @@ To speed up the node image upgrade process, you can upgrade your node images usi
 
 If you'd like to increase the speed of upgrades, use the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--max-surge` flag to configure the number of nodes used for upgrades. To learn more about the trade-offs of various `--max-surge` settings, see [Customize node surge upgrade][max-surge].
 
-```azurecli
+```azurecli-interactive
 az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -136,13 +136,13 @@ az aks nodepool update \
 
 You can check the status of the node images with the `kubectl get nodes` command.
 
-```azurecli
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
 Use `az aks nodepool show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool show \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \

@@ -1,9 +1,9 @@
 ---
-title: How to deploy an Azure Storage Mover agent. #Required; page title is displayed in search results. Include the brand.
-description: Learn how to deploy an Azure Mover agent #Required; article description that is displayed in search results. 
+title: How to deploy an Azure Storage Mover agent.
+description: Learn how to deploy an Azure Mover agent
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 03/27/2023
 ---

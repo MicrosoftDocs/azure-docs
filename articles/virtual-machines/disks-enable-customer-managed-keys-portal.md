@@ -6,8 +6,7 @@ author: roygara
 ms.date: 02/22/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks
@@ -80,3 +79,4 @@ The VM deployment process is similar to the standard deployment process, the onl
 - [Replicate machines with customer-managed keys enabled disks](../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Set up disaster recovery of VMware VMs to Azure with PowerShell](../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- See [Create a managed disk from a snapshot with CLI](scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.

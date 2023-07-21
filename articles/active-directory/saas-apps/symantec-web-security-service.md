@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/05/2023
 ms.author: thwimmer
 ---
 
@@ -26,8 +26,8 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sy
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
-* [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.symantec.com/buy-renew?inid=brmenu_nav_brhome)
+* An Azure AD tenant.
+* [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.digicert.com/buy-renew?inid=brmenu_nav_brhome).
 * A user account in Symantec Web Security Service (WSS) with Admin permissions.
 
 ## Assigning users to Symantec Web Security Service (WSS)

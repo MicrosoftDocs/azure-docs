@@ -5,15 +5,15 @@ author: johndowns
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 09/07/2022
+ms.date: 04/20/2023
 ms.author: jodowns
 ---
 
 # What is rate limiting for Azure Front Door Service?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Front Door. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and the Front Door. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
 
-Rate limits are applied at the socket IP address level. If you have multiple clients accessing your Front Door from different socket IP addresses, they'll each have their own rate limits applied. The socket IP address is the source IP address WAF sees. If your user is behind a proxy, socket IP address is often the proxy server address.
+Rate limits can be defined at the socket IP address level or the remote address level. If you have multiple clients accessing your Front Door from different socket IP addresses, they'll each have their own rate limits applied. The socket IP address is the source IP address the WAF sees. If your user is behind a proxy, socket IP address is often the proxy server address. Remote address is the original client IP that is usually sent via the X-Forwarded-For request header.
 
 ## Configure a rate limit policy
 
@@ -31,9 +31,9 @@ The match condition above identifies all requests with a `Host` header of length
 
 ## Rate limits and Front Door servers
 
-Requests from the same client often arrive at the same Front Door server. In that case, you'll see requests are blocked as soon as the rate limit is reached for each socket IP address.
+Requests from the same client often arrive at the same Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
 
-However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a very low threshold (for example, less than about 50 requests per minute), you might see some requests above the threshold get through.
+However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, 5 minutes over 1 minute) with larger thresholds are typically more effective than the shorter time window sizes with lower thresholds.
 
 ## Next steps
 

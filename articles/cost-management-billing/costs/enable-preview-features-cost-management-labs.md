@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/11/2022
+ms.date: 05/25/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -43,14 +43,14 @@ We encourage you to try out the preview features available in Cost Management La
 
 ## Remember preview features across sessions
 
-Cost Management now remembers preview features across sessions in the preview portal. Select the preview features you're interested in from the Try preview menu and you'll see them enabled by default the next time you visit the portal. No need to enable this option – preview features will be remembered automatically.
+Cost Management now remembers preview features across sessions in the preview portal. Select the preview features you're interested in from the **Try preview** menu and you'll see them enabled by default the next time you visit the portal. There's no need to enable the option – preview features are remembered automatically.
 
 
 <a name="totalkpitooltip"></a>
 
 ## Total KPI tooltip
 
-View additional details about what costs are included and not included in the Cost analysis preview. You can enable this option from the Try Preview menu.
+View more details about what costs are included and not included in the Cost analysis preview. You can enable this option from the Try Preview menu.
 
 The Total KPI tooltip can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) menu in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
@@ -90,12 +90,11 @@ For more information about anomaly detection and how to configure alerts, see [I
 
 ## Recent and pinned views in the cost analysis preview
 
-Cost analysis is your tool for interactive analytics and insights. You've seen the addition of new views and capabilities, like anomaly detection, in the cost analysis preview, but classic cost analysis is still the best tool for quick data exploration with simple filtering and grouping. While these capabilities are coming to the preview, we're introducing a new experience that allows you to select which view you want to start with, whether that be a preview view, a built-in view, or a custom view you created.
+Cost analysis is your tool for interactive analytics and insights. You've seen the addition of new views and capabilities, like anomaly detection, in the cost analysis preview. However, classic cost analysis is still the best tool for quick data exploration with simple filtering and grouping. While these capabilities are coming to the preview, we're introducing a new experience that allows you to select which view you want to start with. Whether that is a preview view, a built-in view, or a custom view you created.
 
-The first time you open the cost analysis preview, you'll see a list of all views. When you return, you'll see a list of the recently used views to help you get back to where you left off quicker than ever. You can pin any view or even rename or subscribe to alerts for your saved views.
+The first time you open the cost analysis preview, you see a list of all views. When you return, you see a list of the recently used views to help you get back to where you left off quicker than ever. You can pin any view or even rename or subscribe to alerts for your saved views.
 
 **Recent and pinned views are available by default in the cost analysis preview.** Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback.
-
 
 <a name="aksnestedtable"></a>
 
@@ -107,7 +106,7 @@ Understanding what you're being charged for can be complicated. The best place t
 
 Many Azure services use nested or child resources. SQL servers have databases, storage accounts have containers, and virtual networks have subnets. Most of the child resources are only used to configure services, but sometimes the resources have their own usage and charges. SQL databases are perhaps the most common example.
 
-SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **aepool** elastic pool at the top of the list below and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
+SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **aepool** elastic pool at the top of the following list and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
 
 Here's an example showing classic cost analysis where multiple related resource costs aren't grouped.
 
@@ -121,7 +120,7 @@ Here's an example showing grouped resource costs with the **Grouping SQL databas
 
 You might also notice the change in row count. Classic cost analysis shows 53 rows where every resource is broken out on its own. The cost analysis preview only shows 25 rows. The difference is that the individual resources are being grouped together, making it easier to get an at-a-glance cost summary.
 
-In addition to SQL servers, you'll also see other services with child resources, like App Service, Synapse, and VNet gateways. Each is similarly shown grouped together in the cost analysis preview.
+In addition to SQL servers, you also see other services with child resources, like App Service, Synapse, and VNet gateways. Each is similarly shown grouped together in the cost analysis preview.
 
 **Grouping SQL databases and elastic pools is available by default in the cost analysis preview.**
 
@@ -130,10 +129,10 @@ In addition to SQL servers, you'll also see other services with child resources,
 
 ## Group related resources in the cost analysis preview
 
-Group related resources, like disks under VMs or web apps under App Service plans, by adding a “cm-resource-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources will be grouped. Leave feedback to let us know how we can improve this experience further for you.
+Group related resources, like disks under VMs or web apps under App Service plans, by adding a “cm-resource-parent” tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources are grouped. Leave feedback to let us know how we can improve this experience further for you.
 
 
-Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and can't group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You'll see a single row with the parent resource. When you expand the parent resource, you'll see each linked resource listed individually with their respective cost.
+Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and can't group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You see a single row with the parent resource. When you expand the parent resource, you see each linked resource listed individually with their respective cost.
  
 As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This example gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
 
@@ -147,7 +146,7 @@ Once you know which resources you'd like to group, use the following steps to ta
 2.	Select **Properties** in the resource menu.
 3.	Find the **Resource ID** property and copy its value.
 4.	Open **All resources** or the resource group that has the resources you want to link.
-5.	Select the checkboxes for every resource you want to link and click the **Assign tags** command.
+5.	Select the checkboxes for every resource you want to link and then select the **Assign tags** command.
 6.	Specify a tag key of "cm-resource-parent" (make sure it's typed correctly) and paste the resource ID from step 3.
 7.	Wait 24 hours for new usage to be sent to Cost Management with the tags. (Keep in mind resources must be actively running with charges for tags to be updated in Cost Management.)
 8.	Open the [Resources view](https://aka.ms/costanalysis/resources) in the cost analysis preview.
@@ -190,7 +189,7 @@ Cost insights surface important details about your subscriptions, like potential
 
 ## View cost for your resources
 
-Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
+Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Select the link to open classic cost analysis with a resource filter applied.
 
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
 
@@ -201,7 +200,7 @@ The view cost link is enabled by default in the [Azure preview portal](https://p
 
 Cost Management includes a central management screen for all configuration settings. Some of the settings are also available directly from the Cost Management menu currently. Enabling the **Streamlined menu** option removes configuration settings from the menu.
 
-In the following image, the menu on the left is classic cost analysis. The menu on the right is the streamlined menu.
+In the following image, the left menu is classic cost analysis. The right menu is the streamlined menu.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" alt-text="Screenshot showing the Streamlined menu in cost analysis preview." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" :::
 
@@ -235,6 +234,14 @@ It allows changing the scope from the menu for quicker navigation. To enable the
 
 [Share your feedback](https://feedback.azure.com/d365community/idea/e702a826-1025-ec11-b6e6-000d3a4f07b8) about the feature. As an experimental feature, we need your feedback to determine whether to release or remove the preview.
 
+## Reservation utilization alerts
+
+[Azure reservations](../reservations/save-compute-costs-reservations.md) can provide cost savings by committing to one-year or three-year plans. However, reservations can sometimes go unutilized or underutilized, resulting in financial losses. As a [billing account](../reservations/reservation-utilization.md#view-utilization-as-billing-administrator) or [reservation user](../reservations/reservation-utilization.md#view-utilization-in-the-azure-portal-with-azure-rbac-access), you can [review the utilization percentage](../reservations/reservation-utilization.md) of your reservation purchases in the Azure portal, but you might miss out important changes. By enabling reservation utilization alerts, you solve this by receiving email notifications whenever any of your reservations exhibit low utilization. This allows you to take prompt action and optimize your reservation purchases for maximum efficiency.
+
+The alert email provides essential information including top unutilized reservations and a hyperlink to the list of reservations. By promptly optimizing your reservation purchases, you can avoid financial losses and ensure that your investments are delivering the expected cost savings. For more information, see [Reservation utilization alerts](reservation-utilization-alerts.md).
+
+:::image type="content" source="./media/enable-preview-features-cost-management-labs/create-alert-rule.png" alt-text="Screenshot showing Create alert rule." lightbox="./media/enable-preview-features-cost-management-labs/create-alert-rule.png" :::
+
 
 ## How to share feedback
 
@@ -242,7 +249,7 @@ We're always listening and making constant improvements based on your feedback, 
 
 - If you have a problem or are seeing data that doesn't make sense, submit a support request. It's the fastest way to investigate and resolve data issues and major bugs.
 - For feature requests, you can share ideas and vote up others in the [Cost Management feedback forum](https://aka.ms/costmgmt/feedback).
-- Take advantage of the **How would you rate…** prompts in the Azure portal to let us know how each experience is working for you. We monitor the feedback proactively to identify and prioritize changes. You'll see either a blue option in the bottom-right corner of the page or a banner at the top.
+- Take advantage of the **How would you rate…** prompts in the Azure portal to let us know how each experience is working for you. We monitor the feedback proactively to identify and prioritize changes. You see either a blue option in the bottom-right corner of the page or a banner at the top.
 
 ## Next steps
 

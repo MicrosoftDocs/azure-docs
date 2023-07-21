@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 03/13/2023
+ms.date: 04/19/2023
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -37,13 +37,10 @@ The Standard_v2 and WAF_v2 SKU is not currently available in the following regio
 
 - UK North
 - UK South2
-- South Africa West
 - China East
 - China North
 - US DOD East
 - US DOD Central
-- US Gov Central
-- Qatar Central
 
 ## Pricing
 
@@ -101,7 +98,6 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
-|Azure Network Watcher integration|Not supported.|
 |Microsoft Defender for Cloud integration|Not yet available.
 
 ## Migrate from v1 to v2

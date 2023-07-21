@@ -4,7 +4,8 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create an RDP connection with Azure Kubernetes Service (AKS) cluster Windows Server nodes for troubleshooting and maintenance tasks.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 07/06/2022
+ms.author: mattmcinnes
+ms.date: 04/26/2023
 #Customer intent: As a cluster operator, I want to learn how to use RDP to connect to nodes in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -12,7 +13,7 @@ ms.date: 07/06/2022
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS Windows Server node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access the AKS Windows Server nodes using RDP. For security purposes, the AKS nodes aren't exposed to the internet.
 
-Alternatively, if you want to SSH to your AKS Windows Server nodes, you'll need access to the same key-pair that was used during cluster creation. Follow the steps in [SSH into Azure Kubernetes Service (AKS) cluster nodes][ssh-steps]. 
+Alternatively, if you want to SSH to your AKS Windows Server nodes, you need access to the same key-pair that was used during cluster creation. Follow the steps in [SSH into Azure Kubernetes Service (AKS) cluster nodes][ssh-steps]. 
 
 This article shows you how to create an RDP connection with an AKS node using their private IP addresses.
 
@@ -60,7 +61,7 @@ The following example creates a virtual machine named *myVM* in the *myResourceG
 
 ### [Azure CLI](#tab/azure-cli)
 
-You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
+You need to get the subnet ID used by your Windows Server node pool and query for:
 * The cluster's node resource group
 * The virtual network
 * The subnet's name
@@ -102,7 +103,7 @@ Record the public IP address of the virtual machine. You'll use this address in 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
+You'll need to get the subnet ID used by your Windows Server node pool and query for:
 * The cluster's node resource group
 * The virtual network
 * The subnet's name and address prefix
@@ -153,7 +154,7 @@ The following example output shows the VM has been successfully created and disp
 13.62.204.18
 ```
 
-Record the public IP address of the virtual machine. You'll use this address in a later step.
+Record the public IP address of the virtual machine and use the address in a later step.
 
 ---
 
@@ -270,7 +271,7 @@ Connect to the public IP address of the virtual machine you created earlier usin
 
 ![Image of connecting to the virtual machine using an RDP client](media/rdp/vm-rdp.png)
 
-After you've connected to your virtual machine, connect to the *internal IP address* of the Windows Server node you want to troubleshoot using an RDP client from within your virtual machine.
+After you have connected to your virtual machine, connect to the *internal IP address* of the Windows Server node you want to troubleshoot using an RDP client from within your virtual machine.
 
 ![Image of connecting to the Windows Server node using an RDP client](media/rdp/node-rdp.png)
 

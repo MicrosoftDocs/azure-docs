@@ -3,10 +3,10 @@ title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 04/14/2022
+ms.date: 05/25/2023
 ---
 
-# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales` and `marketingspend` topics.
 

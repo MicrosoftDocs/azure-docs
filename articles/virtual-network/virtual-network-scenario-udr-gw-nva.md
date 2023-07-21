@@ -60,9 +60,9 @@ In this example, there's a subscription that contains the following items:
 
 * A virtual network named **onpremvnet** segmented as follows used to mimic an on-premises datacenter.
 
-  * **onpremsn1**. Subnet containing a virtual machine (VM) running Ubuntu to mimic an on-premises server.
+  * **onpremsn1**. Subnet containing a virtual machine (VM) running Linux distribution to mimic an on-premises server.
 
-  * **onpremsn2**. Subnet containing a VM running Ubuntu to mimic an on-premises computer used by an administrator.
+  * **onpremsn2**. Subnet containing a VM running Linux distribution to mimic an on-premises computer used by an administrator.
 
 * There's one firewall virtual appliance named **OPFW** on **onpremvnet** used to maintain a tunnel to **azurevnet**.
 

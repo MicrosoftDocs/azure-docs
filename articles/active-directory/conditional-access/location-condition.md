@@ -1,5 +1,5 @@
 ---
-title: Using networks and countries in Azure Active Directory
+title: Using networks and countries/regions in Azure Active Directory
 description: Use GPS locations and public IPv4 and IPv6 networks in Conditional Access policy to make access decisions.
 
 services: active-directory
@@ -63,13 +63,14 @@ Locations such as your organization's public network ranges can be marked as tru
 
 - Conditional Access policies can include or exclude these locations.
 - Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted.
+- Locations marked as trusted cannot be deleted. Remove the trusted designation before attempting to delete.
 
 > [!WARNING]
 > Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-### Countries
+### Countries/regions
 
-Organizations can determine country location by IP address or GPS coordinates. 
+Organizations can determine country/region location by IP address or GPS coordinates. 
 
 To define a named location by country/region, you need to provide: 
 
@@ -84,9 +85,12 @@ If you select **Determine location by IP address**, the system collects the IP a
 
 If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. Every hour the user is accessing resources covered by the policy they need to approve a push notification from the app.
+The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour.
+
+- After 24 hours, the user must open the app and approve the notification.
+- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve notifications.
  
-Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
+Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. The Microsoft Authenticator app on Android uses the Google Play Integrity API to facilitate jailbreak detection. If the Google Play Integrity API is unavailable, the request is denied and the user isn't be able to access the requested resource unless the Conditional Access policy is disabled.
 
 > [!NOTE]
 > A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
@@ -102,12 +106,24 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
+## Define locations
+
+1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Choose **New location**.
+1. Give your location a name.
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
+1. Choose **Save**
+
 ## Location condition in policy
 
 When you configure the location condition, you can distinguish between:
 
 - Any location
 - All trusted locations
+- All Network Access locations
 - Selected locations
 
 ### Any location
@@ -126,6 +142,10 @@ This option applies to:
 Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multifactor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
 
 If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
+
+### All Network Access locations of my tenant
+
+Organizations with access to Global Secure Access preview features will have an additional location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 
@@ -151,6 +171,8 @@ When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses 
 
 When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
 
+We recommend organizations utilize Global Secure Access to enable [source IP restoration](../../global-secure-access/how-to-source-ip-restoration.md) to avoid this change in address and simplify management.
+
 ### When is a location evaluated?
 
 Conditional Access policies are evaluated when:
@@ -170,7 +192,7 @@ The IP address used in policy evaluation is the public IPv4 or IPv6 address of t
 
 A policy that uses the location condition to block access is considered restrictive, and should be done with care after thorough testing. Some instances of using the location condition to block authentication may include:
 
-- Blocking countries where your organization never does business.
+- Blocking countries/regions where your organization never does business.
 - Blocking specific IP ranges like:
    - Known malicious IPs before a firewall policy can be changed.
    - For highly sensitive or privileged actions and cloud applications.
