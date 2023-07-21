@@ -15,7 +15,6 @@ ms.reviewer: cmmdesai
 
 # Quickstart API-driven inbound provisioning with Postman (Public preview)
 
-## Introduction
 This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with Postman.
 
 ## Pre-requisites
@@ -35,7 +34,7 @@ In this step, you'll configure the Postman app and invoke the API using the conf
     - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD)- 
     - [Test-API2AD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD) 
 1. Use the **Import** option in Postman to import both of these files into your Workspace.  
-     :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Postman Import Elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::
+     :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Screenshot of Postman Import elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::
 1. Click the **Environments** menu and open the **Test-API2AAD** environment. 
 1. Retrieve the values of **client_id**, **client_secret**, and **token_endpoint** from your registered app.
      :::image type="content" source="media/inbound-provisioning-api-postman/retrieve-authentication-details.png" alt-text="Screenshot of registered app." lightbox="media/inbound-provisioning-api-postman/retrieve-authentication-details.png":::
@@ -48,9 +47,9 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 1. From the **Environment** dropdown, select **Test-API2AAD**.
 1. Select the **Authorization** tab associated with the collection. 
 1. Make sure that authorization is configured to use OAuth settings. 
-     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png" alt-text="Provisioning OAuth configuration." lightbox="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png":::
+     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png" alt-text="Screenshot of Provisioning OAuth configuration." lightbox="media/inbound-provisioning-api-postman/provisioning-oauth-configuration.png":::
 1. The **Advanced options** section should show the following configuration:
-     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-advanced-options.png" alt-text="Provisioning Advanced options." lightbox="media/inbound-provisioning-api-postman/provisioning-advanced-options.png":::
+     :::image type="content" source="media/inbound-provisioning-api-postman/provisioning-advanced-options.png" alt-text="Screenshot of Provisioning Advanced options." lightbox="media/inbound-provisioning-api-postman/provisioning-advanced-options.png":::
 1. Click on **Get New Access Token** to initiate the process to procure an access token. 
 1. Select the option **Use Token** to use the access token with all requests in this collection. 
      >[!NOTE]
@@ -239,7 +238,7 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 }
 ```
 
-## Next Steps
+## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)

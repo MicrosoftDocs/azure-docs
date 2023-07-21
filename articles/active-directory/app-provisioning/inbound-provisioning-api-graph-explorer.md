@@ -15,7 +15,6 @@ ms.reviewer: cmmdesai
 
 # Quickstart API-driven inbound provisioning with Graph Explorer (Public preview)
 
-## Introduction
 This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with Microsoft Graph Explorer.
 
 ## Pre-requisites
@@ -224,7 +223,7 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
     "failOnErrors": null
 }
 ```
-## Next Steps
+## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)

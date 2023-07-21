@@ -15,15 +15,13 @@ ms.reviewer: cmmdesai
 
 # API-driven inbound provisioning with Azure Logic Apps (Public preview)
 
-## Introduction
-
 This tutorial describes how to use Azure Logic Apps workflow to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. 
 
 ## Integration scenario
 
 This tutorial addresses the following integration scenario: 
 
-:::image type="content" source="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png" alt-text="Architecture overview of Azure Logic Apps-based integration." lightbox="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png":::
+:::image type="content" source="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png" alt-text="Graphic of Azure Logic Apps-based integration." lightbox="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png":::
 
 * Your system of record generates periodic CSV file exports containing worker data which is available in an Azure File Share. 
 * You want to use an Azure Logic Apps workflow to automatically provision records from the CSV file to your target directory (on-premises Active Directory or Microsoft Entra ID). 
@@ -53,7 +51,7 @@ The steps documented in this section are optional. If you already have an existi
 
 ## Step 2: Configure Azure Function CSV2JSON converter
 
-1. In the browser associated with your Azure portal login, open the Github repository URL - https://github.com/joelbyford/CSVtoJSONcore.
+1. In the browser associated with your Azure portal login, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
 1. Click on the link "Deploy to Azure" to deploy this Azure Function to your Azure tenant.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png" alt-text="Screenshot of deploying Azure Function." lightbox="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png":::    
 1. Specify the resource group under which to deploy this Azure function. 
@@ -65,7 +63,8 @@ The steps documented in this section are optional. If you already have an existi
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/web-app-domain-name.png" alt-text="Screenshot of Azure Function Web App domain name." lightbox="media/inbound-provisioning-api-logic-apps/web-app-domain-name.png":::  
 1. Open Postman client to test if the CSVtoJSON endpoint works as expected. Paste the domain name copied from the previous step. Use Content-Type of "text/csv" and post a sample CSV file in the request body to the endpoint: `https://[your-domain-name]/csvtojson`
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/postman-call-to-azure-function.png" alt-text="Screenshot of Postman client calling the Azure Function." lightbox="media/inbound-provisioning-api-logic-apps/postman-call-to-azure-function.png":::  
-1. If the Azure Function deployment is successful, then in the response you will get a JSON version of the CSV file with status 200 OK.
+1. If the Azure Function deployment is successful, then in the response you'll get a JSON version of the CSV file with status 200 OK.
+
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/azure-function-response.png" alt-text="Screenshot of Azure Function response." lightbox="media/inbound-provisioning-api-logic-apps/azure-function-response.png":::  
 1. To allow Logic Apps to invoke this Azure Function, in the CORS setting for the WebApp enter asterisk (*) and "Save" the configuration.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/azure-function-cors-setting.png" alt-text="Screenshot of Azure Function CORS setting." lightbox="media/inbound-provisioning-api-logic-apps/azure-function-cors-setting.png":::  
@@ -85,7 +84,7 @@ The steps documented in this section are optional. If you already have an existi
 1. For the `Azurefile_access Key` parameter, open your Azure file storage account and copy the access key present under "Security and Networking".  
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/azure-file-access-keys.png" alt-text="Screenshot of Azure File access keys." lightbox="media/inbound-provisioning-api-logic-apps/azure-file-access-keys.png":::  
 1. Click on "Review and Create" option to start the deployment.
-1. Once the deployment is complete, you will see the following message.
+1. Once the deployment is complete, you'll see the following message.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/logic-apps-deployment-complete.png" alt-text="Screenshot of Azure Logic Apps deployment complete." lightbox="media/inbound-provisioning-api-logic-apps/logic-apps-deployment-complete.png":::  
 
 ## Step 5: Configure system assigned managed identity
@@ -109,8 +108,10 @@ The steps documented in this section are optional. If you already have an existi
 1. If your CSV file content / headers is different, then update the "Parse JSON" step with the JSON output that you can retrieve from your API call to the Azure Function. Use Postman output from Step 2. 
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/parse-json-step.png" alt-text="Screenshot of Parse JSON step." lightbox="media/inbound-provisioning-api-logic-apps/parse-json-step.png":::  
 1. In the step "Construct SCIMUser", ensure that the CSV fields map correctly to the SCIM attributes that will be used for processing.
+
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/construct-scim-user.png" alt-text="Screenshot of Construct SCIM user step." lightbox="media/inbound-provisioning-api-logic-apps/construct-scim-user.png":::  
 1. In the step "Send SCIMBulkPayload to API endpoint" ensure you are using the right API endpoint and authentication mechanism.
+
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/invoke-bulk-upload-api.png" alt-text="Screenshot of invoking bulk upload API with managed identity." lightbox="media/inbound-provisioning-api-logic-apps/invoke-bulk-upload-api.png":::  
 
 ## Step 7: Run trigger and test your Logic Apps workflow 
@@ -121,7 +122,7 @@ The steps documented in this section are optional. If you already have an existi
 1. In the final iteration, you should see the Logic Apps upload data to the inbound provisioning API endpoint. Look for `202 Accept` status code. You can copy-paste and verify the bulk upload request.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/execution-results.png" alt-text="Screenshot of the Logic Apps execution result." lightbox="media/inbound-provisioning-api-logic-apps/execution-results.png":::  
 
-## Next Steps
+## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)

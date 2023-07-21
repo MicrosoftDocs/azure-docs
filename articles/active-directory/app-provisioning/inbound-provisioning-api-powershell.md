@@ -15,8 +15,6 @@ ms.reviewer: cmmdesai
 
 # API-driven inbound provisioning with PowerShell script (Public preview)
 
-## Introduction
-
 This tutorial describes how to use a PowerShell script to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. 
 
 ## How to use this tutorial
@@ -26,7 +24,7 @@ This tutorial addresses the following integration scenario:
 * You want to use an unattended PowerShell script to automatically provision records from the CSV file to your target directory (on-premises Active Directory or Microsoft Entra ID). 
 * The PowerShell script simply reads data from the CSV file and uploads it to the provisioning API endpoint. The API-driven inbound provisioning app configured in Microsoft Entra ID performs the task of applying your IT managed provisioning rules to create/update/enable/disable accounts in the target directory.
 
-:::image type="content" source="media/inbound-provisioning-api-powershell/powershell-integration-overview.png" alt-text="Architecture overview of PowerShell-based integration." lightbox="media/inbound-provisioning-api-powershell/powershell-integration-overview.png":::
+:::image type="content" source="media/inbound-provisioning-api-powershell/powershell-integration-overview.png" alt-text="Graphic of PowerShell-based integration." lightbox="media/inbound-provisioning-api-powershell/powershell-integration-overview.png":::
 
 Here is a list of automation tasks associated with this integration scenario and how you can implement it by customizing the sample script published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM). 
 
@@ -58,7 +56,7 @@ Here is a list of automation tasks associated with this integration scenario and
      - csv-with-1000-records.csv (sample CSV file with 1000 records)
      - Test-ScriptCommands.ps1 (sample usage commands)
      - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
-     - Sample1 (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
+     - `Sample1` (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
 1. Download and install the latest version of PowerShell. 
 1. Run the command to enable execution of remote signed scripts: 
     ```powershell
@@ -155,7 +153,7 @@ This section explains how to send the generated bulk request payload to your inb
     ```
     You should see the certificate under the **Certificates & secrets** blade of your registered app. 
     :::image type="content" source="media/inbound-provisioning-api-powershell/client-certificate.png" alt-text="Screenshot of client certificate." lightbox="media/inbound-provisioning-api-powershell/client-certificate.png":::
-1. Add the following two **Application** permission scopes to the service principal app: **Application.Read.All** and **Synchronization.Read.All**. These are required for the PowerShell script to lookup the provisioning app by `ServicePrincipalId` and fetch the provisioning `JobId`.
+1. Add the following two **Application** permission scopes to the service principal app: **Application.Read.All** and **Synchronization.Read.All**. These are required for the PowerShell script to look up the provisioning app by `ServicePrincipalId` and fetch the provisioning `JobId`.
 
 ## Upload bulk request payload using client certificate authentication
 
@@ -193,12 +191,12 @@ This section describes how to generate a bulk request with custom SCIM schema na
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ValidateAttributeMapping
    ```
 
-1. In addition to the SCIM Core User and Enterprise User attributes, to get a flat-list of all CSV fields under a a custom SCIM schema namespace `urn:ietf:params:scim:schemas:extension:contoso:1.0:User`, run the following command. 
+1. In addition to the SCIM Core User and Enterprise User attributes, to get a flat-list of all CSV fields under a custom SCIM schema namespace `urn:ietf:params:scim:schemas:extension:contoso:1.0:User`, run the following command. 
    ```powershell
     .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ScimSchemaNamespace "urn:ietf:params:scim:schemas:extension:contoso:1.0:User"  > BulkRequestPayloadWithCustomNamespace.json
    ```
     The CSV fields will show up under the custom SCIM schema namespace. 
-    :::image type="content" source="media/inbound-provisioning-api-powershell/user-details-under-custom-schema.png" alt-text="Screenshot of user details under custom schema" lightbox="media/inbound-provisioning-api-powershell/user-details-under-custom-schema.png":::
+    :::image type="content" source="media/inbound-provisioning-api-powershell/user-details-under-custom-schema.png" alt-text="Screenshot of user details under custom schema." lightbox="media/inbound-provisioning-api-powershell/user-details-under-custom-schema.png":::
 
 ## Extending provisioning job schema
 
@@ -293,8 +291,8 @@ PS > CSV2SCIM.ps1 -Path <path-to-csv-file>
 [-RestartService]
 ```
 
-[!Important]
->The `AttributeMapping` and `ValidateAttributeMapping` command-line parameters refer to the mapping of CSV column attributes to the standard SCIM schema elements. 
+> [!NOTE]
+> The `AttributeMapping` and `ValidateAttributeMapping` command-line parameters refer to the mapping of CSV column attributes to the standard SCIM schema elements. 
 It doesn't refer to the attribute mappings that you perform in the Entra portal provisioning app between source SCIM schema elements and target Azure AD/on-premises AD attributes. 
 
 | Parameter |    Description | Processing remarks |
@@ -360,7 +358,7 @@ In the next example, we mapped the following columns in the CSV file to their co
 }
 ```
 
-## Next Steps
+## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
