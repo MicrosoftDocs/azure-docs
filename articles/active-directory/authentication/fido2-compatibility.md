@@ -23,7 +23,7 @@ Azure Active Directory allows [FIDO2 security keys](./concept-authentication-pas
 
 This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
-| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox | Safari | Safari | Safari
+| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox | Safari | Safari | Safari |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome supports USB on Windows for Azure AD accounts.][y] | ![Chrome supports NFC on Windows for Azure AD accounts.][y] | ![Chrome supports BLE on Windows for Azure AD accounts.][y] | ![Edge supports USB on Windows for Azure AD accounts.][y] | ![Edge supports NFC on Windows for Azure AD accounts.][y] | ![Edge supports BLE on Windows for Azure AD accounts.][y] | ![Firefox supports USB on Windows for Azure AD accounts.][y] | ![Firefox supports NFC on Windows for Azure AD accounts.][y] | ![Firefox supports BLE on Windows for Azure AD accounts.][y] |  ![Safari supports USB on Windows for Azure AD accounts.][n] | ![Safari supports NFC on Windows for Azure AD accounts.][n] | ![Safari supports BLE on Windows for Azure AD accounts.][n] |
@@ -59,6 +59,50 @@ The following are the minimum browser version requirements.
 | Firefox | 66 |
 
 <sup>1</sup>All versions of the new Chromium-based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
+
+## Browser support for each platform
+
+
+### Windows
+
+| Browser | USB  | NFC | BLE |
+|---------|------|-----|-----|
+| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Safari   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+
+### macOS
+
+
+### ChromeOS
+
+
+### Linux
+
+
+### iOS
+
+| Browser | Lightning  | NFC | BLE |
+|---------|------|-----|-----|
+| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Safari   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+
+- For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
+- Authentication for native apps in iOS isn't available yet.
+
+### Android
+
+| Browser | USB  | NFC | BLE |
+|---------|------|-----|-----|
+| Edge    | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Chrome   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+| Firefox   | ![Supported][y] | ![Supported][y] | ![Supported][y] |
+
+- Security key PIN for user verification isn't currently supported with Android.
+- Authentication for native apps in Android isn't available yet.
 
 ## Next steps
 [Enable passwordless security key sign-in](./howto-authentication-passwordless-security-key.md)
