@@ -81,12 +81,12 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 
-![View changes in a file](./media/overview/view-file-changes.png)
+![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
 
 
 ## Tracking of registry keys
 
-Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
+Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |

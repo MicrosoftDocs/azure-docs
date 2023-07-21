@@ -74,7 +74,7 @@ To configure file content changes, follow these steps:
 1. In your virtual machine, under **Operations**, select **Change tracking** > **Settings**.
 1. In the **Data Collection Rule Configuration (Preview)** page, select **File Content** > **Link** to link the storage account.
 
-    :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+    :::image type="content" source="media/manage-change-tracking-monitoring-agent/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/manage-change-tracking-monitoring-agent/file-content-expanded.png":::
 
 1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
 1. Select **Upload file content for all settings**, and then select **Save**. It ensures that the file content changes for all the files residing in this DCR will be tracked.
@@ -103,7 +103,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 
 1. In the storage account page, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
 1. In **Changetrackingblob | Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
-1. Search for **Storage Blob Data Contributor**, select the tole and assign it to your user-assigned managed identity.
+1. Search for **Storage Blob Data Contributor**, select the role and assign it to your user-assigned managed identity.
     
      :::image type="content" source="media/manage-change-tracking-monitoring-agent/user-assigned-add-role-inline.png" alt-text="Screenshot of adding the role to user-assigned managed identity." lightbox="media/manage-change-tracking-monitoring-agent/user-assigned-add-role-expanded.png":::
 
