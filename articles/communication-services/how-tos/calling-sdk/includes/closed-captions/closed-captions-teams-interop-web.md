@@ -1,12 +1,12 @@
 ---
 title: include file
-description: Web how-to guide for enabling Closed captions during a call.
+description: Web how-to guide for enabling Closed captions during a Teams interop call .
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
 ms.topic: include file
-ms.date: 03/20/2023
+ms.date: 07/21/2023
 ms.author: kpunjabi
 ---
 
@@ -16,61 +16,82 @@ ms.author: kpunjabi
 - An app with voice and video calling, refer to our [Voice](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
 - [Access tokens](../../../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
 - [Access tokens](../../../../quickstarts/identity/access-tokens.md) for External identity users.
-- For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license. 
+- For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
+>Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in the quickstart below.
 
 ## Models
 | Name | Description |
-|------|-------------|
-| TeamsCaptionsCallFeature | API for TeamsCall captions |
+| ---- | ----------- |
+| CaptionsCallFeature | API for Captions |
+| CallCaptions | Base class for captions | 
 | StartCaptionOptions | Closed caption options like spoken language |
 | TeamsCaptionHandler | Callback definition for handling CaptionsReceivedEventType event |
 | TeamsCaptionsInfo | Data structure received for each CaptionsReceivedEventType event |
 
-## Get closed captions feature 
+## Get closed captions feature
 
 ### External Identity users
-
-If you're building an application that allows ACS users to join a Teams meeting. 
-
+If you're building an application that allows ACS users to join a Teams meeting.
 ``` typescript
-let teamsCaptions: SDK.TeamsCaptionsCallFeature = call.feature(SDK.Features.TeamsCaptions);
+let captionsCallFeature: SDK.CaptionsCallFeature = call.feature(SDK.Features.Captions);
 ```
 
-### Microsoft 365 users on ACS SDK
-
-If you're building an app for Microsoft 365 Users using ACS SDK. 
-
+### Microsoft 365 users
 ``` typescript
-let teamsCaptions: SDK.TeamsCaptionsCallFeature = teamsCall.feature(SDK.Features.TeamsCaptions);
+let captionsCallFeature: SDK.CaptionsCallFeature = teamsCall.feature(SDK.Features.Captions);
+```
+
+## Get teams captions object
+You will now need to get and cast the Teams Captions object to utilize Teams Captions specific features
+``` typescript
+let teamsCaptions: SDK.TeamsCaptions;
+if (captionsCallFeature.captions.captionsType === 'TeamsCaptions') {
+    teamsCaptions = captionsCallFeature.captions as SDK.TeamsCaptions;
+}
 ```
 
 ## Subscribe to listeners
 
 ### Add a listener to receive captions active/inactive status
-
 ```typescript
-const isCaptionsActiveChangedHandler = () => {
+const captionsActiveChangedHandler = () => {
     if (teamsCaptions.isCaptionsFeatureActive()) {
         /* USER CODE HERE - E.G. RENDER TO DOM */
     }
 }
-teamsCaptions.on('isCaptionsActiveChanged', isCaptionsActiveChangedHandler);
+teamsCaptions.on('CaptionsActiveChanged', captionsActiveChangedHandler);
 ```
 
 ### Add a listener for captions data received
-
 ```typescript
 const captionsReceivedHandler : TeamsCaptionsHandler = (data: TeamsCaptionsInfo) => { /* USER CODE HERE - E.G. RENDER TO DOM */ }; 
-teamsCaptions.on('captionsReceived', captionsReceivedHandler); 
+teamsCaptions.on('CaptionsReceived', captionsReceivedHandler); 
+```
+
+### Add a listener to receive spoken language changed status
+```typescript
+const spokenLanguageChangedHandler = () => {
+    if (teamsCaptions.activeSpokenLanguage !== currentSpokenLanguage) {
+        /* USER CODE HERE - E.G. RENDER TO DOM */
+    }
+}
+teamsCaptions.on('SpokenLanguageChanged', spokenLanguageChangedHandler)
+```
+
+### Add a listner to receive caption language changed status
+```typescript
+const captionLanguageChangedHandler = () => {
+    if (teamsCaptions.activeCaptionLanguage !== currentCaptionLanguage) {
+        /* USER CODE HERE - E.G. RENDER TO DOM */
+    }
+}
+teamsCaptions.on('CaptionLanguageChanged', captionLanguageChangedHandler)
 ```
 
 ## Start captions
-
-Once you've got all your listeners setup, you can now start captions.
-
+Once you've got all your listeners setup you can now start captions.
 ``` typescript
 try {
     await teamsCaptions.startCaptions({ spokenLanguage: 'en-us' });
@@ -83,7 +104,7 @@ try {
 
 ``` typescript
 try {
-    teamsCaptionsApi.stopCaptions(); 
+    teamsCaptions.stopCaptions(); 
 } catch (e) {
     /* USER ERROR HANDLING CODE HERE */
 }
@@ -91,24 +112,23 @@ try {
 
 ## Unsubscribe to listeners
 ```typescript
-teamsCaptions.off('isCaptionsActiveChanged', isCaptionsActiveChangedHandler);
-teamsCaptions.off('captionsReceived', captionsReceivedHandler); 
+teamsCaptions.off('CaptionsActiveChanged', captionsActiveChangedHandler);
+teamsCaptions.off('CaptionsReceived', captionsReceivedHandler); 
 ```
 
 ## Spoken language support
 
-### Get a list of supported spoken languages 
-
+### Get a list of supported spoken languages
 Get a list of supported spoken languages that your users can select from when enabling closed captions.
-The property returns an array of languages in bcp 47 format. 
-
+The property will return an array of langauges in bcp 47 format. 
 ``` typescript
 const spokenLanguages = teamsCaptions.supportedSpokenLanguages; 
 ```
 
-### Set spoken language
+## Set spoken language
 
-Pass a value in from the supported spoken languages array to ensure that the requested language is supported. By default, if contoso provides no language or an unsupported language, the spoken language defaults to 'en-us'.
+Pass a value in from the supported spoken languages array to ensure that the requested language is supported. 
+By default, if contoso provides no language or an unsupported language, the spoken language defaults to 'en-us'.
 
 ``` typescript
 // bcp 47 formatted language code
@@ -127,17 +147,15 @@ try {
 ## Caption language support
 
 ### Get a list of supported caption languages
+If your organization has an active Teams premium license you can allow your users to leverage translated captions provided by Teams captions. As for users with a Microsoft 365 identity, if the meeting organizer does not have an active Teams premium license, captions language check will be done against the Microsoft 365 users account.
 
-If your organization has an active Teams premium license, you can allow your users to use translated captions provided by Teams captions. As for users with a Microsoft 365 identity, if the meeting organizer doesn't have an active Teams premium license, captions language check is done against the Microsoft 365 users account.
-
-The property returns an array of two-letter language codes in `ISO 639-1` standard. 
+The property returns an array of two-letter langauge codes in `ISO 639-1` standard. 
 
 ``` typescript
 const captionLanguages = teamsCaptions.supportedCaptionLanguages;
 ```
 
-### Set caption language
-
+## Set caption language
 ``` typescript
 // ISO 639-1 formatted language code
 const language = 'en'; 
