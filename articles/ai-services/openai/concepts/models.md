@@ -106,7 +106,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | East US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | Canada East, East US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
 | text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 
 ### DALL-E models (Preview)
