@@ -23,6 +23,6 @@ When you want the function to process a batch of events, the Event Hubs trigger 
 | `EventData[]` | _(Preview<sup>1</sup>)_<br/>An array of events from the batch, as instances of [Azure.Messaging.EventHubs.EventData]. Each entry represents one event. | 
 | `T[]` where `T` is a JSON serializable type | _(Preview<sup>1</sup>)_<br/>An array of events from the batch, as instances of a custom POCO type. Each entry represents one event. | 
 
-<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.EventHubs 5.4.1-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs/5.4.1-preview1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types-preview).
+<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.EventHubs 5.4.1-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs/5.4.1-preview1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types).
 
 [Azure.Messaging.EventHubs.EventData]: /dotnet/api/azure.messaging.eventhubs.eventdata
