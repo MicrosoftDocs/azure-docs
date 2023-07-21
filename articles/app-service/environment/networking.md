@@ -31,7 +31,7 @@ The size of the subnet can affect the scaling limits of the App Service plan ins
 > 5 + 1 = 6 IP addresses
 >
 > For 25 instances:
-> 6 x 25 = 150 IP address per App Service plan
+> 6 x 25 = 150 IP addresses per App Service plan
 >
 > Since you have 2 App Service plans, 2 x 150 = 300 IP addresses
 
