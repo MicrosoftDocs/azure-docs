@@ -81,13 +81,18 @@ This section outlines variations and considerations when using Azure Container A
 
 This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
 
+
+### Azure China Commercial Marketplace
+
+To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+
 #### Azure Retail Rates API for China
 
-The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure China. The preview API is available only in Azure China and isn't available in Azure Global.
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure in China and isn't available in Azure Global.
 
 #### Markup - China
 
-The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China. The Markup feature is available only in Azure China and isn't available in Azure Global.
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China and isn't available in Azure Global.
 
 ## Azure in China Account Sign in
 
