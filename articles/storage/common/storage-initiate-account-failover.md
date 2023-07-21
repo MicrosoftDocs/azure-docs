@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 07/21/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ---
@@ -31,20 +31,6 @@ Before you can perform an account failover on your storage account, make sure th
 > - Your storage account is configured for geo-replication (GRS, GZRS, RA-GRS or RA-GZRS). For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
 > - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
 > - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
-
-> [!IMPORTANT]
-> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
->
-> - (Asia Pacific) Central India
-> - (Europe) Switzerland North
-> - (Europe) Switzerland West
-> - (North America) Canada Central
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
 
 ## Initiate the failover
 
