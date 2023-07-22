@@ -33,7 +33,7 @@ ACI doesn't allow [privileged container operations](./container-instances-faq.ym
 
 We advise running container groups in multiple regions so your workloads can continue to run if there's an issue in one region.
 
-We advise against using a hard coded IP address in your scenario since a container group's IP address isn't guaranted. To mitigate connectivity issues, we recommend configuring a gateway. If your container is behind a public IP address and you need a static public IP address, use [Application Gateway](./container-instances-application-gateway.md). If your container is behind a virtual network and you need a static IP address, we recommend using [NAT Gateway](./container-instances-nat-gateway.md).
+We advise against using a hard coded IP address in your scenario since a container group's IP address isn't guaranteed. To mitigate connectivity issues, we recommend configuring a gateway. If your container is behind a public IP address and you need a static public IP address, use [Application Gateway](./container-instances-application-gateway.md). If your container is behind a virtual network and you need a static IP address, we recommend using [NAT Gateway](./container-instances-nat-gateway.md).
 
 ## Other Azure Container Options
 
