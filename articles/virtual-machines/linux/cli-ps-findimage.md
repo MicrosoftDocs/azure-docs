@@ -8,7 +8,7 @@ ms.date: 02/09/2023
 author: ebolton-cyber
 ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922, devx-track-linux
 ---
 # Find Azure Marketplace image information using the Azure CLI
 

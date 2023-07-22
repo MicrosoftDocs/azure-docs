@@ -5,9 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Security features to help protect hybrid backups that use Azure Backup
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and leverage these features to protect on-premises workloads using **Microsoft Azure Backup Server (MABS)**, **Data Protection Manager (DPM)**, and **Microsoft Azure Recovery Services (MARS) agent**. These features include:
@@ -113,7 +114,7 @@ The security features mentioned in this article provide defense mechanisms again
 | Operation | Error details | Resolution |
 | --- | --- | --- |
 | Policy change |The backup policy couldn't be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error appears when security settings are enabled, you try to reduce retention range below the minimum values specified above and you're on an unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy-related updates. Optionally, a preferred approach would be to update the backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |
-| Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, sign in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
+| Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 | Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error appears when security settings are enabled, you try to change the passphrase and you're on an unsupported version (valid versions specified in first note of this article).<br/>**Recommended Action:**<br/> To change the passphrase, you must first update the backup agent to minimum version 2.0.9052, Azure Backup Server to minimum update 1, and/or DPM to minimum DPM 2012 R2 UR12 or DPM 2016 UR2 (download links below), then enter a valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 
 ## Immutability support (preview)
@@ -149,4 +150,3 @@ The following table lists the disallowed operations for MARS when immutability i
 
 - [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
 - [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
-

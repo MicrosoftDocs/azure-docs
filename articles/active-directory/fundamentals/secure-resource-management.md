@@ -143,7 +143,7 @@ Azure AD [Conditional Access](../../role-based-access-control/conditional-access
 
 ![Diagram that shows the Conditional Access policy.](media/secure-resource-management/conditional-access.jpeg)
 
-For example, an administrator may configure a Conditional Access policy, which allows a user to sign into the Azure portal only from approved locations, and also requires either multifactor authentication (MFA) or a hybrid Azure AD domain-joined device.
+For example, an administrator may configure a Conditional Access policy, which allows a user to sign in to the Azure portal only from approved locations, and also requires either multifactor authentication (MFA) or a hybrid Azure AD domain-joined device.
 
 ## Azure Managed Identities
 
@@ -185,7 +185,7 @@ A key concept to address with the first two options is that there are two identi
 
 * When you sign in to an Azure Windows Server VM via remote desktop protocol (RDP), you're generally logging on to the server using your domain credentials, which performs a Kerberos authentication against an on-premises AD DS domain controller or Azure AD DS. Alternatively, if the server isn't domain-joined then a local account can be used to sign in to the virtual machines.
 
-* When you sign into the Azure portal to create or manage a VM, you're authenticating against Azure AD (potentially using the same credentials if you've synchronized the correct accounts), and this could result in an authentication against your domain controllers should you be using Active Directory Federation Services (AD FS) or PassThrough Authentication.
+* When you sign in to the Azure portal to create or manage a VM, you're authenticating against Azure AD (potentially using the same credentials if you've synchronized the correct accounts), and this could result in an authentication against your domain controllers should you be using Active Directory Federation Services (AD FS) or PassThrough Authentication.
 
 ### Virtual machines joined to standalone Active Directory Domain Services
 

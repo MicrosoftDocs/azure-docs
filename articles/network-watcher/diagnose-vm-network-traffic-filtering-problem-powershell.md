@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/10/2023
+ms.date: 07/17/2023
 ms.custom: template-quickstart, devx-track-azurepowershell, engagement-fy23, mode-api
 #Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
@@ -17,7 +17,7 @@ Azure allows and denies network traffic to and from a virtual machine based on i
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the cause of a communication failure and learn how you can resolve it.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-powershell/-ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-powershell/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

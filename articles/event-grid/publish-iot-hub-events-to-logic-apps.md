@@ -28,7 +28,7 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the upper right of the page, select the Cloud Shell button.
 
