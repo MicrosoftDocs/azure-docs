@@ -36,7 +36,7 @@ This document helps set up an example application that uses the _Ingress_ resour
     - 1 deployment called `echo` in the `test-infra` namespace
     - 1 secret called `listener-tls-secret` in the `test-infra` namespace
 
-## Deploy the required Ingress API objects
+## Deploy the required Ingress API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
