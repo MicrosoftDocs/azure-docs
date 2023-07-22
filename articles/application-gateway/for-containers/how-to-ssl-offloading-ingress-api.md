@@ -178,7 +178,8 @@ fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBa
 Curling this FQDN should return responses from the backend as configured on the HTTPRoute.
 
 ```bash
-curl --insecure https://$fqdn/
+fqdnIp=$(dig +short $fqdn)
+curl -vik --resolve example.com:443:$fqdnIp https://example.com
 ```
 
 Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to the application via Ingress on Application Gateway for Containers.
