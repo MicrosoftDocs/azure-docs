@@ -118,7 +118,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	sleep 60
  
 	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
-	az role assignment create --assignee-object-id $principalId --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" --assignee-principal-type ServicePrincipal # Reader role
+	az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
 	
 	echo "Set up federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
