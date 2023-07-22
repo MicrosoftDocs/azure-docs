@@ -80,10 +80,10 @@ mcResourceGroupId=$(az group show --name $MC_RESOURCE_GROUP --query id -otsv)
 principalId=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)
 
 # Delegate AppGw for Containers Configuration Manager role to AKS Managed Cluster RG
-az role assignment create --assignee-object-id $principalId --scope $mcResourceGroupId --role "fbc52c3f-28ad-4303-a892-8a056630b8f1"
+az role assignment create --assignee-object-id $principalId --scope $mcResourceGroupId --role "fbc52c3f-28ad-4303-a892-8a056630b8f1" --assignee-principal-type ServicePrincipal
 
 # Delegate Network Contributor permission for join to association subnet
-az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "4d97b98b-1d4f-4787-a291-c67834d212e7"
+az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "4d97b98b-1d4f-4787-a291-c67834d212e7" --assignee-principal-type ServicePrincipal
 ```
 
 ## Create ApplicationLoadBalancer Kubernetes resource
