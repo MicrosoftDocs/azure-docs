@@ -47,8 +47,8 @@ As previously mentioned, only certain types of endpoints may be used as a source
 
 |Protocol   |Source        |Destination                     |Agent version required |
 |-----------|--------------|--------------------------------|-----------------------|
-|SMB        |SMB mount     |Azure file share                |[agent version]        |
-|NFS        |NFS mount     |Azure blob storage container    |[agent version]        |
+|SMB        |SMB mount     |Azure file share                |2.0.277                |
+|NFS        |NFS mount     |Azure blob storage container    |1.1.256                |
 
 ### SMB endpoints
 
@@ -65,16 +65,16 @@ Agent access to both your Key Vault and target storage resources is controlled t
 
 There are many use cases that require preserving metadata values such as file and folder timestamps, ACLs, and file attributes. Storage Mover supports the same level of file fidelity as the underlying Azure fileshare. Azure Files in turn [supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). The following table represents common metadata that will be migratred:
 
-|Metadata property      |Outcome                                                                              |
-|-----------------------|-------------------------------------------------------------------------------------|
-|Directory structure    |The original directory structure of the source will be preserved on the target share.|
-|Access permissions     |Permissions on the source file or directory will be preserved on the target share.   |
-|Symbolic links         |Symbolic links on the source will be preserved and mapped on the target share.       |
-|Create timestamp       |The original create timestamp of the source file will be preserved on the target share.|
-|Change timestamp       |The original change timestamp of the source file will be preserved on the target share.|
-|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share.|
+|Metadata property      |Outcome                                                                                        |
+|-----------------------|-----------------------------------------------------------------------------------------------|
+|Directory structure    |The original directory structure of the source will be preserved on the target share.          |
+|Access permissions     |Permissions on the source file or directory will be preserved on the target share.             |
+|Symbolic links         |Symbolic links on the source will be preserved and mapped on the target share.                 |
+|Create timestamp       |The original create timestamp of the source file will be preserved on the target share.        |
+|Change timestamp       |The original change timestamp of the source file will be preserved on the target share.        |
+|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share.      |
 |Last access timestamp  |This last access timestamp is neither supported for a file nor a directory on the target share.|
-|Other metadata         |Other metadata of the source item will be preserved if the target share is supporting it.|
+|Other metadata         |Other metadata of the source item will be preserved if the target share is supporting it.      |
 
 ### NFS endpoints
 
