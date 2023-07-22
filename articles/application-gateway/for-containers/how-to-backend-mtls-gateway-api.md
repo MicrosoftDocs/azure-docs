@@ -5,9 +5,9 @@ description: Learn how to configure Application Gateway for Containers with supp
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 07/24/2023
 ms.author: greglin
 ---
 
@@ -118,7 +118,7 @@ EOF
 
 ---
 
-Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
+Once the gateway resource has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -187,9 +187,9 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute object has been created check the status on the object to ensure that the route is accepted via kubectl command:
+Once the HTTPRoute object has been created check the status on the gateway resource to ensure that the route is accepted via kubectl command:
 ```bash
-kubectl get httproute -n test-infra https-route -o yaml
+kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.

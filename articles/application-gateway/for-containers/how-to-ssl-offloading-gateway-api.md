@@ -5,9 +5,9 @@ description: Learn how to configure SSL offloading with Application Gateway for 
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 07/24/2023
 ms.author: greglin
 ---
 
@@ -27,16 +27,7 @@ This document helps set up an example application that uses the following resour
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTPS application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
-  ```
-  
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - 1 service called `mtls-app` in the `test-infra` namespace
-  - 1 deployment called `mtls-app` in the `test-infra` namespace
-  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+
     ```bash
     kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
     ```
@@ -126,7 +117,7 @@ EOF
 
 ---
 
-Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
+Once the gateway resource has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -195,9 +186,9 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute object has been created check the status on the object to ensure that the route is accepted via kubectl command:
+Once the HTTPRoute object has been created check the status on the gateway resource to ensure that the route is accepted via kubectl command:
 ```bash
-kubectl get httproute https-route -n test-infra -o yaml
+kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
