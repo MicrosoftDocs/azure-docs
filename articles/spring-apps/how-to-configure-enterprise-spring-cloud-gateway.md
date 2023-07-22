@@ -31,13 +31,14 @@ VMware Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration
 - Support for accessing application services via HTTP Basic Authentication credentials
 
-To integrate with the API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any additions or changes to route configuration. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
+To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any additions or changes to route configuration. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps (Enterprise plan) service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
-  You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
+  > [!NOTE]
+  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
 
 - Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -53,9 +54,9 @@ Use the following steps to enable or disable VMware Spring Cloud Gateway by usin
 1. Select **Manage**.
 1. Select or clear the **Enable Spring Cloud Gateway** checkbox, and then select **Save**.
 
-   You can now view the state of Spring Cloud Gateway on the **Spring Cloud Gateway** pane.
+You can now view the state of the Spring Cloud Gateway on the **Spring Cloud Gateway** page.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway pane." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -87,11 +88,11 @@ Use the following steps to restart VMware Spring Cloud Gateway by using the Azur
 1. Select **Restart**.
 1. Select **OK** to confirm the restart.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway pane with the confirmation message about restarting the gateway." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway page with the confirmation message about restarting the gateway." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI command to restart VMware Spring Cloud Gateway:
+Use the following Azure CLI command to restart the gateway:
 
 ```azurecli
 az spring spring-cloud-gateway restart \
@@ -110,7 +111,7 @@ This section describes how to assign a public endpoint to VMware Spring Cloud Ga
 To assign an endpoint in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** on the left pane, and then select **Overview**.
+1. Select **Spring Cloud Gateway** on the navigation pane, and then select **Overview**.
 1. Set **Assign endpoint** to **Yes**.
 
 After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
@@ -132,9 +133,9 @@ az spring gateway update \
 
 ## Configure VMware Spring Cloud Gateway metadata
 
-VMware Spring Cloud Gateway metadata automatically generates OpenAPI version 3 documentation. You can configure VMware Spring Cloud Gateway metadata to display route groups in the API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
+VMware Spring Cloud Gateway metadata automatically generates OpenAPI version 3 documentation. You can configure VMware Spring Cloud Gateway metadata to display route groups in API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
-The following table describes the available metadata options.
+The following table describes the available metadata options:
 
 | Property      | Description                                                                                                                                                                                                                                                                 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -151,7 +152,7 @@ You can use the Azure portal or the Azure CLI to edit metadata properties.
 To edit metadata in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. Select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
@@ -159,7 +160,7 @@ To edit metadata in the Azure portal, use the following steps:
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure metadata properties for VMware Spring Cloud Gateway. You need the endpoint URL that you obtained when you [assigned a public endpoint to VMware Spring Cloud Gateway](#assign-a-public-endpoint-to-vmware-spring-cloud-gateway).
+Use the following command to configure metadata properties for VMware Spring Cloud Gateway. You need the endpoint URL that you obtained when you completed the [Assign a public endpoint to VMware Spring Cloud Gateway](#assign-a-public-endpoint-to-vmware-spring-cloud-gateway) section.
 
 ```azurecli
 az spring gateway update \
@@ -176,14 +177,14 @@ az spring gateway update \
 
 ## Configure single sign-on
 
-VMware Spring Cloud Gateway supports authentication and authorization through single sign-on (SSO) with an OpenID identity provider. The provider supports the OpenID Connect Discovery protocol.
+VMware Spring Cloud Gateway supports authentication and authorization through single sign-on (SSO) with an OpenID identity provider. The provider supports the OpenID Connect Discovery protocol. The following table describes the SSO properties:
 
-| Property       | Required? | Description                                                                                                                                                                                                                                                                                                          |
-|----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Property       | Required? | Description                                                                                                                                                                                                                                                                                  |
+|----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `issuerUri`    | Yes       | The URI that's asserted as its issuer identifier. For example, if `issuer-uri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
-| `clientId`     | Yes       | The OpenID Connect client ID from your identity provider.                                                                                                                                                                                                                                                                   |
-| `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                                               |
-| `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                                                       |
+| `clientId`     | Yes       | The OpenID Connect client ID from your identity provider.                                                                                                                                                                                                                                    |
+| `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
+| `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
 
 To set up SSO with Azure Active Directory, see [Set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API portal](./how-to-set-up-sso-with-azure-ad.md).
 
@@ -194,7 +195,7 @@ You can use the Azure portal or the Azure CLI to edit SSO properties.
 To edit SSO properties in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. Select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
@@ -231,7 +232,7 @@ VMware Spring Cloud Gateway service instances provide a default API endpoint to 
 
 ### Log out of the IdP and SSO session
 
-If you send a `GET` request to the `/scg-logout` endpoint, the endpoint sends a `302` redirect response to the IdP logout URL. To get the endpoint to return the user to a path on the VMware Spring Cloud Gateway service instance, add a redirect parameter to the `GET` request with the `/scg-logout` endpoint. For example, use `${server-url}/scg-logout?redirect=/home`.
+If you send a `GET` request to the `/scg-logout` endpoint, the endpoint sends a `302` redirect response to the IdP logout URL. To get the endpoint to return the user to a path on the gateway service instance, add a redirect parameter to the `GET` request with the `/scg-logout` endpoint. For example, you can use `${server-url}/scg-logout?redirect=/home`.
 
 The value of the redirect parameter must be a valid path on the VMware Spring Cloud Gateway service instance. You can't redirect to an external URL.
 
@@ -296,8 +297,8 @@ With the certificate updated to Azure Spring Apps, you can configure the TLS cer
 
 Use the following steps to configure the certificate in the Azure portal:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane.
-1. On the **Spring Cloud Gateway** pane, select **Certificate management**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Certificate management**.
 1. Select **Enable cert verification**.
 1. Select the TLS certificate in **Certificates**.
 1. Select **Save**.
@@ -365,8 +366,8 @@ VMware Spring Cloud Gateway restarts to ensure that the gateway uses the new cer
 
 Use the following steps to synchronize certificates:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane.
-1. On the **Spring Cloud Gateway** pane, select **Restart**, and then confirm the operation.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Restart**, and then confirm the operation.
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
@@ -421,7 +422,7 @@ But if you have requirements that you can't fulfill by other configurations desc
 
 To configure environment variables in the Azure portal, use the following steps:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Fill in the key/value pairs for the environment variables in the **Properties** and **Secrets** sections. You can include variables with sensitive information in the **Secrets** section.
 1. Select **Save** to save your changes.
 
@@ -469,7 +470,7 @@ You can use the Azure portal or the Azure CLI to set up APM in VMware Spring Clo
 
 Use the following steps to set up APM by using the Azure portal:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Choose the APM type in the **APM** list to monitor a gateway.
 1. Fill in the key/value pairs for the APM environment variables in the **Properties** and **Secrets** sections. You can put variables with sensitive information in **Secrets**.
 1. Select **Save** to save your changes.
@@ -538,7 +539,7 @@ To get environment variable keys, add the `logging.level.` prefix, and then set 
 
 To configure log levels in the Azure portal, use the following steps:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Fill in the key/value pairs for the log levels' environment variables in the **Properties** and **Secrets** sections. If the log level is sensitive information in your case, you can include it by using the **Secrets** section.
 1. Select **Save** to save your changes.
 
@@ -587,8 +588,8 @@ The following list shows the supported add-on configurations for the add-on key 
   - Key name: `sso`
   - Value type: Object
   - Properties:
-    - `RolesAttributeName` (string): Specifies the name of the attribute that contains the roles associated with the SSO session.
-    - `InactiveSessionExpirationInMinutes` (integer): Specifies the expiration time, in minutes, for inactive SSO sessions. A value of `0` means the session never expires.
+    - `RolesAttributeName` (String): Specifies the name of the attribute that contains the roles associated with the SSO session.
+    - `InactiveSessionExpirationInMinutes` (Integer): Specifies the expiration time, in minutes, for inactive SSO sessions. A value of `0` means the session never expires.
   - Example:
   
     ```json
@@ -604,7 +605,7 @@ The following list shows the supported add-on configurations for the add-on key 
   - Key name: `api`
   - Value type: Object
   - Properties
-    - `groupId` (string): A unique identifier for the group of APIs available on the VMware Spring Cloud Gateway instance. The value can contain only lowercase letters and numbers.
+    - `groupId` (String): A unique identifier for the group of APIs available on the VMware Spring Cloud Gateway instance. The value can contain only lowercase letters and numbers.
   - Example:
 
     ```json
@@ -619,7 +620,7 @@ Use the following steps to update the add-on configuration.
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the left pane, and then select **Configuration**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane, and then select **Configuration**.
 1. Specify the JSON value for **Addon Configs**.
 1. Select **Save**.
 
