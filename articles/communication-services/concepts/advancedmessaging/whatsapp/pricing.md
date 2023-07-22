@@ -37,7 +37,7 @@ WhatsApp charges per conversation, not individual message. Conversations are mes
 -   **Authentication**—Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
 -   **Service**—Service conversations help you resolve customer inquiries.
 
-For service conversations, WhatsApp provides 1,000 fee conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
+For service conversations, WhatsApp provides 1,000 free conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
 
 WhatsApp rates vary based on conversation category and country/region rate. Rates vary between \$0.003 and \$0.1597 depending on the category and country/region. WhatsApp provides a detailed explanation of their pricing, including the current rate card here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
