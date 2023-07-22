@@ -36,7 +36,7 @@ This document helps set up an example application that uses the following resour
   - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
   - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
-## Deploy the required Gateway API objects
+## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
