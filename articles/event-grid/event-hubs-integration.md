@@ -51,7 +51,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 
 ### Use Azure CLI to deploy the infrastructure
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Cloud Shell** button at the top.
 
     :::image type="content" source="media/event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button.":::
@@ -182,7 +182,7 @@ After publishing the function, you're ready to subscribe to the event.
 
 ## Subscribe to the event
 
-1. In a new tab or new window of a web browser, navigate to the [Azure portal](https://portal.azure.com).
+1. In a new tab or new window of a web browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, select **Resource groups** on the left menu. 
 3. Filter the list of resource groups by entering the name of your resource group in the search box. 
 4. Select your resource group in the list.

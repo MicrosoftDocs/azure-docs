@@ -36,7 +36,7 @@ You learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-- [Sign in to Azure portal](https://portal.azure.com)
+- Sign in to the [Azure portal](https://portal.azure.com)
 
 - [Create a Windows virtual machine](../../virtual-machines/windows/quick-create-portal.md)
 
@@ -145,7 +145,7 @@ CanDelegate: False
 
 For the remainder of the tutorial, you will work from the VM we created earlier.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the portal, navigate to **Virtual Machines** and go to the Windows virtual machine and in the **Overview**, click **Connect**.
 
