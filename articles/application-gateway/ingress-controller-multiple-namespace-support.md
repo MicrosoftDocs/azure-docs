@@ -19,7 +19,7 @@ infrastructure with finer controls of resources, security, configuration etc.
 Kubernetes allows for one or more ingress resources to be defined independently
 within each namespace.
 
-As of version 0.7 [Azure Application Gateway Kubernetes
+As of version 0.7, [Azure Application Gateway Kubernetes
 IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md)
 (AGIC) can ingest events from and observe multiple namespaces. Should the AKS
 administrator decide to use [App
@@ -30,7 +30,7 @@ configures the Application Gateway it is associated with.
 
 Version 0.7 of AGIC continues to exclusively observe the `default`
 namespace, unless this is explicitly changed to one or more different
-namespaces in the Helm configuration (see section below).
+namespaces in the Helm configuration (see the following section).
 
 > [!TIP]
 > Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
@@ -99,7 +99,7 @@ spec:
               servicePort: 80
 ```
 
-Despite the two ingress resources demanding traffic for `www.contoso.com` to be
+Despite the two ingress resources demanding traffic for `www.contoso.com` be
 routed to the respective Kubernetes namespaces, only one backend can service
 the traffic. AGIC would create a configuration on "first come, first served"
 basis for one of the resources. If two ingresses resources are created at the
@@ -114,15 +114,15 @@ resources:
   - HTTP Settings: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Health Probe: `pb-production-contoso-web-service-80-websocket-ingress`
 
-Note that except for *listener* and *routing rule*, the Application Gateway resources created include the name
+Note: Except for *listener* and *routing rule*, the Application Gateway resources created include the name
 of the namespace (`production`) for which they were created.
 
 If the two ingress resources are introduced into the AKS cluster at different
 points in time, it is likely for AGIC to end up in a scenario where it
-reconfigures Application Gateway and re-routes traffic from `namespace-B` to
+reconfigures Application Gateway and reroutes traffic from `namespace-B` to
 `namespace-A`.
 
-For example if you added `staging` first, AGIC configures Application Gateway to route
+For example, if you added `staging` first, AGIC configures Application Gateway to route
 traffic to the staging backend pool. At a later stage, introducing `production`
 ingress, causes AGIC to reprogram Application Gateway, which starts routing traffic
 to the `production` backend pool.
