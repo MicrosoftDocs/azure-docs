@@ -131,13 +131,7 @@ if response_message.get("function_call"):
     function_response = function_to_call(**function_args)
 
     # Add the assistant response and function response to the messages
-    messages.append( # adding assistant response to messages
-        {
-            "role": response_message["role"],
-            "name": response_message["function_call"]["name"],
-            "content": response_message["function_call"]["arguments"],
-        }
-    )
+    messages.append(response_message) # adding assistant response to messages
     messages.append( # adding function response to messages
         {
             "role": "function",
