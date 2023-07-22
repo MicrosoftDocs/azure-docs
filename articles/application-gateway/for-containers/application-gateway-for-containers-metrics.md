@@ -38,15 +38,15 @@ Use the following steps to view Application Gateway for Containers in the Azure 
   7. Enter values to use for filtering under Values. For example: and **Values**. For example: frontend-primary:80, ingress-frontend:443, ingress-frontend:80.
   8. Select the values you want to actively filter. See the following example:
   
-    ![Screenshot name](./media/application-gateway-for-containers-metrics/total-requests.png)
+     ![Application Gateway for Containers metrics total requests](./media/application-gateway-for-containers-metrics/total-requests.png)
 
   9. Add new charts by selecting New chart at the top. For example, you can display **HTTP Response Status**. In the following example, **Apply splitting** is used to split by **HTTP Response Code**:
 
-    ![Screenshot name](./media/application-gateway-for-containers-metrics/http-response-status.png)
+      ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
 
   10.  The following example shows **Backend Health Targets**:
 
-    ![Screenshot name](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
+       ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
 
 ## Next steps
 
