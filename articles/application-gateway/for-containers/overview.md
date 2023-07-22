@@ -104,6 +104,14 @@ ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/refe
 | [HTTPRoute](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.HTTPRoute)                | Yes   | Currently doesn't support [HTTPRouteFilter](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteFilter) |
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
 
+### Implementation of Ingress API
+
+ALB Controller implements support for [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+| Ingress API Resource      | Support | Comments     |
+| ------------------------- | ------- | ------------ |
+| [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingress-v1-networking-k8s-io)          | Yes   | Support for HTTP and HTTPS protocol on the listener. |
+
 ## Reporting issues
 
 For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/)
