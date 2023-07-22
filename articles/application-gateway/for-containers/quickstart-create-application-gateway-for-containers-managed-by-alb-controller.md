@@ -24,7 +24,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  See
 
 ### Prepare your virtual network / subnet for Application Gateway for Containers
 
-If you don't have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation.
+If you don't have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation. The new subnet address space can't overlap any existing subnets in the VNet. 
 
 # [New subnet in AKS managed virtual network](#tab/new-subnet-aks-vnet)
 If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, run the following command to find and assign the cluster's virtual network. This information is used in the next step.
