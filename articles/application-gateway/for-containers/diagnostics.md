@@ -31,29 +31,44 @@ You can use different types of logs in Azure to manage and troubleshoot Applicat
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
 
-For example, the following PowerShell sample may be used to enable all logging to a storage account for Application Gateway for Containers.
+  # [Azure portal](#tab/configure-log-powershell)
 
-```PowerShell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName acctest5097 -Name centraluseuaptclogs
-$metric = @()
-$log = @()
-$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
-$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
-New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
-```
+  Use the following steps to enable all logging to a storage account for Application Gateway for Containers using the Azure portal. You must have an available storage account in the same region as your Application Gateway for Containers.
+
+  1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+  2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
+  3. Under **Monitoring**, select **Diagnostic settings**.
+  4. Select **Add diagnostic setting**.
+  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination. To save all logs, select **allLogs** and **AllMetrics**. See the following example:
+
+    ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs1.png)
+  6. Select **Save** to save your settings.
+
+  # [PowerShell](#tab/configure-log-powershell)
+
+  The following PowerShell sample enables all logging to a storage account for Application Gateway for Containers. Replace the resource group name, storage account name, and subscription ID with your own values. The storage account and resource group must be in the same region as your Application Gateway for Containers.
+
+  ```PowerShell
+  $storageAccount = Get-AzStorageAccount -ResourceGroupName acctest5097 -Name centraluseuaptclogs
+  $metric = @()
+  $log = @()
+  $metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+  $log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+  New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
+  ```
 > [!Note]
-> Initial enablement of diagnostic logs may take up to one hour before being emitted to the selected destination.
+> After initially enabling diagnostic logs, it may take up to one hour before logs are available at your selected destination.
 
-More information on diagnostic settings in Azure Monitor and deployment tutorials for Portal, CLI, and more, may be [referenced here](../../azure-monitor/essentials/diagnostic-settings.md).
+For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### Access log format
 
-Each access log entry in Application Gateway for Containers will contain the following information.
+Each access log entry in Application Gateway for Containers contains the following information.
 
 | Value | Description |
 | ----- | ----------- |
 | backendHost | Address of backend target with appended port.  For example \<ip\>:\<port\> |
-| backendIp | IP address of backend target Application Gateway for Containers will proxy the request to. |
+| backendIp | IP address of backend target Application Gateway for Containers proxies the request to. |
 | backendPort | Port number of the backend target. |
 | backendResponseLatency | Time in milliseconds to receive first byte from Application Gateway for Containers to the backend target. |
 | backendTimeTaken | Time in milliseconds for the response to be transmitted from the backend target to Application Gateway for Containers. |

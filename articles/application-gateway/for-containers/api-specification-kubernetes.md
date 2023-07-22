@@ -58,7 +58,7 @@ why a particular condition type has been raised on the Application Gateway for C
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
+<td><p>AlbReasonAccepted indicates the Application Gateway for Containers resource
 has been accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Ready&#34;</p></td>

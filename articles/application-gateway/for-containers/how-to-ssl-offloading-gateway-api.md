@@ -1,13 +1,13 @@
 ---
 
 title: SSL offloading with Application Gateway for Containers - Gateway API (preview)
-description: Learn how to configure SSL offloading with Application Gateway for Containers usihng the Gateway API.
+description: Learn how to configure SSL offloading with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
@@ -234,7 +234,7 @@ status:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the command below to get the FQDN.
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
