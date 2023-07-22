@@ -41,6 +41,11 @@ monikerRange: '<=doc-intel-3.0.0'
 
 :::moniker-end
 
+> [!div class="op_single_selector"]
+>
+> * [OneDrive](includes/logic-app-tutorial/onedrive.md)
+> * [SharePoint](includes/logic-app-tutorial/sharepoint.md)
+
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
 * Create business processes and workflows visually.
