@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 07/20/2023
+ms.date: 07/21/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -82,7 +82,7 @@ These models can only be used with the Chat Completion API.
 | `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired on January 4, 2024.  See [model updates](#model-updates) for model upgrade behavior.
+<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
 ### GPT-3.5 models
 
@@ -94,7 +94,7 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 | `gpt-35-turbo` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 4,096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 16,384 | Sep 2021 |
 
-<sup>1</sup> Version `0301` of gpt-35-turbo will be retired on January 4, 2024.  See [model updates](#model-updates) for model upgrade behavior.
+<sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
 
 ### Embeddings models
@@ -141,7 +141,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 retirement
 
-The `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will be retired on January 4, 2024. Upon retirement, deployments will automatically be upgraded to the default version at the time of retirement. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.
+The `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will be retired no earlier than July 5, 2024. Upon retirement, deployments will automatically be upgraded to the default version at the time of retirement. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.
 
 ### Viewing deprecation dates
 

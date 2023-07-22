@@ -4,6 +4,7 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-linux
 ms.topic: troubleshooting
 ms.date: 04/27/2023
 ms.author: greglin
