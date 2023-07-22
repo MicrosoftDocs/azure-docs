@@ -1,0 +1,142 @@
+---
+title: Hardening Linux Image to remove sudo users for a Confidential VM deployment
+description: Learn how to use the Azure CLI to harden their linux image to remove sudo users.
+author: vvenug
+ms.service: virtual-machines
+mms.subservice: confidential-computing
+ms.topic: how-to
+ms.workload: infrastructure
+ms.date: 7/21/2023
+ms.author: corsini
+ms.custom: devx-track-azurecli
+---
+
+# Hardening a Linux image to remove sudo users for Azure confidential VM deployment
+
+**Applies to:** :heavy_check_mark: Linux Images
+
+This "how to" shows you steps to remove sudo users from the linux image and deploy confidential virtual machine (confidential VM) in Azure.
+
+The objective of this article is to create and manage an Adminless Linux image for CVM deployments. Removing guest admin has immense security value, it reduces admin privileges across OS. Not having any interactive user accounts, especially for Confidential Computing, reduces the attack surface of the VM.
+
+Understanding different types of users in Unix/Linux systems:
+- Admin user (sudoer): Regular users with additional permissions. These users can perform certain tasks that modify system configurations.
+
+- Regular user: Regular users are non-administrative users. They don't have permission to modify system configurations or install system-wide software.
+
+In the context of Adminless Linux images, the aim is to deploy systems without sudo users.
+
+> [!NOTE]
+> There is no guarantee that this configuration prevents the users being added to sudo group. Due to inherent aspects of Azure's infrastructure, there still exist pathways for users to escalate their privileges to the sudo level.
+
+## Prerequisites
+
+- If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Ubuntu image.
+
+### Remove sudo users and prepare a generalized Linux image
+
+The proposed solution results in a linux image with the following configuration,
+- without sudo users & with azure agents.
+
+Steps to create a generalized image which removes the sudo users are as follows,
+
+1. Download an Ubuntu image from the marketplace [Azure supported images](/azure/virtual-machines/linux/cli-ps-findimage) using the azcopy command,
+    ```
+    azcopy copy [source] [destination]
+    ```
+2. Mount the Ubuntu image vhd to a loop device (You can use mount_vhd.sh script to do the same)
+    ```
+    ./mount_vhd.sh Ubuntu_20.04.vhd
+    ```
+    The mount_vhd.sh script will perform the following operations to mount the vhd as shown below,
+    ```
+    #!/bin/bash
+
+    size=$(ls -l $1 | awk '{print $5}')
+
+    dev=$(sudo losetup --sizelimit $(($size - 512)) -P -f $1 --show)
+
+    parts=$(sudo fdisk -l $dev | grep ^${dev}p | awk '{print $1}')
+
+    for part in $parts
+    do
+        echo "$part"
+        mntpoint=/mnt${part}
+        echo $mntpoint
+        sudo mkdir -p $mntpoint
+        sudo mount $part $mntpoint
+        if [[ $? != 0 ]]; then
+            echo "Partition $part skipped"
+        fi
+    done
+    ```
+
+3. Chroot into the vhd filesystem to run the following command, which enumerates the list of users under the sudo group.
+    ```
+    sudo chroot /mnt/dev/$loopdevice/ getent group sudo
+    ```
+
+4. Validate the same by listing out the users in the sudoers.d home directory and in /etc/passwd, /etc/shadow files.
+If there are any users with sudo privileges, they will be listed here,
+
+    ```
+    sudo ls /mnt/dev/$loopdevice/etc/sudoers.d
+
+    sudo cat /mnt/dev/$loopdevice/etc/passwd
+
+    sudo cat /mnt/dev/$loopdevice/etc/shadow
+    ```
+
+5. Remove sudo privileges: Use the userdel command to remove users from the sudo group,
+    ```
+    sudo chroot /mnt/dev/$loopdevice/ userdel -r [sudo_username]
+    ```
+
+6. Validate on the mounted vhd that there are no sudo users as shown below, you should now not be able to see any user’s directory and their entries in the /etc/passwd and /etc/shadow files. Repeat step 4.
+
+6. Unmount the loop device. (Unmounting is done using the script)
+    ```
+    ./umount.sh /dev/loop3
+    ```
+    The umount.sh script will perform the following operations to unmount the loop device as shown below,
+    ```
+    #!/bin/bash
+
+    parts=$(sudo fdisk -l $1 | grep ^$1p | awk '{print $1}')
+
+    for part in $parts
+    do
+        # echo "$part"
+        mntpoint=/mnt/dev/${part}
+        # echo $mntpoint
+        sudo umount $mntpoint > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            echo "Partition $part skipped"
+        fi
+        sudo rmdir $mntpoint
+    done
+
+    sudo losetup -d $1
+    ```
+
+The image is prepared without any sudo users in it which can be used as a base/reference image for creating the Confidential vms.
+
+Follow the steps [Create a custom image for azure Confidential vm](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) to create a custom cvm.
+> [!NOTE]
+> We need to use the adminless image in step 4 of [Create a custom image for azure Confidential vm](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) while doing azcopy and the rest of the steps remains the same.
+
+Using the webserver we can validate that there are no sudo users in the image/cvm as shown below,
+
+![Alt text](image-1.png)
+
+#### Steps for validation it needed
+
+1. Create a Python HTTP server as a systemd service that displays system information in a web page. Webserver that enumerates the list of interactive and non-interactive users on the system.
+2. Create a systemd service file inside the chroot environment and made sure it is enabled to start on boot.
+
+> [!NOTE]
+> The validation Steps should be performed before unmounting the loop device.
+
+> [!div class="nextstepaction"]
+> Removing azure linux agent from the adminless Linux image and provisioning the cvm.
