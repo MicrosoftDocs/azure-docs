@@ -117,7 +117,7 @@ EOF
 
 ---
 
-Once the Ingress resource has been created check the status on the Ingress resource to ensure that the Ingress has a load balancing status with the proper address.
+Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
