@@ -93,8 +93,8 @@ metadata:
   name: ingress-01
   namespace: test-infra
   annotations:
-    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
-    alb.networking.azure.io/alb-frontend: ingress-frontend
+    alb.networking.azure.io/alb-id: $RESOURCE_ID
+    alb.networking.azure.io/alb-frontend: $FRONTEND_NAME
 spec:
   ingressClassName: azure-alb-external
   tls:
