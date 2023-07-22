@@ -38,7 +38,7 @@ This document helps set up an example application that uses the following resour
     - 1 deployment called `echo` in the `test-infra` namespace
     - 1 secret called `listener-tls-secret` in the `test-infra` namespace
 
-## Deploy the required gateway api objects
+## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
