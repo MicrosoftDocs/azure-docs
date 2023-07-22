@@ -76,5 +76,36 @@ Each access log entry in Application Gateway for Containers will contain the fol
 
 Here an example of the access log emitted in JSON format to a storage account.
 ```JSON
-
+{
+    "category": "TrafficControllerAccessLog",
+    "operationName": "ReqRespLogs",
+    "properties": {
+        "backendHost": "10.1.0.15:80",
+        "backendIp": "10.1.0.15",
+        "backendPort": "80",
+        "backendResponseLatency": "2",
+        "backendTimeTaken": "-",
+        "clientIp": "xxx.xxx.xxx.xxx:52526",
+        "frontendName": "frontend-primary",
+        "frontendPort": "80",
+        "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
+        "httpMethod": "GET",
+        "httpStatusCode": "200",
+        "httpVersion": "HTTP\/1.1",
+        "referer": "-",
+        "requestBodyBytes": "0",
+        "requestHeaderBytes": "223",
+        "requestUri": "\/index.php",
+        "responseBodyBytes": "91",
+        "responseHeaderBytes": "190",
+        "timeTaken": "2",
+        "tlsCipher": "-",
+        "tlsProtocol": "-",
+        "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
+        "userAgent": "curl\/7.81.0"
+    },
+    "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/YYYYYY/PROVIDERS/MICROSOFT.SERVICENETWORKING/TRAFFICCONTROLLERS/ZZZZZZZ",
+    "time": "2023-07-22T06:26:58.895Z",
+    "location": "northcentralus"
+}
 ```
