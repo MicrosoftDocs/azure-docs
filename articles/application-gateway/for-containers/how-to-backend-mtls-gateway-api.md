@@ -118,7 +118,7 @@ EOF
 
 ---
 
-Once the gateway resource has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
+Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -189,7 +189,7 @@ EOF
 
 Once the HTTPRoute object has been created check the status on the gateway resource to ensure that the route is accepted via kubectl command:
 ```bash
-kubectl get gateway gateway-01 -n test-infra -o yaml
+kubectl get httproute https-route -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
