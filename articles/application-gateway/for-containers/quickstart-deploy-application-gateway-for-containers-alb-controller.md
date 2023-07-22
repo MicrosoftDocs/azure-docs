@@ -122,12 +122,13 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	
 	echo "Set up federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
-	az identity federated-credential create --name $IDENTITY_RESOURCE_NAME \
-	    --identity-name "azure-alb-identity" \
+	az identity federated-credential create --name "azure-alb-identity" \
+	    --identity-name "$IDENTITY_RESOURCE_NAME" \
 	    --resource-group $RESOURCE_GROUP \
 	    --issuer "$AKS_OIDC_ISSUER" \
 	    --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
+    ALB Controller requires a federated credential with the name of _azure-alb-identity_.  Any other federated credential name is unsupported.
 
    > [!Note]
    > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Azure AD prior to delegating the identity.
