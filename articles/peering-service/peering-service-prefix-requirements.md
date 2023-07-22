@@ -87,4 +87,4 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 ## Next steps
 
-* [Peering Service customer walkthrough](./walkthrough-peering-service-customer.md)
+[Peering Service customer walkthrough](customer-walkthrough.md)

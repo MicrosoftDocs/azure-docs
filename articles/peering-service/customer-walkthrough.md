@@ -5,14 +5,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 07/23/2023
 ---
 
 # Azure Peering Service customer walkthrough
 
 This section explains the steps to optimize your prefixes with an Internet Service Provider (ISP) or Internet Exchange Provider (IXP) who is a Peering Service partner.
 
-The complete list of Peering Service providers can be found here: [Peering Service partners](./location-partners.md)
+The complete list of Peering Service providers can be found here: [Peering Service partners](location-partners.md)
 
 ## Activate the prefix
 

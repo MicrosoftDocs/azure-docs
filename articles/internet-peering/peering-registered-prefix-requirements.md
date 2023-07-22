@@ -54,4 +54,4 @@ Contact peeringservice@microsoft.com with your Azure subscription and prefix to 
 
 * [Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md).
 * [Internet peering for voice services walkthrough](walkthrough-communications-services-partner.md)
-* [Peering Service customer walkthrough](../peering-service/walkthrough-peering-service-customer.md)
+* [Peering Service customer walkthrough](../peering-service/customer-walkthrough.md)

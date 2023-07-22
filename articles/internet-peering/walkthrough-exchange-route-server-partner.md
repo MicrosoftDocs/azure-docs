@@ -113,7 +113,7 @@ Before prefixes can be optimized for a customer, their ASN must be registered.
 
 ### 2. Provide peering service prefix keys to customers for activation
 
-When your customers onboard to Peering Service, customers must follow the steps in [Peering Service customer walkthrough](../peering-service/walkthrough-peering-service-customer.md) to activate prefixes using the Peering Service prefix key obtained during ASN registration. Provide this key to customers before they activate, as this key is used for all prefixes during activation.
+When your customers onboard to Peering Service, customers must follow the steps in [Peering Service customer walkthrough](../peering-service/customer-walkthrough.md) to activate prefixes using the Peering Service prefix key obtained during ASN registration. Provide this key to customers before they activate, as this key is used for all prefixes during activation.
 
 ## Frequently asked questions (FAQ):
 
