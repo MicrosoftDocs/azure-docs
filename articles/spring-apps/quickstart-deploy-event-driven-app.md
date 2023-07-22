@@ -72,19 +72,19 @@ The sample project is an event-driven application that subscribes to a [Service 
 
 ::: zone pivot="sc-consumption-plan"
 
-[!INCLUDE [deploy-event-driven-app-with-standard-consumption-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-standard-consumption-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-standard-consumption-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-standard-consumption-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-basic-standard-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-[!INCLUDE [deploy-event-driven-app-with-enterprise-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-enterprise-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-enterprise-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-enterprise-plan.md)]
 
 ::: zone-end
 

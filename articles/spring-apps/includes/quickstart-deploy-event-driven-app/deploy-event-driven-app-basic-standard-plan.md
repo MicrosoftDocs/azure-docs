@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
-[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-basic-standard-plan.md)]
 
 -->
 
@@ -20,8 +20,8 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 3. Prepare the cloud environment
 
-[!INCLUDE [prepare-the-cloud-environment-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-the-cloud-environment-event-driven.md)]
+[!INCLUDE [prepare-cloud-environment-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-cloud-environment-event-driven.md)]
 
 ## 4. Deploy the app to Azure Spring Apps
 
-[!INCLUDE [deployment-event-driven](../../includes/quickstart-deploy-event-driven-app/deploy-the-app-to-azure-spring-apps-event-driven.md)]
+[!INCLUDE [deployment-event-driven](../../includes/quickstart-deploy-event-driven-app/deploy-app-azure-spring-apps-event-driven.md)]
