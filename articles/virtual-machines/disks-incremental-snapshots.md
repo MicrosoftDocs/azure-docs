@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 07/21/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
@@ -22,9 +22,9 @@ ms.devlang: azurecli
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to create an incremental snapshot. You'll need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
+You can use the Azure CLI to create an incremental snapshot. You need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
-The following script will create an incremental snapshot of a particular disk:
+The following script creates an incremental snapshot of a particular disk:
 
 ```azurecli
 # Declare variables
@@ -62,7 +62,7 @@ az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremen
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You can use the Azure PowerShell module to create an incremental snapshot. You'll need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
+You can use the Azure PowerShell module to create an incremental snapshot. You need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -172,6 +172,6 @@ az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logi
 
 See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
 
-If you have additional questions on snapshots, see the [snapshots](faq-for-disks.yml#snapshots) section of the FAQ.
+If you have more questions on snapshots, see the [snapshots](faq-for-disks.yml#snapshots) section of the FAQ.
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
