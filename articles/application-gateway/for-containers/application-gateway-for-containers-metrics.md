@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/20/2023
+ms.date: 07/24/2023
 ms.author: greglin
 
 ---
@@ -24,6 +24,20 @@ Application Gateway for Containers publishes data points to [Azure Monitor](../.
 | HTTP Response Status | HTTP response status returned by Application Gateway for Containers | Total | Frontend, HTTP Response Code |
 | Total Connection Idle Timeouts | Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout | Total | Frontend |
 | Total Requests | Count of requests Application Gateway for Containers has served | Total | Frontend |
+
+## View Application Gateway for Containers metrics
+
+Use the following steps to view Application Gateway for Containers in the Azure portal.
+
+  1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+  2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
+  3. Under **Monitoring**, select **Metrics**.
+  4. Next step
+  5. Next step
+  6. Next step. See the following example
+
+      ![Screenshot name](./media/application-gateway-for-containers-metrics/screenshot-filename.png)
+
 
 ## Next steps
 
