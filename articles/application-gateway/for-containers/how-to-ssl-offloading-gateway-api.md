@@ -27,16 +27,7 @@ This document helps set up an example application that uses the following resour
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTPS application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
-  ```
-  
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - 1 service called `mtls-app` in the `test-infra` namespace
-  - 1 deployment called `mtls-app` in the `test-infra` namespace
-  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+
     ```bash
     kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
     ```
