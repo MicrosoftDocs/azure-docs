@@ -32,12 +32,21 @@ Use the following steps to view Application Gateway for Containers in the Azure 
   1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
   2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
   3. Under **Monitoring**, select **Metrics**.
-  4. Next step
-  5. Next step
-  6. Next step. See the following example
+  4. Next to **Chart Title**, enter a title for your metrics view.
+  5. **Scope** and **Metric Namespace** are is automatically populated. Under **Metric**, select a metric such as: **Total Requests**. For the **Total Requests** metric, the **Aggregation** is set to **Sum**.
+  6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**. 
+  7. Enter values to use for filtering under Values. For example: and **Values**. For example: frontend-primary:80, ingress-frontend:443, ingress-frontend:80.
+  8. Select the values you want to actively filter. See the following example:
+  
+    ![Screenshot name](./media/application-gateway-for-containers-metrics/total-requests.png)
 
-      ![Screenshot name](./media/application-gateway-for-containers-metrics/screenshot-filename.png)
+  9. Add new charts by selecting New chart at the top. For example, you can display **HTTP Response Status**. In the following example, **Apply splitting** is used to split by **HTTP Response Code**:
 
+    ![Screenshot name](./media/application-gateway-for-containers-metrics/http-response-status.png)
+
+  10.  The following example shows **Backend Health Targets**:
+
+    ![Screenshot name](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
 
 ## Next steps
 
