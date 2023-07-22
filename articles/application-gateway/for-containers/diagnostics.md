@@ -41,6 +41,8 @@ $metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category 
 $log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
 New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
 ```
+> [!Note]
+> Initial enablement of diagnostic logs may take up to one hour before being emitted to the selected destination.
 
 More information on diagnostic settings in Azure Monitor and deployment tutorials for Portal, CLI, and more, may be [referenced here](../../azure-monitor/essentials/diagnostic-settings.md).
 
