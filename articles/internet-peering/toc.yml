@@ -6,8 +6,8 @@
     href: overview.md
   - name: Internet peering vs. Peering Service
     href: overview-peering-service.md
-  - name: Microsoft Azure Peering Service Partner overview
-    href: maps-overview-for-partners.md
+  - name: Azure Peering Service Partner overview
+    href: peering-service-overview-for-partners.md
 - name: Concepts
   items:
   - name: Peering policy
@@ -24,11 +24,11 @@
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
     href: walkthrough-exchange-all.md
-  - name: Internet peering for MAPS partner walkthrough
+  - name: Internet peering for Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
-  - name: Internet peering for MAPS Communications Services partner walkthrough
+  - name: Internet peering for Peering Service voice partner walkthrough
     href: walkthrough-communications-services-partner.md
-  - name: Internet peering for MAPS Exchange with Route Server partner walkthrough
+  - name: Internet peering for Peering Service Exchange with Route Server partner walkthrough
     href: walkthrough-exchange-route-server-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md

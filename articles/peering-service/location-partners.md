@@ -1,14 +1,12 @@
 ---
 title: Azure Peering Service locations and partners
 description: Learn about the available locations and partners globally for the Azure Peering Service.
-services: peering-service
 author: halkazwini
-ms.service: peering-service
-ms.topic: conceptual
-ms.workload: Infrastructure-services
-ms.date: 06/15/2023
 ms.author: halkazwini
-ms.custom: template-concept, references_regions, engagement-fy23
+ms.service: peering-service
+ms.topic: concept-article
+ms.date: 07/23/2023
+ms.custom: references_regions
 ---
 
 # Peering Service partners
@@ -125,7 +123,7 @@ The following table provides information on the Peering Service connectivity par
 ---
 
 > [!NOTE]
->For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
 
 ## Next steps
 

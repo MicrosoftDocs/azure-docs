@@ -1,13 +1,11 @@
 ---
 title: Azure Peering Service overview
 description: Learn about Azure Peering Service.
-services: peering-service
 author: halkazwini
+ms.author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.date: 01/19/2023
-ms.author: halkazwini
-ms.custom: template-overview, engagement-fy23
+ms.date: 07/23/2023
 ---
 
 # Azure Peering Service overview
@@ -18,7 +16,7 @@ With Peering Service, customers can select a well-connected partner service prov
 
 :::image type="content" source="./media/about/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud.":::
 
-Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network, and BGP route monitoring by registering the Peering Service connection in the Azure portal. 
+Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network and BGP route monitoring by registering the Peering Service connection in the Azure portal. 
 
 To use Peering Service, customers aren't required to register with Microsoft. The only requirement is to contact a [Peering Service partner](location-partners.md) to get the service. To opt in for Peering Service telemetry, customers must register for it in the Azure portal.
 
@@ -59,7 +57,7 @@ Enterprises looking for internet-first access to the cloud or considering SD-WAN
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
-- Route analytics and statistics: Events for BGP route anomalies, and suboptimal routing.
+- Route analytics and statistics: Events for BGP route anomalies and suboptimal routing.
 
 ### Robust, reliable peering
 
@@ -93,7 +91,7 @@ The following routing technique is preferred:
 
 ### Monitoring platform
 
-Service monitoring is offered to analyze user traffic and routing. The following metrics are available in the Azure portal to track the performance and availability of your MAPS connection:  
+Service monitoring is offered to analyze user traffic and routing. The following metrics are available in the Azure portal to track the performance and availability of your Peering Service connection:  
 
 - **Ingress and egress traffic rates**
 
@@ -111,11 +109,11 @@ Service monitoring is offered to analyze user traffic and routing. The following
     
 ### Onboarding a Peering Service connection
 
-To onboard a Peering Service connection, do the following:
+To onboard a Peering Service connection:
 
-Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
+- Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
 
-Ensure the [connectivity provider](location-partners.md) is partnered with Microsoft for Peering Service. 
+- Ensure the [connectivity provider](location-partners.md) is partnered with Microsoft for Peering Service. 
 
 ## Next steps
 

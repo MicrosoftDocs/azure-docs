@@ -1,13 +1,11 @@
 ---
 title: Create, change, or delete a Peering Service connection - Azure portal
 description: Learn how to create, change, or delete a Peering Service connection using the Azure portal.
-services: peering-service
 author: halkazwini
+ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 06/05/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 07/23/2023
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure portal
@@ -68,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet is the default failover route in the event of primary peering service location failure.
 
-1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix. If your provider is a Route Server partner, you can create all of your prefixes with the same peering service prefix key.
+1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix. If your provider is a Route Server partner, you can create all of your prefixes with the same Peering Service prefix key.
 
     :::image type="content" source="./media/azure-portal/peering-service-configuration.png" alt-text="Screenshot of the Configuration tab of Create a peering service connection in Azure portal."::: 
 
@@ -80,7 +78,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. After you create a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of your Peering Service. 
 
-    :::image type="content" source="./media/azure-portal/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/azure-portal/peering-service-prefix-validation.png":::
+    :::image type="content" source="./media/azure-portal/peering-service-prefix-validation.png" alt-text="Screenshot shows the validation status of the prefixes." lightbox="./media/azure-portal/peering-service-prefix-validation.png":::
 
 If the validation fails, one of the following error messages is displayed:
 
@@ -91,7 +89,7 @@ If the validation fails, one of the following error messages is displayed:
    - Prefix received with longer AS path(>3), contact Peering Service provider.
    - Prefix received with private AS in the path, contact Peering Service provider.
 
-Review the [Technical Requirements for Peering Service prefixes](../internet-peering/peering-registered-prefix-requirements.md) for more help to solve peering service prefix validation failures.
+Review the [Technical requirements for Peering Service prefixes](../internet-peering/peering-registered-prefix-requirements.md) for more help to solve peering service prefix validation failures.
 
 ## Add or remove a prefix
 

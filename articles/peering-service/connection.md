@@ -1,13 +1,11 @@
 ---
 title: Azure Peering Service connection 
 description: Learn about Microsoft Azure Peering Service connection.
-services: peering-service
 author: halkazwini
-ms.service: peering-service
-ms.topic: conceptual
-ms.date: 05/31/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.service: peering-service
+ms.topic: concept-article
+ms.date: 07/23/2023
 ---
 
 # Peering Service connection
@@ -28,7 +26,7 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## How to create a peering service connection?
 
-**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure below. Here, the customer is required to provide a logical name, Service Provider(SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
+**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure. Here, the customer is required to provide a logical name, Service Provider (SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
 
 :::image type="content" source="./media/connection/peering-service-connections.png" alt-text="Diagram shows geo redundant connections.":::
 
