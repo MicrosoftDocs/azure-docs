@@ -39,7 +39,7 @@ This document helps set up an example application that uses the following resour
   - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
   - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
-## Deploy the required gateway api objects
+## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
