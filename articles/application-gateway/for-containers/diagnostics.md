@@ -31,7 +31,7 @@ You can use different types of logs in Azure to manage and troubleshoot Applicat
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
 
-  # [Azure portal](#tab/configure-log-powershell)
+  # [Azure portal](#tab/configure-log-portal)
 
   Use the following steps to enable all logging to a storage account for Application Gateway for Containers using the Azure portal. You must have an available storage account in the same region as your Application Gateway for Containers.
 
