@@ -858,6 +858,8 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
+  - name: Use Azure AD authentication
+    href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
@@ -988,8 +990,6 @@ items:
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Use Azure AD authentication
-            href: logs/azure-ad-authentication-logs.md
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:            
