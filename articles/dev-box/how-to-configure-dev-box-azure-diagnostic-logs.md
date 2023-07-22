@@ -30,7 +30,7 @@ A dev center is required for the following step.
 
 Follow these steps enable logging for your Azure DevCenter resource:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, navigate to **All resources** -> **your-devcenter**
 

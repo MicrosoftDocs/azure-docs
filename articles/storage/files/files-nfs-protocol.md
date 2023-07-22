@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/15/2022
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-linux
 ---
 
 # NFS file shares in Azure Files

@@ -62,10 +62,13 @@ The response to this request looks like the following example:
 ```json
 {
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
-    "displayName": "Blob Storage Destination",
+    "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
 }
 ```
@@ -83,10 +86,13 @@ The response to this request looks like the following example:
 ```json
 {
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
-    "displayName": "Blob Storage Destination",
+    "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
 }
 ```
@@ -133,14 +139,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `connectionString` of a destination:
 
 ```json
 {
-  "displayName": "Blob Storage",
-  "type": "blobstorage@v1",
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-  "containerName": "central-data"
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net"
 }
 ```
 
@@ -151,10 +154,13 @@ The response to this request looks like the following example:
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
     "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
-}   
+}
 ```
 
 ### Delete a destination
@@ -309,19 +315,11 @@ You can use this call to perform an incremental update to an export. The sample 
 
 ```json
 {
-    "displayName": "Enriched Export",
-    "enabled": true,
-    "source": "telemetry",
     "enrichments": {
         "Custom data": {
             "value": "My value 2"
         }
-    },
-    "destinations": [
-        {
-            "id": "9742a8d9-c3ca-4d8d-8bc7-357bdc7f39d9"
-        }
-    ]
+    }
 }
 ```
 
@@ -335,7 +333,7 @@ The response to this request looks like the following example:
     "source": "telemetry",
     "enrichments": {
         "Custom data": {
-            "value": "My"
+            "value": "My value 2"
         }
     },
     "destinations": [
