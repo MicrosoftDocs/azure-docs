@@ -187,7 +187,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute object has been created check the status on the gateway resource to ensure that the route is accepted via kubectl command:
+Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```
