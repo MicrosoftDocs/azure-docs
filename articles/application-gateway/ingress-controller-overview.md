@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 07/22/2023
 ms.author: greglin
 ---
 
@@ -13,6 +13,9 @@ ms.author: greglin
 The Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) customers to leverage Azure's native [Application Gateway](https://azure.microsoft.com/services/application-gateway/) L7 load-balancer to expose cloud software to the Internet. AGIC monitors the Kubernetes cluster it is hosted on and continuously updates an Application Gateway, so that selected services are exposed to the Internet.
 
 The Ingress Controller runs in its own pod on the customer’s AKS. AGIC monitors a subset of Kubernetes Resources for changes. The state of the AKS cluster is translated to Application Gateway specific configuration and applied to the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Benefits of Application Gateway Ingress Controller
 AGIC helps eliminate the need to have another load balancer/public IP in front of the AKS cluster and avoids multiple hops in your datapath before requests reach the AKS cluster. Application Gateway talks to pods using their private IP directly and doesn't require NodePort or KubeProxy services. This also brings better performance to your deployments.

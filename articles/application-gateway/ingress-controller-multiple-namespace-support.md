@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
@@ -31,6 +31,9 @@ configure the Application Gateway it is associated with.
 Version 0.7 of AGIC will continue to exclusively observe the `default`
 namespace, unless this is explicitly changed to one or more different
 namespaces in the Helm configuration (see section below).
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Enable multiple namespace support
 To enable multiple namespace support:
