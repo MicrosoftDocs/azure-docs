@@ -42,13 +42,15 @@ Use the following steps to view Application Gateway for Containers in the Azure 
 8. Select the values you want to actively filter from the entries you create. 
 9. Choose **Apply Splitting**, select **Frontend**, and accept default values for **Limit** and **Sort**. See the following example:
 
+  **Total Requests**
+
   ![Application Gateway for Containers metrics total requests](./media/application-gateway-for-containers-metrics/total-requests.png)
 
   The following are some other useful chart examples:
 
   **HTTP Response Status**
 
-  In the HTTP response status example show, a filter can be applied to quickly identify trends on response codes returned to client requests. Optionally, a filter may be applied to further monitor a specific grouping of HTTP response codes.
+  In the HTTP response status example is shown, a filter can be applied to quickly identify trends on response codes returned to client requests. Optionally, a filter may be applied to further monitor a specific grouping of HTTP response codes.
 
   ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
 
