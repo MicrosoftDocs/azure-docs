@@ -32,7 +32,7 @@ Microsoft Defender CSPM protects across all your multicloud workloads, but billi
 > [!NOTE]
 > 
 > - The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1, 2023. Billing will apply for Servers, Database, and Storage resources. Billable workloads will be VMs, Storage accounts, OSS DBs, SQL PaaS, & SQL servers on machines.​
-
+>
 > - This price includes free vulnerability assessments for 20 unique images per charged resource, whereby the count will be based on the previous month's consumption. Every subsequent scan will be charged at $0.29 per image digest. The majority of customers are not expected to incur any additional image scan charges. For subscription that are both under the Defender CSPM and Defender for Containers plans, free vulnerability assessment will be calculated based on free image scans provided via the Defender for Containers plan, as specified [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
 ## Plan availability
