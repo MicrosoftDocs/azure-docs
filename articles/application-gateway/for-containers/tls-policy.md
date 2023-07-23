@@ -9,7 +9,7 @@ ms.date: 07/24/2023
 ms.author: greglin
 ---
 
-# Application Gateway TLS policy overview
+# Application Gateway for Containers TLS policy overview
 
 You can use Azure Application Gateway for Containers to control TLS/SSL ciphers to meet compliance and security goals of the organization.
 
