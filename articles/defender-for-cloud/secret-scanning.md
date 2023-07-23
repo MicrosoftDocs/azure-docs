@@ -32,9 +32,6 @@ In addition to detecting SSH private keys, the agentless scanner verifies whethe
   - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
   - [Defender CSPM](concept-cloud-security-posture-management.md)
 
-> [!NOTE]
-> If both plans are not enabled, you will only have limited access to the features available from Defender for Server's agentless secret scanning capabilities. Check out [which features are available with each plan](#feature-capability).
-
 - [Enable agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines).
 
 For requirements for agentless scanning, see [Learn about agentless scanning](concept-agentless-data-collection.md#availability).
