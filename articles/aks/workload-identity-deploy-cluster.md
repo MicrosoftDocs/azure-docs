@@ -2,7 +2,7 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 05/24/2023
 ---
 
@@ -132,11 +132,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: quick-start
-  namespace: SERVICE_ACCOUNT_NAMESPACE
+  namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
     azure.workload.identity/use: "true"
 spec:
-  serviceAccountName: workload-identity-sa
+  serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
 EOF
 ```
 

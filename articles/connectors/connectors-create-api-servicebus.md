@@ -57,17 +57,13 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
   For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
-* By default, the Service Bus built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+* By default, the Service Bus built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 ## Considerations for Azure Service Bus operations
 
 ### Infinite loops
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
-
-### Peek-lock
-
-In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
 
 ### Limit on saved sessions in connector cache
 

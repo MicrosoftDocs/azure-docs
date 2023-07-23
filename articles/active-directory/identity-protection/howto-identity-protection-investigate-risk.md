@@ -153,6 +153,9 @@ If more information is shown for the detection:
       1. Protocol
       1. Ranges of IPs/ASNs
       1. Time and frequency of sign-ins
+  1. This detection was triggered by a real-time rule
+      1. Validate that no other users in your directory are targets of the same attack. This can be found by the TI_RI_#### number assigned to the rule.
+      1. Real-time rules protect against novel attacks identified by Microsoft's threat intelligence. If multiple users in your directory were targets of the same attack, investigate unusual patterns in other attributes of the sign in.
 
 ## Investigate risk with Microsoft 365 Defender
 

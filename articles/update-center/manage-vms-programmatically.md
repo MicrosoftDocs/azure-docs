@@ -48,7 +48,7 @@ Invoke-AzVMPatchAssessment -ResourceGroupName "myRG" -VMName "myVM"
 To trigger an update deployment to your Azure VM, specify the following POST request:
 
 ```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/machines/virtualMachineName/installPatches?api-version=2020-12-01`
+POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version=2020-12-01`
 ```
 
 #### Request body

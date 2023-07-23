@@ -25,7 +25,7 @@ System-preferred MFA is a Microsoft managed setting, which is a [tristate policy
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
 
 >[!NOTE]
->System-preferred MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-peeferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
+>System-preferred MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-preferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
 
 ## Enable system-preferred MFA in the Azure portal
 

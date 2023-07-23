@@ -36,7 +36,7 @@ Azure Custom Resource Providers are made by creating a contract between Azure an
 
 ## How to build custom resource providers
 
-Custom resource providers are a list of contracts between Azure and endpoints. This contract describes how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **routingType**, and **endpoint**.
+Custom resource providers are a list of contracts between Azure and endpoints. These contracts describe how Azure should interact with their endpoints. The resource providers act like a proxy and will forward requests and responses to and from their specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **routingType**, and **endpoint**.
 
 Sample Endpoint:
 

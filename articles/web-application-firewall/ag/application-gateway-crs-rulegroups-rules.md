@@ -198,7 +198,7 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version.
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
 
 |Rule group|Description|
 |---|---|
@@ -215,7 +215,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 ### Bot rules
 
-You can enable a managed bot protection rule set to take custom actions on requests from all bot   categories.
+You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
 |Rule group|Description|
 |---|---|

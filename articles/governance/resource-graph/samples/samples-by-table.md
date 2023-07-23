@@ -27,6 +27,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
+
 ## ExtendedLocationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-extendedlocationresources](../../../../includes/resource-graph/samples/bytable/extendedlocationresources.md)]
