@@ -169,4 +169,4 @@ From the Azure portal:
 * [Learn more about snapshots](snapshots-introduction.md) 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
-* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
