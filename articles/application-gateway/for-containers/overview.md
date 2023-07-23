@@ -114,7 +114,7 @@ ALB Controller implements support for [Ingress](https://kubernetes.io/docs/conce
 
 ## Reporting issues
 
-For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/)
+For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?&c=69637543-1829-ee11-bdf4-000d3a1ab360)
 For issues, raise a support request via the Azure portal on your Application Gateway for Containers resource.
 
 ## Pricing and SLA
