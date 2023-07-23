@@ -46,7 +46,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | P-384 | &check; | &check; |
 | P-256 | &check; | &check; |
 
-Protocol versions, ciphers, and elliptical curves not specified in the table above are not supported and will not be negotiated.
+Protocol versions, ciphers, and elliptical curves not specified in the table above are not supported and won't be negotiated.
 
 ### Default TLS policy
 
