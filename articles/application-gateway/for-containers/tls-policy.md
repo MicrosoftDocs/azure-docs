@@ -24,7 +24,7 @@ TLS policy includes definition of the TLS protocol version, cipher suites, and o
 
 ## Predefined TLS policy
 
-Application Gateway for Containers offers two predefined security policies. You can choose either of these policies to achieve the appropriate level of security. The policy names are annotated by the year and month (YYYY-MM).  Additionally, a **-S** variant may exist to denote a more strict variant of ciphers that may be negotiated. Each policy offers different TLS protocol versions and cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
+Application Gateway for Containers offers two predefined security policies. You can choose either of these policies to achieve the appropriate level of security. Policy names are defined by year and month (YYYY-MM) of introduction.  Additionally, an **-S** variant may exist to denote a more strict variant of ciphers that may be negotiated. Each policy offers different TLS protocol versions and cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies.
 
