@@ -72,10 +72,22 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    To define a new source endpoint from which to migrate your data, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
 
-   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::[!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+   Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. The following table compares the supported source-to-destination scenarios, and lists their required and optional fields.
 
-   The steps to create endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources.
+   |Protocol   |Source        |Destination                     |Agent version required |Fields      |
+   |-----------|--------------|--------------------------------|-----------------------|------------|
+   |SMB        |SMB mount     |Azure file share                |2.0.277                |<table><tr><th>Field name</th><th>Required</th></tr><tr><td>Host name or IP</td><td>&#10003;</td></tr><tr><td>Share name</td><td>&#10003;</td></tr><tr><td>Protocol version</td><td>&#10003;</td></tr><tr><td>Key vault</td><td>&#10003;</td></tr><tr><td>Secret for username</td><td>&#10003;</td></tr><tr><td>Secret for password</td><td>&#10003;</td></tr><tr><td>Description</td><td></td></tr><tr><td>Subpath</td><td></td></tr></table>|
+   |NFS        |NFS mount     |Azure blob storage container    |1.1.256                |            |
 
+   The following screen capture shows the 
+
+
+
+   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
+
+   [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+
+   
    <a name="sub-path"></a>
    By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value starts the data migration from the location you've specified. If the sub path you've specified isn't found, no data is copied.
 
