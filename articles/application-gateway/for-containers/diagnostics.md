@@ -1,5 +1,5 @@
 ---
-title: Diagnostic Logs for Application Gateway for Containers (preview)
+title: Diagnostic logs for Application Gateway for Containers (preview)
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
@@ -42,7 +42,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**. 
   6. Select **Save** to save your settings. See the following example:
 
-      ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs1.png)
+      ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs.png)
 
   # [PowerShell](#tab/configure-log-powershell)
 
