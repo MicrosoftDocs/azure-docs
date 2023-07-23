@@ -139,7 +139,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 
 **Estimated date for change: August 2023**
 
-The naming of standards for Azure CIS (Center for Internet Security) are set to be changed from format `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
+The naming format of standards for Azure CIS (Center for Internet Security) is set for change from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
 
 | Current Name | New Name |
 |--|--|
@@ -157,7 +157,7 @@ Learn how to [improve your regulatory compliance](regulatory-compliance-dashboar
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
 
-Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types:
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the following set of data types:
 
 - WindowsEvent
 - SecurityAlert
