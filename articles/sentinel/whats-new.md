@@ -22,15 +22,9 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## July 2023
+## August 2023
 
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
-- Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
-- [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
-- [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
-- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
-- [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
-- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
 ### Export and import automation rules (Preview)
 
@@ -41,6 +35,27 @@ The exported JSON file is workspace-independent, so it can be imported to other 
 The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
 
 Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+## July 2023
+
+- [Higher limits for entities in alerts and entity mappings in analytics rules](#higher-limits-for-entities-in-alerts-and-entity-mappings-in-analytics-rules)
+- Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
+- [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
+- [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
+- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
+- [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
+- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
+
+### Higher limits for entities in alerts and entity mappings in analytics rules
+
+The following limits on entities in alerts and entity mappings in analytics rules have been raised:
+- You can now define **up to ten entity mappings** in an analytics rule (up from five).
+- A single alert can now contain **up to 500 identified entities** in total, divided equally amongst the mapped entities.
+- The *Entities* field in the alert has a **size limit of 64 KB**. (This size limit previously applied to the entire alert record.)
+
+Learn more about entity mapping, and see a full description of these limits, in [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
+
+Learn about other [service limits in Microsoft Sentinel](sentinel-service-limits.md).
 
 ### Content Hub generally available and centralization changes released
 
