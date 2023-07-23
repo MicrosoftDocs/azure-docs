@@ -37,7 +37,7 @@ You might find the following features of conversation transcription useful:
 
 ## Get started
 
-See the real-time conversation transcription [quickstart](how-to-use-conversation-transcription.md) to get started.
+See the real-time conversation transcription [quickstart](get-started-stt-diarization.md) to get started.
 
 ## Use cases
 
@@ -49,7 +49,7 @@ Meeting participants can focus on the meeting and leave note-taking to conversat
 
 The following diagram shows a high-level overview of how the feature works.
 
-![Diagram that shows the relationships among different pieces of the conversation transcription solution.](media/scenarios/conversation-transcription-service.png)
+![Diagram that shows the relationships among different pieces of the conversation transcription solution.](media/scenarios/meeting-transcription-service.png)
 
 ## Expected inputs
 
@@ -90,4 +90,4 @@ Currently, conversation transcription supports [all speech to text languages](la
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transcribe conversations in real-time](how-to-use-conversation-transcription.md)
+> [Transcribe conversations in real-time](get-started-stt-diarization.md)

@@ -18,7 +18,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 
 If you want to enroll user profiles, the first step is to create voice signatures for the meeting participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
 
-The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
+The input `.wav` audio file for creating voice signatures must be 16-bit, 16-kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short results in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
 The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in JavaScript. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
@@ -60,7 +60,7 @@ Running this script returns a voice signature string in the variable `voiceSigna
 
 The following sample code demonstrates how to transcribe meetings in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
-If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
+If you don't use pre-enrolled user profiles, it takes a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
 > [!NOTE]
 > Make sure the same `subscriptionKey` is used across your application for signature creation, or you will encounter errors. 
@@ -74,7 +74,7 @@ This sample code does the following:
 * Registers to events and begins transcription.
 * If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Meeting Transcription Overview](../../../meeting-transcription.md). 
 
-If speaker identification or differentiate is enabled, then even if you have already received `transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `speakerId`, then a nearly identical `Transcribed` result will be sent again, where only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if the current `transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
+If speaker identification or differentiate is enabled, then even if you have already received `transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `speakerId`, then a nearly identical `Transcribed` result is sent again, where only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if the current `transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
 
 ```javascript
 (function() {

@@ -1532,7 +1532,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/conversation-transcription",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
       "redirect_document_id": true
     },
     {
@@ -1652,7 +1652,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-async-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-async-conversation-transcription",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
       "redirect_document_id": true
     },
     {
@@ -1887,7 +1887,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-use-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-use-conversation-transcription",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
       "redirect_document_id": true
     },
     {
