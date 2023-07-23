@@ -1,5 +1,5 @@
 ---
-title: Internet peering for Peering Service Exchange with Route Server partner walkthrough
+title: Internet peering for Azure Peering Service Exchange with Route Server partner walkthrough
 description: Learn about Internet peering for Peering Service Exchange with Route Server, its requirements, the steps to establish direct interconnect, and how to register your ASN.
 author: halkazwini
 ms.author: halkazwini

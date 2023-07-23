@@ -1,5 +1,5 @@
 ---
-title: Internet peering for Peering Service partner walkthrough
+title: Internet peering for Azure Peering Service partner walkthrough
 description: Learn about Internet peering for Azure Peering Service, its requirements, the steps to establish direct interconnect, and how to register a prefix.
 author: halkazwini
 ms.author: halkazwini
