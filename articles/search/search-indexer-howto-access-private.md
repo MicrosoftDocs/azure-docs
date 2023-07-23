@@ -98,7 +98,7 @@ When you complete the steps in this section, you have a shared private link that
 
 ### [**Azure portal**](#tab/portal-create)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. Under **Settings** on the left navigation pane, select **Networking**.
 

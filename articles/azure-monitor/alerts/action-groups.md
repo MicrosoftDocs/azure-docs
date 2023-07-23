@@ -4,8 +4,7 @@ description: Find out how to create and manage action groups. Learn about notifi
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-arm-template
 ---
 # Action groups
 
@@ -361,10 +360,6 @@ If your primary email doesn't receive notifications, configure the email address
    :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot that shows a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
 
 You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
-
-> [!NOTE]
->
-> Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible.
 
 When you set up the Resource Manager role:
 

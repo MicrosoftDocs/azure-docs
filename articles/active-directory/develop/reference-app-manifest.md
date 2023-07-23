@@ -27,7 +27,7 @@ You can configure an app's attributes through the Azure portal or programmatical
 
 To configure the application manifest:
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Search for and select the **Azure Active Directory** service.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Search for and select the **Azure Active Directory** service.
 1. Select **App registrations**.
 1. Select the app you want to configure.
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
@@ -634,7 +634,6 @@ Use the following comments section to provide feedback that helps refine and sha
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: /graph/migrate-azure-ad-graph-planning-checklist
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md

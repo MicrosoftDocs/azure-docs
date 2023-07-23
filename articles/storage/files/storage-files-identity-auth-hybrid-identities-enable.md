@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 07/17/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -212,10 +212,10 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
 - Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Configure the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v <DomainName> /d <StorageAccountEndPoint>`
-  - For example, `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v contoso.local /d <your-storage-account-name>.file.core.windows.net`
+- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <realmname>`
+  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
 
-Changes are not instant, and require a policy refresh or a reboot to take effect.
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 ## Disable Azure AD authentication on your storage account
 

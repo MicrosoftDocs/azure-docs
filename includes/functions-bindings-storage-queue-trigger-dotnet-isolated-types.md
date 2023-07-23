@@ -16,7 +16,7 @@ The queue trigger can bind to the following types:
 | [QueueMessage]| _(Preview<sup>1</sup>)_<br/>The message. |
 | [BinaryData]| _(Preview<sup>1</sup>)_<br/>The bytes of the message. |
 
-<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues 5.1.3-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues/5.1.3-preview1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types-preview).
+<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues 5.1.3-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues/5.1.3-preview1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types).
 
 [QueueMessage]: /dotnet/api/azure.storage.queues.models.queuemessage
 [BinaryData]: /dotnet/api/system.binarydata
