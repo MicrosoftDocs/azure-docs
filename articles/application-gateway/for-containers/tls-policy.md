@@ -84,7 +84,7 @@ EOF
 
 # [Ingress API](#tab/tls-policy-ingress-api)
 
-TLS policy is currently not supported for Ingress API.  By default, Ingress will leverage the default TLS policy: 2023-06.
+TLS policy is currently not supported for Ingress resources and will automatically be configured to use the default TLS policy `2023-06`.
 
 
 ---
