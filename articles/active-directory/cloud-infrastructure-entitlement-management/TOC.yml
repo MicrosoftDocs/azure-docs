@@ -27,16 +27,13 @@
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
-    - name: View risk metrics in your authorization system
+    - name: View information about your Authorization Systems
       expanded: false
       items:
       - name: View key statistics and data about your authorization system
         href: ui-dashboard.md
       - name: View data about the activity in your authorization system
         href: product-dashboard.md  
-    - name: View information about your Authorization Systems
-      expanded: false
-      items:
       - name: View and configure settings for data collection
         href: product-data-sources.md
       - name: View current billable resources in your authorization system
@@ -108,8 +105,6 @@
         href: ui-audit-trail.md
       - name: Create a custom query
         href: how-to-create-custom-queries.md
-      - name: Generate an on-demand report from a query
-        href: how-to-audit-trail-results.md
       - name: Filter and query user activity
         href: product-audit-trail.md
     - name: Set activity alerts and triggers 
@@ -139,6 +134,8 @@
     - name: Create and view reports 
       expanded: false
       items: 
+      - name: Generate an on-demand report from a query
+        href: how-to-audit-trail-results.md
       - name: View system reports in the Reports dashboard
         href: product-reports.md
       - name: View a list and description of system reports
@@ -154,11 +151,6 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
-  - name: Training videos
-    expanded: false
-    items:
-    - name: Get started with Permissions Management training videos
-      href: training-videos.md
   - name: Reference
     expanded: false
     items:

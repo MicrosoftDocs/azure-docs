@@ -30,7 +30,7 @@ Use any of the following methods to enable monitoring for an existing AKS cluste
 ## [CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Azure CLI version 2.39.0 or higher is required for managed identity authentication.
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0.
 
 ### Use a default Log Analytics workspace
 
@@ -338,6 +338,9 @@ This section explains two methods for migrating to managed identity authenticati
 
 AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
 
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
+
 1. Get the configured Log Analytics workspace resource ID:
 
     ```cli
@@ -359,12 +362,15 @@ AKS clusters with a service principal must first disable monitoring and then upg
 1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
       ```cli
-      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
       ```
 
 ### Existing clusters with system or user-assigned identity
 
 AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
+
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
 
 1. Get the configured Log Analytics workspace resource ID:
 
@@ -381,7 +387,7 @@ AKS clusters with system-assigned identity must first disable monitoring and the
 1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
       ```cli
-      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
       ```
 
 ## Private link

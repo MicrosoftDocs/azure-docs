@@ -5,6 +5,7 @@ description: Learn about Teams interoperability with Azure Communication Service
 author: ovishesh
 
 ms.service: azure-communication-services
+ms.subservice: call-automation
 ms.topic: include
 ms.date: 02/22/2023
 ms.author: visho
@@ -15,7 +16,7 @@ ms.custom: private_preview
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide to resolve a customer issue.
+Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide expert advice and help resolve a customer issue.
 
 This interoperability with Microsoft Teams over VoIP makes it easy for developers to implement per-region multi-tenant trunks that maximize value and reduce telephony infrastructure overhead. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin has granted necessary permissions to the Azure Communication Services resource.
 
@@ -32,11 +33,11 @@ The dataflow diagram depicts a canonical scenario where a Teams user is added to
 [ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png#lightbox)
 
 1. Customer is on an ongoing call with a Contact Center customer service agent. 
-1. the call, the customer service agent needs expert help from one of the domain experts part of an engineering team. The agent is able to identify a knowledge worker who is available on Teams (presence via Graph APIs) and tries to add them to the call. 
+1. During the call, the customer service agent needs expert help from one of the domain experts part of an engineering team. The agent is able to identify a knowledge worker who is available on Teams (presence via Graph APIs) and tries to add them to the call. 
 1. Contoso Contact Center’s SBC is already configured with ACS Direct Routing where this add participant request is processed.
 1. Contoso Contact Center provider has implemented a web service, using ACS Call Automation that receives the “add Participant” request.
 1. With Teams interop built into ACS Call Automation, ACS then uses the Teams user’s ObjectId to add them to the call. The Teams user receives the incoming call notification. They accept and join the call. 
-1. Once the Teams has provided their expertise, they leave the call. The customer service agent and customer continue wrap up their conversation.
+1. Once the Teams user has provided their expertise, they leave the call. The customer service agent and customer continue wrap up their conversation.
 
 ## Capabilities
 
@@ -79,7 +80,7 @@ The following list presents the set of features that are currently available in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation.md)
+> [Get started with adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation.md)
 
 Here are some articles of interest to you:
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.

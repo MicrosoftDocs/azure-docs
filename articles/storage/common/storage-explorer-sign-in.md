@@ -3,7 +3,7 @@ title: Sign in to Azure Storage Explorer
 description: Documentation on signing into Azure Storage Explorer
 services: storage
 author: MRayermannMSFT
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm

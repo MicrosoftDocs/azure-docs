@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 06/08/2023
+  ms.date: 07/13/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -59,7 +59,7 @@ sections:
       - question: |
           How many users can an Azure AD B2C tenant accommodate?
         answer: |
-          - By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+          - By default, each tenant can accommodate a total of **1 million** objects (user accounts and applications), but you can increase this limit to **5 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
       - question: |
           Which social identity providers do you support now? Which ones do you plan to support in the future?
         answer: |
@@ -187,6 +187,10 @@ sections:
         answer: |
           No. 50,000 free [MAUs](billing.md#mau-overview) per month doesn't apply when you enable Go-Local add-on. 
           You'll incur a charge on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
+      - question: | 
+          I've an existing Azure AD B2C tenant in Japan or Australia that doesn't have Go-Local add-on enabled. How do I activate this add-on? 
+        answer: |
+          Follow the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on) to activate Azure AD B2C Go-Local add-on.
       - question: |
           Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
         answer: |

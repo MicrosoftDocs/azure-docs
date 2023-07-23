@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Preparing user accounts for Lifecycle workflows (preview)'
-description: Tutorial for preparing user accounts for Lifecycle workflows (preview).
+title: 'Tutorial: Preparing user accounts for Lifecycle workflows'
+description: Tutorial for preparing user accounts for Lifecycle workflows.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# Preparing user accounts for Lifecycle workflows tutorials (Preview)
+# Preparing user accounts for Lifecycle workflows tutorials
 
 For the on-boarding and off-boarding tutorials you need accounts for which the workflows are executed. This section helps you prepare these accounts, if you already have test accounts that meet the following requirements, you can proceed directly to the on-boarding and off-boarding tutorials. Two accounts are required for the on-boarding tutorials, one account for the new hire and another account that acts as the manager of the new hire. The new hire account must have the following attributes set:
 
@@ -31,7 +31,7 @@ The off-boarding tutorials only require one account that has group and Teams mem
 
 ## Before you begin
 
-In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (Azure AD Connect, Cloud sync, etc.) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
+In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (such as Azure AD Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
 
 ## Create users in Azure AD
 
@@ -52,20 +52,20 @@ First we create our employee, Melva Prince.
  6. Select **Run query**
  7. Copy the ID that is returned in the results.  This is used later to assign a manager.
 
-   ```HTTP
-  {
-  "accountEnabled": true,
-  "displayName": "Melva Prince",
-  "mailNickname": "mprince",
-  "department": "sales",
-  "mail": "mprince@<your tenant name here>",
-  "employeeHireDate": "2022-04-15T22:10:00Z",
-  "userPrincipalName": "mprince@<your tenant name here>",
-  "passwordProfile" : {
-    "forceChangePasswordNextSignIn": true,
-    "password": "xWwvJ]6NMw+bWH-d"
-  }
-  }
+   ```json
+   {
+     "accountEnabled": true,
+     "displayName": "Melva Prince",
+     "mailNickname": "mprince",
+     "department": "sales",
+     "mail": "mprince@<your tenant name here>",
+     "employeeHireDate": "2022-04-15T22:10:00Z",
+     "userPrincipalName": "mprince@<your tenant name here>",
+     "passwordProfile" : {
+       "forceChangePasswordNextSignIn": true,
+       "password": "xWwvJ]6NMw+bWH-d"
+     }
+   }
    ```
  :::image type="content" source="media/tutorial-lifecycle-workflows/graph-post-user.png" alt-text="Screenshot of POST create Melva in graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-post-user.png":::
 
@@ -76,22 +76,22 @@ Next, we create Britta Simon.  This is the account that is used as our manager.
  3. Copy the following code in to the **Request body** 
  4.  Replace `<your tenant here>` in the following code with the value of your Azure AD tenant.
  5. Select **Run query**
- 6. Copy the ID that is returned in the results.  This is used later to assign a manager.
-   ```HTTP
-  {
-  "accountEnabled": true,
-  "displayName": "Britta Simon",
-  "mailNickname": "bsimon",
-  "department": "sales",
-  "mail": "bsimon@<your tenant name here>",
-  "employeeHireDate": "2021-01-15T22:10:00Z",
-  "userPrincipalName": "bsimon@<your tenant name here>",
-  "passwordProfile" : {
-    "forceChangePasswordNextSignIn": true,
-    "password": "xWwvJ]6NMw+bWH-d"
-  }
-  }
-   ```
+ 6. Copy the ID that is returned in the results. This is used later to assign a manager.
+    ```json
+    {
+      "accountEnabled": true,
+      "displayName": "Britta Simon",
+      "mailNickname": "bsimon",
+      "department": "sales",
+      "mail": "bsimon@<your tenant name here>",
+      "employeeHireDate": "2021-01-15T22:10:00Z",
+      "userPrincipalName": "bsimon@<your tenant name here>",
+      "passwordProfile" : {
+        "forceChangePasswordNextSignIn": true,
+        "password": "xWwvJ]6NMw+bWH-d"
+      }
+    }
+    ```
 
 >[!NOTE]
 > You need to change the &lt;your tenant name here&gt; section of the code to match your Azure AD tenant.
@@ -154,7 +154,7 @@ Once your user(s) has been successfully created in Azure AD, you may proceed to 
 
 ## Additional steps for pre-hire scenario
 
-There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md) tutorial.
+There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
 
 ### Edit the users attributes using the Azure portal
 Some of the attributes required for the pre-hire onboarding tutorial are exposed through the Azure portal and can be set there. 
@@ -168,7 +168,7 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 
 For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
- 1. Sign in to Azure portal.
+ 1. Sign in to the Azure portal.
  2. On the right, select **Azure Active Directory**.
  3. Select **Users**.
  4. Select **Melva Prince**.
@@ -178,7 +178,7 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
  8. Go back to users and select **Britta Simon**.
  9. At the top, select **Edit**.
  10. Under **Email**, enter a valid email address.
- 11. select **Save**.
+ 11. Select **Save**.
 
 ### Edit employeeHireDate
 The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the UI and must be updated using Graph.  To edit this attribute, we can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
@@ -188,7 +188,7 @@ The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the
 
 In order to do this, we must get the object ID for our user Melva Prince.
 
- 1.  Sign in to [Azure portal](https://portal.azure.com).
+ 1.  Sign in to the [Azure portal](https://portal.azure.com).
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Users**.
  4.  Select **Melva Prince**.
@@ -204,7 +204,7 @@ In order to do this, we must get the object ID for our user Melva Prince.
       ```
      :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
  
- 10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**.  select **Run query**. You should see the attributes for Melva set.  
+ 10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**. Select **Run query**. You should see the attributes for Melva set.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
 
 ### Edit the manager attribute on the employee account
@@ -243,7 +243,7 @@ To use this feature, it must be enabled on our Azure AD tenant.  To do this, use
 
 ## Additional steps for leaver scenario
 
-There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview) tutorial or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview) tutorial.
+There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with Azure portal tutorial or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph tutorial.
 
 ### Set up user with groups and Teams with team membership
 
@@ -251,7 +251,7 @@ A user with groups and Teams memberships is required before you begin the tutori
 
 
 ## Next steps
-- [On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md)
-- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)](tutorial-offboard-custom-workflow-portal.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-offboard-custom-workflow-graph.md)
+- [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md)
+- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Azure portal](tutorial-offboard-custom-workflow-portal.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph](tutorial-offboard-custom-workflow-graph.md)

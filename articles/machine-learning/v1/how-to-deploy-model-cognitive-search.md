@@ -10,14 +10,14 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: ssalgado
 ms.date: 03/11/2021
-ms.custom: deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 monikerRange: 'azureml-api-1'
 ---
 
 
 # Deploy a model for use with Cognitive Search
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](/azure/search/search-what-is-azure-search).
 

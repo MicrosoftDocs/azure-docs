@@ -1151,9 +1151,9 @@ Yes, the [data access API](/rest/api/application-insights/). Other ways to extra
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
-The Application Insights SDK isn't compatible with auto-instrumentation. If auto-instrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
+The Application Insights SDK isn't compatible with autoinstrumentation. If autoinstrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
 
-Turn off auto-instrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
+Turn off autoinstrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
 
 ## <a name="next"></a>Next steps
 

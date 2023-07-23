@@ -16,7 +16,7 @@ show_latex: true
 
 # Set up AutoML to train a time-series forecasting model with Python
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
@@ -442,7 +442,7 @@ Repeat the necessary steps to load this future data to a data frame and then run
 
 ## Forecasting at scale
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
 > Many models and hierarchical time series are currently only supported in Azure Machine Learning v1. Support for Azure Machine Learning v2 is forthcoming.

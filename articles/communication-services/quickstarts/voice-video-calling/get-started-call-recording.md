@@ -10,11 +10,9 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-api, devx-track-extended-java
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Call Recording Quickstart
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 This quickstart gets you started with Call Recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. Make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and/or [Call Automation](../call-automation/callflows-for-customer-interactions.md#build-a-customer-interaction-workflow-using-call-automation) to build the end-user calling experience.
 

@@ -1,28 +1,27 @@
 ---
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services Call Automation
 author: anujb-msft
 ms.author: anujb-msft
-ms.date: 05/26/2023
+ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: callautomation
+ms.subservice: call-automation
 ms.custom: mode-other
 ---
-
-Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we cover a way to: make an outbound call and recognize various events in the call.
-
-## Sample code
-
-Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
+- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
+
+## Sample code
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling).
+
+Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
 ## Setup and host your Azure DevTunnel
 

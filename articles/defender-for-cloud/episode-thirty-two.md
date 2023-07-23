@@ -1,6 +1,6 @@
 ---
 title: API Security with Defender for APIs | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about API security with Defender for APIs
 ms.topic: reference
 ms.date: 06/08/2023
@@ -34,4 +34,4 @@ ms.date: 06/08/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Agentless Container Posture Management in Defender for Cloud](episode-thirty-three.md)
