@@ -16,6 +16,8 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
+  - name: TLS policy
+    href: tls-policy.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Health monitoring

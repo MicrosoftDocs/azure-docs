@@ -3,27 +3,28 @@ title: TLS policy overview for Azure Application Gateway for Containers
 description: Learn how to configure TLS policy for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: appgw-for-containers
+ms.service: application-gateway
+ms.subservice: appgw-for-containers
 ms.topic: conceptual
 ms.date: 07/24/2023
 ms.author: greglin
 ---
 
-# Application Gateway TLS policy overview
+# Application Gateway for Containers TLS policy overview
 
-You can use Azure Application Gateway for Containers to control TLS/SSL ciphers to meet compliance and security goals of the organization.
+You can use Azure Application Gateway for Containers to control TLS ciphers to meet compliance and security goals of the organization.
 
-TLS policy includes definition of the TLS protocol, cipher suite, and order in which ciphers are preferred during a TLS handshake. Application Gateway for Containers currently offers two predefined policies to choose from.
+TLS policy includes definition of the TLS protocol version, cipher suites, and order in which ciphers are preferred during a TLS handshake. Application Gateway for Containers currently offers two predefined policies to choose from.
 
 ## Usage and version details
 
 - A custom TLS policy allows you to configure the minimum protocol version, ciphers, and elliptical curves for your gateway.
-- If no TLS policy is chosen, a [default TLS policy](tls-policy.md#default-tls-policy) is applied based.
-- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers is based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connection between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
+- If no TLS policy is defined, a [default TLS policy](tls-policy.md#default-tls-policy) is used.
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers is based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connections between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
 
 ## Predefined TLS policy
 
-Application Gateway for Containers offers two predefined security policies. You can choose either of these policies to achieve the appropriate level of security. The policy names are annotated by the year and month (YYYY-MM).  Additionally, a **-S** variant may exist to denote a more strict variant of ciphers that may be negotiated. Each policy offers different TLS protocol versions and cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
+Application Gateway for Containers offers two predefined security policies. You can choose either of these policies to achieve the appropriate level of security. Policy names are defined by year and month (YYYY-MM) of introduction.  Additionally, an **-S** variant may exist to denote a more strict variant of ciphers that may be negotiated. Each policy offers different TLS protocol versions and cipher suites. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies.
 
@@ -45,7 +46,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | P-384 | &check; | &check; |
 | P-256 | &check; | &check; |
 
-Protocol versions, ciphers, and elliptical curves not specified in the table above not supported and will not be negotiated.
+Protocol versions, ciphers, and elliptical curves not specified in the table above are not supported and won't be negotiated.
 
 ### Default TLS policy
 
@@ -55,7 +56,7 @@ When no TLS Policy is specified within your Kubernetes configuration, **predefin
 
 # [Gateway API](#tab/tls-policy-gateway-api)
 
-TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#frontendtlspolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefinned` and use choose either predefined policy name: `2023-06` or `2023-06-S`
+TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefinned` and use choose either predefined policy name: `2023-06` or `2023-06-S`
 
 Example command to create a new FrontendTLSPolicy resource with the predefined TLS policy 2023-06-S.
 
@@ -84,7 +85,7 @@ EOF
 
 # [Ingress API](#tab/tls-policy-ingress-api)
 
-TLS policy is currently not supported for Ingress api.  By default, Ingress will leverage the default TLS policy: 2023-06.
+TLS policy is currently not supported for Ingress resources and will automatically be configured to use the default TLS policy `2023-06`.
 
 
 ---
