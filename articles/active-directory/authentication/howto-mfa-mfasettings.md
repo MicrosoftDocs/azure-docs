@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/17/2023
 
 ms.author: justinha
 author: justinha
@@ -162,9 +162,20 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Users with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following numbers. Users with spam filters should exclude these numbers.
 
-* *+1 (855) 330-8653*
+Default number: *+1 (855) 330-8653*
+
+The following table lists more numbers for different countries.
+
+| Country    | Number          |
+|:-----------|:----------------|
+| Croatia    | +385 15507766   |
+| Ghana      | +233 308250245  |
+| Sri Lanka  | +94 117750440   |
+| Ukraine    | +380 443332393  |
+
+
 
 > [!NOTE]
 > When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
@@ -174,6 +185,9 @@ To configure your own caller ID number, complete the following steps:
 1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
 1. Select **Save**.
+
+> [!NOTE]
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
 
 ### Custom voice messages
 

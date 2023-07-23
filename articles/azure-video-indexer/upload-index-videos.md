@@ -1,6 +1,6 @@
 ---
-title: Upload and index videos with Azure Video Indexer using the Video Indexer website
-description: Learn how to upload videos by using Azure Video Indexer.
+title: Upload and index videos with Azure AI Video Indexer using the Video Indexer website
+description: Learn how to upload videos by using Azure AI Video Indexer.
 ms.topic: article
 ms.date: 05/10/2023
 ---
@@ -9,15 +9,15 @@ ms.date: 05/10/2023
 
 You can upload media files from your file system or from a URL. You can also configure basic or advanced settings for indexing, such as privacy, streaming quality, language, presets, people and brands models, custom logos and metadata.
 
-This article shows how to upload and index media files (audio or video) using the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
+This article shows how to upload and index media files (audio or video) using the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link).
 
 You can also view a video that shows [how to upload and index media files](https://www.youtube.com/watch?v=H-SHX8N65vM&t=34s&ab_channel=AzureVideoIndexer).
 
 ## Prerequisites
 
-- To upload media files, you need an active Azure Video Indexer account. If you don't have one, [sign up](https://aka.ms/vi-portal-link) for a free trial account, or create an [unlimited paid account](https://aka.ms/avam-arm-docs).
+- To upload media files, you need an active Azure AI Video Indexer account. If you don't have one, [sign up](https://aka.ms/vi-portal-link) for a free trial account, or create an [unlimited paid account](https://aka.ms/avam-arm-docs).
 - To upload media files, you need at least contributor-level permission for your account. To manage permissions, see [Manage users and groups](restricted-viewer-role.md).
-- To upload media files from a URL, you need a publicly accessible URL for the media file. For example, if the file is hosted in an Azure storage account, you need to [generate a SAS token URL](https://learn.microsoft.com/azure/applied-ai-services/form-recognizer/create-sas-tokens?view=form-recog-3.0.0) and paste it in the input box. You can't use URLs from streaming services such as YouTube.
+- To upload media files from a URL, you need a publicly accessible URL for the media file. For example, if the file is hosted in an Azure storage account, you need to [generate a SAS token URL](../ai-services/document-intelligence/create-sas-tokens.md?view=form-recog-3.0.0&preserve-view=true) and paste it in the input box. You can't use URLs from streaming services such as YouTube.
 
 ## Quick upload
 
@@ -84,9 +84,9 @@ If you encounter any issues while uploading media files, try the following solut
 - If the **Upload** button is disabled, hover over the button and check for the indication of the problem. Try to refresh the page.
 
     If you're using a trial account, check if you have reached the account quota for daily count, daily duration, or total duration. To view your quota and usage, see the Account settings.
-- If the upload from URL failed, make sure that the URL is valid and accessible by Video Indexer. Make sure that the URL isn't from a streaming service such as YouTube. Make sure that the media file isn't encrypted, protected by DRM, corrupted, or damaged. Make sure that the media file format is supported by Video Indexer. For a list of supported formats, see [supported media formats](https://learn.microsoft.com/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+- If the upload from URL failed, make sure that the URL is valid and accessible by Video Indexer. Make sure that the URL isn't from a streaming service such as YouTube. Make sure that the media file isn't encrypted, protected by DRM, corrupted, or damaged. Make sure that the media file format is supported by Video Indexer. For a list of supported formats, see [supported media formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 - If the upload from file system failed, make sure that the file size isn't larger than 2 GB. Make sure that you have a stable internet connection.
 
 ## Next steps
 
-[Supported media formats](https://learn.microsoft.com/azure/azure-video-indexer/upload-index-videos?tabs=with-arm-account-account#supported-file-formats)
+[Supported media formats](/azure/azure-video-indexer/upload-index-videos?tabs=with-arm-account-account#supported-file-formats)

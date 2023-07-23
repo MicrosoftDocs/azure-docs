@@ -28,7 +28,7 @@ PIM role settings are also known as PIM policies.
 
 To open the settings for an Azure resource role:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
 
@@ -145,6 +145,9 @@ On the **Notifications** tab on the **Role settings** page, Privileged Identity 
 - **Limit emails to specified email addresses**: You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add other email addresses as recipients. If you want to add more than one email address, separate them by using a semicolon (;).
 - **Send emails to both default recipients and more recipients**: You can send emails to both the default recipient and another recipient. Select the default recipient checkbox and add email addresses for other recipients.
 - **Critical emails only**: For each type of email, you can select the checkbox to receive critical emails only. Privileged Identity Management continues to send emails to the specified recipients only when the email requires immediate action. For example, emails that ask users to extend their role assignment aren't triggered. Emails that require admins to approve an extension request are triggered.
+
+>[!NOTE]
+>One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Delete resources from Azure
-description: Delete resources from Azure
+title: Delete resources from Azure Arc-enabled data services
+description: Describes how to delete resources from Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 07/19/2023
 ms.topic: how-to
 ---
 
@@ -18,6 +18,8 @@ This article describes how to delete Azure Arc-enabled data service resources fr
 
 > [!WARNING]
 > When you delete resources as described in this article, these actions are irreversible.
+
+The information in this article applies to resources in Azure Arc-enabled data services. To delete resources in Azure, review the information at [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Before
 
@@ -34,8 +36,6 @@ From Azure portal:
     - In the Extensions page, select the Azure Arc data services extension (of type microsoft.arcdataservices) and click on **Uninstall**
 3. Optionally delete the Custom Location that the Azure Arc data controller is deployed to.
 4. Optionally, you can also delete the namespace on your Kubernetes cluster if there are no other resources created in the namespace.
-
-
 
 See [Manage Azure resources by using the Azure portal](../../azure-resource-manager/management/manage-resources-portal.md).
 

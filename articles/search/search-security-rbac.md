@@ -55,7 +55,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 
@@ -121,7 +121,7 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 Role assignments in the portal are service-wide. If you want to [grant permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI instead.
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -184,7 +184,7 @@ Make sure that you [register your client application with Azure Active Directory
 
 ### [**Azure portal**](#tab/test-portal)
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
