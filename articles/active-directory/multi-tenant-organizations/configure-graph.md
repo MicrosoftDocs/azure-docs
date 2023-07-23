@@ -98,7 +98,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
-1. In the owner tenant, use the [Create multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants?branch=pr-en-us-21123) API to add tenants to your multi-tenant organization.
+1. In the owner tenant, use the [Add multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants?branch=pr-en-us-21123) API to add tenants to your multi-tenant organization.
 
     **Request**
 
@@ -241,7 +241,7 @@ By default, tenants added to the multi-tenant organization are member tenants. O
 
 You can remove any member tenant, including your own. You can't remove owner tenants. Also, you can't remove the original creator tenant, even if it has been changed from owner to member.
 
-1. In the owner tenant, use the [Delete multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
+1. In the owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
 
     **Request**
 
