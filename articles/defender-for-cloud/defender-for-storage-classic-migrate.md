@@ -28,7 +28,7 @@ The classic plan will be deprecated in the future, and the deprecation will be a
 
 ## Migration scenarios
 
-Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. You'll need to proactively [enable the new plan](../storage/common/azure-defender-storage-configure) to access its enhanced capabilities and pricing.
+Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. You'll need to proactively [enable the new plan](../storage/common/azure-defender-storage-configure.md) to access its enhanced capabilities and pricing.
 
 >[!NOTE]
 > To enable the new plan, make sure to disable the old Defender for Storage policies. Look for and disable policies named "Configure Azure Defender for Storage to be enabled", "Azure Defender for Storage should be enabled", or "Configure Microsoft Defender for Storage to be enabled (per-storage account plan)".
