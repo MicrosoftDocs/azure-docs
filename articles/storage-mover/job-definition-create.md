@@ -74,10 +74,14 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. The following table compares the supported source-to-destination scenarios, and lists their required and optional fields.
 
+   |    |
+   |----|
+   |<table><tr><th>Foo</th></tr><tr><td>Foo</td></tr></table>|
+
    |Protocol   |Source        |Destination                     |Agent version required |Fields      |
    |-----------|--------------|--------------------------------|-----------------------|------------|
    |SMB        |SMB mount     |Azure file share                |2.0.277                |<table><tr><th>Field name</th><th>Required</th></tr><tr><td>Host name or IP</td><td>&#10003;</td></tr><tr><td>Share name</td><td>&#10003;</td></tr><tr><td>Protocol version</td><td>&#10003;</td></tr><tr><td>Key vault</td><td>&#10003;</td></tr><tr><td>Secret for username</td><td>&#10003;</td></tr><tr><td>Secret for password</td><td>&#10003;</td></tr><tr><td>Description</td><td></td></tr><tr><td>Subpath</td><td></td></tr></table>|
-   |NFS        |NFS mount     |Azure blob storage container    |1.1.256                |            |
+   |NFS        |NFS mount     |Azure blob storage container    |1.1.256                |<table><tr><th>Field name</th><th>Required</th></tr><tr><td>Host name or IP</td><td>&#10003;</td></tr><tr><td>Share name</td><td>&#10003;</td></tr><tr><td>Protocol version</td><td>&#10003;</td></tr><tr><td>Key vault</td><td>&#10003;</td></tr><tr><td>Secret for username</td><td>&#10003;</td></tr><tr><td>Secret for password</td><td>&#10003;</td></tr><tr><td>Description</td><td></td></tr><tr><td>Subpath</td><td></td></tr></table>|
 
    The following screen capture shows the 
 
