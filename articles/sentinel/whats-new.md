@@ -35,11 +35,13 @@ See these [important announcements](#announcements) about recent changes to feat
 ### Higher limits for entities in alerts and entity mappings in analytics rules
 
 The following limits on entities in alerts and entity mappings in analytics rules have been raised:
-- You can now map **up to ten entities** in an analytics rule (up from five).
+- You can now define **up to ten entity mappings** in an analytics rule (up from five).
 - A single alert can now contain **up to 500 identified entities** in total, divided equally amongst the mapped entities.
 - The *Entities* field in the alert has a **size limit of 64 KB**. (This size limit previously applied to the entire alert record.)
 
-For a full description of these limits, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
+Learn more about entity mapping, and see a full description of these limits, in [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
+
+Learn about other [service limits in Microsoft Sentinel](sentinel-service-limits.md).
 
 ### Content Hub generally available and centralization changes released
 
