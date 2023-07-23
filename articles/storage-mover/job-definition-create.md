@@ -72,6 +72,8 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    To define a new source endpoint from which to migrate, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
 
+   [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
    <a name="sub-path"></a>
