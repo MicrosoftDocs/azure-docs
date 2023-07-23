@@ -1,6 +1,6 @@
 ---
-title: Quickstart API-driven inbound provisioning with cURL
-description: Learn how to get started with API-driven inbound provisioning using cURL.
+title: Quickstart API-driven inbound provisioning with Graph Explorer
+description: Learn how to get started quickly with API-driven inbound provisioning using Graph Explorer
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,38 +8,49 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/18/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
 
-# Quickstart API-driven inbound provisioning with cURL (Public preview)
+# Quickstart API-driven inbound provisioning with Graph Explorer (Public preview)
 
-## Introduction
-[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it is [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
+This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with Microsoft Graph Explorer.
 
 ## Pre-requisites
 
 * You have configured [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). 
-* You have [configured a service principal and it has access](inbound-provisioning-api-grant-access.md) to the inbound provisioning API. Make note of the `ClientId` and `ClientSecret` of your service principal app for use in this tutorial. 
 
-## Upload user data to the inbound provisioning API
+> [!NOTE]
+> This provisioning API is primarily meant for use within an application or service. Tenant admins can either configure a service principal or managed identity to grant permission to perform the upload. There is no separate user-assignable Azure AD built-in directory role for this API. Outside of applications that have acquired `SynchronizationData-User.Upload` permission with admin consent, only admin users with Global Administrator role can invoke the API. This tutorial shows how you can test the API with a global administrator role in your test setup. 
 
-1. Retrieve the **client_id** and **client_secret** of the service principal that has access to the inbound provisioning API. 
-1. Use OAuth **client_credentials** grant flow to get an access token. Replace the variables `[yourClientId]`, `[yourClientSecret]` and `[yourTenantId]` with values applicable to your setup and run the following cURL command. Copy the access token value generated 
-     ```
-     curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=[yourClientId]&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=[yourClientSecret]&grant_type=client_credentials" "https://login.microsoftonline.com/[yourTenantId]/oauth2/v2.0/token"
-     ```
-1. Copy the [bulk request with SCIM Enterprise User Schema](#bulk-request-with-scim-enterprise-user-schema) and save the contents in a file called scim-bulk-upload-users.json.
-1. Replace the variable `[InboundProvisioningAPIEndpoint]` with the provisioning API endpoint associated with your provisioning app. Use the `[AccessToken]` value from the previous step and run the following curl command to upload the bulk request to the provisioning API endpoint. 
-     ```
-     curl -v "[InboundProvisioningAPIEndpoint]" -d @scim-bulk-upload-users.json -H "Authorization: Bearer [AccessToken]" -H "Content-Type: application/scim+json"
-     ```
-1. Upon successful upload, you will receive HTTP 202 Accepted response code. 
-1. The provisioning service starts processing the bulk request payload immediately and you can see the provisioning details by accessing the provisioning logs of the inbound provisioning app. 
+## Upload user data to the inbound provisioning API 
 
-## Verify processing of the bulk request payload
+1. Open a new browser tab or browser window.
+1. Launch the URL https://aka.ms/ge to access Microsoft Graph Explorer.
+1. Click on the user profile icon to sign in. 
 
+     [![Image showing the user profile icon.](media/inbound-provisioning-api-graph-explorer/provisioning-user-profile-icon.png)](media/inbound-provisioning-api-graph-explorer/provisioning-user-profile-icon.png#lightbox)
+1. Complete the login process with a user account that has *Global Administrator* role.
+1. Upon successful login, the Tenant information shows your tenant name.
+
+     [![Screenshot of Tenant name.](media/inbound-provisioning-api-graph-explorer/provisioning-tenant-name.png)](media/inbound-provisioning-api-graph-explorer/provisioning-tenant-name.png#lightbox)
+
+   You're now ready to invoke the API. 
+1. In the API request panel, set the HTTP request type to **POST**. 
+1. Copy and paste the provisioning API endpoint retrieved from the provisioning app overview page.
+1. Under the Request headers panel, add a new key value pair of **Content-Type = application/scim+json**.
+     [![Screenshot of request header panel.](media/inbound-provisioning-api-graph-explorer/provisioning-request-header-panel.png)](media/inbound-provisioning-api-graph-explorer/provisioning-request-header-panel.png#lightbox)
+1. Under the **Request body** panel, copy-paste the [bulk request with SCIM Enterprise User Schema](#bulk-request-with-scim-enterprise-user-schema)
+1. Click on the **Run query** button to send the request to the provisioning API endpoint.
+1. If the request is sent successfully, you'll get an `Accepted 202` response from the API endpoint.
+1. Open the **Response headers** panel and copy the URL value of the location attribute. This points to the provisioning logs API endpoint that you can query to check the provisioning status of users present in the bulk request.
+
+## Verify processing of bulk request payload
+
+You can verify the processing either from the Microsoft Entra portal or using Graph Explorer.
+
+### Verify processing from Microsoft Entra portal 
 1. Log in to [Microsoft Entra portal](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
@@ -47,7 +58,6 @@ ms.reviewer: cmmdesai
 1. Click on **View provisioning logs** to open the provisioning logs blade. Alternatively, you can click on the menu option **Monitor -> Provisioning logs**.
 
       [![Screenshot of provisioning logs in menu.](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png)](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png#lightbox)
-
 1. Click on any record in the provisioning logs to view additional processing details.
 1. The provisioning log details screen displays all the steps executed for a specific user. 
       [![Screenshot of provisioning logs details.](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png)](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png#lightbox)
@@ -56,6 +66,17 @@ ms.reviewer: cmmdesai
       * The **Determine if User is in scope** step shows details of scoping filter evaluation. By default, all users are processed. If you have set a scoping filter (example, process only users belonging to the Sales department), the evaluation details of the scoping filter displays in this step.
       * The **Provision User** step calls out the final processing step and changes applied to the user account.
       * Use the **Modified properties** tab to view attribute updates.
+
+### Verify processing using provisioning logs API in Graph Explorer
+
+You can inspect the processing using the provisioning logs API URL returned as part of the location response header in the provisioning API call.
+
+1. In the Graph Explorer, **Request URL** text box copy-paste the location URL returned by the provisioning API endpoint or you can construct it using the format: `https://graph.microsoft.com/beta/auditLogs/provisioning/?$filter=jobid eq '<jobId>'` where you can retrieve the ```jobId``` from the provisioning app overview page.
+1. Use the method **GET** and click **Run query** to retrieve the provisioning logs. By default, the response returned contains all log records.
+1. You can set more filters to only retrieve data after a certain time frame or with a specific status value. 
+     `https://graph.microsoft.com/beta/auditLogs/provisioning/?$filter=jobid eq '<jobId> and statusInfo/status eq 'failure' and activityDateTime ge 2022-10-10T09:47:34Z`
+     You can also check the status of the user by the ```externalId``` value used in your source system that is used as the source anchor / joining property. 
+     `https://graph.microsoft.com/beta/auditLogs/provisioning/?$filter=jobid eq '<jobId>' and sourceIdentity/id eq '701984'`
 
 ## Appendix
 
@@ -66,7 +87,7 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "Quick_start_with_curl"
+  "name": "Quick_start_with_Graph_Explorer"
 }-->
 ```http
 {
@@ -202,7 +223,6 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
     "failOnErrors": null
 }
 ```
-
 ## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
 - [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
