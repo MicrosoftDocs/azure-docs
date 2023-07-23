@@ -35,18 +35,26 @@ Use the following steps to view Application Gateway for Containers in the Azure 
   4. Next to **Chart Title**, enter a title for your metrics view.
   5. **Scope** and **Metric Namespace** are is automatically populated. Under **Metric**, select a metric such as: **Total Requests**. For the **Total Requests** metric, the **Aggregation** is set to **Sum**.
   6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**. 
-  7. Enter values to use for filtering under Values. For example: and **Values**. For example: frontend-primary:80, ingress-frontend:443, ingress-frontend:80.
-  8. Select the values you want to actively filter. See the following example:
+  7. Enter values to use for filtering under **Values**. For example: 
+   - **frontend-primary:80** 
+   - **ingress-frontend:443**
+   - **ingress-frontend:80**
+  8. Select the values you want to actively filter from the entries you create. 
+  9. Choose **Apply Splitting**, select **Frontend**, and accept default values for **Limit** and **Sort**. See the following example:
   
      ![Application Gateway for Containers metrics total requests](./media/application-gateway-for-containers-metrics/total-requests.png)
 
-  9. Add new charts by selecting New chart at the top. For example, you can display **HTTP Response Status**. In the following example, **Apply splitting** is used to split by **HTTP Response Code**:
+    The following are some other useful chart examples:
+
+    **HTTP Response Status**
 
       ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
 
-  10.  The following example shows **Backend Health Targets**:
+    **Backend Health Targets**
 
        ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
+
+       In the backend health targets example shown, the number of healthy backend targets increases from 1 to 2 for Kubernetes service _echo_ and then decreases to 1.  This validates that Application Gateway for Containers is able to detect the new replica, begin load balancing to the replica, and then remove the replica when the replica count is decreased in Kubernetes.
 
 ## Next steps
 
