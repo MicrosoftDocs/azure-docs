@@ -30,6 +30,8 @@
     href: best-practices.md
   - name: Security
     items:
+    - name: Privileged roles and permissions
+      href: privileged-roles-permissions.md
     - name: Role security planning
       href: security-planning.md
     - name: Create emergency accounts

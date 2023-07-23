@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
-ms.date: 03/28/2021
+ms.date: 07/28/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -67,13 +67,17 @@ By default, when a user signs up for a Microsoft cloud service, an Azure AD tena
 
 Microsoft recommends that you keep two break glass accounts that are permanently assigned to the Global Administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md). 
 
-## 6. Use groups for Azure AD role assignments and delegate the role assignment
+## 6. Limit the number of privileged role assignments to less than 10
+
+Some roles include privileged permissions, such as the ability to update credentials. Since these roles can potentially lead to elevation of privilege, you should limit the use of these privileged role assignments to **fewer than 10** in your organization. You can can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Azure AD](privileged-roles-permissions.md).
+
+## 7. Use groups for Azure AD role assignments and delegate the role assignment
 
 If you have an external governance system that takes advantage of groups, then you should consider assigning roles to Azure AD groups, instead of individual users. You can also manage role-assignable groups in PIM to ensure that there are no standing owners or members in these privileged groups. For more information, see [Privileged Identity Management (PIM) for Groups (preview)](../privileged-identity-management/concept-pim-for-groups.md).
 
 You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
-## 7. Activate multiple roles at once using PIM for Groups
+## 8. Activate multiple roles at once using PIM for Groups
 
 It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
  
@@ -81,7 +85,7 @@ In this case, you should use [Privileged Identity Management (PIM) for Groups (p
 
 ![PIM for Groups diagram showing activating multiple roles at once](./media/best-practices/pim-for-groups.png)
 
-## 8. Use cloud native accounts for Azure AD roles
+## 9. Use cloud native accounts for Azure AD roles
 
 Avoid using on-premises synced accounts for Azure AD role assignments. If your on-premises account is compromised, it can compromise your Azure AD resources as well.
 
