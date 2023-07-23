@@ -12,6 +12,8 @@ ms.author: veyaddan
 
 Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 In this article, you use the Azure CLI to do the following tasks:
 1. Create an Event Grid namespace and enable MQTT
 2. Create subresources such as clients, client groups, and topic spaces

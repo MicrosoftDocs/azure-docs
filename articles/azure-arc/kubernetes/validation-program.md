@@ -1,13 +1,16 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-ms.date: 12/07/2022
+ms.date: 07/21/2023
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
 ---
 
 # Azure Arc-enabled Kubernetes validation
 
-Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF). The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+The Azure Arc team works with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+
+> [!IMPORTANT]
+> Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF), even if they haven't been validated through conformance tests and are not listed on this page.
 
 ## Validated distributions
 
@@ -50,7 +53,7 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 2. Configuration:
     * Create configuration on top of Azure Arc-enabled Kubernetes resource.
-    * [Flux](https://docs.fluxcd.io/), needed for setting up GitOps workflow, is deployed on the cluster.
+    * [Flux](https://docs.fluxcd.io/), needed for setting up [GitOps workflow](tutorial-use-gitops-flux2.md), is deployed on the cluster.
     * Flux pulls manifests and Helm charts from demo Git repo and deploys to cluster.
 
 ## Next steps

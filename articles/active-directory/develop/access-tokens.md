@@ -111,6 +111,7 @@ Azure AD makes available a tenant-independent version of the document for multi-
     ```
 
 1. Applications that use Azure AD's tenant ID (`tid`) claim as a trust boundary instead of the standard issuer claim should ensure that the tenant-id claim is a GUID and that the issuer and tenant ID match.
+
 Using tenant-independent metadata is more efficient for applications which accept tokens from many tenants.
 > [!NOTE]
 > With Azure AD tenant-independent metadata, claims should be interpreted within the tenant, just as under standard OpenID Connect, claims are interpreted within the issuer. That is, `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{example-tenant-id}/v2.0","tid":"{example-tenant-id}"}` and `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{another-tenand-id}/v2.0","tid":"{another-tenant-id}"}` describe different users, even though the `sub` is the same, because claims like `sub` are interpreted within the context of the issuer/tenant.

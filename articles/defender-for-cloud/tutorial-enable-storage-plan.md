@@ -1,6 +1,5 @@
 ---
-title: Protect your storage accounts with the Defender for Storage plan - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your storage accounts with the Defender for Storage plan
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
