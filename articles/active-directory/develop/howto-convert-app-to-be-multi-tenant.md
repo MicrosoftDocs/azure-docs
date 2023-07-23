@@ -38,17 +38,21 @@ When a single-tenant application is created via the Azure portal, one of the ite
 
 For example, if the name of your tenant was `contoso.onmicrosoft.com` then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
-## Update your code to send requests to `/common` or `organizations`
+## Update your code to send requests to `/common`
 
-With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants:
-- `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox).
-- `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Azure AD directory):
-
-The explanations below use `common`. But you can replace it by `organizations` if your application doesn't support Microsoft personal accounts.
+With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`.
 
 Edit your code and change the value for your tenant to `/common`. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
+
+> ![NOTE]
+> There are, in reality 2 authorities for multi-tenant applications: 
+> - `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox).
+> - `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Azure AD directory):
+> 
+> The explanations in this document use `common`. But you can replace it by `organizations` if your application doesn't support Microsoft personal accounts.
+
 
 ## Update your code to handle multiple issuer values
 
