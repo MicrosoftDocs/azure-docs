@@ -72,7 +72,7 @@ Follow these steps to create a new console application and install the Speech SD
                         }
                         else if (e.Result.Reason == ResultReason.NoMatch)
                         {
-                            Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                            Console.WriteLine($"NOMATCH: Speech could not be transcribed.");
                         }
                     };
     

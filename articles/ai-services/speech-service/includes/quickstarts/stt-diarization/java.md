@@ -97,7 +97,7 @@ Follow these steps to create a new console application for speech recognition.
                         System.out.println("TRANSCRIBED: Text=" + e.getResult().getText() + " Speaker ID=" + e.getResult().getSpeakerId() );
                     }
                     else if (e.getResult().getReason() == ResultReason.NoMatch) {
-                        System.out.println("NOMATCH: Speech could not be recognized.");
+                        System.out.println("NOMATCH: Speech could not be transcribed.");
                     }
                 });
     

@@ -79,7 +79,7 @@ Follow these steps to create a new console application and install the Speech SD
                 }
                 else if (e.Result->Reason == ResultReason::NoMatch)
                 {
-                    std::cout << "NOMATCH: Speech could not be recognized." << std::endl;
+                    std::cout << "NOMATCH: Speech could not be transcribed." << std::endl;
                 }
             });
 

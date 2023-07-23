@@ -54,7 +54,7 @@ Follow these steps to create a new console application.
             print('\tText: {}'.format(evt.result.text))
             print('\tSpeaker ID: {}'.format(evt.result.speaker_id))
         elif evt.result.reason == speechsdk.ResultReason.NoMatch:
-            print('\tNOMATCH: Speech could not be recognized: {}'.format(evt.result.no_match_details))
+            print('\tNOMATCH: Speech could not be transcribed: {}'.format(evt.result.no_match_details))
 
     def conversation_transcriber_transcribing_cb(evt: speechsdk.SpeechRecognitionEventArgs):
         print('Transcribing event:')
