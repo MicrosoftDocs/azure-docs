@@ -17,7 +17,7 @@ Before you can do anything, install the Speech SDK for Python. You can [install 
 
 ## Create voice signatures
 
-If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
+If you want to enroll user profiles, the first step is to create voice signatures for the meeting participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
 
 The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
@@ -56,9 +56,9 @@ you may use these two voice_signature_string as input to the variables `voice_si
 > [!NOTE]
 > Voice signatures can **only** be created using the REST API.
 
-## Transcribe conversations
+## Transcribe meetings
 
-The following sample code demonstrates how to transcribe conversations in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
+The following sample code demonstrates how to transcribe meetings in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
 If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
@@ -69,11 +69,11 @@ This sample code does the following:
 
 * Creates speech configuration with subscription information.
 * Create audio configuration using the push stream.
-* Creates a `ConversationTranscriber` and Subscribe to the events fired by the conversation transcriber.
-* Conversation identifier for creating conversation.
-* Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
+* Creates a `MeetingTranscriber` and Subscribe to the events fired by the meeting transcriber.
+* Meeting identifier for creating meeting.
+* Adds participants to the meeting. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Read the whole wave files at once and stream it to sdk and begins transcription.
-* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Meeting Transcription Overview](../../../meeting-transcription.md). 
 
 If speaker identification or differentiate is enabled, then even if you have already received `transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `speakerId`, then a nearly identical `Transcribed` result will be sent again, where only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if the current `transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
 
@@ -84,12 +84,12 @@ import uuid
 from scipy.io import wavfile
 
 speech_key, service_region="your-subscription-key","your-region"
-conversationfilename= "audio-file-to-transcribe.wav" # 8 channel, 16 bits, 16kHz audio
+meetingfilename= "audio-file-to-transcribe.wav" # 8 channel, 16 bits, 16kHz audio
 
-def conversation_transcription_differentiate_speakers():
+def meeting_transcription_differentiate_speakers():
     
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    speech_config.set_property_by_name("ConversationTranscriptionInRoomAndOnline", "true")
+    speech_config.set_property_by_name("MeetingTranscriptionInRoomAndOnline", "true")
     speech_config.set_property_by_name("DifferentiateGuestSpeakers", "true")
 
     channels = 8
@@ -100,10 +100,10 @@ def conversation_transcription_differentiate_speakers():
     stream = speechsdk.audio.PushAudioInputStream(stream_format=wave_format)
     audio_config = speechsdk.audio.AudioConfig(stream=stream)
     
-    transcriber = speechsdk.transcription.ConversationTranscriber(audio_config)
+    transcriber = speechsdk.transcription.MeetingTranscriber(audio_config)
 
-    conversation_id = str(uuid.uuid4())
-    conversation = speechsdk.transcription.Conversation(speech_config, conversation_id)
+    meeting_id = str(uuid.uuid4())
+    meeting = speechsdk.transcription.Meeting(speech_config, meeting_id)
     done = False
 
     def stop_cb(evt: speechsdk.SessionEventArgs):
@@ -125,12 +125,12 @@ def conversation_transcription_differentiate_speakers():
     user1 = speechsdk.transcription.Participant("user1@example.com", "en-us", voice_signature_user1)
     user2 = speechsdk.transcription.Participant("user2@example.com", "en-us", voice_signature_user2)
 
-    conversation.add_participant_async(user1).get()
-    conversation.add_participant_async(user2).get()
-    transcriber.join_conversation_async(conversation).get()
+    meeting.add_participant_async(user1).get()
+    meeting.add_participant_async(user2).get()
+    transcriber.join_meeting_async(meeting).get()
     transcriber.start_transcribing_async()
     
-    sample_rate, wav_data = wavfile.read(conversationfilename)
+    sample_rate, wav_data = wavfile.read(meetingfilename)
     stream.write(wav_data.tobytes())
     stream.close()
     while not done:

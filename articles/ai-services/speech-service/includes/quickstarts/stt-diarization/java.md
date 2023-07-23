@@ -1,0 +1,193 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 05/08/2023
+ms.author: eur
+---
+
+[!INCLUDE [Header](../../common/java.md)]
+
+[!INCLUDE [Introduction](intro.md)]
+
+## Prerequisites
+
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
+
+## Set up the environment
+
+Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
+
+1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
+1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.cognitiveservices.speech.samples</groupId>
+        <artifactId>quickstart-eclipse</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                </configuration>
+            </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+            <groupId>com.microsoft.cognitiveservices.speech</groupId>
+            <artifactId>client-sdk</artifactId>
+            <version>1.31.0</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+1. Install the Speech SDK and dependencies.
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
+## Diarization from file with conversation transcription
+
+Follow these steps to create a new console application for speech recognition.
+
+1. Create a new file named `ConversationTranscription.java` in the same project root directory.
+1. Copy the following code into `ConversationTranscription.java`:
+
+    ```java
+    import com.microsoft.cognitiveservices.speech.*;
+    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+    
+    import java.util.concurrent.Semaphore;
+    import java.util.concurrent.ExecutionException;
+    import java.util.concurrent.Future;
+    
+    public class ConversationTranscription {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        private static String speechKey = System.getenv("SPEECH_KEY");
+        private static String speechRegion = System.getenv("SPEECH_REGION");
+    
+        public static void main(String[] args) throws InterruptedException, ExecutionException {
+            
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
+            speechConfig.setSpeechRecognitionLanguage("en-US");
+            AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve.wav");
+            
+            Semaphore stopRecognitionSemaphore = new Semaphore(0);
+    
+            ConversationTranscriber conversationTranscriber = new ConversationTranscriber(speechConfig, audioInput);
+            {
+                // Subscribes to events.
+                conversationTranscriber.transcribing.addEventListener((s, e) -> {
+                    System.out.println("TRANSCRIBING: Text=" + e.getResult().getText());
+                });
+    
+                conversationTranscriber.transcribed.addEventListener((s, e) -> {
+                    if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
+                        System.out.println("TRANSCRIBED: Text=" + e.getResult().getText() + " Speaker ID=" + e.getResult().getSpeakerId() );
+                    }
+                    else if (e.getResult().getReason() == ResultReason.NoMatch) {
+                        System.out.println("NOMATCH: Speech could not be recognized.");
+                    }
+                });
+    
+                conversationTranscriber.canceled.addEventListener((s, e) -> {
+                    System.out.println("CANCELED: Reason=" + e.getReason());
+    
+                    if (e.getReason() == CancellationReason.Error) {
+                        System.out.println("CANCELED: ErrorCode=" + e.getErrorCode());
+                        System.out.println("CANCELED: ErrorDetails=" + e.getErrorDetails());
+                        System.out.println("CANCELED: Did you update the subscription info?");
+                    }
+    
+                    stopRecognitionSemaphore.release();
+                });
+    
+                conversationTranscriber.sessionStarted.addEventListener((s, e) -> {
+                    System.out.println("\n    Session started event.");
+                });
+    
+                conversationTranscriber.sessionStopped.addEventListener((s, e) -> {
+                    System.out.println("\n    Session stopped event.");
+                });
+    
+                conversationTranscriber.startTranscribingAsync().get();
+    
+                // Waits for completion.
+                stopRecognitionSemaphore.acquire();
+    
+                conversationTranscriber.stopTranscribingAsync().get();
+            }
+    
+            speechConfig.close();
+            audioInput.close();
+            conversationTranscriber.close();
+    
+            System.exit(0);
+        }
+    }
+    ```
+
+1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+
+Run your new console application to start speech recognition:
+
+```console
+javac ConversationTranscription.java -cp ".;target\dependency\*"
+java -cp ".;target\dependency\*" ConversationTranscription
+```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
+The transcribed conversation should be output as text: 
+
+```console
+RECOGNIZING: Text=good morning
+RECOGNIZING: Text=good morning steve
+RECOGNIZED: Text=Good morning, Steve.
+RECOGNIZING: Text=good morning
+RECOGNIZING: Text=good morning katie
+RECOGNIZING: Text=good morning katie have you heard
+RECOGNIZING: Text=good morning katie have you heard about
+RECOGNIZING: Text=good morning katie have you heard about the new
+RECOGNIZING: Text=good morning katie have you heard about the new conversation
+RECOGNIZING: Text=good morning katie have you heard about the new conversation transcription
+RECOGNIZING: Text=good morning katie have you heard about the new conversation transcription capability
+RECOGNIZED: Text=Good morning. Katie, have you heard about the new conversation transcription capability?
+RECOGNIZING: Text=no
+RECOGNIZING: Text=no tell me more
+RECOGNIZING: Text=no tell me more it's the new
+RECOGNIZING: Text=no tell me more it's the new feature
+RECOGNIZING: Text=no tell me more it's the new feature that
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know who
+RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know who said what
+RECOGNIZED: Text=No, tell me more. It's the new feature that transcribes our discussion and lets us know who said what.
+RECOGNIZING: Text=that
+RECOGNIZING: Text=that sounds interesting
+RECOGNIZING: Text=that sounds interesting i'm
+RECOGNIZING: Text=that sounds interesting i'm going to give this a try
+RECOGNIZED: Text=That sounds interesting. I'm going to give this a try.
+CANCELED: Reason=EndOfStream
+```
+
+## Clean up resources
+
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

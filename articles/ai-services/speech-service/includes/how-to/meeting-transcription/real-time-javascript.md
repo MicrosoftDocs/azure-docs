@@ -16,7 +16,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 
 ## Create voice signatures
 
-If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
+If you want to enroll user profiles, the first step is to create voice signatures for the meeting participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
 
 The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
@@ -44,7 +44,7 @@ async function createProfile() {
 }
  
 async function main() {
-    // use this voiceSignature string with conversation transcription calls below
+    // use this voiceSignature string with meeting transcription calls below
     let voiceSignatureString = await createProfile();
     console.log(voiceSignatureString);
 }
@@ -56,9 +56,9 @@ Running this script returns a voice signature string in the variable `voiceSigna
 > [!NOTE]
 > Voice signatures can **only** be created using the REST API.
 
-## Transcribe conversations
+## Transcribe meetings
 
-The following sample code demonstrates how to transcribe conversations in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
+The following sample code demonstrates how to transcribe meetings in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
 If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
@@ -68,11 +68,11 @@ If you don't use pre-enrolled user profiles, it will take a few more seconds to 
 This sample code does the following:
 
 * Creates a push stream to use for transcription, and writes the sample `.wav` file to it.
-* Creates a `Conversation` using `createConversationAsync()`.
-* Creates a `ConversationTranscriber` using the constructor.
-* Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
+* Creates a `Meeting` using `createMeetingAsync()`.
+* Creates a `MeetingTranscriber` using the constructor.
+* Adds participants to the meeting. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
-* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Meeting Transcription Overview](../../../meeting-transcription.md). 
 
 If speaker identification or differentiate is enabled, then even if you have already received `transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `speakerId`, then a nearly identical `Transcribed` result will be sent again, where only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if the current `transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
 
@@ -88,25 +88,25 @@ If speaker identification or differentiate is enabled, then even if you have alr
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
-    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+    speechTranslationConfig.setProperty("MeetingTranscriptionInRoomAndOnline", "true");
 
     // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
-    // create conversation and transcriber
-    var conversation = sdk.Conversation.createConversationAsync(speechTranslationConfig, "myConversation");
-    var transcriber = new sdk.ConversationTranscriber(audioConfig);
+    // create meeting and transcriber
+    var meeting = sdk.Meeting.createMeetingAsync(speechTranslationConfig, "myMeeting");
+    var transcriber = new sdk.MeetingTranscriber(audioConfig);
     
-    // attach the transcriber to the conversation
-    transcriber.joinConversationAsync(conversation,
+    // attach the transcriber to the meeting
+    transcriber.joinMeetingAsync(meeting,
     function () {
         // add first participant using voiceSignature created in enrollment step
         var user1 = sdk.Participant.From("user1@example.com", "en-us", voiceSignatureStringUser1);
-        conversation.addParticipantAsync(user1,
+        meeting.addParticipantAsync(user1,
         function () {
             // add second participant using voiceSignature created in enrollment step
             var user2 = sdk.Participant.From("user2@example.com", "en-us", voiceSignatureStringUser2);
-            conversation.addParticipantAsync(user2,
+            meeting.addParticipantAsync(user2,
             function () {
                 transcriber.sessionStarted = function(s, e) {
                 console.log("(sessionStarted)");
@@ -122,7 +122,7 @@ If speaker identification or differentiate is enabled, then even if you have alr
                 console.log("(transcribed) speakerId: " + e.result.speakerId);
                 };
     
-                // begin conversation transcription
+                // begin meeting transcription
                 transcriber.startTranscribingAsync(
                 function () { },
                 function (err) {
@@ -144,5 +144,5 @@ If speaker identification or differentiate is enabled, then even if you have alr
 ```
 
 See more samples on GitHub:
-- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
+- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/MeetingTranscription.java)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)

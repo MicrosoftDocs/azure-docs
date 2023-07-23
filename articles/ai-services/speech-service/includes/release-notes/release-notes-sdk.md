@@ -6,6 +6,30 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.31.0: August 2023 release
+
+#### Real-time diarization and conversation transcription
+
+Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, Python, Objective-C, and Swift. 
+
+The following changes related to real-time diarization, conversation transcription, and meeting transcription were released in parallel: 
+- For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to identify multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.
+- The former "conversation transcription" scenario is renamed to "meeting transcription." For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, there are no changes to the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information.
+
+> [!NOTE]
+> The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios. 
+
+This table shows the previous and new object names for real-time diarization and meeting transcription. The scenario name is in the first column, the previous object names are in the second column, and the new object names are in the third column. 
+
+| Scenario name | Previous object names | New object names |
+| ------------- | -------------------- | --------------- |
+| Real-time diarization | N/A | `ConversationTranscriber` |
+| Meeting transcription | `ConversationTranscriber`<br/>`ConversationTranscriptionEventArgs`<br/>`ConversationTranscriptionCanceledEventArgs`<br/>`ConversationTranscriptionResult`<br/>`RemoteConversationTranscriptionResult`<br/>`RemoteConversationTranscriptionClient`<br/>`RemoteConversationTranscriptionResult`<br/>`Participant`<sup>1</sup><br/>`ParticipantChangedReason`<sup>1</sup><br/>`User`<sup>1</sup> | `MeetingTranscriber`<br/>`MeetingTranscriptionEventArgs`<br/>`MeetingTranscriptionCanceledEventArgs`<br/>`MeetingTranscriptionResult`<br/>`RemoteMeetingTranscriptionResult`<br/>`RemoteMeetingTranscriptionClient`<br/>`RemoteMeetingTranscriptionResult`<br/>`Participant`<br/>`ParticipantChangedReason`<br/>`User`<br/>`Meeting`<sup>2</sup> |
+
+<sup>1</sup> The `Participant`, `ParticipantChangedReason`, and `User` objects are applicable to both meeting transcription and meeting translation scenarios.
+
+<sup>2</sup> The `Meeting` object is new and is used with the `MeetingTranscriber` object.
+
 ### Speech SDK 1.30.0: July 2023 release
 
 #### New Features

@@ -245,14 +245,14 @@ items:
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
-    - name: Conversation transcription
+    - name: Meeting transcription
       items:
-        - name: Conversation Transcription overview
-          href: conversation-transcription.md
-        - name: Real-time Conversation Transcription quickstart
-          href: how-to-use-conversation-transcription.md
-        - name: Asynchronous Conversation transcription
-          href: how-to-async-conversation-transcription.md
+        - name: Meeting transcription overview
+          href: meeting-transcription.md
+        - name: Real-time Meeting transcription quickstart
+          href: how-to-use-meeting-transcription.md
+        - name: Asynchronous Meeting transcription
+          href: how-to-async-meeting-transcription.md
     - name: Multi-device conversation
       items:
         - name: Multi-device conversation overview

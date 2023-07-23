@@ -8,15 +8,15 @@ ms.author: eur
 
 ## Upload the audio
 
-Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using the Speech SDK.
+Before asynchronous transcription can be performed, you need to send the audio to Meeting Transcription Service using the Speech SDK.
 
-This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real-time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
+This example code shows how to create meeting transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe meetings in real-time with the Speech SDK](../../../../how-to-use-meeting-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
 
 ```java
 // Create the speech config object
 // Substitute real information for "YourSubscriptionKey" and "Region"
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
-speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+speechConfig.setProperty("MeetingTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);
@@ -24,12 +24,12 @@ speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyCha
 // Set the property for real-time plus asynchronous transcription
 //speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
 
-// pick a conversation Id that is a GUID.
-String conversationId = UUID.randomUUID().toString();
+// pick a meeting Id that is a GUID.
+String meetingId = UUID.randomUUID().toString();
 
-// Create a Conversation
-Future<Conversation> conversationFuture = Conversation.createConversationAsync(speechConfig, conversationId);
-Conversation conversation = conversationFuture.get();
+// Create a Meeting
+Future<Meeting> meetingFuture = Meeting.createMeetingAsync(speechConfig, meetingId);
+Meeting meeting = meetingFuture.get();
 
 // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
 // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
@@ -39,19 +39,19 @@ AudioStreamFormat audioStreamFormat = AudioStreamFormat.getWaveFormatPCM((long)1
 // Create an input stream
 AudioInputStream audioStream = AudioInputStream.createPullStream(wavfilePullStreamCallback, audioStreamFormat);
 
-// Create a conversation transcriber
-ConversationTranscriber transcriber = new ConversationTranscriber(AudioConfig.fromStreamInput(audioStream));
+// Create a meeting transcriber
+MeetingTranscriber transcriber = new MeetingTranscriber(AudioConfig.fromStreamInput(audioStream));
 
-// join a conversation
-transcriber.joinConversationAsync(conversation);
+// join a meeting
+transcriber.joinMeetingAsync(meeting);
 
 // Add the event listener for the real-time events
 transcriber.transcribed.addEventListener((o, e) -> {
-    System.out.println("Conversation transcriber Recognized:" + e.toString());
+    System.out.println("Meeting transcriber Recognized:" + e.toString());
 });
 
 transcriber.canceled.addEventListener((o, e) -> {
-    System.out.println("Conversation transcriber canceled:" + e.toString());
+    System.out.println("Meeting transcriber canceled:" + e.toString());
     try {
         transcriber.stopTranscribingAsync().get();
     } catch (InterruptedException ex) {
@@ -62,7 +62,7 @@ transcriber.canceled.addEventListener((o, e) -> {
 });
 
 transcriber.sessionStopped.addEventListener((o, e) -> {
-    System.out.println("Conversation transcriber stopped:" + e.toString());
+    System.out.println("Meeting transcriber stopped:" + e.toString());
 
     try {
         transcriber.stopTranscribingAsync().get();
@@ -90,11 +90,11 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 ## Get transcription results
 
-For the code shown here, you need **remote-conversation version 1.8.0**, supported only for Java (1.8.0 or above) on Windows, and Linux. 
+For the code shown here, you need **remote-meeting version 1.8.0**, supported only for Java (1.8.0 or above) on Windows, and Linux. 
 
-### Obtaining the async conversation client SDK
+### Obtaining the async meeting client SDK
 
-You can obtain **remote-conversation** by editing your pom.xml file as follows.
+You can obtain **remote-meeting** by editing your pom.xml file as follows.
 
 1. At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
 
@@ -102,19 +102,19 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
    <repositories>
      <repository>
        <id>maven-cognitiveservices-speech</id>
-       <name>Microsoft Azure AI Speech Maven Repository</name>
+       <name>Microsoft Cognitive Services Speech Maven Repository</name>
        <url>https://azureai.azureedge.net/maven/</url>
      </repository>
    </repositories>
    ```
 
-2. Also add a `dependencies` element, with the remoteconversation-client-sdk 1.8.0 as a dependency:
+2. Also add a `dependencies` element, with the remotemeeting-client-sdk 1.8.0 as a dependency:
 
    ```xml
    <dependencies>
      <dependency>
-       <groupId>com.microsoft.cognitiveservices.speech.remoteconversation</groupId>
-       <artifactId>remote-conversation</artifactId>
+       <groupId>com.microsoft.cognitiveservices.speech.remotemeeting</groupId>
+       <artifactId>remote-meeting</artifactId>
        <version>1.8.0</version>
      </dependency>
    </dependencies>
@@ -124,17 +124,17 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
 ### Sample transcription code
 
-After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **GetTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
+After you have the `meetingId`, create a remote meeting transcription client **RemoteMeetingTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **GetTranscriptionOperation** method in **RemoteMeetingTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteMeetingTranscriptionOperation** and the final result **RemoteMeetingTranscriptionResult**. Once the operation has finished, get **RemoteMeetingTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
 
 ```java
 // Create the speech config object
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
 
-// Create a remote Conversation Transcription client
-RemoteConversationTranscriptionClient client = new RemoteConversationTranscriptionClient(speechConfig);
+// Create a remote Meeting Transcription client
+RemoteMeetingTranscriptionClient client = new RemoteMeetingTranscriptionClient(speechConfig);
 
 // Get the PollerFlux for the remote operation
-PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> remoteTranscriptionOperation = client.GetTranscriptionOperation(conversationId);
+PollerFlux<RemoteMeetingTranscriptionOperation, RemoteMeetingTranscriptionResult> remoteTranscriptionOperation = client.GetTranscriptionOperation(meetingId);
 
 // Subscribe to PollerFlux to get the remote operation status
 remoteTranscriptionOperation.subscribe(
@@ -145,19 +145,19 @@ remoteTranscriptionOperation.subscribe(
 );
 
 // Obtain the blocking operation using getSyncPoller
-SyncPoller<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> blockingOperation =  remoteTranscriptionOperation.getSyncPoller();
+SyncPoller<RemoteMeetingTranscriptionOperation, RemoteMeetingTranscriptionResult> blockingOperation =  remoteTranscriptionOperation.getSyncPoller();
 
 // Wait for the operation to finish
 blockingOperation.waitForCompletion();
 
 // Get the final result response
-RemoteConversationTranscriptionResult resultResponse = blockingOperation.getFinalResult();
+RemoteMeetingTranscriptionResult resultResponse = blockingOperation.getFinalResult();
 
 // Print the result
 if(resultResponse != null) {
-    if(resultResponse.getConversationTranscriptionResults() != null) {
-        for (int i = 0; i < resultResponse.getConversationTranscriptionResults().size(); i++) {
-            ConversationTranscriptionResult result = resultResponse.getConversationTranscriptionResults().get(i);
+    if(resultResponse.getMeetingTranscriptionResults() != null) {
+        for (int i = 0; i < resultResponse.getMeetingTranscriptionResults().size(); i++) {
+            MeetingTranscriptionResult result = resultResponse.getMeetingTranscriptionResults().get(i);
             System.out.println(result.getProperties().getProperty(PropertyId.SpeechServiceResponse_JsonResult.name()));
             System.out.println(result.getProperties().getProperty(PropertyId.SpeechServiceResponse_JsonResult));
             System.out.println(result.getOffset());
