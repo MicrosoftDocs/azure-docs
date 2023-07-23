@@ -1,5 +1,5 @@
 ---
-title: Enable agentless vulnerability scanning
+title: Enable agentless scanning for VMs
 description: Find installed software and software vulnerabilities on your Azure machines and AWS machines without installing an agent.
 author: dcurwin
 ms.author: dacurwin
@@ -8,7 +8,7 @@ ms.custom: ignite-2022
 ms.date: 06/29/2023
 ---
 
-# Enable agentless vulnerability scanning
+# Enable agentless scanning for VMs
 
 Agentless scanning provides visibility into installed software and software vulnerabilities on your workloads to extend vulnerability assessment coverage to server workloads without a vulnerability assessment agent installed.
 
@@ -26,8 +26,8 @@ When you enable agentless vulnerability assessment:
 
 - If you select **Microsoft Defender Vulnerability Management** as part of an [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md), Defender for Cloud shows a unified and consolidated view that optimizes coverage and freshness.
 
-    - Machines covered by just one of the sources (Defender Vulnerability Management or agentless) show the results from that source.
-    - Machines covered by both sources show the agent-based results only for increased freshness.
+  - Machines covered by just one of the sources (Defender Vulnerability Management or agentless) show the results from that source.
+  - Machines covered by both sources show the agent-based results only for increased freshness.
 
 - If you select **Vulnerability assessment with Qualys or BYOL integrations** - Defender for Cloud shows the agent-based results by default. Results from the agentless scan are shown for machines that don't have an agent installed or from machines that aren't reporting findings correctly.
 
@@ -68,17 +68,17 @@ If you have Defender for Servers P2 already enabled and agentless scanning is tu
     When you enable agentless scanning on either plan, the setting applies to both plans.
 
 1. In the settings pane, turn on **Agentless scanning for machines**.
- 
+
     :::image type="content" source="media/enable-vulnerability-assessment-agentless/agentless-scan-on-aws.png" alt-text="Screenshot of the agentless scanning status for AWS accounts." lightbox="media/enable-vulnerability-assessment-agentless/agentless-scan-on-aws.png":::
 
 1. Select **Save and Next: Configure Access**.
 
 1. Download the CloudFormation template.
-    
+
 1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you're onboarding a management account, you need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
-    
+
 1. Select **Next: Review and generate**.
-    
+
 1. Select **Update**.
 
 After you enable agentless scanning, software inventory and vulnerability information are updated automatically in Defender for Cloud.
