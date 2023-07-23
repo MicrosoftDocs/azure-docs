@@ -1,5 +1,6 @@
 ---
 title: Peering registered prefix requirements
+titleSuffix: Internet Peering
 description: Learn about the technical requirements to register your prefixes for Azure Peering Service.
 author: halkazwini
 ms.author: halkazwini
