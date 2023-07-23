@@ -112,7 +112,7 @@ ALB Controller implements support for [Ingress](https://kubernetes.io/docs/conce
 | ------------------------- | ------- | ------------ |
 | [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingress-v1-networking-k8s-io)          | Yes   | Support for HTTP and HTTPS protocol on the listener. |
 
-## Reporting issues
+## Report issues and provide feedback
 
 For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/)
 For issues, raise a support request via the Azure portal on your Application Gateway for Containers resource.
