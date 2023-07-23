@@ -20,7 +20,7 @@ The following flowchart summarizes the process to onboard to Peering Service Exc
 
 :::image type="content" source="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Diagram shows a flowchart of the onboarding process for Exchange with Route Server partners.":::
 
-## Technical Requirements
+## Technical requirements
 
 To establish a Peering Service Exchange with Route Server peering, follow these requirements:
 

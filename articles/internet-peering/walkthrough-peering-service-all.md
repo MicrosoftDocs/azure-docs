@@ -20,7 +20,7 @@ The following flowchart summarizes the process to onboard to Peering Service:
 
 :::image type="content" source="media/walkthrough-peering-service-all/peering-services-partner-onboarding-flowchart.png" alt-text="Diagram shows a flowchart of the onboarding process for Peering Service partners.":::
 
-## Technical Requirements
+## Technical requirements
 
 To establish direct interconnect for Peering Service, follow these requirements:
 

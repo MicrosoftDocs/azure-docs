@@ -22,7 +22,7 @@ The following flowchart summarizes the process to onboard to Peering Service Voi
 
 :::image type="content" source="media/walkthrough-communications-services-partner/communications-services-partner-onboarding-flowchart.png" alt-text="Diagram shows the flowchart of the onboarding process for Peering Service Voice Services partners" :::
 
-## Technical Requirements
+## Technical requirements
 
 To establish direct interconnect for Peering Service Voice Services, follow these requirements:
 
