@@ -4,7 +4,7 @@ description: Learn how to use metrics to monitor performance of Application Gate
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/24/2023
 ms.author: greglin

@@ -4,7 +4,7 @@ description: Learn how to enable access logs for Application Gateway for Contain
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/19/2023
 ms.author: greglin

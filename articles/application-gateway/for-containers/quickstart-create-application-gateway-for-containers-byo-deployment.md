@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to provision and manage the Appli
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: quickstart
 ms.date: 07/12/2023
 ms.author: greglin

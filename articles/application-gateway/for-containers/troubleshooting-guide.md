@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues with Application Gateway fo
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: troubleshooting
 ms.date: 07/12/2023
 ms.author: greglin

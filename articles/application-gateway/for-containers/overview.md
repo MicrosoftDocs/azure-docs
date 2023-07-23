@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.custom: references_regions
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: overview
 ms.date: 07/20/2023
 ms.author: greglin

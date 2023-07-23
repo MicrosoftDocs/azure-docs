@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to provision the Application Gate
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: quickstart
 ms.date: 07/19/2023
 ms.author: greglin

@@ -5,7 +5,7 @@ description: This article provides information about how Application Gateway for
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: conceptual
 ms.date: 07/20/2023
 ms.author: greglin

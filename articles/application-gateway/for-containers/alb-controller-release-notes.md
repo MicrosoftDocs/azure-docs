@@ -4,7 +4,7 @@ description: This article lists updates made to the Application Gateway for Cont
 services: application-gateway
 author: greglin
 ms.service: application-gateway
-ms.subservice: traffic-controller
+ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/23/2023
 ms.author: greglin
