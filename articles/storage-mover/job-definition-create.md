@@ -64,7 +64,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/tab-basics-sml.png" alt-text="Screen capture of the migration job's Basics tab, showing the location of the data fields." lightbox="media/job-definition-create/tab-basics-lrg.png":::
 
-1. In the **Source** tab, select an option within the **Source endpoint** field.
+1. In the **Source** tab, select an option within the **Source endpoint** field. You can choose to either use an existing source endpoint or create a new endpoint resource.
 
    If you want to use a source endpoint you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
 
@@ -75,6 +75,8 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
    [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
+
+   The steps to create endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources.
 
    <a name="sub-path"></a>
    By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value starts the data migration from the location you've specified. If the sub path you've specified isn't found, no data is copied.
