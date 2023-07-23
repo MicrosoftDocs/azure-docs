@@ -417,7 +417,9 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Usage of PowerZure function to maintain persistence in your Azure environment**<br>(ARM_PowerZure.MaintainPersistence)                                          | PowerZure exploitation toolkit detected creating a webhook backdoor to maintain persistence in your Azure environment. This was detected by analyzing Azure Resource Manager operations in your subscription.                                                                                                                                                                                                                            | -                                            | High     |
 | **Suspicious classic role assignment detected (Preview)**<br>(ARM_AnomalousClassicRoleAssignment) | Microsoft Defender for Resource Manager identified a suspicious classic role assignment in your tenant which might indicate that an account in your organization was compromised. The identified operations are designed to provide backward compatibility with classic roles that are no longer commonly used. While this activity may be legitimate, a threat actor might utilize such assignment to grant permissions to another user account under their control. |  Lateral Movement, Defense Evasion  | High |
 
-## <a name="alerts-dns"></a>Alerts for DNS
+## <a name="alerts-dns"></a>
+
+[!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
 [Further details and notes](defender-for-dns-introduction.md)
 

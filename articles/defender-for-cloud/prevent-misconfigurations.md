@@ -81,8 +81,6 @@ These recommendations can be used with the **enforce** option:
 - Diagnostic logs in Search services should be enabled
 - Diagnostic logs in Service Bus should be enabled
 
-[!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
-
 ## Next steps
 
 [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.md)

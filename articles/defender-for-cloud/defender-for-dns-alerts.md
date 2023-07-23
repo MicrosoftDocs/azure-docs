@@ -1,7 +1,7 @@
 ---
 title: Respond to Microsoft Defender for DNS alerts
 description: Learn best practices for responding to alerts that indicate security risks in DNS services.
-ms.date: 6/21/2022
+ms.date: 07/23/2023
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -11,7 +11,7 @@ author: dcurwin
 
 [!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
-When you receive an alert from Microsoft Defender for DNS, we recommend you investigate and respond to the alert as described below. Microsoft Defender for DNS protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
+When you receive a security alert about suspicious and anomalous activities identified in DNS transactions, we recommend you investigate and respond to the alert as described below. Even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.
 
 ## Step 1. Contact
 
