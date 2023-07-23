@@ -121,7 +121,7 @@ Learn more about [Cognitive Service - AzureAdvisor429LimitHit (429 Throttling De
 
 Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have opinion mining in SA endpoint, redacted text property in personally identifiable information endpoint
 
-Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/ai-services/text-analytics/how-tos/text-analytics-how-to-call-api).
+Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/ai-services/language-service/overview).
 
 ### Upgrade to the latest API version of Azure Cognitive Service for Language
 
