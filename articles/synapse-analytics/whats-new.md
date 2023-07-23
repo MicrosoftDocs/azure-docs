@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 07/05/2023
+ms.date: 07/21/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -17,7 +17,10 @@ This page is continuously updated with a recent review of what's new in [Azure S
 For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous updates in Azure Synapse Analytics](whats-new-archive.md).
 
 > [!IMPORTANT]
-> [Microsoft Fabric has been announced](https://azure.microsoft.com/blog/introducing-microsoft-fabric-data-analytics-for-the-era-of-ai/)! Learn about this exciting new preview and discover [What is Microsoft Fabric?](/fabric/get-started/microsoft-fabric-overview). Get started with [end-to-end tutorials in Microsoft Fabric](/fabric/get-started/end-to-end-tutorials).
+> [Microsoft Fabric has been announced!](https://azure.microsoft.com/blog/introducing-microsoft-fabric-data-analytics-for-the-era-of-ai/) 
+> - Learn about this exciting new preview and discover [What is Microsoft Fabric?](/fabric/get-started/microsoft-fabric-overview) 
+> - Get started with [end-to-end tutorials in Microsoft Fabric](/fabric/get-started/end-to-end-tutorials). 
+> - See [What's new in Microsoft Fabric?](/fabric/get-started/whats-new)
 
 ## Features currently in preview
 
@@ -157,9 +160,9 @@ This section summarizes recent new features and improvements to machine learning
 | March 2023 | **Using OpenAI GPT in Synapse Analytics** | Microsoft offers Azure OpenAI as an Azure Cognitive Service, and you can [access Azure OpenAI's GPT models from within Synapse Spark](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/using-openai-gpt-in-synapse-analytics/ba-p/3751815). |
 | November 2022 | **R Support (preview)** | Azure Synapse Analytics [now provides built-in R support for Apache Spark](./spark/apache-spark-r-language.md), currently in preview. For an example, [install an R library from CRAN and CRAN snapshots](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_16). |
 | August 2022 | **SynapseML v.0.10.0** | New [release of SynapseML v0.10.0](https://github.com/microsoft/SynapseML/releases/tag/v0.10.0) (previously MMLSpark), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines. Learn more about the [latest additions to SynapseML](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/exciting-new-release-of-synapseml/ba-p/3589606) and get started with [SynapseML](https://aka.ms/spark).|
-| August 2022 | **.NET support** | SynapseML v0.10 [adds full support for .NET languages](https://devblogs.microsoft.com/dotnet/announcing-synapseml-for-dotnet/) like C# and F#. For a .NET SynapseML example, see [.NET Example with LightGBMClassifier](https://microsoft.github.io/SynapseML/docs/getting_started/dotnet_example/).|
-| August 2022 | **Azure Open AI Service support** | SynapseML now allows users to tap into 175-Billion parameter language models (GPT-3) from OpenAI that can generate and complete text and code near human parity. For more information, see [Azure OpenAI for Big Data](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20OpenAI/).|
-| August 2022 | **MLflow platform support** | SynapseML models now integrate with [MLflow](https://microsoft.github.io/SynapseML/docs/mlflow/introduction/) with full support for saving, loading, deployment, and [autologging](https://microsoft.github.io/SynapseML/docs/mlflow/autologging/).|
+| August 2022 | **.NET support** | SynapseML v0.10 [adds full support for .NET languages](https://devblogs.microsoft.com/dotnet/announcing-synapseml-for-dotnet/) like C# and F#. For a .NET SynapseML example, see [.NET Example with LightGBMClassifier](https://microsoft.github.io/SynapseML/docs/Reference/Quickstart%20-%20LightGBM%20in%20Dotnet/).|
+| August 2022 | **Azure Open AI Service support** | SynapseML now allows users to tap into 175-Billion parameter language models (GPT-3) from OpenAI that can generate and complete text and code near human parity. For more information, see [Azure OpenAI for Big Data](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/OpenAI/).|
+| August 2022 | **MLflow platform support** | SynapseML models now integrate with [MLflow](https://microsoft.github.io/SynapseML/docs/Use%20with%20MLFlow/Overview/) with full support for saving, loading, deployment, and [autologging](https://microsoft.github.io/SynapseML/docs/Use%20with%20MLFlow/Autologging/).|
 | August 2022 | **SynapseML in Binder** | We know that Spark can be intimidating for first users but fear not because with the technology Binder, you can [explore and experiment with SynapseML in Binder](https://mybinder.org/v2/gh/microsoft/SynapseML/93d7ccf?labpath=notebooks%2Ffeatures) with zero setup, install, infrastructure, or Azure account required.|
 | June 2022 | **Distributed Deep Neural Network Training (preview)** | The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod, which are commonly used for distributed training. This feature is currently available in preview. The Azure Synapse Analytics runtime for Apache Spark 3.1 and 3.2 also now includes support for the most common deep learning libraries like TensorFlow and PyTorch. To learn more about how to leverage these libraries within your Azure Synapse Analytics GPU-accelerated pools, read the [Deep learning tutorials](./machine-learning/concept-deep-learning.md). |
 
