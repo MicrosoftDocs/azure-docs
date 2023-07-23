@@ -66,24 +66,24 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. In the **Source** tab, select an option within the **Source endpoint** field. You can choose to either use an existing source endpoint or create a new endpoint resource.
 
-   - If you want to use a source endpoint you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
+   If you want to use an existing source endpoint which you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
 
-     :::image type="content" source="media/job-definition-create/endpoint-source-existing-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the Existing Source Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-source-existing-lrg.png":::
+   :::image type="content" source="media/job-definition-create/endpoint-source-existing-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the Existing Source Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-source-existing-lrg.png":::
 
-   - To define a new source endpoint from which to migrate, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
+   To define a new source endpoint from which to migrate your data, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
 
-     :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::[!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::[!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
-     The steps to create endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources.
+   The steps to create endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources.
 
-     <a name="sub-path"></a>
-     By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value starts the data migration from the location you've specified. If the sub path you've specified isn't found, no data is copied.
+   <a name="sub-path"></a>
+   By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value starts the data migration from the location you've specified. If the sub path you've specified isn't found, no data is copied.
 
-     Prior to creating an endpoint and a job resource, it's important to verify that the path you've provided is correct and that the data is accessible. You're unable to modify endpoints or job resources after they're created. If the specified path is wrong, your only option is to delete the resources and re-create them.
+   Prior to creating an endpoint and a job resource, it's important to verify that the path you've provided is correct and that the data is accessible. You're unable to modify endpoints or job resources after they're created. If the specified path is wrong, your only option is to delete the resources and re-create them.
 
-     Values for host, share name, and subpath are concatenated to form the full migration source path. The path is displayed in the **Full path** field within the **Verify full path** section. Copy the path provided and verify that you're able to access it before committing your changes.
+   Values for host, share name, and subpath are concatenated to form the full migration source path. The path is displayed in the **Full path** field within the **Verify full path** section. Copy the path provided and verify that you're able to access it before committing your changes.
 
-     After you've confirmed that the share is accessible, select **Next** to save your source endpoint settings and begin defining your target.
+   After you've confirmed that the share is accessible, select **Next** to save your source endpoint settings and begin defining your target.
 
 1. In the **Target** tab, select an option for the **Target endpoint** field.
 
