@@ -62,7 +62,7 @@ why a particular condition type has been raised on the Application Gateway for C
 has been accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Ready&#34;</p></td>
-<td><p>AlbReasonDeploymentReady indicates that the Application Gateway for Containers resource
+<td><p>AlbReasonDeploymentReady indicates the Application Gateway for Containers resource
 deployment status.</p>
 </td>
 </tr><tr><td><p>&#34;InProgress&#34;</p></td>
@@ -354,7 +354,7 @@ particular BackendTLSPolicy condition type has been raised.</p>
 When the given BackendTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidBackendTLSPolicy&#34;</p></td>
-<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy is not Accepted</p>
+<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
 <td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
@@ -363,10 +363,10 @@ When the given BackendTLSPolicy is correctly configured</p>
 <td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
+<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
 </td>
 </tr><tr><td><p>&#34;ServiceNotFound&#34;</p></td>
-<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service is not found</p>
+<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service isn't found</p>
 </td>
 </tr><tr><td><p>&#34;Degraded&#34;</p></td>
 <td><p>ReasonDegraded is the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
@@ -690,7 +690,7 @@ certificate of the backend.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>)
 </p>
 <div>
-<p>CustomTargetRef is a reference to a custom resource that is not part of the
+<p>CustomTargetRef is a reference to a custom resource that isn't part of the
 Kubernetes core API.</p>
 </div>
 <table>
@@ -895,14 +895,14 @@ particular FrontTLSPolicy condition type has been raised.</p>
 <td><p>FrontTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
+<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
 </td>
 </tr><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonAccepted is used to set the FrontTLSPolicyConditionReason to Accepted
 When the given FrontTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidFrontendTLSPolicy&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy is not Accepted</p>
+<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidGateway&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonInvalidGateway is used when the gateway is invalid</p>
@@ -1293,7 +1293,7 @@ particular HealthCheckPolicy condition type has been raised.</p>
 When the given HealthCheckPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidHealthCheckPolicy&#34;</p></td>
-<td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy is not Accepted</p>
+<td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidServiceReference&#34;</p></td>
 <td><p>HealthCheckPolicyReasonInvalidServiceReference is used when the service is invalid</p>
@@ -1302,7 +1302,7 @@ When the given HealthCheckPolicy is correctly configured</p>
 <td><p>HealthCheckPolicyReasonInvalidTargetReference is used when the target is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>HealthCheckPolicyReasonNoTargetReference is used when the target is not found</p>
+<td><p>HealthCheckPolicyReasonNoTargetReference is used when the target isn't found</p>
 </td>
 </tr></tbody>
 </table>
@@ -1575,7 +1575,7 @@ string
 </em>
 </td>
 <td>
-<p>BackendHost is the hostname that an incoming request will be mutated to use before being forwarded to the baackend</p>
+<p>BackendHost is the hostname that an incoming request will be mutated to use before being forwarded to the backend</p>
 </td>
 </tr>
 </tbody>
@@ -2338,7 +2338,7 @@ particular RoutePolicy condition type has been raised.</p>
 When the given RoutePolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidRoutePolicy&#34;</p></td>
-<td><p>RoutePolicyReasonInvalid is the reason when the RoutePolicy is not Accepted</p>
+<td><p>RoutePolicyReasonInvalid is the reason when the RoutePolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidHTTPRoute&#34;</p></td>
 <td><p>RoutePolicyReasonInvalidHTTPRoute is used when the HTTPRoute is invalid</p>
