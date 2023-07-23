@@ -36,11 +36,22 @@ Custom document models can be one of two types, [**custom template**](concept-cu
 
 To create a custom extraction model, label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
+### Custom neural model
+
+> [!IMPORTANT]
+>
+> Starting with version 3.1 (2023-07-31 API version), custom neural models only require one sample labeled document to train a model.
+>
+
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+
 ### Custom template model
 
 The custom template or custom form model relies on a consistent visual template to extract the labeled data. Variances in the visual structure of your documents affect the accuracy of your model. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
 
 Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
+
+If the language of your documents and extraction scenarios are supported by custom neural models, it is recommended that you use custom neural models over temaplte models for higher accuracy.
 
 > [!TIP]
 >
@@ -48,9 +59,6 @@ Your training set consists of structured documents where the formatting and layo
 >
 > For more information, *see* [Interpret and improve accuracy and confidence for custom models](concept-accuracy-confidence.md).
 
-### Custom neural model
-
-The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
 ### Build mode
 

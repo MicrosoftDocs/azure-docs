@@ -25,7 +25,7 @@ monikerRange: '<=doc-intel-3.0.0'
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 >[!NOTE]
-> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+> With the  2022-08-31 API being generall available (GA), the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview, the 2022-01-30-preview or he 2022-06-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
 ## July 2023
 
@@ -33,6 +33,14 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > Form Recognizer is now Azure AI Document Intelligence!
 >
 > As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
+The Document Intelligence version 3.1 API is now generally available (GA)!
+
+The v3.1 API introduces new and updated capabilities:
+
+* Document Intelligence APIs are now more modular, with support for optional features, you can now customize the output to specifically include the features you need. Learn more about the [optional parameters](v3-migration-guide.md).
+
+
 
 ## May 2023
 

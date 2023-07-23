@@ -226,14 +226,64 @@ Use the parameter `api-version=2023-02-28-preview` when using the REST API or th
 
 ## Custom neural model
 
-Language| API Version |
+|Language| API Version |
 |:-----|:----:|
-|English | `2022-08-31` (GA), `2023-02-28-preview`|
-|Spanish | `2023-02-28-preview`|
-|German | `2023-02-28-preview`|
-|French | `2023-02-28-preview`|
-|Italian | `2023-02-28-preview`|
-|Dutch | `2023-02-28-preview`|
+|English | `2022-08-31` (GA), `2023-02-28-preview`, `2023-07-31` (GA)|
+|Spanish | `2023-02-28-preview`, `2023-07-31` (GA)|
+|German | `2023-02-28-preview`, `2023-07-31` (GA)|
+|French | `2023-02-28-preview`, `2023-07-31` (GA)|
+|Italian | `2023-02-28-preview`, `2023-07-31` (GA)|
+|Dutch | `2023-02-28-preview`, `2023-07-31` (GA)|
+|Arabic                             | `2023-07-31` (GA)                                        |
+|Persian                            | `2023-07-31` (GA)                                        |
+|Panjabi                            | `2023-07-31` (GA)                                        |
+|Somali (Arabic)                    | `2023-07-31` (GA)                                        |
+|Urdu                               | `2023-07-31` (GA)                                        |
+|Bulgarian                          | `2023-07-31` (GA)                                        |
+|Macedonian                         | `2023-07-31` (GA)                                        |
+|Russian                            | `2023-07-31` (GA)                                        |
+|Ukrainian                          | `2023-07-31` (GA)                                        |
+|Hindi                              | `2023-07-31` (GA)                                        |
+|Marathi                            | `2023-07-31` (GA)                                        |
+|Nepali (macrolanguage)             | `2023-07-31` (GA)                                        |
+|Modern Greek (1453-)               | `2023-07-31` (GA)                                        |
+|Chinese (Han (Simplified variant)) | `2023-07-31` (GA)                                        |
+|Chinese (Han (Traditional variant))| `2023-07-31` (GA)                                        |
+|Hebrew                             | `2023-07-31` (GA)                                        |
+|Japanese                          | `2023-07-31` (GA)                                        |
+|Korean                             | `2023-07-31` (GA)                                        |
+|Afrikaans                          | `2023-07-31` (GA)                                        |
+|Czech                              | `2023-07-31` (GA)                                        |
+|Danish                             | `2023-07-31` (GA)                                        |
+|German                             | `2023-07-31` (GA)                                        |
+|Spanish                            | `2023-07-31` (GA)                                        |
+|Estonian                           | `2023-07-31` (GA)                                        |
+|Finnish                            | `2023-07-31` (GA)                                        |
+|French                             | `2023-07-31` (GA)                                        |
+|Croatian                           | `2023-07-31` (GA)                                        |
+|Hungarian                          | `2023-07-31` (GA)                                        |
+|Indonesian                         | `2023-07-31` (GA)                                        |
+|Italian                            | `2023-07-31` (GA)                                        |
+|Lithuanian                         | `2023-07-31` (GA)                                        |
+|Latvian                            | `2023-07-31` (GA)                                        |
+|Dutch                              | `2023-07-31` (GA)                                        |
+|Norwegian                          | `2023-07-31` (GA)                                        |
+|Polish                             | `2023-07-31` (GA)                                        |
+|Portuguese                         | `2023-07-31` (GA)                                        |
+|Romanian                           | `2023-07-31` (GA)                                        |
+|Slovak                             | `2023-07-31` (GA)                                        |
+|Slovenian                          | `2023-07-31` (GA)                                        |
+|Somali (Latin)                     | `2023-07-31` (GA)                                        |
+|Albanian                           | `2023-07-31` (GA)                                        |
+|Swedish                            | `2023-07-31` (GA)                                        |
+|Swahili (macrolanguage)            | `2023-07-31` (GA)                                        |
+|Turkish                            | `2023-07-31` (GA)                                        |
+|Vietnamese                         | `2023-07-31` (GA)                                        |
+|Tamil                              | `2023-07-31` (GA)                                        |
+|Thai                               | `2023-07-31` (GA)                                        |
+
+
+
 
 ## Health insurance card model
 
