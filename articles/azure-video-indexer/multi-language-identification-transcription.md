@@ -1,6 +1,6 @@
 ---
-title: Automatically identify and transcribe multi-language content with Azure Video Indexer
-description: This topic demonstrates how to automatically identify and transcribe multi-language content with Azure Video Indexer.
+title: Automatically identify and transcribe multi-language content with Azure AI Video Indexer
+description: This topic demonstrates how to automatically identify and transcribe multi-language content with Azure AI Video Indexer.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -10,13 +10,13 @@ ms.author: juliako
 
 # Automatically identify and transcribe multi-language content
 
-Azure Video Indexer supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
+Azure AI Video Indexer supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
 
 ## Choosing multilingual identification on indexing with portal
 
 You can choose **multi-language detection** when uploading and indexing your video. Alternatively, you can choose **multi-language detection**  when re-indexing your video. The following steps describe how to reindex:
 
-1. Browse to the [Azure Video Indexer](https://vi.microsoft.com/) website and sign in.
+1. Browse to the [Azure AI Video Indexer](https://vi.microsoft.com/) website and sign in.
 1. Go to the **Library** page and hover over the name of the video that you want to reindex. 
 1. On the right-bottom corner, click the **Re-index video** button. 
 1. In the **Re-index video** dialog, choose **multi-language detection** from the **Video source language** drop-down box.
@@ -82,4 +82,4 @@ Additionally, each instance in the transcription section will include the langua
 
 ## Next steps
 
-[Azure Video Indexer overview](video-indexer-overview.md)
+[Azure AI Video Indexer overview](video-indexer-overview.md)

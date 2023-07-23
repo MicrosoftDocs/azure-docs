@@ -59,5 +59,4 @@ In this example, the function counts the number of times the specified scalar fi
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
-- [Aggregate functions in Azure Cosmos DB](aggregate-functions.yml)
 - [`AVG`](average.md)

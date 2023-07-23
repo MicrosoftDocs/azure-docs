@@ -97,6 +97,8 @@ The total lag initially should be zero and finally should be greater or equal to
 An example of a delegate that receives changes and handles them with a lag is:
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedEstimator.java?name=HandleChangesWithLag)]
 
+---
+
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sdk-dotnet-v3.md)

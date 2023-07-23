@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 04/28/2023
+ms.date: 07/21/2023
 ms.author: jasteppe
 ---
 
@@ -20,7 +20,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 > [!TIP]
 > Having access to MedTech service metrics and logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service. Check out these MedTech service articles to learn how to enable, configure, and use these MedTech service monitoring features:
 >  
-> [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
+> [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
 > [How to configure the MedTech service metrics](how-to-configure-metrics.md)
 >

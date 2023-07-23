@@ -6176,7 +6176,7 @@
             "redirect_url": "/azure/azure-monitor/app/javascript-sdk-configuration",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-firewall.md",
             "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
             "redirect_document_id": false
@@ -6184,6 +6184,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/autoscale/tutorial-autoscale-performance-schedule.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-supported.md",
+            "redirect_url": "/azure/azure-monitor/reference/supported-metrics/metrics-index",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
+            "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
             "redirect_document_id": false
         } 
     ]

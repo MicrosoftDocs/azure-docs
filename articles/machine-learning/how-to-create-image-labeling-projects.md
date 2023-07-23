@@ -263,7 +263,7 @@ View and change details of your project. On this tab, you can:
 
 ### Vision Studio tab
 
-If your project was created from [Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+If your project was created from [Vision Studio](../ai-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
 
 ### Access for labelers
 
@@ -294,9 +294,9 @@ You can export an image label as:
 * An [Azure MLTable data asset](./how-to-mltable.md).
 :::moniker-end
 
-When you export a CSV or COCO file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download. Select the **Download file** link to download your results. You'll also find the notification in the **Notification** section on the top bar:
 
-:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+:::image type="content" source="media/how-to-create-labeling-projects/download-file.png" alt-text="Screenshot that shows the notification for the file download.":::
 
 Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 

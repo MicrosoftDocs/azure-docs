@@ -11,6 +11,8 @@ ms.author: geguirgu
 
 Client Life Cycle events allow applications to react to client connection or disconnection events. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Event types
 
 The Event Grid namespace publishes the following event types:
