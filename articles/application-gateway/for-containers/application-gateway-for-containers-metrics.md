@@ -3,7 +3,7 @@ title: Azure Monitor metrics for Application Gateway for Containers
 description: Learn how to use metrics to monitor performance of Application Gateway for Containers
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: appgw-for-containers
 ms.topic: article
 ms.date: 07/24/2023
 ms.author: greglin
@@ -29,32 +29,32 @@ Application Gateway for Containers publishes data points to [Azure Monitor](../.
 
 Use the following steps to view Application Gateway for Containers in the Azure portal.
 
-  1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-  2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
-  3. Under **Monitoring**, select **Metrics**.
-  4. Next to **Chart Title**, enter a title for your metrics view.
-  5. **Scope** and **Metric Namespace** are is automatically populated. Under **Metric**, select a metric such as: **Total Requests**. For the **Total Requests** metric, the **Aggregation** is set to **Sum**.
-  6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**. 
-  7. Enter values to use for filtering under **Values**. For example: 
-   - **frontend-primary:80** 
-   - **ingress-frontend:443**
-   - **ingress-frontend:80**
-  8. Select the values you want to actively filter from the entries you create. 
-  9. Choose **Apply Splitting**, select **Frontend**, and accept default values for **Limit** and **Sort**. See the following example:
-  
-     [![Application Gateway for Containers metrics total requests](./media/application-gateway-for-containers-metrics/total-requests.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
+3. Under **Monitoring**, select **Metrics**.
+4. Next to **Chart Title**, enter a title for your metrics view.
+5. **Scope** and **Metric Namespace** are is automatically populated. Under **Metric**, select a metric such as: **Total Requests**. For the **Total Requests** metric, the **Aggregation** is set to **Sum**.
+6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**. 
+7. Enter values to use for filtering under **Values**. For example: 
+ - **frontend-primary:80** 
+ - **ingress-frontend:443**
+ - **ingress-frontend:80**
+8. Select the values you want to actively filter from the entries you create. 
+9. Choose **Apply Splitting**, select **Frontend**, and accept default values for **Limit** and **Sort**. See the following example:
 
-    The following are some other useful chart examples:
+  ![Application Gateway for Containers metrics total requests](./media/application-gateway-for-containers-metrics/total-requests.png)
 
-    **HTTP Response Status**
+  The following are some other useful chart examples:
 
-      ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
+  **HTTP Response Status**
 
-    **Backend Health Targets**
+    ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
 
-       ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
+  **Backend Health Targets**
 
-       In the backend health targets example shown, the number of healthy backend targets increases from 1 to 2 for Kubernetes service _echo_ and then decreases to 1.  This validates that Application Gateway for Containers is able to detect the new replica, begin load balancing to the replica, and then remove the replica when the replica count is decreased in Kubernetes.
+     ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
+
+     In the backend health targets example shown, the number of healthy backend targets increases from 1 to 2 for Kubernetes service _echo_ and then decreases to 1.  This validates that Application Gateway for Containers is able to detect the new replica, begin load balancing to the replica, and then remove the replica when the replica count is decreased in Kubernetes.
 
 ## Next steps
 
