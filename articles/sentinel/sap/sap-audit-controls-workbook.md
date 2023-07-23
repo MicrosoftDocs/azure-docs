@@ -9,41 +9,31 @@ ms.date: 07/18/2023
 
 # Microsoft Sentinel solution for SAP® applications - SAP Audit Controls workbook (Preview)
 
-This article describes the SAP Audit Controls workbook. The workbook allows you to configure a control framework for SAP, so it can be used as base for auditing your Microsoft Sentinel configuration for compliance with the Sarbanes-Oxley (SOX) and NIST frameworks, or any other existing or custom framework.
+This article describes the SAP Audit Controls workbook. The workbook allows you to choose a security control framework (SOX, NIST, or a custom framework of your choice), and to audit the configuration of the analytics rules in your Microsoft Sentinel solution for SAP® applications according to your chosen framework.
 
 The following functionality is available in this workbook:
 
-- Receive recommendations regarding the state of the different alert rules
-- Modify the OOTB association of the different alert rules to the SOX or NIST control framework or apply your own control language
-- Review the incidents and alerts detailed by the selected control framework
-- Export the relevant incidents for auditing purposes
+- Receive recommendations regarding the status of the available analytics rules.
+- Set the default association of your analytics rules to the SOX or NIST control framework, or apply your own custom control framework.
+- Review the incidents and alerts summarized by control, according to the selected control framework.
+- Export relevant incidents for further analysis, for auditing purposes.
 
-
----
-
-This article describes the SAP -Security Audit log and Initial Access workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
-
-You can use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity. 
 
 ## Start using the workbook
 
 1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
 
-1. In the **Workbooks** gallery, go to **Templates** and enter *SAP* in the search bar, and select **SAP -Security Audit log and Initial Access** from among the results.
+1. In the **Workbooks** gallery, go to **Templates** and enter *SAP* in the search bar, and select **SAP Audit Controls** from among the results.
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 
-    :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP -Security Audit log and Initial Access workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
+   :::image type="content" source="media/sap-audit-controls-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP Audit Controls workbook.":::
 
-     > [!IMPORTANT]
-     >
-     > The SAP -Security Audit log and Initial Access workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP® applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
-     >
-     > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**. 
 
 1. Select the following fields to filter the data according to your needs:
 
-    - **Time Range**. From four hours to 90 days.  
+    - **Subscription** and **Workspace**. Select the workspace whose SAP systems' compliance you wish to audit.
+    - **Incident creation time**. Select a range from the last four hours to the last 30 days, or a custom range that you determine.
     - **System Roles**. The SAP system roles, for example: Development.
     - **System Usage**. For example: SAP GTS.
     - **SAP systems**. You can select all systems, a specific system, or select multiple systems.
