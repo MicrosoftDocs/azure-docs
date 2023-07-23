@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) has roles and permissions that are identified 
 
 ## Which roles and permissions are privileged?
 
-You can use the Azure portal, Microsoft PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
+You can use the Azure portal, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
 
 # [Portal](#tab/portal)
 
@@ -31,7 +31,7 @@ In the Azure portal, look for the **PRIVILEGED** label.
 
 ![Privileged label icon.](./media/permissions-reference/privileged-label.png)
 
-On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number or role assignments You can also filter privileged roles. 
+On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number or role assignments. You can also filter privileged roles. 
 
 :::image type="content" source="./media/privileged-roles-permissions/privileged-roles-portal.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the Privileged and Assignments columns." lightbox="./media/privileged-roles-permissions/privileged-roles-portal.png":::
 
@@ -96,7 +96,7 @@ Here are some best practices for using privileged roles.
 - Limit the number of Global Administrators to less than 5
 - Limit the number of privileged role assignments to less than 10
 
-If you have more than 5 privileged Global Administrator role assignments, a **Global Administrators** alert card is displayed on the Azure AD Overview page to help you monitor Global Administrator role assignments.
+If you have 5 or more privileged Global Administrator role assignments, a **Global Administrators** alert card is displayed on the Azure AD Overview page to help you monitor Global Administrator role assignments.
 
 :::image type="content" source="./media/privileged-roles-permissions/overview-privileged-roles-card.png" alt-text="Screenshot of the Azure AD Overview page that shows a card with the number of privileged role assignments." lightbox="./media/privileged-roles-permissions/overview-privileged-roles-card.png":::
 
@@ -225,3 +225,4 @@ All custom roles |  |  | :heavy_check_mark: | :heavy_check_mark:
 ## Next steps
 
 - [Best practices for Azure AD roles](best-practices.md)
+- [Azure AD built-in roles](permissions-reference.md)
