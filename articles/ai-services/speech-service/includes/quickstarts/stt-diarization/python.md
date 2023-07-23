@@ -49,16 +49,17 @@ Follow these steps to create a new console application.
         print('SessionStopped event')
 
     def conversation_transcriber_recognized_cb(evt: speechsdk.SpeechRecognitionEventArgs):
-        print('Transcribed event:')
+        print('TRANSCRIBED:')
         if evt.result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            print('\tText: {}'.format(evt.result.text))
-            print('\tSpeaker ID: {}'.format(evt.result.speaker_id))
+            print('\tText={}'.format(evt.result.text))
+            print('\tSpeaker ID={}'.format(evt.result.speaker_id))
         elif evt.result.reason == speechsdk.ResultReason.NoMatch:
-            print('\tNOMATCH: Speech could not be transcribed: {}'.format(evt.result.no_match_details))
+            print('\tNOMATCH: Speech could not be TRANSCRIBED: 
+        {}'.format(evt.result.no_match_details))
 
     def conversation_transcriber_transcribing_cb(evt: speechsdk.SpeechRecognitionEventArgs):
-        print('Transcribing event:')
-        print('\tText: {}'.format(evt.result.text))
+        print('TRANSCRIBING:')
+        print('\tText={}'.format(evt.result.text))
 
     def conversation_transcriber_session_started_cb(evt: speechsdk.SessionEventArgs):
         print('SessionStarted event')
@@ -120,70 +121,69 @@ The transcribed conversation should be output as text:
 
 ```console
 SessionStarted event
-Recognizing event:
-        Text: good morning
-Recognizing event:
-        Text: good morning steve
-Recognized event:
-        Text: Good morning, Steve.
-Recognizing event:
-        Text: good morning
-Recognizing event:
-        Text: good morning katie
-Recognizing event:
-        Text: good morning katie have you heard
-Recognizing event:
-        Text: good morning katie have you heard about
-Recognizing event:
-        Text: good morning katie have you heard about the new
-Recognizing event:
-        Text: good morning katie have you heard about the new conversation
-Recognizing event:
-        Text: good morning katie have you heard about the new conversation transcription
-Recognizing event:
-        Text: good morning katie have you heard about the new conversation transcription capability
-Recognized event:
-        Text: Good morning, Katie. Have you heard about the new conversation transcription capability?
-Recognizing event:
-        Text: no
-Recognizing event:
-        Text: no tell me more
-Recognizing event:
-        Text: no tell me more it's the new
-Recognizing event:
-        Text: no tell me more it's the new feature
-Recognizing event:
-        Text: no tell me more it's the new feature that
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and lets
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and lets us
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and lets us know
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and lets us know who
-Recognizing event:
-        Text: no tell me more it's the new feature that transcribes our discussion and lets us know who said what
-Recognized event:
-        Text: No Tell Me More. It's the new feature that transcribes our discussion and lets us know who said what.
-Recognizing event:
-        Text: that
-Recognizing event:
-        Text: that sounds interesting
-Recognizing event:
-        Text: that sounds interesting i'm
-Recognizing event:
-        Text: that sounds interesting i'm going to give this a try
-Recognized event:
-        Text: That sounds interesting. I'm going to give this a try.
+TRANSCRIBING: 
+        Text=good morning 
+TRANSCRIBING: 
+        Text=good morning steve 
+TRANSCRIBED: 
+        Text=Good morning, Steve. Speaker ID=GUEST-1 
+TRANSCRIBING: 
+        Text=good morning 
+TRANSCRIBING: 
+        Text=good morning katie 
+TRANSCRIBING: 
+        Text=good morning katie have you heard 
+TRANSCRIBING: 
+        Text=good morning katie have you heard about 
+TRANSCRIBING: 
+        Text=good morning katie have you heard about the new 
+TRANSCRIBING: 
+        Text=good morning katie have you heard about the new conversation 
+TRANSCRIBING: 
+        Text=good morning katie have you heard about the new conversation transcription 
+TRANSCRIBING: 
+        Text=good morning katie have you heard about the new conversation transcription capability 
+TRANSCRIBED: 
+        Text=Good morning. Katie, have you heard about the new conversation transcription capability? Speaker ID=GUEST-2 
+TRANSCRIBING: 
+        Text=no 
+TRANSCRIBING: 
+        Text=no tell me more 
+TRANSCRIBED: 
+        Text=No, tell me more. Speaker ID=GUEST-1 
+TRANSCRIBING: 
+        Text=it's the new 
+TRANSCRIBING: 
+        Text=it's the new feature 
+TRANSCRIBING: 
+        Text=it's the new feature that 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion and lets 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion and lets us 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion and lets us know 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion and lets us know who 
+TRANSCRIBING: 
+        Text=it's the new feature that transcribes our discussion and lets us know who said what 
+TRANSCRIBED: 
+        Text=It's the new feature that transcribes our discussion and lets us know who said what. Speaker ID=GUEST-2 
+TRANSCRIBING: 
+        Text=that 
+TRANSCRIBING: 
+        Text=that sounds interesting 
+TRANSCRIBING: 
+        Text=that sounds interesting i'm 
+TRANSCRIBING: 
+        Text=that sounds interesting i'm going to give this a try 
+TRANSCRIBED: 
+        Text=That sounds interesting. I'm going to give this a try. Speaker ID=GUEST-1 
+CANCELED: Reason=EndOfStream 
 Canceled event
 CLOSING on SpeechRecognitionCanceledEventArgs(session_id=f415cb140e3a4dce8b293af06ac3790d, result=SpeechRecognitionResult(result_id=e946024af48a4588b887ac881a1b056a, text="", reason=ResultReason.Canceled))
 SessionStopped event

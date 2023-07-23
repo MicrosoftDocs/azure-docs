@@ -124,36 +124,37 @@ dotnet run
 The transcribed conversation should be output as text: 
 
 ```console
-RECOGNIZING: Text=good morning
-RECOGNIZING: Text=good morning steve
-RECOGNIZED: Text=Good morning, Steve.
-RECOGNIZING: Text=good morning
-RECOGNIZING: Text=good morning katie
-RECOGNIZING: Text=good morning katie have you heard
-RECOGNIZING: Text=good morning katie have you heard about
-RECOGNIZING: Text=good morning katie have you heard about the new
-RECOGNIZING: Text=good morning katie have you heard about the new conversation
-RECOGNIZING: Text=good morning katie have you heard about the new conversation transcription
-RECOGNIZING: Text=good morning katie have you heard about the new conversation transcription capability
-RECOGNIZED: Text=Good morning. Katie, have you heard about the new conversation transcription capability?
-RECOGNIZING: Text=no
-RECOGNIZING: Text=no tell me more
-RECOGNIZING: Text=no tell me more it's the new
-RECOGNIZING: Text=no tell me more it's the new feature
-RECOGNIZING: Text=no tell me more it's the new feature that
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know who
-RECOGNIZING: Text=no tell me more it's the new feature that transcribes our discussion and lets us know who said what
-RECOGNIZED: Text=No, tell me more. It's the new feature that transcribes our discussion and lets us know who said what.
-RECOGNIZING: Text=that
-RECOGNIZING: Text=that sounds interesting
-RECOGNIZING: Text=that sounds interesting i'm
-RECOGNIZING: Text=that sounds interesting i'm going to give this a try
-RECOGNIZED: Text=That sounds interesting. I'm going to give this a try.
+TRANSCRIBING: Text=good morning 
+TRANSCRIBING: Text=good morning steve 
+TRANSCRIBED: Text=Good morning, Steve. Speaker ID=GUEST-1 
+TRANSCRIBING: Text=good morning 
+TRANSCRIBING: Text=good morning katie 
+TRANSCRIBING: Text=good morning katie have you heard 
+TRANSCRIBING: Text=good morning katie have you heard about 
+TRANSCRIBING: Text=good morning katie have you heard about the new 
+TRANSCRIBING: Text=good morning katie have you heard about the new conversation 
+TRANSCRIBING: Text=good morning katie have you heard about the new conversation transcription 
+TRANSCRIBING: Text=good morning katie have you heard about the new conversation transcription capability 
+TRANSCRIBED: Text=Good morning. Katie, have you heard about the new conversation transcription capability? Speaker ID=GUEST-2 
+TRANSCRIBING: Text=no 
+TRANSCRIBING: Text=no tell me more 
+TRANSCRIBED: Text=No, tell me more. Speaker ID=GUEST-1 
+TRANSCRIBING: Text=it's the new 
+TRANSCRIBING: Text=it's the new feature 
+TRANSCRIBING: Text=it's the new feature that 
+TRANSCRIBING: Text=it's the new feature that transcribes our 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know who 
+TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know who said what 
+TRANSCRIBED: Text=It's the new feature that transcribes our discussion and lets us know who said what. Speaker ID=GUEST-2 
+TRANSCRIBING: Text=that 
+TRANSCRIBING: Text=that sounds interesting 
+TRANSCRIBING: Text=that sounds interesting i'm 
+TRANSCRIBING: Text=that sounds interesting i'm going to give this a try 
+TRANSCRIBED: Text=That sounds interesting. I'm going to give this a try. Speaker ID=GUEST-1 
 CANCELED: Reason=EndOfStream
 ```
 
