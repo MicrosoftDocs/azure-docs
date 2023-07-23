@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 06/07/2023
+  ms.date: 07/20/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -48,7 +48,7 @@ sections:
       - question: |
           I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
-          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI does not support batching with embedding requests. Embeddings API calls should consist of a single string input per request. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
       - question: |
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
@@ -103,7 +103,7 @@ sections:
       - question: |
           What are the SLAs for API responses in Azure OpenAI?
         answer:
-          We don't have a defined API response time Service Level Agreement (SLA) at this time. For more information about the SLA for Azure OpenAI Service, see the "Azure Cognitive Services" section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
+          We don't have a defined API response time Service Level Agreement (SLA) at this time. For more information about the SLA for Azure OpenAI Service, consult the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:

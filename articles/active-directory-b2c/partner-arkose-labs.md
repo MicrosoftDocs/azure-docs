@@ -68,9 +68,9 @@ The following diagram illustrates how the Arkose Labs platform integrates with A
 
 ### Create an ArkoseSessionToken custom attribute
 
-To create a custom attribute:  
+To create a custom attribute:
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#home), then to **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to **Azure AD B2C**.
 2. Select **User attributes**.
 3. Select **Add**.
 4. Enter **ArkoseSessionToken** as the attribute Name.
