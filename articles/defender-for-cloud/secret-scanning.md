@@ -39,19 +39,6 @@ In addition to detecting SSH private keys, the agentless scanner verifies whethe
 
 For requirements for agentless scanning, see [Learn about agentless scanning](concept-agentless-data-collection.md#availability).
 
-## Feature capability
-
-You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities.
-
-If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which plans enable which features:
-
-| Plan Feature | Defender for servers plan 2 | Defender CSPM |
-|--|--|--|
-| [Attack path](#remediate-secrets-with-attack-path) | No | Yes |
-| [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | Yes | Yes |
-| [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
-| [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
-
 ## Remediate secrets with attack path
 
 Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
