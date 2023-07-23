@@ -48,13 +48,16 @@ Use the following steps to view Application Gateway for Containers in the Azure 
 
   **HTTP Response Status**
 
-    ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
+  In the HTTP response status example show, a filter can be applied to quickly identify trends on response codes returned to client requests. Optionally, a filter may be applied to further monitor a specific grouping of HTTP response codes.
+
+  ![Application Gateway for Containers metrics HTTP response status](./media/application-gateway-for-containers-metrics/http-response-status.png)
 
   **Backend Health Targets**
+  
+  In the backend health targets example shown, the number of healthy backend targets increases from 1 to 2 for Kubernetes service _echo_ and then decreases to 1.  This validates that Application Gateway for Containers is able to detect the new replica, begin load balancing to the replica, and then remove the replica when the replica count is decreased in Kubernetes.
 
-     ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
+  ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
 
-     In the backend health targets example shown, the number of healthy backend targets increases from 1 to 2 for Kubernetes service _echo_ and then decreases to 1.  This validates that Application Gateway for Containers is able to detect the new replica, begin load balancing to the replica, and then remove the replica when the replica count is decreased in Kubernetes.
 
 ## Next steps
 
