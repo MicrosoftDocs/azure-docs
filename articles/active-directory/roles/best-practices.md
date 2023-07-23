@@ -35,7 +35,7 @@ Follow these steps to help you find the right role.
 
     ![Roles and administrators page in Azure AD with Service filter open](./media/best-practices/roles-administrators.png)
 
-1. Refer to the [Azure AD built-in roles](permissions-reference.md) documentation. Permissions associated with each role are listed together for better readability. To understand the structure and meaning of role permissions, see [How to understand role permissions](permissions-reference.md#how-to-understand-role-permissions).
+1. Refer to the [Azure AD built-in roles](permissions-reference.md) documentation. Permissions associated with each role are listed together for better readability. To understand the structure and meaning of role permissions, see [How to understand role permissions](privileged-roles-permissions.md#how-to-understand-role-permissions).
 
 1. Refer to the [Least privileged role by task](delegate-by-task.md) documentation.
 

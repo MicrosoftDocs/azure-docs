@@ -2623,7 +2623,7 @@ Assign the Yammer Administrator role to users who need to do the following tasks
 - View announcements in the Message center, but not security announcements
 - View service health
 
-[Learn more](/yammer/manage-yammer-users/manage-yammer-admins)
+[Learn more](/viva/engage/eac-key-admin-roles-permissions)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
