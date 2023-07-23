@@ -21,7 +21,7 @@ Explore and investigate [attack paths](how-to-manage-attack-path.md) by sorting 
 
 ## Testing the attack path and security explorer using a mock vulnerable container image
 
-If there are no entries in the list of attack paths, you can still test this feature by using a mock container image. Use the following steps to setup the test: 
+If there are no entries in the list of attack paths, you can still test this feature by using a mock container image. Use the following steps to set up the test: 
 
 **Requirement:** An instance of Azure Container Registry (ACR) in the tested scope.
 
@@ -102,6 +102,6 @@ The results are listed below the query.
 
 :::image type="content" source="media/how-to-test-attack-path/custom-query-results.png" alt-text="Screenshot that shows the results from a custom query." lightbox="media/how-to-test-attack-path/custom-query-results.png":::
 
-## Next Steps 
+## Next steps 
 
  - Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
