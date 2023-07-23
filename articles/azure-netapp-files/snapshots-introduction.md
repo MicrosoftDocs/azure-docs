@@ -192,7 +192,7 @@ The following diagram illustrates the operation of restoring a selected vaulted 
 
 There are two methods for restoring individual files or directories from vaulted snapshots.
 
-1. If you need to restore ten or fewer files and you know the exact file and path names, you can use the Restore Files function. This function allows you to restore specific files or directories from a backup. To learn more, [Restore individual files using single-file backup restore](restore-single-file-backup.md)
+1. If you need to restore ten or fewer files and you know the exact file and path names, you can use the Restore Files function. This function allows you to restore specific files or directories from a backup. To learn more, [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
 
     >[!NOTE]
     >If files with the same paths and names exist, those will be overwritten by this action.
@@ -237,7 +237,7 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md)
 * [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
-* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
 * [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
