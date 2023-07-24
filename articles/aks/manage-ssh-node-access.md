@@ -128,22 +128,22 @@ Use the [az aks update][az-aks-update] command to update the SSH public key on t
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>
 ```
 
-The following examples demonstrate possible usage of this command:
+The following are examples of this command:
 
-* You can specify the new SSH public key value for the `--ssh-key-value` argument:
+* To specify the new SSH public key value, include the `--ssh-key-value` argument:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
     ```
 
-* You specify an SSH public key file:
+* To specify an SSH public key file, specify it with the `--ssh-key-value` argument:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
     ```
 
 > [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and reimaged to use the new SSH public key.
+> During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
 
 <!-- LINKS - external -->
 
