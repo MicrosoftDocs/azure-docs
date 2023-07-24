@@ -24,7 +24,7 @@ To complete this tutorial, you need the following resources:
 
 * **A Document Intelligence resource**.  Once you have your Azure subscription, [create a Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Intelligence resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
-  * After the resource deploys, select **Go to resource**. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API. For more information, *see* [**create a Document Intelligence resource**](create-document-intelligence-resource.md).
+  * After the resource deploys, select **Go to resource**. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API. For more information, *see* [**create a Document Intelligence resource**](../../create-document-intelligence-resource.md).
 
       :::image border="true" type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot showing how to access resource key and endpoint URL.":::
 
@@ -68,12 +68,12 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. Choose the same resource group you have for your Document Intelligence resource.
-   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
+   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Publish**. Select **Workflow**.
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
-   * **Plan Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
+   * **Plan Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Zone Redundancy**. Select **disabled**.
 
 1. When you're done, you have something similar to the following image (Resource group, Logic App name, and Region may be different). After checking these values, select **Review + create** in the bottom-left corner.
@@ -176,7 +176,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/function-expression-field.png" alt-text="Screenshot of the expression function field.":::
 
-1. In  the **ƒx** box, copy and paste the above formula and replace **FIELD-NAME** with the name of the field we want to extract. For the full list of available fields, refer to the concept page for the given API. In this case, we use the [prebuilt-invoice model field extraction values](concept-invoice.md#field-extraction).
+1. In  the **ƒx** box, copy and paste the above formula and replace **FIELD-NAME** with the name of the field we want to extract. For the full list of available fields, refer to the concept page for the given API. In this case, we use the [prebuilt-invoice model field extraction values](../../concept-invoice.md#field-extraction).
 
 1. We're almost done! Make the following changes to the following fields:
 
