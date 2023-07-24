@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Sponsors field for B2B users (preview)
 
-To ensure proper governance of B2B users in their directory, organizations need to have a system in place for tracking who oversees each guest user. This includes identifying someone who can conduct an access review or determine if the user still requires access to the directory. Currently, Entitlement Management provides this capability for guests within specified domains, but it doesn't extend to guests outside of these domains.
+To ensure proper governance of B2B users in their directory, organizations need to have a system in place for tracking who oversees each guest user. Currently, Entitlement Management provides this capability for guests within specified domains, but it doesn't extend to guests outside of these domains.
 By implementing the sponsor feature, you can identify a responsible individual or group for each guest user. This allows you to track who invited the guest user and to help with accountability.
 
 This article provides an overview of the sponsor feature and explains how to use it in B2B scenarios.
@@ -25,7 +25,7 @@ This article provides an overview of the sponsor feature and explains how to use
 ## Sponsors field on the user object
 
 The **Sponsors** field on the user object refers to the person or a group who invited the guest user to the organization. You can use this field to track who invited the guest user and to help with accountability.
-Being a sponsor doesn't grant administrative powers for the sponsor user or the group, but it can be used for approval processes in Entitlement Management and Access Reviews. You can also use it for custom solutions, but it doesn't provide any other built-in directory powers.
+Being a sponsor doesn't grant administrative powers for the sponsor user or the group, but it can be used for approval processes in Entitlement Management. You can also use it for custom solutions, but it doesn't provide any other built-in directory powers.
 
 ## Who can be a sponsor?
 
@@ -37,7 +37,6 @@ When a sponsor leaves the organization, as part of the offboarding process the t
 
 The Azure Active Directory B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
 
-- The sponsor user can run an access review for a group that includes both guests and members and remove guest user access if no longer needed. Groups can contain many users, and - the group owner may not be aware of all the guests involved.
 - Administrators can transfer sponsorship to another user or group, if the guest user starts working on a different project.
 - When requesting new access packages, sponsors can be added as approvers to provide additional support in Entitlement Management, which can help reduce the workload on existing reviewers.
 
@@ -87,5 +86,4 @@ When you invite a guest user, you became their sponsor by default. If you need t
 
 - [Add and invite guest users](add-users-administrator.md)
 - [Crete a new access package](/azure/active-directory/governance/entitlement-management-access-package-create#approval)
-- [Create an access review](/azure/active-directory/governance/create-access-review)
 - [Manage user profile info](/azure/active-directory/fundamentals/how-to-manage-user-profile-info)
