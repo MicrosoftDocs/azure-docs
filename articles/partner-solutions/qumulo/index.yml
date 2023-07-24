@@ -58,7 +58,7 @@ landingContent:
           - text: Java
             url: /java/api/overview/azure/qumulo
           - text: CLI
-           url: /cli/azure/service-page/qumulo
+            url: /cli/azure/service-page/qumulo
           - text: Azure PowerShell
             url: /powershell/module/az.qumulo
           - text: Qumulo Developer tools 
