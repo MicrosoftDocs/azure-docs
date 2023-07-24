@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 07/19/2023
+ms.date: 07/24/2023
 ---
 
 # Use Image Integrity to ensure only trusted images are deployed to your Azure Kubernetes Service (AKS) cluster (Preview)
@@ -23,8 +23,8 @@ In such environments, using signed container images can enable you to assure dep
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
-* The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks).
-* An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration#oidc-issuer).
+* The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
+* An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration.md#oidc-issuer).
 * The `EnableImageIntegrityPreview` feature flag registered on your Azure subscription. Register the feature flag using the following commands:
   
     1. Register the `EnableImageIntegrityPreview` feature flag using the [`az feature register`][az-feature-register] command.
@@ -67,7 +67,7 @@ Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Rati
 ## Enable Image Integrity on your AKS cluster
 
 > [!NOTE]
-> Image signature verification is a governance-oriented scenario and it is closely working with the [Azure Policy](../governance/policy/concepts/policy-for-kubernetes). We recommend using AKS built-in policy to enable Image Integrity. Learn more about the [Image Integrity policy](TBDpolicylink).
+> Image signature verification is a governance-oriented scenario and it is closely working with the [Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md). We recommend using AKS built-in policy to enable Image Integrity. Learn more about the [Image Integrity policy](TBDpolicylink).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -210,6 +210,8 @@ In this article, you learned how to use Image Integrity to ensure only trusted i
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-policy-assignment-create]: /cli/azure/policy/assignment#az_policy_assignment_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
 
 <!--- External links ---->
 
