@@ -172,7 +172,7 @@ You configured the Conditional Access policy to require additional authenticatio
 
 1. Complete the instructions on the screen to configure the method of multi-factor authentication that you've selected. 
 
-1. Close the browser window, and log in again at the [Azure portal](https://portal.azure.com) to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
+1. Close the browser window, and sign in to the [Azure portal](https://portal.azure.com) again to test the authentication method that you configured. For example, if you configured a mobile app for authentication, you should see a prompt like the following.
 
    ![To sign in, follow the prompts in your browser and then the prompt on the device that you registered for multi-factor authentication.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
 
