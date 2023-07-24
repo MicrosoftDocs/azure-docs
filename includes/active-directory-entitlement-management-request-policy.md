@@ -13,13 +13,13 @@ ms.custom: include file
 
 ## For users in your directory
 
-Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+Follow these steps if you want to allow users in your directory to be able to request this access package. When you're defining the request policy, you can specify individual users or (more commonly) groups of users. For example, your organization might already have a group such as **All employees**. If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
     When you select this option, new options appear to further refine who in your directory can request this access package.
 
-    ![Access package - Requests - For users in your directory](./media/entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Screenshot that shows the option for allowing users and groups in the directory to request an access package.](./media/entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. Select one of the following options:
 
@@ -29,15 +29,15 @@ Follow these steps if you want to allow users in your directory to be able to re
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    *Guest users* are external users who have been invited into your directory via [Azure Active Directory B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, select **Add users and groups**.
 
-1. In the Select users and groups pane, select the users and groups you want to add.
+1. In the **Select users and groups** pane, select the users and groups that you want to add.
 
-    ![Access package - Requests - Select users and groups](./media/entitlement-management-request-policy/select-users-groups.png)
+    ![Screenshot that shows the pane for selecting users and groups for an access package.](./media/entitlement-management-request-policy/select-users-groups.png)
 
-1. Select **Select** to add the users and groups.
+1. Choose **Select** to add the users and groups.
 
 1. Skip down to the [Approval](#approval) section.
 
