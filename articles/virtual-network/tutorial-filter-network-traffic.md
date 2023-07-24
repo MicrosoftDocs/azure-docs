@@ -80,8 +80,8 @@ A [network security group (NSG)](network-security-groups-overview.md) secures ne
 
 1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
 
-> [!NOTE]
-> In the search results for **Network security groups**, you may see **Network security groups (classic)**. Select **Network security groups**.
+    > [!NOTE]
+    > In the search results for **Network security groups**, you may see **Network security groups (classic)**. Select **Network security groups**.
 
 1. Select **+ Create**.
 
@@ -124,7 +124,7 @@ In this section, you associate the network security group with the subnet of the
 
 1. In **Inbound security rules** page, select **+ Add**.
 
-1. Create a security rule that allows ports 80 and 443 to the **asg-web** application security group. In **Add inbound security rule** page, enter or select this information:
+1. Create a security rule that allows ports 80 and 443 to the **asg-web** application security group. In **Add inbound security rule** page, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
