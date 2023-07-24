@@ -24,7 +24,7 @@ The SAP CDC connector has been designed with this principle in mind: all relevan
 
 To understand the basic concepts of parametrizing mapping data flows, read [Parameterizing mapping data flows](parameters-data-flow.md).
 
-Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). This provides a better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
+Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). Using an inline dataset provides better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
 
 ### Parametrizing source and run mode
 
@@ -53,7 +53,7 @@ In the **Optimize** tab, a source partitioning scheme (see [optimizing performan
 
 #### JSON format of a partitioning scheme
 
-The format in step 1 follows the JSON standard, consisting of an array of partition definitions, each of which itself is an array of individual filter conditions. These conditions themsevles are JSON objects with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
+The format in step 1 follows the JSON standard, consisting of an array of partition definitions, each of which itself is an array of individual filter conditions. These conditions themselves are JSON objects with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
 ```json
 { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> }
@@ -73,7 +73,7 @@ corresponds to a SQL WHERE clause ... **WHERE "VBELN" = '0000001000'**, or
 
 corresponds to a SQL WHERE clause ... **WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'**
 
-A JSON definition of a partioning scheme containing two partitions thus looks as follows
+A JSON definition of a partitioning scheme containing two partitions thus looks as follows
 
 ```json
 [
@@ -91,7 +91,7 @@ where the first partition contains fiscal years (GJAHR) 2011 through 2015, and t
 >[!NOTE]
    > Azure Data Factory doesn't perform any checks on these conditions. For example, it is in the user's responsibility to ensure that partition conditions don't overlap.
 
-Partition conditions can be more complex, consisting of multiple elementary filter conditions themselves. There are no logical conjunctions that explicitly define how to combine multiple elementary conditions within one partition partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
+Partition conditions can be more complex, consisting of multiple elementary filter conditions themselves. There are no logical conjunctions that explicitly define how to combine multiple elementary conditions within one partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
 2. **excluding** conditions ("sign": "E") for the same field name are combined with **OR** (again, mentally, put brackets around the resulting condition)
 3. the resulting conditions of steps 1 and 2 are
@@ -114,7 +114,7 @@ corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000') AND ("GJAHR" BE
 
 #### Ingesting the partitioning parameter into mapping data flow
 
-To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). Before passing the JSON format described above to this parameter, it has to be converted to a string using the **@string()** function as shown below:
+To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). When passing the JSON format to this parameter, it has to be converted to a string using the **@string()** function:
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partitions.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
 
