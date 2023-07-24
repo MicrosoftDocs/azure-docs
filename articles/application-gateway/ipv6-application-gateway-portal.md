@@ -66,10 +66,10 @@ You'll create the application gateway using the tabs on the **Create application
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
-     ![Create new application gateway: Basics](./media/IPv6-app-gw.png)
+     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/IPv6-app-gw.png) ??
      
 
-2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
+2. For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new  dual stack virtual network or use an existing dual stack network. In this example, you'll create a new dual stack  virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create  three subnets in this example: Two for the application gateway, and another for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
