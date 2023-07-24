@@ -52,8 +52,7 @@ The following table summarizes Site Recovery limits:
 
 2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. The **Customize target settings** page opens.
   
-   :::image type="Replication settings" source="media/concepts-azure-to-azure-high-churn-support/replication-settings-storages.png" alt-text="Screenshot of Replication settings storage.":::
-
+   :::image type="Replication settings" source="media/concepts-azure-to-azure-high-churn-support/replication-settings-storages.png" alt-text="Screenshot of Replication settings storage." lightbox="media/concepts-azure-to-azure-high-churn-support/replication-settings-storages.png":::
 
 3. Under **Churn for the VM**, there are two options: 
 
@@ -62,6 +61,7 @@ The following table summarizes Site Recovery limits:
    - **High Churn** - You can get up to 100 MB/s per VM. Select High Churn to use *Premium Block Blob* storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only *Premium Block blob* storage accounts. 
    
       :::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::
+
 
 4. Select **High Churn** from the dropdown option.
 

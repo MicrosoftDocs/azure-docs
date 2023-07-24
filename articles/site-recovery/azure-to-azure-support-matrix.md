@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 07/14/2023
+ms.date: 07/24/2023
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -102,7 +102,7 @@ Windows Server 2008 R2 with SP1/SP2 | Supported.<br/><br/> From version [9.30](h
 Windows 10 (x64) | Supported.
 Windows 8.1 (x64) | Supported.
 Windows 8 (x64) | Supported.
-Windows 7 (x64) with SP1 onwards | From version [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service extension for Azure VMs, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows 7 (x64) with SP1 onwards | From version [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service extension for Azure VMs, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
 
 
