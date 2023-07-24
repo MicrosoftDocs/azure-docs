@@ -46,19 +46,115 @@ In Microsoft Graph PowerShell, check whether the `IsPrivileged` property is set 
 To list privileged roles, use the [Get-MgBetaRoleManagementDirectoryRoleDefinition](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleDefinition) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryRoleDefinition -Filter "isPrivileged eq true"
+Get-MgBetaRoleManagementDirectoryRoleDefinition -Filter "isPrivileged eq true" | Format-List
+```
+
+```Output
+AllowedPrincipalTypes   :
+Description             : Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
+DisplayName             : Global Administrator
+Id                      : 62e90394-69f5-4237-9190-012177145e10
+InheritsPermissionsFrom : {88d8e3e3-8f55-4a1e-953a-9b9898b8876b}
+IsBuiltIn               : True
+IsEnabled               : True
+IsPrivileged            : True
+ResourceScopes          : {/}
+RolePermissions         : {Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRolePermission}
+TemplateId              : 62e90394-69f5-4237-9190-012177145e10
+Version                 : 1
+AdditionalProperties    : {[inheritsPermissionsFrom@odata.context, https://graph.microsoft.com/beta/$metadata#roleManag
+                          ement/directory/roleDefinitions('62e90394-69f5-4237-9190-012177145e10')/inheritsPermissionsFr
+                          om]}
+
+AllowedPrincipalTypes   :
+Description             : Can manage all aspects of users and groups, including resetting passwords for limited admins.
+DisplayName             : User Administrator
+Id                      : fe930be7-5e62-47db-91af-98c3a49a38b1
+InheritsPermissionsFrom : {88d8e3e3-8f55-4a1e-953a-9b9898b8876b}
+IsBuiltIn               : True
+IsEnabled               : True
+IsPrivileged            : True
+ResourceScopes          : {/}
+RolePermissions         : {Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRolePermission}
+TemplateId              : fe930be7-5e62-47db-91af-98c3a49a38b1
+Version                 : 1
+AdditionalProperties    : {[inheritsPermissionsFrom@odata.context, https://graph.microsoft.com/beta/$metadata#roleManag
+                          ement/directory/roleDefinitions('fe930be7-5e62-47db-91af-98c3a49a38b1')/inheritsPermissionsFr
+                          om]}
+
+...
 ```
 
 To list privileged permissions, use the [Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction -UnifiedRbacResourceNamespaceId "microsoft.directory" -Filter "isPrivileged eq true"
+Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction -UnifiedRbacResourceNamespaceId "microsoft.directory" -Filter "isPrivileged eq true" | Format-List
+```
+
+```Output
+ActionVerb                      : PATCH
+AuthenticationContext           : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAuthenticationContextClassReference
+AuthenticationContextId         :
+Description                     : Update all properties (including privileged properties) on single-directory applications
+Id                              : microsoft.directory-applications.myOrganization-allProperties-update-patch
+IsAuthenticationContextSettable :
+IsPrivileged                    : True
+Name                            : microsoft.directory/applications.myOrganization/allProperties/update
+ResourceScope                   : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRbacResourceScope
+ResourceScopeId                 :
+AdditionalProperties            : {}
+
+ActionVerb                      : PATCH
+AuthenticationContext           : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAuthenticationContextClassReference
+AuthenticationContextId         :
+Description                     : Update credentials on single-directory applications
+Id                              : microsoft.directory-applications.myOrganization-credentials-update-patch
+IsAuthenticationContextSettable :
+IsPrivileged                    : True
+Name                            : microsoft.directory/applications.myOrganization/credentials/update
+ResourceScope                   : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRbacResourceScope
+ResourceScopeId                 :
+AdditionalProperties            : {}
+
+...
 ```
 
 To list privileged role assignments, use the [Get-MgBetaRoleManagementDirectoryRoleAssignment](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleAssignment) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryRoleAssignment -Filter "isPrivileged eq true"
+Get-MgBetaRoleManagementDirectoryRoleAssignment -ExpandProperty "roleDefinition" -Filter "roleDefinition/isPrivileged eq true" | Format-List
+```
+
+```Output
+AppScope                : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAppScope
+AppScopeId              :
+Condition               :
+DirectoryScope          : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDirectoryObject
+DirectoryScopeId        : /
+Id                      : <Id>
+Principal               : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDirectoryObject
+PrincipalId             : <PrincipalId>
+PrincipalOrganizationId : <PrincipalOrganizationId>
+ResourceScope           : /
+RoleDefinition          : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRoleDefinition
+RoleDefinitionId        : 62e90394-69f5-4237-9190-012177145e10
+AdditionalProperties    : {}
+
+AppScope                : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAppScope
+AppScopeId              :
+Condition               :
+DirectoryScope          : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDirectoryObject
+DirectoryScopeId        : /
+Id                      : <Id>
+Principal               : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDirectoryObject
+PrincipalId             : <PrincipalId>
+PrincipalOrganizationId : <PrincipalOrganizationId>
+ResourceScope           : /
+RoleDefinition          : Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphUnifiedRoleDefinition
+RoleDefinitionId        : 62e90394-69f5-4237-9190-012177145e10
+AdditionalProperties    : {}
+
+...
 ```
 
 # [Graph API](#tab/ms-graph)
@@ -71,16 +167,213 @@ To list privileged roles, use the [List roleDefinitions](/graph/api/rbacapplicat
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=isPrivileged eq true
 ```
 
+**Response**
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleDefinitions",
+    "value": [
+        {
+            "id": "aaf43236-0c0d-4d5f-883a-6955382ac081",
+            "description": "Can manage secrets for federation and encryption in the Identity Experience Framework (IEF).",
+            "displayName": "B2C IEF Keyset Administrator",
+            "isBuiltIn": true,
+            "isEnabled": true,
+            "isPrivileged": true,
+            "resourceScopes": [
+                "/"
+            ],
+            "templateId": "aaf43236-0c0d-4d5f-883a-6955382ac081",
+            "version": "1",
+            "rolePermissions": [
+                {
+                    "allowedResourceActions": [
+                        "microsoft.directory/b2cTrustFrameworkKeySet/allProperties/allTasks"
+                    ],
+                    "condition": null
+                }
+            ],
+            "inheritsPermissionsFrom@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleDefinitions('aaf43236-0c0d-4d5f-883a-6955382ac081')/inheritsPermissionsFrom",
+            "inheritsPermissionsFrom": [
+                {
+                    "id": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b"
+                }
+            ]
+        },
+        {
+            "id": "be2f45a1-457d-42af-a067-6ec1fa63bc45",
+            "description": "Can configure identity providers for use in direct federation.",
+            "displayName": "External Identity Provider Administrator",
+            "isBuiltIn": true,
+            "isEnabled": true,
+            "isPrivileged": true,
+            "resourceScopes": [
+                "/"
+            ],
+            "templateId": "be2f45a1-457d-42af-a067-6ec1fa63bc45",
+            "version": "1",
+            "rolePermissions": [
+                {
+                    "allowedResourceActions": [
+                        "microsoft.directory/domains/federation/update",
+                        "microsoft.directory/identityProviders/allProperties/allTasks"
+                    ],
+                    "condition": null
+                }
+            ],
+            "inheritsPermissionsFrom@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleDefinitions('be2f45a1-457d-42af-a067-6ec1fa63bc45')/inheritsPermissionsFrom",
+            "inheritsPermissionsFrom": [
+                {
+                    "id": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b"
+                }
+            ]
+        }
+    ]
+}
+```
+
 To list privileged permissions, use the [List resourceActions](/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18827) API.
 
 ```http
 GET https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions?$filter=isPrivileged eq true
 ```
 
+**Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/resourceNamespaces('microsoft.directory')/resourceActions",
+    "value": [
+        {
+            "actionVerb": "PATCH",
+            "description": "Update application credentials",
+            "id": "microsoft.directory-applications-credentials-update-patch",
+            "isPrivileged": true,
+            "name": "microsoft.directory/applications/credentials/update",
+            "resourceScopeId": null
+        },
+        {
+            "actionVerb": null,
+            "description": "Manage all aspects of authorization policy",
+            "id": "microsoft.directory-authorizationPolicy-allProperties-allTasks",
+            "isPrivileged": true,
+            "name": "microsoft.directory/authorizationPolicy/allProperties/allTasks",
+            "resourceScopeId": null
+        }
+    ]
+}
+```
+
 To list privileged role assignments, use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18827) API.
 
 ```http
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$expand=roleDefinition&$filter=roleDefinition/isPrivileged eq true
+```
+
+**Response**
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignments(roleDefinition())",
+    "value": [
+        {
+            "id": "{id}",
+            "principalId": "{principalId}",
+            "principalOrganizationId": "{principalOrganizationId}",
+            "resourceScope": "/",
+            "directoryScopeId": "/",
+            "roleDefinitionId": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
+            "roleDefinition": {
+                "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
+                "description": "Can manage Conditional Access capabilities.",
+                "displayName": "Conditional Access Administrator",
+                "isBuiltIn": true,
+                "isEnabled": true,
+                "isPrivileged": true,
+                "resourceScopes": [
+                    "/"
+                ],
+                "templateId": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
+                "version": "1",
+                "rolePermissions": [
+                    {
+                        "allowedResourceActions": [
+                            "microsoft.directory/namedLocations/create",
+                            "microsoft.directory/namedLocations/delete",
+                            "microsoft.directory/namedLocations/standard/read",
+                            "microsoft.directory/namedLocations/basic/update",
+                            "microsoft.directory/conditionalAccessPolicies/create",
+                            "microsoft.directory/conditionalAccessPolicies/delete",
+                            "microsoft.directory/conditionalAccessPolicies/standard/read",
+                            "microsoft.directory/conditionalAccessPolicies/owners/read",
+                            "microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read",
+                            "microsoft.directory/conditionalAccessPolicies/basic/update",
+                            "microsoft.directory/conditionalAccessPolicies/owners/update",
+                            "microsoft.directory/conditionalAccessPolicies/tenantDefault/update"
+                        ],
+                        "condition": null
+                    }
+                ]
+            }
+        },
+        {
+            "id": "{id}",
+            "principalId": "{principalId}",
+            "principalOrganizationId": "{principalOrganizationId}",
+            "resourceScope": "/",
+            "directoryScopeId": "/",
+            "roleDefinitionId": "c4e39bd9-1100-46d3-8c65-fb160da0071f",
+            "roleDefinition": {
+                "id": "c4e39bd9-1100-46d3-8c65-fb160da0071f",
+                "description": "Can access to view, set and reset authentication method information for any non-admin user.",
+                "displayName": "Authentication Administrator",
+                "isBuiltIn": true,
+                "isEnabled": true,
+                "isPrivileged": true,
+                "resourceScopes": [
+                    "/"
+                ],
+                "templateId": "c4e39bd9-1100-46d3-8c65-fb160da0071f",
+                "version": "1",
+                "rolePermissions": [
+                    {
+                        "allowedResourceActions": [
+                            "microsoft.directory/users/authenticationMethods/create",
+                            "microsoft.directory/users/authenticationMethods/delete",
+                            "microsoft.directory/users/authenticationMethods/standard/restrictedRead",
+                            "microsoft.directory/users/authenticationMethods/basic/update",
+                            "microsoft.directory/deletedItems.users/restore",
+                            "microsoft.directory/users/delete",
+                            "microsoft.directory/users/disable",
+                            "microsoft.directory/users/enable",
+                            "microsoft.directory/users/invalidateAllRefreshTokens",
+                            "microsoft.directory/users/restore",
+                            "microsoft.directory/users/basic/update",
+                            "microsoft.directory/users/manager/update",
+                            "microsoft.directory/users/password/update",
+                            "microsoft.directory/users/userPrincipalName/update",
+                            "microsoft.azure.serviceHealth/allEntities/allTasks",
+                            "microsoft.azure.supportTickets/allEntities/allTasks",
+                            "microsoft.office365.serviceHealth/allEntities/allTasks",
+                            "microsoft.office365.supportTickets/allEntities/allTasks",
+                            "microsoft.office365.webPortal/allEntities/standard/read"
+                        ],
+                        "condition": null
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```
 
 ---
