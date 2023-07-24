@@ -6,9 +6,8 @@ ms.topic: include
 ms.date: 05/02/2023
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
--->
+<!--
 
 July 2023 preview release is now available.
 
@@ -40,4 +39,6 @@ July 2023 preview release is now available.
 ### Release notes
 
 - Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server.
+
+-->
 

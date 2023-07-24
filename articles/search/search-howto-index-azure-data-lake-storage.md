@@ -2,7 +2,6 @@
 title: Azure Data Lake Storage Gen2 indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

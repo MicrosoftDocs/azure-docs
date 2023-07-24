@@ -8,7 +8,8 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
-ms.date: 07/11/2023
+ms.custom: devx-track-dotnet
+ms.date: 06/05/2023
 ---
 
 # Tutorial: Sign in users in .NET MAUI app

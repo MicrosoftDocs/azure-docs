@@ -269,6 +269,14 @@
           href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
+      - name: Microsoft Azure Network Adapter (MANA)
+        items:
+        - name: Microsoft Azure Network Adapter (MANA) overview
+          href: accelerated-networking-mana-overview.md
+        - name: Linux VMs with MANA
+          href: accelerated-networking-mana-linux.md
+        - name: Windows VMs with MANA
+          href: accelerated-networking-mana-windows.md
     - name: TCP/IP Performance Tuning for Azure VMs
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
