@@ -37,7 +37,7 @@ In this release, we've made the following changes:
 - Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verification. 
 - Added heading-level description to subscribe with URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Fixed an issue where the Client doesn't auto-reconnect when the Gateway WebSocket connection shuts down normally.
+- Fixed an issue where the client doesn't auto-reconnect when the Gateway WebSocket connection shuts down normally.
 
 ## Updates for version 1.2.4419
 

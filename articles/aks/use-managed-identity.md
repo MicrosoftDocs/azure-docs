@@ -203,6 +203,9 @@ A custom control plane managed identity enables access to the existing identity 
 
 ### Update control plane identity on an existing cluster 
 
+> [!NOTE]
+> Migrating control plane identity from system-assigned to user-assigned doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components will keep using old system-assigned identity for several hours until the next token refresh.
+
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
