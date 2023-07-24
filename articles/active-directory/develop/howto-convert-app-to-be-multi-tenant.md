@@ -46,13 +46,12 @@ Edit your code and change the value for your tenant to `/common`. It's important
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
 
-> ![NOTE]
+> [!NOTE]
 > There are, in reality 2 authorities for multi-tenant applications: 
 > - `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox).
 > - `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Azure AD directory):
 > 
 > The explanations in this document use `common`. But you can replace it by `organizations` if your application doesn't support Microsoft personal accounts.
-
 
 ## Update your code to handle multiple issuer values
 
