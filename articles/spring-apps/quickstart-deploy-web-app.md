@@ -94,32 +94,6 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 Now you can access the deployed app to see whether it works. Use the following steps to validate:
 
-::: zone pivot="sc-consumption-plan"
-
-### [Azure portal](#tab/Azure-portal)
-
-1. After the deployment has completed, open **simple-todo-web** app **Overview** page and select *Assign endpoint* to get the accessible URL of the app.
-
-   :::image type="content" source="media/quickstart-deploy-web-app/assign-endpoint.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps assign endpoint page." lightbox="media/quickstart-deploy-web-app/assign-endpoint.png":::
-
-   You can access the app with URL, the page should appear as you saw in localhost.
-
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
-
-   :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
-
-### [Azure Developer CLI](#tab/Azure-Developer-CLI)
-
-1. Access the application with the output application endpoint in previous step. The page should appear as you saw in localhost.
-
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
-
-   :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
-
----
-
-::: zone-end
-
 ::: zone pivot="sc-enterprise"
 
 1. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
@@ -134,7 +108,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ::: zone-end
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
