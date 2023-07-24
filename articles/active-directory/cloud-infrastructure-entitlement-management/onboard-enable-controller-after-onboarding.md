@@ -14,14 +14,15 @@ ms.author: jfields
 
 # Enable or disable the controller after onboarding is complete
 
-This article describes how to enable or disable the controller in Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
+This article describes how to **enable** the controller in Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
 
-This article also describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.
+This article also describes how to **disable** the controller in Microsoft Azure and GCP. You can only enable the controller in AWS at this time; you can't disable it.
+
 
 ## Enable the controller in AWS
 
 > [!NOTE]
->  You can only enable the controller in AWS; you can't disable it at this time.
+>  You can enable the controller in AWS if you disabled it during onboarding. Once you enable the controller, you can’t disable it at this time.
 
 1. Sign in to the AWS console of the member account in a separate browser window.
 1. Go to the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
