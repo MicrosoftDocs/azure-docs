@@ -205,5 +205,6 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 
 ## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
-- [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
+- [Quick start using PowerShell](inbound-provisioning-api-powershell.md)
+- [Quick start using Azure Logic Apps](inbound-provisioning-api-logic-apps.md)
