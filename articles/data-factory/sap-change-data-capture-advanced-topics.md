@@ -118,11 +118,11 @@ corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000') AND ("GJAHR" BE
 
 To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). To pass the JSON format to this parameter, it has to be converted to a string using the **@string()** function:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partitions.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partitions.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow.":::
 
 Finally, in the **optimize** tab of the source transformation in your mapping data flow, select **Partition type** "Source", and enter the data flow parameter in the **Partition conditions** property.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to use the partitioning parameter in the optimize tab of the source transformation":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to use the partitioning parameter in the optimize tab of the source transformation.":::
 
 ### Parametrizing the Checkpoint Key
 
