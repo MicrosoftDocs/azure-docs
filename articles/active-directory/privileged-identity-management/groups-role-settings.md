@@ -31,7 +31,7 @@ Role settings are defined per role per group. All assignments for the same role 
 
 To open the settings for a group role:
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management** > **Groups**.
 

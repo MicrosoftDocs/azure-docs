@@ -6,17 +6,19 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: troubleshooting
-ms.date: 04/27/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
 # Troubleshoot common questions or issues with Ingress Controller
 
 [Azure Cloud Shell](https://shell.azure.com/) is the most convenient way to troubleshoot any problems with your AKS
-and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by clicking the link:
+and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by selecting the link:
 
 [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Test with a simple Kubernetes app
 

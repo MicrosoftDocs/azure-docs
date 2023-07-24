@@ -99,9 +99,9 @@ administration_client.create_exception_policy(
 
 ```java
 administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("policy1",
-    Map.of("rule1", new ExceptionRule()
-        .setTrigger(new QueueLengthExceptionTrigger().setThreshold(1))
-        .setActions(Map.of("cancelAction", new CancelExceptionAction())))
+    Map.of("rule1", new ExceptionRule(
+        new QueueLengthExceptionTrigger().setThreshold(1)
+        Map.of("cancelAction", new CancelExceptionAction())))
 ).setName("Max Queue Length Policy"));
 ```
 
@@ -181,12 +181,12 @@ administration_client.create_exception_policy(
 
 ```java
 administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("policy2", Map.of(
-    "rule1", new ExceptionRule()
-        .setTrigger(new WaitTimeExceptionTrigger().setThresholdSeconds(60))
-        .setActions(Map.of("increasePriority", new ManualReclassifyExceptionAction().setPriority(10))),
-    "rule2", new ExceptionRule()
-        .setTrigger(new WaitTimeExceptionTrigger().setThresholdSeconds(300))
-        .setActions(Map.of("changeQueue", new ManualReclassifyExceptionAction().setQueueId("queue2"))))
+    "rule1", new ExceptionRule(
+        new WaitTimeExceptionTrigger(60),
+        Map.of("increasePriority", new ManualReclassifyExceptionAction().setPriority(10))),
+    "rule2", new ExceptionRule(
+        new WaitTimeExceptionTrigger(300),
+        Map.of("changeQueue", new ManualReclassifyExceptionAction().setQueueId("queue2"))))
 ).setName("Escalation Policy"));
 ```
 

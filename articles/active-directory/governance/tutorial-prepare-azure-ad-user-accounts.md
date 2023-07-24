@@ -168,7 +168,7 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 
 For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
- 1. Sign in to Azure portal.
+ 1. Sign in to the [Azure portal](https://portal.azure.com).
  2. On the right, select **Azure Active Directory**.
  3. Select **Users**.
  4. Select **Melva Prince**.
@@ -238,7 +238,7 @@ In this scenario, we use this feature of Azure AD to generate a temporary access
 
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 
-1. Sign in to the Azure portal as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
 2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
 
 ## Additional steps for leaver scenario

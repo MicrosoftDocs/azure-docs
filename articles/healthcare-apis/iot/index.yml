@@ -87,7 +87,7 @@ landingContent:
         links:
           - text: Deployment errors
             url: troubleshoot-errors-deployment.md
-          - text: Error logs
+          - text: Service log errors
             url: troubleshoot-errors-logs.md
 
   - title: MedTech service and Azure IoT Hub 
