@@ -40,19 +40,19 @@ An array of elements with two fields, either `k` and `v` or custom-named fields.
 
 This example demonstrates converting a static object to an array of field/value pairs using the default `k` and `v` identifiers.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/query.sql" highlight="2":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/result.json":::
 
 In this example, the field name is updated to use the `name` identifier.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/query.sql" highlight="2":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/result.json":::
 
 In this example, the value name is  updated to use the `value` identifier and the field name uses the `key` identifier.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/query.sql" highlight="2":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/result.json":::
 
