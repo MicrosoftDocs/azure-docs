@@ -31,7 +31,7 @@ $FirewallName = "azfw"
 $FirewallPolicyResourceGroup = "AzFWPolicyRG"
 $FirewallPolicyName = "fwpolicy"
 $FirewallPolicyLocation = "WestEurope"
-	@@ -43,141 +44,186 @@ $InvalidCharsPattern = "[']"
+$InvalidCharsPattern = "[']"
 #Helper functions for translating ApplicationProtocol and ApplicationRule
 Function GetApplicationProtocolsString
 {
@@ -203,7 +203,7 @@ If ($azfw.NatRuleCollections.Count -gt 0)
 			{
 				$parsedName = ParseRuleName($rule.Name)
 				If ($rule.SourceAddresses)
-	@@ -188,18 +234,19 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
+	      If ($azfw.NatRuleCollections.Count -gt 0) {
 				{
 					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceIpGroups -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
 				}
