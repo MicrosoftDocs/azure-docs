@@ -2,11 +2,11 @@
 title: Calling hero sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of calling hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample.
-author: ddematheu2
+author: RinaRish
 manager: chpalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
