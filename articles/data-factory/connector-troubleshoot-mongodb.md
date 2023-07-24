@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot the mongodb connector
+title: Troubleshoot the MongoDB connector
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the mongodb connector in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot issues with the MongoDB connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
