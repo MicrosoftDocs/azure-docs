@@ -236,7 +236,7 @@ Key rotation policy can also be configured using ARM templates.
 
 ```
 
-## Configure key rotation governance
+## Configure key rotation policy governance
 
 Using the Azure Policy service, you can govern the key lifecycle and ensure that all keys are configured to rotate within a specified number of days.
 
