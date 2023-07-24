@@ -56,9 +56,14 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 - Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create as well as DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
 
-### Set up the SAP Landscape Transformation Replication Server
+### Set up the SAP Landscape Transformation Replication Server (optional)
 
-SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ). You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
+SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ).
+
+>[!NOTE]
+   > SAP Landscape Transformation Replication Server (SLT) is only required if you want to replicate data from SAP tables with the SAP CDC connector. All other sources work out-of-the-box without SLT.
+
+You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
 
 1. Install NetWeaver 7.4 SPS 04 or later and the DMIS 2011 SP 05 add-on on your replication server. For more information, see [Transferring Data from SLT Using Operational Data Provisioning](https://help.sap.com/docs/SAP_NETWEAVER_750/ccc9cdbdc6cd4eceaf1e5485b1bf8f4b/6ca2eb9870c049159de25831d3269f3f.html).
 
