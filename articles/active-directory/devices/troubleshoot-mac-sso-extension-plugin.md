@@ -97,11 +97,11 @@ Use the following steps to check the operating system (OS) version on the macOS 
 
 Use the following steps to check the operating system (OS) version on the iOS device. Apple SSO Extension profiles are only deployed to devices running **iOS 13** or greater. You can check the iOS version from the **Settings app**. Open the **Settings app**:
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/settings_app.jpg" alt-text="Screenshot showing iOS Settings app icon.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/settings-app.jpg" alt-text="Screenshot showing iOS Settings app icon.":::
 
 Navigate to **General** and then **About**. This screen lists information about the device, including the iOS version number:
 
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/ios_version.png" alt-text="Screenshot showing iOS version in the Settings app.":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/ios-version.png" alt-text="Screenshot showing iOS version in the Settings app.":::
 
 #### MDM deployment of SSO extension configuration profile
 
@@ -147,7 +147,7 @@ Assuming the MDM administrator has followed the steps in the previous section [M
    |**1**|**Signed**| Signing authority of the MDM provider. |
    |**2**|**Installed**| Date/Timestamp showing when the extension was installed (or updated). |
    |**3**|**Settings: Single Sign On Extension**|Indicates that this configuration profile is an **Apple SSO Extension** type.|
-   |**4**|**Extension**| Identifier that maps to the **bundle ID** of the application that is running the **Microsoft Enterprise Extension Plugin**. The identifier must **always** be set to **`com.microsoft.CompanyPortalMac.ssoextension`** and the Team Identifier must appear as **(UBF8T346G9)** if the profile is installed on a macOS device.  *Note: If any values differ, then the MDM doesn't invoke the extension correctly.*|
+   |**4**|**Extension**| Identifier that maps to the **bundle ID** of the application that is running the **Microsoft Enterprise Extension Plugin**. The identifier must **always** be set to **`com.microsoft.CompanyPortalMac.ssoextension`** and the Team Identifier must appear as **(UBF8T346G9)** if the profile is installed on a macOS device.  If any values differ, then the MDM doesn't invoke the extension correctly.|
    |**5**|**Type**| The **Microsoft Enterprise SSO Extension** must **always** be set to a **Redirect** extension type. For more information, see [Redirect vs Credential Extension Types](#extension-types). |
    |**6**|**URLs**| The login URLs belonging to the Identity Provider **(Azure AD)**. See list of [supported URLs](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services). |
 
@@ -252,7 +252,7 @@ By default, only MSAL apps invoke the SSO Extension, and then in turn the Extens
    |**4** |**Account**|Displays the Azure AD User Account, which owns the PRT in the format: **`UserObjectId.TenantId-login.windows.net`**   |
    |**5** |**Where**|Displays the full name of the credential. The Azure AD PRT credential begins with the following format: **`primaryrefreshtoken-29d9ed98-a469-4536-ade2-f981bc1d605`** The **29d9ed98-a469-4536-ade2-f981bc1d605** is the Application ID for the **Microsoft Authentication Broker** service, responsible for handling PRT acquisition requests|
    |**6** |**Modified**|Shows when the credential was last updated. For the Azure AD PRT credential, anytime the credential is bootstrapped or updated by an interactive sign-on event it updates the date/timestamp|
-   |**7** |**Keychain**  |Indicates which Keychain the selected credential resides.  The Azure AD PRT credential resides in the **Local Items** or **iCloud** Keychain. *Note: When iCloud is enabled on the macOS device, the **Local Items** Keychain will become the **iCloud** keychain*|  
+   |**7** |**Keychain**  |Indicates which Keychain the selected credential resides.  The Azure AD PRT credential resides in the **Local Items** or **iCloud** Keychain. When iCloud is enabled on the macOS device, the **Local Items** Keychain will become the **iCloud** keychain|  
 
 1. If the PRT isn't found in Keychain Access, do the following based on the application type:
 
@@ -295,7 +295,7 @@ One of the most useful tools to troubleshoot various issues with the SSO extensi
 
 1. From the macOS device, double-click on the **Applications** folder.
 1. Double-click on the **Company Portal** application.
-1. When the **Company Portal** loads (Note: no need to Sign into the app), navigate to the top menu bar: **Help**->**Save diagnostic report**.
+1. When the **Company Portal** loads, navigate to the top menu bar: **Help**->**Save diagnostic report**. There's no need to Sign into the app.
 
    :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/company-portal-help-save-diagnostic.png" alt-text="Screenshot showing how to navigate the Help top menu to Save the diagnostic report.":::
 
@@ -343,30 +343,30 @@ It isn't possible to view iOS SSO Extension logs in real time, as it is on macOS
 
 1. Open the Microsoft Authenticator app:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app.jpg" alt-text="Screenshot showing the icon of the Microsoft Authenticator app on iOS":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app.jpg" alt-text="Screenshot showing the icon of the Microsoft Authenticator app on iOS.":::
 
 1. Press the menu button in the upper left:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-menu-button.png" alt-text="Screenshot showing the location of the menu button in the Microsoft Authenticator app":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-menu-button.png" alt-text="Screenshot showing the location of the menu button in the Microsoft Authenticator app.":::
 
 1. Choose the "Send feedback" option:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-send-feedback.png" alt-text="Screenshot showing the location of the send feedback option in the Microsoft Authenticator app":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-send-feedback.png" alt-text="Screenshot showing the location of the send feedback option in the Microsoft Authenticator app.":::
 
 1. Choose the "Having trouble" option:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-having-trouble.png" alt-text="Screenshot showing the location of having trouble option in the Microsoft Authenticator app":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-having-trouble.png" alt-text="Screenshot showing the location of having trouble option in the Microsoft Authenticator app.":::
 
 1. Press the View diagnostic data option:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-view-diagnostic-data.png" alt-text="Screenshot showing the view diagnostic data button in the Microsoft Authenticator app":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-view-diagnostic-data.png" alt-text="Screenshot showing the view diagnostic data button in the Microsoft Authenticator app.":::
 
    > [!TIP]
    > If you are working with Microsoft Support, at this stage you can press the **Send** button to send the logs to support. This will provide you with an Incident ID, which you can provide to your Microsoft Support contact.
 
 1. Press the "Copy all" button to copy the logs to your iOS device's clipboard. You can then save the log files elsewhere for review or send them via email or other file sharing methods:
 
-   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-copy-all-logs.png" alt-text="Screenshot showing the Copy all logs option in the Microsoft Authenticator app":::
+   :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/auth-app-copy-all-logs.png" alt-text="Screenshot showing the Copy all logs option in the Microsoft Authenticator app.":::
 
 ### Understanding the SSO extension logs
 
