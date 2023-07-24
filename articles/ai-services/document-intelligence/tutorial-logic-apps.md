@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.author: bemabonsu
+zone_pivot_groups: cloud-location
 monikerRange: '<=doc-intel-3.0.0'
 ---
 
@@ -18,6 +19,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD004 -->
+<!-- markdownlint-disable MD032 -->
 :::moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 :::moniker-end
@@ -60,9 +62,13 @@ For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-ov
 
 Choose a workflow using a file from either your Microsoft OneDrive account or Microsoft ShareDrive site:
 
-> [!div class="op_single_selector"]
-> - [!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
-> - [!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
+:::zone pivot="workflow-onedrive"
+[!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
+:::zone-end
+
+:::zone pivot="workflow-sharepoint"
+[!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
+:::zone-end
 
 ## Test the automation flow
 

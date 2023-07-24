@@ -10,7 +10,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD041 -->
 
-## Prerequisites (OneDrive workflow)
+## Prerequisites (OneDrive)
 
 To complete this tutorial, you need the following resources:
 
