@@ -50,11 +50,11 @@ You can add up to five sponsors when inviting a new guest user. If you don’t s
 1. Select **Invite external user** from the menu.  
 1. Entered the details on the Basics tab and select **Next: Properties**. 
 1. You can add sponsors under  **Job information** on the **Properties** tab, 
-   :::image type="content" source="media/b2b-sponsors/add-sponsor.png" alt-text="Screenshot showing the Add sponsor option."::: 
+   :::image type="content" source="media/b2b-sponsors/add-sponsors.png" alt-text="Screenshot showing the Add sponsor option."::: 
 
 1. Select the **Review and invite** button to finalize the process. 
 
-You can also add sponsors with the Microsoft Graph API, using invitation manager for any new guest users, by passing through the payload. If there are no sponsors in the payload, the inviter will be stamped as the sponsor. To learn more about adding guest users with the Microsoft Graph API, see [Assign sponsors](graph/api/user-post-sponsors).
+You can also add sponsors with the Microsoft Graph API, using invitation manager for any new guest users, by passing through the payload. If there are no sponsors in the payload, the inviter will be stamped as the sponsor. To learn more about adding guest users with the Microsoft Graph API, see [Assign sponsors](/graph/api/user-post-sponsors).
  
 
 ## Edit the Sponsors field
@@ -73,10 +73,10 @@ When you invite a guest user, you became their sponsor by default. If you need t
 8. If the user has only one sponsor, you can see the sponsor's name:
    :::image type="content" source="media/b2b-sponsors/single-sponsor.png" alt-text="Screenshot of the sponsors 'name.":::
 
-If the user has multiple sponsors, you can't see the individual names:
+   If the user has multiple sponsors, you can't see the individual names:
    :::image type="content" source="media/b2b-sponsors/multiple-sponsors.png" alt-text="Screenshot of multiple sponsors option.":::
 
-To add or remove sponsors, select **Edit**, select or remove the users or groups and select **Save** on the **Job Information** tab.
+   To add or remove sponsors, select **Edit**, select or remove the users or groups and select **Save** on the **Job Information** tab.
 
 9. If the guest user doesn't have a sponsor, select **Add sponsors**. 
    :::image type="content" source="media/b2b-sponsors/add-sponsors-existing-user.png" alt-text="Screenshot of adding a sponsor to an existing user.":::
