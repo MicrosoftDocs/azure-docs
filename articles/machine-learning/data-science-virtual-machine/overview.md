@@ -5,12 +5,12 @@ description: Overview of Azure Data Science Virtual Machine - An easy to use vir
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: mattmcinnes
 ms.topic: overview
 ms.date: 06/23/2022
-
 ---
 
 # What is the Azure Data Science Virtual Machine for Linux and Windows?

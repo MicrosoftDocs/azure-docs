@@ -153,7 +153,7 @@ To provide more security for sign-ins, you can enforce MFA for user sign-in.
 
 See,  [Tutorial: Secure user sign-in events with Azure AD MFA](../authentication/tutorial-enable-azure-mfa.md).
 
-1. Sign in to the Azure portal as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 2. Select **Azure Active Directory** > **Manage** > **Properties**. 
 3. Under **Properties**, select **Manage security defaults**. 
 4. Under **Enable Security defaults**, select **Yes**.
