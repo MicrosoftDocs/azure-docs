@@ -66,32 +66,20 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. In the **Source** tab, select an option within the **Source endpoint** field. You can choose to either use an existing source endpoint or create a new endpoint resource.
 
-   If you want to use an existing source endpoint which you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
+   If you want to use an existing source endpoint that you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
 
    :::image type="content" source="media/job-definition-create/endpoint-source-existing-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the Existing Source Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-source-existing-lrg.png":::
 
    To define a new source endpoint from which to migrate your data, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
 
-   Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. The following table compares the supported source-to-destination scenarios, and lists their required and optional fields.
-
-   |    |
-   |----|
-   |<table><tr><th>Foo</th></tr><tr><td>Foo</td></tr></table>|
-
-   |Protocol   |Source        |Destination                     |Agent version required |Fields      |
-   |-----------|--------------|--------------------------------|-----------------------|------------|
-   |SMB        |SMB mount     |Azure file share                |2.0.277                |<table><tr><th>Field name</th><th>Required</th></tr><tr><td>Host name or IP</td><td>&#10003;</td></tr><tr><td>Share name</td><td>&#10003;</td></tr><tr><td>Protocol version</td><td>&#10003;</td></tr><tr><td>Key vault</td><td>&#10003;</td></tr><tr><td>Secret for username</td><td>&#10003;</td></tr><tr><td>Secret for password</td><td>&#10003;</td></tr><tr><td>Description</td><td></td></tr><tr><td>Subpath</td><td></td></tr></table>|
-   |NFS        |NFS mount     |Azure blob storage container    |1.1.256                |<table><tr><th>Field name</th><th>Required</th></tr><tr><td>Host name or IP</td><td>&#10003;</td></tr><tr><td>Share name</td><td>&#10003;</td></tr><tr><td>Protocol version</td><td>&#10003;</td></tr><tr><td>Key vault</td><td>&#10003;</td></tr><tr><td>Secret for username</td><td>&#10003;</td></tr><tr><td>Secret for password</td><td>&#10003;</td></tr><tr><td>Description</td><td></td></tr><tr><td>Subpath</td><td></td></tr></table>|
-
-   The following screen capture shows the 
-
-
-
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
-   [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+   Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When you create an endpoint resource that supports the SMB protocol, you're required to provide values for the Key Vault name, and the names of the username and password secrets as well. Select the name of the Key Vault from the **Key Vault** drop-down lists. You can provide values for the **Secret for username** and **Secret for password** by selecting the relevant secret from the corresponding drop-down list. Alternatively, you can provide the URI to the secret as show in the following screen capture.
 
-   
+   For more information on endpoint resources, see the [Managing Storage Mover endpoints](endpoint-manage.md) article.
+
+   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the fields required to create a new SMB source endpoint resource." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
+
    <a name="sub-path"></a>
    By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value starts the data migration from the location you've specified. If the sub path you've specified isn't found, no data is copied.
 
@@ -140,7 +128,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 ### [PowerShell](#tab/powershell)
 
-You need to use several cmdlets to create a new job definition. As previously mentioned, source and target endpoints must be created before they are referenced by a job definition.
+You need to use several cmdlets to create a new job definition. As previously mentioned, source and target endpoints must be created before they're referenced by a job definition.
 
 Use the `New-AzStorageMoverJobDefinition` cmdlet to create new job definition resource in a project. The following examples assume that you aren't reusing *storage endpoints* you've previously created.
 
