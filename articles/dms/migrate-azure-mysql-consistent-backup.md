@@ -1,5 +1,5 @@
 ---
-title: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup (Preview)
+title: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup
 description: Learn how to use the Azure Database for MySQL Data Migration - MySQL Consistent Backup for transaction consistency even without making the Source server read-only
 author: karlaescobar
 ms.author: karlaescobar
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 ---
 
-# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup (Preview)
+# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup
 
 MySQL Consistent Backup is a new feature that allows users to take a Consistent Backup of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature.
 
