@@ -57,8 +57,7 @@ cd azure-cosmos-java-sql-api-sample/src/main/java/com/azure/cosmos/examples/chan
 3. Specify the delegate handles incoming data changes using the `handleChanges()` method. The method processes the received JsonNode documents from the Change Feed. As a developer you have two options for handling the JsonNode document provided to you by Change Feed. One option is to operate on the document in the form of a JsonNode. This is great especially if you don't have a single uniform data model for all documents. The second option - transform the JsonNode to a POJO having the same structure as the JsonNode. Then you can operate on the POJO.
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
-4. Run the Java Application
-Build and run the Java application. The application starts the Change Feed Processor, insert sample documents into the feed container, and process the incoming changes.
+4. Build and run the Java application. The application starts the Change Feed Processor, insert sample documents into the feed container, and process the incoming changes.
 
 ## Conclusion
 
