@@ -142,6 +142,7 @@ With lifecycle management built-ins you can flag or block keys that do not have 
 
 | Policy | Effects |
 |--|--|
+| [Keys should have a rotation policy ensuring that their rotation is scheduled within the specified number of days after creation](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd8cf8476-a2ec-4916-896e-992351803c44) | Audit (_Default_), Disabled
 | [Key Vault keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) | Audit (_Default_), Deny, Disabled
 | [**[Preview]**: Managed HSM keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d478a74-21ba-4b9f-9d8f-8e6fced0eec5) | Audit (_Default_), Deny, Disabled
 | [Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5ff38825-c5d8-47c5-b70e-069a21955146) | Audit (_Default_), Deny, Disabled
