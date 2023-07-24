@@ -506,7 +506,7 @@ When creating the private endpoint, you must specify the Azure AI services resou
 ### Connecting to private endpoints
 
 > [!NOTE]
-> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure AI services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwader names.  
+> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure AI services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwarder names.  
 
 Clients on a VNet using the private endpoint should use the same connection string for the Azure AI services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Azure AI services resource over a private link. 
 
