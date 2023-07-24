@@ -58,7 +58,7 @@ The sign-in response to the application then contains a token representing the u
 
 Web applications and web APIs receive and validate tokens from the Microsoft identity platform. Native client applications don't validate access tokens and must treat them as opaque. They instead request and receive tokens from the Microsoft identity platform, and do so to send them to APIs, where they're then validated. 
 
-Multi-tenant applications must perform additional checks when validating a token. A multi-tenant application is configured to consume keys metadata from `/organizations` or `/common` keys URLs. The application must validate that the `issuer` property in the published metadata matches the `iss claim in the token, in addition to the usual check that the `iss` claim in the token contains the tenant ID (`tid`) claim. For more information see [Validate tokens](access-tokens.md#validate-tokens).
+Multi-tenant applications must perform additional checks when validating a token. A multi-tenant application is configured to consume keys metadata from `/organizations` or `/common` keys URLs. The application must validate that the `issuer` property in the published metadata matches the `iss` claim in the token, in addition to the usual check that the `iss` claim in the token contains the tenant ID (`tid`) claim. For more information see [Validate tokens](access-tokens.md#validate-tokens).
 
 ## Understand user and admin consent and make appropriate code changes
 
