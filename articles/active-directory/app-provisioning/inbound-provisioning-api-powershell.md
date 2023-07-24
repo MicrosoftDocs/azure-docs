@@ -58,7 +58,7 @@ The PowerShell sample script published in the [Microsoft Entra ID inbound provis
 
 |# | Automation task | Implementation guidance |
 |---------|---------|---------|
-|1 | Read worker data from the CSV file. | [Download the PowerShell script](#download-the-powershell-script). It has out-of-the-box logic to read data from any CSV file. Refer to [CSV2SCIM PowerShell usage details](#csv2scim-powershell-usage-details) to get familiar with the different execution modes of this script. |
+|1 | Read worker data from the CSV file. | [Download the PowerShell script](#download-the-powershell-script). It has out-of-the-box logic to read data from any CSV file. Refer to [CSV2SCIM PowerShell usage details](#csv2scim-powershell-usage-details) to get familiar with the different execution modes of this script. <br> If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how you can customize the PowerShell script. |
 |2 | Pre-process and convert data to SCIM format.  | By default, the PowerShell script converts each record in the CSV file to a SCIM Core User + Enterprise User representation. Follow the steps in the section [Generate bulk request payload with standard schema](#generate-bulk-request-payload-with-standard-schema) to get familiar with this process. If your CSV file has different fields, tweak the [AttributeMapping.psd file](#attributemappingpsd-file) to generate a valid SCIM user. You can also [generate bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema). Update the PowerShell script to include any custom CSV data validation logic. |
 |3 | Use a certificate for authentication to Entra ID. | [Create a service principal that can access](inbound-provisioning-api-grant-access.md) the inbound provisioning API. Refer to steps in the section [Configure client certificate for service principal authentication](#configure-client-certificate-for-service-principal-authentication) to learn how to use client certificate for authentication. If you'd like to use managed identity instead of a service principal for authentication, then review the use of `Connect-MgGraph` in the sample script and update it to use [managed identities](/powershell/microsoftgraph/authentication-commands#using-managed-identity).  |
 |4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This will generate a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Refer to the steps in the section [Generate and upload bulk request payload as admin user](#generate-and-upload-bulk-request-payload-as-admin-user) to learn how to upload data to this endpoint. Once the data is uploaded, the provisioning service applies the attribute mapping rules to automatically provision accounts in your target directory. If you plan to [use bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema), then [extend the provisioning app schema](#extending-provisioning-job-schema) to include your custom SCIM schema elements. Validate the attribute flow and customize the attribute mappings per your integration requirements. To run the script using a service principal with certificate-based authentication, refer to the steps in the section [Upload bulk request payload using client certificate authentication](#upload-bulk-request-payload-using-client-certificate-authentication) |
@@ -101,6 +101,46 @@ To illustrate the procedure, let's use the CSV file `Samples/csv-with-2-records.
     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/columns.png" alt-text="Screenshot of columns in Excel." lightbox="./media/inbound-provisioning-api-powershell/columns.png":::
 
 1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file `Samples/AttributeMapping.psd1` that enables mapping of CSV file columns to SCIM standard schema attributes. The file that's shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM schema attributes. 
+    ```powershell
+        @{
+        externalId   = 'WorkerID'
+        name         = @{
+            familyName = 'LastName'
+            givenName  = 'FirstName'
+        }
+        active       = { $_.'WorkerStatus' -eq 'Active' }
+        userName     = 'UserID'
+        displayName  = 'FullName'
+        nickName     = 'UserID'
+        userType     = 'WorkerType'
+        title        = 'JobTitle'
+        addresses    = @(
+            @{
+                type          = { 'work' }
+                streetAddress = 'StreetAddress'
+                locality      = 'City'
+                postalCode    = 'ZipCode'
+                country       = 'CountryCode'
+            }
+        )
+        phoneNumbers = @(
+            @{
+                type  = { 'work' }
+                value = 'OfficePhone'
+            }
+        )
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" = @{
+            employeeNumber = 'WorkerID'
+            costCenter     = 'CostCenter'
+            organization   = 'Company'
+            division       = 'Division'
+            department     = 'Department'
+            manager        = @{
+                value = 'ManagerID'
+            }
+        }
+    }
+    ```
 1. Open PowerShell and change to the directory **CSV2SCIM\src**.
 1. Run the following command to initialize the `AttributeMapping` variable. 
 

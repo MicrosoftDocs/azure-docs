@@ -16,7 +16,7 @@ ms.reviewer: cmmdesai
 # Quickstart API-driven inbound provisioning with cURL (Public preview)
 
 ## Introduction
-[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it is [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
+[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it's [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
 
 ## Pre-requisites
 
@@ -35,7 +35,7 @@ ms.reviewer: cmmdesai
      ```
      curl -v "[InboundProvisioningAPIEndpoint]" -d @scim-bulk-upload-users.json -H "Authorization: Bearer [AccessToken]" -H "Content-Type: application/scim+json"
      ```
-1. Upon successful upload, you will receive HTTP 202 Accepted response code. 
+1. Upon successful upload, you'll receive HTTP 202 Accepted response code. 
 1. The provisioning service starts processing the bulk request payload immediately and you can see the provisioning details by accessing the provisioning logs of the inbound provisioning app. 
 
 ## Verify processing of the bulk request payload
@@ -48,7 +48,7 @@ ms.reviewer: cmmdesai
 
       [![Screenshot of provisioning logs in menu.](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png)](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png#lightbox)
 
-1. Click on any record in the provisioning logs to view additional processing details.
+1. Click on any record in the provisioning logs to view more processing details.
 1. The provisioning log details screen displays all the steps executed for a specific user. 
       [![Screenshot of provisioning logs details.](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png)](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png#lightbox)
       * Under the **Import from API** step, see details of user data extracted from the bulk request.
