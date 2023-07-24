@@ -15,15 +15,19 @@ ms.custom: prompt-flow
 
 # Create a vector index in an Azure Machine Learning prompt flow (preview)
 
-Azure Machine Learning enables you to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure Cognitive Search index instead of creating a new index.
+You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure Cognitive Search index instead of creating a new index.
 
 When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure Cognitive Search index. In addition, Azure Machine Learning creates:
 
 * Test data for your data source.
 
-* A sample prompt flow, which uses the vector index that you created.
+* A sample prompt flow, which uses the vector index that you created. Features of the sample prompt flow include:
 
-The sample prompt flow has key features like automatically generated prompt variants. You can evaluate each of these variations by using the [generated test data](https://aka.ms/prompt_flow_blog). Metrics against each of the variants help you choose the best variant to run. You can use this sample to continue developing your prompt.
+  * Automatically generated prompt variants.
+  * Evaluation of each prompt variant by using the [generated test data](https://aka.ms/prompt_flow_blog).
+  * Metrics against each prompt variant to help you choose the best variant to run.
+
+  You can use this sample to continue developing your prompt.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -47,7 +51,7 @@ The sample prompt flow has key features like automatically generated prompt vari
 
 1. Select **Create**.
 
-1. In **Basic settings**, provide a name for your vector index.
+1. When the form for creating a vector index opens, provide a name for your vector index.
 
 1. Select your data source type.
 
@@ -65,7 +69,7 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 1. Open an existing prompt flow.
 
-1. On the top menu of the prompt flow designer, select **More Tools**, and then select **Vector Index Lookup**.
+1. On the top menu of the prompt flow designer, select **More tools**, and then select **Vector Index Lookup**.
 
     :::image type="content" source="media/how-to-create-vector-index/vector-lookup.png" alt-text="Screenshot that shows the list of available tools.":::
 
@@ -77,6 +81,6 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 ## Next steps
 
-[Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
+[Get started with RAG by using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
 
-[Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)
+[Use vector stores with Azure Machine Learning (preview)](concept-vector-stores.md)
