@@ -32,6 +32,12 @@ $FirewallPolicyResourceGroup = "AzFWPolicyRG"
 $FirewallPolicyName = "fwpolicy"
 $FirewallPolicyLocation = "WestEurope"
 $InvalidCharsPattern = "[']"
+$DefaultAppRuleCollectionGroupName = "ApplicationRuleCollectionGroup"
+$DefaultNetRuleCollectionGroupName = "NetworkRuleCollectionGroup"
+$DefaultNatRuleCollectionGroupName = "NatRuleCollectionGroup"
+$ApplicationRuleGroupPriority = 300
+$NetworkRuleGroupPriority = 200
+$NatRuleGroupPriority = 100
 #Helper functions for translating ApplicationProtocol and ApplicationRule
 Function GetApplicationProtocolsString
 {
