@@ -2,7 +2,7 @@
 title: Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.author: allensu
 ms.date: 03/10/2023
@@ -136,7 +136,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
     ```azurecli
     FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-    FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
+    FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
     ```
 
   > [!NOTE]

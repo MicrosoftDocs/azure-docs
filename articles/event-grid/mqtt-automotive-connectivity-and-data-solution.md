@@ -11,6 +11,8 @@ ms.author: marioo
 
 This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Architecture
 
 :::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="Diagram of the high-level architecture." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png":::
@@ -24,7 +26,7 @@ The high level architecture diagram shows the main logical blocks and services o
 * The **data & analytics services** provides data storage and enables processing and analytics for all data users. It turns data into insights that drive better business decisions.
 * The vehicle manufacturer provides **digital services** as value add to the end customer, from companion apps to repair and maintenance applications.
 * Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP) systems.
-* The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to geographical region and country legislation.
+* The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to geographical country/region legislation.
 * Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements using analytics and machine learning.
 * The **smart mobility ecosystem** can subscribe and consume both live telemetry as well as aggregated insights to provide more products and services.
 
@@ -195,7 +197,7 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 * Use feedback data as part of the **digital engineering** process to drive continuous product improvement, proactively address root causes of problems and create new customer value.
 * Provide new **digital products and services** and digitalize operations with **business integration** with back-end systems like Enterprise Resource Planning (ERP) and Customer Relationship Management (CRM).
-* Share data securely and addressing country-specific requirements for user consent with the broader **smart Mobility ecosystems**.
+* Share data securely and addressing country/region-specific requirements for user consent with the broader **smart Mobility ecosystems**.
 * Integrate with back-end systems for vehicle lifecycle management and consent management simplifies and accelerate the deployment and management of connected vehicle solutions using a **Software Defined Vehicle DevOps Toolchain**.
 * Store and provide compute at scale for **vehicle and analytics**.
 * Manage **vehicle connectivity** to millions of devices in a cost-effective way.

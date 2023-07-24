@@ -28,6 +28,8 @@ Azure Firewall Basic includes the following features:
 - Multiple public IP addresses
 - Azure Monitor logging
 - Certifications
+
+To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
  
 ## Built-in high availability
 

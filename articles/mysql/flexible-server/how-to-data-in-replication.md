@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
@@ -19,7 +20,7 @@ This article describes how to set up [Data-in replication](concepts-data-in-repl
 > [!NOTE]  
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
+To create a replica in the Azure Database for MySQL Flexible Server, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -171,7 +172,7 @@ The results should appear similar to the following. Make sure to note the binary
 
     You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
-1. Set source server to read/write mode.
+2. Set source server to read/write mode.
 
    After the database has been dumped, change the source MySQL server back to read/write mode.
 
@@ -179,30 +180,26 @@ The results should appear similar to the following. Make sure to note the binary
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
+[!NOTE]  
+> Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
 
-1. Restore dump file to new server.
+3. Restore dump file to new server.
 
    Restore the dump file to the server created in the Azure Database for MySQL - Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL - Flexible Server server from the virtual machine.
 
 > [!NOTE]  
 > If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
-## Retrieve gtid information from the source server dump
+## Set GTID in Replica Server
 
 1. Skip the step if using bin-log position-based replication
 
 2. GTID information from the dump file taken from the source is required to reset GTID history of the target (replica) server.
 
-3. GTID information from the source server can be retrieved using the following statement:
-
-    ```sql
-    show global variables like 'gtid_executed’;
-    UNLOCK TABLES;
-    ```
-4.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
+3.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
 
     ```azurecli-interactive
-    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <source server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
+    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <replica server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
     ```
 
     For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).

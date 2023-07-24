@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822, devx-track-azurecli
+ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-linux
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 03/31/2023
@@ -35,7 +35,7 @@ Use Version 2 for new and existing deployments. The new version is a drop-in rep
 | CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
-| Mariner | 2.x | 2.x |
+| Azure Linux | 2.x | 2.x |
 | openSUSE | 12.3+ | Not Supported |
 | Oracle Linux | 6.4+, 7.x+, 8.x+ | Not Supported |
 | Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |

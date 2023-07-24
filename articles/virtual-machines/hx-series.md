@@ -6,7 +6,7 @@ ms.subservice: sizes
 author: Padmalathas
 ms.author: padmalathas
 ms.topic: conceptual
-ms.date: 03/04/2023
+ms.date: 05/25/2023
 ms.reviewer: wwilliams
 ---
 
@@ -16,10 +16,7 @@ ms.reviewer: wwilliams
 
 HX-series VMs are optimized for workloads that require significant memory capacity with twice the memory capacity as HBv4. For example, workloads such as silicon design can use HX-series VMs to enable EDA customers targeting the most advanced manufacturing processes to run their most memory-intensive workloads. 
 
-During preview, HX VMs will feature up to 176 AMD EPYC™ 9004-series (Genoa) CPU cores, 1408 GB of RAM, and no simultaneous multithreading. HX-series VMs also provide 800 GB/s of DDR5 memory bandwidth and 768 MB L3 cache per VM, up to 12 GB/s (reads) and 7 GB/s (writes) of block device SSD performance, and clock frequencies up to 3.7 GHz. 
-
-> [!Note] 
-> At General Availability, Azure HX-series VMs will automatically be upgraded to Genoa-X processors featuring 3D V-Cache. Updates to technical specifications for HX will be posted at that time. 
+HX VMs feature up to 176 AMD EPYC™ 9V33X ("Genoa-X") CPU cores with AMD's 3D V-Cache, clock frequencies up to 3.7 GHz, and no simultaneous multithreading. HX-series VMs also provide 1.4 TB of RAM, 2.3 GB L3 cache. The 2.3 GB L3 cache per VM can deliver up to 5.7 TB/s of bandwidth to amplify up to 780 GB/s of bandwidth from DRAM, for a blended average of 1.2 TB/s of effective memory bandwidth across a broad range of customer workloads. The VMs also provide up to 12 GB/s (reads) and 7 GB/s (writes) of block device SSD performance. 
 
 All HX-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. NDR continues to support features like Adaptive Routing and the Dynamically Connected Transport (DCT). This newest generation of InfiniBand also brings greater support for offload of MPI collectives, optimized real-world latencies due to congestion control intelligence, and enhanced adaptive routing capabilities. These features enhance application performance, scalability, and consistency, and their usage is recommended.  
 
@@ -29,17 +26,17 @@ All HX-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to enab
 [Live Migration](maintenance-and-updates.md): Not Supported\
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported\
 [VM Generation Support](generation-2.md): Generation 2\
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported at preview\
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)\
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 <br>
 
 |Size |Physical CPU cores |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth (GB/s) |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
-|Standard_HX176rs    |176 |AMD EPYC Genoa |1408 |8 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-144rs|144 |AMD EPYC Genoa |1408 |10|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-96rs |96  |AMD EPYC Genoa |1408 |15|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-48rs |48  |AMD EPYC Genoa |1408 |29|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-24rs |24  |AMD EPYC Genoa |1408 |59|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176rs    |176 |AMD EPYC 9V33X (Genoa-X) |1408 |8 |780 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-144rs|144 |AMD EPYC 9V33X (Genoa-X) |1408 |10|780 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-96rs |96  |AMD EPYC 9V33X (Genoa-X) |1408 |15|780 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-48rs |48  |AMD EPYC 9V33X (Genoa-X) |1408 |29|780 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-24rs |24  |AMD EPYC 9V33X (Genoa-X) |1408 |59|780 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
 
 [!INCLUDE [hpc-include](./includes/hpc-include.md)]

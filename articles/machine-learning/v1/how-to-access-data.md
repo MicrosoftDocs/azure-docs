@@ -10,18 +10,15 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 05/11/2022
-ms.custom: UpdateFrequency5, contperf-fy21q1, devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 
 # Connect to storage services on Azure with datastores
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
-> * [v1](how-to-access-data.md)
-> * [v2 (current version)](../how-to-datastore.md?view=azureml-api-2&preserve-view=true)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 

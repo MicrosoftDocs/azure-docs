@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 05/28/2023
 ms.author: allensu
 ms.custom: FY23 content-maintenance
 ---
@@ -50,7 +50,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * The default outbound access IP isn't owned by customers. This IP is subject to change.  Any dependency on this IP could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP may change, and any dependency on it could cause issues in the future.
 
 ## How can I disable default outbound access?
 
@@ -64,11 +64,11 @@ There are multiple ways to turn off default outbound access:
 
     * Associate a Basic public IP to the virtual machine's network interface (if there's only one network interface).
     
-    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single one with a Standard public IP will prevent default outbound access for the virtual machine).
+    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
 *  Use Flexible orchestration mode for Virtual Machine Scale Sets.
 
-    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
+    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
 >[!Important]
 > When a backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).

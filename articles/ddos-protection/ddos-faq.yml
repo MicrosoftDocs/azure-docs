@@ -5,12 +5,12 @@ metadata:
   services: virtual-network
   documentationcenter: na
   author: AbdullahBell
-  ms.service: virtual-network
+  ms.service: ddos-protection
   ms.topic: faq
   ms.tgt_pltfrm: na
   ms.custom: ignite-2022
   ms.workload: infrastructure-services
-  ms.date: 05/01/2023
+  ms.date: 06/12/2023
   ms.author: abell
 title: Azure DDoS Protection frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection.
@@ -26,7 +26,7 @@ sections:
       - question: |
           What is Azure DDoS Protection service?
         answer: |
-          Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. See [Azure DDoS Protection overview](ddos-protection-overview.md) for more details. 
+          Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md). 
 
       - question: |
           How does pricing work?
@@ -66,17 +66,17 @@ sections:
         answer: |
           Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs).
 
-          See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for limitations.
+          To learn about limitations, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Are Classic/RDFE protected resources supported?
         answer: |
-          Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for more details.
+          Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Can I protect my PaaS resources using DDoS Protection?
         answer: |
-          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for more details.
+          Public IPs attached to multi-tenant, single VIP PaaS services are not supported presently. Examples of unsupported resources include Storage VIPs, Event Hubs VIPs and App/Cloud Services applications. For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Can I protect my on-premises resources using DDoS Protection?
@@ -85,7 +85,7 @@ sections:
           - Web sites (IaaS) in Azure and backend databases in on-premises datacenter.
           - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-premises datacenters.
 
-          See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for more details.
+          For more information, see [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md).
 
       - question: |
           Can I register a domain outside of Azure and associate that to a protected resource like VM or ELB?
@@ -120,4 +120,4 @@ sections:
       - question: |
           Is a single VM deployment behind public IP supported?
         answer: |
-          Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases.
+          Scenarios in which a single VM is running behind a public IP is supported but not recommended. DDoS mitigation might not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability).

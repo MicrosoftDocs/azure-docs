@@ -4,12 +4,12 @@ description: Learn about how to register an app in the customer tenant.
 services: active-directory
 author: csmulligan
 ms.author: cmulligan
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/12/2023
 
 ms.custom: it-pro
 
@@ -28,8 +28,8 @@ In this article, you’ll learn how to register an application in your customer 
 
 ## Prerequisites
 
-- An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- An Azure account that has an active subscription. <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">Create an account for free</a>.
+- Your Azure AD for customers tenant. If you don't already have one, sign up for a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
 
 ## Choose your app type
 
@@ -42,7 +42,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
@@ -71,7 +71,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 If you'd like to learn how to expose the permissions by adding a link, go to the [Web API](how-to-register-ciam-app.md?tabs=webapi) section.
@@ -90,7 +90,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
@@ -122,7 +122,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 ### Create a client secret 
 [!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -139,7 +139,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
-### If you want to add app roles follow the steps below (optional):
+### To add app roles follow the steps below (optional):
 
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
@@ -156,7 +156,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
@@ -181,7 +181,7 @@ The following steps show you how to register your app in the admin center:
 ### Add delegated permissions
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -194,7 +194,7 @@ The following steps show you how to register your app in the admin center:
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
 
-### If you want to call an API follow the steps below (optional)
+### To call an API follow the steps below (optional)
 A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), you add application permissions, which is required by apps that authenticate as themselves:
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
@@ -203,3 +203,16 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
  
 - Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+
+# [Microsoft Graph API](#tab/graphapi)
+## How to register a Microsoft Graph API application?
+[!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
+
+### Grant API Access to your application
+[!INCLUDE [grant api access to app](../customers/includes/register-app/grant-api-access-app.md)]
+
+### Create a client secret 
+[!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
+
+## Next steps
+- Learn more how to manage [Azure Active Directory for customers resources with Microsoft Graph](microsoft-graph-operations.md)

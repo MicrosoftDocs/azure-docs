@@ -318,7 +318,9 @@ If your networking setup requires that you explicitly permit connections made fr
 
 In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
-Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
+#### Container registries
+
+The **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
@@ -343,9 +345,18 @@ You can enable dedicated data endpoints in your Azure Container registry to avoi
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
-> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
+
+#### Azure IoT Identity Service
+
+The [IoT Identity Service](https://azure.github.io/iot-identity-service/) provides provisioning and cryptographic services for Azure IoT devices. The identity service checks if the installed version is the latest version. The check uses the following FQDNs to verify the version.
+
+| FQDN | Outbound TCP Ports | Usage |
+| ---- | ------------------ | ----- |
+| `aka.ms` | 443 | Vanity URL that provides redirection to the version file |
+| `raw.githubusercontent.com` | 443 | The identity service version file hosted in GitHub |
 
 ### Configure communication through a proxy
 

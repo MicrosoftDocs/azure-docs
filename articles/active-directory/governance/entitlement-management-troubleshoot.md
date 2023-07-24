@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -26,9 +26,9 @@ This article describes some items you should check to help you troubleshoot enti
 
 ## Administration
 
-* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Azure AD Premium P2 subscription, then it may take 8 hours for this license renewal to be visible.
+* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance subscription, then it may take 8 hours for this license renewal to be visible.
 
-* If your tenant's Azure AD Premium P2 license has expired, then you won't be able to process new access requests or perform access reviews.  
+* If your tenant's Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license has expired, then you won't be able to process new access requests or perform access reviews.  
 
 * If you get an access denied message when creating or viewing access packages, and you're a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 
@@ -132,6 +132,10 @@ You can only cancel a pending request that hasn't yet been delivered or whose de
 1. Select the request you want to cancel.
 
 1. In the request details pane, select **Cancel request**.
+
+## Automatic assignment policies
+
+* Each automatic assignment policy can include at most 5000 users in scope of its rule.  Additional users in scope of the rule may not be assigned access.
 
 ## Multiple policies
 

@@ -88,10 +88,10 @@ Reduced logs are enhanced with geography, security, and topology information and
 
 ## Prerequisites
 
-Traffic Analytics requires:
+Traffic analytics requires:
 
-- A Network Watcher enabled subscription. For more information, see [Create an Azure Network Watcher instance](network-watcher-create.md)
-- Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor. For more information, see [Enable NSG flow log](network-watcher-nsg-flow-logging-portal.md#enable-nsg-flow-log).
+- A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md)
+- NSG flow logs enabled for the network security groups you want to monitor. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
 - An Azure Storage account to store raw flow logs. For more information, see [Create a storage account](../storage/common/storage-account-create.md)
 - An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 

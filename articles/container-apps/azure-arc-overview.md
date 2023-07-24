@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 07/07/2023
 ms.author: cshoe
 ---
 
@@ -149,6 +149,15 @@ ARM64 based clusters aren't supported at this time.
  - Change to when default startup probes are added to a container, if developer doesn't define both startup and readiness probes, then default startup probes are added
  - Adds CONTAINER_APP_REPLICA_NAME environment variable to custom containers
  - Improvement in performance when multiple revisions are stopped
+
+### Container Apps extension v1.12.8 (June 2023)
+
+ - Update OSS Fluentbit to 2.1.2
+ - Upgrade of Dapr to 1.10.6
+ - Support for container registries exposed on custom port
+ - Enable activate/deactivate revision when a container app is stopped
+ - Fix Revisions List not returning init containers
+ - Default allow headers added for cors policy
 
 ## Next steps
 

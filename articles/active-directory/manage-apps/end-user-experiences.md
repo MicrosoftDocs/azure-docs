@@ -65,13 +65,15 @@ When an authorized user selects one of these application-specific links, they fi
 
 These links use the same access control mechanisms as My Apps and Microsoft 365. Only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they haven't been granted access. The unauthorized user is given a link to load My Apps to view available applications that they do have access to.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Manage preview settings
 
 As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization and will be reflected in the My Apps portal and other app launchers for all your users.
 
 To enable or disable previews for your app launchers:
 
-- Sign in to the Azure portal as a global administrator, application administrator or cloud application administrator for your directory.
+- Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, application administrator or cloud application administrator for your directory.
 - Search for and select **Azure Active Directory**, then select **Enterprise applications**.
 - On the left menu, select **App launchers**, then select **Settings**.
 - Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.

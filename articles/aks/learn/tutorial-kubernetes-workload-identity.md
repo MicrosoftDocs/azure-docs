@@ -2,13 +2,13 @@
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 05/24/2023
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, will:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, you:
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect (OIDC) Issuer and managed identity.
 * Create an Azure Key Vault and secret.
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 * If you aren't familiar with Azure AD workload identity, see the [Azure AD workload identity overview][workload-identity-overview].
-* When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
+* When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups]
 
 ## Prerequisites
 
@@ -158,8 +158,6 @@ To help simplify steps to configure the identities required, the steps below def
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF

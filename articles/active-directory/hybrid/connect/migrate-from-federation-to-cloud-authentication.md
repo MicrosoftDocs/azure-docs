@@ -72,7 +72,7 @@ Although this deployment changes no other relying parties in your AD FS farm, yo
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -359,13 +359,13 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
    ```powershell
     Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
+
 
 3. In the Azure portal, select **Azure Active Directory > Azure AD Connect**.
 
-4. Verify that the domain has been converted to managed by running the following command:
+4. Verify that the domain has been converted to managed by running the command below.  The Authentication type should be set to managed.
     ```powershell
-    Get-MgDomainFederationConfiguration -DomainId yourdomain.com
+    Get-MgDomain -DomainId yourdomain.com
     ```
 ## Complete your migration
 
@@ -448,4 +448,4 @@ For a full list of steps to take to completely remove AD FS from the environment
 ## Next steps
 
 - [Learn about migrating applications](../../manage-apps/migration-resources.md)
-- [Deploy other identity features](../../fundamentals/active-directory-deployment-plans.md)
+- [Deploy other identity features](../../fundamentals/deployment-plans.md)

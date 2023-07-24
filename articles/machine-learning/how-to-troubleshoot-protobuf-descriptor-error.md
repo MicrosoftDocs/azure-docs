@@ -10,6 +10,7 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.topic: troubleshooting 
 ms.date: 11/04/2022
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Troubleshoot `descriptors cannot not be created directly` error
@@ -17,7 +18,7 @@ ms.date: 11/04/2022
 When using Azure Machine Learning, you may receive the following error:
 
 ```
-TypeError: Descriptors cannot not be created directly. If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.” It is followed by the proposition to install the appropriate version of protobuf library.
+TypeError: Descriptors cannot not be created directly. If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0." It is followed by the proposition to install the appropriate version of protobuf library.
 
 If you cannot immediately regenerate your protos, some other possible workarounds are:
  1. Downgrade the protobuf package to 3.20.x or lower.
@@ -40,9 +41,14 @@ pip install azureml-sdk[automl,explain,notebooks]>=1.42.0
 
 For more information on updating an Azure Machine Learning environment (for training or deployment), see the following articles:
 
+:::moniker range="azureml-api-1"
 * [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
-* [Create & use software environments (SDK v1)](how-to-use-environments.md#update-an-existing-environment)
-* [Create & manage environments (CLI v2)](how-to-manage-environments-v2.md#update)
+* [Create & use software environments](./v1/how-to-use-environments.md)
+:::moniker-end
+:::moniker range="azureml-api-2"
+* [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
+* [Create & manage environments](how-to-manage-environments-v2.md#update)
+:::moniker-end
 
 To verify the version of your installed SDK, use the following command:
 
@@ -80,6 +86,11 @@ For more information on the breaking changes in protobuf 4.0.0, see [https://dev
 
 For more information on updating an Azure Machine Learning environment (for training or deployment), see the following articles:
 
+:::moniker range="azureml-api-1"
 * [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
-* [Create & use software environments (SDK v1)](how-to-use-environments.md#update-an-existing-environment)
-* [Create & manage environments (CLI v2)](how-to-manage-environments-v2.md#update)
+* [Create & use software environments](./v1/how-to-use-environments.md)
+:::moniker-end
+:::moniker range="azureml-api-2"
+* [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
+* [Create & manage environments](how-to-manage-environments-v2.md#update)
+:::moniker-end

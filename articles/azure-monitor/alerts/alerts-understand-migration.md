@@ -3,7 +3,7 @@ title: Understand migration for Azure Monitor alerts
 description: Understand how the alerts migration works and troubleshoot problems.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 2/23/2022
+ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
 # Understand migration options to newer alerts

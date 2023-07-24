@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -15,7 +15,7 @@ Using various authentication systems can be cumbersome and risky because it's di
 
 > [!NOTE]
 > Note
-> This document is used to cover data ingestion into Application Insights using Azure AD. authentication. If you are looking for information on querying data within Application Insights, please refer to **[Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)**.
+> This document covers data ingestion into Application Insights using Azure AD. authentication. For information on querying data within Application Insights, see [Query Application Insights using Azure AD Authentication](./app-insights-azure-ad-api.md).
 
 ## Prerequisites
 > 
@@ -551,6 +551,6 @@ This error usually occurs when the provided credentials don't grant access to in
 
 * [Monitor your telemetry in the portal](overview-dashboard.md)
 * [Diagnose with Live Metrics Stream](live-stream.md)
-* [Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)
+* [Query Application Insights using Azure AD Authentication](./app-insights-azure-ad-api.md)
 
 

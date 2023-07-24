@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 7/14/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -84,7 +84,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
 1. Open an index.
 
@@ -224,7 +224,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. To configure semantic ranking in the portal, follow the steps below:
 
-1. Open the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
 
 1. Select **Search explorer** at the top of the overview page.
 
@@ -352,6 +352,9 @@ The response for the above example query returns the following match as the top 
         "Category": "Luxury"
     },
 ```
+
+> [!NOTE]
+> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would deprioritize results differing from the language specified by the field analyzer.
 
 ## Next steps
 

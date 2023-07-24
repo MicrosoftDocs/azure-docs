@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: chat
 zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android-power-platform
-ms.custom: mode-other, devx-track-azurecli
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Quickstart: Add Chat to your App
 

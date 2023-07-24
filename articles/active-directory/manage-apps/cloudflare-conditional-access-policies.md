@@ -20,6 +20,8 @@ With Conditional Access, administrators enforce policies on application and user
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 * An Azure AD subscription
@@ -46,7 +48,7 @@ Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developer
 
 ## Configure Conditional Access
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
 3. Under **Manage**, select **App registrations**.
 4. Select the application you created.
@@ -87,4 +89,4 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 
 * [What is Conditional Access?](../conditional-access/overview.md)
 * [Secure Hybrid Access with Azure AD partner integrations](secure-hybrid-access-integrations.md)
-* [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)
+* [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-integration.md)

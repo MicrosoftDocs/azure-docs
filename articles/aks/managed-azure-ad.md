@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 07/05/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -84,7 +84,11 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 
 ### Upgrade a legacy Azure AD cluster to AKS-managed Azure AD integration
 
-If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
+
+> [!WARNING]
+> Free tier clusters may experience API server downtime during the upgrade. We recommend upgrading during your nonbusiness hours. 
+> After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -132,8 +136,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
     ```azurecli-interactive
     az aks get-credentials --format azure
     ```
-
-* If your Azure AD integrated clusters use a Kubernetes version older than 1.24, you need to convert the kubeconfig format manually.
+    
+* If your Azure AD integrated cluster uses Kubernetes version 1.24 or lower, you need to manually convert the kubeconfig format.
 
     ```azurecli-interactive
     export KUBECONFIG=/path/to/kubeconfig

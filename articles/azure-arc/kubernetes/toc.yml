@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc-enabled Kubernetes
     href: overview.md
+  - name: What's new with Arc-enabled Kubernetes
+    href: release-notes.md
   - name: Azure Arc validated partners
     displayName: distributions, validation
     href: validation-program.md

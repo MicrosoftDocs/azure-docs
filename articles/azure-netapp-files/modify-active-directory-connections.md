@@ -13,8 +13,6 @@ ms.author: anfdocs
 
 Once you've [created an Active Directory connection](create-active-directory-connections.md) in Azure NetApp Files, you can modify it. When you're modifying an Active Directory connection, not all configurations are modifiable.
 
-[!INCLUDE [April 2023 Netlogon notice](includes/netlogon-april-2023.md)]
-
 ## Modify Active Directory connections
 
 1. Select **Active Directory connections**. Then, select **Edit** to edit an existing AD connection. 

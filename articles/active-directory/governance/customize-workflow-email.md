@@ -7,13 +7,13 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 06/22/2023
 ms.custom: template-how-to
 ---
 
-# Customize emails sent from workflow tasks (preview)
+# Customize emails sent from workflow tasks
 
-Lifecycle workflows provide several tasks that send email notifications. You can customize email notifications to suit the needs of a specific workflow. For a list of these tasks, see [Lifecycle workflow built-in tasks (preview)](lifecycle-workflow-tasks.md).
+Lifecycle workflows provide several tasks that send email notifications. You can customize email notifications to suit the needs of a specific workflow. For a list of these tasks, see [Lifecycle workflow built-in tasks](lifecycle-workflow-tasks.md).
 
 Email tasks allow for the customization of:
 
@@ -30,7 +30,7 @@ For more information on these customizable parameters, see [Common email task pa
 
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Customize email by using the Azure portal
 
@@ -40,11 +40,11 @@ When you're customizing an email sent via lifecycle workflows, you can choose to
 
 1. On the search bar near the top of the page, enter **Identity Governance** and select the result.
 
-1. On the left menu, select **Lifecycle workflows (Preview)**.
+1. On the left menu, select **Lifecycle workflows**.
 
-1. On the left menu, select **Workflows (Preview)**.
+1. On the left menu, select **Workflows**.
 
-1. Select **Tasks (Preview)**.
+1. Select **Tasks**.
 
 1. On the pane that lists tasks, select the task for which you want to customize the email.
 
@@ -94,16 +94,16 @@ You can customize emails that you send via lifecycle workflows to have your own 
 To enable these features, you need the following prerequisites:
 
 - A verified domain. To add a custom domain, see [Managing custom domain names in Azure Active Directory](../enterprise-users/domains-manage.md).
-- Custom branding set within Azure AD if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
+- Custom branding set within Azure AD if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding](../fundamentals/how-to-customize-branding.md).
 
 > [!NOTE]
 > For compliance with the [RFC for sending and receiving email](https://www.ietf.org/rfc/rfc2142.txt), we recommend using a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX. [Learn more about Exchange Online email routing](/exchange/mail-flow-best-practices/mail-flow-best-practices).
 
 After you meet the prerequisites, follow these steps:
 
-1. On the page for lifecycle workflows, select **Workflow settings (Preview)**.
+1. On the page for lifecycle workflows, select **Workflow settings**.
 
-1. On the **Workflow settings (Preview)** pane, for **Email domain**, select your domain from the drop-down list of verified domains.
+1. On the **Workflow settings** pane, for **Email domain**, select your domain from the drop-down list of verified domains.
   
    :::image type="content" source="media/customize-workflow-email/workflow-email-settings.png" alt-text="Screenshot of workflow domain settings.":::
 1. Turn on the **Use company branding banner logo** toggle if you want to use company branding in emails.

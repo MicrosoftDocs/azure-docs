@@ -17,6 +17,9 @@ If you're using pre-configured appliances, skip this step and continue directly 
 
 [!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
+> [!IMPORTANT]
+> Removing packages from your sensor without Microsoft approval can cause unexpected results. All packages installed on the sensor are required for correct sensor functionality.
+
 ## Prerequisites
 
 Before installing Microsoft Defender for IoT, make sure that you have:
@@ -37,6 +40,9 @@ Before installing Microsoft Defender for IoT, make sure that you have:
 
 This step is performed by your deployment teams.
 
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
+
 ## Download software files from the Azure portal
 
 Download the OT sensor software from Defender for IoT in the Azure portal.
@@ -51,6 +57,7 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 This procedure describes how to install OT monitoring software on an OT network sensor.
 
 > [!NOTE]
+> If your appliance has a RAID storage array, make sure to configure it before you continue installation.<br>
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install your software**:
@@ -65,7 +72,7 @@ This procedure describes how to install OT monitoring software on an OT network 
         Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
-
+  
 1. When the installation boots, you're first prompted to select the hardware profile you want to use. For example:
 
     :::image type="content" source="../media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options." lightbox="../media/tutorial-install-components/sensor-architecture.png":::

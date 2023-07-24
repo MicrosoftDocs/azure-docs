@@ -12,7 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps, devx-track-linux
 ms.collection: M365-identity-device-management
 ---
 # Log in to a Linux virtual machine in Azure by using Azure AD and OpenSSH
@@ -124,7 +124,7 @@ You can enable Azure AD login for any of the [supported Linux distributions](#su
 
 For example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
 
-1. Sign in to the Azure portal by using an account that has access to create VMs, and then select **+ Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using an account that has access to create VMs, and then select **+ Create a resource**.
 1. Select **Create** under **Ubuntu Server 18.04 LTS** in the **Popular** view.
 1. On the **Management** tab: 
    1. Select the **Login with Azure Active Directory** checkbox.
@@ -188,7 +188,7 @@ There are two ways to configure role assignments for a VM:
 - Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#limits) per subscription.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
 
 ### Azure AD portal
 
@@ -265,7 +265,7 @@ The application that appears in the Conditional Access policy is called *Azure L
 
 If the Azure Linux VM Sign-In application is missing from Conditional Access, make sure the application isn't in the tenant:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
@@ -440,7 +440,7 @@ If you get a message that says the token couldn't be retrieved from the local ca
 
 ### Access denied: Azure role not assigned
 
-If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#limits).
+If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 ### Problems deleting the old (AADLoginForLinux) extension
 

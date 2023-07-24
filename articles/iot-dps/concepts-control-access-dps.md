@@ -8,7 +8,7 @@ ms.author: jesusbar
 ms.service: iot-dps
 ms.topic: concept-article
 ms.date: 04/20/2022
-ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-csharp]
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS)
