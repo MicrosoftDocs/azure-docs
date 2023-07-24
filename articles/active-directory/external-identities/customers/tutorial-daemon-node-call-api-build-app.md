@@ -115,7 +115,7 @@ In your *authConfig.js* file, replace:
 
 - `Enter_the_Web_Api_Application_Id_Here` with the Application (client) ID of the web API app that you copied earlier.
 
-Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](how-to-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. The complete scope URI looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
+Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](tutorial-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. The complete scope URI looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
 
 ## Acquire an access token
 

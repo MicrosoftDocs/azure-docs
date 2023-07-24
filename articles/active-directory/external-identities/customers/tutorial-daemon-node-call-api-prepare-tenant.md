@@ -25,7 +25,7 @@ In this tutorial, you'll
 > - Register a client daemon application, the grant it app permissions in the Microsoft Entra admin center.
 > - Create a client secret for your daemon application in the Microsoft Entra admin center.
 
-If you've already registered a client daemon application and a web API in the Microsoft Entra admin center, you can skip the steps in this tutorial, then proceed to [Prepare your daemon application and web API](tutorial-daemon-node-call-api-prepare-app.md).
+If you've already registered a client daemon application and a web API in the Microsoft Entra admin center, you can skip the steps in this tutorial, then proceed to [Prepare your daemon application and web API](tutorial-daemon-node-call-api-build-app.md).
 
 ## Prerequisites
 
