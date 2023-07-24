@@ -134,6 +134,29 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 
 For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
 
+### Preview alerts for DNS servers to be deprecated
+
+**Estimated date for change: August 2023**
+
+Following quality improvement process, security alerts for DNS servers are set to be deprecated in August. For cloud resources, use [Azure DNS](defender-for-dns-introduction.md) to receive the same security value.
+
+The following table lists the alerts to be deprecated:
+
+| AlertDisplayName | AlertType |
+|--|--|
+| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain
+| Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
+| Digital currency mining activity (Preview) | DNS_CurrencyMining |
+| Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |
+| Attempted communication with suspicious sinkholed domain (Preview) | DNS_SinkholedDomain |
+| Communication with possible phishing domain (Preview) | DNS_PhishingDomain| 
+| Possible data transfer via DNS tunnel (Preview) | DNS_DataObfuscation |
+| Possible data exfiltration via DNS tunnel (Preview) | DNS_DataExfiltration | 
+| Communication with suspicious algorithmically generated domain (Preview) | DNS_DomainGenerationAlgorithm | 
+| Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
+| Anonymity network activity (Preview) | DNS_DarkWeb |
+| Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
+
 ### Change to the Log Analytics daily cap
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
