@@ -87,7 +87,8 @@ APIs and web applications must only validate tokens that have an `aud` claim tha
 
 If the application needs to validate an ID token or an access token, it should first validate the signature of the token and the issuer against the values in the OpenID discovery document.
 
-The Azure AD middleware has built-in capabilities for validating access tokens, see [samples](sample-v2-code.md) to find one in the appropriate language. There are also several third-party open-source libraries available for JWT validation. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md).
+The Azure AD middleware has built-in capabilities for validating access tokens, see [samples](sample-v2-code.md) to find one in the appropriate language. There are also several third-party open-source libraries available for JWT validation. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md). If you web app or web API is on ASP.NET or ASP.NET Core, use Microsoft.Identity.Web which handles the validation for you. 
+
 
 ### v1.0 and v2.0 tokens
 
@@ -164,7 +165,7 @@ For these applications Azure AD exposes tenant-independent versions of the OIDC 
 
 ### Validate the signing key issuer
 
-In addition to the issuer of the token, applications using the v2.0 endpoint need to validate the signing key issuer.
+In addition to the issuer of the token, applications using the v2.0 tenant-independant metadata need to validate the signing key issuer.
 
 #### Keys document and signing key issuer
 
@@ -216,7 +217,7 @@ Here is some pseudo code that recapitulates how to validate issuer and signing k
    if (configuration.allowedIssuer != "*" && configuration.allowedIssuer != issuer) throw validationException;
    var issUri = new Uri(token["iss"]);
    if (issUri.Segments.Count < 1) throw validationException;
-   if (issUri.Segments[1] != token["iss"]) throw validationException;
+   if (issUri.Segments[1] != token["tid"]) throw validationException;
    ```
 
 ## Token revocation
