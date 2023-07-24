@@ -45,7 +45,7 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
 1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
 
- :::image type="content" source="../../includes/media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="../../includes/media/create-notification-hub-portal/notification-hub-details.png":::
+ :::image type="content" source="../../includes/media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="../../includes/media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
 
 1. Review the [**Availability Zones**](./notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
 
