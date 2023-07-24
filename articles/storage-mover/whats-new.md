@@ -1,15 +1,15 @@
 ---
-title: Release notes for the Azure Storage Mover service | Microsoft Docs
+title: What's new in the Azure Storage Mover service | Microsoft Docs
 description: Read the release notes for the Azure Storage Mover service, which allows you to migrate your on-premises unstructured data to the Azure Storage service.
 services: storage-mover
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 4/14/2022
+ms.date: 07/24/2023
 ---
 
-# Release notes for the Azure Storage Mover service
+# What's new in the Azure Storage Mover service
 
 Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements to its cloud service and the agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
 
