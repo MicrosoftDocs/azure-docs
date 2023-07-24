@@ -94,7 +94,7 @@ module.exports = async function (context) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Binding output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprBinding` in your Python function app code:
+The following example shows a Dapr Binding output binding, which uses the [v2 Python programming model](functions-reference-python.md). To use `@dapp.dapr_binding_output` in your Python function app code:
 
 ```python
 import logging
@@ -187,7 +187,7 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 |**type** | Must be set to `daprBinding`. |
 |**direction** | Must be set to `out`. |
-|**bindingname** | The name of the binding. |
+|**bindingName** | The name of the binding. |
 |**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
@@ -215,7 +215,7 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 |**type** | Must be set to `daprBinding`. |
 |**direction** | Must be set to `out`. |
-|**bindingname** | The name of the binding. |
+|**bindingName** | The name of the binding. |
 |**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
@@ -228,9 +228,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use the Dapr output binding, you'll run `DaprBinding`. 
+To use the Dapr output binding, run `DaprBinding`. 
 
-You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
@@ -242,9 +242,9 @@ You'll also need to set up a Dapr output binding component. You can learn more a
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr output binding, you'll define your `daprBinding` binding in a functions.json file.  
+To use a Dapr output binding, define your `daprBinding` binding in a functions.json file.  
 
-You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
@@ -256,9 +256,9 @@ You'll also need to set up a Dapr output binding component. You can learn more a
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr output binding, you'll define your `daprBinding` binding in a functions.json file.  
+To use a Dapr output binding, define your `daprBinding` binding in a functions.json file.  
 
-You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)

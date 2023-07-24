@@ -226,9 +226,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Topic trigger, you'll run `DaprTopicTrigger`. 
+To use a Dapr Topic trigger, run `DaprTopicTrigger`. 
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
@@ -241,9 +241,9 @@ You'll also need to set up a Dapr pub/sub component. You can learn more about wh
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Topic trigger, you'll define your `daprTopicTrigger` binding in a functions.json file.  
+To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
@@ -255,9 +255,9 @@ You'll also need to set up a Dapr pub/sub component. You can learn more about wh
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Topic trigger, you'll define your `daprTopicTrigger` binding in a functions.json file.  
+To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)

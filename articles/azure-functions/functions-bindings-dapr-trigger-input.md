@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Azure Functions can be triggered using the following Dapr events.
 
-There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
+There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (for example, Storage Queues) and then modify the function.json or attributes.
 
 ::: zone-end
 
@@ -90,7 +90,7 @@ module.exports = async function (context) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Input Binding trigger, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprBindingTrigger` in your Python function app code:
+The following example shows a Dapr Input Binding trigger, which uses the [v2 Python programming model](functions-reference-python.md). To use the `daprBinding` in your Python function app code:
 
 ```python
 import logging
@@ -218,9 +218,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use the Dapr Input Binding trigger, you'll run `DaprBindingTrigger`. 
+To use the Dapr Input Binding trigger, run `DaprBindingTrigger`. 
 
-You'll also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
@@ -232,9 +232,9 @@ You'll also need to set up a Dapr input binding component. You can learn more ab
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Input Binding trigger, you'll define your `daprBindingTrigger` binding in a functions.json file.  
+To use a Dapr Input Binding trigger, define your `daprBindingTrigger` binding in a functions.json file.  
 
-You'll also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
@@ -246,9 +246,9 @@ You'll also need to set up a Dapr input binding component. You can learn more ab
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Input Binding trigger, you'll define your `daprBindingTrigger` binding in a functions.json file.  
+To use a Dapr Input Binding trigger, define your `daprBindingTrigger` binding in a functions.json file.  
 
-You'll also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)

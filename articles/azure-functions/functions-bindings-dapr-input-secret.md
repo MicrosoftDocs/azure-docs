@@ -97,7 +97,7 @@ module.exports = async function (context) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Secret input binding, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprSecret` binding alongside the `daprServiceInvocationTrigger` in your Python function app code:
+The following example shows a Dapr Secret input binding, which uses the [v2 Python programming model](functions-reference-python.md). To use the `daprSecret` binding alongside the `daprServiceInvocationTrigger` in your Python function app code:
 
 ```python
 import logging
@@ -244,9 +244,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use the Dapr secret input binding, you'll run `DaprSecret`. 
+To use the Dapr secret input binding, run `DaprSecret`. 
 
-You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
 - [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
@@ -258,9 +258,9 @@ You'll also need to set up a Dapr secret store component. You can learn more abo
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr secret input binding, you'll define your `daprSecret` binding in a functions.json file.  
+To use a Dapr secret input binding, define your `daprSecret` binding in a functions.json file.  
 
-You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
 - [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
@@ -272,9 +272,9 @@ You'll also need to set up a Dapr secret store component. You can learn more abo
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr invoke output binding, you'll define your `daprSecret` binding in a functions.json file.  
+To use a Dapr invoke output binding, define your `daprSecret` binding in a functions.json file.  
 
-You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
 - [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)

@@ -95,7 +95,7 @@ module.exports = async function (context, req) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Publish output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprPublish` in your Python function app code:
+The following example shows a Dapr Publish output binding, which uses the [v2 Python programming model](functions-reference-python.md). To use `daprPublish` in your Python function app code:
 
 ```python
 import logging
@@ -232,9 +232,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use the Dapr publish output binding, you'll run `DaprPublish`. 
+To use the Dapr publish output binding, run `DaprPublish`. 
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
@@ -246,9 +246,9 @@ You'll also need to set up a Dapr pub/sub component. You can learn more about wh
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr publish output binding, you'll define your `daprPublish` binding in a functions.json file.  
+To use a Dapr publish output binding, define your `daprPublish` binding in a functions.json file.  
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
@@ -260,9 +260,9 @@ You'll also need to set up a Dapr pub/sub component. You can learn more about wh
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr publish output binding, you'll define your `daprPublish` binding in a functions.json file.  
+To use a Dapr publish output binding, define your `daprPublish` binding in a functions.json file.  
 
-You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)

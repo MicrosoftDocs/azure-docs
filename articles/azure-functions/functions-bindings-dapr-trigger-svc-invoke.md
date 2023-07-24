@@ -93,7 +93,7 @@ module.exports = async function (context) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Service Invocation trigger, which uses the [v2 Python programming model](functions-reference-python.md).To use the `daprServiceInvocationTrigger` in your Python function app code:
+The following example shows a Dapr Service Invocation trigger, which uses the [v2 Python programming model](functions-reference-python.md). To use the `daprServiceInvocationTrigger` in your Python function app code:
 
 ```python
 import logging
@@ -220,7 +220,7 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Service Invocation trigger, you'll run `DaprServiceInvocationTrigger`. 
+To use a Dapr Service Invocation trigger, run `DaprServiceInvocationTrigger`. 
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
 
@@ -234,7 +234,7 @@ You can learn more about which components to use with the Service Invocation tri
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Service Invocation trigger, you'll define your `daprServiceInvocationTrigger` binding in a functions.json file.  
+To use a Dapr Service Invocation trigger, define your `daprServiceInvocationTrigger` binding in a functions.json file.  
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
 
@@ -248,7 +248,7 @@ You can learn more about which components to use with the Service Invocation tri
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr Service Invocation trigger, you'll define your `daprServiceInvocationTrigger` binding in a functions.json file.  
+To use a Dapr Service Invocation trigger, define your `daprServiceInvocationTrigger` binding in a functions.json file.  
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
 

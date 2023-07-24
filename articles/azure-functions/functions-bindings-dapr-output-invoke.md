@@ -106,7 +106,7 @@ module.exports = async function (context, req) {
 
 # [Python v2](#tab/v2)
 
-The following example shows a Dapr Invoke output binding, which uses the [v2 Python programming model](functions-reference-python.md).To use `daprInvoke` in your Python function app code:
+The following example shows a Dapr Invoke output binding, which uses the [v2 Python programming model](functions-reference-python.md). To use `daprInvoke` in your Python function app code:
 
 ```python
 import logging
@@ -253,7 +253,7 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use the Dapr service invocation output binding, you'll run `DaprInvoke`. 
+To use the Dapr service invocation output binding, run `DaprInvoke`. 
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
@@ -264,7 +264,7 @@ You can learn more about [how to use Dapr service invocation in the official Dap
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr invoke output binding, you'll define your `daprInvoke` binding in a functions.json file.  
+To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
@@ -275,7 +275,7 @@ You can learn more about [how to use Dapr service invocation in the official Dap
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr invoke output binding, you'll define your `daprInvoke` binding in a functions.json file.  
+To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 ::: zone-end
