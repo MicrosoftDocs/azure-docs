@@ -83,6 +83,8 @@ This section describes how you can assign the necessary permissions to a managed
 
 
 ## Next steps
-- [Invoke inbound provisioning API using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using Postman](inbound-provisioning-api-postman.md)
+- [Quick start using Postman](inbound-provisioning-api-graph-explorer.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
 

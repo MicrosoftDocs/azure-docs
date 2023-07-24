@@ -34,7 +34,7 @@ Using Azure Automation requires you to have an Azure subscription.
 
 **Prerequisite role**: Azure subscription or resource group owner
 
-1. Sign in to the Azure portal. Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
 
 1. Select the subscription or resource group, and select **Create**.  Type **Automation**, select the **Automation** Azure service from Microsoft, then select **Create**.
 

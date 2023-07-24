@@ -59,7 +59,7 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 
 ## Verify deleted users in the Azure portal
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
