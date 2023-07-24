@@ -36,7 +36,7 @@ In the following example we register a worker to
 await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 2)
 {
     AvailableForOffers = true,
-    QueueIds = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
+    QueueAssignments = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
     ChannelConfigurations =
     {
         ["voice"] = new ChannelConfiguration(capacityCostPerJob: 2),
