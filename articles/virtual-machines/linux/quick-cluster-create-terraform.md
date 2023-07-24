@@ -126,4 +126,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure virtual machine scale set using Terraform](create-vm-scaleset-network-disks-hcl.md)
+> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
