@@ -191,9 +191,9 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
 
-1. Go back to your browser tab of **myVM** virtual machine.
+1. Go back to your RDP session with **myVM** virtual machine.
 
-1. In **myVM**, open Microsoft Edge and go to `www.bing.com`.
+1. Open Microsoft Edge and go to `www.bing.com`.
 
 ## Download the flow log
 
