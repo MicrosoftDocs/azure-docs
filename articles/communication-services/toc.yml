@@ -44,6 +44,8 @@ items:
       items:
       - name: WhatsApp
         href: concepts/advancedmessaging/whatsapp/whatsapp-overview.md
+    - name: Job Router
+      href: concepts/router/concepts.md
   - name: Common scenarios
     items:
     - name: Virtual visit
@@ -103,6 +105,12 @@ items:
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
+    - name: Connect to a Teams calling applications
+      items:
+        - name: Connect to Call Queue
+          href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
+        - name: Connect to Auto Attendant
+          href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
     - name: Connect to a Room call
       items:
       - name: Create a room 

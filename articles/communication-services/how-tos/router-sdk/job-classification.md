@@ -104,11 +104,9 @@ classification_policy: ClassificationPolicy = administration_client.create_class
 ClassificationPolicy classificationPolicy = administrationClient.createClassificationPolicy(
     new CreateClassificationPolicyOptions("XBOX_NA_QUEUE_Priority_1_10")
         .setName("Select XBOX Queue and set priority to 1 or 10")
-        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment()
-            .setCondition(new ExpressionRouterRule().setExpression("job.Region = \"NA\""))
-            .setQueueSelectors(List.of(
-                new RouterQueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_NA_QUEUE"))
-            )))
+        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment(
+            new ExpressionRouterRule("job.Region = \"NA\""),
+            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new LabelValue("XBOX_NA_QUEUE"))))))
         .setFallbackQueueId("XBOX_DEFAULT_QUEUE")
         .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Hardware_VIP = true, 10, 1)")));
 ```
@@ -243,8 +241,8 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new StaticWorkerSelectorAttachment()
-        .setWorkerSelector(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar")))));
+    .setWorkerSelectors(List.of(
+        new StaticWorkerSelectorAttachment(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar"))))));
 ```
 
 ::: zone-end
@@ -310,9 +308,9 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment()
-        .setCondition(new ExpressionRouterRule().setExpression("job.Urgent = true"))
-        .setWorkerSelectors(List.of(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar"))))));
+    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment(
+        new ExpressionRouterRule("job.Urgent = true"),
+        List.of(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar")))))));
 ```
 
 ::: zone-end
@@ -370,8 +368,7 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new PassThroughWorkerSelectorAttachment()
-        .setKey("Foo").setLabelOperator(LabelOperator.EQUAL))));
+    .setWorkerSelectors(List.of(new PassThroughWorkerSelectorAttachment("Foo", LabelOperator.EQUAL))));
 ```
 
 ::: zone-end
@@ -449,10 +446,10 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment()
-        .setAllocations(List.of(new WorkerWeightedAllocation().setWeight(0.3).setWorkerSelectors(List.of(
-            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("A"),
-            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("B")
+    .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment(
+        List.of(new WorkerWeightedAllocation(0.3, List.of(
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("A")),
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("B"))
         )))))));
 ```
 

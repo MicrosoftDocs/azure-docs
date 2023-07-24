@@ -95,7 +95,7 @@ Attribute values must be enclosed by double or single quotation marks. For examp
 
 ## Speak root element
 
-The `speak` element is the root element that's required for all SSML documents. The `speak` element contains information such as version, language, and the markup vocabulary definition. 
+The `speak` element contains information such as version, language, and the markup vocabulary definition. The `speak` element is the root element that's required for all SSML documents. You must specify the default language within the `speak` element, whether or not the language is adjusted elsewhere such as within the [`lang`](speech-synthesis-markup-voice.md#adjust-speaking-languages) element. 
 
 Here's the syntax for the `speak` element:
 

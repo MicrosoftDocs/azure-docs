@@ -302,6 +302,8 @@
       href: how-to-enable-agentless-containers.md
     - name: View and remediate vulnerability assessment findings for registry images 
       href: view-and-remediate-vulnerability-assessment-findings.md
+    - name: How to test the attack path and security explorer using a vulnerable container image
+      href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md  
     - name: View and remediate vulnerabilities for images running on your AKS clusters 
       href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
     - name: Disable vulnerability assessment findings on Container registry images
@@ -476,9 +478,9 @@
       href: tutorial-enable-servers-plan.md    
     - name: Configure vulnerability scanning
       items:
-      - name: Enable agentless vulnerability scanning
+      - name: Enable agentless scanning for VMs
         displayName: vulnerability, software inventory, agentless scanning
-        href: enable-vulnerability-assessment-agentless.md
+        href: enable-agentless-scanning-vms.md
       - name: Enable vulnerability scanning with Microsoft Defender Vulnerability Management 
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md

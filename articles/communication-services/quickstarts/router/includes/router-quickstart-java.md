@@ -151,10 +151,8 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 ```java
 RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
     .setPriority(1)
-    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
-        .setKey("Some-Skill")
-        .setLabelOperator(LabelOperator.GREATER_THAN)
-        .setValue(new LabelValue(10)))));
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
 ```
 
 ## Create a worker
@@ -166,7 +164,7 @@ RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
         .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
         .setLabels(Map.of("Some-Skill", new LabelValue(11)))
-        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration().setCapacityCostPerJob(1))));
+        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration(1))));
 ```
 
 ## Receive an offer
@@ -175,10 +173,10 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```java
-Thread.sleep(3000);
+Thread.sleep(10000);
 worker = routerClient.getWorker(worker.getId());
 for (RouterJobOffer offer : worker.getOffers()) {
-    System.out.printf("Worker %s has an active offer for job %s", worker.getId(), offer.getJobId());
+    System.out.printf("Worker %s has an active offer for job %s\n", worker.getId(), offer.getJobId());
 }
 ```
 
@@ -188,7 +186,7 @@ Then, the worker can accept the job offer by using the SDK, which assigns the jo
 
 ```java
 AcceptJobOfferResult accept = routerClient.acceptJobOffer(worker.getId(), worker.getOffers().get(0).getOfferId());
-System.out.printf("Worker %s is assigned job %s", worker.getId(), accept.getJobId());
+System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJobId());
 ```
 
 ## Complete the job
@@ -196,8 +194,8 @@ System.out.printf("Worker %s is assigned job %s", worker.getId(), accept.getJobI
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJob(new CompleteJobOptions("job-1", accept.getAssignmentId()));
-System.out.printf("Worker %s has completed job %s", worker.getId(), accept.getJobId());
+routerClient.completeJob(new CompleteJobOptions(accept.getJobId(), accept.getAssignmentId()));
+System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
 ## Close the job
@@ -205,9 +203,18 @@ System.out.printf("Worker %s has completed job %s", worker.getId(), accept.getJo
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```java
-routerClient.closeJob(new CloseJobOptions("job-1", accept.getAssignmentId())
+routerClient.closeJob(new CloseJobOptions(accept.getJobId(), accept.getAssignmentId())
     .setDispositionCode("Resolved"));
-System.out.printf("Worker %s has closed job %s", worker.getId(), accept.getJobId());
+System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
+```
+
+## Delete the job
+
+Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
+```javascript
+routerClient.deleteJob(accept.getJobId());
+System.out.printf("Deleting job %s\n", accept.getJobId());
 ```
 
 ## Run the code
@@ -234,11 +241,11 @@ The expected output describes each completed action:
 
 ```console
 Azure Communication Services - Job Router Quickstart
-
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
