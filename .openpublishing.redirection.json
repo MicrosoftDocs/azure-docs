@@ -24010,7 +24010,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/image-builder-optimization.md",
-            "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
+            "redirect_url": "/azure/virtual-machines/image-builder-optimization",
             "redirect_document_id": true
         },
         {
