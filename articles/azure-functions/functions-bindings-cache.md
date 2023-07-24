@@ -1,5 +1,5 @@
 ---
-title: Using Azure Functions for Azure Cache for Redis
+title: Using Azure Functions for Azure Cache for Redis (preview)
 description: Learn how to use Azure Functions Azure Cache for Redis
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,7 +11,7 @@ ms.date: 06/27/2023
 
 ---
 
-# Overview of Azure functions for Azure Cache for Redis
+# Overview of Azure functions for Azure Cache for Redis (preview)
 
 This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
@@ -21,11 +21,11 @@ Azure Cache for Redis can be used as a trigger for Azure Functions, allowing you
 
 You can integrate Azure Cache for Redis and Azure Functions to build functions that react to events from Azure Cache for Redis or external systems.
 
-| Action  | Direction | Type |
-|---------|-----------|------|
-| Triggers on Redis pubsub messages   | N/A | [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) |
-| Triggers on Redis lists | N/A | [RedisListsTrigger](functions-bindings-cache-trigger-redislists.md)  |
-| Triggers on Redis streams | N/A | [RedisStreamsTrigger](functions-bindings-cache-trigger-redisstreams.md) |
+| Action  | Direction | Type | Preview |
+|---------|-----------|------|------|
+| Triggers on Redis pubsub messages   | N/A | [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) | Yes|
+| Triggers on Redis lists | N/A | [RedisListsTrigger](functions-bindings-cache-trigger-redislists.md)  | Yes |
+| Triggers on Redis streams | N/A | [RedisStreamsTrigger](functions-bindings-cache-trigger-redisstreams.md) | Yes |
 
 ## Scope of availability for functions triggers
 

@@ -1,5 +1,5 @@
 ---
-title: Using RedisPubSubTrigger Azure Function
+title: Using RedisPubSubTrigger Azure Function (preview)
 description: Learn how to use RedisPubSubTrigger Azure Function
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,7 +11,7 @@ ms.date: 06/28/2023
 
 ---
 
-# RedisPubSubTrigger Azure Function
+# RedisPubSubTrigger Azure Function (preview)
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. The `RedisPubSubTrigger` enables Azure Functions to be triggered on pub/sub activity. The `RedisPubSubTrigger`subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 

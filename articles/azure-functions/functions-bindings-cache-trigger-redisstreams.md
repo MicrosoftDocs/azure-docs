@@ -1,5 +1,5 @@
 ---
-title: Using RedisStreamTrigger Azure Function
+title: Using RedisStreamTrigger Azure Function (preview)
 description: Learn how to use RedisStreamTrigger Azure Function
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,12 +11,11 @@ ms.date: 06/28/2023
 
 ---
 
-# RedisStreamTrigger Azure Function
+# RedisStreamTrigger Azure Function (preview)
 
 The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
 
-The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
-Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
+
 
 | Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |--------- |:---------:|:---------:|:---------:|
@@ -179,7 +178,7 @@ function.json
 
 ## Attributes
 
-| Parameters | Description|
+| Parameters | Description| Optional | Default
 |---|---|
 | `ConnectionStringSetting`| Connection string to the cache instance, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.|
 | `Key`| Keys to read from, space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
@@ -245,7 +244,15 @@ See the Example section for complete examples.
 
 ## Usage
 
-All triggers TBD
+The `RedisStreamTrigger` Azure function reads entries from a stream and surfaces those entries to the function. 
+
+The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
+
+The consumer group for all function instances is the `ID` of the function. For example, `Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisSamples.StreamTrigger`  for the `StreamTrigger` sample. 
+
+Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
+
+<!-- This seems to be specific information for .NET. -->
 
 ::: zone pivot="programming-language-csharp"
 

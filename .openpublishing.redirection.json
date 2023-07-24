@@ -23967,6 +23967,11 @@
             "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sync-provisioning-to-azure-active-directory.md",
             "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sync-provisioning",
             "redirect_document_id": true
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-functions.md",
+          "redirect_url": "/azure/azure-funtions/functions-bindings-cache",
+          "redirect_document_id": false
         }
     ]
 }

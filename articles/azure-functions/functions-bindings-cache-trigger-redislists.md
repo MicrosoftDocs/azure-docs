@@ -1,5 +1,5 @@
 ---
-title: Using RedisListTrigger Azure Function
+title: Using RedisListTrigger Azure Function (preview)
 description: Learn how to use RedisListTrigger Azure Functions
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,7 +11,7 @@ ms.date: 06/28/2023
 
 ---
 
-# RedisListTrigger Azure Function
+# RedisListTrigger Azure Function (preview)
 
 The `RedisListsTrigger` pops elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
@@ -179,14 +179,14 @@ def main(entry: str):
 
 ## Attributes
 
-| Parameter                 | Description                                                                                                                                                                                                                                            |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).                                                                                             |
-| `Key`                     | Key to read from. This field can be resolved using `INameResolver`.                                                                                                                                                                                    |
-| `PollingIntervalInMs`     | How often to poll Redis in milliseconds. Default: `1000`                                                                                                                                                                                               |
-| `MessagesPerWorker`       | How many messages each functions instance "should" process. Used to determine how many instances the function should scale to. - Default: `100`                                                                                                        |
-| `Count`                   | Number of entries to pop from Redis at one time. These are processed in parallel. - Default: `10`. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/). |
-| `ListPopFromBeginning`    | Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: `true`                                                  |
+| Parameter                 | Description                                                                                                                                                                                                                                            |  Optional  | |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---- | ----  |
+| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).                                                                                             | No |  |
+| `Key`                     | Key to read from. This field can be resolved using `INameResolver`.                                                                                                                                                                                    |  No | `1000`  |
+| `PollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                                                                                                |  Yes | `100` |
+| `MessagesPerWorker`       | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                                                                                   | Yes | `100` |
+| `Count`                   | Number of entries to pop from Redis at one time. These are processed in parallel. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/). | Yes | `10` |
+| `ListPopFromBeginning`    | Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/).                                                |  Yes | `true` |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -245,7 +245,23 @@ See the Example section for complete examples.
 
 ## Usage
 
-All triggers TBD
+The `RedisListsTrigger` pops elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
+
+### Output
+<!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes.  -->
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+
+| Output Type | Description|
+|---|---|
+|  |
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+
+<!--Any usage information specific to isolated worker process, including types. -->
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
