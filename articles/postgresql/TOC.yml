@@ -97,6 +97,8 @@
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
+    - name: Reliability
+      href: ../reliability/reliability-postgre-flexible.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
     - name: Servers
       href: flexible-server/concepts-servers.md
     - name: Supported versions
@@ -458,8 +460,6 @@
       displayName: monitor, alerts, configure
   - name: Concepts
     items:
-    - name: Reliability
-      href: ../reliability/reliability-postgre.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
     - name: Servers
       href: single-server/concepts-servers.md
     - name: Supported versions
