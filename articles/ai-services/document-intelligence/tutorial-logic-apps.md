@@ -17,6 +17,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD004 -->
 :::moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 :::moniker-end
@@ -61,8 +62,8 @@ Choose a workflow using a file from either your Microsoft OneDrive account or Mi
 
 > [!div class="op_single_selector"]
 >
-> * [!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
-> * [!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
+> - [!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
+> - [!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
 
 ## Test the automation flow
 
