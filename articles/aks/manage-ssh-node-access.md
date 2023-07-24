@@ -155,3 +155,7 @@ The following examples demonstrate possible usage of this command:
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-provider-register]: /cli/azure/provider#az_provider_register
