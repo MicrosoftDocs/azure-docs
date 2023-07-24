@@ -58,7 +58,7 @@ The pre-hire scenario can be broken down into the following:
 ## Create a workflow using prehire template
 Use the following steps to create a pre-hire workflow that generates a TAP and send it via email to the user's manager using the Azure portal.
 
- 1.  Sign in to Azure portal.
+ 1.  Sign in to the [Azure portal](https://portal.azure.com).
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows**.

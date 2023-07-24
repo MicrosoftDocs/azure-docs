@@ -233,7 +233,7 @@ View and change details of your project. On this tab, you can:
 
 ### Language Studio tab
 
-If your project was created from [Language Studio](../cognitive-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
+If your project was created from [Language Studio](../ai-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
 
 * If labeling is active in Language Studio, you can't also label in Azure Machine Learning.  In that case, Language Studio is the only tab available.  Select **View in Language Studio** to go to the active labeling project in Language Studio.  From there, you can switch to labeling in Azure Machine Learning if you wish.
 

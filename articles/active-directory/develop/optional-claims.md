@@ -17,7 +17,7 @@ ms.reviewer: ludwignick
 
 You can configure optional claims for your application through the Azure portal or application manifest.
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.

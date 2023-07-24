@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 06/14/2023
+ms.date: 07/19/2023
 ms.custom: UpdateFrequency3
 ---
 
