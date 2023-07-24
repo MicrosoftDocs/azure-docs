@@ -15,8 +15,11 @@
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./linux/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./linux/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./linux/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./linux/quick-create-bicep.md
@@ -32,8 +35,11 @@
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./windows/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./windows/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./windows/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -1066,7 +1072,7 @@
     href: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
-    - name: Retirement starting September 1, 2023
+    - name: Retirement starting September 6, 2023
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: classic-vm-deprecation.md
     - name: Migration Overview
