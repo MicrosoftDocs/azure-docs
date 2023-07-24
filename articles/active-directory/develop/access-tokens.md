@@ -194,7 +194,7 @@ tenant-independent "common" key endpoint [https://login.microsoftonline.com/comm
 The application should use the `issuer` property of the keys document, associated with the key used to sign the token, in order to restrict the scope of keys:
 - Keys that have an issuer value with a GUID like `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` should only be used when the `iss` claim in the token matches the value exactly.
 - Keys that have a templated issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` need to ensure that:
-  - the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant to back to the issuer back to the scope of the signing key creating a chain of trust.
+  - the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant back to the issuer. back to the scope of the signing key creating a chain of trust.
   - Multi-tenant applications must use `tid` claim when they locate data associated with the subject of the claim. In other words, the `tid` claim must be part of the key used to access the user's data.
 
 Using tenant-independent metadata is more efficient for applications that accept tokens from many tenants.
