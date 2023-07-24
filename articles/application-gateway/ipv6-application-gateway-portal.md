@@ -1,25 +1,50 @@
 ---
-title: 'Quickstart: Direct web traffic using the portal'
+title: 'Create IPv6 Application Gateway -Azure Portal'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
+author: Rajesh Nautiyal
 ms.author: greglin
-ms.date: 06/08/2023
-ms.topic: quickstart
+ms.date: 07/23/23
+ms.topic: How-To
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
 ---
 
-# Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
+# Configure IPv6 Application Gateway (Public Preview)
 
-In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
+Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
+If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
 
-![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
+Limitations
+•	Supported for Application Gateway Standard V2 only.
+•	No support  for upgrading the existing gateways to Ipv6
+•	No  support  for IPv6 private address.
+•	No support for IPv6 backend
+•	No IPv6 Private Link Support
+
+
+
+In this article, you use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with two public frontend IP addresses (IPv4 and IPv6), a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
+
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
-You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
+You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md)
+---
+![Need to update the powershel link above]
+---
+## Onboard to public preview
+
+The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
+
+When you join the preview, all new Application Gateways will provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
+
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+
+
+
+## Register to the preview [Place holder to Register Public Preview]
 
 ## Prerequisites
 
@@ -41,9 +66,10 @@ You'll create the application gateway using the tabs on the **Create application
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
-     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/IPv6-app-gw.png) ??
+     
 
-2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
+2. For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new  dual stack virtual network or use an existing dual stack network. In this example, you'll create a new dual stack  virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create  three subnets in this example: Two for the application gateway, and another for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
