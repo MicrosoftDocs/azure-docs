@@ -135,7 +135,7 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
    1. Feature retrieval: this uses the same built-in feature retrieval component used in the training pipeline, covered in tutorial part 3. For pipeline training, we provided a feature retrieval spec as a component input. However, for batch inference, we pass the registered model as the input, and the component looks for the feature retrieval spec in the model artifact.
    
-   Additionally, for training, the observation data had the target variable. However, the batch inference observation data doesn't have the target variable. The feature retrieval step joins the observation data with the features, and outputs the data for batch inference.
+       Additionally, for training, the observation data had the target variable. However, the batch inference observation data doesn't have the target variable. The feature retrieval step joins the observation data with the features, and outputs the data for batch inference.
 
    1. Batch inference: This step uses the batch inference input data from previous step, runs inference on the model, and appends the predicted value as output.
 
@@ -146,11 +146,11 @@ As explained in earlier parts of this tutorial, once data is materialized (backf
 
    ### Inspect the batch inference output data
 
-   1. In the pipeline view
-      * Select `inference_step` in the `outputs` card
-      * Copy the Data field value. It looks something like `azureml_995abbc2-3171-461e-8214-c3c5d17ede83_output_data_data_with_prediction:1`
-      * Paste the Data field value in the following cell, with separate name and version values (note that the last character is the version, preceded by a `:`).
-      * Note the `predict_is_fraud` column that the batch inference pipeline generated
+   In the pipeline view
+   1. Select `inference_step` in the `outputs` card
+   1. Copy the Data field value. It looks something like `azureml_995abbc2-3171-461e-8214-c3c5d17ede83_output_data_data_with_prediction:1`
+   1. Paste the Data field value in the following cell, with separate name and version values (note that the last character is the version, preceded by a `:`).
+   1. Note the `predict_is_fraud` column that the batch inference pipeline generated
 
       Explanation: In the batch inference pipeline (`/project/fraud_mode/pipelines/batch_inference_pipeline.yaml`) outputs, since we didn't provide `name` or `version` values in the `outputs` of the `inference_step`, the system created an untracked data asset with a guid as the name value, and 1 as the version value. In this cell, we derive and then display the data path from the asset:
 

@@ -51,7 +51,8 @@ Before you proceed with this article, make sure you cover these prerequisites:
 
 ### Prepare the notebook environment for development
 
-Note: This tutorial uses an Azure Machine Learning Spark notebook for development.
+> [!NOTE]
+> This tutorial uses an Azure Machine Learning Spark notebook for development.
 
 1. In the Azure Machine Learning studio environment, first select **Notebooks** in the left nav, and then select the **Samples** tab. Navigate to the **featurestore_sample** directory
 
@@ -121,10 +122,10 @@ Not applicable
 ### [SDK Track](#tab/SDK-track)
 
 This tutorial uses two SDKs:
-1. The Feature Store CRUD SDK
+* The Feature Store CRUD SDK
    * You use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations for feature store, feature set, and feature store entity.
 
-1. The feature store core SDK
+* The feature store core SDK
    
    This SDK (azureml-featurestore) is intended for feature set development and consumption. Later steps in this tutorial describe these operations:
    
@@ -140,8 +141,8 @@ This tutorial doesn't require explicit installation of those SDKs, because the e
 
 This tutorial uses both the Feature store core SDK, and the CLI, for CRUD operations. It only uses the Python SDK for Feature set development and testing. This approach is useful for GitOps or CI / CD scenarios, where CLI / yaml is preferred.
 
-1. Use the CLI for CRUD operations on feature store, feature set, and feature store entities
-1. Feature store core SDK: This SDK (`azureml-featurestore`) is meant for feature set development and consumption. This tutorial covers these operations:
+* Use the CLI for CRUD operations on feature store, feature set, and feature store entities
+* Feature store core SDK: This SDK (`azureml-featurestore`) is meant for feature set development and consumption. This tutorial covers these operations:
 
    * List / Get a registered feature set
    * Generate / resolve a feature retrieval spec
@@ -169,8 +170,6 @@ This tutorial doesn't need explicit installation of these resources, because the
    ### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
-
-   ---
 
 1. Initialize an Azure Machine Learning feature store core SDK client
 

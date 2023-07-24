@@ -34,8 +34,8 @@ This tutorial is part two of a four part series. In this tutorial, you'll learn 
 
 Before you proceed with this article, make sure you cover these prerequisites:
 
-1. Complete the part 1 tutorial, to create the required feature store, account entity and transaction feature set
-1. An Azure Resource group, where you (or the service principal you use) have `User Access Administrator`and `Contributor` roles.
+* Complete the part 1 tutorial, to create the required feature store, account entity and transaction feature set
+* An Azure Resource group, where you (or the service principal you use) have `User Access Administrator`and `Contributor` roles.
 
 To proceed with this article, your user account needs the owner role or contributor role for the resource group that holds the created feature store.
 
@@ -146,19 +146,17 @@ This list summarizes the required setup steps:
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=set-container-arm-id-cli)]
 
-   ---
-
    Option 2: reuse an existing storage container
 
-   # [Python SDK](#tab/python)
-
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
-
-   # [Azure CLI](#tab/cli)
-
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
-
-   ---
+       # [Python SDK](#tab/python)
+    
+       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+    
+       # [Azure CLI](#tab/cli)
+    
+       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+    
+       ---
 
 1. Set up user assigned managed identity (UAI)
 

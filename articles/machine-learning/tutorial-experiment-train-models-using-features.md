@@ -56,27 +56,27 @@ Before you proceed with this article, make sure you complete parts 1 and 2 of th
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=root-dir)]
 
-   ### [Python SDK](#tab/python)
-
-   Not applicable
-
-   ### [Azure CLI](#tab/cli)
-
-   Set up the CLI
-
-   1. Install the Azure Machine Learning extension
-
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
-
-   1. Authentication
-
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=auth-cli)]
-
-   1. Set the default subscription
-
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
-
-   ---
+      ### [Python SDK](#tab/python)
+    
+      Not applicable
+    
+      ### [Azure CLI](#tab/cli)
+    
+      Set up the CLI
+    
+      1. Install the Azure Machine Learning extension
+    
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
+    
+      1. Authentication
+    
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=auth-cli)]
+    
+      1. Set the default subscription
+    
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
+    
+      ---
 
 1. Initialize the project workspace variables
 
@@ -183,7 +183,7 @@ In this step, you select a list of features, run a training pipeline, and regist
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=discover-features-from-sdk)]
 
-1. select features for the model, and export the model as a feature-retrieval spec
+1. Select features for the model, and export the model as a feature-retrieval spec
 
    In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. You can now experiment in the cloud. Your model shipping agility increases if you save the selected features as a feature-retrieval spec, and use the spec in the mlops/cicd flow for training and inference.
 
@@ -225,7 +225,7 @@ In this step, you manually trigger the training pipeline. In a production scenar
 
    1. Open the above pipeline, and run "web view" in a new window to see the pipeline steps.
 
-1. **Might need a verb here** The feature retrieval spec in the model artifacts
+1. Use the feature retrieval spec in the model artifacts
 
    1. In the left nav of the current workspace, select `Models`
    1. Select open in a new tab or window
