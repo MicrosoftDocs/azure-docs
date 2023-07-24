@@ -178,7 +178,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Danish (da) | Denmark (dk)|
 | &bullet; Estonian (et) | Estonia (ee)|
 | &bullet; Finnish (fi) | Finland (fl)|
-| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), FILL IN (rs)|
+| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
 | &bullet; Hungarian (hu) | Hungary (hu)|
 | &bullet; Icelandic (is) | Iceland (is)|
 | &bullet; Japanese (ja) | Japan (ja)|
@@ -194,8 +194,8 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
 | &bullet; Albanian (sq) | Albania (al)|
 | &bullet; Swedish (sv) | Sweden (se)|
-| &bullet; Chinese (zh-hans) | FILL IN (zh-hans-cn)|
-| &bullet; Chinese (zh-hant) | FILL IN (zh-hant-hk),FILL IN (zh-hant-tw)|
+| &bullet; Chinese (simplified (zh-hans) | China (zh-hans-cn)|
+| &bullet; Chinese (traditional (zh-hant) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
