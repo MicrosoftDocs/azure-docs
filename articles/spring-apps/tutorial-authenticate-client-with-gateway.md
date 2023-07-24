@@ -37,7 +37,7 @@ The sample project is composed of a single-page application and a Books microser
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
+- An Azure AD tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - Install [Node.js](https://nodejs.org).
 
