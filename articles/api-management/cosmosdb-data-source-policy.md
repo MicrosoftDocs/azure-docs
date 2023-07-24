@@ -5,7 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.custom: devx-track-azurecli
+ms.topic: article
 ms.date: 06/07/2023
 ms.author: danlep
 ---
