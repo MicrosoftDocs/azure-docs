@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/24/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
 # Deploy Azure Kubernetes service on Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
+[!INCLUDE [applies-to-gpu-pro-pro2-pror-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 > [!NOTE]
 > Use this procedure only if you are an SAP or a PMEC customer.
@@ -68,7 +68,9 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      ```azurepowershell
      Get-HcsNumaLpMapping
      ```
-     Here's an example output:
+### [Azure Stack Edge Pro GPU](#tab/gpu)
+
+Here's example output for Azure Stack Edge Pro GPU:
 
      ```azurepowershell
      Hardware:
@@ -88,6 +90,12 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
       { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
      ```
+
+### [Azure Stack Edge Pro 2](#tab/pro 2)
+
+Here's example output for Azure Stack Edge Pro 2:
+
+---
 
 ## Deploy AKS on Azure Stack Edge
 
