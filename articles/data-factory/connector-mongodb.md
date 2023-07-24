@@ -262,7 +262,7 @@ Here are steps that help you upgrade your linked service and related queries:
     |:--- |:--- |
     | *Query pattern*||
     | SQL multiple joins queries |MongoDB aggregate queries with multiple `$lookup`|
-    | `SELECT FROM` | Use `find` with projection <br>e.g: `db.users.find({}, { name: 1, email: 1 })` |
+    | `SELECT FROM` | Use `find` with projection <br>e.g.: `db.users.find({}, { name: 1, email: 1 })` |
     | `SELECT FROM JOIN` |`$lookup` (aggregation) |
     | `EMPTY` | `db.table.find({})`|
     | `SELECT * FROM` |`db.table.find({})` |
@@ -272,7 +272,7 @@ Here are steps that help you upgrade your linked service and related queries:
     | `AS` | `$project` |
     | SQL queries of datetime related functions | MongoDB queries of datetime related functions |
 
-    Here are some query examples that help you transfer from SQL query to MongoDB query.
+    Here are some query examples that help you transfer from SQL queries to MongoDB queries.
 
     | SQL Query | Equivalent MongoDB query | 
     |:--- |:--- |

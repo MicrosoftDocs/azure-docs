@@ -37,7 +37,7 @@ This article provides suggestions to troubleshoot common problems with the Mongo
     If you meet this error message, you need to migrate to a new version of MongoDB linked service.
 
 - **Resolution**: 
-   Refer to this [article](connector-mongodb.md#upgrade-the-mongoDB-linked-service-to-the-latest-version) to upgrade your MongoDB linked service to the latest version.
+   Refer to this [article](connector-mongodb.md#upgrade-the-mongodb-linked-service-to-the-latest-version) to upgrade your MongoDB linked service to the latest version.
 
 ## Next steps
 
