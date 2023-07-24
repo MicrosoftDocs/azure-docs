@@ -44,7 +44,7 @@ This example illustrates various ways to truncate a number to the closest intege
 
 ## Remarks
 
-- This unction benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
