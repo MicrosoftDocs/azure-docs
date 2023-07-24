@@ -20,13 +20,7 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
-
-   ![Create a resource in the Azure portal.][createResource] 
-
-1. Select **New** > **Web App** or another kind of App service app.
-
-   ![Create an app in the Azure portal.][createWebApp] 
+1. To start creating an App Service plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate). 
 
 2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created. 
    
