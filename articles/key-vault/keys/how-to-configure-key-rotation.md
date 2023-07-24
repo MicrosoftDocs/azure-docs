@@ -240,7 +240,8 @@ Key rotation policy can also be configured using ARM templates.
 
 Using the Azure Policy service, you can govern the key lifecycle and ensure that all keys are configured to rotate within a specified number of days.
 
-### Create and assign policy definition for Key Vault Azure RBAC permission model
+### Create and assign policy definition
+
 1. Navigate to Policy resource
 1. Select **Assignments** under **Authoring** on the left side of the Azure Policy page.
 1. Select **Assign policy** at the top of the page. This button opens to the Policy assignment page.
