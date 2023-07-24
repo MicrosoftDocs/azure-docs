@@ -139,7 +139,7 @@ During preview, you currently need *Global Administrator* permissions to enable 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal][azure-portal] as a *Global Administrator*.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
 
@@ -453,7 +453,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy

@@ -828,6 +828,23 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
@@ -2292,7 +2309,7 @@ groups:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
 ## template without azure AD PowerShell
-- id: enterprise-apps-minus-aad-powershell
+- id: enterprise-apps-minus-former-powershell
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:
@@ -2521,7 +2538,7 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 # Owner:
-- id: deploy-python-web-app-postgressql
+- id: deploy-python-web-app-postgresql
   title: Workflows
   prompt: Choose your path
   pivots:
@@ -2538,6 +2555,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+- id: azure-virtual-desktop-app-attach
+  title: Azure Virtual Desktop app attach version
+  prompt: Choose an app attach version
+  pivots:
+  - id: app-attach
+    title: App attach
+  - id: msix-app-attach-legacy
+    title: MSIX app attach (legacy)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods

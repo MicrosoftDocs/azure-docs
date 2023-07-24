@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 05/10/2023
+ms.date: 07/17/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -73,7 +73,7 @@ These samples and how-to guides demonstrate how to write a desktop application t
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md) | ---   |
-> | ASP.NET (MAUI) | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | ---   |
+> | ASP.NET (MAUI) | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) |&#8226; [Sign in users](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)|
 
 ### Mobile
 
@@ -82,7 +82,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | ASP.NET Core MAUI | &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) |  ---  |
+> | ASP.NET Core MAUI | &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)|
 
 ### Daemon
 
@@ -92,6 +92,8 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
 > | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](how-to-daemon-node-call-api-overview.md)  |
+> | .NET |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  |  &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)  |
+
 
 # [**By language/platform**](#tab/language)
 
@@ -101,6 +103,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
 > | Browserless | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](how-to-browserless-app-dotnet-sign-in-overview.md)   |
+> | Daemon |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  | &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)   |
 
 
 ### ASP.NET Core
@@ -116,8 +119,8 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Desktop | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | ---   |
-> | Mobile |  &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) |  ---  |
+> | Desktop | &#8226; [Sign in users](how-to-desktop-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-desktop-app-maui-sign-in-prepare-tenant.md)   |
+> | Mobile |  &#8226; [Sign in users](how-to-mobile-app-maui-sample-sign-in.md) | &#8226; [Sign in users](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)   |
 
 
 ### JavaScript, Vanilla

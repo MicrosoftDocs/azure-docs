@@ -71,13 +71,13 @@ To complete the scenario in this tutorial, you need:
 
 ## Test the sign-in experience before MFA setup
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com/).
 1. You should be able to access the Azure portal using only your sign-in credentials. No other authentication is required.
 1. Sign out.
 
 ## Create a Conditional Access policy that requires MFA
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Security**.
 1. Under **Protect**, select **Conditional Access**.
@@ -129,7 +129,7 @@ To complete the scenario in this tutorial, you need:
 
 ## Test your Conditional Access policy
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com/).
 1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::

@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 07/18/2023
+ms.date: 07/24/2023
 
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
@@ -222,4 +222,3 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[az-aks-update]: /cli/azure/aks#az-aks-update

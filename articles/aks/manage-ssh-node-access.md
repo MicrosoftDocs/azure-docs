@@ -32,12 +32,12 @@ This article describes how to disable and enable SSH on your AKS clusters or nod
     az extension update --name aks-preview
     ```
 
-## Register the `DisableSSHPreviewPreview` feature flag
+## Register the `DisableSSHPreview` feature flag
 
-1. Register the `DisableSSHPreviewPreview` feature flag using the [`az feature register`][az-feature-register] command.
+1. Register the `DisableSSHPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
     ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "DisableSSHPreviewPreview"
+    az feature register --namespace "Microsoft.ContainerService" --name "DisableSSHPreview"
     ```
 
     It takes a few minutes for the status to show *Registered*.
@@ -45,7 +45,7 @@ This article describes how to disable and enable SSH on your AKS clusters or nod
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
     ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "DisableSSHPreviewPreview"
+    az feature show --namespace "Microsoft.ContainerService" --name "DisableSSHPreview"
     ```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.

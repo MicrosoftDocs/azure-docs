@@ -416,7 +416,7 @@ In the following tables, the term alphanumeric refers to:
 > | domains | resource group | 3-50 | Alphanumerics and hyphens. |
 > | domains / topics | domain | 3-50 | Alphanumerics and hyphens. |
 > | eventSubscriptions | resource group | 3-64 | Alphanumerics and hyphens. |
-> | topics | resource group | 3-50 | Alphanumerics and hyphens. |
+> | topics | region | 3-50 | Alphanumerics and hyphens. |
 
 ## Microsoft.EventHub
 
