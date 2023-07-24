@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 ms.custom: developer, devx-track-js
 ---
 
