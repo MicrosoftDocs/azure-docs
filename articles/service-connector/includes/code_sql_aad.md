@@ -20,9 +20,9 @@ import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
 public class Main {
     public static void main(String[] args) {
-        // Azure_SQL_CONNECTIONSTRING should be 
-        // For system assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
-        // For user assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
+        // AZURE_SQL_CONNECTIONSTRING should be one of the following:
+        // For system-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
+        // For user-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
         // For service principal: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};user={ServicePrincipalClientId};password={spSecret};authentication=ActiveDirectoryServicePrincipal;"
         String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
         SQLServerDataSource ds = new SQLServerDataSource();
@@ -40,12 +40,12 @@ public class Main {
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
-Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies,
+Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
 
 
 ### [.NET](#tab/dotnet)
 
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication).
+For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication).
 
 ```csharp
 using Microsoft.Data.SqlClient;
