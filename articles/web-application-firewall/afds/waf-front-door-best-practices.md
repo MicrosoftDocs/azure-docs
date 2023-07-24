@@ -32,7 +32,7 @@ For more information, see [Tune Azure Web Application Firewall for Azure Front D
 
 ### Use prevention mode
 
-After you've tuned your WAF, you should configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure that the WAF blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but it provides no protection.
+After you tune your WAF, configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure that the WAF blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but it provides no protection.
 
 ### Define your WAF configuration as code
 

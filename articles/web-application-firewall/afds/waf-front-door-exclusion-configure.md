@@ -1,6 +1,6 @@
 ---
 title: Configure WAF exclusion lists for Azure Front Door
-description: Learn how to configure a WAF exclusion list for an existing Azure Front Door endpoint.
+description: Learn how to configure a web application firewall (WAF) exclusion list for an existing Azure Front Door endpoint.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
@@ -11,9 +11,9 @@ ms.topic: conceptual
 zone_pivot_groups: web-application-firewall-configuration
 ---
 
-# Configure Web Application Firewall exclusion lists
+# Configure web application firewall exclusion lists
 
-Sometimes Azure Front Door Web Application Firewall might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal. For more information about exclusion lists, see [Web Application Firewall with Azure Front Door exclusion lists](waf-front-door-exclusion.md).
+Sometimes Azure Web Application Firewall in Azure Front Door might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal. For more information about exclusion lists, see [Azure Web Application Firewall with Azure Front Door exclusion lists](waf-front-door-exclusion.md).
 
 An exclusion list can be configured by using [Azure PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), the [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), the [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), Bicep, Azure Resource Manager templates, and the Azure portal.
 
