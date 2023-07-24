@@ -15,19 +15,17 @@ ms.author: mmitrik
 This article details how to get started using DICOM data in analytics workloads with Azure Data Factory and Microsoft Fabric.
 
 ## Prerequisites
-Before getting started, ensure you have done the following:
+Before getting started, ensure you have done the following steps:
 
 * Deploy an instance of the [DICOM Service](deploy-dicom-services-in-azure.md).
 * Create a [storage account with Azure Data lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace. 
-    * Create a container to store DICOM metadata, e.g. named "dicom".  
+    * Create a container to store DICOM metadata, for example, named "dicom".  
 * Create an instance of [Azure Data Factory (ADF)](../../data-factory/quickstart-create-data-factory.md).
     * Ensure that a [system assigned managed identity](../../data-factory/data-factory-service-identity.md) has been enabled.
 * Create a [Lakehouse](/fabric/data-engineering/tutorial-build-lakehouse) in Microsoft Fabric.
 * Add role assignments to the ADF system assigned managed identity for the DICOM Service and the ADLS Gen2 storage account.
     * Add the **DICOM Data Reader** role to grant permission to the DICOM service.
     * Add the **Storage Blob Data Contributor** role to grant permission to the ADLS Gen2 account.
-Azure Data Factory
-This section details the steps for configuring an ADF pipeline that can write DICOM attributes for SOP instances, series, and studies into additional formats like Delta Tables. Open the Azure Data Factory studio to begin.
 
 ## Configure an Azure Data Factory pipeline for the DICOM service
 
@@ -38,7 +36,7 @@ From the Azure portal, open the Azure Data Factory instance and select **Launch 
 :::image type="content" source="media/data-factory-launch-studio.png" alt-text="View of Launch studio button in the Azure portal." lightbox="media/data-factory-launch-studio.png":::
 
 ### Create linked services
-Azure Data Factory pipelines read from data sources and write to data sinks, typically other Azure services. These connections to other services are managed as linked services. The pipeline in this example will read data from a DICOM service and write its output to a storage account, so a linked service must be created for each. 
+Azure Data Factory pipelines read from _data sources_ and write to _data sinks_, typically other Azure services. These connections to other services are managed as _linked services_. The pipeline in this example will read data from a DICOM service and write its output to a storage account, so a linked service must be created for both. 
 
 #### Create linked service for the DICOM service
 1. In the Azure Data Factory Studio, select **Manage**  from the navigation menu. Under **Connections** select **Linked services** and then select **New**.
@@ -83,7 +81,7 @@ Azure Data Factory pipelines read from data sources and write to data sinks, typ
 7. When the connection test is successful, select **Create**.
 
 ### Create a pipeline for DICOM data
-Azure Data Factory pipelines are a collection of activities that perform a task, like copying DICOM metadata to Delta tables. This section details the creation of a pipeline that regularly synchronizes DICOM data to Delta tables as data is added to, updated, and deleted from a DICOM service.
+Azure Data Factory pipelines are a collection of _activities_ that perform a task, like copying DICOM metadata to Delta tables. This section details the creation of a pipeline that regularly synchronizes DICOM data to Delta tables as data is added to, updated in, and deleted from a DICOM service.
 
 1.  Select **Author** from the navigation menu.  In the **Factory Resources** pane, select the plus (+) to add a new resource.  Select **Pipeline** and then **Template gallery** from the menu.  
 
@@ -100,7 +98,7 @@ Azure Data Factory pipelines are a collection of activities that perform a task,
 4. Select **Use this template** to create the new pipeline.  
 
 ## Scheduling a pipeline
-Pipelines are scheduled by triggers. There are different types of triggers, including schedule (which allows pipelines to be triggered on a wall-clock schedule) and manual triggers (which triggers pipelines on-demand). In this example, a tumbling window trigger is used to periodically run the pipeline given a starting point and regular interval. For more information about triggers, see the [pipeline execution and triggers article](../../data-factory/concepts-pipeline-execution-triggers.md). 
+Pipelines are scheduled by _triggers_. There are different types of triggers including _schedule triggers_, which allows pipelines to be triggered on a wall-clock schedule, and _manual triggers_, which triggers pipelines on-demand. In this example, a _tumbling window trigger_ is used to periodically run the pipeline given a starting point and regular time interval. For more information about triggers, see the [pipeline execution and triggers article](../../data-factory/concepts-pipeline-execution-triggers.md). 
 
 ### Create a new tumbling window trigger
 1. Select **Author** from the navigation menu.  Select the pipeline for the DICOM service and select **Add trigger** and **New/Edit** from the menu bar.
@@ -124,7 +122,7 @@ Pipelines are scheduled by triggers. There are different types of triggers, incl
 8.  Select **Ok** to continue configuring the trigger run parameters.
 
 ### Configure trigger run parameters
-Triggers not only define when to run a pipeline, they also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution.  The **Copy DICOM Metadata Changes to Delta** template defines a few parameters detailed in the table below.
+Triggers not only define when to run a pipeline, they also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution.  The **Copy DICOM Metadata Changes to Delta** template defines a few parameters detailed in the table below.  Note, if no value is supplied during configuration, the listed default value will be used for each parameter.
 
 | Parameter name    | Description                            | Default value |
 | :---------------- | :------------------------------------- | :------------ |
@@ -195,7 +193,7 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 
 7. Enter a **Shortcut Name** that represents the data created by the Azure Data Factory pipeline.  For example, for the `instance` Delta table, the shortcut name should probably be **instance**. 
 
-8. Enter the **Sub Path** that matches the `ContainerName` parameter from [run parameters](#configure-trigger-run-parameters) configuration and the name of the table for the shortcut.  For example, use "/dicom/instance" for the `instance` Delta table. 
+8. Enter the **Sub Path** that matches the `ContainerName` parameter from [run parameters](#configure-trigger-run-parameters) configuration and the name of the table for the shortcut. For example, use "/dicom/instance" for the Delta table with the path `instance` in the `dicom` container. 
 
 9. Select **Create** to create the shortcut.
 
@@ -211,7 +209,7 @@ Once the tables have been created in the lakehouse, they can be queried from [Mi
 On the notebook page, the contents of the lakehouse can still be viewed on the left-hand side, including the newly added tables. At the top of the page, select the language for the notebook (the language may also be configured for individual cells). The following example will use Spark SQL.
 
 #### Query tables using Spark SQL
-In the cell editor, enter a simple Spark SQL query, for example, a simple select statement.
+In the cell editor, enter a simple Spark SQL query like a `SELECT` statement.
 
 ``` SQL
 SELECT * from instance
@@ -226,7 +224,7 @@ After a few seconds, the results of the query should appear in a table beneath t
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
 
 ## Summary
-In this topic, you learned how to:
+In this article, you learned how to:
 * Use Azure Data Factory templates to create a pipeline from the DICOM service to an Azure Data Lake Storage Gen2 account
 * Configure a trigger to extract DICOM metadata on an hourly schedule
 * Use shortcuts to connect DICOM data in a storage account to a Microsoft Fabric lakehouse
