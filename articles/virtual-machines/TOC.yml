@@ -15,8 +15,11 @@
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./linux/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./linux/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./linux/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./linux/quick-create-bicep.md
@@ -32,8 +35,11 @@
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./windows/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./windows/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./windows/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
