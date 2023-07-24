@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 08/14/2023
 ms.custom: references_regions, engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -50,6 +50,7 @@ Before you begin, consider the following information:
 - Cross Region Restore is supported only for a Recovery Services vault that uses the [GRS replication type](#set-storage-redundancy).
 - Virtual machines (VMs) created through Azure Resource Manager and encrypted Azure VMs are supported. VMs created through the classic deployment model aren't supported. You can restore the VM or its disk.  
 - SQL Server or SAP HANA databases hosted on Azure VMs are supported. You can restore databases or their files.
+- MARS Agent is supported for vaults without private endpoint (preview).
 - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
 - Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
 - After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
@@ -80,6 +81,7 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
 - [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
+- [Cross Region Restore for MARS (Preview)](Link-To-MARS-overview-page)
 
 ## Set encryption settings
 

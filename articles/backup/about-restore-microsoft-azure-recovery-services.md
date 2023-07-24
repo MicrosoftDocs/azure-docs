@@ -3,7 +3,7 @@ title: Restore options with Microsoft Azure Recovery Services (MARS) agent
 description: Learn about the restore options available with the Microsoft Azure Recovery Services (MARS) agent.
 ms.reviewer: mepand
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 08/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -29,6 +29,28 @@ Using the MARS agent you can:
 - **[Restore all backed up files in a volume](restore-all-files-volume-mars.md):** This option recovers all backed up data in a specified volume from the recovery point in Azure Backup. It allows a faster transfer speed (up to 40 MBPS).<br>We recommend you to use this option for recovering large amounts of data, or entire volumes.
 - **[Restore a specific set of backed up files and folders in a volume using PowerShell](backup-client-automation.md#restore-data-from-azure-backup):** If the paths to the files and folders relative to the volume root are known, this option allows you to restore the specified set of files and folders from a recovery point, using the faster transfer speed of the full volume restore. However, this option doesn’t provide the convenience of browsing files and folders in the recovery point using the Instant Restore option.
 - **[Restore individual files and folders using Instant Restore](backup-azure-restore-windows-server.md):** This option allows quick access to the backup data by mounting volume in the recovery point as a drive. You can then browse, and copy files and folders. This option offers a copy speed of up to 6 MBPS, which is suitable for recovering individual files and folders of total size less than 80 GB. Once the required files are copied, you can unmount the recovery point.
+- **Cross Region Restore for MARS (preview)**: If your Recovery Services vault uses GRS resiliency and has the Cross Region Restore setting turned on, you can restore the backup data from the secondary region.
+
+
+
+## Cross Region Restore (preview)
+
+Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and to recover data during the unavailability of the primary region in Azure due to a disaster. 
+
+>[!Note]
+>- Recovery Services vaults with private endpoint are currently not supported for Cross Region Restore with MARS.
+>- To use the feature, [turn on Cross Region Restore in your Recovery Services Vault](backup-create-rs-vault.md#set-cross-region-restore). Once Cross Region Restore is enabled, you can't disable it.
+>- After you turn on the feature, it can take up to *48 hours* for the backup items to be available in the secondary region. Currently, the secondary region RPO is *36 hours*, because the RPO in the primary region is *24 hours* and it can take up to *12 hours* to replicate the backup data from the primary to secondary region.
+>- For restoring backup data for the original machine, you can directly select **Secondary Region** as the source of the backup data in the wizard.
+>- To restore backup data for an alternate server from the secondary region, you need to download the *Secondary Region vault credential* from the Azure portal.
+>- You can automate recovery from secondary region for audit or compliance drills [using command](link-to-MARS-automation-doc). 
+
+
+
+
+
+
+
 
 ## Next steps
 
