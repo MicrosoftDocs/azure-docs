@@ -81,7 +81,7 @@ await client.createWorker("worker-1", {
 client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
     total_capacity = 2,
     queue_assignments = {
-        "queue2": QueueAssignment()
+        "queue2": RouterQueueAssignment()
     },
     channel_configurations = {
         "voice": ChannelConfiguration(capacity_cost_per_job = 2),
@@ -103,11 +103,11 @@ client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
 ```java
 client.createWorker(new CreateWorkerOptions("worker-1", 2)
     .setQueueAssignments(Map.of(
-        "queue1", new QueueAssignment(),
-        "queue2", new QueueAssignment()))
+        "queue1", new RouterQueueAssignment(),
+        "queue2", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration().setCapacityCostPerJob(2),
-        "chat", new ChannelConfiguration().setCapacityCostPerJob(1)))
+        "voice", new ChannelConfiguration(2),
+        "chat", new ChannelConfiguration(1)))
     .setLabels(Map.of(
         "Skill", new LabelValue(11),
         "English", new LabelValue(true),
@@ -194,14 +194,8 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 ```java
 client.createJob(new CreateJobOptions("job1", "chat", "queue1")
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector()
-          .setKey("English")
-          .setLabelOperator(LabelOperator.EQUAL)
-          .setValue(new LabelValue(true)),
-        new RouterWorkerSelector()
-          .setKey("Skill")
-          .setLabelOperator(LabelOperator.GREATER_THAN)
-          .setValue(new LabelValue(10))))
+        new RouterWorkerSelector("English", LabelOperator.EQUAL, new LabelValue(true)),
+        new RouterWorkerSelector("Skill", LabelOperator.GREATER_THAN, new LabelValue(10))))
     .setLabels(Map.of("name", new LabelValue("John"))));
 ```
 
