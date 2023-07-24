@@ -39,13 +39,16 @@ There are four different statuses that will be seen in the response:
 # Guide on using selectable search parameter 
 
 To perform status updates on search parameter(s) you will need to follow the steps below:
-•	Step 1: Get status of search parameter(s)
-•	Step 2: Update status of search parameter(s)
-•	Step 3: Execute a reindex job 
+Step 1: Get status of search parameter(s)
+Step 2: Update status of search parameter(s)
+Step 3: Execute a reindex job 
 
 ## Step 1: Get status of search parameter(s)
-To get the status across all search parameters, use the following request:
+To get the status across all search parameters, use the following request
+```rest
 GET {{FHIR_URL}}/SearchParameter/$status
+```
+
 This will return a list of all the search parameters with their individual statuses. You can scroll through the list to find the search parameter you need.
 
 You to identify status of individual or subset of search parameters you can use the filters listed below.
@@ -59,7 +62,7 @@ You to identify status of individual or subset of search parameters you can use 
 
 In response to the GET request to $status endpoint, you will see Parameters resource type returned with the status of the search parameter. See the example response below:
 
-```
+```rest
 {
   "resourceType" : "Parameters",
   "parameter" : [
@@ -87,7 +90,7 @@ Search Parameter Status can be updated for single search parameter or in bulk.
 To update the status of single search parameter, use the API request below. 
 PUT {{FHIR_URL}}/SearchParameter/$status
 Request Body : 
-
+```rest
 {
     "resourceType": "Parameters",
     "parameter": [
@@ -106,7 +109,7 @@ Request Body :
         }
     ]
 }
-
+```
 
 Depending on your use case, you can choose to keep the status state value to either ‘Supported’ or ’Disabled’. Note when sending state Disabled in the request, the response will return in response as “PendingDisable” since a Reindex needs to be run to fully remove associations.
 
@@ -116,7 +119,7 @@ If you receive a 400 HTTP status code in the response, it means there is no uniq
 To update the status of search parameters in bulk, the ‘PUT’ request should have the ‘Parameters’ resource list in the request body. The list needs to contain the individual search parameters that need to be updated. 
 
 Please see reference request below.
-
+```rest
 PUT {{FHIR_URL}}/SearchParameter/$status
 {
   "resourceType" : "Parameters",
