@@ -28,7 +28,7 @@ These policies are deprecated and will be removed in 2026. We recommend you migr
 - [[Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for all the VMSS in the Resource Group](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc7f3bf36-b807-4f18-82dc-f480ad713635) 
 
 
-## Replacement VM insights policies
+## New VM insights policies
 
 These policies replace the deprecated policies: 
 
@@ -37,21 +37,24 @@ These policies replace the deprecated policies:
 
 ## Migrate from deprecated VM insights policies to replacement policies
 
-1. [Download the Azure Monitor Agent-based VM insights data collection rule templates]((https://aka.ms/vminsights/downloadAMADaVmiArmTemplates)).  
-    - To collect only VM insights performance metrics, use the `ama-vmi-default-perf-dcr` data collection rule. 
-    - To collect VM insights performance metrics and Service Map data, use the `ama-vmi-default-perfAndda-dcr` data collection rule.
+1. [Download the Azure Monitor Agent-based VM insights data collection rule templates]((https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip)).  
 
 1. Deploy the VM insights data collection rule using an ARM template, as described in [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
     1. Select **Build your own template in the editor** > **Load file** to upload the template you downloaded in the previous step.
 
+        - To collect only VM insights performance metrics, deploy the `ama-vmi-default-perf-dcr` data collection rule by uploading the **DeployDcr**>**PerfOnlyDcr**>**DeployDcrTemplate** file. 
+        - To collect VM insights performance metrics and Service Map data, deploy the `ama-vmi-default-perfAndda-dcr` data collection rule by uploading the **DeployDcr**>**PerfAndMapDcr**>**DeployDcrTemplate** file.
+
     1. When the data collection rule deployment is complete, select **Go to resource** > **JSON View** and copy the data collection rule's **Resource ID**.
 
-1. Assign a [replacement policy](#replacement-vm-insights-policies): 
-
-    1. Set scope to the resource group that contains the VMs you want to monitor.
-    1. Set the **Data Collection Rule Resource Id** parameter to the resource ID of the data collection rule you created in the previous step.
-    1. On the **Remediation** tab, set **Type of managed identity** to **User Assigned Managed Identity** and select an existing user assigned identity. 
+1. Select one of the [new VM insights policies for Windows and Linux VMs](#new-vm-insights-policies).
+1. Select **Assign**.
+1. In the **Scope** field on the **Basics** tab, select your subscription and the resource group that contains the VMs you want to monitor.
+1. In the **Data Collection Rule Resource Id** field on the **Parameters** tab, paste the resource ID of the data collection rule you created in the previous step.
+1. On the **Remediation** tab: 
+    1. In the **Scope** field, select your subscription and the resource group that contains your user-assigned managed identity.
+    2. set **Type of managed identity** to **User Assigned Managed Identity** and select your user-assigned identity. 
 
 ## Next steps
 
