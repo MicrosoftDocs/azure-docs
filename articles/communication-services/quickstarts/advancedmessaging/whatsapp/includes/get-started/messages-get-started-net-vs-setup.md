@@ -18,8 +18,7 @@ ms.author: memontic
 In Visual Studio, create new project, then select `Console App (.NET Framework) for C#`.
  
 2. Install the Azure.Communication.Messages NuGet package to your C# project
-
-Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
-Search for the package `Azure.Communication.Messages`.   
-Install the latest release.
+    - Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
+    - Search for the package `Azure.Communication.Messages`.   
+    - Install the latest release.
 
