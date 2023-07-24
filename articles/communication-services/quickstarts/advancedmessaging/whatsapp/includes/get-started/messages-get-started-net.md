@@ -233,5 +233,5 @@ var sendMediaMessageOptions = new SendMessageOptions(channelRegistrationId, reci
 
 Then send the media message:
 ```csharp
-Response<SendMessageResult> mediaResponse = await notificationMessagesClient.SendMessageAsync(sendMediaMessageOptions);
+Response<SendMessageResult> sendMediaMessageResult = await notificationMessagesClient.SendMessageAsync(sendMediaMessageOptions);
 ```
