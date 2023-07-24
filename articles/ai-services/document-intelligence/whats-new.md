@@ -34,11 +34,22 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 >
 > As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
 
-The Document Intelligence version 3.1 API is now generally available (GA)!
-
+The Document Intelligence version 3.1 API is now generally available (GA)! The API version corresponds to ```2023-07-31```.
 The v3.1 API introduces new and updated capabilities:
 
 * Document Intelligence APIs are now more modular, with support for optional features, you can now customize the output to specifically include the features you need. Learn more about the [optional parameters](v3-migration-guide.md).
+* Document classification API for splitting a single file into individual documents. [Learn more](concept-custom-classifier.md) about document classification.
+* [Prebuilt contract model](concept-contract.md)
+* [Prebuilt US tax form 1098 model](concept-1098.md)
+* Support for [Office file types](concept-read.md) with Read API
+* [Barcode recognition](concept-read.md) in documents
+* Formula recognition [add-on capability](concept-add-on-capabilities.md)
+* Font recognition [add-on capability](concept-add-on-capabilities.md)
+* Support for [high resolution documents](concept-add-on-capabilities.md)
+* Custom neural models now require a single labeled sample to train
+* Custom neural models language expansion. Train a neural model for documents in 30 languages. See [language support](language-support.md) for the complete list of supported languages
+* Prebuilt invoice locale expansion
+* Prebuilt receipt updates
 
 
 
