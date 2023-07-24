@@ -17,7 +17,7 @@ Running a Replicate changes Migration, with our offline scenario with “Enable 
 
 You must run an offline migration scenario with “Enable Transactional Consistency" to get the bin log file and position to start replicating the incoming changes. The DMS portal UI shows the binary log filename and position aligned to the time the locks were obtained on the source for the consistent snapshot. You can this value in our replicate changes migration to begin streaming the incoming changes.
 
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/offline-migration-wizard-updated.png" alt-text="Screenshot of an Add source details screen.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/offline-migration-wizard-updated.png" alt-text="Screenshot of an Add source details screen.":::
 
 While running the replicate changes migration, when your target is almost caught up with the source server, stop all incoming transactions to the source database, and then wait until all pending transactions have been applied to the target database. To confirm that the target database is up-to-date, on the source server, run the query 'SHOW MASTER STATUS;', and then compare that position to the position of the last committed binlog event (displayed under Migration Progress). When the two positions are the same, the target has caught up with all changes, and you can start cutover.
 
