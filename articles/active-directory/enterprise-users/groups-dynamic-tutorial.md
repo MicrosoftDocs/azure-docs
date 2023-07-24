@@ -39,7 +39,7 @@ You're not required to assign licenses to the users for them to be members in dy
 
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) (https://portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the global administrator for your organization.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
