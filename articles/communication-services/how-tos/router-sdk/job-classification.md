@@ -499,3 +499,6 @@ client.updateJob(new UpdateJobOptions("job1")
 ```
 
 ::: zone-end
+
+> [!NOTE]
+> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you'll receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job will be re-queued and you'll receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  If a worker is updated, offers may be revoked if the worker's capacity is reduced.

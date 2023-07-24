@@ -22,8 +22,7 @@ This document describes the registration of workers, the submission of jobs and 
 
 ## Worker Registration
 
-Before a worker can receive offers to service a job, it must be registered.  
-In order to register, we need to specify which queues the worker will listen on, which channels it can handle and a set of labels.
+Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker will listen on and which channels it can handle.  Once registered, you'll receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from EventGrid.
 
 In the following example we register a worker to
 
@@ -36,6 +35,7 @@ In the following example we register a worker to
 ```csharp
 await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 2)
 {
+    AvailableForOffers = true,
     QueueIds = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
     ChannelConfigurations =
     {
@@ -58,6 +58,7 @@ await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", tot
 
 ```typescript
 await client.createWorker("worker-1", {
+    availableForOffers = true,
     totalCapacity: 2,
     queueAssignments: { queue1: {}, queue2: {} },
     channelConfigurations: {
@@ -79,6 +80,7 @@ await client.createWorker("worker-1", {
 
 ```python
 client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
+    available_for_offers = True,
     total_capacity = 2,
     queue_assignments = {
         "queue2": RouterQueueAssignment()
@@ -102,6 +104,7 @@ client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
 
 ```java
 client.createWorker(new CreateWorkerOptions("worker-1", 2)
+    .setAvailableForOffers(true)
     .setQueueAssignments(Map.of(
         "queue1", new RouterQueueAssignment(),
         "queue2", new RouterQueueAssignment()))
@@ -116,9 +119,6 @@ client.createWorker(new CreateWorkerOptions("worker-1", 2)
 ```
 
 ::: zone-end
-
-> [!NOTE]
-> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered and you'll receive a `WorkerDeregistered` event from EventGrid.
 
 ## Job Submission
 
@@ -225,7 +225,45 @@ The [OfferIssued Event][offer_issued_event] includes details about the job, work
 > [!NOTE]
 > The maximum lifetime of a job is 90 days, after which it'll automatically expire.
 
+## Worker Deregistration
+
+If a worker would like to stop receiving offers, it can be deregistered by setting `AvailableForOffers` to `false` when updating the worker and you'll receive a [RouterWorkerDeregistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered) event from EventGrid.  Any existing offers for the worker will be revoked and you will receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+await client.UpdateWorkerAsync(new UpdateWorkerOptions(workerId: "worker-1") { AvailableForOffers = false });
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```typescript
+await client.updateWorker("worker-1", { availableForOffers = false });
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+client.update_worker(worker_id = "worker-1", router_worker = RouterWorker(available_for_offers = False))
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+client.updateWorker(new UpdateWorkerOptions("worker-1").setAvailableForOffers(true));
+```
+
+::: zone-end
+
+> [!NOTE]
+> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered.
+
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
-[job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
