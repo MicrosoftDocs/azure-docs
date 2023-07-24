@@ -8,7 +8,7 @@ author: veyaddan
 ms.author: veyaddan
 ---
 
-# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal
+# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal (Preview)
 
 In this article, you use the Azure portal to do the following tasks:
 

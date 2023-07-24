@@ -1,5 +1,5 @@
 ---
-title: Publish and consume events or messages using namespace topics
+title: Publish and consume events or messages using namespace topics (Preview)
 description: Describes the steps to publish and consume events or messages using namespace topics. 
 ms.topic: quickstart
 ms.author: jafernan
@@ -8,7 +8,7 @@ ms.custom: references_regions, devx-track-azurecli
 ms.date: 05/24/2023
 ---
 
-# Publish to namespace topics and consume events
+# Publish to namespace topics and consume events (Preview)
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
