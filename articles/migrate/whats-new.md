@@ -68,7 +68,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (October 2022)
 
-- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency. [Learn more](troubleshoot-dependencies.md)
 
 ## Update (September 2022)
 
