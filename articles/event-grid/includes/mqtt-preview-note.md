@@ -15,8 +15,8 @@
 >
 > - Namespaces
 > - Namespace topics
-> -	Event subscriptions to namespace topics
-> -	Topic spaces
+> - Event subscriptions to namespace topics
+> - Topic spaces
 > - Clients
 > - Client Groups
 > - Certificates
