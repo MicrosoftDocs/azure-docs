@@ -17,9 +17,7 @@ The [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) driver that is co
 
 ## URI syntax
 
-The URI syntax for Data Lake Storage Gen2 is dependent on whether or not your storage account is set up to have Data Lake Storage Gen2 as the default file system.
-
-If the Data Lake Storage Gen2 capable account you wish to address **is not** set as the default file system during account creation, then the shorthand URI syntax is:
+The shorthand URI syntax is:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -33,7 +31,7 @@ If the Data Lake Storage Gen2 capable account you wish to address **is not** set
 
 5. **File name**: The name of the individual file. This parameter is optional if you're addressing a directory.
 
-However, if the account you want to address is set as the default file system during account creation, then the shorthand URI syntax is:
+However, if the container you want to address is set as the datastore location, then the shorthand URI syntax is:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
