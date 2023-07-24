@@ -23,7 +23,7 @@ Here's what's new with Azure Key Vault. New features and improvements are also a
 
 Built-in policy to govern the key rotation configuration in Azure Key Vault. With this policy, you can audit existing keys in key vaults to ensure that all keys are configured for rotation and comply with your organization's standards. 
 
-For more information, see [Configure key rotation governance](../keys/how-to-configure-key-rotation.md#Configure-Key-Rotation-Governance)
+For more information, see [Configure key rotation governance](../keys/how-to-configure-key-rotation.md#configure-key-rotation-governance)
 
 ## June 2023
 
