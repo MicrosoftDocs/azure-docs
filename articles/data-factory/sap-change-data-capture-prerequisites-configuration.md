@@ -52,7 +52,7 @@ Data extractions via ODP require a properly configured user on SAP systems. The 
 
 ODP offers various data extraction contexts or *source object types*. Although most data source objects are ready to extract, some require more configuration. In an SAPI context, the objects to extract are called DataSources or *extractors*. To extract DataSources, be sure to meet the following requirements:
 
-- Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources SAP or its partners deliver out-of-the-box. DataSources that are created by customers are automatically active. If you already use a certain DataSource with SAP BW or BW/4HANA, it's already activate. For more information about DataSources and their activation, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
+- Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources SAP or its partners deliver out-of-the-box. Customer-created DataSources are automatically active. If you already use a certain DataSource with SAP BW or BW/4HANA, it's already activate. For more information about DataSources and their activation, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
 
 - Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create and DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
 
