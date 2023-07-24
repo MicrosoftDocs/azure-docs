@@ -48,12 +48,6 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### .NET (MySqlConnector)
 
-#### .NET (MySqlConnector) secret / connection string
-
-| Default environment variable name | Description                     | Example value                                                                                                                                                  |
-|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure_MYSQL_CONNECTIONSTRING      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;SSL Mode=Required;User Id=<MySQL-DBusername>;Password=<MySQL-DB-password>` |
-
 #### .NET (MySqlConnector) system-assigned managed identity
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -67,6 +61,11 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_CLIENTID              | Your client ID                  | `<client-ID>`                                                                                                                                                  |
 | Azure_MYSQL_CONNECTIONSTRING      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;SSL Mode=Required;User Id=<MySQL-DBusername>;` |
 
+#### .NET (MySqlConnector) secret / connection string
+
+| Default environment variable name | Description                     | Example value                                                                                                                                                  |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure_MYSQL_CONNECTIONSTRING      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;SSL Mode=Required;User Id=<MySQL-DBusername>;Password=<MySQL-DB-password>` |
 
 #### .NET (MySqlConnector) Service principal
 
@@ -79,14 +78,7 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### Go (go-sql-driver for mysql)
 
-#### Go (go-sql-driver for mysql) secret / connection string
-
-| Default environment variable name | Description                     | Example value                                                                                                |
-|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Azure_MYSQL_CONNECTIONSTRING      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
-
 #### Go (go-sql-driver for mysql) system-assigned managed identity
-
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -94,6 +86,12 @@ Use the connection details below to connect compute services to Azure Database f
 
 #### Go (go-sql-driver for mysql) User-assigned managed identity
 
+| Default environment variable name | Description                     | Example value                                                                                                |
+|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Azure_MYSQL_CONNECTIONSTRING      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
+
+
+#### Go (go-sql-driver for mysql) secret / connection string
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -106,12 +104,6 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_CONNECTIONSTRING      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 ### Java (JDBC)
-
-#### Java (JDBC) secret / connection string
-
-| Default environment variable name | Description                  | Example value                                                                                                                                                              |
-|-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
 #### Java (JDBC) system-assigned managed identity
 
@@ -126,6 +118,11 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_CLIENTID              | Your client ID               | `<client-ID>`                                                                                                          |
 | Azure_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
+#### Java (JDBC) secret / connection string
+
+| Default environment variable name | Description                  | Example value                                                                                                                                                              |
+|-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
 #### Java (JDBC) Service principal
 
@@ -136,7 +133,26 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_TENANTID              | Your tenant ID               | `<tenant-ID>`                                           |
 | Azure_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-### Java - Spring Boot (JDBC)
+### Java - Spring Boot (JDBC)                                                                   
+
+#### Java - Spring Boot (JDBC) system-assigned managed identity
+
+| Application properties                  | Description                           | Example value                                                                                 |
+|-----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
+| spring.datatsource.passwordless.enabled | Enable passwordless authentication    | `true`                                                                                        |
+| spring.datatsource.url                  | Spring Boot JDBC database URL         | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
+| spring.datatsource.username             | Database username                     | `<MySQL-DB-username>`                                                                         |
+
+
+#### Java - Spring Boot (JDBC) User-assigned managed identity
+
+| Application properties                                        | Description                       | Example value                                                                                                 |
+|---------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
+| spring.datatsource.passwordless_enabled                       | Enable passwordless authentication| `<password>`                                                                                                  |
+| spring.cloud.Azure.credential.client_id                       | Your client ID                    | `<client-ID>`                                                                                                 |
+| spring.cloud.Azure.credential.client_managed_identity_enabled | Enable client managed identity    | `true`                                                                                                        |
+| spring.datatsource.url                                        | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
+| spring.datatsource.username                                   | Database username                 | `Connection-Name`                                                                                             |
 
 #### Java - Spring Boot (JDBC) secret / connection string
 
@@ -144,50 +160,20 @@ Use the connection details below to connect compute services to Azure Database f
 |-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
 | spring.datatsource.url      | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | spring.datatsource.username | Database username             | `<MySQL-DB-username>`                                                         |
-| spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
-
-#### Java - Spring Boot (JDBC) system-assigned managed identity
-
-| Application properties                  | Description                   | Example value                                                                                 |
-|-----------------------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
-| spring.datatsource.url                  | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
-| spring.datatsource.username             | Database username             | `<MySQL-DB-username>`                                                         |
-| spring.datatsource.passwordless.enabled | Database password             | `MySQL-DB-password`                                                                           |
-
-#### Java - Spring Boot (JDBC) User-assigned managed identity
-
-| Application properties                                        | Description         | Example value                                                                                                 |
-|---------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.passwordless_enabled                       | Database password   | `<password>`                                                                                                  |
-| spring.cloud.Azure.credential.client_id                       | Your client ID      | `<client-ID>`                                                                                                 |
-| spring.cloud.Azure.credential.client_managed_identity_enabled | Your client ID      | `<client-ID>`                                                                                                 |
-| spring.datatsource.url                                        | Database URL        | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
-| spring.datatsource.username                                   | Database username   | `Connection-Name`                                                                                             |
-
+| spring.datatsource.password | Database password             | `MySQL-DB-password`     
 
 #### Java - Spring Boot (JDBC) Service principal
 
-| Application properties                                        | Description         | Example value                                                                                                 |
-|---------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.passwordless_enabled                       | Database password   | `<password>`                                                                                                  |
-| spring.cloud.Azure.credential.client_id                       | Your client ID      | `<client-ID>`                                                                                                 |
-| spring.cloud.Azure.credential.client_secret                   | Your client secret  | `<client-secret>`                                                                                             |
-| spring.cloud.Azure.credential.tenant_id                       | Your tenant ID      | `<tenant-ID>`                                                                                                 |
-| spring.datatsource.url                                        | Database URL        | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
-| spring.datatsource.username                                   | Database username   | `Connection-Name`                                                                                             |
+| Application properties                                        | Description                       | Example value                                                                                                 |
+|---------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
+| spring.datatsource.passwordless_enabled                       | Enable passwordless authentication| `<password>`                                                                                                  |
+| spring.cloud.Azure.credential.client_id                       | Your client ID                    | `<client-ID>`                                                                                                 |
+| spring.cloud.Azure.credential.client_secret                   | Your client secret                | `<client-secret>`                                                                                             |
+| spring.cloud.Azure.credential.tenant_id                       | Your tenant ID                    | `<tenant-ID>`                                                                                                 |
+| spring.datatsource.url                                        | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
+| spring.datatsource.username                                   | Database username                 | `Connection-Name`                                                                                             |
 
 ### Node.js (mysql)
-
-#### Node.js (mysql) secret / connection string
-
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USER                  | Database Username | `MySQL-DB-username`                        |
-| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
-| Azure_MYSQL_DATABASE              | Database name     | `<MySQL-DB-username>`      |
-| Azure_MYSQL_PORT                  | Port number       | `3306`                                     |
-| Azure_MYSQL_SSL                   | SSL option        | `true`                                     |
 
 #### Node.js (mysql) system-assigned managed identity
 
@@ -195,7 +181,7 @@ Use the connection details below to connect compute services to Azure Database f
 |-----------------------------------|-------------------|--------------------------------------------|
 | Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `MySQL-DB-username`                        |
-| Azure_MYSQL_DATABASE              | Database name     | `<MySQL-DB-username>`      |
+| Azure_MYSQL_DATABASE              | Database name     | `<database-name>`                         |
 | Azure_MYSQL_PORT                  | Port number       | `3306`                                     |
 | Azure_MYSQL_SSL                   | SSL option        | `true`                                     |
 
@@ -205,10 +191,21 @@ Use the connection details below to connect compute services to Azure Database f
 |-----------------------------------|-------------------|--------------------------------------------|
 | Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `MySQL-DB-username`                        |
-| Azure_MYSQL_DATABASE              | Database name     | `<MySQL-DB-username>`      |
+| Azure_MYSQL_DATABASE              | Database name     | `<database-name>`                      |
 | Azure_MYSQL_PORT                  | Port number       | `3306`                                     |
 | Azure_MYSQL_SSL                   | SSL option        | `true`                                     |
 | Azure_MYSQL_CLIENTID              | Your client ID    | `<client-ID>`                              |
+
+#### Node.js (mysql) secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| Azure_MYSQL_USER                  | Database Username | `MySQL-DB-username`                        |
+| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
+| Azure_MYSQL_DATABASE              | Database name     | `<database-name>`      |
+| Azure_MYSQL_PORT                  | Port number       | `3306`                                     |
+| Azure_MYSQL_SSL                   | SSL option        | `true`                                     |
 
 #### Node.js (mysql) Service principal
 
@@ -225,17 +222,6 @@ Use the connection details below to connect compute services to Azure Database f
 
 #### PHP (MySQLi)
 
-#### PHP (MySQLi) secret / connection string
-
-| Default environment variable name | Description        | Example value                              |
-|-----------------------------------|--------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`      |
-| Azure_MYSQL_PASSWORD              | Database password  | `<MySQL-DB-password>`                      |
-| Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
-| Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
-
 #### PHP (MySQLi) system-assigned managed identity
 
 | Default environment variable name | Description        | Example value                              |
@@ -243,8 +229,8 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
-| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`      |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`       |
 
 #### PHP (MySQLi) User-assigned managed identity
 
@@ -256,6 +242,18 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
+
+#### PHP (MySQLi) secret / connection string
+
+| Default environment variable name | Description        | Example value                              |
+|-----------------------------------|--------------------|--------------------------------------------|
+| Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
+| Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
+| Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
+| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`                      |
+| Azure_MYSQL_PASSWORD              | Database password  | `<MySQL-DB-password>`                      |
+
 
 #### PHP (MySQLi) Service principal
 
@@ -272,58 +270,48 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### Python (mysql-connector-python)
 
-#### Python (mysql-connector-python) secret / connection string
-
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
-| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
-| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-
 #### Python (mysql-connector-python) system-assigned managed identity
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
 #### Python (mysql-connector-python) User-assigned managed identity
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID    | `<client-ID>`                              |
+
+#### Python (mysql-connector-python) secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
 
 #### Python (mysql-connector-python) Service principal
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
-| Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
+| Azure_MYSQL_NAME                  | Database name      | `MySQL-DB-name`                            |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_USER                  | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 | Azure_MYSQL_CLIENTSECRET          | Your client secret | `<client-secret>`                          |
 | Azure_MYSQL_TENANTID              | Your tenant ID     | `<tenant-ID>`                              |
-
-
-#### Python-Django secret / connection string
-
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
-| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
 
 #### Python-Django system-assigned managed identity
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
 | Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
@@ -331,34 +319,33 @@ Use the connection details below to connect compute services to Azure Database f
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
 | Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID    | `<client-ID>`                              |
+
+#### Python-Django secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| Azure_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| Azure_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
+
 
 #### Python-Django Service principal
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
-| Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
+| Azure_MYSQL_NAME                  | Database name      | `MySQL-DB-name`                            |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_USER                  | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 | Azure_MYSQL_CLIENTSECRET          | Your client secret | `<client-secret>`                          |
 | Azure_MYSQL_TENANTID              | Your tenant ID     | `<tenant-ID>`                              |
 
 ### Ruby (mysql2)
-
-#### Ruby (mysql2) secret / connection string
-
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| Azure_MYSQL_USERNAME              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| Azure_MYSQL_PASSWORD              | Database password | `<MySQL-DB-password>`                      |
-| Azure_MYSQL_DATABASE              | Database name     | `<MySQL-DB-name>`                          |
-| Azure_MYSQL_SSLMODE               | SSL option        | `required`                                 |
-
 
 #### Ruby (mysql2) system-assigned managed identity
 
@@ -378,6 +365,17 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_USERNAME              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_SSLMODE               | SSL option        | `required`                                 |
 | Azure_MYSQL_CLIENTID              | Your client ID    | `<client-ID>`                              |
+
+
+#### Ruby (mysql2) secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| Azure_MYSQL_DATABASE              | Database name     | `<MySQL-DB-name>`                          |
+| Azure_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| Azure_MYSQL_USERNAME              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| Azure_MYSQL_PASSWORD              | Database password | `<MySQL-DB-password>`                      |
+| Azure_MYSQL_SSLMODE               | SSL option        | `required`                                 |
 
 #### Ruby (mysql2) Service principal
 
