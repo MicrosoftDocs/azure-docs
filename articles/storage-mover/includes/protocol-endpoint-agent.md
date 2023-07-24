@@ -18,7 +18,7 @@ Document score: 100 (52 words and 0 issues)
 !########################################################
 -->
 
-Only certain types of endpoints may be used as a source or a target, respectively. The following table is used to identify the supported source to destination scenarios:
+The following table is used to identify the supported source to destination scenarios:
 
 |Protocol   |Source        |Destination                     |Agent version required |
 |-----------|--------------|--------------------------------|-----------------------|
