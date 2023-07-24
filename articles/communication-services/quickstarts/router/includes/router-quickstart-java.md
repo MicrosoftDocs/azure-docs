@@ -151,10 +151,8 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 ```java
 RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
     .setPriority(1)
-    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
-        .setKey("Some-Skill")
-        .setLabelOperator(LabelOperator.GREATER_THAN)
-        .setValue(new LabelValue(10)))));
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
 ```
 
 ## Create a worker
@@ -166,7 +164,7 @@ RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
         .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
         .setLabels(Map.of("Some-Skill", new LabelValue(11)))
-        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration().setCapacityCostPerJob(1))));
+        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration(1))));
 ```
 
 ## Receive an offer
