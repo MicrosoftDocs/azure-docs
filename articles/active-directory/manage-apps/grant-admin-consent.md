@@ -13,7 +13,7 @@ ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2, enterprise-apps
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
 
 #customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
 ---
@@ -80,10 +80,11 @@ https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `organizations`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 
+For more information on constructing the tenant-wide admin consent URL, see [Admin consent on the Microsoft identity platform](../develop/v2-admin-consent.md).
 
 :::zone-end
 

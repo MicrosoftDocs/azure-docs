@@ -40,6 +40,9 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
+> [!IMPORTANT]
+> To scale the storage or compute, you must have at minimum READ permission on the owning resource group. 
+
 You can easily scale up your compute tier, vCores, and storage by using the following command. For a list of all the server operations you can run, see the [az postgres flexible-server](/cli/azure/postgres/flexible-server) overview.
 
 ```azurecli-interactive

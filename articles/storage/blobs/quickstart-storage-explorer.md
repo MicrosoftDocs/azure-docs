@@ -5,7 +5,6 @@ description: Learn how to use Azure Storage Explorer to create a container and a
 author: stevenmatthew
 
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 10/28/2021
 ms.author: shaas

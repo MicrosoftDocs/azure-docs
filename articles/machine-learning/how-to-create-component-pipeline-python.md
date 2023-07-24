@@ -15,7 +15,7 @@ ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022, build-
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -221,7 +221,7 @@ Now that you've created and loaded all components and input data to build the pi
 > To use [serverless compute (preview)](how-to-use-serverless-compute.md), add `from azure.ai.ml.entities import ResourceConfiguration` to the top.
 > Then replace:
 > * `default_compute=cpu_compute_target,` with `default_compute="serverless",`
-> * `train_node.compute = gpu_compute_target` with `train_node.resources = "ResourceConfiguration(instance_type="Standard_NC6",instance_count=2)`
+> * `train_node.compute = gpu_compute_target` with `train_node.resources = "ResourceConfiguration(instance_type="Standard_NC6s_v3",instance_count=2)`
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
@@ -256,7 +256,7 @@ Reference for more available credentials if it doesn't work for you: [configure 
 
 #### Get a handle to a workspace with compute
 
-Create a `MLClient` object to manage Azure Machine Learning services.
+Create a `MLClient` object to manage Azure Machine Learning services. If you use [serverless compute (preview)](https://learn.microsoft.com/azure/machine-learning/how-to-use-serverless-compute?view=azureml-api-2&tabs=python) then there is no need to create these computes.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 

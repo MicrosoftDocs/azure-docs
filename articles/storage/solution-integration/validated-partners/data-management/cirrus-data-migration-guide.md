@@ -7,8 +7,8 @@ ms.author: nikoduki
 ms.date: 06/10/2022
 ms.topic: how-to
 ms.custom: kr2b-contr-experiment
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Migrate your block data to Azure with Cirrus Migrate Cloud

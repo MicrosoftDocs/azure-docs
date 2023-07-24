@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/10/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, I want to secure endpoints of my web API registered in the customer's tenant using Microsoft Entra.
 ---
 

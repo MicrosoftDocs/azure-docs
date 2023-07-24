@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23, devx-track-arm-template
 ---
 

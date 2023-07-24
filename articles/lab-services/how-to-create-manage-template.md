@@ -70,5 +70,5 @@ See the following articles:
 
 - [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
 - [As a lab owner, create and manage labs](how-to-manage-labs.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

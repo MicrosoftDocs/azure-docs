@@ -1,5 +1,5 @@
 ---
-title: Integrate security solutions in Microsoft Defender for Cloud
+title: Integrate security solutions
 description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
 ms.topic: conceptual
 ms.custom: ignite-2022

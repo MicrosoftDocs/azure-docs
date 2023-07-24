@@ -171,7 +171,7 @@ The Azure AD Provisioning Services is designed to support a SCIM 2.0 user manage
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
-Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must support these requirements:
+Within the SCIM 2.0 protocol specification, your application must support these requirements:
 
 |Requirement|Reference notes (SCIM protocol)|
 |---|---|
@@ -1403,7 +1403,7 @@ It's recommended, but not required, that you support multiple secrets for easy r
 
 #### How to set up OAuth code grant flow
 
-1. Sign in to the Azure portal, go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
+1. Sign in to the [Azure portal](https://portal.azure.com), go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
    1. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
 

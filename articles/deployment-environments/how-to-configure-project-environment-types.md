@@ -16,7 +16,7 @@ Project environment types are a subset of the [environment types configured for 
 
 In Azure Deployment Environments, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
 
-Project environment types enable development infrastructure teams to:
+Project environment types enable platform engineering teams to:
 
 - Configure the target subscription in which Azure resources will be created per environment type and per project. 
   
