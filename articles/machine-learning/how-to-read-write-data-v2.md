@@ -351,7 +351,7 @@ When you provide a data input/output to a job, you must specify a `path` paramet
 |A path on your local computer     | `./home/username/data/my_data`         |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
-|A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path on an Azure Machine Learning Datastore   |   `<path>`    |
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
 ## Modes
