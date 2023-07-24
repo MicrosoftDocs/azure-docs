@@ -36,14 +36,14 @@ Monitoring Storage IOPS utilization is easy with [Metrics available under Monito
 To obtain a comprehensive view of the IO utilization for the selected time period.
 Navigate to the Monitoring in the Azure portal for Azure Database for MySQL Flexible Server under the Overview blade.
 
-[:::image type="content" source="./media/concepts-storage-iops/1-overview.png" alt-text="overview metrics":::](./media/concepts-storage-iops/1-overview.png)
+[:::image type="content" source="./media/concepts-storage-iops/1-overview.png" alt-text="Screenshot of overview metrics.":::](./media/concepts-storage-iops/1-overview.png#lightbox)
 
 #### Enhanced Metrics Workbook
 - Navigate to Workbooks under Monitoring section on your Azure portal.
 - Select "Enhanced Metrics" workbook.
 - Check for Storage IO Percentage metrics under Overview section of the workbook.
 
-[:::image type="content" source="./media/concepts-storage-iops/2-workbook.png" alt-text="enhanced metrics":::](./media/concepts-storage-iops/2-workbook.png)
+[:::image type="content" source="./media/concepts-storage-iops/2-workbook.png" alt-text="Screenshot of enhanced metrics.":::](./media/concepts-storage-iops/2-workbook.png#lightbox)
 
 #### Metrics under Monitoring
 - Navigate to Metrics, under  Monitoring section on your Azure portal.
@@ -51,7 +51,7 @@ Navigate to the Monitoring in the Azure portal for Azure Database for MySQL Flex
 - Choose “Storage IO Percent” from the drop-down of available metrics.
 - Choose "Storage IO count" from the drop-down of available metrics.
 
-[:::image type="content" source="./media/concepts-storage-iops/3-metrics.png" alt-text="monitoring metrics":::](./media/concepts-storage-iops/3-metrics.png)
+[:::image type="content" source="./media/concepts-storage-iops/3-metrics.png" alt-text="Screenshot of monitoring metrics.":::](./media/concepts-storage-iops/3-metrics.png#lightbox)
 
 
 ## Selecting the Optimal IOPS Setting
@@ -104,7 +104,7 @@ Autoscale IOPS: The Autoscale feature might not provide significant advantages i
 
 ## Frequent Asked Questions 
 
-#### How to move from Pre-provisioned IOPS to Autoscale IOPS?
+#### How to move from pre-provisioned IOPS to Autoscale IOPS?
 - Access your Azure portal and locate the relevant Azure database for MySQL Flexible Server.
 - Go to the Settings blade and choose the Compute + Storage section.
 - Within the IOPS section, opt for Auto Scale IOPS and save the settings to apply the modifications.
@@ -115,8 +115,8 @@ Once you enable Autoscale IOPS for your Azure database for MySQL Flexible Server
 #### How to know when IOPS have scaled up and scaled down when the server is using Autoscale IOPS feature? Or Can I monitor IOPS usage for my server?
 Refer to [“Monitor Storage performance”](#monitor-storage-performance) section, which will help to identify if your server has scaled up or scaled down during specific time window.
 
-#### Can I switch between Autoscale IOPS and Pre-Provisioned IOPS later?
-Yes, you can move back to pre-provisioned IOPS by opting for Pre-provisioned IOPS under Compute + Storage section under Settings blade.
+#### Can I switch between Autoscale IOPS and pre-provisioned IOPS later?
+Yes, you can move back to pre-provisioned IOPS by opting for pre-provisioned IOPS under Compute + Storage section under Settings blade.
 
 #### How do I know how much IOPS have been utilized for Azure database for MySQL Flexible Server?
 My navigating to Monitoring under Overview section. Or navigate to [IO count metrics](./concepts-monitoring.md#list-of-metrics) under Monitoring blade. IO count metric gives sum of IOPS used by server in the selected timeframe.
