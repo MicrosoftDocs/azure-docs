@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 05/10/2023
 ms.author: barclayn
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 zone_pivot_groups: identity-mi-methods
 ---
 

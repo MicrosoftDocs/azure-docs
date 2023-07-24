@@ -27,7 +27,7 @@ You add your organization's privacy information in the **Properties** area of Az
 
 ### To access the Properties area and add your privacy information
 
-1. Sign in to the Azure portal as a tenant administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a tenant administrator.
 
 2. On the left navbar, select **Azure Active Directory**, and then select **Properties**.
 

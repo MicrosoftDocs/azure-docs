@@ -11,6 +11,46 @@
   items:
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+- name: Deploy
+  items:
+  - name: Plan and prepare
+    items: 
+    - name: Overview and prerequisites      
+      href: prerequisites.md
+    - name: Plan workspace architecture
+      items:
+      - name: Review best practices
+        href: best-practices-workspace-architecture.md 
+      - name: Design workspace architecture
+        href: design-your-workspace-architecture.md      
+      - name: Review sample workspace designs
+        href: sample-workspace-designs.md
+      - name: Prepare for multiple workspaces
+        href: prepare-multiple-workspaces.md
+    - name: Prioritize data connectors
+      href: prioritize-data-connectors.md 
+    - name: Plan roles and permissions
+      href: roles.md
+    - name: Plan costs
+      href: billing.md
+  - name: Deploy
+    items: 
+    - name: Overview   
+      href: deploy-overview.md
+    - name: Enable Microsoft Sentinel and initial features and content
+      href: enable-sentinel-features-content.md
+    - name: Configure content
+      href: configure-content.md
+    - name: Set up multiple workspaces
+      href: use-multiple-workspaces.md
+    - name: Enable User and Entity Behavior Analytics (UEBA)
+      href: enable-entity-behavior-analytics.md
+    - name: Configure data retention and archive 
+      href: configure-data-retention-archive.md
+  - name: Review and fine-tune
+    items: 
+    - name: Review and fine-tune checklist   
+      href: review-fine-tune-overview.md    
 - name: Tutorials
   items:
   - name: Forward syslog data to workspace
@@ -37,44 +77,26 @@
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
 - name: Concepts
   items:
-  - name: Plan
-    items:
-    - name: Prerequisites
-      href: prerequisites.md
+  - name: Availability and support
+    items:     
     - name: Geographical availability and data residency
-      href: geographical-availability-data-residency.md
-    - name: Costs and billing
-      items:
-      - name: Plan costs
-        href: billing.md
-      - name: Monitor costs
-        href: billing-monitor-costs.md
-      - name: Reduce costs
-        href: billing-reduce-costs.md    
-    - name: Best practices
-      items:
-      - name: Overview
-        href: best-practices.md
-      - name: Workspace architecture
-        href: best-practices-workspace-architecture.md
-      - name: Data collection
-        href: best-practices-data.md
-      - name: Partner integrations
-        href: partner-integrations.md
-      - name: Basic Logs
-        href: basic-logs-use-cases.md
-      - name: Auditing and health monitoring 
-        href: health-audit.md    
-    - name: Architecture
-      items:
-      - name: Roles and permissions
-        href: roles.md
-      - name: Extend Microsoft Sentinel across workspaces and tenants
-        href: extend-sentinel-across-workspaces-tenants.md
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
-      - name: Support for data types in different clouds
-        href: data-type-cloud-support.md
+      href: geographical-availability-data-residency.md          
+    - name: Support for data types in different clouds
+      href: data-type-cloud-support.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
+  - name: Best practices
+    items:
+    - name: Overview
+      href: best-practices.md      
+    - name: Data collection
+      href: best-practices-data.md
+    - name: Partner integrations
+      href: partner-integrations.md
+    - name: Basic Logs
+      href: basic-logs-use-cases.md
+    - name: Auditing and health monitoring 
+      href: health-audit.md                            
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -186,15 +208,7 @@
     - name: Dynamics 365 Finance and Operations solution overview
       href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
 - name: How-tos
-  items:
-  - name: Plan architecture
-    items:
-    - name: Overview
-      href: design-your-workspace-architecture.md
-    - name: Sample workspace designs
-      href: sample-workspace-designs.md
-    - name: Manage workspace access
-      href: resource-context-rbac.md
+  items:    
   - name: Migrate to Microsoft Sentinel
     items:
     - name: Plan and design your migration
@@ -850,9 +864,7 @@
       - name: Handle ingestion delay in analytics rules
         href: ingestion-delay.md
       - name: Get fine-tuning recommendations
-        href: detection-tuning.md
-    - name: Enable User and Entity Behavior Analytics (UEBA)
-      href: enable-entity-behavior-analytics.md
+        href: detection-tuning.md    
     - name: Work with out-of-the-box anomaly rules
       href: work-with-anomaly-rules.md
     - name: Configure multistage attack (Fusion) rules
@@ -939,8 +951,18 @@
       href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
-    - name: Manage multiple workspaces
-      href: workspace-manager.md
+    - name: Manage costs and billing
+      items:      
+      - name: Monitor costs
+        href: billing-monitor-costs.md
+      - name: Reduce costs
+        href: billing-reduce-costs.md
+    - name: Manage multiple workspaces 
+      items:
+      - name: Workspace manager
+        href: workspace-manager.md
+      - name: Extend across multiple workspaces
+        href: extend-sentinel-across-workspaces-tenants.md  
     - name: Microsoft Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
@@ -949,6 +971,8 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Microsoft Sentinel
         href: mssp-protect-intellectual-property.md
+    - name: Manage workspace access
+      href: resource-context-rbac.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys

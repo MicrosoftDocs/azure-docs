@@ -220,6 +220,21 @@ mysql -h mydb.mysql.database.azure.com \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
 
+**Example (PowerShell):**
+
+```
+mysql -h mydb.mysql.database.azure.com \
+  --user user@tenant.onmicrosoft.com \
+  --enable-cleartext-plugin \
+  --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+
+
+mysql -h mydb.mysql.database.azure.com \
+  --user user@tenant.onmicrosoft.com \
+  --enable-cleartext-plugin \
+  --password=$((Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net).Token)
+```
+
 ## Connect to Azure Database for MySQL - Flexible Server using MySQL Workbench
 
 - Launch MySQL Workbench and Select the Database option, then select **Connect to database**.

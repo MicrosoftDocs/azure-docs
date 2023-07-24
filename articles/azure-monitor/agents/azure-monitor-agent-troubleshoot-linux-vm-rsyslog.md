@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 5/31/2023
-ms.custom: references_region
+ms.custom: references_region, devx-track-linux
 ms.reviewer: shseth
 ---
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux

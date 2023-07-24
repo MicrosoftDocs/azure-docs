@@ -57,7 +57,7 @@ Follow these steps to create a new Azure AD group and a Conditional Access polic
 
 ### Create an exclusion group
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation, select **Azure Active Directory** and then select **Groups**.
 
