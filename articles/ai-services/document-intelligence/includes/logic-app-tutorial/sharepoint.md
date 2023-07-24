@@ -26,7 +26,7 @@ To complete this tutorial, you need the following resources:
 
   * After the resource deploys, select **Go to resource**. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API. For more information, *see* [**create a Document Intelligence resource**](create-document-intelligence-resource.md).
 
-      :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot showing how to access resource key and endpoint URL.":::
+      :::image border="true" type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot showing how to access resource key and endpoint URL.":::
 
 ## Create a Sharepoint folder
 
@@ -36,15 +36,15 @@ Before we jump into creating the Logic App, we have to set up a Sharepoint folde
 
 1. Select **Documents**,  then the  **➕ New** button near the upper-left corner of the site window, and choose **Folder**.
 
-    :::image type="content" source="media/logic-apps-tutorial/sharepoint-new-folder.png" alt-text="Screenshot of add-new button. ":::
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-new-folder.png" alt-text="Screenshot of add-new button. ":::
 
 1. Enter a name for your new folder and select **Create**.
 
-    :::image type="content" source="media/logic-apps-tutorial/create-folder.png" alt-text="Screenshot of create and name folder window.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/create-folder.png" alt-text="Screenshot of create and name folder window.":::
 
 1. You see the new folder in your site library.
 
-    :::image type="content" source="media/logic-apps-tutorial/sharepoint-site-library.png" alt-text="Screenshot of the newly created folder.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-site-library.png" alt-text="Screenshot of the newly created folder.":::
 
 1. We're done with SharePoint for now.
 
@@ -56,13 +56,13 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. Select **➕ Create a resource** from the Azure home page.
 
-    :::image type="content" source="media/logic-apps-tutorial/azure-create-resource.png" alt-text="Screenshot of create a resource in the Azure portal.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/azure-create-resource.png" alt-text="Screenshot of create a resource in the Azure portal.":::
 
 1. Search for and choose **Logic App** from the search bar.
 
 1. Select the create button
 
-    :::image type="content" source="media/logic-apps-tutorial/create-logic-app.png" alt-text="Screenshot of the Create Logic App page.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app.png" alt-text="Screenshot of the Create Logic App page.":::
 
 1. Next, you're going to fill out the **Create Logic App** fields with the following values:
 
@@ -78,7 +78,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. When you're done, you have something similar to the following image (Resource group, Logic App name, and Region may be different). After checking these values, select **Review + create** in the bottom-left corner.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/create-logic-app-fields.png" alt-text="Screenshot showing field values to create a Logic App resource.":::
+    :::image border="true" type="content" source="../../media/logic-apps-tutorial/create-logic-app-fields.png" alt-text="Screenshot showing field values to create a Logic App resource.":::
 
 1. A short validation check runs. After it completes successfully, select **Create** in the bottom-left corner.
 
@@ -86,51 +86,51 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. Finally, you're redirected to the **Logic Apps Designer** page. There's a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button from the **Templates** section.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer-templates.png" alt-text="Screenshot showing how to enter the Logic App Designer.":::
+    :::image border="true" type="content" source="../../media/logic-apps-tutorial/logic-app-designer-templates.png" alt-text="Screenshot showing how to enter the Logic App Designer.":::
 
 1. You see a screen that looks similar to the following image. Now, you're ready to start designing and implementing your Logic App.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer.png" alt-text="Screenshot of the Logic App Designer start page.":::
+    :::image border="true" type="content" source="../../media/logic-apps-tutorial/logic-app-designer.png" alt-text="Screenshot of the Logic App Designer start page.":::
 
 1. Search for and select **SharePoint** the search bar. Then, select the **When a file is created (properties only)** trigger.
 
-    :::image type="content" source="media/logic-apps-tutorial/sharepoint-setup.png" alt-text="Screenshot of the SharePoint connector and trigger selection page.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-setup.png" alt-text="Screenshot of the SharePoint connector and trigger selection page.":::
 
 1. Logic Apps will automatically signs you into your SharePoint account(s).
 
 1. After your account is connected, complete the **Site Address** and **Library Name** fields. Select the **Add new parameter** field and select **Folder**.
 
-    :::image type="content" source="media/logic-apps-tutorial/sharepoint-folder-path.png" alt-text="Screenshot of the When a file is created window with added parameter.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-folder-path.png" alt-text="Screenshot of the When a file is created window with added parameter.":::
 
 1. Select the directory path including the folder that you created earlier.
 
-   :::image type="content" source="media/logic-apps-tutorial/sharepoint-added-parameter.png" alt-text="Screenshot of the added parameter field.":::
+   :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-added-parameter.png" alt-text="Screenshot of the added parameter field.":::
 
     > [!TIP]
     >
     > Select the arrow at the end of each listed folder to traverse to the next folder in the path:
-      :::image type="content" source="media/logic-apps-tutorial/folder-traverse-tip.png" alt-text="Screenshot of how to traverse the folder path.":::
+      :::image type="content" source="../../media/logic-apps-tutorial/folder-traverse-tip.png" alt-text="Screenshot of how to traverse the folder path.":::
 
 :::moniker range="doc-intel-3.0.0"
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
-    :::image type="content" source="media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
 
 1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
-    :::image type="content" source="media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
 
 1. Now, you see a window to create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document Intelligence resource and copy them again. When you're done, select **Create**.
 
-      :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
+      :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
 
 1. You see the selection parameters window for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
 
-      :::image type="content" source="media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
+      :::image type="content" source="../../media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
 
 1. Complete the fields as follows:
 
@@ -139,21 +139,21 @@ At this point, you should have a Document Intelligence resource and a SharePoint
     * **Document/Image URL**. Skip this field for this project because we're already pointing to the file content directly from the OneDrive folder.
     * **Add new parameter**. Skip this field for this project.
 
-      :::image type="content" source="media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
+      :::image type="content" source="../../media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
 
 1. We need to add a few more steps. Once again, select the **➕ New step** button to add another action.
 
 1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
 
-    :::image type="content" source="media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the choose an operation menu.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the choose an operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
-    :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For each Control tile from the Control menu. ":::
+    :::image type="content" source="../../media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For each Control tile from the Control menu. ":::
 
 1. In the **For each** step window, there's a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 
-    :::image type="content" source="media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
 
 1. Now, select **Add an Action** from within the **For each** step window.
 
@@ -161,7 +161,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. In the actions list, scroll down until you find **Send an email (V2)** and select this action.
 
-    :::image type="content" source="media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
 1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
 
@@ -174,7 +174,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. In order to access a specific field, we select the **add the dynamic content** button and select the **Expression** tab.
 
-    :::image type="content" source="media/logic-apps-tutorial/function-expression-field.png" alt-text="Screenshot of the expression function field.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/function-expression-field.png" alt-text="Screenshot of the expression function field.":::
 
 1. In  the **ƒx** box, copy and paste the above formula and replace **FIELD-NAME** with the name of the field we want to extract. For the full list of available fields, refer to the concept page for the given API. In this case, we use the [prebuilt-invoice model field extraction values](concept-invoice.md#field-extraction).
 
@@ -221,11 +221,11 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     * When you're done, the window looks similar to the following image:
 
-      :::image type="content" source="media/logic-apps-tutorial/send-email-functions.png" alt-text="Screenshot of the Send an email (V2) window with completed fields.":::
+      :::image type="content" source="../../media/logic-apps-tutorial/send-email-functions.png" alt-text="Screenshot of the Send an email (V2) window with completed fields.":::
 
 1. **Select Save in the upper left corner**.
 
-    :::image type="content" source="media/logic-apps-tutorial/logic-app-designer-save.png" alt-text="Screenshot of the Logic Apps Designer save button.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/logic-app-designer-save.png" alt-text="Screenshot of the Logic Apps Designer save button.":::
 
 > [!NOTE]
 >
