@@ -54,7 +54,7 @@ To improve performance and ensure that the authorization server will look for th
 - `account`, which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis)
 
 
- We recommended to using the `login_hint`[optional ID token claim](optional-claims-reference#v10-and-v20-optional-claims-set.md) provided to `ssoSilent` as `loginHint` as it is the most reliable account hint of silent (and interactive) requests.
+ We recommended to using the `login_hint`[optional ID token claim](optional-claims-reference#v10-and-v20-optional-claims-set) provided to `ssoSilent` as `loginHint` as it is the most reliable account hint of silent (and interactive) requests.
 
 
 #### Using a login hint
