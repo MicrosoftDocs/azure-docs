@@ -108,7 +108,7 @@ In this section, you associate the network security group with the subnet of the
 
 1. Select **nsg-1**.
 
-1. Select **Subnets** from the **Settings** section of **nsg1**.
+1. Select **Subnets** from the **Settings** section of **nsg-1**.
 
 1. In the **Subnets** page, select **+ Associate**:
 
