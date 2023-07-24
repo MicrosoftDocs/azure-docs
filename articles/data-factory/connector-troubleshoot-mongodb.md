@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 12/02/2022
+ms.date: 07/24/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -27,6 +27,17 @@ This article provides suggestions to troubleshoot common problems with the Mongo
 - **Cause**: When you copy data from Azure Cosmos DB MongoAPI or MongoDB with the universally unique identifier (UUID) field, there are two ways to represent the UUID in Binary JSON (BSON): UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+
+## Error code: DeprecatedMongoDbOdbcConnector
+
+- **Message**:
+    `The MongoDB ODBC connector has been deprecated. To ensure continued functionality, please create a new MongoDB linked service. Detailed instructions can be found in this official Microsoft Azure guide: https://learn.microsoft.com/en-us/azure/data-factory/connector-mongodb?tabs=data-factory`
+
+- **Cause**: 
+    If you meet this error message, you need to migrate to a new version of MongoDB linked service.
+
+- **Resolution**: 
+   Refer to this [article](connector-mongodb.md#upgrade-the-mongoDB-linked-service-to-the-latest-version) to upgrade your MongoDB linked service to the latest version.
 
 ## Next steps
 
