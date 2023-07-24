@@ -62,6 +62,10 @@ In this section, you create a private endpoint for your static web app.
 
 4. Select **Ok**.
 
+> [!NOTE]
+> The name of the private DNS zone will depend upon the default domain name suffix of the Static Web App. For example, if the default domain suffix of the Static Web App is 3.azurestaticapps.net, the name of the private DNS zone must be privatelink.3.azurestaticapps.net. When a new Static Web App is created, its default domain suffix might be different from the default domain suffix(es) of previous Static Web Apps. If you are using an automated deployment process to create the private DNS zone, you can use the DefaultHostname property of the created Static Web App to programmatically extract the domain suffix. The DefaultHostname property value resembles `<StaticWebAppDefaultDomainPrefix>.<PartitionId>. azurestaticapps.net` or `<StaticWebAppDefaultDomainPrefix>. azurestaticapps.net`, where `<PartitionId>.azurestaticapps.net` or `azurestaticapps.net` is the respective default domain suffix. 
+
+
 ## Testing your private endpoint
 
 Since your application is no longer publicly available, the only way to access it is from inside of your virtual network. To test, set up a virtual machine inside of your virtual network and go to your site.
