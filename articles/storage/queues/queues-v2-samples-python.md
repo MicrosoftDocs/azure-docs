@@ -19,7 +19,7 @@ This article shows code samples that use version 2 of the Azure Queue Storage cl
 
 ## Create a queue
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#create-a-queue)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2C)
 
 Add the following `import` directives:
 
@@ -61,7 +61,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 ## Insert a message into a queue
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#insert-a-message-into-a-queue)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 To insert a message into a queue, use the [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) method to create a new message and add it to the queue.
 
@@ -73,7 +73,7 @@ queue_service.put_message(queue_name, message)
 
 ## Peek at messages
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#peek-at-messages)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 You can peek at messages without removing them from the queue by calling the [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#peek-messages-queue-name--num-messages-none--timeout-none-) method. By default, this method peeks at a single message.
 
@@ -86,7 +86,7 @@ for peeked_message in messages:
 
 ## Change the contents of a queued message
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#change-the-contents-of-a-queued-message)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 The following code uses the [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
 
@@ -100,7 +100,7 @@ for message in messages:
 
 ## Get the queue length
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#get-the-queue-length)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-queue-metadata-queue-name--timeout-none-) method returns queue properties including `approximate_message_count`.
 
@@ -114,7 +114,7 @@ The result is only approximate because messages can be added or removed after th
 
 ## Dequeue messages
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#dequeue-messages)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 When you call [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), you get the next message in the queue by default. A message returned from `get_messages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
 
@@ -140,7 +140,7 @@ for message in messages:
 
 ## Delete a queue
 
-Related article: [Get started with Azure Queue Storage using Python](storage-python-how-to-use-queue-storage.md#delete-a-queue)
+Related article: [Get started with Azure Queue Storage using Python](storage-quickstart-queues-python.md?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 
 To delete a queue and all the messages contained in it, call the [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-queue-queue-name--fail-not-exist-false--timeout-none-) method.
 
