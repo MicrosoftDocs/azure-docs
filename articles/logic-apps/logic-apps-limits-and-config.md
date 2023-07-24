@@ -315,6 +315,8 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 <a name="content-storage-size-limits"></a>
 
+### Content storage limits
+
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
 | Request trigger (inbound) - Content storage limit per 5-minute rolling interval | 3145728 KB | None | This limit applies only to the storage content size for inbound requests received by the Request trigger. |
