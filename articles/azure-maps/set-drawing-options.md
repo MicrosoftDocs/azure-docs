@@ -11,7 +11,7 @@ ms.service: azure-maps
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager]. The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [DrawingToolbar class] class.
+The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager]. The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [DrawingToolbar class].
 
 ## Loading the drawing tools module in a webpage
 
