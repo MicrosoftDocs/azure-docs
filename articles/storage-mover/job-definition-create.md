@@ -74,7 +74,9 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
-   Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When you create an endpoint resource that supports the SMB protocol, you're required to provide values for the Key Vault name, and the names of the username and password secrets as well. Select the name of the Key Vault from the **Key Vault** drop-down lists. You can provide values for the **Secret for username** and **Secret for password** by selecting the relevant secret from the corresponding drop-down list. Alternatively, you can provide the URI to the secret as shown in the following screen capture.
+   Only certain types of endpoints may be used as a source or a target, respectively. The steps to create different endpoint types are similar, as are their corresponding data fields. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When you create an endpoint resource that supports the SMB protocol, you're required to provide values for the Key Vault name, and the names of the username and password secrets as well.
+
+   Select the name of the Key Vault from the **Key Vault** drop-down lists. You can provide values for the **Secret for username** and **Secret for password** by selecting the relevant secret from the corresponding drop-down list. Alternatively, you can provide the URI to the secret as shown in the following screen capture.
 
    For more information on endpoint resources, see the [Managing Storage Mover endpoints](endpoint-manage.md) article.
 
@@ -91,11 +93,18 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. In the **Target** tab, select an option for the **Target endpoint** field.
 
-   As with the source endpoint, choose the **Select an existing endpoint reference** option if you want to use a previously defined endpoint. Next, select the **Select an existing endpoint as a target** link to open the target endpoint pane. A detailed list of your previously defined endpoints is displayed. First, select the desired endpoint, then **Select** to populate the **Existing source endpoint** field and return to the **Source** tab.
+   As with the source endpoint, choose the **Select an existing endpoint reference** option if you want to use a previously defined endpoint. Next, select the **Select an existing endpoint as a target** link to open the target endpoint pane. A detailed list of your previously defined endpoints is displayed. From the endpoint list, select the desired endpoint, then **Select** to populate the **Existing source endpoint** field and return to the **Source** tab.
 
    :::image type="content" source="media/job-definition-create/endpoint-target-existing-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the Existing Target Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-target-existing-lrg.png":::
 
-   Similarly, to define a new target endpoint, choose the **Create a new endpoint** option. Next, select values from the drop-down lists for the required **Subscription**, **Storage account**, and **Container** fields. You may also add an optional description value of less than 1024 characters.
+   Similarly, to define a new target endpoint, choose the **Create a new endpoint** option. Next, select values from the drop-down lists for the required **Subscription** and **Storage account** fields. You may also add an optional description value of less than 1024 characters. Depending on your use case, select the appropriate ***Target type**.
+
+   Recall that certain types of endpoints may be used as a source or a target, respectively.
+
+   [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
+
+   > [!IMPORTANT]
+   > Support for the SMB protocol is currently in public preview and some functionality may not yet be available. Currently, the only supported migration path consists of an SMB mount source to an Azure File share destination.
 
    :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
 
