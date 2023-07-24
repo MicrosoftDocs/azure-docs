@@ -62,21 +62,21 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a URL using one of the following patterns:
+    a. In the **Identifier** textbox, type one of the following URLs:
 
     | Environment | URL |
     |----|----|
     | Production| `https://msfms.net/SAMLFms` |
     | Staging | `https://test.msfms.net/SAMLFms`|
 
-    b. In the **Reply URL** textbox, type a URL using one of the following patterns:
+    b. In the **Reply URL** textbox, type one of the following URLs:
 
     | Environment | URL |
     |----|----|
     | Production| `https://msfms.net/saml2/acs` |
     | Staging | `https://test.msfms.net/saml2/acs`|
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
