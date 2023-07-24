@@ -239,7 +239,7 @@ The output:
 machineconfig.machineconfiguration.openshift.io "25-machineconfig-worker-reboot" deleted
 ```
 
-Wait for all of the worker nodes to reboot. This is similar to the the [reboot of worker nodes](#reboot-worker-nodes) above.
+Wait for all of the worker nodes to reboot. This is similar to the [reboot of worker nodes](#reboot-worker-nodes) above.
 
 Now we'll reboot the master nodes.
 
