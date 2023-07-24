@@ -26,7 +26,7 @@ You can use Spring Data Azure Cosmos DB in your applications hosted in [Azure Sp
 
 ### Spring Boot Version Support
 
-This project supports multiple Spring Boot Versions. Visit [spring boot support policy](https://github.com/Azure/azure-sdk-for-java/tree/feature/spring-boot-5/sdk/spring/azure-spring-data-cosmos#spring-boot-support-policy) for more information. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. Visit [spring boot version support](https://github.com/Azure/azure-sdk-for-java/tree/feature/spring-boot-3/sdk/spring/azure-spring-data-cosmos#spring-boot-version-support) for more information.
+This project supports multiple Spring Boot Versions. Visit [spring boot support policy](https://github.com/Azure/azure-sdk-for-java/tree/feature/spring-boot-3/sdk/spring/azure-spring-data-cosmos#spring-boot-support-policy) for more information. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. Visit [spring boot version support](https://github.com/Azure/azure-sdk-for-java/tree/feature/spring-boot-3/sdk/spring/azure-spring-data-cosmos#spring-boot-version-support) for more information.
 
 ### Spring Data Version Support
 
