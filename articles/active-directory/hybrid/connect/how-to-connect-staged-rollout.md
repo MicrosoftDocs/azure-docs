@@ -165,6 +165,8 @@ To roll out a specific feature (*pass-through authentication*, *password hash sy
 
 ### Enable a Staged Rollout of a specific feature on your tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can roll out these options:
 
 - **Password hash sync** + **Seamless SSO**
@@ -175,7 +177,7 @@ You can roll out these options:
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
 
 1. Search for and select **Azure Active Directory**.
 
