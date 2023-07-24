@@ -61,7 +61,6 @@ For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-ov
 Choose a workflow using a file from either your Microsoft OneDrive account or Microsoft ShareDrive site:
 
 > [!div class="op_single_selector"]
->
 > - [!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
 > - [!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
 
