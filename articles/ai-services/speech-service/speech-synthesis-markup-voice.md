@@ -226,7 +226,7 @@ This example uses a custom voice named "my-custom-voice". The custom voice speak
 
 By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
-You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions.
+The `<lang xml:lang>` element is primarily intended for multilingual neural voices. You can adjust the speaking language for the multilingual neural voice at the sentence level and word level. The supported languages for multilingual voices are [provided in a table](#multilingual-voices-with-the-lang-element) following the `<lang>` syntax and attribute definitions.
 
 Usage of the `lang` element's attributes are described in the following table.
 
@@ -237,19 +237,30 @@ Usage of the `lang` element's attributes are described in the following table.
 > [!NOTE]
 > The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
+### Multilingual voices with the lang element
+
 Use this table to determine which speaking languages are supported for each neural voice. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio.
 
-| Voice | Primary and default locale | Secondary locales |
-| ---------- | ---------- | ---------- |
-| `en-US-JennyMultilingualNeural` | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN` |
+| Voice | Supported locales |
+| ---------- | ---------- |
+| `en-US-JennyMultilingualNeural`<sup>1</sup> | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN` |
+| `en-US-JennyMultilingualV2Neural`<sup>2</sup> | `ar-EG`, `ar-SA`, `ca-ES`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-HK`, `en-IE`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fi-FI`, `fr-BE`, `fr-CA`, `fr-CH`, `fr-FR`, `hi-IN`, `hu-HU`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ru-RU`, `sv-SE`, `th-TH`, `tr-TR`, `zh-CN`, `zh-HK`, `zh-TW`. |
+| `en-US-RyanMultilingualNeural` | `ar-EG`, `ar-SA`, `ca-ES`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-HK`, `en-IE`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fi-FI`, `fr-BE`, `fr-CA`, `fr-CH`, `fr-FR`, `hi-IN`, `hu-HU`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ru-RU`, `sv-SE`, `th-TH`, `tr-TR`, `zh-CN`, `zh-HK`, `zh-TW`. |
+
+<sup>1</sup> In order to speak in a language other than English, the current implementation of the `en-US-JennyMultilingualNeural` voice requires that you set the `<lang xml:lang>` element. We anticipate that during Q4 calendar year 2023, the `en-US-JennyMultilingualNeural` voice will be updated to speak in the language of the input text without the `<lang xml:lang>` element. This will be in parity with the `en-US-JennyMultilingualV2Neural` voice.
+
+<sup>2</sup> The `en-US-JennyMultilingualV2Neural` voice is provided temporarily in public preview soley for evaluation purposes. It will be removed in the future. 
+
+> [!NOTE] 
+> Multilingual voices don't fully support certain SSML elements, such as break, emphasis, silence, and sub.
 
 ### Lang examples
 
 The supported values for attributes of the `lang` element were [described previously](#adjust-speaking-languages). 
 
-The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. 
+You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-JennyMultilingualNeural` is `en-US`. 
 
-This SSML snippet shows how to use the `lang` element (and `xml:lang` attribute) to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+This SSML snippet shows how to use `<lang xml:lang>` to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"

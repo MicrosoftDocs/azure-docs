@@ -93,6 +93,10 @@ landingContent:
 # Card
   - title: Application Gateway for Containers (preview)
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Application Gateway for Containers?
+            url: ./for-containers/overview.md
       - linkListType: concept
         links:
           - text: Application Gateway for Containers components

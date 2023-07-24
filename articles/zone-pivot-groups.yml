@@ -2555,6 +2555,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+- id: azure-virtual-desktop-app-attach
+  title: Azure Virtual Desktop app attach version
+  prompt: Choose an app attach version
+  pivots:
+  - id: app-attach
+    title: App attach
+  - id: msix-app-attach-legacy
+    title: MSIX app attach (legacy)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
