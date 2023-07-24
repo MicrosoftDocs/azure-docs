@@ -20,7 +20,7 @@ In addition to the data science and programming tools, the DSVM contains product
 > This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-| Tool | Windows 2019 Server DSVM | Windows 2022 Server DSVM | Linux DSVM | Usage notes |
+| Tool | Windows 2019 Server DSVM | Windows 2022 Server DSVM (Preview) | Linux DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-|
 | [Microsoft 365](https://www.microsoft.com/microsoft-365) (Word, Excel, PowerPoint) | <span class='green-check'>&#9989; </span> | <span class='green-check'>&#9989; </span> | <span class='red-x'>&#10060; </span> |  |
 | [Microsoft Teams](https://www.microsoft.com/microsoft-teams) | <span class='green-check'>&#9989; </span> | <span class='green-check'>&#9989; </span> | <span class='red-x'>&#10060; </span> |  |
