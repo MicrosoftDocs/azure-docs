@@ -38,7 +38,7 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk delete users
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
 1. Browse to **Azure Active Directory** > **Users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
 1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.

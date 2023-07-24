@@ -132,7 +132,7 @@ See Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-servi
 The SAML certificate of this integration relies on which eventually need to be renewed so users can continue logging into Infinite Campus through single sign-on. For districts with proper Campus Messenger Email Settings established, Infinite Campus sends warning emails as the certificate expiration approaches. (Subject: "Action required: Your certificate is expiring.") 
 
 These are the steps to take to replace an expiring SAML certificate: 
-1. Have your district's Microsoft Azure Active Directory admin sign-in to the Azure portal.
+1. Have your district's Microsoft Azure Active Directory admin sign in to the Azure portal.
 1.	On the left navigation pane, select the Azure Active Directory service.
 1.	Navigate to Enterprise Applications and select your Infinite Campus application set up previously. (If you have multiple Infinite Campus environments like a sandbox or staging site, you have multiple Infinite Campus applications set up here. You need to complete this process in each respective Infinite Campus environment for any with an expiring certificate.)
 1.	Select Single sign-on.
