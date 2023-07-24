@@ -37,7 +37,7 @@ Requests from the same client often arrive at the same Azure Front Door server. 
 
 It's possible that requests from the same client might arrive at a different Azure Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request.
 
-If the threshold is low enough, the first request to the new Azure Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, five minutes over one minute) with larger thresholds are typically more effective than the shorter time window sizes with lower thresholds.
+If the threshold is low enough, the first request to the new Azure Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, five minutes over one minute) with larger thresholds are typically more effective than the shorter-time window sizes with lower thresholds.
 
 ## Next steps
 
