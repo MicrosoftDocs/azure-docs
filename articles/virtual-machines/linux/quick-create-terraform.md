@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/17/2023
+ms.date: 07/24/2023
 ms.author: tarcher
 ms.custom: devx-track-terraform
 content_well_notification: 
@@ -54,23 +54,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-vm-with-infrastructure/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/providers.tf":::
 
 1. Create a file named `ssh.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-vm-with-infrastructure/ssh.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/ssh.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-vm-with-infrastructure/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-vm-with-infrastructure/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-vm-with-infrastructure/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/outputs.tf":::
 
 ## Initialize Terraform
 
