@@ -75,9 +75,9 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Location**: A supported Azure region for Azure Health Data Services (the value can be the same as or different from the region your resource group is in). For a list of Azure regions where Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principle Id** (optional): An Azure Active Directory (Azure AD) user object ID to provide FHIR service read/write permissions.
+   - **Fhir Contributor Principal Id** (optional): An Azure Active Directory (Azure AD) user object ID to provide FHIR service read/write permissions.
 
-     You can use this account to give access to the FHIR service to view the FHIR Observations that are generated in this tutorial. We recommend that you use your own Azure AD user object ID so you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principle Id** option, clear the text box.
+     You can use this account to give access to the FHIR service to view the FHIR Observations that are generated in this tutorial. We recommend that you use your own Azure AD user object ID so you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principal Id** option, clear the text box.
 
      To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
