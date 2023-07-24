@@ -32,7 +32,7 @@ StringToNumber(<string_expr>)
 
 ## Return types
 
-Returns a number value.  
+Returns a number value.
 
 ## Examples
 
