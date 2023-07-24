@@ -31,7 +31,7 @@ ST_AREA(<spatial_expr>)
 
 | | Description |
 | --- | --- |
-| **`spatial_expr`** | Any valid GeoJSON **Polygon** or **MultiPolygon** object expression. |
+| **`spatial_expr`** | Any valid GeoJSON **Polygon** or **MultiPolygon** expression. |
 
 ## Return types
 
