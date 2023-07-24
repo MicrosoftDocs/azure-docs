@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with WhosOff
 
-In this article, you'll learn how to integrate WhosOff with Azure Active Directory (Azure AD). WhosOff is an online leave management platform. Azure's WhosOff integration allows customers to sign in to their WhosOff account using Azure as a Single Sign-On provider. When you integrate WhosOff with Azure AD, you can:
+In this article, you'll learn how to integrate WhosOff with Azure Active Directory (Azure AD). WhosOff is an online leave management platform. Azure's WhosOff integration allows customers to sign in to their WhosOff account using Azure as a single sign-on provider. When you integrate WhosOff with Azure AD, you can:
 
 * Control in Azure AD who has access to WhosOff.
 * Enable your users to be automatically signed-in to WhosOff with their Azure AD accounts.
