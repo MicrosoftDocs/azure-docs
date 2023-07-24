@@ -35,7 +35,7 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 
 ## Invite guest users in bulk
 
-1. Sign in to the Azure portal with an account that is a global administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **All Users**.
 4. Select **Bulk operations** > **Bulk invite**.
@@ -98,7 +98,7 @@ Check to see that the guest users you added exist in the directory either in the
 
 ### View guest users in the Azure portal
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users**.
 4. Under **Show**, select **Guest users only** and verify the users you added are listed.
@@ -135,4 +135,3 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 - [Bulk invite guest users via PowerShell](bulk-invite-powershell.md)
 - [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
-
