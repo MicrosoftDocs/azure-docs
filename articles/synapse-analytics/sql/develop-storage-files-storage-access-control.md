@@ -187,7 +187,7 @@ Follow these steps to configure your storage account and add an exception for th
 
     - Resource group name - you can find this in Azure portal in the **Overview** of your storage account.
     - Account Name - name of the storage account that is protected by firewall rules.
-    - Tenant ID - you can find this in [Azure portal in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant), under **Properties**, in **Tenant properties**.
+    - Tenant ID - you can find this in [Azure portal in Azure Active Directory](/azure/active-directory/fundamentals/how-to-find-tenant), under **Properties**, in **Tenant properties**.
     - Workspace Name - Name of the Azure Synapse workspace.
     
     ```powershell
