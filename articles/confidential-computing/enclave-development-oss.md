@@ -47,6 +47,11 @@ The [Confidential Consortium Framework](https://www.microsoft.com/research/proje
 
 In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach agreement.
 
+### Intel® Cloud Optimization Modules for Kubeflow <a id="intel-kubeflow"></a>
+
+The [Intel® Cloud Optimization Modules for Kubeflow](https://github.com/intel/kubeflow-intel-azure/tree/main) provide an optimized machine learning Kubeflow Pipeline using XGBoost to predict the probability of a loan default. The reference architecture leverages the secure and confidential [Intel® Software Guard Extensions](../../articles/confidential-computing/confidential-computing-enclaves.md) virtual machines on an [Azure Kubernetes Services (AKS) cluster](../../articles/confidential-computing/confidential-containers-enclaves.md). It also enables the use of [Intel® optimizations for XGBoost](https://www.intel.com/content/www/us/en/developer/tools/oneapi/optimization-for-xgboost.html) and [Intel® daal4py](https://www.intel.com/content/www/us/en/developer/articles/guide/a-daal4py-introduction-and-getting-started-guide.html) to accelerate model training and inference in a full end-to-end machine learning pipeline.
+
+
 ## Next steps
 
 - [Attesting application enclaves](attestation.md)
