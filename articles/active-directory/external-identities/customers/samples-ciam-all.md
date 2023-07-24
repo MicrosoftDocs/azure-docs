@@ -91,7 +91,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
 > | ----------- | ----------- |----------- |
-> | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](how-to-daemon-node-call-api-overview.md)  |
+> | Node.js | &#8226; [Call an API](how-to-daemon-node-sample-call-api.md) |  &#8226; [Call an API](tutorial-daemon-node-call-api-prepare-tenant.md)  |
 > | .NET |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  |  &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)  |
 
 

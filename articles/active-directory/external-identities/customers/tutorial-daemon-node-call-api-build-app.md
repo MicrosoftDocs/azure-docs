@@ -281,22 +281,22 @@ At this point, you're ready to test your client daemon app and web API:
 If your daemon app and web API successfully run, you should find the data returned by the web API endpoint `todos` variable, similar to the following JSON array, in your console window: 
 
 ```json
-    {
-        id: 1,
-        owner: '3e8....-db63-43a2-a767-5d7db...',
-        description: 'Pick up grocery'
-    },
-    {
-        id: 2,
-        owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
-        description: 'Finish invoice report'
-    },
-    {
-        id: 3,
-        owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
-        description: 'Water plants'
-    }
-``````
+{
+    id: 1,
+    owner: '3e8....-db63-43a2-a767-5d7db...',
+    description: 'Pick up grocery'
+},
+{
+    id: 2,
+    owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+    description: 'Finish invoice report'
+},
+{
+    id: 3,
+    owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+    description: 'Water plants'
+}
+```
 
 ## Next steps
 
