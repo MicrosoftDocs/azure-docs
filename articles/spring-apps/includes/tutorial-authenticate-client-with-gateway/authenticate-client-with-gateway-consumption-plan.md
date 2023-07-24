@@ -88,7 +88,7 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/tutorial-authenticate-client-with-gateway/notifications.png":::
 
-1. Use the following command to enable Eureka server:
+1. Use the following command to enable Eureka server. Be sure to replace the placeholders with your own values you created in the previous step.
 
    ```azurecli
    az spring eureka-server enable \
@@ -134,7 +134,7 @@ This section provides the steps to register an application to add app roles in A
 
 ### 3.4 Register the SPA application
 
-The Books RESTful APIs acts as a resource server, which is protected by Azure AD. Before acquiring an access token, it's required to register another application in Azure AD and grant permissions to the client application, which is named `SPA`.
+The Books RESTful API app acts as a resource server, which is protected by Azure AD. Before acquiring an access token, it's required to register another application in Azure AD and grant permissions to the client application, which is named `SPA`.
 
 1. Go back to your tenant in **Azure Active Directory**.
 
@@ -180,7 +180,7 @@ Use the following command to rebuild the sample project:
 ./mvnw clean package
 ```
 
-## 4. Deploy the apps
+## 4. Deploy the apps to Azure Spring Apps
 
 The follow steps show you how to deploy the apps to Azure.
 
@@ -224,7 +224,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ...
    ```
 
-   The output **Application url** is the base endpoint to access the ToDo API application.
+   The output **Application url** is the base endpoint to access the ToDo RESTful API application.
 
 ### 4.2 Run SPA app locally
 

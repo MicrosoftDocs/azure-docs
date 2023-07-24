@@ -29,8 +29,8 @@ the execution of the [OAuth 2.0 client credentials flow](../active-directory/dev
 The sample project is composed of a single-page application and a Books microservice application:
 - Books SPA: This Single Page Application (SPA), hosted locally, interacts with the Books Microservice for adding or searching for books.
 - Books Microservice:
-    - A Spring Cloud Gateway app hosted in Azure Spring Apps, this app operates as a gateway to the Books RESTful API. 
-    - A Spring Boot RESTful app hosted in Azure Spring Apps. It stores book information in an H2 database. The Books service exposes two REST endpoints to write and read books.
+    - A Spring Cloud Gateway app hosted in Azure Spring Apps, this app operates as a gateway to the Books RESTful APIs. 
+    - A Spring Boot RESTful API app hosted in Azure Spring Apps. It stores book information in an H2 database. The Books service exposes two REST endpoints to write and read books.
 
 ## 1. Prerequisites
 
@@ -45,7 +45,7 @@ The sample project is composed of a single-page application and a Books microser
 
 ## 5. Validate the app
 
-Now we can access the Books SPA app that communicates with the Books RESTful API through the `gateway-service` app.
+Now we can access the Books SPA app that communicates with the Books RESTful APIs through the `gateway-service` app.
 
 1. Go to `http://localhost:3000` in your browser to access the application.
 
