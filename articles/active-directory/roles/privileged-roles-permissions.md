@@ -46,19 +46,19 @@ In Microsoft Graph PowerShell, check whether the `IsPrivileged` property is set 
 To list privileged roles, use the [Get-MgBetaRoleManagementDirectoryRoleDefinition](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleDefinition) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryRoleDefinition -Filter "isPrivileged eq $true"
+Get-MgBetaRoleManagementDirectoryRoleDefinition -Filter "isPrivileged eq true"
 ```
 
 To list privileged permissions, use the [Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction -Filter "isPrivileged eq $true"
+Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction -UnifiedRbacResourceNamespaceId "microsoft.directory" -Filter "isPrivileged eq true"
 ```
 
 To list privileged role assignments, use the [Get-MgBetaRoleManagementDirectoryRoleAssignment](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleAssignment) command.
 
 ```powershell
-Get-MgBetaRoleManagementDirectoryRoleAssignment -Filter "isPrivileged eq $true"
+Get-MgBetaRoleManagementDirectoryRoleAssignment -Filter "isPrivileged eq true"
 ```
 
 # [Graph API](#tab/ms-graph)
