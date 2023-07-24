@@ -899,6 +899,8 @@ items:
         href: concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md
       - name: Pricing
         href: concepts/advancedmessaging/whatsapp/pricing.md
+      - name: Messaging policy
+        href: concepts/sms/messaging-policy.md
       - name: Events
         items:
         - name: Overview

@@ -41,7 +41,7 @@ For service conversations, WhatsApp provides 1,000 fee conversations each month 
 
 WhatsApp rates vary based on conversation category and country/region rate. Rates vary between \$0.003 and \$0.1597 depending on the category and country/region. WhatsApp provides a detailed explanation of their pricing, including the current rate card here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-**Pricing example: Alice sends appointment reminders to its WhatsApp customers**
+**Pricing example: Alice sends appointment reminders to their WhatsApp customers**
 
 Alice is managing a virtual visit solution for her organization’s patients. Alice is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as **Utility Conversations**. In this case, each WhatsApp conversation is a single message.
 
@@ -76,5 +76,5 @@ To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [
 -   [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -   [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
--   [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+-   [Get Started With AdvancedMessages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 -   [Messaging Policy](../../sms/messaging-policy.md)

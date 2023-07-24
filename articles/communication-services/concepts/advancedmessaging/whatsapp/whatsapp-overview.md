@@ -30,10 +30,10 @@ The key features of Azure Communications Services Advanced Messaging for WhatsAp
 
 The following documents helps you get started with Advanced Messaging for WhatsApp:
 
--    [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
--    [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
--    [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
--    [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
--    [Get Started With Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
--    [Messaging Policy](../../sms/messaging-policy.md)
--    [Pricing for Advanced Messaging for WhatsApp](./pricing.md)
+-   [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
+-   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
+-   [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
+-   [Get Started With AdvancedMessages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+-   [Get Started With Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
+-   [Messaging Policy](../../sms/messaging-policy.md)
+-   [Pricing for Advanced Messaging for WhatsApp](./pricing.md)
