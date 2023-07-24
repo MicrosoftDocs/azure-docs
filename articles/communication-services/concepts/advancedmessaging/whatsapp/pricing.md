@@ -30,14 +30,14 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 
 When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and is included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-WhatsApp charges per conversation, not individual message. Conversations are 24-hour message threads between a business and its customers. Conversations are categorized with one of the following categories:
+WhatsApp charges per conversation, not individual message. Conversations are message threads between a business and its customers that last 24 or 72 hours based on the conversation category. Conversations are categorized with one of the following categories:
 
 -   **Marketing**—Marketing conversations include promotions or offers, informational updates, or invitations for customers to respond or take action.
 -   **Utility**—Utility conversations facilitate a specific, agreed-upon request or transaction, or update a customer about an ongoing transaction. These conversations may include transaction confirmations, transaction updates, and/or post-purchase notifications.
 -   **Authentication**—Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
 -   **Service**—Service conversations help you resolve customer inquiries.
 
-For service conversations, WhatsApp provides 1,000 fee conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
+For service conversations, WhatsApp provides 1,000 free conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
 
 WhatsApp rates vary based on conversation category and country/region rate. Rates vary between \$0.003 and \$0.1597 depending on the category and country/region. WhatsApp provides a detailed explanation of their pricing, including the current rate card here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
