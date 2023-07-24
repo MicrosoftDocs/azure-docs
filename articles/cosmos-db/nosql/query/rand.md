@@ -1,4 +1,5 @@
 ---
+title: RAND
 titleSuffix: Azure Cosmos DB for NoSQL
 description: An Azure Cosmos DB for NoSQL system function that returns a randomly generated numeric value from zero to one.
 author: jcodella
@@ -31,9 +32,9 @@ Returns a numeric expression.
 
 The following example returns randomly generated numeric values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/rand/query.sql" highlight="2-3":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/rand/query.novalidate.sql" highlight="2-3":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/rand/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/rand/result.novalidate.json":::
 
 ## Remarks
 
