@@ -10,11 +10,15 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Invoke output binding for Azure Functions
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
+
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
@@ -111,12 +115,20 @@ import azure.functions as func
 
 dapp = func.DaprFunctionApp()
 
-@dapp.function_name(name="SendMessageToKafka")
-@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="SendMessageToKafka")
-@dapp.dapr_binding_output(arg_name="messages", binding_name="%KafkaBindingName%", operation="create")
-def main(payload: str, messages: func.Out[bytes]) -> None:
-    logging.info('Python processed a SendMessageToKafka request from the Dapr Runtime.')
-    messages.set(json.dumps({"data": payload}).encode('utf-8'))
+@dapp.function_name(name="InvokeOutputBinding")
+@dapp.route(route="invoke/{appId}/{methodName}", auth_level=dapp.auth_level.ANONYMOUS)
+@dapp.dapr_invoke_output(arg_name = "payload", app_id = "{appId}", method_name = "{methodName}", http_verb = "post")
+def main(req: func.HttpRequest, payload: func.Out[str] ) -> str:
+    # request body must be passed this way "{\"body\":{\"value\":{\"key\":\"some value\"}}}" to use the InvokeOutputBinding, all the data must be enclosed in body property.
+    logging.info('Python function processed a InvokeOutputBinding request from the Dapr Runtime.')
+
+    body = req.get_body()
+    logging.info(body)
+    if body is not None:
+        payload.set(body)
+    else:
+        logging.info('req body is none')
+    return 'ok'
 ```
 
  
@@ -214,8 +226,10 @@ The following table explains the binding configuration properties for `@dapp.dap
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Must be set to `state`. |
-|**method_name** | The name of the state store. |
+|**arg_name** | The argument name. In the example, this value is set to `payload`. |
+|**app_id** | The app ID of the application(s) involved in the invoke binding. |
+|**method_name** | The name of the method variable. |
+|**http_verb** | Set to `post` or `get`. |
 
 # [Python v1](#tab/v1)
 

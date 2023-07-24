@@ -10,11 +10,15 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Input Bindings trigger for Azure Functions
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
+
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 

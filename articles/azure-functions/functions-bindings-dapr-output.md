@@ -10,11 +10,15 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Binding output binding for Azure Functions
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
+
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
