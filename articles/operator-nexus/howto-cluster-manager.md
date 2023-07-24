@@ -7,6 +7,7 @@ ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
 ms.service: azure-operator-nexus 
+ms.custom: devx-track-azurecli
 ---
 
 # Cluster Manager: How to manage the Cluster Manager in Operator Nexus

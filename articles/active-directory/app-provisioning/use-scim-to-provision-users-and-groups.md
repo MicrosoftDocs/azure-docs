@@ -1403,7 +1403,7 @@ It's recommended, but not required, that you support multiple secrets for easy r
 
 #### How to set up OAuth code grant flow
 
-1. Sign in to the Azure portal, go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
+1. Sign in to the [Azure portal](https://portal.azure.com), go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
    1. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
 

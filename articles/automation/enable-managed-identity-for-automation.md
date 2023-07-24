@@ -274,7 +274,7 @@ New-AzRoleAssignment `
 
 To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account.
 1. Under **Account Settings**, select **Identity**.
 
