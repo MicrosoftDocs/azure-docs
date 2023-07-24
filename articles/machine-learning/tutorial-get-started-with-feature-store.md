@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: rsethur
 ms.author: seramasu
-ms.date: 07/21/2023
+ms.date: 07/24/2023
 ms.reviewer: franksolomon
 ms.custom: sdkv2, build-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -123,7 +123,7 @@ Not applicable
 
 This tutorial uses two SDKs:
 * The Feature Store CRUD SDK
-   * You use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations for feature store, feature set, and feature store entity.
+* You use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations for feature store, feature set, and feature store entity.
 
 * The feature store core SDK
    

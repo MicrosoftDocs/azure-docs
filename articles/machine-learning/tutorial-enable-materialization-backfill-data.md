@@ -9,7 +9,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: rsethur
 ms.author: seramasu
-ms.date: 07/14/2023
+ms.date: 07/24/2023
 ms.reviewer: franksolomon
 ms.custom: sdkv2, build-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -148,15 +148,15 @@ This list summarizes the required setup steps:
 
    Option 2: reuse an existing storage container
 
-       # [Python SDK](#tab/python)
+      # [Python SDK](#tab/python)
     
-       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
     
-       # [Azure CLI](#tab/cli)
+      # [Azure CLI](#tab/cli)
     
-       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
     
-       ---
+      ---
 
 1. Set up user assigned managed identity (UAI)
 
