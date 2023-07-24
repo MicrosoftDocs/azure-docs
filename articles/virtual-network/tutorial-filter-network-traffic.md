@@ -102,7 +102,7 @@ A [network security group (NSG)](network-security-groups-overview.md) secures ne
 
 ## Associate network security group to subnet
 
-In this section, you'll associate the network security group with the subnet of the virtual network you created earlier.
+In this section, you associate the network security group with the subnet of the virtual network you created earlier.
 
 1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
 
@@ -273,7 +273,7 @@ Add the network interface of each VM to one of the application security groups y
 
 10. Search for **vm-1** in the portal search box.
 
-11. On the **Overview** page of **vm-1**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178, your address will be different:
+11. On the **Overview** page of **vm-1**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178, your address is different:
 
     :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true":::
     
