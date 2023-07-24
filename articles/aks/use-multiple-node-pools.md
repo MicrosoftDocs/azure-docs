@@ -821,7 +821,7 @@ az group delete --name myResourceGroup2 --yes --no-wait
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[[use-tags]: use-tags.md
+[use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
