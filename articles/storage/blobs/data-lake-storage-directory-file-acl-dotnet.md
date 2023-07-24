@@ -108,7 +108,7 @@ Pass the path of the desire directory as a parameter. The following code example
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
-The following code example shows how to move a subdirectory from one directory to another directory:
+The following code example shows how to move a subdirectory from one directory to a different directory:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 
