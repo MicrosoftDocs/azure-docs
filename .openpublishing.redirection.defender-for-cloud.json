@@ -413,7 +413,7 @@
         {
             "source_path_from_root": "/articles/security-center/defender-for-dns-introduction.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-introduction.md",
