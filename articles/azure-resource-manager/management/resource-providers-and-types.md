@@ -58,26 +58,26 @@ To see all resource providers, and the registration status for your subscription
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
-   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="search subscriptions":::
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of searching for subscriptions in the Azure portal.":::
 
 1. Select the subscription you want to view.
 
-   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="select subscriptions":::
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of selecting a subscription in the Azure portal.":::
 
 1. On the left menu, under **Settings**, select **Resource providers**.
 
-   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="select resource providers":::
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
 
 1. Find the resource provider you want to register, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
-   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="register resource providers":::
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Screenshot of registering a resource provider in the Azure portal.":::
 
    > [!IMPORTANT]
    > As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
 1. **Re-register** a resource provider to use locations that have been added since the previous registration.
 
-   :::image type="content" source="./media/resource-providers-and-types/reregister-resource-provider.png" alt-text="reregister resource providers":::
+   :::image type="content" source="./media/resource-providers-and-types/re-register-resource-provider.png" alt-text="Screenshot of reregistering a resource provider in the Azure portal.":::
 
 ### View resource provider
 
@@ -87,23 +87,23 @@ To see information for a particular resource provider:
 1. On the Azure portal menu, select **All services**.
 1. In the **All services** box, enter **resource explorer**, and then select **Resource Explorer**.
 
-    :::image type="content" source="./media/resource-providers-and-types/select-resource-explorer.png" alt-text="Screenshot of selecting All services in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-explorer.png" alt-text="Screenshot of selecting All services in the Azure portal to access Resource Explorer.":::
 
 1. Expand **Providers** by selecting the right arrow.
 
-    :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of selecting providers in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of expanding the Providers section in the Azure Resource Explorer.":::
 
 1. Expand a resource provider and resource type that you want to view.
 
-    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of selecting a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of expanding a resource provider and resource type in the Azure Resource Explorer.":::
 
 1. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
-    :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of showing locations for a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of displaying valid locations for a resource type in the Azure Resource Explorer.":::
 
 1. The API version corresponds to a version of the resource provider's REST API operations. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
 
-    :::image type="content" source="./media/resource-providers-and-types/show-api-versions.png" alt-text="Screenshot of showing API versions for a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/show-api-versions.png" alt-text="Screenshot of displaying valid API versions for a resource type in the Azure Resource Explorer.":::
 
 ## Azure PowerShell
 
