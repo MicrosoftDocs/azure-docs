@@ -13,6 +13,9 @@ ms.date: 07/20/2023
 
 # Reliability in Azure Database for PostgreSQL - Flexible Server
 
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../postgresql/includes/applies-to-postgresql-flexible-server.md)]
+
 This article describes reliability support in Azure Database for PostgreSQL - Flexible Server and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 Azure Database for PostgreSQL: Flexible Server offers zonal and zone-redundant deployment models with automatic failover capabilities. The offering is designed to ensure that committed data is never lost in the case of failures, and the database won't become a single point of failure in your software architecture. The flexible server automatically provisions and manages a standby replica when configuring availability zones.
@@ -151,7 +154,8 @@ The health of primary and standby servers are continuously monitored, and approp
 | **Removing Standby** | In the process of deleting standby server. | 
 | **Not Enabled** | Zone redundant high availability is not enabled.  |
 
-
+ 
+ 
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during the post-create stage, operating when the primary server activity is low is recommended.
 
