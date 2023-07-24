@@ -15,22 +15,60 @@ ms.reviewer: cmmdesai
 
 # API-driven inbound provisioning with Azure Logic Apps (Public preview)
 
-This tutorial describes how to use Azure Logic Apps workflow to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. 
+This tutorial describes how to use Azure Logic Apps workflow to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record.
 
 ## Integration scenario
 
-This tutorial addresses the following integration scenario: 
+### Business requirement
+
+Your system of record periodically generates CSV file exports containing worker data. You want to implement an integration that reads data from the CSV file and automatically provisions user accounts in your target directory (on-premises Active Directory for hybrid users and Microsoft Entra ID for cloud-only users).
+
+### Implementation requirement
+
+From an implementation perspective:
+
+* You want to use an Azure Logic Apps workflow  to read data from the CSV file exports available in an Azure File Share and send it to the inbound provisioning API endpoint. 
+* In your Azure Logic Apps workflow, you don't want to implement the complex logic of comparing identity data between your system of record and target directory. 
+* You want to use Microsoft Entra ID provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
 
 :::image type="content" source="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png" alt-text="Graphic of Azure Logic Apps-based integration." lightbox="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png":::
 
-* Your system of record generates periodic CSV file exports containing worker data which is available in an Azure File Share. 
-* You want to use an Azure Logic Apps workflow to automatically provision records from the CSV file to your target directory (on-premises Active Directory or Microsoft Entra ID). 
-* The Azure Logic Apps workflow simply reads data from the CSV file and uploads it to the provisioning API endpoint. The API-driven inbound provisioning app configured in Microsoft Entra ID performs the task of applying your IT managed provisioning rules to create/update/enable/disable accounts in the target directory.
+### Integration scenario variations
 
-This tutorial uses the Logic Apps deployment template published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/LogicApps/CSV2SCIMBulkUpload). It has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. 
+While this tutorial uses a CSV file as a system of record, you can customize the sample Azure Logic Apps workflow to read data from any system of record. Azure Logic Apps provides a wide range of [built-in connectors](/azure/logic-apps/connectors/built-in/reference) and [managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) with pre-built triggers and actions that you can use in your integration workflow. 
+
+Here's a list of enterprise integration scenario variations, where API-driven inbound provisioning can be implemented with a Logic Apps workflow.
+
+|#  |System of record  |Integration guidance on using Logic Apps to read source data |
+|---------|---------|---------|
+| 1 | Files stored on SFTP server | Use either the [built-in SFTP connector](/azure/logic-apps/connectors/built-in/reference/sftp/) or [managed SFTP SSH connector](/azure/connectors/connectors-sftp-ssh) to read data from  files stored on the SFTP server. |
+| 2 | Database table | If you're using an Azure SQL server or on-premises SQL Server, use the [SQL Server](/azure/connectors/connectors-create-api-sqlazure) connector to read your table data. <br> If you're using an Oracle database, use the [Oracle database](/azure/connectors/connectors-create-api-oracledatabase) connector to read your table data. |
+| 3 | On-premises and cloud-hosted SAP S/4 HANA or <br> Classic on-premises SAP systems, such as R/3 and ECC | Use the [SAP connector](/azure/logic-apps/logic-apps-using-sap-connector) to retrieve identity data from your SAP system. For examples on how to configure this connector, refer to [common SAP integration scenarios](/azure/logic-apps/sap-create-example-scenario-workflows) using Azure Logic Apps and the SAP connector. |
+| 4 | IBM MQ | Use the [IBM MQ connector](/azure/connectors/connectors-create-api-mq) to receive provisioning messages from the queue. |
+| 5 | Dynamics 365 Human Resources | Use the [Dataverse connector](/azure/connectors/connect-common-data-service) to read data from [Dataverse tables](/dynamics365/human-resources/hr-developer-entities) used by Microsoft Dynamics 365 Human Resources. |
+| 6 | Any system that exposes REST APIs | If you don't find a connector for your system of record in the Logic Apps connector library, You can create your own [custom connector](/azure/logic-apps/logic-apps-create-api-app) to read data from your system of record. |
+
+After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra ID provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
+
+> [!IMPORTANT]
+> If you'd like to share your API-driven inbound provisioning + Logic Apps integration workflow with the community, create a [Logic app template](/azure/logic-apps/logic-apps-create-azure-resource-manager-templates), document steps on how to use it and submit a pull request for inclusion in the GitHub repository [Entra-ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning). 
+
+## How to use this tutorial
+
+The Logic Apps deployment template published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/LogicApps/CSV2SCIMBulkUpload) automates several tasks. It also has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
 
 > [!NOTE]
 > The sample Azure Logic Apps workflow is provided "as-is" for implementation reference. If you have questions related to it or if you'd like to enhance it, please use the [GitHub project repository](https://github.com/AzureAD/entra-id-inbound-provisioning).
+
+|# | Automation task | Implementation guidance |
+|---------|---------|---------|
+|1 | Read worker data from the CSV file. | The Logic Apps workflow uses an Azure Function to read the CSV file stored in an Azure File Share. The Azure Function converts CSV data into JSON format. If your CSV file format is different, update the workflow step "Parse JSON" and "Construct SCIMUser". <br> If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how you can customize the Logic Apps workflow by using an appropriate connector. |
+|2 | Pre-process and convert data to SCIM format.  | By default, the Logic Apps workflow converts each record in the CSV file to a SCIM Core User + Enterprise User representation. If you plan to use custom SCIM schema extensions, you can update the step "Construct SCIMUser" to include your custom SCIM schema extensions. If you want to run C# code for advanced formatting and data validation, you can use [custom Azure Functions](../../logic-apps/logic-apps-azure-functions.md).|
+|3 | Use the right authentication method | You can either [use a service principal](inbound-provisioning-api-grant-access.md#configure-a-service-principal)  or [use managed identity](inbound-provisioning-api-grant-access.md#configure-a-managed-identity) to access the inbound provisioning API. Update the step "Send SCIMBulkPayload to API endpoint" with the right authentication method. |
+|4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This will generate a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Update the step "Send SCIMBulkPayload to API endpoint" to use the right bulkUpload API endpoint. |
+|5 | Scan the provisioning logs and retry provisioning for failed records.  |  This automation is not yet implemented in the sample Logic Apps workflow. To implement it refer to the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary) |
+|6 | Deploy your Logic Apps based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the Logic Apps workflow to meet your requirements, you can deploy the automation in your environment. |
+
 
 ## Step 1: Create an Azure Storage account to host the CSV file
 The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, you can tweak the Logic App to use your connector of choice.
