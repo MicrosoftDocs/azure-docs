@@ -114,7 +114,7 @@ corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000') AND ("GJAHR" BE
 
 #### Ingesting the partitioning parameter into mapping data flow
 
-To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). When passing the JSON format to this parameter, it has to be converted to a string using the **@string()** function:
+To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). To pass the JSON format to this parameter, it has to be converted to a string using the **@string()** function:
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partitions.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
 
