@@ -1,6 +1,6 @@
 ---
-title: Capture changed data with schema evolution change data capture resource with schema evolution
-description: This tutorial provides step-by-step instructions on how to capture changed data from Azure SQL DB to Delta sink using a Change data capture resource with schema evolution
+title: Capture changed data with schema evolution using change data capture resource
+description: This tutorial provides step-by-step instructions on how to capture changed data with schema evolution from Azure SQL DB to Delta sink using a change data capture resource.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.reviewer: 
@@ -36,7 +36,7 @@ In this tutorial, you follow these steps:
   
 2.	To create a new **Change Data Capture**, hover over **Change Data Capture (preview)** until you see 3 dots appear. Select on the **Change Data Capture (preview) Actions**.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-130.png" alt-text="Screenshot of Change Data Capture (preview) Actions after hovering on the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-101.png" alt-text="Screenshot of Change Data Capture (preview) Actions after hovering on the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
 
 3.	Select **New CDC (preview)**. This opens a flyout to begin the guided process. 
 
@@ -56,7 +56,7 @@ In this tutorial, you follow these steps:
 
 7.	Once the linked service is selected, you will be prompted for selection of the source table. Use the checkbox to select the source table(s) then select the **Incremental column** using the drop-down selection. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-106.png" alt-text="Screenshot of the selection box to choose source table(s) and selection of incremental column":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-106.png" alt-text="Screenshot of the selection box to choose source table(s) and selection of incremental column.":::
 
 > [!NOTE]
 > Only table(s) with supported incremental column data types are listed here.
@@ -102,9 +102,9 @@ In this tutorial, you follow these steps:
 > [!NOTE]
 > Schema evolution works with Auto map toggle set to on only. If you want to know how to edit column mappings or include transformations, please refer [Capture changed data with a change data capture resource](how-to-change-data-capture-resource.md)
 
-16.	You can click the **Keys** link and select the Keys column to be used for tracking the delete operations. . 
+16.	You can click the **Keys** link and select the Keys column to be used for tracking the delete operations.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-115.png" alt-text="Screenshot of Keys link." lightbox="media/adf-cdc/change-data-capture-resource-115.png":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-115.png" alt-text="Screenshot of Keys link to enable Keys column selection." lightbox="media/adf-cdc/change-data-capture-resource-115.png":::
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-116.png" alt-text="Screenshot of selecting a Keys column for the selected source.":::
 
@@ -155,9 +155,9 @@ In this tutorial, you follow these steps:
   
 ## Validate schema changes at target Delta
 
-1.	Validate change data with schema changes have landed at the Delta sink. For this tutorial, you can see the new column been added to the sink. 
+1.	Validate change data with schema changes have landed at the Delta sink. For this tutorial, you can see the new column has been added to the sink. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of actual Delta file with schema change.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of actual Delta file with schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
 
 ## Next steps
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
