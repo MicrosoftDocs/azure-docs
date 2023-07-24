@@ -199,27 +199,29 @@ If ($azfw.NatRuleCollections.Count -gt 0)
     {
       Write-Host "creating " $rc.Rules.Count " nat rules for collection "  $rc.Name
       
-      ForEach ($rule in $rc.Rules) 
-			{
-				$parsedName = ParseRuleName($rule.Name)
-				If ($rule.SourceAddresses)
-	      If ($azfw.NatRuleCollections.Count -gt 0) {
-				{
-					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceIpGroups -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
-				}
-				Write-Host "Created NAT rule: " $firewallPolicyNatRule.Name
-        $firewallPolicyNatRules += $firewallPolicyNatRule
+      ForEach ($rule in $rc.Rules)
+      {
+        $parsedName = ParseRuleName($rule.Name)
+        If ($rule.SourceAddresses)
+        {
+          If ($azfw.NatRuleCollections.Count -gt 0)
+          {
+            $firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceIpGroups -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+          }
+          Write-Host "Created NAT rule: " $firewallPolicyNatRule.Name
+          $firewallPolicyNatRules += $firewallPolicyNatRule
+        }
+
+        $natRuleCollectionName = $rc.Name
+        $fwpNatRuleCollection = New-AzFirewallPolicyNatRuleCollection -Name $natRuleCollectionName -Priority $priority -ActionType $rc.Action.Type -Rule $firewallPolicyNatRules
+        $priority += 1
+        Write-Host "Created NAT RuleCollection "  $fwpNatRuleCollection.Name
+        $firewallPolicyNatRuleCollections += $fwpNatRuleCollection
       }
-      
-      $natRuleCollectionName = $rc.Name
-      $fwpNatRuleCollection = New-AzFirewallPolicyNatRuleCollection -Name $natRuleCollectionName -Priority $priority -ActionType $rc.Action.Type -Rule $firewallPolicyNatRules
-      $priority += 1
-      Write-Host "Created NAT RuleCollection "  $fwpNatRuleCollection.Name
-      $firewallPolicyNatRuleCollections += $fwpNatRuleCollection
     }
+    $natRuleGroup = New-AzFirewallPolicyRuleCollectionGroup -Name $DefaultNatRuleCollectionGroupName -Priority $NatRuleGroupPriority -RuleCollection $firewallPolicyNatRuleCollections -FirewallPolicyObject $fwp
+    Write-Host "Created NAT RuleCollectionGroup "  $natRuleGroup.Name
   }
-  $natRuleGroup = New-AzFirewallPolicyRuleCollectionGroup -Name $DefaultNatRuleCollectionGroupName -Priority $NatRuleGroupPriority -RuleCollection $firewallPolicyNatRuleCollections -FirewallPolicyObject $fwp
-  Write-Host "Created NAT RuleCollectionGroup "  $natRuleGroup.Name
 }
 ```
 ## Next steps
