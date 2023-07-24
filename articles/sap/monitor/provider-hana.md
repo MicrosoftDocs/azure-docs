@@ -43,7 +43,7 @@ To [enable TLS 1.2 higher](enable-tls-azure-monitor-sap-solutions.md) for the SA
 1. Save your changes to the Azure Monitor for SAP solutions resource.
 
 > [!Note]
-> Azure Monitor for SAP solutions supports HANA 2.0 SP6 and above. Legacy HANA 1.0 is not supported. 
+> Azure Monitor for SAP solutions supports HANA 2.0 SP6 and later versions. Legacy HANA 1.0 is not supported. 
 
 ## Next steps
 
