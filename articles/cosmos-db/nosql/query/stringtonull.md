@@ -12,7 +12,7 @@ ms.date: 07/24/2023
 ms.custom: query-reference
 ---
 
-# StringToBoolean (NoSQL query)
+# StringToNull (NoSQL query)
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
