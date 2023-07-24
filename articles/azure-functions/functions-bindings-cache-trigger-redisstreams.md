@@ -178,31 +178,31 @@ function.json
 
 ## Attributes
 
-| Parameters | Description| Optional | Default
-|---|---|
-| `ConnectionStringSetting`| Connection string to the cache instance, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.|
-| `Key`| Keys to read from, space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
-| `PollingIntervalInMs`| How often to poll the Redis server in milliseconds. Default: 1000|
-| `MessagesPerWorker`| (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale to. Default: 100
-| `Count`| (optional) Number of elements to pull from Redis at one time. Default: 10. |
-| `DeleteAfterProcess`| Indicates if the function deletes the stream entries after processing. Default: false |
+| Parameters                | Description                                                                                                                                              | Required | Default |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+| `ConnectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `Key`                     | Key to read from.                                                                                                                                        | Yes      |         |
+| `PollingIntervalInMs`     | How often to poll the Redis server in milliseconds.                                                                                                      | Optional | `1000`  |
+| `MessagesPerWorker`       | The number of messages each functions worker should process. Used to determine how many workers the function should scale to.                            | Optional | `100`   |
+| `Count`                   | Number of elements to pull from Redis at one time.                                                                                                       | Optional | `10`    |
+| `DeleteAfterProcess`      | Indicates if the function deletes the stream entries after processing.                                                                                   | Optional | `false` |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
 ## Annotations
 
-| Parameter  | Description |
-|---|---|
-| `name` |  |
-| `connectionStringSetting` |  The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `key` | Key to read from. |
-| `pollingIntervalInMs` | How frequently to poll Redis, in milliseconds. Default: 1000  |
-| `messagesPerWorker` |(optional) The number of messages each functions worker should process. It is used to determine how many workers the function should scale   |
-| `deleteAfterProcess` | Whether to delete the stream entries after the function has run. Default: false  |
-| `count`|  Number of entries to read from Redis at one time. These are processed in parallel. Default: 10     |
-| `name`| `entry`      |
-| `direction`| `in`      |
+| Parameter                 | Description                                                                                                                                              | Required | Default |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+| `name`                    | `entry`                                                                                                                                                  |  Yes     |         |
+| `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `key`                     | Key to read from.                                                                                                                                        | Yes      |         |
+| `pollingIntervalInMs`     | How frequently to poll Redis, in milliseconds.                                                                                                           | Optional | `1000`  |
+| `messagesPerWorker`       | The number of messages each functions worker should process. It is used to determine how many workers the function should scale to                       | Optional | `100`   |
+| `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
+| `deleteAfterProcess`      | Whether to delete the stream entries after the function has run.                                                                                         | Optional | `false` |
+
+
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
@@ -212,17 +212,17 @@ function.json
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-| function.json Properties | Description|
-|---|---|
-| Parameter  | Description |
-|---|---|
-| `name` |  |
-| `connectionStringSetting` | connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `key` | The key to read from. |
-| `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000  |
-| `messagesPerWorker` |(optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale   |
-| `deleteAfterProcess` |   |
-
+| function.json Properties  | Description                                                                                                                                              | Required | Default |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+| `type`                    |                                                                                                                                                          | Yes      |         |
+| `deleteAfterProcess`      |                                                                                                                                                          | Optional | `false` |
+| `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `key`                     | The key to read from.                                                                                                                                    | Yes      |         |
+| `pollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                 | Optional | `1000`  |
+| `messagesPerWorker`       | (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale                     | Optional | `100`   |
+| `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
+| `name`                    |                                                                                                                                                          | Yes      |         |
+| `direction`               |                                                                                                                                                          | Yes      |         |
 
 ::: zone-end
 
@@ -232,12 +232,12 @@ See the Example section for complete examples.
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-| Output Type | Description|
-|---|---|
-|  |
-| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
-| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
-| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+| Output Type                                                                                                                                           | Description                                                                                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
+| `StackExchange.Redis.NameValueEntry`[], `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
+| string, byte[], ReadOnlyMemory<byte>                                                                                                                  | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
+| `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
 
 ::: zone-end
 
@@ -248,15 +248,25 @@ The `RedisStreamTrigger` Azure function reads entries from a stream and surfaces
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
-The consumer group for all function instances is the `ID` of the function. For example, `Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisSamples.StreamTrigger`  for the `StreamTrigger` sample. 
+The consumer group for all function instances is the `ID` of the function. For example, `Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisSamples.StreamTrigger`  for the `StreamTrigger` sample. Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
-Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
+### Output
 
-<!-- This seems to be specific information for .NET. -->
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+
+| Output Type                                                                                                                                           | Description                                                                                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
+| `StackExchange.Redis.NameValueEntry`[], `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
+| string, byte[], ReadOnlyMemory<byte>                                                                                                                  | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
+| `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
+
+::: zone-end
+
 
 ::: zone pivot="programming-language-csharp"
 
-TBD
+<!-- TBD -->
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
@@ -264,20 +274,20 @@ TBD
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-TBD
+<!-- TBD -->
 
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
 
-TBD
+<!-- TBD -->
 <!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-TBD
+<!-- TBD -->
 
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end

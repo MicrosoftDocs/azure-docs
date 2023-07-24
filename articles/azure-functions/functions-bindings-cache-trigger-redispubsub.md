@@ -13,15 +13,7 @@ ms.date: 06/28/2023
 
 # RedisPubSubTrigger Azure Function (preview)
 
-Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. The `RedisPubSubTrigger` enables Azure Functions to be triggered on pub/sub activity. The `RedisPubSubTrigger`subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
-
-### Prerequisites and limitations
-
-- The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
-- Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
-- The `RedisPubSubTrigger` isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
-- Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances. Each instance listens and processes each pubsub message, resulting in duplicate processing
-
+Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. 
 ### Scope of availability for functions triggers
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
@@ -31,22 +23,6 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
-
-## Triggering on keyspace notifications
-
-Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/).
-
-The `keyspace` and `keyevent` notifications are published with the following syntax:
-
-```
-PUBLISH __keyspace@0__:<affectedKey> <command>
-PUBLISH __keyevent@0__:<affectedCommand> <key>
-```
-
-Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) section for more examples.
-
-> [!IMPORTANT]
-> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
 
 ## Examples
 
@@ -336,22 +312,21 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 ## Attributes
 
-| Parameter | Description|
-|---|---|
-|  |
-| `ConnectionStringSetting`| Name of the setting in the `appsettings` that holds the cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`). |
-|  `Channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`. |
+| Parameter                 | Description                                                                                                                                   | Required   | Default    |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----| -----:|
+| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string. For example,`<cacheName>.redis.cache.windows.net:6380,password=...`). |   Yes  |     |
+| `Channel`                 | The pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`.       |  Yes   |     |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
 ## Annotations
 
-| Parameter | Description|
-|---|---|
-|`name`| Name of the variable holding the value returned by the function. |
-| `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |
-| `channel`| The pubsub channel that the trigger should listen to. Supports glob-style channel patterns. |
+| Parameter                 | Description                                                                                                                                               | Required   | Default    |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| -----| -----:|
+| `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
+| `connectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
+| `channel`                 | The pubsub channel that the trigger should listen to. Supports glob-style channel patterns.                                                               | Yes    |     |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -360,13 +335,13 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 
-| function.json property | Description|
-|---|---|
-|`type`| Trigger type. For the pubsub trigger, this is `redisPubSubTrigger`. |
-| `connectionStringSetting`| Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`)|
-| `channel`| Name of the pubsub channel that is being subscribed to |
-|  `name`| Name of the variable holding the value returned by the function. |
-| `direction` | Must be set to `in`.  |
+| function.json property    | Description                                                                                                                                               | Required   | Default    |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| -----| -----:|
+| `type`                    | Trigger type. For the pubsub trigger, this is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
+| `connectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
+| `channel`                 | Name of the pubsub channel that is being subscribed to                                                                                                    |  Yes   |     |
+| `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
+| `direction`               | Must be set to `in`.                                                                                                                                      |  Yes   |     |
 
 ::: zone-end
 
@@ -375,28 +350,52 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 >
 
 
+## Usage
+
+Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. The `RedisPubSubTrigger` enables Azure Functions to be triggered on pub/sub activity. The `RedisPubSubTrigger`subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
+
+### Prerequisites and limitations
+
+- The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
+- Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
+- The `RedisPubSubTrigger` isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+- Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances. Each instance listens and processes each pubsub message, resulting in duplicate processing
+
+> [!WARNING]
+> This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+>
+
+## Triggering on keyspace notifications
+
+Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/).
+
+The `keyspace` and `keyevent` notifications are published with the following syntax:
+
+```
+PUBLISH __keyspace@0__:<affectedKey> <command>
+PUBLISH __keyevent@0__:<affectedCommand> <key>
+```
+
+Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) section for more examples.
+
+> [!IMPORTANT]
+> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
+
 ## Output
-<!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes. -->
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 | Output Type | Description|
 |---|---|
-|  |
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
 | `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-
 ::: zone-end
-
-## Usage
-
-All triggers TBD
 
 ::: zone pivot="programming-language-csharp"
 
-TBD
+<!-- TBD -->
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
@@ -404,25 +403,25 @@ TBD
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-TBD
+<!-- TBD -->
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
 
-TBD
+<!-- TBD -->
 <!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-TBD
+<!-- TBD -->
 <!--Any usage information from the PowerShell tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-TBD
+<!-- TBD -->
 <!--Any usage information from the Python tab in ## Usage. -->
 
 ::: zone-end
