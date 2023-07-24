@@ -66,7 +66,7 @@ Microsoft Entra ID Governance includes the ability for a customer to configure a
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-Custom Extensions in Entitlement Management are now general available. For more information, see:  ADD LINK
+Custom Extensions in Entitlement Management are now general available. For more information, see:  [Microsoft Entra ID Governance Entitlement Management New Generally Available Capabilities](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-entitlement-management-new/ba-p/2466929)
 
 ---
 
@@ -116,7 +116,7 @@ Update the Company Branding functionality on the Azure AD/Microsoft 365 sign in 
 **Service category:** Access Reviews                            
 **Product capability:** Identity Governance                  
 
-This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group and leverages the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group and uses the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
 
 ---
 
@@ -157,6 +157,70 @@ Announcing API support (beta) for managing PIM security alerts for Azure AD role
 **Product capability:** End User Experiences                
 
 The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset won't be supported at this time. However, users can still more efficiently control and streamline their authentication methods. For more information, see: [What authentication and verification methods are available in Azure Active Directory?](../authentication/concept-authentication-methods.md).
+
+---
+
+### Public Preview - API-driven inbound user provisioning 
+
+**Type:** New feature       
+**Service category:** Provisioning                              
+**Product capability:** Inbound to Azure AD                  
+
+With API-driven inbound provisioning, Microsoft Entra ID provisioning service now supports integration with any system of record. Customers and partners can use any automation tool of their choice to retrieve workforce data from any system of record for provisioning into Entra ID and connected on-premises Active Directory domains. The IT admin has full control on how the data is processed and transformed with attribute mappings. Once the workforce data is available in Entra ID, the IT admin can configure appropriate joiner-mover-leaver business processes using Entra ID Governance Lifecycle Workflows. For more information, see: [API-driven inbound provisioning concepts (Public preview)](../app-provisioning/inbound-provisioning-api-concepts.md).
+
+---
+
+### Public Preview - Windows MAM
+
+**Type:** New feature       
+**Service category:** Conditional Access                                
+**Product capability:** Identity Security & Protection                    
+
+“*When will you have MAM for Windows?*” is one of our most frequently asked customer questions. We’re happy to report that the answer is: “Now!” We’re excited to offer this new and long-awaited MAM Conditional Access capability in Public Preview for Microsoft Edge for Business on Windows.
+
+Using MAM Conditional Access, Microsoft Edge for Business provides users with secure access to organizational data on personal Windows devices with a customizable user experience. We’ve combined the familiar security features of app protection policies (APP), Windows Defender client threat defense, and conditional access, all anchored to Azure AD identity to ensure un-managed devices are healthy and protected before granting data access. This can help businesses to improve their security posture and protect sensitive data from unauthorized access, without requiring full mobile device enrollment.
+
+The new capability extends the benefits of app layer management to the Windows platform via Microsoft Edge for Business. Admins are empowered to configure the user experience and protect organizational data within Microsoft Edge for Business on un-managed Windows devices.
+
+For more information, see: [Require an app protection policy on Windows devices (preview)](../conditional-access/how-to-app-protection-policy-windows.md).
+
+---
+
+### General Availability - New Federated Apps available in Azure AD Application gallery - July 2023
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                
+**Product capability:** 3rd Party Integration          
+
+In July 2023 we've added the following 10 new applications in our App gallery with Federation support:    
+
+[Gainsight SAML](https://learn.microsoft.com/azure/active-directory/saas-apps/gainsight-saml-tutorial), [Dataddo](https://www.dataddo.com/), [Puzzel](https://www.puzzel.com/), [Worthix App](../saas-apps/worthix-app-tutorial.md), [iOps360 IdConnect](https://iops360.com/iops360-id-connect-azuread-single-sign-on/), [Airbase](../saas-apps/airbase-tutorial.md), [Couchbase Capella - SSO](../saas-apps/couchbase-capella-sso-tutorial.md), [SSO for Jama Connect®](../saas-apps/sso-for-jama-connect-tutorial.md), [mediment (メディメント)](https://mediment.jp/), [Netskope Cloud Exchange Administration Console](../saas-apps/netskope-cloud-exchange-administration-console-tutorial.md), [Uber](../saas-apps/uber-tutorial.md), [Plenda](https://app.plenda.nl/), [Deem Mobile](../saas-apps/deem-mobile-tutorial.md), [40SEAS](https://www.40seas.com/), [Vivantio](https://www.vivantio.com/), [AppTweak](https://www.apptweak.com/), [ioTORQ EMIS](https://www.iotorq.com/), [Vbrick Rev Cloud](../saas-apps/vbrick-rev-cloud-tutorial.md), [OptiTurn](../saas-apps/optiturn-tutorial.md), [Application Experience with Mist](https://www.mist.com/), [クラウド勤怠管理システムKING OF TIME](../saas-apps/cloud-attendance-management-system-king-of-time-tutorial.md), [Connect1](../saas-apps/connect1-tutorial.md), [DB Education Portal for Schools](../saas-apps/db-education-portal-for-schools-tutorial.md), [SURFconext](../saas-apps/surfconext-tutorial.md), [Chengliye Smart SMS Platform](../saas-apps/chengliye-smart-sms-platform-tutorial.md), [CivicEye SSO](../saas-apps/civic-eye-sso-tutorial.md), [Colloquial](../saas-apps/colloquial-tutorial.md), [BigPanda](../saas-apps/bigpanda-tutorial.md), [Foreman](https://foreman.mn/)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - July 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Albert](../saas-apps/albert-provisioning-tutorial.md)
+- [Rhombus Systems](../saas-apps/rhombus-systems-provisioning-tutorial.md)
+- [Axiad Cloud](../saas-apps/axiad-cloud-provisioning-tutorial.md)
+- [Dagster Cloud](../saas-apps/dagster-cloud-provisioning-tutorial.md)
+- [WATS](../saas-apps/wats-provisioning-tutorial.md)
+- [Funnel Leasing](../saas-apps/funnel-leasing-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
 
 ---
 
