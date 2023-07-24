@@ -1056,6 +1056,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/how-to-daemon-node-call-api-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/how-to-daemon-node-call-api-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/how-to-daemon-node-call-api-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
       "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
       "redirect_document_id": true
