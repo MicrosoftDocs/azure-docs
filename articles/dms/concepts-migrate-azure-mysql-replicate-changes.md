@@ -9,11 +9,12 @@ ms.service: dms
 ms.topic: conceptual
 ms.custom: references_regions
 ---
+
 # MySQL to Azure Database for MySQL Data Migration - MySQL Replicate Changes
 
 Running a Replicate changes Migration, with our offline scenario with "Enable Transactional Consistency," enables businesses to migrate their databases to Azure while the databases remain operational. In other words, migrations can be completed with minimum downtime for critical applications, limiting the impact on service level availability and inconvenience to their end customers.
 
->[!NOTE]
+> [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Current implementation
