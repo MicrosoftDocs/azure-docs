@@ -61,8 +61,8 @@ Choose a workflow using a file from either your Microsoft OneDrive account or Mi
 
 > [!div class="op_single_selector"]
 >
-> * [OneDrive](includes/logic-app-tutorial/onedrive.md)
-> * [SharePoint](includes/logic-app-tutorial/sharepoint.md)
+> * [!INCLUDE [OneDrive](includes/logic-app-tutorial/onedrive.md)]
+> * [!INCLUDE [SharePoint](includes/logic-app-tutorial/sharepoint.md)]
 
 ## Test the automation flow
 
