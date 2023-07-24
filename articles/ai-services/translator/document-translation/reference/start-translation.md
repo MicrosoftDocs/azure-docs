@@ -14,19 +14,23 @@ ms.date: 07/18/2023
 
 # Start translation
 
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
 Use this API to start a translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 
 The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
 
-Glossaries / Translation memory can be included in the request and are applied by the service when the document is translated.
+Glossaries / Translation memory can be included in the request and applied by the service when the document is translated.
 
-If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job will fail. The targetUrl for each target language must be unique.
+If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job fails. The targetUrl for each target language must be unique.
 
 ## Request URL
 
 Send a `POST` request to:
 ```HTTP
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
+POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
@@ -48,7 +52,7 @@ Request headers are:
 
 |Name|Type|Description|
 |--- |--- |--- |
-|inputs|BatchRequest[]|BatchRequest listed below. The input list of documents or folders containing documents. Media Types: "application/json", "text/json", "application/*+json".|
+|inputs|BatchRequest[]|BatchRequest list. The input list of documents or folders containing documents. Media Types: `application/json`, `text/json`, `application/*+json`.|
 
 ### Inputs
 
@@ -56,9 +60,9 @@ Definition for the input batch translation request.
 
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
-|source|SourceInput[]|True|inputs.source listed below. Source of the input documents.|
-|storageType|StorageInputType[]|False|inputs.storageType listed below. Storage type of the input documents source string. Required for single document translation only.|
-|targets|TargetInput[]|True|inputs.target listed below. Location of the destination for the output.|
+|source|SourceInput[]|True|inputs.source list. Source of the input documents.|
+|storageType|StorageInputType[]|False|inputs.storageType list. Storage type of the input documents source string. Required for single document translation only.|
+|targets|TargetInput[]|True|inputs.target list. Location of the destination for the output.|
 
 **inputs.source**
 
@@ -66,12 +70,12 @@ Source of the input documents.
 
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
-|filter|DocumentFilter[]|False|DocumentFilter[] listed below.|
+|filter|DocumentFilter[]|False|DocumentFilter[] list.|
 |filter.prefix|string|False|A case-sensitive prefix string to filter documents in the source path for translation. For example, when using an Azure storage blob Uri, use the prefix to restrict sub folders for translation.|
 |filter.suffix|string|False|A case-sensitive suffix string to filter documents in the source path for translation. It's most often use for file extensions.|
-|language|string|False|Language code If none is specified, we'll perform auto detect on the document.|
+|language|string|False|Language code If none is specified, we perform auto detect on the document.|
 |sourceUrl|string|True|Location of the folder / container or single file with your documents.|
-|storageSource|StorageSource|False|StorageSource listed below.|
+|storageSource|StorageSource|False|StorageSource list.|
 |storageSource.AzureBlob|string|False||
 
 **inputs.storageType**
@@ -90,14 +94,14 @@ Destination for the finished translated documents.
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
 |category|string|False|Category / custom system for translation request.|
-|glossaries|Glossary[]|False|Glossary listed below. List of Glossary.|
+|glossaries|Glossary[]|False|Glossary list. List of Glossary.|
 |glossaries.format|string|False|Format.|
-|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We'll use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
-|glossaries.storageSource|StorageSource|False|StorageSource listed above.|
+|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it isn't applied.|
+|glossaries.storageSource|StorageSource|False|StorageSource list.|
 |glossaries.version|string|False|Optional Version. If not specified, default is used.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
 |language|string|True|Two letter Target Language code. See [list of language codes](../../language-support.md).|
-|storageSource|StorageSource []|False|StorageSource [] listed above.|
+|storageSource|StorageSource []|False|StorageSource [] list.|
 
 ## Example request
 
@@ -185,7 +189,7 @@ Make sure you've specified the folder name (case sensitive) as prefix in filter.
 * Create source URL & SAS token for the specific blob/document.
 * Specify the target filename as part of the target URL – though the SAS token is still for the container.
 
-The sample request below shows a single document translated into two target languages
+This sample request shows a single document translated into two target languages
 
 ```json
 {
@@ -216,7 +220,7 @@ The following are the possible HTTP status codes that a request returns.
 
 |Status Code|Description|
 |--- |--- |
-|202|Accepted. Successful request and the batch request are created by the service. The header Operation-Location will indicate a status url with the operation ID.HeadersOperation-Location: string|
+|202|Accepted. Successful request and the batch request created. The header Operation-Location indicates a status url with the operation ID.HeadersOperation-Location: string|
 |400|Bad Request. Invalid request. Check input parameters.|
 |401|Unauthorized. Check your credentials.|
 |429|Request rate is too high.|
@@ -230,10 +234,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(it can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document ID" if the document is invalid.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|
 
 ## Examples
 
@@ -244,7 +248,7 @@ The following information is returned in a successful response.
 You can find the job ID in the POST method's response Header Operation-Location URL value. The last parameter of the URL is the operation's job ID (the string following "/operation/").
 
 ```HTTP
-Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
+Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
 ```
 
 ### Example error response

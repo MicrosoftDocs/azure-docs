@@ -67,7 +67,7 @@ If you plan to further restrict access to your virtual network with a network se
 
 To configure outbound access for Azure Load Testing: 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to your network security group.
 

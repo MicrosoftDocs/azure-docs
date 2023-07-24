@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: content-safety
 ms.custom: build-2023, devx-track-python
 ms.topic: quickstart
-ms.date: 04/06/2023
+ms.date: 07/18/2023
 ms.author: pafarley
 zone_pivot_groups: programming-languages-content-safety
 keywords: 

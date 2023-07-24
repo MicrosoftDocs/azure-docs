@@ -22,7 +22,7 @@ These effects are currently supported in a policy definition:
 - [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [Manual (preview)](#manual-preview)
+- [Manual](#manual)
 - [Modify](#modify)
 
 ## Interchanging effects
@@ -709,12 +709,12 @@ When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logg
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## Manual (preview)
+## Manual
 
-The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
+The new `manual` effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
-> During Public Preview, support for manual policy is available through various Microsoft Defender
+> Support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
 Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:

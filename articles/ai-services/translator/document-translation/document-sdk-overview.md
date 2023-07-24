@@ -1,5 +1,5 @@
 ---
-title: Document Translation SDKs 
+title: Document Translation SDKs
 titleSuffix: Azure AI services
 description: Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
@@ -27,8 +27,8 @@ Document Translation SDK supports the following programming languages:
 
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
-|[.NET/C# → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html)| [NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Document) | [Azure SDK for .NET](/dotnet/api/overview/azure/AI.Translation.Document-readme?view=azure-dotnet&preserve-view=true) | Document Translation v1.0|
-|[Python → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.0.0/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.0.0/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)|Document Translation v1.0|
+|[.NET/C# → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html)| [NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Document) | [Azure SDK for .NET](/dotnet/api/overview/azure/AI.Translation.Document-readme?view=azure-dotnet&preserve-view=true) | Document Translation v1.1|
+|[Python → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.0.0/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.0.0/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)|Document Translation v1.1|
 
 ## Changelog and release history
 
@@ -133,7 +133,11 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ### [C#/.NET](#tab/csharp)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
+The Document Translation interface requires the following input:
+
+1. Upload your files to an Azure Blob Storage source container (sourceUri).
+1. Provide a target container where the translated documents can be written (targetUri).
+1. Include the target language code (targetLanguage).
 
 ```csharp
 
@@ -146,7 +150,11 @@ DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetU
 
 ### [Python](#tab/python)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
+The Document Translation interface requires the following input:
+
+1. Upload your files to an Azure Blob Storage source container (sourceUri).
+1. Provide a target container where the translated documents can be written (targetUri).
+1. Include the target language code (targetLanguage).
 
 ```python
 sourceUrl = "<your-source container-url>"
@@ -172,4 +180,4 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md) [**Document Translation v1.0 REST API reference**](reference/rest-api-guide.md)
+> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md) [**Document Translation v1.1 REST API reference**](reference/rest-api-guide.md)

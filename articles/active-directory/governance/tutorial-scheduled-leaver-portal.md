@@ -42,7 +42,7 @@ The scheduled leaver scenario can be broken down into the following:
 ## Create a workflow using scheduled leaver template
 Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
 
- 1.  Sign in to Azure portal.
+ 1.  Sign in to the [Azure portal](https://portal.azure.com).
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows**.
@@ -110,10 +110,3 @@ After running your workflow on-demand and checking that everything is working fi
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
 - [Automate employee offboarding tasks after their last day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-scheduled-leaver)
-
-
-
-
-
-
-

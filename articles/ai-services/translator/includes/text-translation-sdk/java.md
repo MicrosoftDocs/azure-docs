@@ -16,6 +16,10 @@ recommendations: false
 
 ## Set up your Java environment
 
+> [!NOTE]
+>
+> The Azure Text Translation SDK for Java is tested and supported on Windows, Linux, and macOS platforms. It is not tested on other platforms and doesn't support Android deployments.
+
 For this quickstart, we use the Gradle build automation tool to create and run the application.
 
 * You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
