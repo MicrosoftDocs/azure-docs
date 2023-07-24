@@ -24,9 +24,11 @@ The SAP CDC connector has been designed with this principle in mind: all relevan
 
 To understand the basic concepts of parametrizing mapping data flows, read [Parameterizing mapping data flows](parameters-data-flow.md).
 
-Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). Using an inline dataset provides better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
+In the template gallery of Azure Data Factory and Azure Synapse Analytics, you find a [template pipeline and data flow](solution-template-replicate-multiple-objects-sap-cdc.md) which shows how to parametrize SAP CDC data ingestion.
 
 ### Parametrizing source and run mode
+
+Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). Using an inline dataset provides better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
 
 For SAP CDC, the properties that are most commonly set via parameters are found in the tabs **Source options** and **Optimize**.
 When **Source type** is **Inline**, the following properties can be parametrized in **Source options**.
@@ -120,7 +122,7 @@ To ingest the partitioning scheme into a mapping data flow, create a data flow p
 
 Finally, in the **optimize** tab of the source transformation in your mapping data flow, select **Partition type** "Source", and enter the data flow parameter in the **Partition conditions** property.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to use the partitioning parameter in the optimize tab of the source transformation":::
 
 ### Parametrizing the Checkpoint Key
 
