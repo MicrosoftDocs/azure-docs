@@ -16,6 +16,8 @@ In this tutorial, you perform the following tasks:
 - Configure routing in your Event Grid Namespace.
 - View the MQTT messages in the Event Hubs using Azure Stream Analytics.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Prerequisites
 
 - If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.

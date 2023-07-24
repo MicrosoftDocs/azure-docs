@@ -1,5 +1,7 @@
 ---
 title: Architecture of BareMetal Infrastructure for NC2
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2.
 ms.topic: reference
 ms.subservice: baremetal-nutanix

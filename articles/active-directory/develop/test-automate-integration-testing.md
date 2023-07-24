@@ -106,7 +106,7 @@ Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of
 Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
+1. Sign in to the [Azure portal](https://portal.azure.com) to access your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
 1. In **Policies**, select the conditional access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.

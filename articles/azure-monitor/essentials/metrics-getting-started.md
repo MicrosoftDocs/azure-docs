@@ -67,6 +67,7 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 > [!TIP]
 > Use the **time brush** to investigate an interesting area of the chart like a spike or a dip. Select an area on the chart and the chart zooms in to show more detail for the selected area.
 
+
 ## Apply dimension filters and splitting
 
 [Filtering](../essentials/metrics-charts.md#filters) and [splitting](../essentials/metrics-charts.md#apply-splitting) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments or dimensions affect the overall value of the metric. You can use them to identify possible outliers. For example 

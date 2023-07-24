@@ -81,7 +81,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: Establishing commitment-based discounts
+      - text: Managing commitment-based discounts
         url: capabilities-commitment-discounts.md
 
   - title: Organizational alignment
