@@ -4,6 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
 author: jesscioffi
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 
 ms.author: jcioffi
 ms.date: 04/18/2023

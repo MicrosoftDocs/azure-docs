@@ -253,7 +253,7 @@ az identity federated-credential show --name $ficId --identity-name $uaId --reso
 
 Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
 
-```azure cli
+```azurecli
 az login
 
 # Set variables

@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 07/19/2023
 
 ---
 
@@ -166,7 +166,11 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
     }
     ```
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-connection-string.png" alt-text="Screenshot of a connection string for a cache.":::
+    The code in `RedisConnection.cs` looks to this value when running local.
+
+      ```csharp
+      public const string connectionString = "redisConnectionString";
+      ```
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
@@ -206,7 +210,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 1. You see several prompts on information to configure the new functions app:
 
     - Enter a unique name
-    - Choose **.NET 6** as the runtime stack
+    - Choose **.NET 6 (LTS)** as the runtime stack
     - Choose either **Linux** or **Windows** (either works)
     - Select an existing or new resource group to hold the Function App
     - Choose the same region as your cache instance
@@ -230,7 +234,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. Navigate to your new Function App in the Azure portal and select the **Configuration** from the Resource menu.
 
-1. Select **New application setting** and enter `redisConnectionString` as the Name, with your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app restarts with the new connection string information.
+1. In the working pane, you see **Application settings**. In the **Connection strings** section, select **New connection string**.
+
+1. Then, type `redisConnectionString` as the **Name**, with your connection string as the **Value**. Set **Type** to _Custom_, and select **Ok** to close the menu. Then, select **Save** on the Configuration page to confirm. The functions app restarts with the new connection string information.
 
 ### Test your triggers
 
