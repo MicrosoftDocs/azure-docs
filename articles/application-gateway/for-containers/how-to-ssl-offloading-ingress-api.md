@@ -41,7 +41,7 @@ This document helps set up an example application that uses the _Ingress_ resour
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create an Ingress
-  ```bash
+```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -68,8 +68,8 @@ spec:
             name: echo
             port:
               number: 80
-  EOF
-  ```
+EOF
+```
 
 
 # [Bring your own (BYO) deployment](#tab/byo)
