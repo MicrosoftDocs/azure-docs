@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 07/21/2023
+ms.date: 07/24/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
@@ -112,32 +112,6 @@ The following code example shows how to move a subdirectory from one directory t
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 
-## Delete a directory
-
-You can delete a directory by using the following method:
-
-- [DataLakeDirectoryClient.Delete](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.delete)
-
-The following code example shows how to delete a directory:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
-
-## Restore a soft-deleted directory
-
-You can use the Azure Storage client libraries to restore a soft-deleted directory. Use the following method to list deleted paths for a [DataLakeFileSystemClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient) instance:
-
-- [GetDeletedPathsAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdeletedpathsasync)
-
-Use the following method to restore a soft-deleted directory:
-
-- [UndeletePathAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.undeletepathasync)
-
-The following code example shows how to list deleted paths and restore a soft-deleted directory:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RestoreDirectory":::
-
-If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you receive an error when you attempt to restore those soft-deleted items.
-
 ## Upload a file to a directory
 
 You can upload content to a new or existing file by using the following method:
@@ -186,6 +160,32 @@ Enumerating the paths in the result may make multiple requests to the service wh
 The following code example prints the names of each file that is located in a directory:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
+
+## Delete a directory
+
+You can delete a directory by using the following method:
+
+- [DataLakeDirectoryClient.Delete](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.delete)
+
+The following code example shows how to delete a directory:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
+
+## Restore a soft-deleted directory
+
+You can use the Azure Storage client libraries to restore a soft-deleted directory. Use the following method to list deleted paths for a [DataLakeFileSystemClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient) instance:
+
+- [GetDeletedPathsAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdeletedpathsasync)
+
+Use the following method to restore a soft-deleted directory:
+
+- [UndeletePathAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.undeletepathasync)
+
+The following code example shows how to list deleted paths and restore a soft-deleted directory:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RestoreDirectory":::
+
+If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you receive an error when you attempt to restore those soft-deleted items.
 
 ## Create a user delegation SAS for a directory
 
