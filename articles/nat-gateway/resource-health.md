@@ -40,7 +40,9 @@ To view the health of your NAT gateway resource:
 
 ## Resource health alerts
 
-Azure Resource Health alerts can notify you in near real-time when the health state of your NAT gateway resource changes. When you create Azure resource health alerts for NAT gateway, Azure sends you resource health notifications to your Azure subscription. You can create and customize alerts based on:
+Azure Resource Health alerts can notify you in near real-time when the health state of your NAT gateway resource changes. It is recommended that you set resource health alerts to notify you when your NAT gateway resource is in a **Degraded** or **Unavailable** state.
+
+When you create Azure resource health alerts for NAT gateway, Azure sends you resource health notifications to your Azure subscription. You can create and customize alerts based on:
 * The subscription affected
 * The resource group affected
 * The resource type affected (Microsoft.Network/NATGateways)
