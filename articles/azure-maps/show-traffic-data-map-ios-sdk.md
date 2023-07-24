@@ -16,7 +16,7 @@ Flow data and incidents data are the two types of traffic data that can be displ
 
 ## Prerequisites
 
-Complete the the [Create an iOS app] quickstart. Code blocks from this quickstart can be inserted into the `viewDidLoad` function of `ViewController`.
+Complete the [Create an iOS app] quickstart. Code blocks from this quickstart can be inserted into the `viewDidLoad` function of `ViewController`.
 
 ## Show traffic on the map
 
