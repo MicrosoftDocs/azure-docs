@@ -33,42 +33,42 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Data collection
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |
-|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public Preview |&#x2705; |&#10060; |
-|[Azure Active Directory](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705; <sup>[1](#logsavailable)</sup> |
-|[Azure Active Directory Identity Protection](connect-services-api-based.md) |GA |&#x2705; |&#10060; |
-|[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705; |&#x2705; |
-|[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |&#x2705; |&#10060; |
-|[Azure Firewall](data-connectors/azure-firewall.md) |GA |&#x2705; |&#x2705; |
-|[Azure Information Protection (Preview)](data-connectors/azure-information-protection.md) |Deprecated |&#10060; |&#10060; |
-|[Azure Key Vault](data-connectors/azure-key-vault.md) |Public Preview |&#x2705; |&#x2705; |
-|[Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md) |Public Preview |&#x2705; |&#x2705; |
-|[Azure SQL Databases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-sql-solution-query-deep-dive/ba-p/2597961) |GA |&#x2705; |&#x2705; |
-|[Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md) |GA |&#x2705; |&#x2705; |
-|[Cisco ASA](data-connectors/cisco-asa.md) |GA |&#x2705; |&#x2705; |
-|[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public Preview |&#x2705; |&#10060; |
-|[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705; |
-|[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public Preview |&#x2705; |&#x2705; |
-|[Data Connectors health](monitor-data-connector-health.md#use-the-sentinelhealth-data-table-public-preview) |Public Preview |&#x2705; |&#10060; |
-|[DNS](data-connectors/dns.md) |Public Preview |&#x2705; |&#x2705; |
-|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft 365 Defender](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705; |&#10060; |
-|[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |&#x2705; |
-|[Microsoft Defender for IoT](connect-services-api-based.md) |GA |&#x2705; |&#10060; |
-|[Microsoft Power BI (Preview)](data-connectors/microsoft-powerbi.md) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public Preview |&#x2705; |&#10060; |
-|[Office 365](connect-services-api-based.md) |GA |&#x2705; |&#x2705; |
-|[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705; |
-|[Syslog](connect-syslog.md) |GA |&#x2705; |&#x2705; |
-|[Windows DNS Events via AMA (Preview)](connect-dns-ama.md) |Public Preview |&#x2705; |&#10060; |
-|[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705; |
-|[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705; |&#x2705; |
-|[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |&#10060; |
+|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Azure Active Directory](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
+|[Azure Active Directory Identity Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
+|[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |&#x2705;| &#x2705;|&#10060; |
+|[Azure Firewall](data-connectors/azure-firewall.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Azure Information Protection (Preview)](data-connectors/azure-information-protection.md) |Deprecated |&#10060; |&#10060; |&#10060; |
+|[Azure Key Vault](data-connectors/azure-key-vault.md) |Public Preview |&#x2705; |&#x2705;|&#x2705; |
+|[Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md) |Public Preview |&#x2705;| &#x2705;|&#x2705; |
+|[Azure SQL Databases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-sql-solution-query-deep-dive/ba-p/2597961) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Cisco ASA](data-connectors/cisco-asa.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public Preview |&#x2705; |&#10060;|&#10060; |
+|[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public Preview |&#x2705;|&#10060;  |&#x2705; |
+|[Data Connectors health](monitor-data-connector-health.md#use-the-sentinelhealth-data-table-public-preview) |Public Preview |&#x2705;| |&#10060; |
+|[DNS](data-connectors/dns.md) |Public Preview |&#x2705;| &#10060; |&#x2705; |
+|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Microsoft 365 Defender](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
+|[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public Preview |&#x2705; |&#x2705;|&#10060; |
+|[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |&#x2705; |&#x2705;|
+|[Microsoft Defender for IoT](connect-services-api-based.md) |GA |&#x2705;|&#10060; |&#x2705;|
+|[Microsoft Power BI (Preview)](data-connectors/microsoft-powerbi.md) |Public Preview |&#x2705; |&#10060; |&#x2705;|
+|[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public Preview |&#x2705; |&#10060; |&#x2705;|
+|[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public Preview |&#x2705;|&#10060; |&#10060; |
+|[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public Preview |&#x2705;| &#10060;|&#10060; |
+|[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
+|[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Windows DNS Events via AMA (Preview)](connect-dns-ama.md) |Public Preview |&#x2705; |&#10060;|&#10060; |
+|[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
+|[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 
 <sup><a name="logsavailable"></a>1</sup> Supports only sign-in logs and audit logs.
 
@@ -85,22 +85,22 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Incidents
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public Preview |&#x2705; |&#10060; |
-|[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |Public Preview |&#x2705; |&#x2705; |
-|[Automation rules](automate-incident-handling-with-automation-rules.md)     |Public Preview         |&#x2705; |&#x2705;         |
-|[Automation rules health](monitor-automation-health.md) |Public Preview |&#x2705; |&#10060; |
-|[Create incidents manually](create-incident-manually.md) |Public Preview |&#x2705; |&#x2705; |
-|[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |&#x2705; |&#x2705;         |
-|[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |&#x2705; |&#x2705; |
-|[Incident tasks](incident-tasks.md) |Public Preview |&#x2705; |&#x2705; |
-|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) |Public Preview |&#x2705; |&#10060; |
-|[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public Preview |&#x2705; |&#10060; |
-|[Playbook template gallery](use-playbook-templates.md) |Public Preview |&#x2705; |&#10060; |
-|[Run playbooks on entities](respond-threats-during-investigation.md) |Public Preview |&#x2705; |&#10060; |
-|[Run playbooks on incidents](automate-responses-with-playbooks.md) |Public Preview |&#x2705; |&#x2705; |
-|[SOC incident audit metrics](manage-soc-with-incident-metrics.md)     |GA         |&#x2705; |&#x2705;         |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public Preview |&#x2705; |&#x2705; |&#10060; |
+|[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |GA |&#x2705; |&#x2705;| &#x2705; |
+|[Automation rules](automate-incident-handling-with-automation-rules.md)     |GA        |&#x2705; |&#x2705;| &#x2705;         |
+|[Automation rules health](monitor-automation-health.md) |Public Preview |&#x2705; |&#x2705;| &#10060; |
+|[Create incidents manually](create-incident-manually.md) |GA |&#x2705; |&#x2705;| &#x2705; |
+|[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |&#x2705; |&#x2705; |&#x2705;         |
+|[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |&#x2705; |&#x2705;| &#x2705; |
+|[Incident tasks](incident-tasks.md) |Public Preview |&#x2705; |&#x2705;| &#x2705; |
+|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
+|[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public Preview |&#x2705; |&#x2705;| &#10060; |
+|[Playbook template gallery](use-playbook-templates.md) |Public Preview |&#x2705; |&#x2705;| &#10060; |
+|[Run playbooks on entities](respond-threats-during-investigation.md) |Public Preview |&#x2705; |&#x2705; |&#10060; |
+|[Run playbooks on incidents](automate-responses-with-playbooks.md) |Public Preview |&#x2705; |&#x2705;| &#x2705; |
+|[SOC incident audit metrics](manage-soc-with-incident-metrics.md)     |GA         |&#x2705; |&#x2705;| &#x2705;         |
 
 ## Machine Learning
 
