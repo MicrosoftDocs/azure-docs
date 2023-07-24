@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 07/24/2023
 
 author: justinha
 ms.author: justinha
@@ -39,14 +39,6 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 
 >[!NOTE]
 >This is the view for web support. Authentication for native apps in iOS and Android are not available yet.
-
-## Unsupported browsers
-
-The following operating system and browser combinations aren't supported, but future support and testing is being investigated. If you would like to see other operating system and browser support, please leave feedback on our [product feedback site](https://feedback.azure.com/d365community/).
-
-| Operating system | Browser |
-| ---- | ---- |
-| Android | Chrome |
 
 ## Minimum browser version
 
