@@ -53,9 +53,9 @@ When you create a vector index, Azure Machine Learning chunks the data, creates 
 
 1. When the form for creating a vector index opens, provide a name for your vector index.
 
-1. Select your data source type.
-
     :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot that shows basic settings for creating a vector index.":::
+
+1. Select your data source type.
 
 1. Based on the chosen type, provide the location details of your source. Then, select **Next**.
 
