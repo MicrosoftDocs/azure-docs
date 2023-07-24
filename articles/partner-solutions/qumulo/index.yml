@@ -26,7 +26,7 @@ landingContent:
           - text: Qumulo Admin Guide
             url: https://docs.qumulo.com/administrator-guide/
       - linkListType: video
-         links: 
+        links: 
           - text: Azure Native Qumulo Scalable File Service
             url: https://www.youtube.com/watch?v=s-5DXAuYZss 
 
