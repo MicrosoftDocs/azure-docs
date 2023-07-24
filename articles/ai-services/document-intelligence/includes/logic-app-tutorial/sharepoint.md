@@ -10,7 +10,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD041 -->
 
-## Prerequisites
+## Prerequisites (SharePoint workflow)
 
 To complete this tutorial, you need the following resources:
 
@@ -48,7 +48,7 @@ Before we jump into creating the Logic App, we have to set up a Sharepoint folde
 
 1. We're done with SharePoint for now.
 
-## Create a Logic App resource
+## Create Logic App resource
 
 At this point, you should have a Document Intelligence resource and a SharePoint folder all set. Now, it's time to create a Logic App resource.
 
@@ -96,7 +96,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-setup.png" alt-text="Screenshot of the SharePoint connector and trigger selection page.":::
 
-1. Logic Apps will automatically signs you into your SharePoint account(s).
+1. Logic Apps automatically signs you into your SharePoint account(s).
 
 1. After your account is connected, complete the **Site Address** and **Library Name** fields. Select the **Add new parameter** field and select **Folder**.
 
@@ -145,11 +145,11 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the choose an operation menu.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choose an Operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For each Control tile from the Control menu. ":::
+    :::image type="content" source="../../media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For Each Control tile from the Control menu. ":::
 
 1. In the **For each** step window, there's a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 

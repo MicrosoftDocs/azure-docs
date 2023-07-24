@@ -10,7 +10,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD041 -->
 
-## Prerequisites
+## Prerequisites (OneDrive workflow)
 
 To complete this tutorial, you need the following resources:
 
@@ -50,7 +50,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 1. You see the new folder in your files.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/new-folder.png" alt-text="Screenshot of the newly created folder.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/new-folder.png" alt-text="Screenshot of the new folder.":::
 
 1. We're done with OneDrive for now.
 
@@ -152,11 +152,11 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the choose an operation menu.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choose an Operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For each Control tile from the Control menu. ":::
+    :::image type="content" source="../../media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For Each Control tile from the Control menu. ":::
 
 1. In the **For each** step window, there's a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 
