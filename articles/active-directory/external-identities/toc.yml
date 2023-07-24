@@ -141,6 +141,8 @@
       href: use-dynamic-groups.md
     - name: Understand the B2B user
       href: user-properties.md
+    - name: Assign sponsors to guest users
+      href: b2b-sponsors.md
     - name: Reset redemption status
       href: reset-redemption-status.md
   - name: Manage guest access in a hybrid organization
