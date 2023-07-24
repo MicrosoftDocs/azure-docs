@@ -37,7 +37,7 @@ These policies replace the deprecated policies:
 
 ## Migrate from deprecated VM insights policies to replacement policies
 
-1. [Download the Azure Monitor Agent-based VM insights data collection rule templates]((https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip)).  
+1. [Download the Azure Monitor Agent-based VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).  
 
 1. Deploy the VM insights data collection rule using an ARM template, as described in [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
