@@ -26,6 +26,7 @@ Use the following steps to clone and run the app locally.
 1. Use the following command to build the Books backend services:
 
    ```bash
+   cd azure-spring-apps-sso-client-credential
    ./mvnw clean package
    ```
 
@@ -159,11 +160,7 @@ The Books RESTful APIs acts as a resource server, which is protected by Azure AD
 1. Look for the **Value** of the secret, and then record it for later use. You need it to acquire access token.
 
 
-### Update the application configuration
-
-Update the application configuration based on the information configured on the Azure resources.
-
-#### Update the configuration of the RESTful API application
+### 3.5 Update the configuration of the RESTful API application
 
 Update the configuration of `spring.cloud.azure.active-directory` in the `books-service` application configuration file. Be sure to replace the placeholders with your own values you created in the previous step.
 
@@ -181,26 +178,6 @@ Use the following command to rebuild the sample project:
 
 ```bash
 ./mvnw clean package
-```
-
-#### Update the configuration of the SPA application
-
-Update the configuration in the `SPA` application script file `spa/server.js`. Be sure to replace the placeholders with your own values you created in the previous step.
-
-```javascript
-const SpringCloudGatewayURL = "<URL exposed by gateway-service>"
-
-const msalConfig = {
-    auth: {
-        clientId: "< SPA App Registration ClientId>",
-        authority: "https://login.microsoftonline.com/< TenantId >/",
-        clientSecret: "<SPA App Registration ClientSecret>",
-    },
-};
-
-const tokenRequest = {
-    scopes: ["<Application ID URI of Books>/.default"]
-};
 ```
 
 ## 4. Deploy the apps
@@ -250,6 +227,24 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    The output **Application url** is the base endpoint to access the ToDo API application.
 
 ### 4.2 Run SPA app locally
+
+Update the configuration in the `SPA` application script file `spa/server.js`. Be sure to replace the placeholders with your own values you created in the previous step.
+
+```javascript
+const SpringCloudGatewayURL = "<URL exposed by app gateway-service>"
+
+const msalConfig = {
+    auth: {
+        clientId: "< SPA App Registration ClientId>",
+        authority: "https://login.microsoftonline.com/< TenantId >/",
+        clientSecret: "<SPA App Registration ClientSecret>",
+    },
+};
+
+const tokenRequest = {
+    scopes: ["<Application ID URI of Books>/.default"]
+};
+```
 
 In the SPA project directory, use the following command to run locally:
 

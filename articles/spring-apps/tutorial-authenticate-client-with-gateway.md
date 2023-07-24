@@ -49,10 +49,10 @@ Now we can access the Books SPA app that communicates with the Books RESTful API
 
 1. Go to `http://localhost:3000` in your browser to access the application.
 
-1. Enter for **Author** and **Title**, and select **Add Book**, then you will see the below response:
+1. Enter an **Author** and **Title**, then select **Add Book**, and you will see a response similar to this:
 
    ```text
-   Book added successfully: {"id":2,"author":"Jeff Black","title":"Spring In Action"}
+   Book added successfully: {"id":1,"author":"Jeff Black","title":"Spring In Action"}
    ```
 
 [!INCLUDE [clean-up-resources](includes/tutorial-authenticate-client-with-gateway/clean-up-resources.md)]
