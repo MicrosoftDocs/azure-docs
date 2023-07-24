@@ -171,10 +171,10 @@ sections:
               > [!IMPORTANT]
               > Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
 
-       - question: |
-          I'm using or want to use Azure Ad Applivation Proxy. Can I replace the onmicrosoft.com fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
-           answer: |
-          No. Currently, this is not supported. You must ensure to use the original fallback domain.  
+      - question: |
+         I'm using or want to use Azure Ad Applivation Proxy. Can I replace the onmicrosoft.com fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
+        answer: |
+              No. Currently, this is not supported. You must ensure to use the original fallback domain.  
 
          
       - question: |
