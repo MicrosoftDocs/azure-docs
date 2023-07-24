@@ -53,8 +53,8 @@ var title = new MessageTemplateTextValue("title", "Avengers");
 var time = new MessageTemplateTextValue("time", "July 1st, 2023 12:30PM");
 var venue = new MessageTemplateTextValue("venue", "Cineplex");
 var seats = new MessageTemplateTextValue("seats", "Seat 1A");
-values = new List<MessageTemplateValue> { image, title, time, venue, seats };
-bindings = new MessageTemplateWhatsAppBindings(
+var values = new List<MessageTemplateValue> { image, title, time, venue, seats };
+var bindings = new MessageTemplateWhatsAppBindings(
   header: new[] { image.Name },
   body: new[] { title.Name, time.Name, venue.Name, seats.Name }
 );
