@@ -421,7 +421,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 [!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
-[Further details and notes](defender-for-dns-introduction.md)
+[Further details and notes](plan-defender-for-servers-select-plan.md)
 
 | Alert (alert type)                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                     | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
