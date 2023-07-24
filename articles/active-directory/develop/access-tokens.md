@@ -140,8 +140,8 @@ If the application has custom signing keys as a result of using the [claims-mapp
 
 Web apps validating ID tokens, and web APIs validating access tokens need to validate the issuer of the token (`iss` claim) against:
 1. the issuer available in the OpenID connect metadata document associated with the application configuration (authority). The metadata document to verify against depends on:
-- the version of the token
-- the accounts supported by your application.
+   - the version of the token
+   - the accounts supported by your application.
 1. the tenant ID (`tid` claim) of the token,
 1. the issuer of the signing key. 
 
@@ -177,7 +177,7 @@ As discussed, from the OpenID Connect document, your application accesses the ke
 As above, `{example-tenant-id}` can be replaced by a GUID, a domain name, or **common**, **organizations** and **consumers**
 
 The "keys" documents exposed by Azure AD v2.0 contains, for each key, the issuer that uses this signing key. See, for instance,  the
-tenant-independent "common" key endpoint ([https://login.microsoftonline.com/common/discovery/v2.0/keys](https://login.microsoftonline.com/common/discovery/v2.0/keys)) returns a document like:
+tenant-independent "common" key endpoint [https://login.microsoftonline.com/common/discovery/v2.0/keys](https://login.microsoftonline.com/common/discovery/v2.0/keys) returns a document like:
     
   ```json
   {

@@ -144,7 +144,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes]
-- [Access tokens](access-tokens.md)
+* [Access tokens](access-tokens.md)
 
 ## Next steps
 
