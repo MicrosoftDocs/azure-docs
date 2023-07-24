@@ -36,7 +36,7 @@ To [enable TLS 1.2 higher](enable-tls-azure-monitor-sap-solutions.md) for the SA
        ![Diagram that shows the Azure Monitor for SAP solutions resource creation page in the Azure portal, showing all required form fields.](./media/provider-hana/azure-monitor-providers-hana-setup.png)
     1. Optionally, select **Enable secure communication** and choose the certificate type from the dropdown menu.
     1. For **IP address**, enter the IP address or hostname of the server that runs the SAP HANA instance that you want to monitor. If you're using a hostname, make sure there's connectivity within the virtual network.
-    1. For **Database tenant**, enter the HANA database that you want to connect to. We recommend that you use **SYSTEMDB** because tenant databases don't have all monitoring views. For legacy single-container HANA 1.0 instances, leave this field blank.
+    1. For **Database tenant**, enter the HANA database that you want to connect to. We recommend that you use **SYSTEMDB** because tenant databases don't have all monitoring views. For legacy single-container HANA 1.0 instances, you can leave this field as the prefilled value, which is SYSTEMDB.
     1. For **Instance number**, enter the instance number of the database (0-99). The SQL port is automatically determined based on the instance number.
     1. For **Database username**, enter the dedicated SAP HANA database user. This user needs the **MONITORING** or **BACKUP CATALOG READ** role assignment. For nonproduction SAP HANA instances, use **SYSTEM** instead.
     1. For **Database password**, enter the password for the database username. You can either enter the password directly or use a secret inside Azure Key Vault.
