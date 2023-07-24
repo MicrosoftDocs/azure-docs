@@ -17,8 +17,8 @@ Azure Communication Services emits the following Advanced Messaging event types:
 
 | Event type                                                  | Description                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Microsoft.Communication.CrossPlatformMessageReceived                        | Published when a WhatsApp message is received by the Communication Service. |
-| Microsoft.Communication.CrossPlatformMessageDeliveryStatusUpdated           |    Published when the WhatsApp sents status of message notification as sent/read/failed.  |
+| Microsoft.Communication.AdvancedMessageReceived                      | Published when a WhatsApp message is received by the Communication Service. |
+| Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated             |    Published when the WhatsApp sents status of message notification as sent/read/failed.  |
 
 ## Event responses
 
@@ -26,13 +26,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 
 This section contains an example of what that data would look like for each event.
 
-### Microsoft.Communication.CrossPlatformMessageReceived event
+### Microsoft.Communication.AdvancedMessageReceived  event
 
 ```json
 [{
   "id": "fdc64eca-390d-4974-abd6-1a13ccbe3160",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
-  "subject": "crossPlatformMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "content": "Hello",
     "channelType": "whatsapp",
@@ -40,20 +40,20 @@ This section contains an example of what that data would look like for each even
     "to": "00000000-0000-0000-0000-000000000000",
     "receivedTimestamp": "2023-07-06T18:30:19+00:00"
   },
-  "eventType": "Microsoft.Communication.CrossPlatformMessageReceived",
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:30:22.1921716Z"
 }]
 ```
 
-### Microsoft.Communication.CrossPlatformMessageDeliveryStatusUpdated event
+### Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated  event
 
 ```json
 [{
   "id": "48cd6446-01dd-479f-939c-171c86c46700",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
-  "subject": "crossPlatformMessage/00000000-0000-0000-0000-000000000000/status/Failed",
+  "subject": "advancedMessage/00000000-0000-0000-0000-000000000000/status/Failed",
   "data": {
     "messageId": "00000000-0000-0000-0000-000000000000",
     "status": "Sent",
@@ -62,7 +62,7 @@ This section contains an example of what that data would look like for each even
     "to": "{receiver@id}",
     "receivedTimestamp": "2023-07-06T18:42:28+00:00"
   },
-  "eventType": "Microsoft.Communication.CrossPlatformMessageDeliveryStatusUpdated",
+  "eventType": "Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated",
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:42:28.8454662Z"
@@ -73,7 +73,7 @@ This section contains an example of what that data would look like for each even
 [{
   "id": "48cd6446-01dd-479f-939c-171c86c46700",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
-  "subject": "crossPlatformMessage/00000000-0000-0000-0000-000000000000/status/Failed",
+  "subject": "advancedMessage/00000000-0000-0000-0000-000000000000/status/Failed",
   "data": {
     "messageId": "00000000-0000-0000-0000-000000000000",
     "status": "Failed",
@@ -86,7 +86,7 @@ This section contains an example of what that data would look like for each even
       "channelMessage": "Message Undeliverable."
     }
   },
-  "eventType": "Microsoft.Communication.CrossPlatformMessageDeliveryStatusUpdated",
+  "eventType": "Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated",
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:42:28.8454662Z"
