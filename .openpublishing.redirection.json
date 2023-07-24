@@ -24062,6 +24062,11 @@
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/cache-how-to-functions.md",
+          "redirect_url": "/azure/azure-functions/functions-bindings-cache",
+          "redirect_document_id": false
         }
     ]
 }
