@@ -61,7 +61,7 @@ The SAP CDC connector uses the SAP ODP framework to extract various data source 
 - InfoProviders and InfoObjects datasets in SAP BW and SAP BW/4HANA
 - SAP application tables, when you use an SAP LT replication server (SLT) as a proxy
 
-In this process, the SAP data sources are *providers*. The providers run on SAP systems to produce either full or incremental data in an operational delta queue (ODQ). The Data Factory mapping data flow source is a *subscriber* of the ODQ.
+In this process, the SAP data sources are *providers*. The providers run on SAP systems to produce either full or incremental data in an operational delta queue (ODQ). The mapping data flow source is a *subscriber* of the ODQ.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP ODP framework through a self-hosted integration runtime.":::
 

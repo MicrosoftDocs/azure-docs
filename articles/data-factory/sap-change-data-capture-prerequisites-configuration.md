@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 07/24/2023
 ms.author: ulrichchrist
 ---
 
@@ -92,7 +92,7 @@ To validate your SAP system configurations for ODP, you can run the RODPS_REPL_T
 The following SAP support notes resolve known issues on SAP systems:
 
 - [1660374 - To extend timeout when fetching large data sets via ODP](https://launchpad.support.sap.com/#/notes/1660374)
-- [2321589 - To resolve missing Business Add-In (BAdI) implementation for RSODP_ODATA subscriber type](https://launchpad.support.sap.com/#/notes/2321589)
+- [2321589 - To resolve missing Business add-in (BAdI) implementation for RSODP_ODATA subscriber type](https://launchpad.support.sap.com/#/notes/2321589)
 - [2636663 - To resolve inconsistent database trigger status in SLT when extracting and replicating the same SAP application table](https://launchpad.support.sap.com/#/notes/2636663)
 - [3038236 - To resolve CDS view extractions that fail to populate ODQ](https://launchpad.support.sap.com/#/notes/3038236)
 - [3076927 - To remove unsupported callbacks when extracting from SAP BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/3076927)
