@@ -32,14 +32,38 @@ In the abstractive document summarization scenario, each document (whether it ha
 
 ## Custom summarization conversation sample format
 
-In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a plain .json file. Each conversation turn must be provided in a single line that is formatted as Speaker + “: “ + text (I.e., Speaker and text are separated by a colon followed by a space). The following is an example conversation of three turns between two speakers (Agent and Customer).
+ In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a .json file, which is similar to the input format for our [pre-built conversation summarization service](https://learn.microsoft.com/en-us/rest/api/language/2023-04-01/analyze-conversation/submit-job?tabs=HTTP#textconversation).  The following is an example conversation of three turns between two speakers (Agent and Customer).
 
-Agent: Hello, how can I help you?
-
-Customer: How do I upgrade office? I have been getting error messages all day.
-
-Agent: Please press the upgrade button, then sign in and follow the instructions.
-
+```json
+{
+  "conversationItems": [
+    {
+      "text": "Hello, how can I help you?",
+      "modality": "text",
+      "id": "1",
+      "participantId": "Agent",
+      "role": "Agent"
+    },
+    {
+      "text": "How do I upgrade office? I have been getting error messages all day.",
+      "modality": "text",
+      "id": "2",
+      "participantId": "Customer",
+      "role": "Customer"
+    },
+    {
+      "text": "Please press the upgrade button, then sign in and follow the instructions.",
+      "modality": "text",
+      "id": "3",
+      "participantId": "Agent",
+      "role": "Agent"
+    }
+  ],
+  "modality": "text",
+  "id": "conversation1",
+  "language": "en"
+}
+```
 
 ## Sample mapping JSON format
 
@@ -71,7 +95,7 @@ The JSON file is expected to contain the following fields:
     }
 }
 ```
-## Custom summarization document sample JSON
+## Custom document summarization mapping sample
 
 The following is an example mapping file for the abstractive document summarization scenario with three documents and corresponding labels.
 
@@ -109,7 +133,8 @@ The following is an example mapping file for the abstractive document summarizat
     }
 }
 ```
-## Custom summarization conversation sample JSONs
+
+## Custom conversation summarization mapping sample
 
 The following is an example mapping file for the abstractive conversation summarization scenario with three documents and corresponding labels.
 
@@ -129,55 +154,22 @@ The following is an example mapping file for the abstractive conversation summar
         "projectKind": "CustomAbstractiveSummarization",
         "documents": [
             {
-                "summaryLocation": "conv1_summary.json",
+                "summaryLocation": "conv1_summary.txt",
                 "location": "conv1.json",
                 "language": "en-us"
             },
             {
-                "summaryLocation": "conv2_summary.json",
+                "summaryLocation": "conv2_summary.txt",
                 "location": "conv2.json",
                 "language": "en-us"
             },
             {
-                "summaryLocation": "conv3_summary.json",
+                "summaryLocation": "conv3_summary.txt",
                 "location": "conv3.json",
                 "language": "en-us"
             }
             ]
     }
-}
-```
-
- In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a .json file, which is similar to the input format for our [pre-built conversation summarization service](https://learn.microsoft.com/en-us/rest/api/language/2023-04-01/analyze-conversation/submit-job?tabs=HTTP#textconversation).  The following is an example conversation of three turns between two speakers (Agent and Customer).
-
-```json
-{
-  "conversationItems": [
-    {
-      "text": "Hello, how can I help you?",
-      "modality": "text",
-      "id": "1",
-      "participantId": "Agent",
-      "role": "Agent"
-    },
-    {
-      "text": "How do I upgrade office? I have been getting error messages all day.",
-      "modality": "text",
-      "id": "2",
-      "participantId": "Customer",
-      "role": "Customer"
-    },
-    {
-      "text": "Please press the upgrade button, then sign in and follow the instructions.",
-      "modality": "text",
-      "id": "3",
-      "participantId": "Agent",
-      "role": "Agent"
-    }
-  ],
-  "modality": "text",
-  "id": "conversation1",
-  "language": "en"
 }
 ```
 
