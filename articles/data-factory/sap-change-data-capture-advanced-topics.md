@@ -49,9 +49,11 @@ When **Source type** is **Inline**, the following properties can be parametrized
 
 In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture.md#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
 1. Define a parameter for the source partitioning scheme on pipeline level.
-2. Ingest the parameter into the mapping data flow.
+2. Ingest the partitioning parameter into the mapping data flow.
 
-The format in step 1 follows the JSON standard: each partition consists of an array of conditions. Each of these conditions is a JSON object with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
+#### JSON format of a partitioning scheme
+
+The format in step 1 follows the JSON standard, consisting of an array of partition definitions, each of which itself is an array of individual filter conditions. These conditions themsevles are JSON objects with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
 ```json
 { "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> }
@@ -71,14 +73,32 @@ corresponds to a SQL WHERE clause ... **WHERE "VBELN" = '0000001000'**, or
 
 corresponds to a SQL WHERE clause ... **WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'**
 
-The resulting overall filter condition for one partition, which is an array of such conditions, is defined as follows. There are no logical conjunctions that explicitly define how to combine multiple conditions within one such partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
+A JSON definition of a partioning scheme containing two partitions thus looks as follows
+
+```json
+[
+    [
+        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2011", "high": "2015" }
+    ],
+    [
+        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2016", "high": "2020" }
+    ]
+]
+```
+
+where the first partition contains fiscal years (GJAHR) 2011 through 2015, and the second partition contains fiscal years 2016 through 2020.
+
+>[!NOTE]
+   > Azure Data Factory doesn't perform any checks on these conditions. For example, it is in the user's responsibility to ensure that partition conditions don't overlap.
+
+Partition conditions can be more complex, consisting of multiple elementary filter conditions themselves. There are no logical conjunctions that explicitly define how to combine multiple elementary conditions within one partition partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
 2. **excluding** conditions ("sign": "E") for the same field name are combined with **OR** (again, mentally, put brackets around the resulting condition)
 3. the resulting conditions of steps 1 and 2 are
     - combined with **AND** for **including** conditions,
     - combined with **AND NOT** for **excluding** conditions.
 
-As an example, the condition
+As an example, the partition condition
 
 ```json
     [
@@ -87,11 +107,20 @@ As an example, the condition
         { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2023" }
     ]
 ```
-corresponds to a SQL WHERE clause
+corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000') AND ("GJAHR" BETWEEN '2020' AND '2025') AND NOT ("GJAHR" = '2023')**
 
-... WHERE ("BUKRS" = '1000') AND ("GJAHR" BETWEEN '2020' AND '2025') AND NOT ("GJAHR" = '2023')
+>[!NOTE]
+   > Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format \"YYYYMMDD\".
 
-Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format \"YYYYMMDD\".
+#### Ingesting the partitioning parameter into mapping data flow
+
+To ingest the partitioning scheme into a mapping data flow, create a data flow parameter (for example, "sapPartitions"). Before passing the JSON format described above to this parameter, it has to be converted to a string using the **@string()** function as shown below:
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partitions.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
+
+Finally, in the **optimize** tab of the source transformation in your mapping data flow, select **Partition type** "Source", and enter the data flow parameter in the **Partition conditions** property.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to ingest the partitioning schema into mapping data flow":::
 
 ### Parametrizing the Checkpoint Key
 
