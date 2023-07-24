@@ -45,7 +45,7 @@ This first example uses the function with static arrays to demonstrate the inter
 
 This last example uses a single item that share values within two array properties.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setintersect-field/seed.novalidate.json" range=1-2,4-16" highlight="4-12":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setintersect-field/seed.novalidate.json" range="1-2,4-16" highlight="4-12":::
 
 The query selects the appropriate field from the item\[s\] in the container.
 
