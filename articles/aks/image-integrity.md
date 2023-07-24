@@ -188,7 +188,7 @@ The following CRD is an example you can try as a quickstart. For more examples, 
 
     Image Integrity verifies the image signature and allows the deployment.
 
-This is a quickstart sample. If you want to try your own image, follow the [guidance for image signing](../container-registry/container-registry-tutorial-sign-build-push#install-the-notation-cli-and-akv-plugin).
+This is a quickstart sample. If you want to try your own image, follow the [guidance for image signing](../container-registry/container-registry-tutorial-sign-build-push.md).
 
 ## Disable Image Integrity
 
