@@ -21,10 +21,10 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 This article explains how to secure communication between a client application and a microservice application 
 that is hosted on Azure Spring Apps and shielded behind a gateway app. The client application 
-will be verified as a security principal to initiate contact with the microservice deployed 
+is verified as a security principal to initiate contact with the microservice deployed 
 on Azure Spring Apps, via the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). The methodology employs Spring Cloud 
-Gateway's Token Relay feature, and Spring Security's Resource Server feature for the processes of authentication and authorization, realized through 
-the execution of the [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, 
+realized through the execution of the [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 The sample project is composed of a single-page application and a Books microservice application:
 - Books SPA: This Single Page Application (SPA), hosted locally, interacts with the Books Microservice for adding or searching for books.
@@ -49,7 +49,7 @@ Now we can access the Books SPA app that communicates with the Books RESTful API
 
 1. Go to `http://localhost:3000` in your browser to access the application.
 
-1. Enter an **Author** and **Title**, then select **Add Book**, and you will see a response similar to this:
+1. Enter an **Author** and **Title**, then select **Add Book**, and you'll see a response similar to this:
 
    ```text
    Book added successfully: {"id":1,"author":"Jeff Black","title":"Spring In Action"}

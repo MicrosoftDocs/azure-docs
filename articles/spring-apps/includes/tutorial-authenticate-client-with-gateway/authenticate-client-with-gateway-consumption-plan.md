@@ -182,7 +182,7 @@ Use the following command to rebuild the sample project:
 
 ## 4. Deploy the apps to Azure Spring Apps
 
-The follow steps show you how to deploy the apps to Azure.
+The following steps show you how to deploy the apps to Azure.
 
 ### 4.1 Deploy the microservice apps to Azure Spring Apps
 
