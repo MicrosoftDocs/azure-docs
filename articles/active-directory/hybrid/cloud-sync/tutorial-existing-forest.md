@@ -61,7 +61,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 ## Configure Azure AD Connect cloud sync
  Use the following steps to configure provisioning
 
-1.  Sign in to the Azure portal.
+1.  Sign in to the [Azure portal](https://portal.azure.com).
 2.  Select **Azure Active Directory**
 3.  Select **Azure AD Connect**
 4.  Select **Manage cloud sync**
