@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 # Tutorial: Assess ASP.NET web apps for migration to Azure App Service
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
-This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
+This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool.
 
 In this tutorial, you learn how to:
 
@@ -35,25 +35,17 @@ In this tutorial, you learn how to:
 Run an assessment as follows:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-
-    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
-
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
-
-    ![Screenshot of dropdown to choose assessment type as Web apps on Azure.](./media/tutorial-assess-webapps/assess.png)
-
-3. 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
+3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
 4. Select **Edit** to review the assessment properties.
-
-     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 
 5. Here's what's included in Azure App Service assessment properties:
 
     **Property** | **Details**
     --- | ---
     **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
-    **Environment type** | 
+    **Environment type** | Type of environment in which it is running.
     **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
     **Currency** | The billing currency for your account.
     **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -73,13 +65,7 @@ Run an assessment as follows:
 1. Select the appliance and select the servers that you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
-
-    ![Screenshot of Refresh discovery and assessment tool data.](./media/tutorial-assess-webapps/tile-refresh.png)
-
 1. Select the number next to **Web apps on Azure** in the **Assessment** section. 
-
-    ![Screenshot of Navigation to created assessment..](./media/tutorial-assess-webapps/assessment-webapps-navigation.png)
-
 1. Select the assessment name, which you wish to view.
 
 ## Review an assessment
@@ -116,9 +102,6 @@ Run an assessment as follows:
 Review the Readiness for the web apps by following these steps:
 
 1. In Assessments, select the name of the assessment that you want to view. 
-
-    ![Screenshot of Azure app service readiness details.](./media/tutorial-assess-webapps/assessment-webapps-readiness.png)
-
 1. Select **View more details** to view more details about each app and instances. Review the Azure App service Code and Azure App service Container readiness column in the table for the assessed web apps:  
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
