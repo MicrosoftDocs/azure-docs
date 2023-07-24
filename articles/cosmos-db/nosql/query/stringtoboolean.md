@@ -38,7 +38,7 @@ Returns a boolean value.
   
 The following example illustrates how this function works with various data types.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/stringtoboolean/query.sql" highlight="2-15":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/stringtoboolean/query.sql" highlight="2-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/stringtoboolean/result.json":::
 
