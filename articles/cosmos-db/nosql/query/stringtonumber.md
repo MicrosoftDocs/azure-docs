@@ -29,8 +29,6 @@ StringToNumber(<string_expr>)
 | | Description |
 | --- | --- |
 | **`string_expr`** | A string expression. |
-*str_expr*  
-Is a string expression to be parsed as a JSON Number expression. Numbers in JSON must be an integer or a floating point. 
 
 ## Return types
 
