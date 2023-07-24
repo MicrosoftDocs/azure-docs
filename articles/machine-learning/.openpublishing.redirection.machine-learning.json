@@ -2697,7 +2697,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/machine-learning-apps-text-analytics.md",
-        "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
+        "redirect_url": "/azure/ai-services/cognitive-services-text-analytics-quick-start",
         "redirect_document_id": false
     },
     {

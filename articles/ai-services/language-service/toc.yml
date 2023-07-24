@@ -937,13 +937,13 @@ items:
     - name: Responsible use of AI
       items: 
       - name: Transparency note for sentiment analysis and opinion mining
-        href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context
+        href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/ai-services/language-service/context/context
         displayName: Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI
       - name: Integration and responsible use
-        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
         displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
       - name: Data, privacy, and security  
-        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
         displayName: Data privacy, logging, data retention
     - name: How-to guides
       items:
@@ -956,7 +956,7 @@ items:
         - name: Configure containers
           href: concepts/configure-containers.md
         - name: Use container instances
-          href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+          href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
         - name: Cognitive Services containers documentation
