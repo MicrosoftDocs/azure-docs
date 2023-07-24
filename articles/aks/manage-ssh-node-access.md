@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 07/19/2023
+ms.date: 07/24/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -12,9 +12,9 @@ This article describes how to disable and enable SSH on your AKS clusters or nod
 
 ## Before you begin
 
-* You also need the Azure CLI version 2.0.64 or later installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 2.0.64 or later installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * The `aks-preview` Azure CLI extension version 0.5.111 or later for the Update SSH public key (preview feature). To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
-* This feature supports Linux, Windows, Mariner, CBLMariner, and Mariner node pools on new and existing clusters.
+* This feature supports Linux, Mariner, and CBLMariner node pools on new and existing clusters.
 
 ## Install the `aks-preview` Azure CLI extension
 
@@ -58,11 +58,11 @@ This article describes how to disable and enable SSH on your AKS clusters or nod
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH both on the cluster and the node pool level. Disabling SSH introduces a better approach compared to the only solution, which is to configure [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC) to restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH during cluster deployment, it doesn't need to be reimaged. However, when you disable SSH on an existing node pool, it's reimaged. After you disable or enable SSH, optionally you can reimage all the nodes. Only after reimage is complete, does the disable/enable operation take effect.
+When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, reimage is needed to make the change take effect. After you disable or enable SSH, AKS doesn't automatically reimage your node pool, you can choose any time to perform the reimage operation. Only after reimage is complete, does the disable/enable operation take effect.
 
 A new `securityProfile` variable is added to the `agentPoolProfile` section. It includes a `nodeAccess` property, and `nodeAccess` has the `sshAccess` property, which is an enum type. Current allowed values are `disabled` and `localuser`. `Disabled` means the SSH service is turned off, and `localuser` means the SSH service is on and you can log in as a local user(that is, *azureuser*, *root*, etc.) using a private key (this is the current default behavior).
 
-## Disable SSH on a new cluster deployment (preview)
+## Disable SSH on a new cluster deployment
 
 By default, the SSH service on AKS cluster nodes is open to all users and pods running on the cluster. You can prevent direct SSH access from the pod network to the nodes to help limit the attack vector if a container in a pod becomes compromised.
 
@@ -72,7 +72,23 @@ Use the [az aks create][az-aks-create] command to create a new cluster, and incl
 az aks create -g myResourceGroup -n myManagedCluster --ssh-access disabled
 ```
 
-## Disable SSH for a new node pool (preview)
+To make the change effective, you need to reimage the node pool by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
+
+```azurecli-interactive
+az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --node-image only
+```
+
+> [!IMPORTANT]
+> During this operation, all Virtual Machine Scale Set instances are upgraded and re-imaged to use the new SSH configuration.
+
+## Disable SSH on an existing cluster
+
+Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access disabled` argument to disable SSH on all the node pools in the cluster.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myManagedCluster --ssh-access disabled
+
+## Disable SSH for a new node pool
 
 Use the [az aks nodepool add][az-aks-nodepool-add] command to add a node pool, and include the `--ssh-access disabled` argument to disable SSH during creation.
 
@@ -81,6 +97,15 @@ az aks nodepool add --cluster-name myManagedCluster --name mynodepool --resource
 ```
 
 The following example output shows that *mynodepool* has been successfully created and SSH is disabled.
+
+To make the change effective, you need to reimage the node pool by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
+
+```azurecli-interactive
+az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --node-image only
+```
+
+> [!IMPORTANT]
+> During this operation, all Virtual Machine Scale Set instances are upgraded and re-imaged to use the new SSH configuration.
 
 ## Disable SSH for an existing node pool
 
@@ -92,7 +117,7 @@ az aks nodepool update --cluster-name myManagedCluster --name mynodepool --resou
 
 The following example output shows that *mynodepool* has been successfully updated to disable SSH.
 
-## Update SSH public key on an existing AKS cluster (preview)
+## Update SSH public key on an existing AKS cluster
 
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
