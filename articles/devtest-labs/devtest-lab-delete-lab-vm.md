@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/14/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Delete labs or lab VMs in Azure DevTest Labs

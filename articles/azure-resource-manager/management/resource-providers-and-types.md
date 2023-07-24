@@ -91,19 +91,19 @@ To see information for a particular resource provider:
 
 1. Expand **Providers** by selecting the right arrow.
 
-    :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of selecting providers in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of selecting providers in the Azure Resource Explorer.":::
 
 1. Expand a resource provider and resource type that you want to view.
 
-    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of selecting a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of selecting a resource type in the Azure Resource Explorer.":::
 
 1. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
-    :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of showing locations for a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of showing locations for a resource type in the Azure Resource Explorer.":::
 
 1. The API version corresponds to a version of the resource provider's REST API operations. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
 
-    :::image type="content" source="./media/resource-providers-and-types/show-api-versions.png" alt-text="Screenshot of showing API versions for a resource type in the Azure portal.":::
+    :::image type="content" source="./media/resource-providers-and-types/show-api-versions.png" alt-text="Screenshot of showing API versions for a resource type in the Azure Resource Explorer.":::
 
 ## Azure PowerShell
 

@@ -248,13 +248,13 @@ When filtering runs by status, notice that MLflow uses a different convention to
 
 | Azure Machine Learning Job status | MLFlow's `attributes.status` | Meaning |
 | :-: | :-: | :- |
-| Not started | `SCHEDULED` | The job/run was just registered in Azure Machine Learning but it has processed it yet. |
-| Queue | `SCHEDULED` | The job/run is scheduled for running, but it hasn't started yet. |
-| Preparing | `SCHEDULED` | The job/run has not started yet, but a compute has been allocated for the execution and it is on building state. |
-| Running | `RUNNING` | The job/run is currently under active execution. |
-| Completed | `FINISHED` | The job/run has completed without errors. |
-| Failed | `FAILED` | The job/run has completed with errors. |
-| Canceled | `KILLED` | The job/run has been canceled or killed by the user/system. |
+| Not started | `Scheduled` | The job/run was received by Azure Machine Learning. |
+| Queue | `Scheduled` | The job/run is scheduled for running, but it hasn't started yet. |
+| Preparing | `Scheduled` | The job/run has not started yet, but a compute has been allocated for its execution and it's preparing the environment and its inputs. |
+| Running | `Running` | The job/run is currently under active execution. |
+| Completed | `Finished` | The job/run has been completed without errors. |
+| Failed | `Failed` | The job/run has been completed with errors. |
+| Canceled | `Killed` | The job/run has been canceled by the user or terminated by the system. |
 
 Example:
 
@@ -305,7 +305,7 @@ client.get_metric_history("1234-5678-90AB-CDEFG", "log_loss")
 
 ### Getting artifacts from a run
 
-Any artifact logged by a run can be queried by MLflow. Artifacts can't be access using the run object itself and the MLflow client should be used instead:
+Any artifact logged by a run can be queried by MLflow. Artifacts can't be accessed using the run object itself and the MLflow client should be used instead:
 
 ```python
 client = mlflow.tracking.MlflowClient()

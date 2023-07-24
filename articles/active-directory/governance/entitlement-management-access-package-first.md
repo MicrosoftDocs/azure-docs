@@ -58,7 +58,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
 
 1. In the left navigation, select **Azure Active Directory**.
 
