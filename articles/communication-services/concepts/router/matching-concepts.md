@@ -22,12 +22,12 @@ This document describes the registration of workers, the submission of jobs and 
 
 ## Worker Registration
 
-Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker will listen on and which channels it can handle.  Once registered, you'll receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from EventGrid.
+Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker listens on and which channels it can handle.  Once registered, you receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from Event Grid.
 
-In the following example we register a worker to
+In the following example, we register a worker to
 
 - Listen on `queue-1` and `queue-2`
-- Be able to handle both the voice and chat channels.  In this case, the worker could either take a single `voice` job at one time or two `chat` jobs at the same time.  This is configured by specifying the total capacity of the worker and assigning a cost per job for each channel.
+- Be able to handle both the voice and chat channels.  In this case, the worker could either take a single `voice` job at one time or two `chat` jobs at the same time.  This setting is configured by specifying the total capacity of the worker and assigning a cost per job for each channel.
 - Have a set of labels that describe things about the worker that could help determine if it's a match for a particular job.
 
 ::: zone pivot="programming-language-csharp"
@@ -122,7 +122,7 @@ client.createWorker(new CreateWorkerOptions("worker-1", 2)
 
 ## Job Submission
 
-In the following example, we'll submit a job that
+In the following example, we submit a job that
 
 - Goes directly to `queue1`.
 - For the `chat` channel.
@@ -201,8 +201,8 @@ client.createJob(new CreateJobOptions("job1", "chat", "queue1")
 
 ::: zone-end
 
-Job Router will now try to match this job to an available worker listening on `queue1` for the `chat` channel, with `English` set to `true` and `Skill` greater than `10`.
-Once a match is made, an offer is created. The distribution policy that is attached to the queue will control how many active offers there can be for a job and how long each offer is valid. [You'll receive][subscribe_events] an [OfferIssued Event][offer_issued_event] which would look like this:
+Job Router tries to match this job to an available worker listening on `queue1` for the `chat` channel, with `English` set to `true` and `Skill` greater than `10`.
+Once a match is made, an offer is created. The distribution policy that is attached to the queue controls how many active offers there can be for a job and how long each offer is valid. [You receive][subscribe_events] an [OfferIssued Event][offer_issued_event] that would look like this:
 
 ```json
 {
@@ -220,14 +220,14 @@ Once a match is made, an offer is created. The distribution policy that is attac
 }
 ```
 
-The [OfferIssued Event][offer_issued_event] includes details about the job, worker, how long the offer is valid and the `offerId` which you'll need to accept or decline the job.
+The [OfferIssued Event][offer_issued_event] includes details about the job, worker, how long the offer is valid and the `offerId` that you need to accept or decline the job.
 
 > [!NOTE]
 > The maximum lifetime of a job is 90 days, after which it'll automatically expire.
 
 ## Worker Deregistration
 
-If a worker would like to stop receiving offers, it can be deregistered by setting `AvailableForOffers` to `false` when updating the worker and you'll receive a [RouterWorkerDeregistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered) event from EventGrid.  Any existing offers for the worker will be revoked and you will receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer.
+If a worker would like to stop receiving offers, it can be deregistered by setting `AvailableForOffers` to `false` when updating the worker and you receive a [RouterWorkerDeregistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered) event from Event Grid.  Any existing offers for the worker are revoked and you receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer.
 
 ::: zone pivot="programming-language-csharp"
 
