@@ -130,7 +130,7 @@ CORS should now be configured to use the storage account from Document Intellige
 
 ### Sample documents set
 
-1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Your storage account** > **Data storage** > **Containers**.
 
    :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
 

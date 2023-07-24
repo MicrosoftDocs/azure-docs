@@ -66,5 +66,5 @@ Please note that to work with any other language than `en-US`, the `mkt` should 
 
 ## See also
 
-- [Cognitive Services Documentation page](../index.yml)
+- [Cognitive Services Documentation page](../../ai-services/index.yml)
 - [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)

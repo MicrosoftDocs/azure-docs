@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 The hub virtual network contains the firewall subnet that is associated with the Azure Firewall and NAT gateway. Use the following example to create the hub virtual network.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 

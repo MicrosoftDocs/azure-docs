@@ -3,8 +3,7 @@ title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
 ms.date: 04/03/2023
-ms.custom: subject-rbac-steps
-
+ms.custom: subject-rbac-steps, devx-track-linux
 ---
 
 # Create a Batch account in the Azure portal

@@ -4,6 +4,7 @@ description: This article shows you how to migrate Azure Application Gateway and
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/05/2023
 ms.author: greglin
