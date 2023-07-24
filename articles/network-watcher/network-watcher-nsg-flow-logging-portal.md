@@ -100,7 +100,7 @@ In this section, you create **myVM** virtual machine.
     | Select inbound ports | Select **RDP (3389)**. |
 
     > [!CAUTION]
-    > Leaving the RDP port open to the internet is only recommended for testing. For production environments, it's recommended to restrict access to the RDP port to a specific IP address or range of IP addresses. You can also block the RDP port and use [Azure Bastion](../bastion/bastion-overview.md) to securely connect to your virtual machine from the Azure portal. 
+    > Leaving the RDP port open to the internet is only recommended for testing. For production environments, it's recommended to restrict access to the RDP port to a specific IP address or range of IP addresses. You can also block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md) to securely connect to your virtual machine from the Azure portal. 
 
 1. Select **Review + create**.
 
