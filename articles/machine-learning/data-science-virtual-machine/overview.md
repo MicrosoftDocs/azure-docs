@@ -52,7 +52,7 @@ The DSVM is a customized VM image for Data Science but [Azure Machine Learning](
 
 Key differences between these:
 
-|Feature |Data Science<br>VM |AzureML<br>Compute Instance  | 
+|Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  | 
 |---------|---------|---------|
 | Fully Managed | No        | Yes        |
 |Language Support     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F#       | Python and R        |
@@ -64,7 +64,7 @@ Key differences between these:
 |Built-in<br>Hosted Notebooks     |   No<br>(requires additional configuration)      |      Yes   |
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
-|Preinstalled Tools     |  Jupyter(lab), VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
+|Preinstalled Tools     |  Jupyter(lab), VS Code,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
 ## Sample use cases
 
