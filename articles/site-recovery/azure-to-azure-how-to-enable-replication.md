@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/24/2023
 ms.service: site-recovery
 ---
 
@@ -24,7 +24,7 @@ Prerequisites should be in place, and you should have created a Recovery Service
 
 ## Enable replication
 
-Use the following procedure to replicate Azure VMs to another Azure region. As an example, primary Azure region is Eastasia, and the secondary is Southeast Asia.
+Use the following procedure to replicate Azure VMs to another Azure region. As an example, primary Azure region is East asia, and the secondary is Southeast Asia.
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 1. In the **Enable replication** page, under **Source**, do the following:
@@ -39,13 +39,13 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 
      :::image type="fields needed to configure replication" source="./media/azure-to-azure-how-to-enable-replication/source.png" alt-text="Screenshot that highlights the fields needed to configure replication.":::
 1. Select **Next**.
-1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then select **Next**.
+1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to 10 VMs. Then select **Next**.
 
    :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
-       - **Target location**: Select the location where your source virtual machine data must be replicated. Depending on the location of selected machines, Site Recovery will provide you the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
+       - **Target location**: Select the location where your source virtual machine data must be replicated. Depending on the location of selected machines, Site Recovery provides you with the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
        - **Target subscription**: Select the target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong.
            - By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name.
@@ -84,7 +84,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
          :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication/availability-option.png" alt-text="Screenshot of availability option."::: 
    
     1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](../virtual-machines/capacity-reservation-overview.md).
-    Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
+    Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM is created in the assigned Capacity Reservation Group.
     
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
 

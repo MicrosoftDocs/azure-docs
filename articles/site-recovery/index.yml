@@ -33,7 +33,7 @@ landingContent:
 
       - linkListType: concept
         links:
-          - text: Azure VM Disaster Recovery - High Churn Support 
+          - text: Azure VM Disaster Recovery - High Churn support 
             url: concepts-azure-to-azure-high-churn-support.md
 
       - linkListType: tutorial

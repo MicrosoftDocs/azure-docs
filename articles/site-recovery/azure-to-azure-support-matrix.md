@@ -316,7 +316,7 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Supported | 
 Cool and Hot Storage | Not supported | Virtual machine disks aren't supported on cool and hot storage
-Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
+Azure Storage firewalls for virtual networks  | Supported | If you want to restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
