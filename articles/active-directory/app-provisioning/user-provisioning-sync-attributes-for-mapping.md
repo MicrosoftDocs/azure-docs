@@ -117,7 +117,7 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
 ## Create an extension attribute using cloud sync
 Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to auto-discover these attributes and set up a corresponding mapping to Azure AD.
 
-1. Sign in to the Azure portal with a hybrid administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a hybrid administrator account.
 2. Select Azure AD Connect.
 3. Select **Manage Azure AD cloud sync**.
 4. Select the configuration you wish to add the extension attribute and mapping.
