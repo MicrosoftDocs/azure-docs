@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 07/25/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -66,8 +66,15 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 - If you're using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
      ```azurepowershell
-     Get-HcsNumaLpMapping
+     Get-HcsNumaLpMapping -MapType MinRootAware
      ```
+
+- This configuration is applied when you install or update to Azure Stack Edge 2307. There are two scenarios where the configuration will not be applied during installation or update:
+
+    - When you have more minroot vCPUs configured than the four vCPUs from Numa0 + All vCPUs from Numa1. This scenario applies mainly to Azure Stack Edge gateway customers who configure all vCPUs for minroot. For Azure Stack Edge Pro 2, there is only one Numa. For Azure Stack Edge Pro 2 with 40 cores it's more minroot vCPUs configured than 24 vCPUs, and for Azure Stack Edge Pro 2 with 48 vCPUs it's more than 28 vCPUs configured.
+
+    - When you have HPN VMs deployed and you are consuming more than 16 vCPUs on a machine with 40 cores, or more than 20 vCPUs on a machine with 48 cores, all vCPUs from Numa0 - 4 vCPUs will be reserved for minroot.
+
      ### [Azure Stack Edge Pro GPU](#tab/gpu)
 
      Here's example output for Azure Stack Edge Pro GPU:
