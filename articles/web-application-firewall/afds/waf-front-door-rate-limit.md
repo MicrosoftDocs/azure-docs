@@ -25,7 +25,7 @@ You also must specify at least one *match condition*, which tells Front Door whe
 
 If you need to apply a rate limit rule to all of your requests, consider using a match condition like the following example:
 
-:::image type="content" source="../media/waf-front-door-rate-limit/match-condition-match-all.png" alt-text="Screenshot of the Azure portal showing a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater." :::
+:::image type="content" source="../media/waf-front-door-rate-limit/match-condition-match-all.png" alt-text="Screenshot of the Azure portal showing a match condition that applies to all requests. The match condition looks for requests where the Host header size is zero or greater." :::
 
 The match condition above identifies all requests with a `Host` header of length greater than 0. Because all valid HTTP requests for Front Door contain a `Host` header, this match condition has the effect of matching all HTTP requests.
 
@@ -33,7 +33,11 @@ The match condition above identifies all requests with a `Host` header of length
 
 Requests from the same client often arrive at the same Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
 
-However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, 5 minutes over 1 minute) with larger thresholds are typically more effective than the shorter time window sizes with lower thresholds.
+However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counters yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 200 requests per minute), you may see some requests above the threshold get through.
+
+A few considerations to keep in mind while determining threshold values and time windows for rate limiting:
+-	Larger window size and smaller thresholds are most effective in preventing against DDoS attacks. 
+-	Setting larger time window sizes (for example, 5 minutes over 1 minute)  and larger thresholds values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limits thresholds than using the shorter time window sizes and lower thresholds values.
 
 ## Next steps
 
