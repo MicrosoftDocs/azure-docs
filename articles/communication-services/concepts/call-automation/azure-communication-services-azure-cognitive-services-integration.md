@@ -42,7 +42,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 ### Add a Managed Identity to the Azure Communication Services Resource 
 
-1. Navigate to your Azure Comminication Services Resource in the Azure portal.
+1. Navigate to your Azure Communication Services Resource in the Azure portal.
 2. Select the Identity tab.
 3. Enable system assigned identity.  This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
 
