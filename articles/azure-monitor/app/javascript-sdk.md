@@ -12,7 +12,7 @@ ms.reviewer: mmcc
 
 The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
-We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md).
+We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md). If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ## Prerequisites
 
@@ -131,8 +131,6 @@ If you want to use the extra features provided by plugins for specific framework
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
-
-If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ### 5. Confirm data is flowing
 
