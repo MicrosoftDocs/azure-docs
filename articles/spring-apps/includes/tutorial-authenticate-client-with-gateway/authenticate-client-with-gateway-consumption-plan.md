@@ -20,7 +20,7 @@ Use the following steps to clone and run the app locally.
 1. Use the following command to clone the sample project from GitHub:
 
    ```bash
-   git clone https://github.com/moarychan/azure-spring-apps-sso-client-credential.git -b consumption-plan
+   git clone https://github.com/Azure-Samples/azure-spring-apps-sso-client-credential.git -b consumption-plan
    ```
 
 1. Use the following command to build the Books backend services:
@@ -160,7 +160,7 @@ The Books RESTful API app acts as a resource server, which is protected by Azure
 1. Look for the **Value** of the secret, and then record it for later use. You need it to acquire access token.
 
 
-### 3.5 Update the configuration of the RESTful API application
+### 3.5 Update the configuration of Books Service app
 
 Update the configuration of `spring.cloud.azure.active-directory` in the `books-service` application configuration file. Be sure to replace the placeholders with your own values you created in the previous step.
 
