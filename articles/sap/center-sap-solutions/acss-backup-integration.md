@@ -30,8 +30,11 @@ Before you can go ahead and use this feature in preview, register for it from th
 - An Azure account with **Contributor** role access on the Subscription in which your SAP system exists.
 - Register **Microsoft.Features** Resource Provider on your subscription. 
 - Register your subscription for this preview feature in Azure Center for SAP solutions.
-- After you have successfully registered for the Preview feature, re-register Microsoft.Workloads resource provider on the Subscription.
-- To be able to configure Backup from the VIS resource, assign **Backup Contributor** role access to **Azure Workloads Connector Service** first-party app. This step is not required if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS. 
+- After you have successfully registered for the Preview feature, re-register **Microsoft.Workloads** resource provider on the Subscription.
+- To be able to configure Backup from the VIS resource, assign the following roles to **Azure Workloads Connector Service** first-party app
+  1. **Backup Contributor** role access on the Subscription or specific Resource group which has the Recovery services vault that will be used for Backup. 
+  2. **Virtual Machine Contributor** role access on the Subscription or Resource groups which have the Compute resources of the SAP systems.
+  - You can skip this step if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS. 
 - For HANA database backup, ensure the [prerequisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) required by Azure Backup are in place.
 - For HANA database backup, create a HDB Userstore key that will be used for preparing HANA DB for configuring Backup. 
 
@@ -41,7 +44,7 @@ Before you can go ahead and use this feature in preview, register for it from th
 ## Register for Backup integration preview feature
 Before you can start configuring Backup from the VIS resource or viewing Backup status on VIS resource in case Backup is already configured, you need to register for the Backup integration feature in Azure Center for SAP solutions. Follow these steps to register for the feature:
 
-1. Sign into the [Azure portal](https://portal.azure.com) as a user with **Contributor** role access.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user with **Contributor** role access.
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.
@@ -51,7 +54,7 @@ Before you can start configuring Backup from the VIS resource or viewing Backup 
 ## Configure Backup for your SAP system
 You can configure Backup for your Central service and Application server virtual machines and HANA database from the Virtual Instance for SAP solutions resource following these steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.
@@ -72,7 +75,7 @@ You can configure Backup for your Central service and Application server virtual
 After you configure Backup for the Virtual Machines and HANA Database of your SAP system either from the Virtual Instance for SAP solutions resource or from the Backup Center, you can monitor the status of Backup from the Virtual Instance for SAP solutions resource.
 
 To monitor Backup status:
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.

@@ -1,12 +1,12 @@
 ---
 title:  "App and deployment in Azure Spring Apps"
 description: Explains the distinction between application and deployment in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # App and deployment in Azure Spring Apps

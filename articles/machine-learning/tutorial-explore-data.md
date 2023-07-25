@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
-ms.date: 03/15/2023
+ms.date: 07/05/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
 # Tutorial: Upload, access and explore your data in Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this tutorial you learn how to:
 
@@ -117,11 +117,11 @@ An Azure Machine Learning data asset is similar to web browser bookmarks (favori
 Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
 
 > [!TIP]
-> For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
+> For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about azcopy [here](../storage/common/storage-use-azcopy-v10.md).
 
 The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.  
 
-Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using time to generate a unique version each time the cell is run.
+Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  This code uses time to generate a unique version, each time the cell is run.
 
 You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. In this tutorial, we want to refer to specific version numbers, so we create a version number instead.
 
@@ -319,7 +319,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

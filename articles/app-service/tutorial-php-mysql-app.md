@@ -400,7 +400,7 @@ Pricing for the create resources is as follows:
 
 #### How do I connect to the MySQL database that's secured behind the virtual network with other tools?
 
-- For basic access from a commmand-line tool, you can run `mysql` from the app's SSH terminal.
+- For basic access from a command-line tool, you can run `mysql` from the app's SSH terminal.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 

@@ -94,7 +94,7 @@ sections:
         answer: |
           Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Azure portal. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
-          1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+          1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
           2. In the Azure portal, select **Azure Active Directory**. 
           3. Under **Manage**, select **Security**.
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.

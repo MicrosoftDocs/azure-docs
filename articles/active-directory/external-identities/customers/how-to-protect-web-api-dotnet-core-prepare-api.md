@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/10/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, I want to configure my web API settings so as to protect it using Microsoft Entra.
 ---
 

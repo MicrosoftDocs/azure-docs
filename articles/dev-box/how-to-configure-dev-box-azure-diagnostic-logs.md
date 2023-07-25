@@ -12,14 +12,14 @@ ms.date: 04/28/2023
 
 # Configure Azure diagnostic logs for a dev center 
 
-With Azure diagnostic logs for DevCenter, you can view audit logs for dataplane operations in your dev center.  These logs can be routed to any of the following destinations:
+With Azure diagnostic logs for DevCenter, you can view audit logs for dataplane operations in your dev center. These logs can be routed to any of the following destinations:
 
 * Azure Storage account
 * Log Analytics workspace
 
 This feature is available on all dev centers. 
 
-Diagnostics logs allow you to export basic usage information from your dev center to different kinds sources so that you can consume them in a customized way.  The dataplane audit logs expose information around CRUD operations for dev boxes within your dev center.  Including, for example,  start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
+Diagnostics logs allow you to export basic usage information from your dev center to different kinds sources so that you can consume them in a customized way. The dataplane audit logs expose information around CRUD operations for dev boxes within your dev center. Including, for example, start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
 
 * Export data to blob storage, export to CSV.
 * Export data to Azure Monitor logs and view and query data in your own Log Analytics workspace 
@@ -30,7 +30,7 @@ A dev center is required for the following step.
 
 Follow these steps enable logging for your Azure DevCenter resource:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, navigate to **All resources** -> **your-devcenter**
 
@@ -127,7 +127,7 @@ DevCenter stores data in the following tables.
 
 | Table | Description |
 |:---|:---|
-| DevCenterDiagnosticLogs | Table used to store dataplane request/response information on dev box or environments within the dev center.   |
+| DevCenterDiagnosticLogs | Table used to store dataplane request/response information on dev box or environments within the dev center.  |
 
 
 ### Sample Kusto Queries

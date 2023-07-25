@@ -4,7 +4,7 @@ description: This article describes a method to use Azure Logic Apps to query da
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 05/01/2023
+ms.date: 07/02/2023
 ---
 
 

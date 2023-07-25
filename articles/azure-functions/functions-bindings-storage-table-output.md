@@ -503,15 +503,6 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 Choose a version to see usage details for the mode and version. 
 
-# [Combined Azure Storage extension](#tab/storage-extension/in-process)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-
-You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
-
 # [Azure Tables extension](#tab/table-api/in-process)
 
 The following types are supported for `out` parameters and return types:
@@ -520,6 +511,15 @@ The following types are supported for `out` parameters and return types:
 - `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
 
 You can also bind to `TableClient` [from the Azure SDK](/dotnet/api/azure.data.tables.tableclient). You can then use that object to write to the table.
+
+# [Combined Azure Storage extension](#tab/storage-extension/in-process)
+
+The following types are supported for `out` parameters and return types:
+
+- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+
+You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
@@ -530,32 +530,17 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
+# [Azure Tables extension](#tab/table-api/isolated-process)
+
+[!INCLUDE [functions-bindings-table-output-dotnet-isolated-types](../../includes/functions-bindings-table-output-dotnet-isolated-types.md)]
+
 # [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
 
 Return a plain-old CLR object (POCO) with properties that can be mapped to the table entity.
 
-# [Azure Tables extension](#tab/table-api/isolated-process)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
-
-You can also bind to `TableClient` [from the Azure SDK](/dotnet/api/azure.data.tables.tableclient). You can then use that object to write to the table.
-
-
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support isolated worker process.
-
-# [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-
-You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
 # [Azure Tables extension](#tab/table-api/csharp-script)
 
@@ -565,6 +550,15 @@ The following types are supported for `out` parameters and return types:
 - `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
 
 You can also bind to `TableClient` [from the Azure SDK](/dotnet/api/azure.data.tables.tableclient). You can then use that object to write to the table.
+
+# [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
+
+The following types are supported for `out` parameters and return types:
+
+- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+
+You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 

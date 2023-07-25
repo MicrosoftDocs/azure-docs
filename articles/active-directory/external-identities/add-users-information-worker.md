@@ -7,18 +7,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/07/2022
+ms.date: 06/30/2023
 
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to learn how can my users invite guest users to an app.
 ---
 
 # How users in your organization can invite guest users to an app
 
-After a guest user has been added to the directory in Azure AD, an application owner can send the guest user a direct link to the app they want to share. Azure AD admins can also set up self-service management for gallery or SAML-based apps in their Azure AD tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. Self-service app management for gallery and SAML-based apps requires some initial setup by an admin. Follow the summary of the setup steps (for more detailed instructions, see [Prerequisites](#prerequisites) later on this page):
+After a guest user has been added to the directory in Azure AD, an application owner can send the guest user a direct link to the app they want to share. Azure AD admins can also set up self-service management for gallery or SAML-based apps in their Azure AD tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. 
+
+Self-service app management for gallery and SAML-based apps requires some initial setup by an admin. Follow the summary of the setup steps (for more detailed instructions, see [Prerequisites](#prerequisites) later on this page):
 
  - Enable self-service group management for your tenant
  - Create a group to assign to the app and make the user an owner
@@ -26,14 +30,14 @@ After a guest user has been added to the directory in Azure AD, an application o
 
 > [!NOTE]
 > * This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Azure AD tenant. You can also [set up self-service Microsoft 365 groups](../enterprise-users/groups-self-service-management.md) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-> * Users are only able to invite guests if they have the [**Guest inviter**](../roles/permissions-reference.md#guest-inviter
-) role.
+> * Users are only able to invite guests if they have the **Guest inviter** role.
+
 ## Invite a guest user to an app from the Access Panel
 
 After an app is configured for self-service, application owners can use their own Access Panel to invite a guest user to the app they want to share. The guest user doesn't necessarily need to be added to Azure AD in advance. 
 
 1. Open your Access Panel by going to `https://myapps.microsoft.com`.
-2. Point to the app, select the ellipses (**...**), and then select **Manage app**.
+2. Point to the app, select the ellipses (**...**), and then select **Manage your application**.
 
 :::image type="content" source="media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app.":::
 

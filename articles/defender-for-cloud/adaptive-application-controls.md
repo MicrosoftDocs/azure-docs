@@ -1,5 +1,5 @@
 ---
-title: Adaptive application controls in Microsoft Defender for Cloud
+title: Adaptive application controls
 description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
 author: dcurwin
 ms.author: dacurwin

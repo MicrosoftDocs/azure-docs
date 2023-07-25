@@ -129,7 +129,7 @@ To allow the installation of R packages, allow __outbound__ traffic to `cloud.r-
 
 ## Scenario: Using compute cluster or compute instance with a public IP
 
-[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+[!INCLUDE [udr info for computes](includes/machine-learning-compute-user-defined-routes.md)]
 
 ## Scenario: Firewall between Azure Machine Learning and Azure Storage endpoints
 

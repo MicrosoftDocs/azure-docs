@@ -5,11 +5,11 @@ description: Understand data redundancy in Azure Storage. Data in your Microsoft
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 07/20/2023
 ms.author: jammart
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -192,8 +192,8 @@ The following table describes key parameters for each redundancy option:
 | Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Percent durability of objects over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool or Archive access tiers) for GZRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GZRS |
-| Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) |
+| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool access tier) for GZRS<br/><br/>At least 99.99% (99.9% for Cool access tier) for RA-GZRS |
+| Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) |
 | Number of copies of data maintained on separate nodes | Three copies within a single region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
 
 For more information, see the [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
@@ -247,17 +247,31 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 
 ### Support for customer-managed account failover
 
-All geo-redundant offerings support Microsoft-managed failover in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table. Supported account types must use Azure Resource Manager deployments. For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
+All geo-redundant offerings support [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
 | **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
 
-> [!NOTE]
-> Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
->
+Two important exceptions to consider are:
+
+> [!div class="checklist"]
+> * [Classic storage accounts](#classic-storage-accounts)
+> * [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2)
+
+#### Classic storage accounts
+
+Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+
+#### Azure Data Lake Storage Gen2
+
+Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace enabled (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
+
+> [!IMPORTANT]
 > In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+
+For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 ## Data integrity
 
