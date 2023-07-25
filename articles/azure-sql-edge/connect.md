@@ -54,7 +54,7 @@ The [SQL Server command-line tools](/sql/linux/sql-server-linux-setup-tools) are
 1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example, `e69e056c702d` is the container ID.
 
     ```bash
-    docker exec -it <Azure SQL Edge container ID or name> /bin/bash
+    docker exec -it e69e056c702d /bin/bash
     ```
 
     > [!TIP]
