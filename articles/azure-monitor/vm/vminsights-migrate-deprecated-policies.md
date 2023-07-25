@@ -54,7 +54,7 @@ These policies replace the deprecated policies:
 1. In the **Data Collection Rule Resource Id** field on the **Parameters** tab, paste the resource ID of the data collection rule you created in the previous step.
 1. On the **Remediation** tab: 
     1. In the **Scope** field, select your subscription and the resource group that contains your user-assigned managed identity.
-    2. set **Type of managed identity** to **User Assigned Managed Identity** and select your user-assigned identity. 
+    2. Set **Type of managed identity** to **User Assigned Managed Identity** and select your user-assigned identity. 
 
 ## Next steps
 
