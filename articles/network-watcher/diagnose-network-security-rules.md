@@ -182,6 +182,9 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
 ---
 
+> [!IMPORTANT]
+> Hourly pricing starts from the moment the Bastion host is deployed, regardless of outbound data usage. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). We recommend that you delete this resource once you've finished using it.
+
 ## Create a virtual machine
 
 In this section, you create a virtual machine and a network security group applied to its network interface.
@@ -782,6 +785,39 @@ You can add the security rule to the network security group from the Network Wat
     ```
 
     The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
+
+---
+
+## Clean up resources
+
+When no longer needed, delete the resource group and all of the resources it contains:
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. In **Network Watcher | Flow logs**, select the checkbox of the flow log.
+
+1. Select **Delete**.
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to delete the resource group and all of the resources it contains.
+
+```azurepowershell-interactive
+# Delete the resource group and all the resources it contains. 
+Remove-AzResourceGroup -Name 'myResourceGroup' -Force
+```
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
 
 ---
 
