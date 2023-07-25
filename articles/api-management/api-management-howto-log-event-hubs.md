@@ -116,7 +116,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
 
-#### [REST API](#tab/RESTAPI)
+#### [REST API](#tab/PowerShell)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with system-assigned managed identity credentials.
 
