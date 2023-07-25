@@ -51,3 +51,6 @@ sections:
 
       - question: Is it supported to use the same managed identity with multiple ALB Controllers?
         answer: No.  Each ALB controller must use its own unique managed identity.
+
+      - question: Can I share the same frontend resource between multiple Gateway and/or Ingress resources in Kubernetes?
+        answer: No. A frontend should be unique to a single Ingress or Gateway resource. Multiple hostnames and routes can be defined in a given Gateway or Ingress resource to eliminate the need for numerous frontend resources.
