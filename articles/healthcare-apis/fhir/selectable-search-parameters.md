@@ -8,8 +8,9 @@ ms.topic: reference
 ms.date: 07/24/2023
 ms.author: kesheth
 ---
-# Overview 
 
+
+# Overview 
 Searching for resources is fundamental to FHIR. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. 
 The FHIR service in Azure Health Data Services supports almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined in the FHIR specification. Search parameters that are not supported are listed in the links below:
     • [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json).
