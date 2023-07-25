@@ -27,6 +27,9 @@ Azure AD stores audit events for up to 30 days in the audit log. However, you ca
 
 
 ## Configure Azure AD to use Azure Monitor
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you use the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
 Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).

@@ -64,6 +64,157 @@ During a push installation of the Mobility service, the following steps are perf
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points.
    - If the VSS provider installation fails, the agent installation will fail. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
 
+
+## Install the Mobility service using UI (Modernized)
+
+>[!NOTE]
+> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-ui-classic).
+
+### Prerequisites
+
+Locate the installer files for the server’s operating system using the following steps:  
+- On the appliance, go to the folder *E:\Software\Agents*.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
+
+**Use the following steps to install the mobility service:**
+
+1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI:
+
+2. Provide the install location in the UI. This should be *C:\Program Files (x86)\Microsoft Azure Site Recovery*. 
+
+4. Click **Install**. This will start the installation of Mobility Service. Wait till the installation has been completed. 
+
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
+
+   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
+
+5. Once the installation is done, you will need to register the source machine with the appliance of your choice. To do so, copy the string present in the field  **Machine Details**.
+
+   This field includes information which is unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
+
+   ![Screenshot showing source machine string.](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
+
+6.	[Generate the configuration file](#generate-mobility-service-configuration-file) using the unique source machine identifier. Once done, provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
+7.	Click **Register**.
+
+    This will successfully register your source machine with your appliance.
+
+## Install the Mobility service using command prompt (Modernized)
+
+>[!NOTE]
+> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
+
+### Windows machine
+1. Open command prompt and navigate to the folder where the installer file has been placed.
+
+   ```cmd
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery
+   ```
+2. Run the following command to extract the installer file:
+   ```cmd
+       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+    ```
+3. To proceed with the installation, run the following command:
+
+   ```cmd
+
+    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
+   ```
+    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
+
+    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-modernized/configuration-string.png)
+
+4. After successfully installing, register the source machine with the above appliance using the following command:
+
+   ```cmd
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true
+   ```
+
+#### Installation settings
+
+Setting | Details
+--- | ---
+Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
+`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
+`/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
+`/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
+`/Silent`| Optional. Specifies whether to run the installer in silent mode.
+`/CSType`| Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy)
+
+#### Registration settings
+
+Setting | Details
+--- | ---
+Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
+`/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+`/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
+
+
+### Linux machine
+
+1. From a terminal session, copy the installer to a local folder such as **/tmp** on the server that you want to protect. Then run the below command:
+
+   ```bash
+       cd /tmp ;
+       tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
+   ```
+
+2. To install, use the below command:
+   ```bash
+       sudo  ./install -q -r MS -v VmWare -c CSPrime
+    ```
+
+    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
+
+3. After successfully installing, register the source machine with the above appliance using the following command:
+
+   ```bash
+        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
+    ```
+#### Installation settings
+
+  Setting | Details
+  --- | ---
+    Syntax | `./install -q -r MS -v VmWare -c CSPrime`
+    `-r` | Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.
+    `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
+    `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
+    `-q` | Optional. Specifies whether to run the installer in silent mode.
+    `-c` | Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+
+#### Registration settings
+
+  Setting | Details
+  --- | ---
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q -D true`  
+    `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+    `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
+    `-q` |  Optional. Specifies whether to run the installer in silent mode.
+    `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
+
+## Credential-less discovery in modernized architecture
+
+When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials will be required. 
+
+![Screenshot showing credential-less-discovery-check-box.](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
+
+## Generate Mobility Service configuration file
+
+  Use the following steps to generate mobility service configuration file:
+
+  1. Navigate to the appliance with which you want to register your source machine. Open the Microsoft Azure Appliance Configuration Manager and navigate to the section **Mobility service configuration details**.
+  2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
+  3. Click **Download configuration file**.
+
+  ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/download-configuration-file.png)
+
+This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
+
+See information about [upgrading the mobility services](upgrade-mobility-service-modernized.md).
+
+
+
 ## Install the Mobility service using UI (Classic)
 
 >[!NOTE]
@@ -76,7 +227,14 @@ During a push installation of the Mobility service, the following steps are perf
 >[!IMPORTANT]
 > Don't use the UI installation method if you're replicating an Azure Infrastructure as a Service (IaaS) VM from one Azure region to another. Use the [command prompt](#install-the-mobility-service-using-command-prompt-classic) installation.
 
-1. Copy the installation file to the machine, and run it.
+1.  Open command prompt and navigate to the folder where the installer file has been placed. Extract the installer:
+      ```cmd
+       Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+      ```
+1. Run the below command to launch the installation wizard for the agent .
+   ```cmd 
+    UnifiedAgentInstaller.exe /CSType CSLegacy
+   ```
 1. In **Installation Option**, select **Install mobility service**.
 1. Choose the installation location and select **Install**.
 
@@ -273,174 +431,6 @@ As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 versi
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 
-## Install the Mobility service using UI (Modernized)
-
->[!NOTE]
-> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-ui-classic).
-
-### Prerequisites
-
-Locate the installer files for the server’s operating system using the following steps:  
-- On the appliance, go to the folder *E:\Software\Agents*.
-- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
-
-**Use the following steps to install the mobility service:**
-
-1. Open command prompt and navigate to the folder where the installer file has been placed.
-
-   ```cmd
-    cd C:\Program Files (x86)\Microsoft Azure Site Recovery*
-   ```
-
-2. Run the below command to extract the installer file:
-
-   ```cmd
-   .\Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
-   ```
-
-3. Run the following command to proceed with the installation. This will launch the installer UI:
-
-   ```cmd
-   .\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
-   ```
-
-   >[!NOTE]
-   >The install location mentioned in the UI is the same as what was passed in the command.
-
-4. Click **Install**.
-
-   This will start the installation for Mobility Service.
-
-   Wait till the installation has been completed. Once done, you will reach the registration step, you can register the source machine with the appliance of your choice.
-
-   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
-
-   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
-
-5. Copy the string present in the field  **Machine Details**.
-
-   This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
-
-   ![Screenshot showing source machine string.](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
-
-6.	Provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
-7.	Click **Register**.
-
-    This will successfully register your source machine with your appliance.
-
-## Install the Mobility service using command prompt (Modernized)
-
->[!NOTE]
-> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
-
-### Windows machine
-1. Open command prompt and navigate to the folder where the installer file has been placed.
-
-   ```cmd
-   cd C:\Program Files (x86)\Microsoft Azure Site Recovery
-   ```
-2. Run the following command to extract the installer file:
-   ```cmd
-       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
-    ```
-3. To proceed with the installation, run the following command:
-
-   ```cmd
-
-    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
-   ```
-    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
-
-    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-modernized/configuration-string.png)
-
-4. After successfully installing, register the source machine with the above appliance using the following command:
-
-   ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true
-   ```
-
-#### Installation settings
-
-Setting | Details
---- | ---
-Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
-`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
-`/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
-`/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
-`/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy)
-
-#### Registration settings
-
-Setting | Details
---- | ---
-Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
-`/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
-`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
-
-
-### Linux machine
-
-1. From a terminal session, copy the installer to a local folder such as **/tmp** on the server that you want to protect. Then run the below command:
-
-   ```bash
-       cd /tmp ;
-       tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
-   ```
-
-2. To install, use the below command:
-   ```bash
-       sudo  ./install -q -r MS -v VmWare -c CSPrime
-    ```
-
-    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
-
-3. After successfully installing, register the source machine with the above appliance using the following command:
-
-   ```bash
-        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
-    ```
-#### Installation settings
-
-  Setting | Details
-  --- | ---
-    Syntax | `./install -q -r MS -v VmWare -c CSPrime`
-    `-r` | Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.
-    `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
-    `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
-    `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
-
-#### Registration settings
-
-  Setting | Details
-  --- | ---
-    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q -D true`  
-    `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
-    `-q` |  Optional. Specifies whether to run the installer in silent mode.
-    `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
-
-## Credential-less discovery in modernized architecture
-
-When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials will be required. 
-
-![Screenshot showing credential-less-discovery-check-box.](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
-
-## Generate Mobility Service configuration file
-
-  Use the following steps to generate mobility service configuration file:
-
-  1. Navigate to the appliance with which you want to register your source machine. Open the Microsoft Azure Appliance Configuration Manager and navigate to the section **Mobility service configuration details**.
-  2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
-  3. Click **Download configuration file**.
-
-  ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/download-configuration-file.png)
-
-This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
-
-See information about [upgrading the mobility services](upgrade-mobility-service-modernized.md).
 
 ## Next steps
 

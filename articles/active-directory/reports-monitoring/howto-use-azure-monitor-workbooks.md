@@ -48,6 +48,8 @@ To use Azure Workbooks for Azure AD, you need:
 
 ## How to access Azure Workbooks for Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
     - **Workbooks**: All workbooks created in your tenant

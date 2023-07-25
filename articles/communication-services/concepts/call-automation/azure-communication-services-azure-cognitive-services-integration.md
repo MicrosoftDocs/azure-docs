@@ -19,7 +19,7 @@ services: azure-communication-services
 >Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
 
 
-Azure Communication Services Call Automation APIs provide developers the ability to steer and control the ACS Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure Cognitive Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
+Azure Communication Services Call Automation APIs provide developers the ability to steer and control the Azure Communication Services Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure Cognitive Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
 
 All this is possible with one-click where enterprises can access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Cognitive Services uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Azure Active Directory authentication.
 
@@ -40,9 +40,9 @@ With the ability to, connect your Cognitive Services to Azure Communication Serv
 ## Azure portal experience
 You can also configure and bind your Communication Services and Cognitive Services through the Azure portal. 
 
-### Add a Managed Identity to the ACS Resource 
+### Add a Managed Identity to the Azure Communication Services Resource 
 
-1. Navigate to your ACS Resource in the Azure portal.
+1. Navigate to your Azure Communication Services Resource in the Azure portal.
 2. Select the Identity tab.
 3. Enable system assigned identity.  This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
 
@@ -68,9 +68,9 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 9. Click “Review + assign”, this assigns the role to the managed identity.
 
-### Option 2: Add role through ACS Identity tab
+### Option 2: Add role through Azure Communication Services Identity tab
 
-1. Navigate to your ACS resource in the Azure portal.
+1. Navigate to your Azure Communication Services resource in the Azure portal.
 2. Select Identity tab.
 3. Click on "Azure role assignments".
 
