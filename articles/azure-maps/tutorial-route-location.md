@@ -108,11 +108,11 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your Azure Maps account subscription key.
 
-    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling atlas.Map using your Azure Maps account key.":::
+    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling `atlas.Map` using your Azure Maps account key.":::
 
 ## Define route display rendering
 
-In this tutorial, you'll render the route using a line layer. The start and end points are rendered using a symbol layer. For more information on adding line layers, see [Add a line layer to a map]. To learn more about symbol layers, see [Add a symbol layer to a map].
+In this tutorial, the route is rendered using a line layer. The start and end points are rendered using a symbol layer. For more information on adding line layers, see [Add a line layer to a map]. To learn more about symbol layers, see [Add a symbol layer to a map].
 
 1. In the `GetMap` function, after initializing the map, add the following JavaScript code.
 
@@ -149,13 +149,13 @@ In this tutorial, you'll render the route using a line layer. The start and end 
 
    Some things to know about the above JavaScript:
 
-   * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial are placed inside the `ready` event handler.
+   * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial is placed inside the `ready` event handler.
    * In the map control's `ready` event handler, a data source is created to store the route from start to end point.
    * To define how the route line is rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
-    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
+    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
-2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Do this by appending the following code in the Map control's `ready` event handler:
+2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and points are created by appending the following code in the Map control's `ready` event handler:
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
