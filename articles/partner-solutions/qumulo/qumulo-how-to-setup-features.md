@@ -3,15 +3,16 @@ title: Azure Native Qumulo Scalable File Service overview
 description: Learn about what Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: overview
-ms.custom: template-overview
 ms.date: 01/18/2023
 #assign-reviewer: @flang-msft
 
 ---
 
+# Set-up features for Azure Native Qumulo Scalable File Service
+
 In this article we will describe key capabilities of Azure Native Qumulo Scalable File Service. 
 
-# Multiprotocol support 
+## Multiprotocol support 
 Azure Native Qumulo Scalable File Service provide multi file-sharing protocols such as NFS, SMB, FTP, and S3. Qumulo’s permissions model blends POSIX, Windows/NFSv4.1 ACLs, and S3 access levels, enabling the same files or objects to be simultaneously accessed across all our supported protocols.
 
 Key links to get started: 
@@ -23,7 +24,7 @@ Key links to get started:
 6. [Create a Continous Replication Relationship](https://care.qumulo.com/hc/en-us/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above#in-this-article-0-0)
 7. [Create a Directory Quota](https://care.qumulo.com/hc/en-us/articles/115009394288-Quotas-in-Qumulo-Core)
 
-# Monitoring and Auditing 
+## Monitoring and Auditing 
 
 Azure Native Qumulo Scalable File Service provides built-in system and data analytics to provide instant, real-time insight to file system capacity and activity. You can also integrate  Qumulo events using Azure Monitoring Agent and then use Azure Monitor to track Qumulo system operations. 
 
@@ -32,11 +33,11 @@ Key links to get started:
 2. [Open Metrics REST API - custom analytics](https://docs.qumulo.com/administrator-guide/metrics/openmetrics-api-specification.html)
 3. [Audit Logging with Azure Monitor]( https://care.qumulo.com/hc/en-us/articles/1500010560881-Auditing-Qumulo-on-Azure-using-Azure-Monitor#in-this-article-0-0)
 
-# Authentication 
+## Authentication 
 
 Azure Native Qumulo Scalable File Service enables you connect to [Azure Active Directory](https://care.qumulo.com/hc/en-us/articles/115007276068-Join-your-Qumulo-Cluster-to-Active-Directory#in-this-article-0-0) or [Active Directory Domain Services](https://care.qumulo.com/hc/en-us/articles/1500005254761-Qumulo-on-Azure-Connect-to-Azure-Active-Directory).
 
-# Developer Tools 
+## Developer Tools 
 
 Qumulo provides a rich set of developer tools to enable easier integration and management. 
 
