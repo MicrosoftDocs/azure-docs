@@ -37,19 +37,13 @@ In this tutorial you'll;
 
 ## Create the Node.js project
 
-1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
+1. In a location of choice in your computer, create a folder to host your node application, such as *ciam-sign-in-node-express-web-app*.
 
-1. Select **New Folder** and name it *ciam-sign-in-node-express-web-app*.
-
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-
-1. In the terminal, run the following command to create a new Node.js project:
+1. In your terminal, change directory into your Node web app folder, such as `cd ciam-sign-in-node-express-web-app`, then run the following command to create a new Node.js project:
 
     ```powershell
-    cd ciam-sign-in-node-express-web-app
     npm init -y
-    ```
-    
+    ```    
     The `init -y` command creates a default *package.json* file for your Node.js project. 
 
 1. Create additional folders and files to achieve the following project structure:
