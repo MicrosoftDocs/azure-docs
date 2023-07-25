@@ -16,7 +16,9 @@ ms.custom: template-tutorial
 
 You can use a network security group to filter inbound and outbound network traffic to and from Azure resources in an Azure virtual network.
 
-Network security groups contain security rules that filter network traffic by IP address, port, and protocol. When a network security group is associated with a subnet, security rules are applied to resources deployed in that subnet. 
+Network security groups contain security rules that filter network traffic by IP address, port, and protocol. When a network security group is associated with a subnet, security rules are applied to resources deployed in that subnet.
+
+:::image type="content" source="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png" alt-text="Diagram of resources created during tutorial.":::
 
 In this tutorial, you learn how to:
 

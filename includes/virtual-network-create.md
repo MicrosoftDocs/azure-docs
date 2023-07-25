@@ -29,7 +29,7 @@ The following procedure creates a virtual network with a resource subnet.
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
 1. Select **Next: IP Addresses** at the bottom of the page.
 
@@ -44,7 +44,7 @@ The following procedure creates a virtual network with a resource subnet.
     | Subnet name | Enter **subnet-1**. |
     | Subnet address range | Enter **10.0.0.0/24**. |
 
-    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of IP address space and subnet creation in Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of IP address space and subnet creation in Create virtual network in the Azure portal.":::
 
 1. Select **Add**.
 
