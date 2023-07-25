@@ -49,7 +49,7 @@ These custom roles only apply to Language resources.
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in Language studio portal.
 
 
-### Azure AI Language reader
+### Cognitive Services Language Reader
 
 A user that should only be validating and reviewing the Language apps, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets to notify the app developers of any changes that need to be made, but do not have direct access to make them. Readers will have access to view the evaluation results.
 
@@ -83,7 +83,7 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column-end:::
 :::row-end:::
 
-### Azure AI Language writer
+### Cognitive Services Language Writer
 
 A user that is responsible for building and modifying an application, as a collaborator in a larger team. The collaborator can modify the Language apps in any way, train those changes, and validate/test those changes in the portal. However, this user shouldn’t have access to deploying this application to the runtime, as they may accidentally reflect their changes in production. They also shouldn’t be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in production. They may also create new applications under this resource, but with the restrictions mentioned.
 
@@ -97,7 +97,7 @@ A user that is responsible for building and modifying an application, as a colla
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Azure AI Language Reader.
+      * All functionalities under Cognitive Services Language Reader.
       * Ability to: 
           * Train
           * Write
@@ -116,9 +116,7 @@ A user that is responsible for building and modifying an application, as a colla
     :::column-end:::
 :::row-end:::
 
-<a name='cognitive-services-language-owner'></a>
-
-### Azure AI Language Owner
+### Cognitive Services Language Owner
 
 > [!NOTE]
 > If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language Owner* in Language studio portal.
@@ -136,7 +134,7 @@ These users are the gatekeepers for the Language applications in production envi
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Azure AI Language Writer
+      * All functionalities under Cognitive Services Language Writer
       * Deploy
       * Delete
     :::column-end:::
