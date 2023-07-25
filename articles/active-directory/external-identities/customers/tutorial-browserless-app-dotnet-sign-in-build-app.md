@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Registration details for the browserless app you created in the [prepare tenant tutorial](./tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md). You need the following details:
-  - The Application (client) ID of the .NET broserless app that you registered.
+  - The Application (client) ID of the .NET browserless app that you registered.
   - The Directory (tenant) subdomain where you registered your .NET browserless app.
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.

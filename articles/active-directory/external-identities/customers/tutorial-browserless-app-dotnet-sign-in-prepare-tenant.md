@@ -57,12 +57,12 @@ Since this app signs-in users, add delegated permissions:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Pick your registration details
+## Record your registration details
 
 The next step after this tutorial is to build a WPF desktop app that authenticates users. Ensure you have the following details:
 
-- The Application (client) ID of the WPF desktop app that you registered.
-- The Directory (tenant) subdomain where you registered your WPF desktop app. If your primary domain is *contoso.onmicrosoft.com*, your Directory (tenant) subdomain is *contoso*. If you don't have your primary domain, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+- The Application (client) ID of the .NET browserless app that you registered.
+- The Directory (tenant) subdomain where you registered your .NET browserless app. If your primary domain is *contoso.onmicrosoft.com*, your Directory (tenant) subdomain is *contoso*. If you don't have your primary domain, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 ## Next steps
 
