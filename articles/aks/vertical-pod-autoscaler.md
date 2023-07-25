@@ -367,7 +367,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
 In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender and configure the VPA object to use the customized recommender.
 
-The following example is a customized recommender that you apply to your existing AKS cluster.
+The following example is a customized recommender that you apply to your existing AKS cluster. You then configure the VPA object to use the customized recommender.
 
 1. Create a file named `customized_recommender.yaml` and copy in the following manifest:
 
@@ -410,117 +410,122 @@ The following example is a customized recommender that you apply to your existin
     ```
 
 2. Deploy the `customized-recomender.yaml`` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
- 
+
     ```bash
     kubectl apply -f customized-recommender.yaml 
     ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
+3. Create a file named `hamnster_customized_recommender.yaml` and copy in the following manifest:
 
-apiVersion: "autoscaling.k8s.io/v1" 
-
-kind: VerticalPodAutoscaler 
-
-metadata: 
-
-  name: hamster-vpa 
-
-spec: 
-
-  recommenders:  
-
-    - name: 'customized-recommender' 
-
-  targetRef: 
-
-    apiVersion: "apps/v1" 
-
-    kind: Deployment 
-
-    name: hamster 
-
-  updatePolicy: 
-
-    updateMode: "Auto" 
-
-  resourcePolicy: 
-
-    containerPolicies: 
-
-      - containerName: '*' 
-
-        minAllowed: 
-
-          cpu: 100m 
-
-          memory: 50Mi 
-
-        maxAllowed: 
-
-          cpu: 1 
-
-          memory: 500Mi 
-
-        controlledResources: ["cpu", "memory"] 
-
---- 
-
-apiVersion: apps/v1 
-
-kind: Deployment 
-
-metadata: 
-
-  name: hamster 
-
-spec: 
-
-  selector: 
-
-    matchLabels: 
-
-      app: hamster 
-
-  replicas: 2 
-
-  template: 
-
+    ```yml
+    apiVersion: "autoscaling.k8s.io/v1" 
+    kind: VerticalPodAutoscaler 
     metadata: 
-
-      labels: 
-
-        app: hamster 
-
+      name: hamster-vpa 
     spec: 
-
-      securityContext: 
-
-        runAsNonRoot: true 
-
-        runAsUser: 65534 # nobody 
-
-      containers: 
-
-        - name: hamster 
-
-          image: k8s.gcr.io/ubuntu-slim:0.1 
-
-          resources: 
-
-            requests: 
-
+      recommenders:  
+        - name: 'customized-recommender' 
+      targetRef: 
+        apiVersion: "apps/v1" 
+        kind: Deployment 
+        name: hamster 
+      updatePolicy: 
+        updateMode: "Auto" 
+      resourcePolicy: 
+        containerPolicies: 
+          - containerName: '*' 
+            minAllowed: 
               cpu: 100m 
-
               memory: 50Mi 
+            maxAllowed: 
+              cpu: 1 
+              memory: 500Mi 
+            controlledResources: ["cpu", "memory"] 
+    --- 
+    apiVersion: apps/v1 
+    kind: Deployment 
+    metadata: 
+      name: hamster 
+    spec: 
+      selector: 
+        matchLabels: 
+          app: hamster 
+      replicas: 2 
+      template: 
+        metadata: 
+          labels: 
+            app: hamster 
+        spec: 
+          securityContext: 
+            runAsNonRoot: true 
+            runAsUser: 65534 # nobody 
+          containers: 
+            - name: hamster 
+              image: k8s.gcr.io/ubuntu-slim:0.1 
+              resources: 
+                requests: 
+                  cpu: 100m 
+                  memory: 50Mi 
+              command: ["/bin/sh"] 
+              args: 
+                - "-c" 
+                - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
+    ```
 
-          command: ["/bin/sh"] 
+4. Deploy the `hamster_customized-recomender.yaml` example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
-          args: 
+    ``bash
+    kubectl apply -f hamster_customized_recommender.yaml
+    ```
 
-            - "-c" 
+5. Wait for the vpa-updater to launch a new hamster pod, which should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
-            - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
+    ```bash
+    kubectl get --watch pods -l app=hamster
+    ````
+
+6. When a new hamster pod is started, describe the pod running the [kubectl describe][kubectl-describe] command and view the updated CPU and memory reservations.
+
+    ```bash
+    kubectl describe pod hamster-<exampleID>
+    ```
+
+   The example output is a snippet of the information describing the pod:
+
+    ```output
+    State:          Running
+      Started:      Wed, 28 Sep 2022 15:09:51 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        587m
+      memory:     262144k
+    Environment:  <none>
+    ```
+
+7. To view updated recommendations from VPA, run the [kubectl describe][kubectl-describe] command to describe the hamster-vpa resource information.
+
+    ```bash
+    kubectl describe vpa/hamster-vpa
+    ```
+
+   The example output is a snippet of the information about the resource utilization:
+
+    ```output
+    State:          Running
+     Started:      Wed, 28 Sep 2022 15:09:51 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        587m
+      memory:     262144k
+    Environment:  <none>
+    Spec:
+      recommenders:
+        Name: customized-recommender
+    ```
 
 ## Next steps
 
