@@ -96,7 +96,7 @@ Lifecycle Workflows is now general available within Microsoft Entra ID Governanc
 **Service category:** User Experience and Management                            
 **Product capability:** User Authentication                
 
-Update the Azure AD and Microsoft 365 sign in experience with new Company Branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+Update the Microsoft Entra ID and Microsoft 365 sign in experience with new Company Branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
 
 ---
 
@@ -106,7 +106,7 @@ Update the Azure AD and Microsoft 365 sign in experience with new Company Brandi
 **Service category:** User Experience and Management                            
 **Product capability:** End User Experiences                  
 
-Update the Company Branding functionality on the Azure AD/Microsoft 365 sign in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks, and a browser icon. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+Update the Company Branding functionality on the Microsoft Entra ID/Microsoft 365 sign in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks, and a browser icon. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
 
 ---
 
