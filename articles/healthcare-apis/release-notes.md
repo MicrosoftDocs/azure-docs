@@ -23,21 +23,6 @@ Azure Health Data Services is a set of managed API services based on open standa
 #### Azure Health Data Services
 
 #### FHIR Service
-
-**New Feature: selectable search parameter capability**
-selectable search parameter allows customers to enable and disable built search parameters. This allows to store more resources in allocated apce and have performance improvements, by enabling only needed search parameters.
-> [!IMPORTANT]
-> selectable search capability is currently in public preview.
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-**Feature Enhancement: Batch Bundle parellization**
-Resources in batch bundles are executed in parallel to improve throughtput. To enable functionality, use header 
-> [!IMPORTANT]
-> Batch bundle parellization is currently in public preview.
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 **Bug Fix: Continous retry on Import operation**
 We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
