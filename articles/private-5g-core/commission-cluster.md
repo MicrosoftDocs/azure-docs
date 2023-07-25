@@ -80,8 +80,8 @@ You can input all the settings on this page before selecting **Apply** at the bo
           - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
           - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
           - **VLAN**: 0
-          - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
-            - For example, *255.255.255.0* and *10.232.44.1*
+          - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+            - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
@@ -97,8 +97,8 @@ You can input all the settings on this page before selecting **Apply** at the bo
         - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
         - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
         - **VLAN**: VLAN ID, or 0 if not using VLANs
-        - **Subnet mask** and **Gateway** must match the external values for the port.
-            - For example, *255.255.255.0* and *10.232.44.1*
+        - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+            - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
