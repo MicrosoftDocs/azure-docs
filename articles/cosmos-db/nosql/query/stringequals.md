@@ -50,5 +50,5 @@ The following example checks if "abc" matches "abc" and if "abc" matches "ABC."
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SUBSTRING`](substring.md)

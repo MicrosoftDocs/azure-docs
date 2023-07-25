@@ -22,6 +22,8 @@ You can download a list of all the groups in your organization to a comma-separa
 
 ## To download a list of groups
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 >[!NOTE]
 > The columns downloaded are pre-defined
 
