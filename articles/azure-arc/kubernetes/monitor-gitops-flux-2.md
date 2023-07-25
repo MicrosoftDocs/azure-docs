@@ -43,7 +43,7 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 1. Download the [GitOps Flux - Application Deployments Dashboard](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/GitOps%20Flux%20-%20Application%20Deployments%20Dashboard.json).
 1. Follow the steps to [import the JSON dashboard to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
-After you have imported the dashboard, it will display information from the clusters that you're monitoring, with several panels that provide details. For more details on an item, select the link to visit the Azure Portal, where you can find more information about configurations, errors and logs.
+After you have imported the dashboard, it will display information from the clusters that you're monitoring, with several panels that provide details. For more details on an item, select the link to visit the Azure portal, where you can find more information about configurations, errors and logs.
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-application-deployments-dashboard.png" alt-text="Screenshot of the Flux Application Deployments Dashboard." lightbox="media/monitor-gitops-flux2/flux-application-deployments-dashboard.png":::
 
