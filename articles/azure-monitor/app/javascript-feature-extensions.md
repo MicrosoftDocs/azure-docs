@@ -59,43 +59,42 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-Ignore this setup if you use the npm setup.
+1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
 
-```html
-<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
-<script type="text/javascript">
-  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
-  // Click Analytics configuration
-  var clickPluginConfig = {
-    autoCapture : true,
-    dataTags: {
-      useDefaultContentNameOrId: true
-    }
-  }
-  // Application Insights configuration
-  var configObj = {
-    connectionString: "YOUR_CONNECTION_STRING",
-    // Alternatively, you can pass in the instrumentation key,
-    // but support for instrumentation key ingestion will end on March 31, 2025.
-    // instrumentationKey: "YOUR INSTRUMENTATION KEY",
-    extensions: [
-      clickPluginInstance
-    ],
-    extensionConfig: {
-      [clickPluginInstance.identifier] : clickPluginConfig
-    },
-  };
-  // Application Insights JavaScript (Web) SDK Loader Script code
-  !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
-    crossOrigin: "anonymous",
-    cfg: configObj // configObj is defined above.
-  });
-</script>
-```
+	```html
+	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
+	<script type="text/javascript">
+			var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+			// Click Analytics configuration
+			var clickPluginConfig = {
+					autoCapture : true,
+					dataTags: {
+							useDefaultContentNameOrId: true
+					}
+			}
+			// Application Insights configuration
+			var configObj = {
+					connectionString: "YOUR_CONNECTION_STRING",
+					// Alternatively, you can pass in the instrumentation key,
+					// but support for instrumentation key ingestion will end on March 31, 2025.
+					// instrumentationKey: "YOUR INSTRUMENTATION KEY",
+					extensions: [
+							clickPluginInstance
+					],
+					extensionConfig: {
+							[clickPluginInstance.identifier] : clickPluginConfig
+					},
+			};
+			// Application Insights JavaScript (Web) SDK Loader Script code
+			!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
+					src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+					crossOrigin: "anonymous",
+					cfg: configObj // configObj is defined above.
+			});
+	</script>
+	```
 
-> [!NOTE]
-> To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
+1. To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
 
 #### [npm package](#tab/npmpackage)
 
