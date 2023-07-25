@@ -35,7 +35,7 @@ In this section, you create a notification hub in an existing namespace.
 
 1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      ![Notification Hubs - Add toolbar button for an existing namespace](../../includes/media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
+      ![Notification Hubs - Add toolbar button for an existing namespace](./media/create-notification-hub-portal/create-toolbar-button.png)
 
 1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
 
@@ -45,7 +45,7 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
 1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
 
- :::image type="content" source="../../includes/media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="../../includes/media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
+ :::image type="content" source="./media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="./media/create-notification-hub-portal/notification-hub-details.png":::
 
 1. Review the [**Availability Zones**](./notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
 
@@ -54,7 +54,7 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
 1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 
-:::image type="content" source="../../includes/media/notification-hubs-portal-create-new-hub/availability-zones.png" alt-text="Screenshot showing availability zone details for existing namespace." lightbox="../../includes/media/notification-hubs-portal-create-new-hub/availability-zones.png":::
+:::image type="content" source="./media/create-notification-hub-portal/availability-zones.png" alt-text="Screenshot showing availability zone details for existing namespace." lightbox="./media/create-notification-hub-portal/availability-zones.png":::
 
 1. Select **Create**.
 
