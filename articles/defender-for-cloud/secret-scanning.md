@@ -32,25 +32,9 @@ In addition to detecting SSH private keys, the agentless scanner verifies whethe
   - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
   - [Defender CSPM](concept-cloud-security-posture-management.md)
 
-> [!NOTE]
-> If both plans are not enabled, you will only have limited access to the features available from Defender for Server's agentless secret scanning capabilities. Check out [which features are available with each plan](#feature-capability).
-
 - [Enable agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines).
 
 For requirements for agentless scanning, see [Learn about agentless scanning](concept-agentless-data-collection.md#availability).
-
-## Feature capability
-
-You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities.
-
-If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which plans enable which features:
-
-| Plan Feature | Defender for servers plan 2 | Defender CSPM |
-|--|--|--|
-| [Attack path](#remediate-secrets-with-attack-path) | No | Yes |
-| [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | Yes | Yes |
-| [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
-| [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
 
 ## Remediate secrets with attack path
 
