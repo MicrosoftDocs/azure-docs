@@ -63,8 +63,8 @@ Create a custom connection that stores all your LLM API KEY or other required cr
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
 > [!NOTE]
-> - You can set one Key-Value pair as **secret** by **is secret** checked, which will be encrypted and stored in your key value.
-> - You can also set the whole connection as **workspace level key**, which will be shared to all members in the workspace. If not set as workspace level key, it can only be accessed by the creator.
+> - You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
+> - Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully.
 
 Then this custom connection is used to replace the key and credential you explicitly defined in LangChain code, if you already have a LangChain integration Prompt flow, you can jump to​​​​​​​ [Configure connection, input and output](#configure-connection-input-and-output).
 
@@ -108,9 +108,9 @@ After you have a properly structured flow and are done moving the code to specif
 
 To utilize a [custom connection](#create-a-custom-connection) that stores all the required keys and credentials, follow these steps:
 
-1. In the python tools, need to access LLM Key and other credentials, import custom connection library `from promptflow.connections import CustomConnection`.
+1. In the python tools, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
-1. Add an input parameter of type `connection` to the tool function.
+1. Parse the input to the input section, then select your target custom connection in the value dropdown.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 1. Replace the environment variables that originally defined the key and credential with the corresponding key added in the connection.
 1. Save and return to authoring page, and configure the connection parameter in the node input.

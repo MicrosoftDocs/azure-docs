@@ -15,9 +15,9 @@ ms.date: 08/25/2022
 
 Azure Database for PostgreSQL - Flexible Server currently supports the following major versions:
 
-## PostgreSQL version 15 (Preview)
+## PostgreSQL version 15
 
-PostgreSQL version 15 is now available in public preview in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).The current minor release is **15.2**.Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.2/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
+PostgreSQL version 15 is now generally available in all Azure regions. The current minor release is **15.2**.Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.2/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
 
 
 ## PostgreSQL version 14

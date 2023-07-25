@@ -150,16 +150,11 @@ Cognitive Search provides a [multi-region deployment sample](https://github.com/
 
 Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. If an endpoint that Traffic Manager is servicing begins refusing requests, traffic is routed to another endpoint.
 
-Traffic Manager doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search. You can't put a search service directly behind Traffic Manager. Instead, the assumption is that requests flow to Traffic Manager, then to a search-enabled web client, and finally to a search service on the backend. The client and service are located in the same region. If one search service goes down, the search client starts failing, and Traffic Manager redirects to the remaining client.
+Traffic Manager doesn't provide an endpoint for a direct connection to Cognitive Search, which means you can't put a search service directly behind Traffic Manager. Instead, the assumption is that requests flow to Traffic Manager, then to a search-enabled web client, and finally to a search service on the backend. The client and service are located in the same region. If one search service goes down, the search client starts failing, and Traffic Manager redirects to the remaining client.
 
 ![Search apps connecting through Azure Traffic Manager][4]
 
-<!-- To add health checks and failover capabilities for Azure Cognitive Search, use Azure Application Gateway or a load balancer in combination with Azure Traffic Manager. [Azure Application Gateway](/azure/application-gateway/overview) supports health probes, which can be configured to check the availability of specific backend services and perform load balancing accordingly.
-
-The architecture for this solution would consist of search-enabled client apps that connect to Application Gateway through Azure Traffic Manager, where each gateway endpoint connects to a backend search service in a specific region.
- -->
-
-## About data residency
+## About data residency in a multi-region deployment
 
 When you deploy multiple search services in various geographic regions, your content is stored in the region you chose for each search service.
 
@@ -178,7 +173,7 @@ If you don't use indexers, you would use your application code to push objects a
 
 ## Back up and restore alternatives
 
-Because Azure Cognitive Search isn't a primary data storage solution, Microsoft doesn't provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
+A business continuity strategy for the data layer usually includes a restore-from-backup step. Because Azure Cognitive Search isn't a primary data storage solution, Microsoft doesn't provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 

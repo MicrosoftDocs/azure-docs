@@ -644,8 +644,11 @@ items:
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
     - name: Mobile integrations
-    - name: Quality and Reliability
+    - name: Monitor and manage call quality
       items:
+      - name: Manage call quality
+        href: concepts/voice-video-calling/manage-call-quality.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick

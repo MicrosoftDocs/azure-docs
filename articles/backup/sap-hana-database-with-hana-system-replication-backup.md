@@ -59,7 +59,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Diagram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
 
    >[!Note]
    >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
@@ -119,6 +119,11 @@ To discover the HSR database, follow these steps:
    Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault and installs an extension on the VM. It doesn't install any agent on the database.
 
    To view the details about all the databases of each discovered VM, select **View details** under the **Step 1: Discover DBs in VMs section**.
+
+>[!Note]
+>During discovery or configuration of backup on the secondary node, ignore the status if the **Backup Readiness** state appears **Not Ready** as this is an expected state for the secondary node on HSR.
+>
+>    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/backup-readiness-state.png" alt-text="Screenshot shows the different backup readiness state." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/backup-readiness-state.png":::
 
 ## Configure backup
 
@@ -235,6 +240,7 @@ You can run an on-demand backup using SAP HANA native clients to local file-syst
 
 ## Possible scenarios to protect HSR nodes on Azure Backup
 
+
 You can now switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. If you’ve already configured HSR and protecting only the primary node using Azure Backup, you can modify the configuration to protect both primary and secondary nodes.
 
 ### Two standalone/HSR nodes never protected using SAP HANA Database backup on Azure VM
@@ -242,7 +248,7 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
 
    >[!Note]
-   >HSR-based attributes are added to the latest preregistration script - //link here )
+   >HSR-based attributes are added to the latest preregistration script -
 
 1. Configure HSR manually or using any clustering tools, such as **pacemaker**,
 
@@ -274,5 +280,5 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 
 ## Next steps
 
-- [Restore SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-restore.md)
-- [About backing up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview)
+- [Restore SAP HANA System Replication databases on Azure VMs](sap-hana-database-restore.md)
+- [About backing up SAP HANA System Replication databases on Azure VMs](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled)
