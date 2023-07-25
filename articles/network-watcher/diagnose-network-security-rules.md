@@ -289,8 +289,8 @@ In this section, you add a security rule to the network security group associate
     | Destination port ranges | Enter *. |
     | Protocol | Select **Any**. |
     | Action | Select **Deny**. |
-    | Priority | Enter *1000*. |
-    | Name | Enter *DenyVnetInBound*. |
+    | Priority | Enter ***1000***. |
+    | Name | Enter ***DenyVnetInBound***. |
 
 1. Select **Add**.
 
@@ -571,15 +571,15 @@ You can add the security rule to the network security group from the Network Wat
     | Setting | Value |
     | --- | --- |
     | Source | Select **IP Addresses**. |
-    | Source IP addresses/CIDR ranges | Enter *10.0.1.0/26*, which is the IP address range of the Bastion subnet. |
+    | Source IP addresses/CIDR ranges | Enter ***10.0.1.0/26***, which is the IP address range of the Bastion subnet. |
     | Source port ranges | Enter *. |
     | Destination | Select **Any**. |
     | Service | Select **Custom**. |
     | Destination port ranges | Enter *. |
     | Protocol | Select **Any**. |
     | Action | Select **Allow**. |
-    | Priority | Enter *900*, which is higher priority than **1000** used for **DenyVnetInBound** rule. |
-    | Name | Enter *AllowBastionConnections*. |
+    | Priority | Enter ***900***, which is higher priority than **1000** used for **DenyVnetInBound** rule. |
+    | Name | Enter ***AllowBastionConnections***. |
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-add-security-rule.png" alt-text="Screenshot showing how to add a new security rule to the network security group to allow the traffic to the virtual machine from the Bastion subnet." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-add-security-rule.png":::
 
@@ -794,13 +794,13 @@ When no longer needed, delete the resource group and all of the resources it con
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
-1. Under **Logs**, select **Flow logs**.
+1. Select **Delete resource group**.
 
-1. In **Network Watcher | Flow logs**, select the checkbox of the flow log.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
-1. Select **Delete**.
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 # [**PowerShell**](#tab/powershell)
 
