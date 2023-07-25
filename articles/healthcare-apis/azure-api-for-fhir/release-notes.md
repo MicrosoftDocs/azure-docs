@@ -18,6 +18,14 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 > [!Note]
 > Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
 
+## **July 2023**
+**Feature enhancement: Change to the exported file name format**
+FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
+* Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+* Default storage account name is updated to Export-\<Number\>.
+
+There is no change to number of resources added in individual exported files.
+
 ## **June 2023**
 **Bug Fix: Metadata endpoint URL in capability statement is relative URL**
 Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. 
