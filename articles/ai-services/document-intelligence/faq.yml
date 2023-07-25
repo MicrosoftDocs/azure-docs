@@ -21,10 +21,10 @@ sections:
   - name: General concepts
     questions:
       - question: |
-          What is Azure AI Document Intelligence and what happened to Azure AI Document Intelligence?
+          What is Azure AI Document Intelligence and what happened to Form Recognizer?
         answer: |
 
-          - Azure AI Document Intelligence is now Azure AI Document Intelligence!
+          - Form Recognizer is now Azure AI Document Intelligence!
 
           - Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 

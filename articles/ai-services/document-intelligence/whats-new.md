@@ -30,7 +30,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 ## July 2023
 
 > [!NOTE]
-> Azure AI Document Intelligence is now Azure AI Document Intelligence!
+> Form Recognizer is now Azure AI Document Intelligence!
 >
 > As of July 2023, Azure AI services encompass all of what were previously known as Azure AI services and Azure AI services. There are no changes to pricing. The names "Azure AI services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
 
