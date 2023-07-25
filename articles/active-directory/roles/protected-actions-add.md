@@ -174,7 +174,7 @@ The user has previously satisfied policy. For example, the completed multifactor
 
 **Solution 2**
 
-Check the [Azure AD sign-in events](../conditional-access/troubleshoot-conditional-access.md) to troubleshoot. The sign-in events will include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
+Check the [Azure AD sign-in events](../conditional-access/troubleshoot-conditional-access.md) to troubleshoot. The sign-in events include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
 
 ### Symptom - Policy is never satisfied
 
@@ -210,7 +210,7 @@ When using PowerShell to perform a protected action, an error is returned and th
 
 **Cause**
 
-Microsoft Graph PowerShell supports step-up authentication, which is required to allow policy prompts. Azure and Azure AD Graph PowerShell isn't supported for step-up authentication.
+Microsoft Graph PowerShell supports step-up authentication, which is required to allow policy prompts. Azure and Azure AD Graph PowerShell aren't supported for step-up authentication.
 
 **Solution**
 
