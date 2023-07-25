@@ -201,4 +201,4 @@ You may want to:
 
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
 
-- [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md)
+- [Sign in users in your own Node.js web application](tutorial-web-app-node-sign-in-prepare-tenant.md)

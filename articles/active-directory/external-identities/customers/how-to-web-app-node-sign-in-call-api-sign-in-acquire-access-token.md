@@ -259,7 +259,7 @@ In your code editor, open *routes/users.js* file, then add the following code:
         
         module.exports = router;
 ```
-If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
+If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](tutorial-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
 To extract a specific ID token claim, such as *given name*: 
 ```javascript
     const givenName = req.session.account.idTokenClaims.given_name

@@ -98,7 +98,7 @@ If you use the *.env* file to store your configuration information:
 
 1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Subdomain_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
 
-You export `msalConfig`, `REDIRECT_URI`, `TENANT_SUBDOMAIN` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file. This makes them accessible wherever you require the file.
+You export `msalConfig`, `REDIRECT_URI`, `TENANT_SUBDOMAIN` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file, which makes them accessible wherever you require the file.
 
 ## Add express routes
 
@@ -122,7 +122,7 @@ router.get('/', function (req, res, next) {
 module.exports = router;
 ```
 
-The `/` route is the entry point to the application. It renders the *views/index.hbs* view that you created earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
+The `/` route is the entry point to the application. It renders the *views/index.hbs* view that you created earlier in [Build app UI components](tutorial-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
 
 ### Sign in and sign out
 
@@ -170,7 +170,7 @@ The `/` route is the entry point to the application. It renders the *views/index
 
 - The `handleRedirect` method handles `/redirect` route:
     
-    - You set this as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in.md#register-the-web-app).
+    - You set this URL as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](sample-web-app-node-sign-in.md#register-the-web-app).
     
     - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
     
@@ -237,7 +237,7 @@ router.get('/id',
 module.exports = router;
 ```
 
-If the user is authenticated, the `/id` route displays ID token claims by using the *views/id.hbs* view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
+If the user is authenticated, the `/id` route displays ID token claims by using the *views/id.hbs* view. You added this view earlier in [Build app UI components](tutorial-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
 
 To extract a specific ID token claim, such as *given name*: 
 
