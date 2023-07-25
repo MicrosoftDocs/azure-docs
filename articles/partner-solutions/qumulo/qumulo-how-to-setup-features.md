@@ -1,9 +1,9 @@
 ---
-title: Azure Native Qumulo Scalable File Service overview
-description: Learn about what Azure Native Qumulo Scalable File Service offers you.
+title: Azure Native Qumulo Scalable File Service feature set up
+description: Learn about features available with Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: overview
-ms.date: 01/18/2023
+ms.date: 07/25/2023
 #assign-reviewer: @flang-msft
 
 ---
