@@ -182,16 +182,12 @@ items:
       - name: Daemon, service
         items: 
           - name: Node.js
-            items:
-              - name: Overview
-                href: how-to-daemon-node-call-api-overview.md
-                displayName: client credentials flow
+            items:                
               - name: Prepare tenant
-                href: how-to-daemon-node-call-api-prepare-tenant.md
-              - name: Prepare app
-                href: how-to-daemon-node-call-api-prepare-app.md 
+                href: tutorial-daemon-node-call-api-prepare-tenant.md
+                displayName: client credentials flow 
               - name: Acquire access token and call API
-                href: how-to-daemon-node-call-api-call-api.md
+                href: tutorial-daemon-node-call-api-build-app.md
           - name: .NET
             items:
               - name: Prepare tenant
