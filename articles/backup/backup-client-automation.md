@@ -2,7 +2,7 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: conceptual
-ms.date: 08/24/2021 
+ms.date: 08/14/2023
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -674,6 +674,38 @@ Estimating size of backup items...
 Estimating size of backup items...
 Job completed.
 The recovery operation completed successfully.
+```
+
+## Cross Region Restore
+
+### Original Server Restore
+
+If you're performing restore for the original server from the secondary region (Cross Region Restore), you need to use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
+
+```azurepowershell
+$sources = Get-OBRecoverableSource -UseSecondaryRegion
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption -DestinationPath $RecoveryPath -OverwriteType Overwrite
+Start-OBRecovery -RecoverableItem $RP -RecoveryOption $RO -Async | ConvertTo-Json
+
+```
+
+### Alternate Server Restore:
+
+If you're performing restore for an alternate server from the secondary region (Cross Region Restore), you need to download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
+
+```azurepowershell
+$serverName = ‘myserver.mycompany.com’
+$secVaultCred = “C:\Users\myuser\Downloads\myvault_Mon Jul 17 2023.VaultCredentials”
+$passphrase = ‘Default Passphrase’
+$alternateServers = Get-OBAlternateBackupServer -VaultCredentials $secVaultCred
+$altServer = $alternateServers[2] | Where-Object {$_.ServerName -Like $serverName}
+$pwd = ConvertTo-SecureString -String $passphrase -AsPlainText -Force
+$sources = Get-OBRecoverableSource $altServer
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption
+Start-OBRecoveryMount -RecoverableItem $RP -RecoveryOption $RO -EncryptionPassphrase $pwd  -Async | ConvertTo-Json 
+
 ```
 
 ## Uninstalling the Azure Backup agent

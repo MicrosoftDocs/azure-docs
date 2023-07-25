@@ -34,6 +34,10 @@ The following steps will help you recover all backed-up files in a volume:
 
     ![Getting started page](./media/restore-all-files-volume-mars/same-machine-instant-restore.png)
 
+   If you've enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Otherwise, select **Primary Region**.
+
+   :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection of the source region of recovery point.":::
+
 1. On the **Select Recovery Mode** page, choose **Volume** > **Next**.
 
     ![Select recovery mode](./media/restore-all-files-volume-mars/select-recovery-mode.png)
@@ -86,11 +90,22 @@ These steps include the following terminology:
 
 1. On the **Getting Started** page, select **Another server**.
 
-    ![Screenshot of Recover Data Wizard Getting Started page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+   ![Screenshot of Recover Data Wizard Getting Started page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
-1. Provide the vault credential file that corresponds to the sample vault, and select **Next**.
+1. Provide the vault credential file that corresponds to the sample vault.
 
-    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+   If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+
+   If you want to use Cross Region Restore to restore the backup data from the secondary region, you need to download the *Secondary Region vault credential file* from the Azure portal, and then pass the file in the MARS agent.
+
+   :::image type="content" source="{source}" alt-text="{alt-text}":::
+
+   Select **Next** to continue.
+
+
+
+
+
 
 1. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 
