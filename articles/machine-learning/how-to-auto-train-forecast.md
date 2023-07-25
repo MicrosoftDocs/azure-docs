@@ -757,6 +757,8 @@ Once the job is submitted, AutoML will provision compute resources, apply featur
 
 ## Orchestrating training, inference, and evaluation with components and pipelines
 
+[!INCLUDE [preview v2](includes/machine-learning-preview-generic-disclaimer.md)]
+
 Your ML workflow likely requires more than just training. Inference, or retrieving model predictions on newer data, and evaluation of model accuracy on a test set with known target values are other common tasks that you can orchestrate in AzureML along with training jobs. To support inference and evaluation tasks, AzureML provides [components](concept-component.md), which are self-contained pieces of code that do one step in an AzureML [pipeline](concept-ml-pipelines.md).
 
 # [Python SDK](#tab/python)
@@ -776,11 +778,16 @@ except Exception as ex:
     # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential fails
     credential = InteractiveBrowserCredential()
 
-# Create a client for accessing assets in the AzureML registry
+# Create a client for accessing assets in the AzureML preview registry
 ml_client_registry = MLClient(
     credential=credential,
-    registry_name="<REGISTRY_NAME>",
-    registry_location="<REGISTRY_REGION>"
+    registry_name="azureml-preview"
+)
+
+# Create a client for accessing assets in the AzureML preview registry
+ml_client_metrics_registry = MLClient(
+    credential=credential,
+    registry_name="azureml"
 )
 
 # Get an inference component from the registry
@@ -790,7 +797,7 @@ inference_component = ml_client_registry.components.get(
 )
 
 # Get a component for computing evaluation metrics from the registry
-compute_metrics_component = ml_client_registry.components.get(
+compute_metrics_component = ml_client_metrics_registry.components.get(
     name="compute_metrics",
     label="latest"
 )
@@ -961,7 +968,7 @@ jobs:
     # Configure the inference node to make rolling forecasts on the test set
     inference_node:
         type: command
-        component: azureml://registries/ForecastingDemand2/components/automl_forecasting_inference/versions/0.0.1.2.preview
+        component: azureml://registries/azureml-preview/components/automl_forecasting_inference@latest
         inputs:
             target_column_name: ${{parent.inputs.target_column_name}}
             forecast_mode: rolling
@@ -976,7 +983,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/ForecastingDemand2/components/compute_metrics/versions/0.0.14.preview
+        component: azureml://registries/azureml/compute_metrics@latest
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.inference_node.outputs.inference_output_file}}
@@ -1022,6 +1029,8 @@ Then, you can find the metrics results in `./named-outputs/metrics_results/evalu
 For more details on rolling evaluation, see our [forecasting model evaluation article](concept-automl-forecasting-evaluation.md).   
  
 ## Forecasting at scale: many models
+
+[!INCLUDE [preview v2](includes/machine-learning-preview-generic-disclaimer.md)]
 
 The many models components in AutoML enable you to train and manage millions of models in parallel. For more information on many models concepts, see the [many models article section](concept-automl-forecasting-at-scale.md#many-models).
 
@@ -1100,18 +1109,18 @@ except Exception as ex:
 
 # Get a many models training component
 mm_train_component = ml_client_registry.components.get(
-    name='automl_many_model_training',
+    name='automl_many_models_training',
     version='latest'
 )
 
 # Get a many models inference component
 mm_inference_component = ml_client_registry.components.get(
-    name='automl_many_model_inferencing',
+    name='automl_many_models_inference',
     version='latest'
 )
 
 # Get a component for computing evaluation metrics
-compute_metrics_component = ml_client_registry.components.get(
+compute_metrics_component = ml_client_metrics_registry.components.get(
     name="compute_metrics",
     label="latest"
 )
@@ -1232,7 +1241,7 @@ jobs:
     # Configure AutoML many models training component
     mm_train_node:
         type: command
-        component: azureml://registries/ManyModels_HTS_BugBash/components/automl_many_model_training/versions/0.1.33
+        component: azureml://registries/azureml-preview/components/automl_many_models_training@latest
         inputs:
             raw_data: ${{parent.inputs.train_data_input}}
             automl_config: ${{parent.inputs.automl_config_input}}
@@ -1248,7 +1257,7 @@ jobs:
     # Configure the inference node to make rolling forecasts on the test set
     mm_inference_node:
         type: command
-        component: azureml://registries/ManyModels_HTS_BugBash/components/automl_many_model_inferencing/versions/0.1.33
+        component: azureml://registries/azureml-preview/components/automl_many_models_inference@latest
         inputs:
             raw_data: ${{parent.inputs.test_data_input}}
             max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
@@ -1268,7 +1277,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/ForecastingDemand2/components/compute_metrics/versions/0.0.14.preview
+        component: azureml://registries/azureml/components/compute_metrics@latest
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.mm_inference_node.outputs.evaluation_data}}
@@ -1292,6 +1301,8 @@ After the job finishes, the evaluation metrics can be downloaded locally using t
 > The many models training and inference components conditionally partition your data according to the `partition_column_names` setting so that each partition is in its own file. This process can be very slow or fail when data is very large. In this case, we recommend partitioning your data manually before running many models training or inference.  
 
 ## Forecasting at scale: hierarchical time series
+
+[!INCLUDE [preview v2](includes/machine-learning-preview-generic-disclaimer.md)]
 
 The hierarchical time series (HTS) components in AutoML enable you to train a large number of models on data with hierarchical structure. For more information, see the [HTS article section](concept-automl-forecasting-at-scale.md#hierarchical-time-series-forecasting).
 
@@ -1376,12 +1387,12 @@ hts_train_component = ml_client_registry.components.get(
 
 # Get a HTS inference component
 hts_inference_component = ml_client_registry.components.get(
-    name='automl_hts_inferencing',
+    name='automl_hts_inference',
     version='latest'
 )
 
 # Get a component for computing evaluation metrics
-compute_metrics_component = ml_client_registry.components.get(
+compute_metrics_component = ml_client_metrics_registry.components.get(
     name="compute_metrics",
     label="latest"
 )
@@ -1499,7 +1510,7 @@ jobs:
     # Configure AutoML many models training component
     hts_train_node:
         type: command
-        component: azureml://registries/ManyModels_HTS_BugBash/components/automl_hts_training/versions/0.1.33
+        component: azureml://registries/azureml-preview/components/automl_hts_training@latest
         inputs:
             raw_data: ${{parent.inputs.train_data_input}}
             automl_config: ${{parent.inputs.automl_config_input}}
@@ -1514,7 +1525,7 @@ jobs:
     # Configure the inference node to make rolling forecasts on the test set
     hts_inference_node:
         type: command
-        component: azureml://registries/ManyModels_HTS_BugBash/components/automl_hts_inferencing/versions/0.1.33
+        component: azureml://registries/azureml-preview/components/automl_hts_inference@latest
         inputs:
             raw_data: ${{parent.inputs.test_data_input}}
             max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
@@ -1536,7 +1547,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/ForecastingDemand2/components/compute_metrics/versions/0.0.14.preview
+        component: azureml://registries/azureml/components/compute_metrics@latest
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.hts_inference_node.outputs.evaluation_data}}
