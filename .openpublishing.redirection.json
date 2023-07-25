@@ -24009,7 +24009,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/image-builder-optimization.md",
+            "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
             "redirect_url": "/azure/virtual-machines/image-builder-optimization",
             "redirect_document_id": true
         },
