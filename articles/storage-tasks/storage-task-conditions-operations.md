@@ -38,7 +38,7 @@ For more information about how to define conditions and operations, see [Define 
 
 The following table shows the properties that you can use to compose a condition. A condition can contain string, boolean, numeric, as well as date and time properties.
 
-| String                         | Date and time        | Numeric        | Boolean          |
+| String                         | Date and time<sup>3</sup>      | Numeric        | Boolean          |
 |--------------------------------|----------------------|----------------|------------------|
 | AccessTier<sup>1</sup>         | AccessTierChangeTime | Content-Length | IsCurrentVersion |
 | Metadata.Value                 | Creation-Time        | TagCount       |                  |
@@ -54,6 +54,8 @@ The following table shows the properties that you can use to compose a condition
 
 <sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
+<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](#parameters-in-values).
+
 ### Supported operators in conditions
 
 The following table shows the operators that you can use in a condition to evaluate the value of each type of property.
@@ -67,9 +69,33 @@ The following table shows the operators that you can use in a condition to evalu
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
 
-#### String matching in property values
+### String matching and wildcards
 
 Explain matching and wild card patterns. At the time of this draft, it appears that `*` and `?` are supported with the addition of a "matches" operator soon which enables the escaping of these characters in a name. This section is TBD pending the addition of the "matches" operator.
+
+#### Obtaining date and time values dynamically
+
+- The values for all Date and time properties in a condition can by dynamically obtained from metadata.
+
+- The value can be any key-value attribute in the metadata of a container or the index tag of a blob.
+
+- Provide a quick example of why anyone would care or use this capability.
+
+- While key names have no restrictions, the value of each key must be formatted by using the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard. Provide some examples of using that standard in values.
+
+- Choose which type of metadata to reference as you design the condition in the visual editor.
+
+  > [!div class="mx-imgBorder"]
+  > ![Screenshot of the dialog box which enables you to reference metadata from objects.](./media/storage-task-conditions-operations/parameterized-condition.png)
+
+The following table describes each option.
+
+| Option | Description |
+|--|--|
+| Container metadata | Uses the value associated with a key that is defined in the metadata of each container. You specify which key to use. |
+| Blob index tags | Uses the value associated with a tag that is set on objects in a container. You specify which tag to use. |
+| Custom value | An amount of time that has transpired since the current date and time. You specify a number, and then choose either seconds, minutes, hours, or days. This value uses the current Data and time, and is not obtained from metadata. |
+| Specific date | A specific date and time. This is value is not dynamically obtained from from metadata.  |
 
 ## Supported operations
 
@@ -83,6 +109,8 @@ The following table shows the supported operations, parameters, and parameter va
 | Set Blob Tags | TagSet | A fixed collection of up to 10 key-value pairs |
 | Set Blob Immutability Policy | Need parameter names | Need value names|
 | Set Blob Legal Hold | Need parameter names | Need parameter names |
+
+Something here about the fact that there is no design-time validation. Errors are reported at run time.
 
 ### Ordering operations
 
