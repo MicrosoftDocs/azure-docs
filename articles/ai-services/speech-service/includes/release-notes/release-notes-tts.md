@@ -8,6 +8,13 @@ ms.author: eur
 
 ### July 2023 release
 
+#### Custom neural voice
+
+- [Multi-style voice](../../how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) is generally available.
+- Added two new locales in public preview for multi-style voice: `ja-JP` and `zh-CN`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. Refer to [the preset style list for different languages](../../how-to-custom-voice-create-voice.md?tabs=multistyle#available-preset-styles-across-different-languages).
+- [Cross-lingual voice](../../how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) is generally available. 
+- Added two new locales for cross-lingual voice: `id-ID` and `nl-NL`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. 
+
 #### Prebuilt Neural TTS Voices
 
 Introducing new `en-US` gender neutral voice for public preview:
