@@ -24050,7 +24050,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
-            "redirect_url": "/azure/virtual-machines/reliability-virtual-machines",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/reliability-virtual-machines.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
             "redirect_document_id": false
         },
         {

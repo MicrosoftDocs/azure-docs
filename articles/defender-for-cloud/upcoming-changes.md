@@ -29,6 +29,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
 | [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | September 2023 |
+| [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
@@ -152,6 +153,29 @@ The naming format of standards for Azure CIS (Center for Internet Security) is s
 | GCP CIS 1.2.0 | CIS GCP Foundations v1.2.0 |
 
 Learn how to [improve your regulatory compliance](regulatory-compliance-dashboard.md).
+
+### Preview alerts for DNS servers to be deprecated
+
+**Estimated date for change: August 2023**
+
+Following quality improvement process, security alerts for DNS servers are set to be deprecated in August. For cloud resources, use [Azure DNS](defender-for-dns-introduction.md) to receive the same security value.
+
+The following table lists the alerts to be deprecated:
+
+| AlertDisplayName | AlertType |
+|--|--|
+| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain
+| Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
+| Digital currency mining activity (Preview) | DNS_CurrencyMining |
+| Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |
+| Attempted communication with suspicious sinkholed domain (Preview) | DNS_SinkholedDomain |
+| Communication with possible phishing domain (Preview) | DNS_PhishingDomain| 
+| Possible data transfer via DNS tunnel (Preview) | DNS_DataObfuscation |
+| Possible data exfiltration via DNS tunnel (Preview) | DNS_DataExfiltration | 
+| Communication with suspicious algorithmically generated domain (Preview) | DNS_DomainGenerationAlgorithm | 
+| Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
+| Anonymity network activity (Preview) | DNS_DarkWeb |
+| Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
 
 ### Change to the Log Analytics daily cap
 

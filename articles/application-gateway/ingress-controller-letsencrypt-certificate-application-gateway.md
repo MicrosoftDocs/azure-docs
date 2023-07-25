@@ -6,13 +6,16 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
 # Use certificates with LetsEncrypt.org on Application Gateway for AKS clusters
 
 This section configures your AKS to use [LetsEncrypt.org](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Application Gateway, which performs SSL/TLS termination for your AKS cluster. The setup described here uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 Use the following steps to install [cert-manager](https://docs.cert-manager.io) on your existing AKS cluster.
 
@@ -58,7 +61,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Create a `ClusterIssuer` resource. This is required by `cert-manager` to represent the `Lets Encrypt` certificate authority where the signed certificate is obtained.
 
-    Using the non-namespaced `ClusterIssuer` resource, cert-manager issues certificates that can be consumed from multiple namespaces. `Let’s Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
+   The non-namespaced `ClusterIssuer` resource enables cert-manager to issue certificates that can be consumed from multiple namespaces. `Let’s Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
 
     The default challenge type in the following YAML is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
@@ -138,9 +141,9 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
 4. Production Certificate
 
-    Once your staging certificate is set up successfully you can switch to a production ACME server:
+    Once your staging certificate is set up successfully, you can switch to a production ACME server:
     1. Replace the staging annotation on your Ingress resource with: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Delete the existing staging `ClusterIssuer` you created in the previous step and create a new one by replacing the ACME server from the ClusterIssuer YAML above with `https://acme-v02.api.letsencrypt.org/directory`
+    1. Delete the existing staging `ClusterIssuer` you created in the previous step and create a new one by replacing the ACME server from the previous ClusterIssuer YAML with `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Certificate Expiration and Renewal
 
