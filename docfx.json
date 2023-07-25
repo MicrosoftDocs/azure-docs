@@ -1389,7 +1389,6 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md"
-
         ]
       },
       "sensitive-language-sl": {
@@ -1407,6 +1406,7 @@
           "articles/dms/known-issues-troubleshooting-dms.md",
           "articles/dms/tutorial-mysql-azure-mysql-online.md",
           "articles/dms/tutorial-mysql-azure-single-to-flex-online-portal.md",
+          "articles/dms/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
           "articles/mariadb/**/*.md",
           "articles/mysql/**/*.md",
