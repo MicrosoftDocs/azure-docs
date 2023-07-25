@@ -32,7 +32,7 @@ Only certain Azure AD roles are authorized to manage Microsoft Support access re
 
 1. Select the **Support request ID** link for the request you need to approve.
 
-    ![Screenshot of the pending request with links to view details highlighted.](media/how-to-manage-support-access-requests/pending-request-view-details-links.png)
+    ![Screenshot of the pending request with links to view details highlighted.](media/how-to-manage-support-access-requests/approved-access.png)
 
 ## Revoke access to an approved support access request
 
