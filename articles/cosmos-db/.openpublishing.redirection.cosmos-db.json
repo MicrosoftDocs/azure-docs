@@ -2751,7 +2751,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/queries-mongo.md ",
+      "source_path_from_root": "/articles/cosmos-db/queries-mongo.md",
       "redirect_url": "/azure/cosmos-db/mongodb/diagnostic-queries-mongodb",
       "redirect_document_id": true
     },
@@ -2991,7 +2991,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/gremlin-api-faq.yml ",
+      "source_path_from_root": "/articles/cosmos-db/gremlin-api-faq.yml",
       "redirect_url": "/azure/cosmos-db/graph/gremlin-api-faq",
       "redirect_document_id": true
     },

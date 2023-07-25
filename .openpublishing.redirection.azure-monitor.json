@@ -5929,7 +5929,8 @@
             "source_path_from_root": "/articles/azure-monitor/insights/vmware.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/insights/vmware",
             "redirect_document_id": false
-        },{
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/insights/wire-data.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/insights/wire-data",
             "redirect_document_id": false

@@ -77,7 +77,7 @@
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/configure-database.md",
-          "redirect_url": "/azure/healthcare-apis/fhir/configure-database.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/configure-database",
           "redirect_document_id": false
       },
       {
