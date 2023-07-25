@@ -62,7 +62,7 @@ These settings are known to be incompatible with hibernation, and aren't support
  
 ## Enable hibernation on your dev box image 
 
-The  Visual Studio and Microsoft 365 images that dev Box provides in the Azure Marketplace are already configured to support hibernation. You don't need to enable hibernation on these images, they're ready to use. 
+The  Visual Studio and Microsoft 365 images that Dev Box provides in the Azure Marketplace are already configured to support hibernation. You don't need to enable hibernation on these images, they're ready to use. 
 
 If you plan to use a custom image from an Azure Compute Gallery, you need to enable hibernation capabilities as you create the new image. To enable hibernation capabilities, set the IsHibernateSupported flag to true. You must set the IsHibernateSupported flag when you create the image, existing images can't be modified.  
 
@@ -73,6 +73,14 @@ az sig image-definition create /
    --resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> --location <location> / 
    --publisher <publishername> --offer <offername> --sku <skuname> --os-type windows --os-state Generalized / 
    --features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
+```
+
+If you're using sysprep and a generalized VM to create a custom image, capture your image using the Azure CLI:
+
+```azurecli-interactive
+az sig image-version create /
+   --resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> /
+   --gallery-image-version <versionNumber> --virtual-machine <VMResourceId>
 ```
 
 For more information about creating a custom image, see [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md).
