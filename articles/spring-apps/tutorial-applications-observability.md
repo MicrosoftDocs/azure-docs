@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Observability of Azure Spring Apps applications"
+title: "Tutorial - Optimizing Applications Observability for Azure Spring Apps"
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
@@ -9,7 +9,7 @@ ms.date: 06/20/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Observability of Azure Spring Apps applications
+# Tutorial: Optimizing Applications Observability for Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

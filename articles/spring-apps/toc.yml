@@ -65,7 +65,7 @@ items:
       href: quickstart-automate-deployments-github-actions-enterprise.md
   - name: "Production-ready"
     items:
-     - name: Applications observability
+     - name: Optimize application observability
        href: tutorial-applications-observability.md
      - name: Custom DNS name
        href: how-to-custom-domain.md
