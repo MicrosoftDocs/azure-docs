@@ -85,7 +85,7 @@ In this tutorial, you follow these steps:
 
 12.	Once you’ve selected a folder path, select **Continue** button.
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-111.png" alt-text="Screenshot of the continue button in the guided process to proceed to next step":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-111.png" alt-text="Screenshot of the continue button in the guided process to proceed to next step.":::
 
 13.	You automatically land in a new change data capture tab, where you can configure your new resource. 
 
