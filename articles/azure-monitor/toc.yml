@@ -126,16 +126,16 @@ items:
             href: app/opencensus-python-dependency.md
           - name: Requests
             href: app/opencensus-python-request.md
-        - name: JavaScript
+        - name: Client-side JavaScript
           items:
           - name: Get Started with JavaScript SDK
             displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
-          - name: React, React Native, Angular
+          - name: Enable React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Click Analytics Auto-Collection
+          - name: Enable Click Analytics
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
