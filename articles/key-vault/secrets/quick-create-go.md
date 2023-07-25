@@ -29,7 +29,7 @@ Get started with the [azsecrets](https://aka.ms/azsdk/go/keyvault-secrets/docs) 
 
 For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to authenticate to Azure by using the Azure CLI. To learn about the various authentication methods, see [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
-###  Sign in to the Azure portal
+### Sign in to the Azure portal
 
 1. In the Azure CLI, run the following command:
 

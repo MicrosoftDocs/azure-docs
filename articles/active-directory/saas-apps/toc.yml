@@ -1057,6 +1057,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
+      - name: Gainsight SAML
+        href: gainsight-saml-tutorial.md
       - name: gamba!
         href: gamba-tutorial.md
       - name: Google Cloud / G Suite Connector
@@ -2815,6 +2817,8 @@
         href: whimsical-tutorial.md
       - name: Whitesource
         href: whitesource-tutorial.md
+      - name: WhosOff
+        href: whosoff-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
       - name: WhosOnLocation

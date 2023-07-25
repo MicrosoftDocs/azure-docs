@@ -19,37 +19,28 @@ zone_pivot_groups: acs-js-csharp-java-python
 Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 [!INCLUDE [Use Job Router with .NET SDK](./includes/router-quickstart-net.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 [!INCLUDE [Use Job Router with JavaScript SDK](./includes/router-quickstart-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 [!INCLUDE [Use Job Router with Python SDK](./includes/router-quickstart-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 [!INCLUDE [Use Job Router with Java SDK](./includes/router-quickstart-java.md)]
 ::: zone-end
+
+## Next Steps
+Explore Job Router How-To's [tutorials](https://learn.microsoft.com/azure/communication-services/concepts/router/concepts#check-out-our-how-to-guides)
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
