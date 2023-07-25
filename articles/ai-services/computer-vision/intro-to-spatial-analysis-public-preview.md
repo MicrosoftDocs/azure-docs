@@ -53,7 +53,7 @@ Spatial Analysis can also be configured to detect if a person is wearing a prote
 ## Input requirements
 
 Spatial Analysis works on videos that meet the following requirements:
-* The video must be in RTSP, RAW video, MP4, FLV, or MKV format.
+* The video must be in RTSP, rawvideo, MP4, FLV, or MKV format.
 * The video codec must be H.264, HEVC(H.265), rawvideo, VP9, or MPEG-4.
 
 ## Get started
