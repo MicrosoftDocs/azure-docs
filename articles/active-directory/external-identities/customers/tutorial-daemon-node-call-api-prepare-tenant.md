@@ -16,7 +16,7 @@ ms.custom: developer, devx-track-js
 
 # Tutorial: Prepare your customer tenant to authorize a Node.js daemon application
 
-In this tutorial series, you learn how to acquire an access token, then call a web API in a Node.js daemon application. You enable the client daemon app to acquire an access token using its own identity. To do so, you first register your application in your Azure Active Directory (Azure AD) for customers tenant.
+In this tutorial, you learn how to acquire an access token, then call a web API in a Node.js daemon application. You enable the client daemon app to acquire an access token using its own identity. To do so, you first register your application in your Azure Active Directory (Azure AD) for customers tenant.
 
 In this tutorial, you'll
 
@@ -25,7 +25,7 @@ In this tutorial, you'll
 > - Register a client daemon application, the grant it app permissions in the Microsoft Entra admin center.
 > - Create a client secret for your daemon application in the Microsoft Entra admin center.
 
-If you've already registered a client daemon application and a web API in the Microsoft Entra admin center, you can skip the steps in this tutorial, then proceed to [Prepare your daemon application and web API](tutorial-daemon-node-call-api-build-app.md).
+If you've already registered a client daemon application and a web API in the Microsoft Entra admin center, you can skip the steps in this tutorial, then proceed to [Acquire access token for calling an API](tutorial-daemon-node-call-api-build-app.md).
 
 ## Prerequisites
 
