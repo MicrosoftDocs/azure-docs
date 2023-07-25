@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 07/25/2023
 ---
 
 <!-- 
@@ -152,9 +152,9 @@ You can unregister an agent using the administrative shell of the agent VM. The 
 2) Network configuration
 3) Service and job status
 4) Unregister
-5) Open restricted shell
-6) Collect support bundle
-7) Restart agent
+5) Collect support bundle
+6) Restart agent
+7) Disk Cleanup
 8) Exit
 
 xdmsh> 4
