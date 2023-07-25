@@ -22,7 +22,7 @@ This article describes how to create one or more access reviews for PIM for Grou
 
 ## Prerequisites
 
-- Azure AD Premium P2.
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance.
 - Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
@@ -30,7 +30,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Create a PIM for Groups access review
 
 ### Scope
-1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
 2. On the left menu, select **Access reviews**.
 

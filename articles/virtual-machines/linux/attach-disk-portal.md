@@ -2,13 +2,12 @@
 title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.collection: linux
-
 ---
 # Use the portal to attach a data disk to a Linux VM 
 
@@ -116,7 +115,7 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo mkfs.xfs /dev/sdc1
+sudo mkfs.xfs /dev/sdc
 sudo partprobe /dev/sdc1
 ```
 

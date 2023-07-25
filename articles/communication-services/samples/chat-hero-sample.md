@@ -26,7 +26,7 @@ In this Sample quickstart, we'll learn how the sample works before we run the sa
 
 ## Overview
 
-The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure.
+The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to a Node.js **server-side application** that helps the client-side application connect to Azure.
 
 Here's what the sample looks like:
 

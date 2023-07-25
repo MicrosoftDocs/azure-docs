@@ -43,11 +43,16 @@ Entitlement management use cases that can be integrated with Logic Apps include 
 
 These triggers to Logic Apps are controlled in a tab within access package policies called **Rules**. Additionally, a **Custom Extensions** tab on the Catalog page shows all added Logic Apps extensions for a given Catalog. This article describes how to create and add logic apps to catalogs and access packages in entitlement management. 
 
+## License requirements
+
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
+
 ## Create and add a Logic App workflow to a catalog for use in entitlement management 
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
 
@@ -116,7 +121,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
 

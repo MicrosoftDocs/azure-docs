@@ -25,7 +25,7 @@ As an administrator, you [create an access review of groups or applications](cre
  
 ## Prerequisites
  
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
 - Security readers have read access.
  
@@ -36,7 +36,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
 You can track the progress of access reviews as they're completed.
  
-1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
  
 1. In the left menu, select **Access reviews**.
  
@@ -127,4 +127,3 @@ Denied B2B direct connect users and teams lose access to all shared channels in 
 - [Manage access reviews](manage-access-review.md) 
 - [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
-

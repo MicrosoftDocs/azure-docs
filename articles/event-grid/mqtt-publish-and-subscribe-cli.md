@@ -8,9 +8,11 @@ author: veyaddan
 ms.author: veyaddan
 ---
 
-# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI
+# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI (Preview)
 
 Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 In this article, you use the Azure CLI to do the following tasks:
 1. Create an Event Grid namespace and enable MQTT
@@ -37,19 +39,19 @@ If you don't already have a certificate, you can create a sample certificate usi
 To create root and intermediate certificates, run the following command:
 
 ```powershell
-.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
 ```
 
 Using the CA files generated to create certificate for the client.
 
 ```powershell
-.step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
 ```
 
 To view the thumbprint, run the Step command.
 
 ```powershell
-.\step certificate fingerprint client1-authnID.pem
+step certificate fingerprint client1-authnID.pem
 ```
 
 > [!IMPORTANT]

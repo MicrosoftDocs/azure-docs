@@ -34,7 +34,7 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 Follow these steps to make a user eligible for an Azure AD admin role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -245,7 +245,7 @@ The following is an example of the response. The response object shown here migh
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra Premium P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Open **Azure AD Privileged Identity Management**.
 

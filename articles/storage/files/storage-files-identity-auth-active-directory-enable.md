@@ -2,8 +2,7 @@
 title: Overview - On-premises AD DS authentication to Azure file shares
 description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over supported scenarios, availability, and explains how the permissions work between your AD DS and Azure Active Directory. 
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: kendownie

@@ -1,6 +1,6 @@
-- name: Getting started
+- name: NoSQL query documentation
   displayName: sql query, query basics
-  href: getting-started.md
+  href: index.yml
 - name: Clauses
   items:
     - name: SELECT
@@ -66,24 +66,21 @@
       href: udfs.md
 - name: Aggregate functions
   items:
-    - name: Aggregate functions
-      displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-      href: aggregate-functions.md
-    - name: Avg
+    - name: AVG
       displayName: functions, aggregate, avg, average
-      href: aggregate-avg.md
-    - name: Count
+      href: average.md
+    - name: COUNT
       displayName: functions, aggregate, count
-      href: aggregate-count.md
-    - name: Max
+      href: count.md
+    - name: MAX
       displayName: functions, aggregate, max, maximum
-      href: aggregate-max.md
-    - name: Min
+      href: max.md
+    - name: MIN
       displayName: functions, aggregate, min, minimum
-      href: aggregate-min.md
-    - name: Sum
+      href: min.md
+    - name: SUM
       displayName: functions, aggregate, sum
-      href: aggregate-sum.md
+      href: sum.md
 - name: System functions
   items:
     - name: System functions
@@ -218,7 +215,28 @@
           href: intbitleftshift.md
         - name: IntBitNot
           displayName: IntBitNot, int-64, integer, bitwise, NOT, built-in functions
-          href: intbitnot.md    
+          href: intbitnot.md
+        - name: IntBitOr
+          displayName: IntBitOr, int-64, integer, bitwise, OR, built-in functions
+          href: intbitor.md
+        - name: IntBitRightShift
+          displayName: IntBitRightShift, int-64, integer, bitwise, right shift, built-in functions
+          href: intbitrightshift.md
+        - name: IntBitXor
+          displayName: IntBitXor, int-64, integer, bitwise, XOR, built-in functions
+          href: intbitxor.md
+        - name: IntDiv
+          displayName: IntDiv, int-64, integer, bitwise, division, built-in functions
+          href: intdiv.md
+        - name: IntMod
+          displayName: IntMod, int-64, integer, bitwise, modulus, built-in functions
+          href: intmod.md
+        - name: IntMul
+          displayName: IntMul, int-64, integer, bitwise, multiplication, built-in functions
+          href: intmul.md
+        - name: IntSub
+          displayName: IntSub, int-64, integer, bitwise, subtraction, built-in functions
+          href: intsub.md
         - name: LOG
           displayName: LOG, logarithm, built-in functions
           href: log.md

@@ -121,6 +121,22 @@ landingContent:
             url: intbitleftshift.md
           - text: IntBitNot
             url: intbitnot.md
+          - text: IntBitOr
+            url: intbitor.md
+          - text: IntBitRightShift
+            url: intbitrightshift.md
+          - text: IntBitXor
+            url: intbitxor.md
+          - text: IntDiv
+            url: intdiv.md
+          - text: IntMod
+            url: intmod.md
+      - linkListType: reference
+        links:
+          - text: IntMul
+            url: intmul.md
+          - text: IntSub
+            url: intsub.md
           - text: LOG
             url: log.md
           - text: LOG10
@@ -131,14 +147,14 @@ landingContent:
             url: pi.md
           - text: POWER
             url: power.md
-      - linkListType: reference
-        links:
           - text: RADIANS
             url: radians.md
           - text: RAND
             url: rand.md
           - text: ROUND
             url: round.md
+      - linkListType: reference
+        links:
           - text: SIGN
             url: sign.md
           - text: SIN
