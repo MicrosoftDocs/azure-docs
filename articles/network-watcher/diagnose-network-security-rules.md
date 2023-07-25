@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 07/25/2023
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
@@ -54,9 +54,9 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** in the search results.
 
-    :::image type="content" source="./media/diagnose-network-security-rules/portal-search.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/diagnose-network-security-rules/portal-search.png":::
+    :::image type="content" source="./media/diagnose-network-security-rules/virtual-networks-portal-search.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/diagnose-network-security-rules/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
@@ -64,9 +64,9 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     | --- | --- |
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
+    | Resource Group | Select **Create new**. </br> Enter ***myResourceGroup*** in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | Virtual network name | Enter *myVNet*. |
+    | Virtual network name | Enter ***myVNet***. |
     | Region | Select **(US) East US**. |
 
 1. Select the **Security** tab, or select the **Next** button at the bottom of the page. 
@@ -85,9 +85,9 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     | Setting | Value |
     | --- | --- |
     | **Subnet details** | |
-    | Name | Enter *mySubnet*. |
+    | Name | Enter ***mySubnet***. |
     | **Security** | |
-    | Network security group | Select **Create new**. </br> Enter *mySubnet-nsg* in **Name**. </br> Select **OK**. |
+    | Network security group | Select **Create new**. </br> Enter ***mySubnet-nsg*** in **Name**. </br> Select **OK**. |
 
 1. Select the **Review + create**.
 
@@ -188,7 +188,7 @@ In this section, you create a virtual machine and a network security group appli
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -200,7 +200,7 @@ In this section, you create a virtual machine and a network security group appli
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter *myVM*. |
+    | Virtual machine name | Enter ***myVM***. |
     | Region | Select **(US) East US**. |
     | Availability Options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -213,7 +213,7 @@ In this section, you create a virtual machine and a network security group appli
 
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 
-1. In the Networking tab, enter or select the following values:
+1. In the Networking tab, select the following values:
 
     | Setting | Value |
     | --- | --- |
@@ -233,14 +233,14 @@ In this section, you create a virtual machine and a network security group appli
 1. Create a default network security group using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
     ```azurepowershell-interactive
-    # Create a network security group
+    # Create a default network security group.
     New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  eastus
     ```
 
 1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, enter a username and password.
 
     ```azurepowershell-interactive
-    # Create a virtual machine.
+    # Create a virtual machine using the latest Windows Server 2022 image.
     New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -VirtualNetworkName 'myVNet' -SubnetName 'mySubnet' -SecurityGroupName 'myVM-nsg' -ImageName 'MicrosoftWindowsServer:WindowsServer:2022-Datacenter-azure-edition:latest'
     ```
 
@@ -249,14 +249,14 @@ In this section, you create a virtual machine and a network security group appli
 1. Create a default network security group using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
     ```azurecli-interactive
-    # Create a network security group for the network interface of the virtual machine.
+    # Create a default network security group.
     az network nsg create --name 'myVM-nsg' --resource-group 'myResourceGroup' --location 'eastus'
     ```
 
 1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create). When prompted, enter a username and password.
 
     ```azurecli-interactive
-    # Create a virtual machine.
+    # Create a virtual machine using the latest Windows Server 2022 image.
     az vm create --resource-group 'myResourceGroup' --name 'myVM' --location 'eastus' --vnet-name 'myVNet' --subnet 'mySubnet' --public-ip-address '' --nsg 'myVM-nsg' --image 'Win2022AzureEditionCore'
     ```
 
@@ -268,7 +268,7 @@ In this section, you add a security rule to the network security group associate
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *network security groups*. Select **Network security groups** in the search results.
+1. In the search box at the top of the portal, enter ***network security groups***. Select **Network security groups** in the search results.
 
 1. From the list of network security groups, select **myVM-nsg**.
 
@@ -291,6 +291,8 @@ In this section, you add a security rule to the network security group associate
 
 1. Select **Add**.
 
+    :::image type="content" source="./media/diagnose-network-security-rules/add-inbound-security-rule.png" alt-text="Screenshot shows how to add an inbound security rule to the network security group in the Azure portal.":::
+
 # [**PowerShell**](#tab/powershell)
 
 Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig) to create a security rule that denies traffic from the virtual network. Then use [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) to update the network security group with the new security rule.
@@ -298,7 +300,7 @@ Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetwor
 ```azurepowershell-interactive
 # Place the network security group configuration into a variable.
 $networkSecurityGroup = Get-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup'
-# Create a security rule.
+# Create a security rule that denies inbound traffic from the virtual network service tag.
 Add-AzNetworkSecurityRuleConfig -Name 'DenyVnetInBound' -NetworkSecurityGroup $networkSecurityGroup `
 -Access 'Deny' -Protocol '*' -Direction 'Inbound' -Priority '1000' `
 -SourceAddressPrefix 'virtualNetwork' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '*'
@@ -311,7 +313,7 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to add to the network security group a security rule that denies traffic from the virtual network.
 
 ```azurecli-interactive
-# Add a security rule to the network security group.
+# Add to the network security group a security rule that denies inbound traffic from the virtual network service tag.
 az network nsg rule create --name 'DenyVnetInBound' --resource-group 'myResourceGroup' --nsg-name 'myVM-nsg' --priority '1000' \
 --access 'Deny' --protocol '*' --direction 'Inbound' --source-address-prefixes 'virtualNetwork' --source-port-ranges '*' \
 --destination-address-prefixes '*' --destination-port-ranges '*'
@@ -336,20 +338,20 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
 
     | Setting | Value  |
     | ------- | ------ |
-    | Subscription | Select the Azure subscription that has the virtual machine that you want to test the connection with. | 
-    | Resource group | Select the resource group that has the virtual machine that you want to test the connection with.  |
-    | Supported resource type | Select **Virtual machine**. |
-    | Resource | Select the virtual machine that you want to test the connection with. |
+    | **Target resource** | |
+    | Target resource type | Select **Virtual machine**. |
+    | Virtual machine | Select **myVM** virtual machine. |
+    | **Traffic details** | |
     | Protocol | Select **TCP**. Other available options are: **Any**, **UDP** and **ICMP**. |
     | Direction | Select **Inbound**. Other available option is: **Outbound**. |
     | Source type | Select **IPv4 address/CIDR**. Other available option is: **Service Tag**. |
-    | IPv4 address/CIDR | Enter *10.0.1.0/26*, which is the IP address range of the Bastion subnet. Acceptable values are: single IP address, multiple IP addresses, single IP prefix, multiple IP prefixes. |
-    | Destination IP address | Enter *10.0.0.4*, which is the IP address of **myVM**. |
+    | IPv4 address/CIDR | Enter ***10.0.1.0/26***, which is the IP address range of the Bastion subnet. Acceptable values are: single IP address, multiple IP addresses, single IP prefix, multiple IP prefixes. |
+    | Destination IP address | Leave the default of **10.0.0.4**, which is the IP address of **myVM**. |
     | Destination port | Enter * to include all ports. |
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-values.png" alt-text="Screenshot showing required values for NSG diagnostics to test inbound connections to a virtual machine in the Azure portal." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-values.png":::
 
-1. Select **Check** to run the test. Once NSG diagnostics completes checking all security rules, it displays the result.
+1. Select **Run NSG diagnostics** to run the test. Once NSG diagnostics completes checking all security rules, it displays the result.
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied.png" alt-text="Screenshot showing the result of inbound connections to the virtual machine as Denied." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied.png":::
 
@@ -359,11 +361,11 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
     - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
     - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
 
-1. Select **myVM-nsg** to see details about the security rules that this network security group has and which rule denied the traffic. 
+1. Select **View details** of **myVM-nsg** to see details about the security rules that this network security group has and which rule is denying the traffic.
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png" alt-text="Screenshot showing the details of the network security group that denied the traffic to the virtual machine." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png":::  
 
-    In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from the address space of **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which are included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
+    In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from the address space of **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from the address range: **10.0.1.0/26**, which is included in **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -553,11 +555,9 @@ In **myVM-nsg** network security group, the security rule **DenyVnetInBound** de
 
 ---
 
-
-
 ## Add a security rule to allow traffic from the Bastion subnet
 
-To connect to **myVM** using Azure Bastion, traffic from the Bastion subnet must be allowed by the network security group. To allow traffic from **10.0.1.0/26**, add a security rule with a higher priority (lower priority number) than **DenyVnetInBound** rule. 
+To connect to **myVM** using Azure Bastion, traffic from the Bastion subnet must be allowed by the network security group. To allow traffic from **10.0.1.0/26**, add a security rule with a higher priority (lower priority number) than **DenyVnetInBound** rule or edit the **DenyVnetInBound** rule to allow traffic from the Bastion subnet.
 
 # [**Portal**](#tab/portal)
 
