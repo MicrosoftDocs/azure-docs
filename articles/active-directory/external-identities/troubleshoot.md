@@ -84,7 +84,7 @@ If you're notified that you don't have permissions to invite users, verify that 
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
-## The user that I invited is receiving an error during redemption
+## The user that I invited is receiving an error during the redemption process
 
 Common errors include:
 
