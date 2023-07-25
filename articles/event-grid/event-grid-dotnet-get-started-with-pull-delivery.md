@@ -2,20 +2,20 @@
 title: Quickstart - Use Event Grid pull delivery from .NET app
 description: This quickstart shows you how to send messages to and receive messages from Azure Event Grid namespace topics using the .NET programming language.
 ms.topic: quickstart
-ms.author: Sonalika Roy; Ali Sanjabi
-author: Sonalika Roy; Ali Sanjabi
+ms.author: sonalikaroy
+author: sonalikaroy; ali.sanjabi
 ms.custom: references_regions
 ms.date: 05/30/2023
 ---
 
 
-# Quickstart: Send and receive messages from an Azure Event Grid Namespace topic (.NET) - PUBLIC PREVIEW
+# Quickstart: Send and receive messages from an Azure Event Grid Namespace topic (.NET) - (Public Preview)
 
 In this quickstart, you'll do the following steps:
 
-1. Create a Event Grid namespace, using the Azure portal.
-2. Create a Event Grid namespace topic, using the Azure portal.
-3. Create a event subscription, using the Azure portal.
+1. Create an Event Grid namespace, using the Azure portal.
+2. Create an Event Grid namespace topic, using the Azure portal.
+3. Create an event subscription, using the Azure portal.
 4. Write a .NET console application to send a set of messages to the topic
 5. Write a .NET console application to receive those messages from the topic.
 
@@ -34,14 +34,14 @@ In this quickstart, you'll do the following steps:
 >- UAE North
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Event Grid Namespace Topic and then receiving them. For an overview of the .NET client library, see [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.17.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGridV2/src/Generated/EventGridClient.cs). For more samples, see [Event Grid .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/feature/eventgrid/namespaces/sdk/eventgrid/Azure.Messaging.EventGrid/samples).
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to an Event Grid Namespace Topic and then receiving them. For an overview of the .NET client library, see [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.17.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGridV2/src/Generated/EventGridClient.cs). For more samples, see [Event Grid .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/feature/eventgrid/namespaces/sdk/eventgrid/Azure.Messaging.EventGrid/samples).
 
 ## Prerequisites
 
 If you're new to the service, see [Event Grid overview](overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Event Grid, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
-- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [event-grid-create-namespace-portal](./includes/event-grid-create-namespace-portal.md)]
 
@@ -60,7 +60,7 @@ You can authorize access to the event grid namespace using the following steps:
 
 ## Send messages to the topic
 
-This section shows you how to create a .NET console application to send messages to a Event Grid topic.
+This section shows you how to create a .NET console application to send messages to an Event Grid topic.
 
 ### Create a console application
 
@@ -155,7 +155,7 @@ This section shows you how to create a .NET console application to send messages
 
 ## Pull messages from the Topic
 
-In this section, you'll create a .NET console application that receives messages from the topic.
+In this section, you create a .NET console application that receives messages from the topic.
 
 
 ### Create a project to receive the published CloudEvents
@@ -184,7 +184,7 @@ In this section, you'll create a .NET console application that receives messages
 
 ### Add the code to receive events from the topic
 
-In this section, you'll add code to retrieve messages from the queue.
+In this section, you add code to retrieve messages from the queue.
 
 1. Within the `Program` class, add the following code:
 
