@@ -67,9 +67,11 @@ The limits in this table apply per Speech resource when you create a Custom Spee
 
 ### Text to speech quotas and limits per resource
 
-This section describes text to speech quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
+This section describes text to speech quotas and limits per Speech resource. 
 
 #### Real-time text to speech
+
+You can use real-time text to speech with the [Speech SDK](speech-sdk.md) or the [Text to speech REST API](rest-text-to-speech.md). Unless otherwise specified, the limits aren't adjustable.
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -80,14 +82,15 @@ This section describes text to speech quotas and limits per Speech resource. Unl
 
 #### Batch synthesis
 
+These limits aren't adjustable.
+
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
-| [Text to speech REST API](batch-synthesis.md) limit | Not available for F0 | 300 requests per minute |
-|Max audio length produced per request  | N/A | 1 GB |
-| Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
-| Max blob container size | N/A | 5 GB |
-| Max number of blobs per container | N/A | 10000 |
-| Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
+| [Text to speech REST API](batch-synthesis.md) limit | Not available for F0 | 50 requests per 5 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
+| Concurrent active synthesis jobs per speech resource  | N/A | 200 |
+| Max number of text inputs per synthesis job | N/A | 1000 |
+|Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom Neural Voice
 
