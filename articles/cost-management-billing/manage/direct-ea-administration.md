@@ -382,7 +382,8 @@ As an EA admin, you can allow account owners in your organization to create subs
 
 When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/) offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
 
-Currently, the Enterprise Dev/Test Offer isn't applicable to Azure Gov customers.
+>[!NOTE]
+> The Enterprise Dev/Test Offer isn't available for Azure Government customers. If you're an Azure Government customer, your can't enable the Dev/Test option.
 
 ## Create a subscription
 
