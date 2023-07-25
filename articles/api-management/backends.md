@@ -17,7 +17,7 @@ ms.custom:
 
 A *backend* (or *API backend*) in API Management is an HTTP service that implements your front-end API and its operations.
 
-When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing:
+When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend web service when importing:
 * An [OpenAPI specification](import-api-from-oas.md).
 * A [SOAP API](import-soap-api.md).
 * Azure resources, such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
@@ -26,7 +26,7 @@ API Management also supports using other Azure resources as an API backend, such
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.md).
 * A custom service. 
 
-Custom backends require extra configuration, for example, to authorize the credentials of requests to the backend service and define API operations. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
+API Management supports custom backends so you can manage the backend services of your API. Use custom backends, for example, to authorize the credentials of requests to the backend service. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
 
 After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the custom backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a custom backend instead of the default backend web service configured for that API.
 
@@ -38,7 +38,6 @@ A custom backend has several benefits, including:
 * Easily used by configuring a transformation policy on an existing API.
 * Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
 
-
 ## Circuit breaker property (preview)
 
 Starting in API version 2023-03-01 preview, API Management exposes a [circuit breaker](/rest/api/apimanagement/current-preview/backend/create-or-update?tabs=HTTP#backendcircuitbreaker) property in the backend resource to protect a backend service from being overwhelmed by too many requests.
@@ -47,7 +46,7 @@ Starting in API version 2023-03-01 preview, API Management exposes a [circuit br
 * When the circuit breaker trips, API Management stops sending requests to the backend service for a defined time, and returns a 503 Service Unavailable response to the client. 
 * After the configured trip duration, the circuit resets and traffic resumes to the backend.
 
-The backend circuit breaker is an implementation of the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker) to allow the backend to recover from overload situations. It augments general [rate-limiting](rate-limit-by-key.md) and [concurrency-limiting](limit-concurrency.md) policies that you can implement to protect the API Management gateway and your backend services.
+The backend circuit breaker is an implementation of the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker) to allow the backend to recover from overload situations. It augments general [rate-limiting](rate-limit-policy.md) and [concurrency-limiting](limit-concurrency-policy.md) policies that you can implement to protect the API Management gateway and your backend services.
 
 ### Example
 
@@ -62,6 +61,8 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
   name: 'myBackend'
   parent: resourceSymbolicName
   properties: {
+    url: 'https://mybackend.com'
+    protocol: 'http'
     circuitBreaker: {
       rules: [
         {
@@ -74,13 +75,13 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
             percentage: int
             statusCodeRanges: [
               {
-                max: 500
-                min: 599
+                min: 500
+                max: 599
               }
             ]
           }
           name: 'myBreakerRule'
-          tripDuration: 'P1H'
+          tripDuration: 'PT1H'
         }
       ]
     }
@@ -99,6 +100,8 @@ Include a JSON snippet similar to the following in your ARM template:
   "apiVersion": "2023-03-01-preview",
   "name": "myBackend",
   "properties": {
+    "url": "https://mybackend.com",
+    "protocol": "http",
     "circuitBreaker": {
       "rules": [
         {
@@ -108,16 +111,16 @@ Include a JSON snippet similar to the following in your ARM template:
             "interval": "P1D",
             "statusCodeRanges": [
               {
-                "max": "500",
-                "min": "599"
+                "min": "500",
+                "max": "599"
               }
             ]
           },
           "name": "myBreakerRule",
-          "tripDuration": "P1H"
+          "tripDuration": "PT1H"
         }
       ]
-    },
+    }
   }
 [...]
 }
