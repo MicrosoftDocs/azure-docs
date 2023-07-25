@@ -69,7 +69,7 @@ The limits in this table apply per Speech resource when you create a Custom Spee
 
 This section describes text to speech quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
 
-#### Common text to speech quotas and limits
+#### Real-time text to speech
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -77,6 +77,17 @@ This section describes text to speech quotas and limits per Speech resource. Unl
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
 | Max SSML message size per turn for websocket | 64 KB | 64 KB |
+
+#### Batch synthesis
+
+| Quota | Free (F0) | Standard (S0) |
+|--|--|--|
+| [Text to speech REST API](batch-synthesis.md) limit | Not available for F0 | 300 requests per minute |
+|Max audio length produced per request  | N/A | 1 GB |
+| Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
+| Max blob container size | N/A | 5 GB |
+| Max number of blobs per container | N/A | 10000 |
+| Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
 
 #### Custom Neural Voice
 
