@@ -12,14 +12,21 @@ ms.date: 07/17/2023
 
 You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to Azure NetApp Files to join the on-premises AD domain. 
 
-<!-- add diagram -->
+:::image type="content" source="../media/azure-netapp-files/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Azure Active Directory." lightbox="../media/azure-netapp-files/diagram-windows-joined-active-directory.png":::
 
 ## Steps
 
-Before you can connect your on-premises environment to Azure AD, you must have:
+Before you can connect your on-premises environment to Azure AD, you must have [created an Azure NetApp Files volume](azure-netapp-files-create-volumes-smb.md).
 
-* [created an Azure NetApp Files volume](azure-netapp-files-create-volumes-smb.md).
-    * added the CIFS SPN to the computer account created as part of the Azure NetApp Files volume in on-premises Active Directory. 
+### Add the CIFS SPN to the computer account 
+
+Begin by adding the CIFS service principal name (SPN) to the computer account created as part of the Azure NetApp Files in on-premises Active Directory.  
+
+1. Open **Active Directory Users and Computers**. 
+1. Under **Computers**, right-click on the computer account created as part of the Azure NetApp Files volume then select Properties.  
+1. Under **Attribute Editor,** locate `servicePrincipalName``. In the Multi-valued string editor, add the CIFS SPN value. 
+
+:::image type="content" source="../media/azure-netapp-files/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="../media/azure-netapp-files/multi-value-string-editor.png":::
 
 ### Create an Azure AD application
 
@@ -27,8 +34,8 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Select **+ New**.
 1. Assign a **Name**. Under select the **Supported account type**, choose **Accounts in this organizational directory only (Single tenant)**. Select **Register**.
 
-    :::image type="content" source="../media/azure-netapp-files/register-application-active-directory.png" alt-text="Screenshot to register application." lightbox="../media/azure-netapp-files/register-application-active-directory.png":::
-    
+:::image type="content" source="../media/azure-netapp-files/register-application-active-directory.png" alt-text="Screenshot to register application." lightbox="../media/azure-netapp-files/register-application-active-directory.png":::
+        
 1. Configure the permissions for the application. From your **App Registrations**, select **API Permissions** then **Add a Permission**. 
 1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, search for "openid" and select it. Then search for "profile" and add it. 
 
@@ -47,8 +54,6 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
     
-:::image type="content" source="../media/azure-netapp-files/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="../media/azure-netapp-files/multi-value-string-editor.png":::
-
 ### Sync CIFS password from on-premises AD to Azure AD application 
 
 1. In your on-premises environment, sign into Active Directory.
