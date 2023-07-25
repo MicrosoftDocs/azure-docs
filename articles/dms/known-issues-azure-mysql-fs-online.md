@@ -76,11 +76,11 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
 - **Error**: Enum column has a null value in one or more rows and the target SQL mode is set to strict.
 
-  **Potential error message**: A batch couldn't be written to the table '{table}' due to a data truncation error. Please ensure that the data is not too large for the data type of the MySQL table column. If the column type is an enum, make sure SQL Mode is not set as TRADITIONAL, STRICT_TRANS_TABLES or STRICT_ALL_TABLES and is the same on source and target.  
+  **Potential error message**: A batch couldn't be written to the table '{table}' due to a data truncation error. Please ensure that the data isn't too large for the data type of the MySQL table column. If the column type is an enum, make sure SQL Mode isn't set as TRADITIONAL, STRICT_TRANS_TABLES or STRICT_ALL_TABLES and is the same on source and target.  
 
-  **Limitation**: The error occurs when historical data was written to the source server when they had certain setting, but when it is changed, data cannot move.
+  **Limitation**: The error occurs when historical data was written to the source server when they had certain setting, but when it's changed, data cannot move.
 
-  **Workaround**: To resolve the issue, it is recommended to change the target SQL mode to non-strict or change all null values to be valid values.
+  **Workaround**: To resolve the issue, we recommend changing the target SQL mode to non-strict or changing all null values to be valid values.
 
 ## Creating object failure
 
@@ -88,7 +88,7 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
   **Limitation**: The error occurs when trying to migrate a view and the table that the view is supposed to be referencing cannot be found.
 
-  **Workaround**: It is recommended to migrate views manually.
+  **Workaround**: We recommend migrating views manually.
 
 ## Unable to find table
 
@@ -98,21 +98,21 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
   **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information.
 
-  **Workaround**: It is recommended to migrate views manually.
+  **Workaround**: We recommend migrating views manually.
 
 ## All pooled connections broken
 
 - **Error**: All connections on the source server were broken.  
 
-  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error is not recoverable. 
+  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error isn't recoverable. 
 
-  **Workaround**: The migration must be restarted, and it is recommended to increase the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
+  **Workaround**: The migration must be restarted, and we recommend increasing the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
 
 ## Consistent snapshot broken  
 
   **Limitation**: The error occurs when the customer performs DDL during the initial load of the  migration instance. 
 
-  **Workaround**: To resolve this issue, it is recommended to refrain from making DDL changes during the Initial Load.
+  **Workaround**: To resolve this issue, we recommend refraining from making DDL changes during the Initial Load.
 
 ## Foreign key constraint
 
@@ -122,7 +122,7 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
   **Limitation**: The error can cause schema migration of a table to fail, as the PK column in table 1 may not be compatible with the FK column in table 2.
 
-  **Workaround**: To resolve this issue, it is recommended to drop the foreign key and re-create it after the migration process is completed.
+  **Workaround**: To resolve this issue, we recommend dropping the foreign key and re-creating it after the migration process is completed.
 
 ## Next steps
 
