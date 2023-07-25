@@ -11,7 +11,7 @@ We provide dashboards to help you monitor status, compliance, resource consumpti
 
 ## Prerequisites
 
-To import and use these dashboards, you'll need:
+To import and use these dashboards, you need:
 
 - One or more existing Arc-enabled Kubernetes clusters or AKS clusters.
 - The [microsoft.flux extension](extensions-release.md#flux-gitops) installed on the clusters.
@@ -26,7 +26,7 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 
 1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). This connection lets the dashboard access Azure Resource Graph.
 1. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance.
-1. Ensure that the user that will access the dashboard has the **Reader** role on the subscriptions and/or resource groups where the clusters are located.
+1. Ensure that the user account that will access the dashboard has the **Reader** role on the subscriptions and/or resource groups where the clusters are located.
 
    If you're using a managed identity, follow these steps to enable this access:
 
@@ -119,7 +119,7 @@ Follow these steps to import dashboards that let you monitor Flux resource consu
 1. Download the [Flux Control Plane](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Control%20Plane.json) and [Flux Cluster Stats](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Control%20Plane.json) dashboards.
 1. Follow the steps to [import these JSON dashboards to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
-After you have imported the dashboards, they will display information from the clusters that you're monitoring.
+After you have imported the dashboards, they'll display information from the clusters that you're monitoring.
 
 The **Flux Control Plane** dashboard shows details about status resource consumption, reconciliations at the cluster level, and Kubernetes API requests.
 
@@ -133,9 +133,9 @@ The **Flux Cluster Stats** dashboard shows details about the number of reconcile
 
 You can filter data in these dashboards to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option from any column header.
 
-For example, in the **Flux Configuration Compliance Status** table on the **Application Deployments** dashboard, you can select a specific commit from the **SourceLastSyncCommit** column. This lets you track the status of a configuration deployment for all of the clusters affected by that commit.
+For example, in the **Flux Configuration Compliance Status** table on the **Application Deployments** dashboard, you can select a specific commit from the **SourceLastSyncCommit** column. By doing so, you can track the status of a configuration deployment for all of the clusters affected by that commit.
 
-In the **Application Deployments** dashboard, some fields in the the **Flux Extension Deployment Status** and **Flux Configuration Compliance Status** panels are hidden by default (such as **SubscriptionID**, **ResourceGroupName**, and **ClusterType**). To show hidden fields, select the panel and then select **Edit**. On the **Overrides**, find the field you want to show, then unselect **Hide in table**' option**.
+In the **Application Deployments** dashboard, some fields in the **Flux Extension Deployment Status** and **Flux Configuration Compliance Status** panels are hidden by default (such as **SubscriptionID**, **ResourceGroupName**, and **ClusterType**). To show hidden fields, select the panel and then select **Edit**. On the **Overrides** tab, find the field you want to show, then unselect the **Hide in table** option.
 
 ## Next steps
 
