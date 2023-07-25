@@ -76,7 +76,7 @@ Use a naming convention that clarifies policy purpose. External access examples 
 
 You can block external users from accessing resources with Conditional Access policies. 
 
-1. Sign in to the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 3. Select **New policy**.
 4. Enter a policy a name. 
@@ -103,7 +103,7 @@ There are scenarios when it's necessary to allow access for a small, specific gr
 
 Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](active-directory-groups-view-azure-portal.md).
 
-1. Sign in to the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 3. Select **New policy**.
 4. Enter a policy name.

@@ -155,7 +155,7 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 
     `Get-MsolServicePrincipal | Set-MsolServicePrincipal -AccountEnabled $false`
 
-9. Sign in to the Azure portal again, and remove any new admin account that you created in step 3.
+9. Sign in to the [Azure portal](https://portal.azure.com) again, and remove any new admin account that you created in step 3.
 
 10. Retry tenant deletion from the Azure portal.
 

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template, devx-track-linux
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 07/22/2023
 ms.author: greglin
 ---
 
@@ -15,6 +15,9 @@ ms.author: greglin
 The Application Gateway Ingress Controller (AGIC) is a pod within your Azure Kubernetes Service (AKS) cluster.
 AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Outline
 

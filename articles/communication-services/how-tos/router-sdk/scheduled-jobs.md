@@ -40,7 +40,8 @@ In the following example, a job is created that will be scheduled 3 minutes from
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "Voice", queueId: "Callback")
 {
-    MatchingMode = new ScheduleAndSuspendMode(scheduleAt: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3)))
+    MatchingMode = new JobMatchingMode(
+        new ScheduleAndSuspendMode(scheduleAt: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3))))
 });
 ```
 
@@ -53,7 +54,6 @@ await client.createJob("job1", {
     channelId: "Voice",
     queueId: "Callback",
     matchingMode: {
-        modeType: "scheduleAndSuspendMode",
         scheduleAndSuspendMode: {
             scheduleAt: new Date(Date.now() + 3 * 60000)
         }
@@ -70,7 +70,6 @@ client.create_job(job_id = "job1", router_job = RouterJob(
     channel_id = "Voice",
     queue_id = "Callback",
     matching_mode = JobMatchingMode(
-        mode_type = "scheduleAndSuspendMode",
         schedule_and_suspend_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3)))))
 ```
 
@@ -80,7 +79,7 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 
 ```java
 client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
-    .setMatchingMode(new ScheduleAndSuspendMode(OffsetDateTime.now().plusMinutes(3))));
+    .setMatchingMode(new JobMatchingMode(new ScheduleAndSuspendMode(OffsetDateTime.now().plusMinutes(3)))));
 ```
 
 ::: zone-end
@@ -99,7 +98,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 
     await client.UpdateJobAsync(new UpdateJobOptions(jobId: eventGridEvent.Data.JobId)
     {
-        MatchingMode = new QueueAndMatchMode(),
+        MatchingMode = new JobMatchingMode(new QueueAndMatchMode()),
         Priority = 100
     });
 }
@@ -116,7 +115,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
     // Perform required actions here
 
     await client.updateJob(eventGridEvent.data.jobId, {
-        matchingMode: { modeType: "queueAndMatchMode", queueAndMatchMode: {} },
+        matchingMode: { queueAndMatchMode: {} },
         priority: 100
     });
 }
@@ -133,7 +132,7 @@ if (eventGridEvent.event_type == "Microsoft.Communication.RouterJobWaitingForAct
     # Perform required actions here
 
     client.update_job(job_id = eventGridEvent.data.job_id,
-        matching_mode = JobMatchingMode(mode_type = queueAndMatchMode, queue_and_match_mode = {}),
+        matching_mode = JobMatchingMode(queue_and_match_mode = {}),
         priority = 100)
 }
 ```
@@ -149,7 +148,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
     // Perform required actions here
 
     client.updateJob(new UpdateJobOptions(eventGridEvent.Data.JobId)
-        .setMatchingMode(new QueueAndMatchMode())
+        .setMatchingMode(new JobMatchingMode(new QueueAndMatchMode()))
         .setPriority(100));
 }
 ```
