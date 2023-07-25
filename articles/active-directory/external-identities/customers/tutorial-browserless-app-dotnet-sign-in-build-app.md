@@ -15,7 +15,7 @@ ms.date: 07/23/2023
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my .NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Tutorial: Authenticate users to your .NET browserless application
+# Tutorial: Sign in users to your .NET browserless application
 
 In this tutorial, you build your own .NET browserless app and authenticate a user using Azure Active Directory (Azure AD) for customers.
 

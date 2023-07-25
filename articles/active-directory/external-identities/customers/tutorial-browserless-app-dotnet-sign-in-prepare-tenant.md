@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Register and configure .NET browserless app authentication details in a customer tenant"
-description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users in your .NET browserless application by using Device Code flow.
+description: Learn how to register and configure .NET browserless app authentication details in a customer tenant so as to sign in users using Device Code flow.
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -12,7 +12,7 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/24/2023
 
-#Customer intent: As a dev, devops, I want to learn about how to register my own .NET browserless app with Azure Active Directory (Azure AD) for customers tenant so that I can sign in users in my app.
+#Customer intent: As a dev, devops, I want to learn how to register and configure .NET browserless app authentication details in a customer tenant so as to sign in users using Device Code flow.
 ---
 
 # Tutorial: Register and configure .NET browserless app authentication details in a customer tenant
