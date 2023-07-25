@@ -29,16 +29,10 @@ landingContent:
             url: overview.md
           - text: What is Azure confidential computing?
             url: overview-azure-products.md
-          - text: Choose your confidential computing offering
+          - text: Why use Azure confidential computing?
+            url: why-use-azure-confidential-computing.md #TODO  
+          - text: Choose your confidential computing offering #
             url: use-cases-scenarios.md 
-      - linkListType: quickstart
-        links:
-          - text: Building confidential computing solutions
-            url: confidential-computing-solutions.md
-          - text: Deploying confidential computing solutions
-            url: confidential-computing-deployment-models.md
-          - text: Cleanroom solutions on confidential computing
-            url: multi-party-data.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -55,6 +49,14 @@ landingContent:
             url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
+      - linkListType: quickstart
+        links:
+          - text: Building confidential computing solutions
+            url: confidential-computing-solutions.md
+          - text: Deploying confidential computing solutions
+            url: confidential-computing-deployment-models.md
+          - text: Cleanroom solutions on confidential computing
+            url: multi-party-data.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -151,7 +153,37 @@ landingContent:
         links:
           - text: Confidential containers with Azure Container Instances (ACI) with AMD SEV-SNP Protection - Public preview 
             url: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-public-preview-of-confidential-containers-on-azure/ba-p/3755623
-
+##SG Added
+  - title: Confidential Data Services
+    linkLists:
+      - linkListType: overview
+        links: 
+        - text: IaaS vs. Paas?
+          url: TOBEDOCs.md
+        - text: Data Options
+          url: TOBEDOCs.md
+        - text: App enclave nodes with Intel SGX in AKS
+          url: confidential-nodes-aks-overview.md
+      - linkListType: concept
+        links:
+          - text: something 1
+            url: TOBEDOCs.md
+          - text: something 2
+            url: TOBEDOCs.md
+      - linkListType: quickstart
+        links:
+          - text: Databricks
+            url: TOBEDOCs.md
+          - text: SQL Always Encrypted with Enclaves
+            url: TOBEDOCs.md
+          - text: Azure Data Explorer
+            url: TOBEDOCs.md
+      - linkListType: whats-new
+        links:
+          - text: Databricks Announcement
+            url: TOBEDOCs.md
+          - text: ADX Announcement
+            url: TOBEDOCs.md
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves
