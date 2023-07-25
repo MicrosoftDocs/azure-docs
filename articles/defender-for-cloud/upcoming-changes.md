@@ -28,7 +28,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
-| [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | September 2023 |
+| [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
@@ -139,7 +139,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 
 **Estimated date for change: August 2023**
 
-The naming format of standards for Azure CIS (Center for Internet Security) is set for change from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
+The naming format of Azure CIS (Center for Internet Security) foundations benchmarks in the compliance dashboard is set for change from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
 
 | Current Name | New Name |
 |--|--|
