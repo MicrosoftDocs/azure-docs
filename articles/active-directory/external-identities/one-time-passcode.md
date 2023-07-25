@@ -90,7 +90,9 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 ### To enable or disable email one-time passcodes
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 
 1. In the navigation pane, select **Azure Active Directory**.
 

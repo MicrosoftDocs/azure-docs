@@ -48,5 +48,5 @@ The following example shows how to get the current UTC date and time string.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`GetCurrentDateTimeStatic`](getcurrentdatetimestatic.md)

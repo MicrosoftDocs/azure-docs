@@ -77,6 +77,8 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 
 ## More information for administrators
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
 
 > [!IMPORTANT]
@@ -99,7 +101,7 @@ When a B2B collaboration user leaves an organization, the user's account is "sof
 
 If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
 
 1. Under **Manage**, select **Users**.
 
