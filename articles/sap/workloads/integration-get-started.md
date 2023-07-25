@@ -201,7 +201,9 @@ Also see the following SAP resources:
 
 ### Microsoft Security for SAP
 
-Protect your data, apps, and infrastructure against rapidly evolving cyberthreats with cloud security services from Microsoft. Use Microsoft Defender to secure your perimeter surrounding the SAP system. Use Microsoft Sentinel to protect your SAP system from within using signals from the SAP Audit Log among others.
+Protect your data, apps, and infrastructure against rapidly evolving cyberthreats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
+
+Use Microsoft Defender to secure your endpoints surrounding the SAP system. Use Microsoft Sentinel to protect your SAP system from within using signals from the SAP Audit Log among others.
 
 #### Microsoft Defender for Endpoint (MDE)
 
