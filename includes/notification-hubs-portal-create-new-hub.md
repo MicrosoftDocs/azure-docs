@@ -42,7 +42,7 @@
 
     1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions. 
 
-       :::image type="content" source="../articles/notification-hubs/media/create-notification-hub-portal/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="../../azure-docs-pr/articles/notification-hubs/availability-zones.png":::
+       :::image type="content" source="../articles/notification-hubs/media/create-notification-hub-portal/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="../articles/notification-hubs/media/create-notification-hub-portal/availability-zones.png":::
 
     1. Select **Create**.
 
