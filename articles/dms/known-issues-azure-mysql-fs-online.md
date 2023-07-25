@@ -16,7 +16,7 @@ Known issues associated with migrations to Azure Database for MySQL are describe
 
 ## Incompatible SQL Mode
 
-One or more incompatible SQL modes can cause a number of different errors. Below is an example error along with server modes that should be looked at if this error occurs.
+One or more incompatible SQL modes can cause many different errors. Below is an example error along with server modes that should be looked at if this error occurs.
 
 - **Error**: An error occurred while preparing the table '{table}' in database '{database}' on server '{server}' for migration during activity '{activity}'. As a result, this table will not be migrated.
 
@@ -26,7 +26,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
     | NO_ZERO_DATE         | NO_AUTO_CREATE_USER |
     | ------------- | ------------- |
-    | When the default value for a date on a table or the data is 0000-00-00 on the source, and the target server has the NO_ZERO_DATE SQL mode set, the schema and/or data migration will fail. There are two possible workarounds, the first is to change the default values of the columns to be NULL or a valid date. The second option, is to remove the NO_ZERO_DATE SQL mode from the global SQL mode variable. | When running migrations from MySQL source server 5.7 to MySQL target server 8.0 that are doing **schema migration of routines**, it will run into errors if no_auto_create_user SQL mode is set on MySQL source server 5.7. |
+    | When the default value for a date on a table or the data is 0000-00-00 on the source, and the target server has the NO_ZERO_DATE SQL mode set, the schema and/or data migration will fail. There are two possible workarounds, the first is to change the default values of the columns to be NULL or a valid date. The second option is to remove the NO_ZERO_DATE SQL mode from the global SQL mode variable. | When running migrations from MySQL source server 5.7 to MySQL target server 8.0 that are doing **schema migration of routines**, it will run into errors if no_auto_create_user SQL mode is set on MySQL source server 5.7. |
 
 ## Binlog Retention Issues
 
@@ -50,7 +50,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Limitation**: This error likely occurs when there are too many tables to migrate (>10k). There is a 4 MB limit for each call to the Azure Storage service.
 
-  **Workaround**: Please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
+  **Workaround**: Reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
 ## Duplicate key entry issue
 
@@ -60,7 +60,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Limitation**: This error can be caused by timeout or broken connection to the target, resulting in duplicate primary keys. It may also be related to multiple migrations to the target running at the same time, or the user having test workloads running on the target while the migration is running. Additionally, the target may require primary keys to be unique, even though they are not required to be so on the source.
 
-  **Workaround**: To resolve this issue, ensure that there are no duplicate migrations running and that the source primary keys are unique. If error persists, please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
+  **Workaround**: To resolve this issue, ensure that there are no duplicate migrations running and that the source primary keys are unique. If error persists, reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
 ## Replicated operation had mismatched rows error
 
@@ -120,7 +120,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Potential error message**: Referencing column '{pk column 1}' and referenced column '{fk column 1}' in foreign key constraint '{key}' are incompatible.
 
-  **Limitation**: The error can cause schema migration of a table to fail, as the PK column in table 1 may not be compatible with the FK column in table do.
+  **Limitation**: The error can cause schema migration of a table to fail, as the PK column in table 1 may not be compatible with the FK column in table 2.
 
   **Workaround**: To resolve this issue, it is recommended to drop the foreign key and re-create it after the migration process is completed.
 
