@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 07/05/2023
+ms.date: 07/25/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -146,6 +146,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
 
 > [!NOTE]
 > If you receive the message **error: The Azure auth plugin has been removed.**, you need to run the command `kubelogin convert-kubeconfig` to convert the kubeconfig format manually.
+>
+> If you meet any issues while using kubelogin, you can refer to the [doc](https://azure.github.io/kubelogin/known-issues.html?highlight=Device%20code%20login%20mode%20doesn%E2%80%99t%20work%20when%20Conditional%20Access%20policy%20is%20configured%20on%20AAD%20tenant.%20Use%20web%20browser%20interactive%20mode%20instead.#known-issues).
 
 ## Troubleshoot access issues with AKS-managed Azure AD
 
