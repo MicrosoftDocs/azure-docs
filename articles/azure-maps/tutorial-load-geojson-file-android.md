@@ -40,7 +40,7 @@ The following steps show you how to import a GeoJSON file into the application a
 
 ::: zone pivot="programming-language-java-android"
 
-1. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+1. Go into the _MainActivity.java_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```java
 //Create a data source and add it to the map.
@@ -57,7 +57,7 @@ map.sources.add(source);
 
 ::: zone pivot="programming-language-kotlin"
 
-1. Go into the **MainActivity.kt** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+1. Go into the _MainActivity.kt_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```kotlin
 //Create a data source and add it to the map.
@@ -94,8 +94,8 @@ map.layers.add(layer)
 
 ::: zone-end
 
-1. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called **popup_text.xml**.
-1. Open the **popup_text.xml** file. If the file opens in a designer view, right-click on the screen and select _Go to XML_. Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
+1. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called _popup_text.xml_.
+1. Open the _popup_text.xml_ file. If the file opens in a designer view, right-click on the screen and select **Go to XML**. Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -122,7 +122,7 @@ map.layers.add(layer)
 
 ::: zone pivot="programming-language-java-android"
 
-1. Go back into the  **MainActivity.java** file and after the code for the bubble layer, add the following code to create a reusable popup.
+1. Go back into the  _MainActivity.java_ file and after the code for the bubble layer, add the following code to create a reusable popup.
 
 ```java
 //Create a popup and add it to the map.
@@ -137,7 +137,7 @@ popup.close();
 
 ::: zone pivot="programming-language-kotlin"
 
-1. Go back into the  **MainActivity.kt** file and after the code for the bubble layer, add the following code to create a reusable popup.
+1. Go back into the  _MainActivity.kt_ file and after the code for the bubble layer, add the following code to create a reusable popup.
 
 ```kotlin
 //Create a popup and add it to the map.
@@ -150,7 +150,7 @@ popup.close()
 
 ::: zone-end
 
-1. Add the following code to attach a `click` event to the bubble layer. When a bubble in the bubble layer is tapped, the event fires and retrieves details from the properties of the selected feature, create a view using the **popup_text.xml** layout file, pass it in as content into the popup, then show the popup at the features position.
+1. Add the following code to attach a `click` event to the bubble layer. When a bubble in the bubble layer is tapped, the event fires and retrieves details from the properties of the selected feature, create a view using the _popup_text.xml_ layout file, pass it in as content into the popup, then show the popup at the features position.
 
 ::: zone pivot="programming-language-java-android"
 
