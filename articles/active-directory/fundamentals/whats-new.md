@@ -40,13 +40,45 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 **Service category:**                            
 **Product capability:** End User Experiences                
 
-**No action is required from you.**
+**No action is required from you, but you may need to update some of your own documentation.**
 
-Azure AD is being renamed to Microsoft Entra ID. The name change rolls out across all Microsoft products and experiences throughout the second half of 2023. 
+Azure AD is being renamed to Microsoft Entra ID. The name change will roll out across all Microsoft products and experiences throughout the second half of 2023. 
 
-Capabilities, licensing, and usage of the product isn't changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
+Capabilities, licensing, and usage of the product is not changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
 
-Learn more: https://aka.ms/aadrebrandFAQ
+Learn more and get renaming details: [New name for Azure Active Directory](../fundamentals/new-name.md).
+
+---
+
+### General Availability - Include/exclude My Apps in Conditional Access policies
+
+**Type:** Fixed       
+**Service category:** Conditional Access                            
+**Product capability:** End User Experiences                  
+
+My Apps can now be targeted in conditional access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher which improves app launch performance for both SAML and other app types. 
+
+Learn More about setting up conditional access policies here: [Azure AD Conditional Access documentation](../conditional-access/index.yml).
+
+---
+
+### General Availability - Conditional Access for Protected Actions
+
+**Type:** New feature         
+**Service category:** Conditional Access                            
+**Product capability:** Identity Security & Protection                    
+
+Protected actions are high-risk operations, such as altering access policies or changing trust settings, that can significantly impact an organization's security. To add an extra layer of protection, Conditional Access for Protected Actions lets organizations define specific conditions for users to perform these sensitive tasks. For more information, see: [What are protected actions in Azure AD?](../roles/protected-actions-overview.md).
+
+---
+
+### General Availability - Access Reviews for Inactive Users
+
+**Type:** New feature         
+**Service category:** Access Reviews                            
+**Product capability:** Identity Governance                      
+
+This new feature, part of the Microsoft Entra ID Governance SKU, allows admins to review and address stale accounts that haven’t been active for a specified period. Admins can set a specific duration to determine inactive accounts which were not used for either interactive or non-interactive sign-in activities. As part of the review process, stale accounts can automatically be removed. For more information, see: [Microsoft Entra ID Governance Introduces Two New Features in Access Reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-introduces-two-new-features-in/ba-p/2466930).
 
 ---
 
@@ -86,7 +118,9 @@ Conditional Access templates are predefined set of conditions and controls that 
 **Service category:** Lifecycle Workflows                            
 **Product capability:** Identity Governance                  
 
-Lifecycle Workflows is now general available within Microsoft Entra ID Governance. For more information, see: [Lifecycle Workflows is now generally available!](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/lifecycle-workflows-is-now-generally-available/ba-p/2466931)
+User identity lifecycle is a critical part of an organization’s security posture, and when managed correctly, can have a positive impact on their users’ productivity for Joiners, Movers, and Leavers. The ongoing digital transformation is accelerating the need for good identity lifecycle management. However, IT and security teams face enormous challenges managing the complex, time-consuming, and error-prone manual processes necessary to execute the required onboarding and offboarding tasks for hundreds of employees at once. This is an ever present and complex issue IT admins continue to face with digital transformation across security, governance, and compliance.
+
+Lifecycle Workflows, one of our newest Microsoft Entra ID Governance capabilities is now generally available to help organizations further optimize their user identity lifecycle. For more information, see: [Lifecycle Workflows is now generally available!](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/lifecycle-workflows-is-now-generally-available/ba-p/2466931)
 
 ---
 
@@ -116,7 +150,7 @@ Update the Company Branding functionality on the Microsoft Entra ID/Microsoft 36
 **Service category:** Access Reviews                            
 **Product capability:** Identity Governance                  
 
-This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group and uses the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation leverages machine learning based scoring mechanism and compares users’ relative affiliation with other users in the group, based on the organization’s reporting structure. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
 
 ---
 
@@ -126,7 +160,7 @@ This feature provides Machine Learning based recommendations to the reviewers of
 **Service category:** Reporting                            
 **Product capability:** Identity Governance                  
 
-Monitor guest accounts at scale with intelligent insights into inactive guests in your organization using inactive guest report. Customize the inactivity threshold depending on your organization’s needs, narrow down the scope of guest users you want to monitor and identify the guest users that may be inactive. For more information, see: [Monitor and clean up stale guest accounts using access reviews](../enterprise-users/clean-up-stale-guest-accounts.md).
+Monitor guest accounts at scale with intelligent insights into inactive guest users in your organization. Customize the inactivity threshold depending on your organization’s needs, narrow down the scope of guest users you want to monitor and identify the guest users that may be inactive. For more information, see: [Monitor and clean up stale guest accounts using access reviews](../enterprise-users/clean-up-stale-guest-accounts.md).
 
 ---
 
