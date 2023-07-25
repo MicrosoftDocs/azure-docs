@@ -49,7 +49,7 @@ Like every VM, the agent requires available compute, memory, network, and storag
 
 The agent requires unrestricted internet connectivity.
 
-Although no single network configuration option works for every environment, the simplest configuration involves the deployment of an external virtual switch. The external switch type is connected to a physical adapter and allows your host operating system (OS) to share its connection with all your virtual machines (VMs). This switch allows communication between your physical network, the management operating system, and the virtual adapters on your virtual machines. This approach is fine for a test environment, but may not be suitable for a production server.
+Although no single network configuration option works for every environment, the simplest configuration involves the deployment of an external virtual switch. The external switch type is connected to a physical adapter and allows your host operating system (OS) to share its connection with all your virtual machines (VMs). This switch allows communication between your physical network, the management operating system, and the virtual adapters on your virtual machines. This approach may be acceptable for a test environment, but is likely not sufficient for a production server.
 
 After the switch is created, ensure that both the management and agent VMs are on the same switch. On the WAN link firewall, outbound TCP port 443 must be open. Keep in mind that connectivity interruptions are to be expected when changing network configurations.
 
@@ -68,7 +68,7 @@ You can get help with [creating a virtual switch for Hyper-V virtual machines](/
 **Number of items** *refers to the total number of files and folders in the source.*
 
 > [!IMPORTANT]
-> While agent VMs below minimal specs may work for your migration, they may not perform optimally.
+> While agent VMs below minimal specs may work for your migration, they may not perform optimally and are not supported.
 
 The [Performance targets](performance-targets.md) article contains test results from different source namespaces and VM resources.
 
