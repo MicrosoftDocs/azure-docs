@@ -3628,7 +3628,7 @@
             "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
             "redirect_url": "/azure/virtual-machines/share-gallery.md",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-cli.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-cli",
@@ -5113,6 +5113,6 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
             "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
             "redirect_document_id": false
-        }     
+        }
     ]
 }

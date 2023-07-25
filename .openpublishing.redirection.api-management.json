@@ -63,7 +63,7 @@
         "source_path_from_root": "/articles/api-management/policies/set-cache-duration.md",
         "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
         "redirect_document_id": false
-    },      
+    },
     {
         "source_path_from_root": "/articles/api-management/policies/set-header-to-enable-backend-to-construct-urls.md",
         "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
@@ -239,6 +239,5 @@
         "redirect_url": "/azure/api-management/policies",
         "redirect_document_id": false
     }
-
   ]
 }
