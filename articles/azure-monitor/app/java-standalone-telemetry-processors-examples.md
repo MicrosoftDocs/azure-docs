@@ -397,7 +397,34 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 
 ### Mask
 
-For example, given `http.url = http://example.com/user/12345622` is updated to `http.url = http://example.com/user/****` based on the below configuration.
+For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` based on the below configuration.
+
+
+First configuration example:
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "user\\/\\d+",
+            "replace": "user\\/****",
+            "action": "mask"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+
+Second configuration example expression group name:
 
 ```json
 {
