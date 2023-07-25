@@ -266,7 +266,9 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**maxBatchWaitTime**<sup>1</sup>|`00:00:01`|The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minMessageBatchSize` is larger than 1 and is ignored otherwise. If less than `minMessageBatchSize` messages were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 50% of the entity message lock duration, meaning the maximum allowed is 2 minutes and 30 seconds. Otherwise, you may get lock exceptions. <br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.|
 |**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the session will be closed and the function will attempt to process another session. 
 |**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
+
 <sup>1</sup> Using `minMessageBatchSize` and `maxBatchWaitTime` requires [v5.10.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.10.0) of the `Microsoft.Azure.WebJobs.Extensions.ServiceBus` package, or a later version.
+
 # [Functions 2.x+](#tab/functionsv2)
 
 ```json
