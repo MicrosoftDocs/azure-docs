@@ -46,7 +46,7 @@ Private endpoints have several advantages over service endpoints. For a complete
 
 Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
-For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#configure-private-endpoint).
+For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#configure-a-private-endpoint).
 
 ## Virtual network rules
 
