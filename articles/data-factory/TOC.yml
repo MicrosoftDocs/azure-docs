@@ -908,6 +908,8 @@ items:
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor managed virtual network integration runtime
+      href: monitor-managed-virtual-network-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Run Data Pipelines with Service Level Agreements
@@ -1299,6 +1301,8 @@ items:
       href: sap-change-data-capture-debug-shir-logs.md
     - name: Manage the SAP CDC process
       href: sap-change-data-capture-management.md
+    - name: Advanced topics
+      href: sap-change-data-capture-advanced-topics.md    
       displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:

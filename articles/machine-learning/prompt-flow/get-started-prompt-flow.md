@@ -123,7 +123,7 @@ For each LLM node, you need to select a connection to set your LLM API keys.
 
 For this example, the API type should be **completion**.
 
-Then depending on the connection type you selected, you need to select a deployment  or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOPenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
+Then depending on the connection type you selected, you need to select a deployment  or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
 
 We have two LLM nodes (summarize_text_content and classify_with_llm) in the flow, so you need to set up for each respectively.
 
@@ -243,7 +243,7 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 
 ```json
 {
-  "url": "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/"
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/"
 }
 ```
 
