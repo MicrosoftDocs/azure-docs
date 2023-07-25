@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 07/21/2023
+ms.date: 07/25/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -68,7 +68,10 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 ## Model summary table and region availability
 
 > [!IMPORTANT]
-> South Central US and East US are temporarily unavailable for creating new resources and deployments due to high demand.
+> Due to high demand:
+>
+> - South Central US is temporarily unavailable for creating new resources and deployments.
+> - East US is temporarily unavailable for new deployments of GPT-4 version 0314 models.
 
 ### GPT-4 models
 
