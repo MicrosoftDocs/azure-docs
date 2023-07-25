@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/11/2023
+ms.date: 07/25/2023
 ms.collection: M365-identity-device-management
 
 ---
 # Manage Microsoft Support access requests (preview)
 
-You can use the Microsoft Entra admin center to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft.
+You can use the Microsoft Entra admin center and the Azure Active Directory (Azure AD) portal to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to [give Microsoft Support engineers access to identity diagnostic data](concept-support-access-requests.md) in your identity service to help solve support requests you submitted to Microsoft.
 
 ## Prerequisites
 
@@ -49,6 +49,7 @@ Microsoft Support's access to your identity diagnostic data is immediately revok
 
 ## Next steps
 
-- [How to create a support request](how-to-get-support.md)
-
-- [Learn about the diagnostic data Azure identity support can access](concept-diagnostic-data-access.md)
+- [Create a support request](how-to-get-support.md)
+- [Approve Microsoft Support access requests](how-to-approve-support-access-requests.md)
+- [View Microsoft Support access request logs](how-to-view-support-access-request-logs.md)
+- [Learn how Microsoft uses data for Azure support](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)

@@ -88,8 +88,8 @@ items:
         href: how-to-approve-support-access-requests.md
       - name: Manage support access requests
         href: how-to-manage-support-access-requests.md
-      - name: How to view support access request activity logs
-        href: how-to-view-support-access-requests-logs.md
+      - name: View support access request activity logs
+        href: how-to-view-support-access-request-logs.md
 - name: Reference
   expanded: false
   items:

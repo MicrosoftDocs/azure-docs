@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/13/2023
+ms.date: 07/25/2023
 ms.collection: M365-identity-device-management
 
 ---
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 In many situations, enabling the collection of **Advanced diagnostic information** during the creation of a support access request is sufficient for Microsoft Support to troubleshoot your issue. In some situations though, a separate approval may be needed to allow Microsoft Support to access your identity diagnostic data.
 
-Microsoft Support access requests (preview) enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Azure Active Directory (Azure AD) administration portal and the Microsoft Entra admin center to manage Microsoft Support access requests (preview).
+Microsoft Support access requests (preview) enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Microsoft Entra admin center and the Azure Active Directory (Azure AD) portal to manage Microsoft Support access requests (preview).
 
 This article describes how the process works and how to approve Microsoft Support access requests.
 
@@ -36,7 +36,7 @@ Let's take a closer look at the workflow for this scenario:
 - A Microsoft Support engineer creates a support access request to access identity diagnostic data for the *resource tenant*.
 - An administrator of *both* tenants approves the Microsoft Support access request.
 - With approval, the support engineer has access to the data only in the approved *resource tenant*. 
-- Closing the support request automatically revokes the support engineer's access to your identity data.
+- When the support engineer closes the support request, access to your identity data is automatically revoked.
 
 This cross-tenant scenario is the primary scenario where a support access request is necessary. In these scenarios, Microsoft approved access is visible only in the resource tenant. To preserve cross-tenant privacy, an administrator of the *support request tenant* is unable to see whether an administrator of the *resource tenant* has manually removed this approval. 
 
