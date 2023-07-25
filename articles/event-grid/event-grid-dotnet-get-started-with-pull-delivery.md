@@ -51,11 +51,11 @@ If you're new to the service, see [Event Grid overview](overview.md) before you 
 
 [!INCLUDE [event-grid-passwordless-template-tabbed](../../includes/passwordless/event-grid/event-grid-passwordless-template-tabbed.md)]
 
-## Launch Visual Studio and sign-in to Azure
+## Launch Visual Studio
 
 You can authorize access to the event grid namespace using the following steps:
 
-1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
+Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 
 
 ## Send messages to the topic
@@ -107,13 +107,18 @@ This section shows you how to create a .NET console application to send messages
     using Azure.Messaging.EventGrid.Namespaces;
 
     // TODO: Replace the <ENDPOINT> , <TOPIC-KEY> and <TOPIC-NAME> placeholder
-    // Construct the client using an Endpoint for a namespace as well as the access key
     
-    var client = new EventGridClient(new Uri(<ENDPOINT>), new AzureKeyCredential(<TOPIC-KEY>));
+    var topicEndpoint = "https://namespace01.eastus-1.eventgrid.azure.net"; // Replace with the url of your event grid namespace.
+    var topicKey = "Enter the Topic Access Key";
+    var topicName = "Enter the Topic Name";
+    var subscription = "Enter the event grid subscription name";
+
+    // Construct the client using an Endpoint for a namespace as well as the access key
+    var client = new EventGridClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
     
     // Publish a single CloudEvent using a custom TestModel for the event data.
     var @ev = new CloudEvent("employee_source", "type", new TestModel { Name = "Bob", Age = 18 });
-    await client.PublishCloudEventAsync(<TOPIC-NAME>, ev);
+    await client.PublishCloudEventAsync(topicName, ev);
     
     // Publish a batch of CloudEvents.
     
@@ -124,12 +129,12 @@ This section shows you how to create a .NET console application to send messages
    }
     
     await client.PublishCloudEventsAsync(
-    <TOPIC-NAME>,
+    topicName,
     new[] {
         new CloudEvent("employee_source", "type", new TestModel { Name = "Tom", Age = 55 }),
         new CloudEvent("employee_source", "type", new TestModel { Name = "Alice", Age = 25 })});
         
-    Console.WriteLine("Press any key to end the application");
+    Console.WriteLine("An event has been published to the topic. Press any key to end the application.");
     Console.ReadKey();
     ```
 
@@ -139,7 +144,7 @@ This section shows you how to create a .NET console application to send messages
 3. Run the program and wait for the confirmation message.
 
     ```bash
-    An event has been published to the topic
+    An event has been published to the topic. Press any key to end the application.
     ```
 
     > [!IMPORTANT]
@@ -198,23 +203,31 @@ In this section, you add code to retrieve messages from the queue.
     using Azure.Messaging.EventGrid.Namespaces;
     
     
-    // TODO: Replace the <TOPIC-ENDPOINT> , <TOPIC-KEY> , <TOPIC-NAME> AND <EVENT-SUBSCRIPTION> placeholder
+    var topicEndpoint = "https://namespace01.eastus-1.eventgrid.azure.net"; // Replace with the url of your event grid namespace.
+    var topicKey = "Enter the Topic Access Key";
+    var topicName = "Enter the Topic Name";
+    var subscription = "Enter the event grid subscription name";
+
     // Construct the client using an Endpoint for a namespace as well as the access key
-    
-    var client = new EventGridClient(new Uri(<TOPIC-ENDPOINT>), new AzureKeyCredential(<TOPIC-KEY>));
+    var client = new EventGridClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
     
     // Receive the published CloudEvents
-    ReceiveResult result = await client.ReceiveCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>);
+    ReceiveResult result = await client.ReceiveCloudEventsAsync(topicName, subscription);
+    
+    Console.WriteLine("Received Response");
     ```
 
 1. Append the following methods to the end of the `Program` class.
 
     ```csharp
-    // handle received messages
+    // handle received messages. Define these variables on the top.
+
     var toRelease = new List<string>();
     var toAcknowledge = new List<string>();
     var toReject = new List<string>();
+
     // Iterate through the results and collect the lock tokens for events we want to release/acknowledge/result
+
     foreach (ReceiveDetails detail in result.Value)
     {
     CloudEvent @event = detail.Event;
