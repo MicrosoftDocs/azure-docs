@@ -26,7 +26,7 @@ This article provides a guide to using selectable search parameter functionality
 Overall, for selectable search parameter, an API endpoint (‘$status’) is provided to enable or disable search parameters, individually or in bulk. This API endpoint can also allow customers to view the status of search parameters. 
 
 There are four different statuses that are seen in the response: 
-* **Supported**: This status indicates that the search parameter is supported by the FHIR service, and the user has submitted requests to enable the search parameter. Note: Reindex operation needs to be executed to run from from supported to enabled.
+* **Supported**: This status indicates that the search parameter is supported by the FHIR service, and the user has submitted requests to enable the search parameter. Note: Reindex operation needs to be executed to run from supported to enabled.
 * **Enabled**: This status indicates that the search parameter is enabled for searching. This is the next step after the supported status. 
 * **PendingDisable**: This status indicates that search parameter will be disabled after execution of the reindex operation. 
 * **Disabled**: This status indicates that the search parameter is disabled. 
@@ -49,9 +49,9 @@ GET {{FHIR_URL}}/SearchParameter/$status
 This returns a list of all the search parameters with their individual statuses. You can scroll through the list to find the search parameter you need.
 
 You to identify status of individual or subset of search parameters you can use the filters listed.
-1. Name : To identify search parameter status by name use request, GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
+1. Name: To identify search parameter status by name use request, GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
 1. URL: To identify search parameter status by its canonical identifier use request, GET {{FHIR_URL}}/SearchParameter/$status?url=<SearchParameter url>
-1. Resource type : In FHIR, search parameters are enabled at individual resource level to enable filtering and retrieving specific subset of resources. To identify status of all the search parameters mapped to resource, use request. GET {{FHIR_URL}}/SearchParameter/$status?resourcetype=<ResourceType name>
+1. Resource type: In FHIR, search parameters are enabled at individual resource level to enable filtering and retrieving specific subset of resources. To identify status of all the search parameters mapped to resource, use request. GET {{FHIR_URL}}/SearchParameter/$status?resourcetype=<ResourceType name>
 
 In response to the GET request to $status endpoint, you'll see Parameters resource type returned with the status of the search parameter. See the example response:
 ```rest
@@ -145,7 +145,7 @@ PUT {{FHIR_URL}}/SearchParameter/$status
 After you have updated the search parameter status to supported or deleted, the next step is to execute reindex job. 
 
 ### Step 3: Execute a reindex job. 
-Until the search parameter is indexed, the enable and delete status of the search parameters are'nt activated. Reindex job execution helps to update the status from supported to enabled or disabled to deleted.
+Until the search parameter is indexed, the enable and delete status of the search parameters aren't activated. Reindex job execution helps to update the status from supported to enabled or disabled to deleted.
 Reindex job can be executed against entire FHIR service database or against specific search parameters. Reindex job can be performance intensive. [Read guide](how-to-run-a-reindex.md) on reindex job execution and status on how to run a reindex job in FHIR service.
 
 Note: A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation. Capability statement is available with /metadata endpoint. Enabled search parameters are listed in capability statement of your FHIR service
