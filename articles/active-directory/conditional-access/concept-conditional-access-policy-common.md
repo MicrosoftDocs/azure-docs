@@ -113,6 +113,8 @@ These policies help secure organizations with remote worker
 
 - [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
 
+---
+
 ## Other common policies
 
 - [Block access by location](howto-conditional-access-policy-location.md)
