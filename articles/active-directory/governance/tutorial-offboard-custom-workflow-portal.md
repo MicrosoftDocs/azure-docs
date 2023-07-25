@@ -45,6 +45,8 @@ The leaver scenario includes the following steps:
 
 ## Create a workflow by using the leaver template
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to create a leaver on-demand workflow that will execute a real-time employee termination by using lifecycle workflows in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

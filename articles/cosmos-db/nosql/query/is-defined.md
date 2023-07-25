@@ -48,5 +48,5 @@ The following example checks for the presence of a property within the specified
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_NULL`](is-null.md)

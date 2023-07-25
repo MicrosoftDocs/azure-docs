@@ -20,6 +20,8 @@ Scheduled workflows by default run every 3 hours, but can also run on-demand so 
 
 ## Run a workflow on-demand in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to run a workflow on-demand.
 
 >[!NOTE]

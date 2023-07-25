@@ -32,6 +32,8 @@ The following diagram displays how the sample app works:
 
 ## Step 1: Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to register your application in the Azure portal:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.

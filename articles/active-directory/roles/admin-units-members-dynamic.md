@@ -49,6 +49,8 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 ### Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
@@ -234,4 +236,3 @@ Body
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
 - [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
-

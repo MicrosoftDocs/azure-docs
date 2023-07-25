@@ -53,6 +53,8 @@ You can configure CAs by using the Azure portal or PowerShell.
 
 ### Configure certification authorities using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
@@ -140,7 +142,7 @@ For more information, see [Understanding the certificate revocation process](./c
 
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 1.	Under **Enable and Target**, click **Enable**.
