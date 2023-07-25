@@ -66,10 +66,10 @@ This section shows you how to create a .NET console application to send messages
 
 1. In Visual Studio, select **File** -> **New** -> **Project** menu. 
 2. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**.
-    a. Select **C#** for the programming language.
-    b. Select **Console** for the type of the application.
-    c. Select **Console App** from the results list.
-    d. Then, select **Next**.
+    1. Select **C#** for the programming language.
+    1. Select **Console** for the type of the application.
+    1. Select **Console App** from the results list.
+    1. Then, select **Next**.
 
         :::image type="content" source="./media/event-grid-dotnet-get-started-with-events/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
 3. Enter **EventSender** for the project name, **EventGridQuickStart** for the solution name, and then select **Next**.
@@ -216,7 +216,7 @@ In this section, you'll add code to retrieve messages from the queue.
     var toReject = new List<string>();
     // Iterate through the results and collect the lock tokens for events we want to release/acknowledge/result
     foreach (ReceiveDetails detail in result.Value)
-{
+    {
     CloudEvent @event = detail.Event;
     BrokerProperties brokerProperties = detail.BrokerProperties;
     Console.WriteLine(@event.Data.ToString());
@@ -239,12 +239,12 @@ In this section, you'll add code to retrieve messages from the queue.
     {
         toReject.Add(brokerProperties.LockToken);
     }
-}
+    }
 
-// Release/acknowledge/reject the events
+    // Release/acknowledge/reject the events
 
-if (toRelease.Count > 0)
-{
+    if (toRelease.Count > 0)
+    {
     ReleaseResult releaseResult = await client.ReleaseCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toRelease);
 
     // Inspect the Release result
@@ -261,10 +261,10 @@ if (toRelease.Count > 0)
     {
         Console.WriteLine($"Lock Token: {lockToken}");
     }
-}
+    }
 
-if (toAcknowledge.Count > 0)
-{
+    if (toAcknowledge.Count > 0)
+    {
     AcknowledgeResult acknowledgeResult = await client.AcknowledgeCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toAcknowledge);
 
     // Inspect the Acknowledge result
@@ -281,10 +281,10 @@ if (toAcknowledge.Count > 0)
     {
         Console.WriteLine($"Lock Token: {lockToken}");
     }
-}
+    }
 
-if (toReject.Count > 0)
-{
+    if (toReject.Count > 0)
+    {
     RejectResult rejectResult = await client.RejectCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toReject);
 
     // Inspect the Reject result
@@ -301,7 +301,7 @@ if (toReject.Count > 0)
     {
         Console.WriteLine($"Lock Token: {lockToken}");
     }
-}
+    }
 
     ```
 
