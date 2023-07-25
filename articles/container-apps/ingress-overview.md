@@ -98,7 +98,7 @@ Azure Container Apps provides built-in authentication and authorization features
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md). 
 
-For details on how to use mTLS for environment level network encryption, see the [networking overview](./networking.md#environment-level-network-encryption---preview). 
+For details on how to use mTLS for environment level network encryption, see the [networking overview](./networking.md#mtls). 
 
 ## Traffic splitting
 
