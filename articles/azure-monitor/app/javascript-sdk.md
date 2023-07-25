@@ -10,7 +10,9 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor Application Insights Real User Monitoring
 
-The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
+The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
+
+We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md).
 
 ## Prerequisites
 
@@ -135,7 +137,7 @@ If you want to use the extra features provided by plugins for specific framework
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
 > [!TIP]
-> We collect page views by default. But if you want to also collect clicks by default, consider adding the Click Analytics Auto-Collection plug-in. If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
+> If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ### 5. Confirm data is flowing
 
