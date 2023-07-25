@@ -41,10 +41,9 @@ Two methods are available to add the code to enable Application Insights via the
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights. 
+1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
 
-   > [!NOTE]
-   > Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+   Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -84,13 +83,11 @@ Two methods are available to add the code to enable Application Insights via the
    npm i --save @microsoft/applicationinsights-web
    ```
 
-   > [!Note]
-   > *Typings are included with this package*, so you do *not* need to install a separate typings package.
+    *Typings are included with this package*, so you do *not* need to install a separate typings package.
 
 1. Add the following JavaScript to your application's code.
 
-   > [!NOTE]
-   > Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
+   Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
     
    ```js
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -115,10 +112,9 @@ To paste the connection string in your environment, follow these steps:
 
       :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your connection string copied to the clipboard.
+   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string]((sdk-connection-string.md)) copied to the clipboard.
 
-      > [!NOTE]
-      > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
+      The connection string isn't considered a security token or key.
 
 ### 3. (Optional) Add SDK configuration
 
@@ -136,8 +132,7 @@ If you want to use the extra features provided by plugins for specific framework
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
-> [!TIP]
-> If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
+If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ### 5. Confirm data is flowing
 
