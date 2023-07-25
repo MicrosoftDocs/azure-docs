@@ -183,7 +183,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 ---
 
 > [!IMPORTANT]
-> Hourly pricing starts from the moment the Bastion host is deployed, regardless of outbound data usage. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). We recommend that you delete this resource once you've finished using it.
+> Hourly pricing starts from the moment Bastion host is deployed, regardless of outbound data usage. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). We recommend that you delete this resource once you've finished using it.
 
 ## Create a virtual machine
 
