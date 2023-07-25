@@ -710,7 +710,7 @@
         href: image-builder-reliability.md
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
-        href: image-builder-optimization.md
+        href: vm-boot-optimization.md
     - name: Build image with Packer
       items:
       - name: Linux
