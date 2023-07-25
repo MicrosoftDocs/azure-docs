@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 07/25/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,30 +36,34 @@ These basic controls include:
 
 ### Who should use Conditional Access?
 
-- If you're an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you, unless you are just starting out.
+- If you're an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you.
 - If your organization has complex security requirements, you should consider [Conditional Access](#conditional-access).
 
 ## Enabling security defaults
 
 If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
 
-To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this, customers will be periodically notified for the automatic enablement of the security defaults it they: 
+To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this protection, customers are periodically notified for the automatic enablement of the security defaults if they: 
 
-- Aren’t using Conditional Access
-- Haven’t used security defaults before
-- Aren’t actively using legacy authentication clients 
+- Haven't enabled Conditional Access policies.
+- Don't have premium licenses.
+- Aren’t actively using legacy authentication clients.
 
-After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, please refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
+After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
 
 To enable security defaults in your directory:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Security Administrator, Conditional Access Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
+
+### Revoking active tokens
+
+As part of enabling security defaults, administrators should revoke all existing tokens to require all users to register for multifactor authentication. This revocation event forces previously authenticated users to authenticate and register for multifactor authentication. This task can be accomplished using the [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) PowerShell cmdlet.
 
 ## Enforced security policies
 
@@ -157,7 +161,7 @@ Security defaults users are required to register for and use Azure AD Multifacto
 
 ### Backup administrator accounts
 
-Every organization should have at least two backup administrator accounts configured. We call these emergency access accounts.
+Every organization should have at least two backup administrators configured. We call these emergency access accounts.
 
 These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent global administrator access has left the organization. Azure AD prevents the last global administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 
