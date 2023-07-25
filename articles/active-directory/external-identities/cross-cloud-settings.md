@@ -45,6 +45,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 ## Enable the cloud in your Microsoft cloud settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
