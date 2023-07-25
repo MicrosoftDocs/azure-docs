@@ -14,7 +14,6 @@ The following table lists the current versions available for the public and beta
 | Public  | 10.5.0         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
 | Beta    | 10.5.0         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
 
-
 ## Updates for version 10.5.0
 
 *Date published: July 10, 2023*
