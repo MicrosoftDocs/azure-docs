@@ -16,11 +16,11 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan to route requests to your applications.
+This article explains how to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan to route requests to your applications.
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway includes the following features:
+VMware Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
 - Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
@@ -29,22 +29,22 @@ Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes.
+To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [Use API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
-  > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
+  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You cannot enable VMware Spring Cloud Gateway after provisioning.
 
-- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
+- Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Filters
 
-Filters are used in your Spring Cloud Gateway configuration to act on the incoming request or outgoing response to a route configuration.
+Filters are used in the Spring Cloud Gateway configuration to act on the incoming request, or as an outgoing response to a route configuration.
 
-Example uses for a filter could be in adding an HTTP header, or denying access based on an authorization token.
+For example, a filter could be used in adding an HTTP header, or when denying access based on an authorization token.
 
 ## Use Open Source Filters
 
@@ -52,7 +52,7 @@ Spring Cloud Gateway OSS includes a number of `GatewayFilter` factories used to 
 
 ### AddRequestHeader
 
-The AddRequestHeader GatewayFilter factory takes a name and value parameter. The following example configures an AddRequestHeader GatewayFilter:
+The `AddRequestHeader` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddRequestHeader` GatewayFilter:
 
 ```json
 [
@@ -69,7 +69,7 @@ The AddRequestHeader GatewayFilter factory takes a name and value parameter. The
 
 This listing adds `X-Request-red:blue` header to the downstream request’s headers for all matching requests.
 
-AddRequestHeader is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an AddRequestHeader GatewayFilter that uses a variable:
+`AddRequestHeader` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddRequestHeader` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -86,11 +86,11 @@ AddRequestHeader is aware of the URI variables used to match a path or host. URI
 
 ### AddRequestHeadersIfNotPresent
 
-Adds headers if not present in the original request.
+The `AddRequestHeadersIfNotPresent` filter adds headers if it is not present in the original request.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
-- `headers`: comma-separated list of key-value pairs (header name, header value)
+- `headers`: comma-separated list of key-value pairs (header name, header value).
 
 ```json
 [
@@ -107,7 +107,7 @@ Configuration parameters:
 
 ### AddRequestParameter
 
-The AddRequestParameter GatewayFilter Factory takes a name and value parameter. The following example configures an AddRequestParameter GatewayFilter:
+The `AddRequestParameter` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddRequestParameter` GatewayFilter:
 
 ```json
 [
@@ -122,9 +122,9 @@ The AddRequestParameter GatewayFilter Factory takes a name and value parameter. 
 ]
 ```
 
-This will add red=blue to the downstream request’s query string for all matching requests.
+This configuration adds `red=blue` parameter to the downstream request’s query string for all matching requests.
 
-AddRequestParameter is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an AddRequestParameter GatewayFilter that uses a variable:
+`AddRequestParameter` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddRequestParameter` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -141,7 +141,7 @@ AddRequestParameter is aware of the URI variables used to match a path or host. 
 
 ### AddResponseHeader
 
-The AddResponseHeader GatewayFilter Factory takes a name and value parameter. The following example configures an AddResponseHeader GatewayFilter:
+The `AddResponseHeader` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -156,9 +156,9 @@ The AddResponseHeader GatewayFilter Factory takes a name and value parameter. Th
 ]
 ```
 
-This adds X-Response-Red:Blue header to the downstream response’s headers for all matching requests.
+This configuration adds `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests.
 
-AddResponseHeader is aware of URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an AddResponseHeader GatewayFilter that uses a variable:
+`AddResponseHeader` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddResponseHeader` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -175,14 +175,14 @@ AddResponseHeader is aware of URI variables used to match a path or host. URI va
 
 ### CircuitBreaker
 
-Wraps routes in a circuit breaker.
+The `CircuitBreaker` filter wraps routes in a circuit breaker.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `name`: circuit breaker name.
 - `fallbackUri`: reroute url, can be a local route or external handler.
-- `status codes`: (optional) colon-separated list of status codes to match, in number or text format.
-- `failure rate`: (optional) threshold above which the circuit breaker will be opened (default 50%).
+- `status codes`: (optional) colon-separated list of status codes to match, in number or in text format.
+- `failure rate`: (optional) threshold above which the circuit breaker opens (default 50%).
 - `duration`: (optional) time to wait before closing again (default 60s).
 
 ```json
@@ -200,7 +200,7 @@ Configuration parameters:
 
 ### DeDupeResponseHeader
 
-The DedupeResponseHeader GatewayFilter factory takes a name parameter and an optional `strategy` parameter. `name` can contain a space-separated list of header names. The following example configures a DedupeResponseHeader GatewayFilter:
+The `DedupeResponseHeader` GatewayFilter Factory takes a `name` parameter and an optional `strategy` parameter. `name` can contain a space-separated list of header names. The following example configures a `DedupeResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -215,16 +215,15 @@ The DedupeResponseHeader GatewayFilter factory takes a name parameter and an opt
 ]
 ```
 
-This removes duplicate values of Access-Control-Allow-Credentials and Access-Control-Allow-Origin response headers in cases when both the gateway CORS logic and the downstream logic add them.
+This configuration removes duplicate values of `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` response headers when both values are added by the gateway CORS logic and the downstream logic.
 
-The DedupeResponseHeader filter also accepts an optional strategy parameter. The accepted values are `RETAIN_FIRST` (default), `RETAIN_LAST`, and `RETAIN_UNIQUE`.
+The `DedupeResponseHeader` filter also accepts an optional strategy parameter. The accepted values are `RETAIN_FIRST` (default), `RETAIN_LAST`, and `RETAIN_UNIQUE`.
 
 ### FallbackHeaders
 
-Adds any circuit breaker exception to a header.
-Requires the use of the `CircuitBreaker` filter in another route.
+The `FallbackHeaders` filter adds any circuit breaker exception to a header. Note that this filter requires the use of the `CircuitBreaker` filter in another route.
 
-No parameters required.
+No parameters are required for the `FallbackHeaders` filter.
 
 ```json
 [
@@ -247,18 +246,18 @@ No parameters required.
 ]
 ```
 
-The headers with the exception type, message and (if available) root cause exception type and message are added to that request by the FallbackHeaders filter.
+The headers with the exception type, message, and (if available) root cause exception type and message are added to that request by the `FallbackHeaders` filter.
 
 You can overwrite the names of the headers in the configuration by setting the values of the following arguments (shown with their default values):
 
-- executionExceptionTypeHeaderName ("Execution-Exception-Type")
-- executionExceptionMessageHeaderName ("Execution-Exception-Message")
-- rootCauseExceptionTypeHeaderName ("Root-Cause-Exception-Type")
-- rootCauseExceptionMessageHeaderName ("Root-Cause-Exception-Message")
+- `executionExceptionTypeHeaderName` ("Execution-Exception-Type")
+- `executionExceptionMessageHeaderName` ("Execution-Exception-Message")
+- `rootCauseExceptionTypeHeaderName` ("Root-Cause-Exception-Type")
+- `rootCauseExceptionMessageHeaderName` ("Root-Cause-Exception-Message")
 
 ### JSONToGRPC
 
-The JSONToGRPCFilter GatewayFilter Factory converts a JSON payload to a gRPC request.
+The `JSONToGRPCFilter` GatewayFilter Factory converts a JSON payload to a gRPC request.
 
 The filter takes the following arguments:
 
@@ -272,9 +271,10 @@ protoc --proto_path=src/main/resources/proto/ \
     src/main/resources/proto/hello.proto
 ```
 
-> Note: `streaming` is not supported.
+> [!NOTE] 
+> `streaming` is not supported.
 
-Here's an example of the JSONToGRPCFilter using the output from `protoc`:
+The following is an example of the JSONToGRPCFilter using the output from `protoc`:
 
 ```json
 [
@@ -291,9 +291,9 @@ Here's an example of the JSONToGRPCFilter using the output from `protoc`:
 
 ### LocalResponseCache
 
-Overrides local response cache configuration for specific routes if global cache is activated.
+The `LocalResponseCache` filter overrides the local response cache configuration for specific routes when global cache is activated.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `size`: maximum allowed size of the cache entries for this route before cache eviction begins (in KB, MB and GB).
 - `timeToLive`: allowed lifespan of a cache entry before expiration (use the duration suffix `s` for seconds, `m` for minutes, or `h` for hours).
@@ -313,7 +313,7 @@ Configuration parameters:
 
 ### MapRequestHeader
 
-The MapRequestHeader GatewayFilter factory takes fromHeader and toHeader parameters. It creates a new named header (toHeader), and the value is extracted out of an existing named header (fromHeader) from the incoming http request. If the input header does not exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. The following example configures a MapRequestHeader:
+The `MapRequestHeader` GatewayFilter Factory takes the `fromHeader` and `toHeader` parameters. The `MapRequestHeader` filter creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header does not exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. The following example configures a `MapRequestHeader`:
 
 ```json
 [
@@ -328,11 +328,11 @@ The MapRequestHeader GatewayFilter factory takes fromHeader and toHeader paramet
 ]
 ```
 
-This adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header.
+This configuration adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header.
 
 ### PrefixPath
 
-The PrefixPath GatewayFilter factory takes a single prefix parameter. The following example configures a PrefixPath GatewayFilter:
+The `PrefixPath` GatewayFilter Factory takes a single prefix parameter. The following example configures a `PrefixPath` GatewayFilter:
 
 ```json
 [
@@ -347,11 +347,11 @@ The PrefixPath GatewayFilter factory takes a single prefix parameter. The follow
 ]
 ```
 
-This prefixes `/api` to the path of all matching requests. So a request to `/catalog` is sent to `/api/catalog`.
+This configuration prefixes `/api` to the path of all matching requests. So a request to `/catalog` is sent to `/api/catalog`.
 
 ### PreserveHostHeader
 
-The PreserveHostHeader GatewayFilter factory has no parameters. This filter sets a request attribute that the routing filter inspects to determine if the original host header should be sent rather than the host header determined by the HTTP client. The following example configures a PreserveHostHeader GatewayFilter:
+The `PreserveHostHeader` GatewayFilter Factory has no parameters. This filter sets a request attribute that the routing filter inspects to determine whether to send the original host header or the host header determined by the HTTP client. The following example configures a `PreserveHostHeader` GatewayFilter:
 
 ```json
 [
@@ -368,7 +368,7 @@ The PreserveHostHeader GatewayFilter factory has no parameters. This filter sets
 
 ### RedirectTo
 
-The RedirectTo GatewayFilter factory takes two parameters, status and url. The status parameter should be a 300 series redirect HTTP code, such as 301. The url parameter should be a valid URL. This is the value of the Location header. For relative redirects, you should use uri: no://op as the uri of your route definition. The following listing configures a RedirectTo GatewayFilter:
+The `RedirectTo` GatewayFilter Factory takes the `status` and the `url` parameters. The `status` parameter should be a 300 series redirect HTTP code, such as 301. The `url` parameter should be a valid URL. This is the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. The following listing configures a `RedirectTo` GatewayFilter:
 
 ```json
 [
@@ -381,13 +381,13 @@ The RedirectTo GatewayFilter factory takes two parameters, status and url. The s
 ]
 ```
 
-This will send a status `302` with a `Location:https://acme.org` header to perform a redirect.
+This configuration sends a status `302` with a `Location:https://acme.org` header to perform a redirect.
 
 ### RemoveJsonAttributesResponseBody
 
-Removes JSON attributes and their values from JSON response bodies.
+The `RemoveJsonAttributesResponseBody` filter removes the JSON attributes and their values from JSON response bodies.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `attribute names`: comma-separated list of the names of attributes to remove from a JSON response.
 - `delete recursively`: (optional, boolean) configures the removal of attributes only at root level (`false`), or recursively (`true`) (default, `false`).
@@ -407,7 +407,7 @@ Configuration parameters:
 
 ### RemoveRequestHeader
 
-The RemoveRequestHeader GatewayFilter factory takes a name parameter. It is the name of the header to be removed. The following listing configures a RemoveRequestHeader GatewayFilter:
+The `RemoveRequestHeader` GatewayFilter Factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` GatewayFilter:
 
 ```json
 [
@@ -422,11 +422,11 @@ The RemoveRequestHeader GatewayFilter factory takes a name parameter. It is the 
 ]
 ```
 
-This removes the X-Request-Foo header before it is sent downstream.
+This configuration removes the `X-Request-Foo` header before it is sent downstream.
 
 ### RemoveRequestParameter
 
-The RemoveRequestParameter GatewayFilter factory takes a name parameter. It is the name of the query parameter to be removed. The following example configures a RemoveRequestParameter GatewayFilter:
+The `RemoveRequestParameter` GatewayFilter Factory takes a `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` GatewayFilter:
 
 ```json
 [
@@ -441,11 +441,11 @@ The RemoveRequestParameter GatewayFilter factory takes a name parameter. It is t
 ]
 ```
 
-This will remove the red parameter before it is sent downstream.
+This configuration removes the `red` parameter before it is sent downstream.
 
 ### RemoveResponseHeader
 
-The RemoveResponseHeader GatewayFilter factory takes a name parameter. It is the name of the header to be removed. The following listing configures a RemoveResponseHeader GatewayFilter:
+The `RemoveResponseHeader` GatewayFilter factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -460,11 +460,11 @@ The RemoveResponseHeader GatewayFilter factory takes a name parameter. It is the
 ]
 ```
 
-This will remove the X-Response-Foo header from the response before it is returned to the gateway client.
+This configuration removes the `X-Response-Foo` header from the response before it is returned to the gateway client.
 
 ### RequestHeaderSize
 
-The RequestHeaderSize GatewayFilter factory takes maxSize and errorHeaderName parameters. The maxSize parameter is the maximum data size allowed by the request header (including key and value). The errorHeaderName parameter sets the name of the response header containing an error message, by default it is "errorMessage". The following listing configures a RequestHeaderSize GatewayFilter:
+The RequestHeaderSize GatewayFilter Factory takes maxSize and errorHeaderName parameters. The maxSize parameter is the maximum data size allowed by the request header (including key and value). The errorHeaderName parameter sets the name of the response header containing an error message, by default it is "errorMessage". The following listing configures a RequestHeaderSize GatewayFilter:
 
 ```json
 [
@@ -483,7 +483,7 @@ This will send a status 431 if size of any request header is greater than 1000 B
 
 ### RewriteLocationResponseHeader
 
-The RewriteLocationResponseHeader GatewayFilter factory modifies the value of the Location response header, usually to get rid of backend-specific details. It takes the stripVersionMode, locationHeaderName, hostValue, and protocolsRegex parameters. The following listing configures a RewriteLocationResponseHeader GatewayFilter:
+The RewriteLocationResponseHeader GatewayFilter Factory modifies the value of the Location response header, usually to get rid of backend-specific details. It takes the stripVersionMode, locationHeaderName, hostValue, and protocolsRegex parameters. The following listing configures a RewriteLocationResponseHeader GatewayFilter:
 
 ```json
 [
@@ -512,7 +512,7 @@ The `protocolsRegex` parameter must be a valid regex `String`, against which the
 
 ### RewritePath
 
-The RewritePath GatewayFilter factory takes a path regexp parameter and a replacement parameter. This uses Java regular expressions for a flexible way to rewrite the request path. The following listing configures a RewritePath GatewayFilter:
+The RewritePath GatewayFilter Factory takes a path regexp parameter and a replacement parameter. This uses Java regular expressions for a flexible way to rewrite the request path. The following listing configures a RewritePath GatewayFilter:
 
 ```json
 [
@@ -531,7 +531,7 @@ For a request path of `/red/blue`, this sets the path to `/blue` before making t
 
 ### RewriteResponseHeader
 
-The RewriteResponseHeader GatewayFilter factory takes name, regexp, and replacement parameters. It uses Java regular expressions for a flexible way to rewrite the response header value. The following example configures a RewriteResponseHeader GatewayFilter:
+The RewriteResponseHeader GatewayFilter Factory takes name, regexp, and replacement parameters. It uses Java regular expressions for a flexible way to rewrite the response header value. The following example configures a RewriteResponseHeader GatewayFilter:
 
 ```json
 [
@@ -550,7 +550,7 @@ For a header value of `/42?user=ford&password=omg!what&flag=true`, it is set to 
 
 ### SetPath
 
-The SetPath GatewayFilter factory takes a path template parameter. It offers a simple way to manipulate the request path by allowing templated segments of the path. This uses the URI templates from Spring Framework. Multiple matching segments are allowed. The following example configures a SetPath GatewayFilter:
+The SetPath GatewayFilter Factory takes a path template parameter. It offers a simple way to manipulate the request path by allowing templated segments of the path. This uses the URI templates from Spring Framework. Multiple matching segments are allowed. The following example configures a SetPath GatewayFilter:
 
 ```json
 [
@@ -569,7 +569,7 @@ For a request path of `/red/blue`, this sets the path to `/blue` before making t
 
 ### SetRequestHeader
 
-The SetRequestHeader GatewayFilter factory takes name and value parameters. The following listing configures a SetRequestHeader GatewayFilter:
+The SetRequestHeader GatewayFilter Factory takes name and value parameters. The following listing configures a SetRequestHeader GatewayFilter:
 
 ```json
 [
@@ -603,7 +603,7 @@ SetRequestHeader is aware of URI variables used to match a path or host. URI var
 
 ### SetResponseHeader
 
-The SetResponseHeader GatewayFilter factory takes name and value parameters. The following listing configures a SetResponseHeader GatewayFilter:
+The SetResponseHeader GatewayFilter Factory takes name and value parameters. The following listing configures a SetResponseHeader GatewayFilter:
 
 ```json
 [
@@ -637,7 +637,7 @@ SetResponseHeader is aware of URI variables used to match a path or host. URI va
 
 ### SetStatus
 
-The SetStatus GatewayFilter factory takes a single parameter, status. It must be a valid Spring HttpStatus. It may be the integer value `404` or the string representation of the enumeration: `NOT_FOUND`. The following listing configures a SetStatus GatewayFilter:
+The SetStatus GatewayFilter Factory takes a single parameter, status. It must be a valid Spring HttpStatus. It may be the integer value `404` or the string representation of the enumeration: `NOT_FOUND`. The following listing configures a SetStatus GatewayFilter:
 
 ```json
 [
@@ -662,7 +662,7 @@ The SetStatus GatewayFilter factory takes a single parameter, status. It must be
 
 ### StripPrefix
 
-The StripPrefix GatewayFilter factory takes one parameter, parts. The parts parameter indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the parts parameter is 1. The following listing configures a StripPrefix GatewayFilter:
+The StripPrefix GatewayFilter Factory takes one parameter, parts. The parts parameter indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the parts parameter is 1. The following listing configures a StripPrefix GatewayFilter:
 
 ```json
 [
@@ -681,7 +681,7 @@ When a request is made through the gateway to `/name/blue/red`, the request made
 
 ### Retry
 
-The Retry GatewayFilter factory supports the following parameters:
+The Retry GatewayFilter Factory supports the following parameters:
 
 - `retries`: The number of retries that should be attempted.
 - `statuses`: The HTTP status codes that should be retried, represented by using org.springframework.http.HttpStatus.
@@ -715,7 +715,7 @@ The following listing configures a Retry GatewayFilter:
 
 ### RequestSize
 
-When the request size is greater than the permissible limit, the RequestSize GatewayFilter factory can restrict a request from reaching the downstream service. The filter takes a maxSize parameter. The maxSize is a DataSize type, so values can be defined as a number followed by an optional DataUnit suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It is the permissible size limit of the request defined in bytes. The following listing configures a RequestSize GatewayFilter:
+When the request size is greater than the permissible limit, the RequestSize GatewayFilter Factory can restrict a request from reaching the downstream service. The filter takes a maxSize parameter. The maxSize is a DataSize type, so values can be defined as a number followed by an optional DataUnit suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It is the permissible size limit of the request defined in bytes. The following listing configures a RequestSize GatewayFilter:
 
 ```json
 [
@@ -730,7 +730,7 @@ When the request size is greater than the permissible limit, the RequestSize Gat
 ]
 ```
 
-The RequestSize GatewayFilter factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage` when the request is rejected due to size. The following example shows such an `errorMessage`:
+The RequestSize GatewayFilter Factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage` when the request is rejected due to size. The following example shows such an `errorMessage`:
 
 ```bash
 errorMessage : Request size is larger than permissible limit. Request size is 6.0 MB where permissible limit is 5.0 MB
