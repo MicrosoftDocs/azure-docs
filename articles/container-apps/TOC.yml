@@ -27,22 +27,25 @@
           href: https://www.youtube.com/watch?v=b3dopSTnSRg
 - name: Quickstarts
   expanded: true
-  items:
-    - name: Deploy your first container
-      expanded: true
-      items:
-        - name: Portal
-          href: quickstart-portal.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Command line
-          href: get-started.md
-        - name: Command line (code to cloud)
-          href: quickstart-code-to-cloud.md
-    - name: Run a job
-      href: jobs-get-started-cli.md
+  items: 
+  - name: Deploy from an existing container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal.md
+    - name: Command line
+      href: get-started.md
+  - name: Deploy an app from code
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
+  - name: Run a job
+    href: jobs-get-started-cli.md
 - name: Development & deployment
   items:
     - name: Deploy an app with containerapp up
@@ -125,8 +128,6 @@
       href: alerts.md
 - name: Scaling and performance
   items:
-    - name: Overview
-      href: scaling.md
     - name: Scale an app
       href: scale-app.md
 - name: Domains & certificates
