@@ -52,7 +52,8 @@ Next, create an SMB Azure file share.
 
     ![Screenshot, + file share selected to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this.
+1. Name the new file share *qsfileshare* and leave **Transaction optimized** selected for **Tier**.
+1. Select **Review + create** and then **Create** to create the file share.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
 

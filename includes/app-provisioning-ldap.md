@@ -113,39 +113,39 @@ Finally, you'll need to agree on the deprovisioning behavior.  When the connecto
 If you do not already have a directory server, and wish to try out this feature, then [Prepare Active Directory Lightweight Directory Services for provisioning from Azure AD](../articles/active-directory/app-provisioning/on-premises-ldap-connector-prepare-directory.md) shows how to create a test AD LDS environment.   If you already have  another directory server deployed, you can skip that article, and continue installing and configuring the ECMA connector host.
 
 
-## Download, install, and configure the Azure AD Connect Provisioning Agent Package
+## Install and configure the Azure AD Connect Provisioning Agent
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
-
-  1.  In the Azure portal, select **Azure Active Directory**.
-  2.  On the left, select **Azure AD Connect**.
-  3.  On the left, select **Cloud sync**.
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** and select **New application**.
+ 3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
+ 4. From the menu, navigate to the **Provisioning** page of your application.
+ 5. Select **Get started**.
+ 6. On the **Provisioning** page, change the mode to **Automatic**.
  
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+ :::image type="content" source="media/app-provisioning-sql/configure-7.png" alt-text="Screenshot of selecting Automatic." lightbox="media/app-provisioning-sql/configure-7.png":::
 
- 4. On the left, select **Agent**.
- 5. Select **Download on-premises agent**, and select **Accept terms & download**.
+ 7. Under **On-premises Connectivity**, select **Download and install**, and select **Accept terms & download**.
+ 
+ :::image type="content" source="media/app-provisioning-sql/download-1.png" alt-text="Screenshot of download location for agent." lightbox="media/app-provisioning-sql/download-1.png":::
+     
+ 8. Leave the portal and open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 9. Open the provisioning agent wizard.
+ 10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
 
-     >[!NOTE]
-     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
-
- 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
- 1. When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.
- 1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
- 1. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
-
+ :::image type="content" source="media/app-provisioning-sql/sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on-premises provisioning." lightbox="media/app-provisioning-sql/sync-agent-select-on-premises.png":::
+    
+ 11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+ 12. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+ 13. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
+ 
 ## Configure the On-premises ECMA app
 
- 1. Sign in to the Azure portal as an administrator.
- 1. Go to **Enterprise applications** and select **New application**.
- 1. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
- 1. Navigate to the **Provisioning** page of your application.
- 1. Select **Get started**.
- 1. On the **Provisioning** page, change the mode to **Automatic**.
-     ![Screenshot that shows changing the mode to Automatic.](.\media\app-provisioning-sql\configure-7.png)</br>
- 1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
- 1. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
+ 1. Back in the portal, on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
+
+      ![Screenshot that shows how to select and assign and agent.](.\media\app-provisioning-sql\configure-7a.png)
+
+ 2. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
 
  ## Configure the Azure AD ECMA Connector Host certificate
  1. On the Windows Server where the provisioning agent is installed, right click the Microsoft ECMA2Host Configuration Wizard from the start menu, and run as administrator.  Running as a Windows administrator is necessary for the wizard to create the necessary Windows event logs.

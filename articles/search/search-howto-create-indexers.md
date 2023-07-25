@@ -156,7 +156,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the search service Overview page, choose from two options: 
 

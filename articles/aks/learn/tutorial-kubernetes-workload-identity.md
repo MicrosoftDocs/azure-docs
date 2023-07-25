@@ -2,7 +2,7 @@
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 05/24/2023
 ---
 
@@ -158,8 +158,6 @@ To help simplify steps to configure the identities required, the steps below def
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF

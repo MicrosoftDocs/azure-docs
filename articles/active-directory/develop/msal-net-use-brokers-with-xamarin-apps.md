@@ -161,6 +161,8 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* 
 
 ### Step 7: Add a redirect URI to your app registration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 
 ```csharp
@@ -334,7 +336,7 @@ As an alternative, you can configure MSAL to fall back to the embedded browser, 
 
 Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
-- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com). A missing or incorrect redirect URI is a common issue encountered by developers.
 - **Broker version** - Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
   - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
   - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (version 6.2001.0140 or greater).

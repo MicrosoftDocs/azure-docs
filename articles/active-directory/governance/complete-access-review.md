@@ -33,10 +33,13 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
  
 ## View the status of an access review
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  
 You can track the progress of access reviews as they're completed.
  
-1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
  
 1. In the left menu, select **Access reviews**.
  
@@ -127,4 +130,3 @@ Denied B2B direct connect users and teams lose access to all shared channels in 
 - [Manage access reviews](manage-access-review.md) 
 - [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
-
