@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Schema Migration
 
-MySQL Schema Migration is a new feature that allows users to migrate the schema for objects such as tables, views, triggers, events, stored procedures, and functions. This feature is useful for automating some of work required to prepare the target database prior to starting a migration.
+MySQL Schema Migration is a new feature that allows users to migrate the schema for objects such as databases, tables, views, triggers, events, stored procedures, and functions. This feature is useful for automating some of work required to prepare the target database prior to starting a migration.
 
 ## Current implementation
 
@@ -53,9 +53,8 @@ To complete a schema migration successfully, ensure that the following prerequis
 
 * When migrating non table objects, DMS doesn't support renaming databases.
 * When migrating to a target server that has bin_log enabled, log_bin_trust_function_creators should be enabled to allow for creation of routines and triggers.
-* When migrating please ensure that the database exists on the target server. Schema migration only supports migrating objects and doesn't support creating the database on the target server.
 * Currently there's no support for migrating the DEFINER clause for objects. All object types with definers on source get dropped and after the migration the default definer for tables are set to the login used to run the migration.
-* We haven't tested version upgrade scenarios and results aren't guaranteed. Some version upgrades aren't supported if there are breaking changes in version compatibility. Refer to the MySQL docs for more information on version upgrades.
+* Some version upgrades aren't supported if there are breaking changes in version compatibility. Refer to the MySQL docs for more information on version upgrades.
 * Currently we can only migrate schema as part of data movement. If nothing is selected for data movement, no schema migration happens. If a table is selected for schema migration, it is selected for data movement.
 
 ## Next steps

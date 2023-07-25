@@ -48,6 +48,7 @@ To complete the replicate changes migration successfully, ensure that the follow
 
 - When performing a replicate changes migration, the name of the database on the target server must be the same as the name on the source server.
 - Support is limited to the ROW binlog format.
+- DDL changes replication is supported only when you have selected the option for migrating entire server on DMS UI.
 
 ## Next steps
 
