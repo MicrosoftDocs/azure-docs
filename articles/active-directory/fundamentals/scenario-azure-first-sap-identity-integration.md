@@ -282,4 +282,4 @@ Regardless of where the authorization information comes from, it can then be emi
 ## Next Steps
 
 - Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
-- Discover additional [SAP integration scenarios with Azure AD](../../sap/workloads/integration-get-started.md#azure-ad) and beyond
+- Discover additional [SAP integration scenarios with Azure AD](../../sap/workloads/integration-get-started.md#microsoft-entra-id-formerly-azure-ad) and beyond
