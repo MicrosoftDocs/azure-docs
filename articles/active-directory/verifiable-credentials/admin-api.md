@@ -418,7 +418,7 @@ Content-type: application/json
 
 ### Remarks
 
->You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
+>You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the Azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
 
 ### Update authority
 

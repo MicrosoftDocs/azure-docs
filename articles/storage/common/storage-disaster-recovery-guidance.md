@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 07/20/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
@@ -125,6 +125,32 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
 
+### Supported storage account types
+
+All geo-redundant offerings support [Microsoft-managed failover](#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
+
+| Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
+|---|---|---|
+| **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
+| **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
+
+Two important exceptions to consider are:
+
+> [!div class="checklist"]
+> * [Classic storage accounts](#classic-storage-accounts)
+> * [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2)
+
+#### Classic storage accounts
+
+Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+
+#### Azure Data Lake Storage Gen2
+
+Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace enabled (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
+
+> [!IMPORTANT]
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts and accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+
 ### Storage account containing archived blobs
 
 Storage accounts containing archived blobs support account failover. After failover is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy.
@@ -191,7 +217,10 @@ If your storage account is configured for read access to the secondary, then you
 
 ## Microsoft-managed failover
 
-In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
+In extreme circumstances where the original primary region is deemed unrecoverable within a reasonable amount of time due to a major disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.
+
+> [!NOTE]
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It cannot be initiated for individual storage accounts, subscriptions, or tenants. For the ability to selectively failover your individual storage accounts, use customer-managed account failover described previously in this article.
 
 ## See also
 

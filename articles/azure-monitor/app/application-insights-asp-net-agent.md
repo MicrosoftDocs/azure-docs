@@ -359,7 +359,7 @@ Enable the instrumentation engine if:
 #### Examples
 
 ```powershell
-PS C:\> Enable-InstrumentationEngine
+Enable-InstrumentationEngine
 ```
 
 #### Parameters
@@ -397,7 +397,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 In this example, all apps on the current computer are assigned a single instrumentation key.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ##### Example with an instrumentation key map
@@ -410,12 +410,11 @@ In this example:
 - Spaces are added for readability.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
-    @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
-
+Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
+    ` @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+      ` @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      ` @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      ` @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
 > [!NOTE]
@@ -510,7 +509,7 @@ Restart IIS for the changes to take effect.
 #### Examples
 
 ```powershell
-PS C:\> Disable-InstrumentationEngine
+Disable-InstrumentationEngine
 ```
 
 #### Parameters
@@ -539,7 +538,7 @@ This cmdlet will remove edits to the IIS applicationHost.config and remove regis
 #### Examples
 
 ```powershell
-PS C:\> Disable-ApplicationInsightsMonitoring
+Disable-ApplicationInsightsMonitoring
 ```
 
 #### Parameters
@@ -581,7 +580,7 @@ Gets the config file and prints the values to the console.
 #### Examples
 
 ```powershell
-PS C:\> Get-ApplicationInsightsMonitoringConfig
+Get-ApplicationInsightsMonitoringConfig
 ```
 
 #### Parameters
@@ -614,8 +613,7 @@ This cmdlet will report version information and information about key files requ
 Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitoring status of web sites.
 
 ```powershell
-
-PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Get-ApplicationInsightsMonitoringStatus
 
 IIS Websites:
 
@@ -659,8 +657,7 @@ In this example;
 Run the command `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` to display information about the current module:
 
 ```powershell
-
-PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
+Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
 0.4.0-alpha
@@ -717,7 +714,7 @@ Run the command `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus -InspectProcess
+Get-ApplicationInsightsMonitoringStatus -InspectProcess
 
 iisreset.exe /status
 Status for IIS Admin Service ( IISADMIN ) : Running
@@ -792,7 +789,7 @@ Restart IIS for your changes to take effect.
 In this example, all apps on the current computer will be assigned a single instrumentation key.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ##### Example with an instrumentation key map
@@ -806,10 +803,10 @@ In this example:
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
-       @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-          @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
-          @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
-          @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
+    ` @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+      ` @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      ` @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      ` @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
 #### Parameters
@@ -931,7 +928,7 @@ The full path will be displayed during script execution.
 
 ##### Example of application startup logs
 ```powershell
-PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
+Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
 Log File: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\logs\20190627_144217_ApplicationInsights_ETW_Trace.etl
 Tracing enabled, waiting for events.

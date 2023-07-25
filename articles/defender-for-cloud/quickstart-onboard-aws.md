@@ -1,7 +1,8 @@
 ---
-title: Connect your AWS account to Microsoft Defender for Cloud
+title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
+ms.custom: devx-track-linux
 ms.date: 06/28/2023
 ---
 
