@@ -6,7 +6,7 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-- name: Docs for keys, secrets, and certificates
+- name: Documentation for keys, secrets, and certificates
   items:
   - name: Keys
     href: ../keys/about-keys.md
