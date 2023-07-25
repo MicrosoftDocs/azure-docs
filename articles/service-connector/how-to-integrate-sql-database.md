@@ -45,7 +45,7 @@ Use the environment variable names and application properties listed below to co
 
 ### .NET (sqlClient)
 
-#### .NET system-assigned managed identity
+#### .NET System-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
@@ -90,7 +90,7 @@ Use the environment variable names and application properties listed below to co
 ### Java Database Connectivity (JDBC)
 
 
-#### Java Database Connectivity system-assigned managed identity
+#### Java Database Connectivity System-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
@@ -121,7 +121,7 @@ Use the environment variable names and application properties listed below to co
 
 ### Java Spring Boot (spring-boot-starter-jdbc)
 
-#### Java Spring Boot system-assigned managed identity
+#### Java Spring Boot System-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
@@ -155,7 +155,7 @@ Use the environment variable names and application properties listed below to co
 
 ### Node.js
 
-#### Node.js system-assigned managed identity
+#### Node.js System-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |

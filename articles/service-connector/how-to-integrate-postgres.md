@@ -45,7 +45,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### .NET (ADO.NET)
 
-#### .NET (ADO.NET) system-assigned managed identity
+#### .NET (ADO.NET) System-assigned managed identity
 
 | Default environment variable name  | Description                          | Example value                                                                                                                                                                      |
 |------------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,7 +76,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Java (JDBC)
 
-#### Java (JDBC) system-assigned managed identity
+#### Java (JDBC) System-assigned managed identity
 
 | Default environment variable name | Description                       | Example value                                                                                                                        |
 |-----------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
@@ -107,47 +107,47 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Java - Spring Boot (JDBC)
 
-#### Java - Spring Boot (JDBC) system-assigned managed identity
+#### Java - Spring Boot (JDBC) System-assigned managed identity
 
 | Application properties                  | Description                         | Example value                                                                                                 |
 |-----------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.passwordless_enabled | Enable passwordless authentication  | `true`                                                                                                        |
-| spring.datatsource.url                  | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| spring.datatsource.username             | Database username                   | `Connection-Name`                                                                                             |
+| spring.datasource.passwordless_enabled  | Enable passwordless authentication  | `true`                                                                                                        |
+| spring.datasource.url                   | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
+| spring.datasource.username              | Database username                   | `Connection-Name`                                                                                             |
 
 #### Java - Spring Boot (JDBC) User-assigned managed identity
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.passwordless_enabled                       | Enable passwordless authentication  | `true`                                                                                                        |
+| spring.datasource.passwordless_enabled                        | Enable passwordless authentication  | `true`                                                                                                        |
 | spring.cloud.Azure.credential.client_id                       | Your client ID                      | `<client-ID>`                                                                                                 |
 | spring.cloud.Azure.credential.client_managed_identity_enabled | Enable client managed identity      | `true`                                                                                                 |
-| spring.datatsource.url                                        | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| spring.datatsource.username                                   | Database username                   | `Connection-Name`                                                                                             |
+| spring.datasource.url                                         | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` | 
+| spring.datasource.username                                    | Database username                   | `Connection-Name`                                                                                             |
 
 #### Java - Spring Boot (JDBC) secret / connection string
 
 | Application properties                                        | Description       | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.url                                        | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| spring.datatsource.username                                   | Database username | `<username>@<PostgreSQL-server-name>`                                                                         |
-| spring.datatsource.password                                   | Database password | `<password>`                                                                                                  |
+| spring.datasource.url                                         | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
+| spring.datasource.username                                    | Database username | `<username>@<PostgreSQL-server-name>`                                                                         |
+| spring.datasource.password                                    | Database password | `<password>`                                                                                                  |
 
 
 #### Java - Spring Boot (JDBC) Service principal
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| spring.datatsource.passwordless_enabled                       | Enable passwordless authentication  | `true`                                                                                                        |
+| spring.datasource.passwordless_enabled                        | Enable passwordless authentication  | `true`                                                                                                        |
 | spring.cloud.Azure.credential.client_id                       | Your client ID                      | `<client-ID>`                                                                                                 |
 | spring.cloud.Azure.credential.client_secret                   | Your client secret                  | `<client-secret>`                                                                                             |
 | spring.cloud.Azure.credential.tenant_id                       | Your tenant ID                      | `<tenant-ID>`                                                                                                 |
-| spring.datatsource.url                                        | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| spring.datatsource.username                                   | Database username                   | `Connection-Name`                                                                                             |
+| spring.datasource.url                                         | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
+| spring.datasource.username                                    | Database username                   | `Connection-Name`                                                                                             |
 
 ### Node.js (pg)
 
-#### Node.js (pg) system-assigned managed identity
+#### Node.js (pg) System-assigned managed identity
 
 | Default environment variable name | Description       | Example value                                          |
 |-----------------------------------|-------------------|--------------------------------------------------------|
@@ -195,7 +195,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 #### PHP (native)
 
-#### PHP (native) system-assigned managed identity
+#### PHP (native) System-assigned managed identity
 
 | Default environment variable name | Description                           | Example value                                                                                                                                                             |
 |-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -225,7 +225,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Python
 
-#### Python (psycopg2) system-assigned managed identity
+#### Python (psycopg2) System-assigned managed identity
 
 | Default environment variable name | Description                | Example value                                                                                                                   |
 |-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -253,7 +253,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 | Azure_POSTGRESQL_TENANTID         | Your tenant ID             | `<tenant-ID>`                                                                                                                   |
 | Azure_POSTGRESQL_CONNECTIONSTRING | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>@<PostgreSQL-server-name>` |
 
-#### Python-Django system-assigned managed identity
+#### Python-Django System-assigned managed identity
 
 | Default environment variable name | Description       | Example value                                          |
 |-----------------------------------|-------------------|--------------------------------------------------------|
@@ -292,7 +292,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Go (pg)
 
-#### Go (pg) system-assigned managed identity
+#### Go (pg) System-assigned managed identity
 
 | Default environment variable name | Description                     | Example value                                                                                                                   |
 |-----------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -323,7 +323,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Ruby (ruby-pg)
 
-#### Ruby (ruby-pg) system-assigned managed identity
+#### Ruby (ruby-pg) System-assigned managed identity
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
