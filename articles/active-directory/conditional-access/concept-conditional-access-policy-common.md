@@ -46,31 +46,78 @@ Organizations can select individual policy templates and:
 - Export the JSON definition for use in programmatic workflows.
    - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
 
-## Conditional Access template policies
+Conditional Access templates are organized into the following categories:
 
-- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)\*
-- [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
-- [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)\*
-- [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)\*
+- Secure foundation
+   - These policies are recommended as the base for all organizations and should be deployed as a group.
+- Zero Trust
+- Remote work
+- Protect administrator
+- Emerging threats
+- All
 
-> \* These four policies when configured together, provide similar functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
+# [Secure foundation](#tab/secure-foundation)
 
-- [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
+Microsoft recommends these policies as the base for all organizations. We recommend these policies be deployed as a group.
+
+- [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
+- [Securing security info registration](howto-conditional-access-policy-registration.md)
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
+- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+
+# [Zero Trust] (#tab/zero-trust)
+
+These policies as a group help support a [Zero Trust architecture](/security/zero-trust/deploy/identity).
+
+- [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
+- [Securing security info registration](howto-conditional-access-policy-registration.md)
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
+- [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
+- [Require multifactor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
+- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
 - [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
 - [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
-- [Require compliant or hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
-- [Require multifactor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
-- [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
-- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
+- [Require multifactor authentication for admins accessing Microsoft admin portals](how-to-policy-mfa-admin-portals.md)
+
+# [Remote work](#tab/remote-work)
+
+These policies help secure organizations with remote worker
+
 - [Securing security info registration](howto-conditional-access-policy-registration.md)
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
+- [Require multifactor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
+- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
+- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+- [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
+- [No persistent browser session](howto-policy-persistent-browser-session.md)
+- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
 - [Use application enforced restrictions for unmanaged devices](howto-policy-app-enforced-restriction.md)
+
+# [Protect administrator](#tab/protect-administrator)
+
+- [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)
+- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+- [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
+
+# [Emerging threats](#tab/emerging-threats)
+
+- [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
 
 ## Other common policies
 
 - [Block access by location](howto-conditional-access-policy-location.md)
 - [Block access except specific apps](howto-conditional-access-policy-block-access.md)
+- [Require compliant or hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
