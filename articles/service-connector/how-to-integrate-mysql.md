@@ -35,7 +35,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 | Node.js (mysql)                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python (mysql-connector-python) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python-Django                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP (MySQLi)                    | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| PHP (MySQL)                     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Ruby (mysql2)                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None                            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
@@ -229,7 +229,7 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`       |
 
 #### PHP (MySQL) User-assigned managed identity
@@ -239,7 +239,7 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 
@@ -250,7 +250,7 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`                      |
 | Azure_MYSQL_PASSWORD              | Database password  | `<MySQL-DB-password>`                      |
 
@@ -262,7 +262,7 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 | Azure_MYSQL_CLIENTSECRET          | Your client secret | `<client-secret>`                          |
