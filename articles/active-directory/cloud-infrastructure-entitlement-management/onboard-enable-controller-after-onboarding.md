@@ -60,7 +60,7 @@ This article also describes how to disable the controller in Microsoft Azure and
 
 You can enable or disable the controller in Azure at the Subscription level of your Management Group(s).  
 
-1. From the Azure **[Home]**(https://portal.azure.com) page, select **Management groups**.
+1. From the Azure [**Home**](https://portal.azure.com) page, select **Management groups**.
 1. Locate the group for which you want to enable or disable the controller, then select the arrow to expand the group menu and view your subscriptions. Alternatively, you can select the **Total Subscriptions** number listed for your group.
 1. Select the subscription for which you want to enable or disable the controller, then click **Access control (IAM)** in the navigation menu.
 1. In the **Check access** section, in the **Find** box, enter **Cloud Infrastructure Entitlement Management**.
