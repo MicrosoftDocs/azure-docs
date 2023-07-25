@@ -2,7 +2,7 @@
 title: Restore all files in a volume with MARS
 description: Learn how to restore all the files in a volume using the MARS Agent.
 ms.topic: conceptual
-ms.date: 01/17/2021
+ms.date: 08/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -13,6 +13,7 @@ This article explains how to restore all backed-up files in an entire volume usi
 
 - Restore all backed-up files in a volume to the same machine from which the backups were taken.
 - Restore all backed-up files in a volume to an alternate machine.
+- If you've Cross Region Restore enabled in your vault, you can restore the backup data from the secondary region.
 
 >[!TIP]
 >The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), and is recommended for recovering large-sized data or entire volumes.
