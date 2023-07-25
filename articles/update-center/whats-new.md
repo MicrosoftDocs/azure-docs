@@ -5,7 +5,7 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/27/2023
+ms.date: 07/05/2023
 ---
 
 # What's new in Update management center
@@ -14,9 +14,10 @@ ms.date: 06/27/2023
 
 ## July 2023
 
-### Dynamic scoping (preview)
+### Dynamic scope (preview)
 
-You can now include [virtual machines based on the scope and schedule updates](dynamic-scope-overview.md) at scale. You also have the flexibility to modify the scope and the patching requirements are applied at scale without any changes to your deployment schedule.
+Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+ 
 
 ## May 2023
 
@@ -26,7 +27,7 @@ Update management center now supports [generalized](../virtual-machines/linux/im
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage using the Update management center portal has now been removed. You can now manage all your subscriptions using the update management center portal.
+The limit on the number of subscriptions that you can manage to use the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
 
 ## April 2023
 

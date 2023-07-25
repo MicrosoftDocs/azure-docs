@@ -1,8 +1,8 @@
 ---
-title: An overview of Dynamic scoping (preview) 
+title: An overview of dynamic scoping (preview) 
 description: This article provides information about dynamic scoping (preview), its purpose and advantages.
 ms.service: update-management-center
-ms.date: 06/27/2023
+ms.date: 07/05/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -10,7 +10,7 @@ ms.author: sudhirsneha
 
 # About Dynamic Scoping (preview)
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
 
 Dynamic scoping (preview) is an advanced capability of schedule patching that allows users to: 
 
@@ -21,12 +21,14 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
 
 ## Key benefits
 
-- **Simplified patching** - Users do not have to change associations between machines and schedules manually. For example, if you want to remove a machine from a schedule and your scope was defined based on tag(s) criteria, removing the tag on the machine will automatically drop the association.  
-- **Multiple criteria** - You can specify one or more criteria, which includes, subscription(s), resource group(s), tag(s), location(s), resource type(s), and OS type. Subscription is a mandatory criterion for dynamic scoping. 
-- **Multiple schedules** - You can associate a schedule to multiple machines either dynamically or statically or both.
+**At Scale and simplified patching** - You don't have to manually change associations between machines and schedules. For example, if you want to remove a machine from a schedule and your scope was defined based on tag(s) criteria, removing the tag on the machine will automatically drop the association. These associations can be dropped and added for multiple machines at scale.
+  > [!NOTE]
+  > Subscription is mandatory for the creation of dynamic scope and you can't edit it after the dynamic scope is created.
 
-> [!NOTE]
-> You can associate one dynamic scope to one schedule.
+**Reusability of the same schedule** - You can associate a schedule to multiple machines dynamically, statically, or both. 
+  > [!NOTE]
+  > You can associate one dynamic scope to one schedule.
+>>>>>>> e16a4607197aca0fa286ded8b8bc56d3389ab300
 
 ## Permissions
 
@@ -35,15 +37,10 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 - Write permissions to create or modify a schedule.
 - Read permissions to assign or read a schedule.
 
-## Maximum VM limit
-
-- 2000 VMs per Dynamic scope 
-- 10,000 VMs per Schedule 
-
 ## Prerequisites for Azure VMs
 
-1. Patch orchestration should be **Customer Managed Schedules (Preview)/ (AutomaticByPlatform and ByPassPlatformSafetyChecksOnUserSchedule = TRUE)**.  
-1. Associate the VM with a Schedule. 
+- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
+- Associate a Schedule with the VM.
 
 > [!NOTE]
 > For Arc VMs, there are no patch orchestration pre-requisites. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).

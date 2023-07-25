@@ -9,7 +9,7 @@ metadata:
   manager: jsuri
   ms.service: Update-management-center
   ms.topic: landing-page
-  ms.date: 06/16/2023
+  ms.date: 07/04/2023
   ms.author: sudhirsneha
 
 landingContent:
@@ -77,9 +77,20 @@ landingContent:
             url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
+          - text: Check and install on-demand updates
+            url: quickstart-on-demand.md
+
+  - title: Dynamic scoping (preview)
+    linkLists:     
+      - linkListType: concept
+        links:
+          - text: About Dynamic scoping (preview)
+            url: dynamic-scope-overview.md
+      - linkListType: tutorial
+        links:
           - text: Schedule updates on Dynamic scopes (preview)
-            url: tutorial-dynamic-scoping-for-scheduled-patching.md
+            url: tutorial-dynamic-grouping-for-scheduled-patching.md
       - linkListType: how-to-guide
         links:
           - text: Manage dynamic scope (preview) operations
-            url: manage-dynamic-scoping.md
+            url: manage-dynamic-scoping.md      
