@@ -21,9 +21,9 @@ Conditional Access templates provide a convenient method to deploy new policies 
 
 :::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
 
-## Conditional Access policy template categories
+## Template categories
 
-Conditional Access templates are organized into the following categories:
+The 16 Conditional Access policy templates are organized into the following categories:
 
 # [Secure foundation](#tab/secure-foundation)
 
