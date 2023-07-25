@@ -31,7 +31,7 @@ The current implementation is based on streaming binlog changes from the source 
 
 The server can send Binlog as a stream that contains binary data as documented [here] (https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_replication.html). The client can specify the initial log position to start the stream with. The log file name describes the log position, the position within that file, and optionally GTID (Global Transaction ID) if gtid mode is enabled at the source.
 
-The data changes are sent as "row" events, which contain data for individual rows (prior and/or after the change depending on the operation type, which is insert, delete, or update). The row events are then applied in their raw format using a BINLOG statement: [MySQL 8.0 Reference Manual :: 13.7.8.1 BINLOG Statement](<https://dev.mysql.com/doc/refman/8.0/en/binlog.html>).
+The data changes are sent as "row" events, which contain data for individual rows (prior and/or after the change depending on the operation type, which is insert, delete, or update). The row events are then applied in their raw format using a BINLOG statement: [MySQL 8.0 Reference Manual :: 13.7.8.1 BINLOG Statement](https://dev.mysql.com/doc/refman/8.0/en/binlog.html).
 
 ## Prerequisites
 
