@@ -33,8 +33,6 @@ Use the following steps to clone and run the app locally.
    ./mvnw spring-boot:run
    ```
 
-1. Access the ToDo RESTful APIs based on `http://localhost:8080` address.
-
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use AZD to initialize the web application from the Azure Developer CLI templates.
