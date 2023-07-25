@@ -24,8 +24,8 @@ In this tutorial, you'll:
 
 > [!div class="checklist"]
 >
-> - Create a Nod.js app, then install dependencies.
-> - Enable then Nod.js app to acquire an access token for calling a web API. 
+> - Create a Node.js app, then install dependencies.
+> - Enable the Node.js app to acquire an access token for calling a web API. 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Before continuing with this tutorial, ensure you have all of the following items
 - [Node.js](https://nodejs.org).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Registration details for the Node.js daemon app and web API you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md).
-- A protected *ToDoList* web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
+- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
     - `GET /api/todolist` to get all todos.
     - `POST /api/todolist` to add a todo.
 
@@ -278,7 +278,7 @@ At this point, you're ready to test your client daemon app and web API:
     node . --op getToDos
     ```
 
-If your daemon app and web API successfully run, you should find the data returned by the web API endpoint `todos` variable, similar to the following JSON array, in your console window: 
+If your daemon app and web API run successfully, you should find the data returned by the web API endpoint `todos` variable, similar to the following JSON array, in your console window: 
 
 ```json
 {
