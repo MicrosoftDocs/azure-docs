@@ -138,13 +138,13 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/document-intelligence/transparency-note
+      href: /legal/cognitive-services/document-intelligence/transparency-note?context=/azure/ai-services/document-intelligence/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?context=/azure/ai-services/document-intelligence/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/document-intelligence/data-privacy-security
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?context=/azure/ai-services/document-intelligence/context/context
 - name: Concepts
   items:
   - name: Model overview
