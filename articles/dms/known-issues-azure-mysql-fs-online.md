@@ -18,7 +18,7 @@ Known issues associated with migrations to Azure Database for MySQL are describe
 
 One or more incompatible SQL modes can cause many different errors. Below is an example error along with server modes that should be looked at if this error occurs.
 
-- **Error**: An error occurred while preparing the table '{table}' in database '{database}' on server '{server}' for migration during activity '{activity}'. As a result, this table will not be migrated.
+- **Error**: An error occurred while preparing the table '{table}' in database '{database}' on server '{server}' for migration during activity '{activity}'. As a result, this table won't be migrated.
 
   **Limitation**: This error occurs when one of the below SQL modes is set on one server but not the other server.
 
@@ -42,13 +42,13 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
   **Limitation**: This error occurs when there is a timeout while obtaining locks on all the tables when transactional consistency is enabled.
 
-  **Workaround**: Ensure that the selected tables are not locked or that no long running transactions are running on them.
+  **Workaround**: Ensure that the selected tables aren't locked or that no long running transactions are running on them.
 
 ## Write More Than 4 MB of Data to Azure Storage
 
 - **Error**: The request body is too large and exceeds the maximum permissible limit.
 
-  **Limitation**: This error likely occurs when there are too many tables to migrate (>10k). There is a 4 MB limit for each call to the Azure Storage service.
+  **Limitation**: This error likely occurs when there are too many tables to migrate (>10k). There's a 4 MB limit for each call to the Azure Storage service.
 
   **Workaround**: Reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
@@ -56,9 +56,9 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
 - **Error**: The error is often a symptom of timeouts, network issues or target scaling.
 
-  **Potential error message**: A batch could not be written to the table '{table}' due to a SQL error raised by the target server. For context, the batch contained a subset of rows returned by the following source query.
+  **Potential error message**: A batch couldn't be written to the table '{table}' due to a SQL error raised by the target server. For context, the batch contained a subset of rows returned by the following source query.
 
-  **Limitation**: This error can be caused by timeout or broken connection to the target, resulting in duplicate primary keys. It may also be related to multiple migrations to the target running at the same time, or the user having test workloads running on the target while the migration is running. Additionally, the target may require primary keys to be unique, even though they are not required to be so on the source.
+  **Limitation**: This error can be caused by timeout or broken connection to the target, resulting in duplicate primary keys. It may also be related to multiple migrations to the target running at the same time, or the user having test workloads running on the target while the migration is running. Additionally, the target may require primary keys to be unique, even though they aren't required to be so on the source.
 
   **Workaround**: To resolve this issue, ensure that there are no duplicate migrations running and that the source primary keys are unique. If error persists, reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
@@ -70,13 +70,13 @@ One or more incompatible SQL modes can cause many different errors. Below is an 
 
   **Limitation**: On the source, there were insert and delete statements into a table, and the deletions were by an apparent unique index.
 
-  **Workaround**: It is recommended to migrate the table manually.
+  **Workaround**: We recommend migrating the table manually.
 
 ## Table data truncated error
 
 - **Error**: Enum column has a null value in one or more rows and the target SQL mode is set to strict.
 
-  **Potential error message**: A batch could not be written to the table '{table}' due to a data truncation error. Please ensure that the data is not too large for the data type of the MySQL table column. If the column type is an enum, make sure SQL Mode is not set as TRADITIONAL, STRICT_TRANS_TABLES or STRICT_ALL_TABLES and is the same on source and target.  
+  **Potential error message**: A batch couldn't be written to the table '{table}' due to a data truncation error. Please ensure that the data is not too large for the data type of the MySQL table column. If the column type is an enum, make sure SQL Mode is not set as TRADITIONAL, STRICT_TRANS_TABLES or STRICT_ALL_TABLES and is the same on source and target.  
 
   **Limitation**: The error occurs when historical data was written to the source server when they had certain setting, but when it is changed, data cannot move.
 
