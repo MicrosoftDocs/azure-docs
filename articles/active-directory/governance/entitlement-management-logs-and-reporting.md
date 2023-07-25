@@ -33,7 +33,7 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the Azure portal as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then select **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 

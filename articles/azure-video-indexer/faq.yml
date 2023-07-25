@@ -35,7 +35,7 @@ sections:
 
       - question: How do I get started with Azure AI Video Indexer?
         answer: |
-          Azure AI Video Indexer includes a trial offering that provides you with 600 minutes in the web-based interface and 2,400 minutes via the API. You can [login to the Azure AI Video Indexer web-based interface](https://www.videoindexer.ai/) and try it for yourself using any web identity and without having to set up an Azure Subscription. Follow [this easy introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) to get better idea of how to use Azure AI Video Indexer.
+          Azure AI Video Indexer includes a trial offering that provides you with 600 minutes in the web-based interface and 2,400 minutes via the API. You can sign in to the [Azure AI Video Indexer web-based interface](https://www.videoindexer.ai/) and try it for yourself using any web identity and without having to set up an Azure Subscription. Follow [this easy introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) to get better idea of how to use Azure AI Video Indexer.
 
           To index videos and audio flies at scale, you can connect Azure AI Video Indexer to a paid Microsoft Azure subscription. You can find more information on pricing on the [pricing](https://azure.microsoft.com/pricing/details/video-indexer/) page.
 

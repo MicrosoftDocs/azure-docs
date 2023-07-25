@@ -105,26 +105,6 @@ to change the location for a file outside the classpath.
 }
 ```
 
-#### Setting up the configuration file
-
-Open your configuration file (either `application.properties` or `application.yaml`) in the *resources* folder. Update the file with the following.
-
-##### application.yaml
-
-```yaml
--Dapplicationinsights:
-  runtime-attach:
-    configuration:
-      classpath:
-        file: "applicationinsights-dev.json"
-```
-
-##### application.properties
-
-```properties
--Dapplicationinsights.runtime-attach.configuration.classpath.file = "applicationinsights-dev.json"
-```
-
 #### Self-diagnostic log file location
 
 By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing

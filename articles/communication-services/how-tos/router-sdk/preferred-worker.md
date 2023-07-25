@@ -91,12 +91,11 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 
 ```java
 client.createJob(new CreateJobOptions("job1", "Xbox_Chat_Channel", queue.getId())
-    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector().setKey("Id")
-        .setLabelOperator(LabelOperator.EQUAL)
-        .setValue(new LabelValue("<preferred_worker_id>"))
-        .setExpireAfterSeconds(45.0)
-        .setExpedite(true))));
-```
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("Id", LabelOperator.EQUAL, new LabelValue("<preferred_worker_id>"))
+          .setExpireAfterSeconds(45.0)
+          .setExpedite(true))));
+  ```
 
 ::: zone-end
 
