@@ -89,7 +89,7 @@ landingContent:
           - text: Use sample app for guest attestation
             url: guest-attestation-example.md
           - text: Hardening Linux image to remove sudo users for a confidential VM
-            url: hardening-linux-image-to-remove-sudo-users-for-a-CVM-deployment.md
+            url: hardening-linux-image-to-remove-sudo-users-for-a-confidential-vm.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
       - linkListType: reference
