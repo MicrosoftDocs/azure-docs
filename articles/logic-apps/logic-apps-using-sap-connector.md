@@ -53,17 +53,55 @@ The SAP connector has different versions, based on [logic app type and host envi
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector (preview), which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector (preview), which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+
+## Connector differences
+
+The SAP built-in connector significantly differs from the SAP managed connector and SAP ISE-versioned connector in the following ways:
+
+* On-premises connections don't require the on-premises data gateway.
+
+  Instead, the SAP built-in connector communicates directly with your SAP server in the integrated virtual network, which avoids hops, latency, and failure points for a network gateway. Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
+
+* Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
+
+* Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
+
+  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
+
+* Longer timeout at 5 minutes compared to managed connector and ISE-versioned connector.
+
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
+
+* By default, the preview SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
+
+* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+
+* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
+
+  This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
+
+* **Generate Schema** action
+
+  * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
+
+  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you had to provide a complex **Action URI** parameter name.
+
+  * By design, this action doesn't support generating multiple schemas for RFCs, BAPIs, or IDocs in single action execution, which the SAP managed connector supports. This capability change now prevents attempts to send large amounts of content in a single call.
 
 <a name="connector-parameters"></a>
 
-### Connector parameters
+## Connector parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
 * Table direction parameters, both input and output, for older SAP releases.
-* Changing parameters, which replace the table direction parameters for newer SAP releases.
+* Parameter changes, which replace the table direction parameters for newer SAP releases.
 * Hierarchical table parameters.
+
+<a name="known-issues-limitations"></a>
 
 ## Known issues and limitations
 
@@ -129,7 +167,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
     > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
     > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
-* By default, the preview SAP built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+* By default, the preview SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 * To use either the SAP managed connector trigger named **When a message is received from SAP** or the SAP built-in trigger named **Register SAP RFC server for trigger**, complete the following tasks:
 
@@ -213,13 +251,11 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-To use the SAP connector, you'll need the SAP NCo client library named [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The following list describes the prerequisites for the SAP NCo client library that you're using with the SAP connector:
+To use the SAP connector, based on whether you have a Consumption or Standard workflow, you'll need install the SAP Connector NCo client library for Microsoft .NET 3.0 or 3.1, respectively. The following list describes the prerequisites for the SAP NCo client library, based on which workflow where you're using with the SAP connector:
 
 * Version:
 
-  * SAP Connector (NCo 3.1) isn't currently supported as dual-version capability is unavailable.
-
-  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
+  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). SAP Connector (NCo 3.1) isn't currently supported as dual-version capability is unavailable. The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
 
     Earlier versions of SAP NCo might experience the following issues:
 
@@ -231,7 +267,7 @@ To use the SAP connector, you'll need the SAP NCo client library named [SAP Conn
 
     * After you upgrade the SAP server environment, you get the following exception message: **"The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details"**.
 
-  * For Standard logic app workflows, you can use the 32-bit or 64-bit version for the SAP NCo client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
+  * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.2.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
     1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
 
@@ -1035,6 +1071,67 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
 
 ---
+
+## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+
+You can control this tracing capability at the application level by using the following settings:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource menu, under **Settings**, select **Configuration** to review the application settings.
+
+1. On the **Configuration** page, add the following application settings:
+
+   * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
+
+   * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+
+   For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](edit-app-settings-host-settings.md#manage-app-settings).
+
+1. Save your changes. This step restarts the application.
+
+<a name="trace-levels"></a>
+
+### Trace levels available
+
+| Value | Description |
+|-------|-------------|
+| Level1 | The level for tracing remote function calls. |
+| Level2 | The level for tracing remote function calls and public API method calls. |
+| Level3 | The level for tracing remote function calls, public API method calls, and internal API method calls. |
+| Level4 | The level for tracing remote function calls, public API method calls, internal API method calls, hex dumps for the RFC protocol, and network-related information. |
+| Locking | Writes data to the trace files that shows when threads request, acquire, and release locks on objects. |
+| Metadata | Traces the metadata involved in a remote function call for each call. |
+| None | The level for suppressing all trace output. |
+| ParameterData | Traces the container data sent and received during each remote function call. |
+| Performance | Writes data to the trace files that can help with analyzing performance issues. |
+| PublicAPI | Traces most methods of the public API, except for getters, setters, or related methods. |
+| InternalAPI | Traces most methods of the internal API, except for getters, setters, or related methods. |
+| RemoteFunctionCall | Traces remote function calls. |
+| RfcData | Traces the bytes sent and received during each remote function call. |
+| SessionProvider | Traces all methods of the currently used implementation of **ISessionProvider**. |
+| SetValue | Writes information to the trace files regarding values set for parameters of functions, or fields of structures or tables. |
+
+### View the trace
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to the folder for the application setting named **$SAP_RFC_TRACE_DIRECTORY**.
+
+   A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
+
+   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find a file named **dev_nco_rfc.log**, one or multiple files named **dev_nco_rfcNNNN.log**, and one or multiple files named **dev_nco_rfcNNNN.trc** where **NNNN** is a thread identifier.
+
+1. To view the contant in a log or trace file, select the **Edit** button next to a file.
+
+   > [!NOTE]
+   >
+   > If you download a log or trace file that your logic app workflow opened 
+   > and is currently in use, your download might result in an empty file.
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
