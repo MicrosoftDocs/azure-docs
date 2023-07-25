@@ -110,7 +110,7 @@
     - name: Set alerts and alert triggers 
       expanded: false
       items: 
-      - name: View information about alerts and triggers
+      - name: View information about alerts and alert triggers
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
         href: how-to-create-alert-trigger.md
