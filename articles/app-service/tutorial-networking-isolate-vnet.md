@@ -96,7 +96,7 @@ Because your Key Vault and Azure AI services resources will sit behind [private 
 1. In the private endpoint subnet of your virtual network, create a private endpoint for your Cognitive Service.
 
     ```azurecli-interactive
-    # Get Azure AI services resource ID
+    # Get Cognitive Services resource ID
     csResourceId=$(az cognitiveservices account show --resource-group $groupName --name $csResourceName --query id --output tsv)
 
     az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet

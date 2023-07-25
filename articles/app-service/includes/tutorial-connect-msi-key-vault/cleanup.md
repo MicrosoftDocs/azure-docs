@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 1. Configure the Azure AI services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive
-    # Get subscription key for Azure AI services resource
+    # Get subscription key for Cognitive Services resource
     csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
 
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="$csResourceName" CS_ACCOUNT_KEY="$csKey1"
