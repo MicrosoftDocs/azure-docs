@@ -30,6 +30,8 @@ Introducing new multilingual voices for public preview:
 | `en-US` | English (United States) | `en-US-JennyMultilingualV2Neural` (Female) |
 | `en-US` | English (United States) | `en-US-RyanMultilingualNeural` (Male) |
 
+The multilingual voices `en-US-JennyMultilingualV2Neural` and `en-US-RyanMultilingualNeural` auto-detect the language of the input text. However, you can still use the `<lang>` element to adjust the speaking language for these voices.
+
 These new multilingual voices can speak in 41 languages and accents: `Arabic (Egypt)`, `Arabic (Saudi Arabia)`, `Catalan (Spain)`, `Czech (Czechia)`, `Danish (Denmark)`, `German (Austria)`, `German (Switzerland)`, `German (Germany)`, `English (Australia)`, `English (Canada)`, `English (United Kingdom)`, `English (Hong Kong SAR)`, `English (Ireland)`, `English (India)`, `English (United States)`, `Spanish (Spain)`, `Spanish (Mexico)`, `Finnish (Finland)`, `French (Belgium)`, `French (Canada)`, `French (Switzerland)`, `French (France)`, `Hindi (India)`, `Hungarian (Hungary)`, `Indonesian (Indonesia)`, `Italian (Italy)`, `Japanese (Japan)`, `Korean (Korea)`, `Norwegian Bokmål (Norway)`, `Dutch (Belgium)`, `Dutch (Netherlands)`, `Polish (Poland)`, `Portuguese (Brazil)`, `Portuguese (Portugal)`, `Russian (Russia)`, `Swedish (Sweden)`, `Thai (Thailand)`, `Turkish (Turkey)`, `Chinese (Mandarin, Simplified)`, `Chinese (Cantonese, Traditional)`, `Chinese (Taiwanese Mandarin, Traditional)`.
 
 These multilingual voices don't fully support certain SSML elements, such as break, emphasis, silence, and sub.
