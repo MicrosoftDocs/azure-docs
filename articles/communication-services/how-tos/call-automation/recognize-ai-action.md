@@ -32,13 +32,12 @@ This guide helps you get started recognizing user input in the forms of DTMF or 
 |RecognizeCompleted|200|8545|Action completed, speech option matched.|
 |RecognizeCompleted|200|8514|Action completed as stop tone was detected.|
 |RecognizeCompleted|200|8569|Action completed, speech was recognized.|
-|RecognizeCompleted|400|8508|Action failed, the operation was canceled.|
+|RecognizeCompleted|400|8532|Action failed, inter-digit silence time out reached.|
 |RecognizeFailed|400|8563|Action failed, speech could not be recognized.|
 |RecognizeFailed|408|8570|Action failed, speech recognition timed out.|
-|RecognizeFailed|400|8510|Action failed, initial silence time out reached|
+|RecognizeFailed|400|8510|Action failed, initial silence time out reached.|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
-|RecognizeFailed|400|8532|Action failed, inter-digit silence time out reached.|
-|RecognizeFailed|400|8547|Action failed, speech option not matched.|
+|RecognizeFailed|400|8547|Action failed, recognized phrase does not match a valid option.|
 |RecognizeFailed|500|8534|Action failed, incorrect tone entered.|
 |RecognizeFailed|500|9999|Unspecified error.|
 |RecognizeCanceled|400|8508|Action failed, the operation was canceled.|

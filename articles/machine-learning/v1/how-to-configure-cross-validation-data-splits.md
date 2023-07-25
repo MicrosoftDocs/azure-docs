@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, automl, sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: ssalgado
@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-1'
 
 # Configure training, validation, cross-validation and test data in automated machine learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
@@ -40,7 +40,7 @@ For this article you need,
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-[!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+[!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 ## Default data splits and cross-validation in machine learning
 
@@ -207,7 +207,7 @@ When either a custom validation set or an automatically selected validation set 
 
 ## Provide test data (preview)
 
-[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml.md#training-validation-and-test-data)
 

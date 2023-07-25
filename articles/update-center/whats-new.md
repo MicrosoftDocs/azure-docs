@@ -5,12 +5,19 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/12/2023
+ms.date: 07/05/2023
 ---
 
 # What's new in Update management center (Preview)
 
 [Update management center (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center (Preview).
+
+## July 2023
+
+### Dynamic scope (preview)
+
+Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+ 
 
 ## May 2023
 
@@ -20,7 +27,7 @@ Update management center (preview) now supports [generalized](../virtual-machine
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
+The limit on the number of subscriptions that you can manage to use the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
 
 ## April 2023
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/18/2023
+ms.date: 06/27/2023
 ms.author: phjensen
 ---
 
@@ -23,6 +23,23 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Jun-2023
+
+### AzAcSnap 8b (Build: 1AD3679)
+
+AzAcSnap 8b is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - General improvement to `azacsnap` command exit codes.
+    - `azacsnap` should return an exit code of 0 (zero) when it has run as expected, otherwise it should return an exit code of non-zero.  For example, running `azacsnap` will return non-zero as it has not done anything and will show usage information whereas `azacsnap -h` will return exit-code of zero as it's expected to return usage information.
+    - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
+    - Any failure in `--runafter` returns the `--runafter` exit code.
+  - Backup (`-c backup`) changes:
+    - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (Preview)
+    - Fix for missing snapshot name (`azSnapshotName`)  in `--runafter` command environment.
+
+Download the [AzAcSnap 8b](https://aka.ms/azacsnap-8b) installer.
 
 ## May-2023
 
@@ -43,16 +60,16 @@ AzAcSnap 8 is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - Restore (`-c restore`) changes:
-    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+    - New ability to use `-c restore` to `--restore revertvolume` for Azure NetApp Files.
   - Backup (`-c backup`) changes:
     - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
     - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
-    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap immediately exits with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:
-    - Extra logging output to syslog (e.g., /var/log/messages) on failure.
-    - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
+    - Extra logging output to syslog (for example, `/var/log/messages`) on failure.
+    - New “mainlog” (`azacsnap.log`) to provide a more parse-able high-level log of commands run with success or failure result.
   - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
 
 Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
@@ -104,7 +121,7 @@ Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
 
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
- 
+
 Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  Therefore the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
 
 AzAcSnap 6 is being released with the following fixes and improvements:
@@ -210,3 +227,5 @@ AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the followi
 
 - [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 - [Download the latest release of the installer](https://aka.ms/azacsnapinstaller)
+
+

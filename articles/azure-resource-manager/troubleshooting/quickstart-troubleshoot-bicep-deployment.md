@@ -179,7 +179,7 @@ The Bicep file attempts to reference a virtual network that doesn't exist in you
   'Standard_ZRS'
   'Premium_LRS'
 ])
-parameter storageAccountType string = 'Standard_LRS'
+param storageAccountType string = 'Standard_LRS'
 
 @description('Prefix for storage name.')
 param prefixName string

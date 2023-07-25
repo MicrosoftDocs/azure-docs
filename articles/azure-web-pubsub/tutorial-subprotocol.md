@@ -4,6 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 11/01/2021
 ---
@@ -514,7 +515,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ```javascript
     const WebSocket = require('ws');
-    const fetch = require('node-fetch');
+    const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     async function main() {
       let res = await fetch(`http://localhost:8080/negotiate`);

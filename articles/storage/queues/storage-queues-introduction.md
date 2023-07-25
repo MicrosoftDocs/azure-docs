@@ -7,8 +7,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # What is Azure Queue Storage?

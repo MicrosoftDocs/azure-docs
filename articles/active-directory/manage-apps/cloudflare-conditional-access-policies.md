@@ -48,7 +48,7 @@ Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developer
 
 ## Configure Conditional Access
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
 3. Under **Manage**, select **App registrations**.
 4. Select the application you created.

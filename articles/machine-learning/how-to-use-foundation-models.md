@@ -41,8 +41,13 @@ You can filter the list of models in the model catalog by Task, or by license. S
 
 You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
-> [!NOTE]
->If you are using a private workspace, your virtual network needs to allow outbound access in order to use foundation models in Azure Machine Learning
+> [!IMPORTANT]
+> Deploying foundational models to a managed online endpoint is currently supported with __public workspaces__ (and their public associated resources) only.
+>
+> * When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. 
+> * When `egress_public_network_access` is set to `enabled` for a managed online endpoint deployment, the deployment can only access the resources with public access. Which means that it cannot access resources secured in the virtual network.
+>
+> For more information, see [Outbound resource access for managed online endpoints](how-to-secure-online-endpoint.md#outbound-resource-access).
 
 ## How to evaluate foundation models using your own test data
 
@@ -82,7 +87,7 @@ To enable users to get started with model evaluation, we have published samples 
 ## How to finetune foundation models using your own training data
 
 In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models by using either the finetune settings in the studio or by using the code based samples linked from the model card.
-		
+        
 ### Finetune using the studio
 You can invoke the finetune settings form by selecting on the **Finetune** button on the model card for any foundation model. 
 

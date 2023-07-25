@@ -3,7 +3,7 @@ title: How to deploy an Azure Storage Mover agent.
 description: Learn how to deploy an Azure Mover agent
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 07/24/2023
 ---
@@ -181,7 +181,7 @@ You can unregister an agent in the Azure portal by navigating to your storage mo
 You can unregister an agent using the Az PowerShell. As a prerequisite, ensure that you have the latest version of PowerShell on your machine, and also the latest versions of the Az and Az.StorageMover PowerShell modules installed.
 
 ```powershell
-Login-AzAccount -subscriptionId <YourSubscriptionId> #log into the Azure subscription that contains the storage mover resource the agent is registered with.
+Login-AzAccount -subscriptionId <YourSubscriptionId> #Sign in to the Azure subscription that contains the storage mover resource the agent is registered with.
 Unregister-AzStorageMoverAgent -ResourceGroupName <YourResourceGroupName> -StorageMoverName <YourStorageMoverName> -AgentName <YourAgentName>
 ```
 

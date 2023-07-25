@@ -175,7 +175,7 @@ First, create a new project in the Google Developers Console to obtain a client 
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
    
     > [!NOTE]
-    > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+    > To find your tenant ID, sign in to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
 
 1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
 
@@ -216,7 +216,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
 **To delete Google federation in the Azure portal**
-1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
+1. Sign in to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**.
 2. Select **External Identities**.
 3. Select **All identity providers**.
 4. On the **Google** line, select the ellipsis button (**...**) and then select **Delete**. 

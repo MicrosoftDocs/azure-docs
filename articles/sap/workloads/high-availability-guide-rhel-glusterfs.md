@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/21/2023
+ms.date: 07/03/2023
 ms.author: radeltch
 ---
 
@@ -34,6 +34,8 @@ ms.author: radeltch
 
 This article describes how to deploy the virtual machines, configure the virtual machines, and install a GlusterFS cluster that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up GlusterFS that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **glust**.
+
+Be aware that as documented in [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs) Red Hat Gluster Storage will reach end of life at the end of 2024. The configuration will be supported for SAP on Azure until it reaches end of life stage. GlusterFS should not be used for new deployments. We recommend to deploy the SAP shared directories on NFS on Azure Files or Azure NetApp Files volumes as documented in [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) or [HA for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md).  
 
 Read the following SAP Notes and papers first
 
@@ -66,7 +68,7 @@ Read the following SAP Notes and papers first
 
 ## Overview
 
-To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems. Be aware that Red Hat is phasing out Red Hat Gluster Storage. The configuration will be supported for SAP on Azure until it reaches end of life stage as defined in [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs).
+To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems.  
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 

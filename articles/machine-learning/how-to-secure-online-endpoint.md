@@ -15,7 +15,7 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 # Use network isolation with managed online endpoints
 
-[!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [SDK/CLI v2](includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
@@ -346,7 +346,7 @@ az group delete --resource-group <resource-group-name>
 
 ## Troubleshooting
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Next steps
 
