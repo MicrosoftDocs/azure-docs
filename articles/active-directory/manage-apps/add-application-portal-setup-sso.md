@@ -24,8 +24,6 @@ Azure AD has a gallery that contains thousands of pre-integrated applications th
 
 It is recommended that you use a non-production environment to test the steps in this article.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure SSO, you need:
@@ -35,6 +33,8 @@ To configure SSO, you need:
 - Completion of the steps in [Quickstart: Create and assign a user account](add-application-portal-assign-users.md).
 
 ## Enable single sign-on
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To enable SSO for an application:
 

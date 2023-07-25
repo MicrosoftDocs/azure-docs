@@ -22,6 +22,8 @@ These JSON Web tokens (JWT) used by OIDC and OAuth applications (preview) contai
 
 ## View or edit claims
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To view or edit the claims issued in the JWT to the application, open the application in Azure portal. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
 
 :::image type="content" source="./media/jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
@@ -30,7 +32,8 @@ An application may need claims customization for various reasons. For example, w
 
 The following steps describe how to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Attributes & Claims** section, Select **Edit** to edit the claims.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Attributes & Claims** section, Select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization, and then select **Save**.
 
