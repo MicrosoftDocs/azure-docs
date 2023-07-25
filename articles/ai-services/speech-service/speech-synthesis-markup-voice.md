@@ -228,6 +228,8 @@ By default, all neural voices are fluent in their own language and English witho
 
 The `<lang xml:lang>` element is primarily intended for multilingual neural voices. You can adjust the speaking language for the multilingual neural voice at the sentence level and word level. The supported languages for multilingual voices are [provided in a table](#multilingual-voices-with-the-lang-element) following the `<lang>` syntax and attribute definitions.
 
+The multilingual voices `en-US-JennyMultilingualV2Neural` and `en-US-JennyMultilingualV2Neural` auto-detect the language of the input text. So the `<lang>` element isn't required for these voices. However, you can still use the `<lang>` element to adjust the speaking language for these voices.
+
 Usage of the `lang` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
