@@ -46,6 +46,9 @@ If you use an existing virtual network, VM Image Builder deploys an additional V
 > The virtual network must be in the same region as the VM Image Builder service region.
 > 
 
+> [!IMPORTANT]
+> The Azure VM Image Builder service modifies the WinRM connection configuration on all Windows builds to use HTTPS on port 5986 instead of the default HTTP port on 5985. This configuration change can impact workflows that rely on WinRM communication.
+
 ### Why deploy a proxy VM?
 
 When a VM without a public IP is behind an internal load balancer, it doesn't have internet access. The load balancer used for the virtual network is internal. The proxy VM allows internet access for the build VM during builds. You can use the associated network security groups to restrict the build VM access.
