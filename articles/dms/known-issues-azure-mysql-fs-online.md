@@ -16,7 +16,7 @@ Known issues associated with migrations to Azure Database for MySQL are describe
 
 ## Incompatible SQL Mode
 
-One or more incompatible SQL modes can cause a number of different errors. Below is an example error along with server modes that should be looked at if this error occurs.``
+One or more incompatible SQL modes can cause a number of different errors. Below is an example error along with server modes that should be looked at if this error occurs.
 
 - **Error**: An error occurred while preparing the table '{table}' in database '{database}' on server '{server}' for migration during activity '{activity}'. As a result, this table will not be migrated.
 
@@ -30,9 +30,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
 ## Binlog Retention Issues
 
-- **Error**: 
-    - Binary log is not open.
-    - Could not find first log file name in binary log index file.
+- **Error**: Fatal error reading binlog.This error may indicate that the binlog file name and/or the initial position were specified incorrectly.
 
   **Limitation**: This error occurs if binlog retention period is too short.
 
@@ -53,6 +51,78 @@ One or more incompatible SQL modes can cause a number of different errors. Below
   **Limitation**: This error likely occurs when there are too many tables to migrate (>10k). There is a 4 MB limit for each call to the Azure Storage service.
 
   **Workaround**: Please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
+
+## Duplicate Key Entry Issue
+
+- **Error**: The error is often a symptom of timeouts, network issues or target scaling.
+
+  **Potential error message**: A batch could not be written to the table '{table}' due to a SQL error raised by the target server. For context, the batch contained a subset of rows returned by the following source query.
+
+  **Limitation**: This error can be caused by timeout or broken connection to the target, resulting in duplicate primary keys. It may also be related to multiple migrations to the target running at the same time, or the user having test workloads running on the target while the migration is running. Additionally, the target may require primary keys to be unique, even though they are not required to be so on the source.
+
+  **Workaround**: To resolve this issue, ensure that there are no duplicate migrations running and that the source primary keys are unique. If error persists, please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
+
+## Replicated Operation Had Mismatched Rows Error
+
+- **Error**: Online Migration Fails to Replicate Expected Number of Changes.
+
+  **Potential error message**: An error occurred applying records to the target server which were read from the source server's binary log. The changes started at binary log '{mysql-bin.log}' and position '{position}' and ended at binary log '{mysql-bin.log}' and position '{position}'. All records on the source server prior to position '{position}' in binary log '{mysql-bin.log}' have been committed to the target.  
+
+  **Limitation**: On the source, there were insert and delete statements into a table, and the deletes were by an apparent unique index.
+
+  **Workaround**: It is recommended to migrate the table manually.
+
+## Table Data Truncated Error
+
+- **Error**: Enum column has a null value in one or more rows and the target SQL mode is set to strict.
+
+  **Potential error message**: A batch could not be written to the table '{table}' due to a data truncation error. Please ensure that the data is not too large for the data type of the MySQL table column. If the column type is an enum, make sure SQL Mode is not set as TRADITIONAL, STRICT_TRANS_TABLES or STRICT_ALL_TABLES and is the same on source and target.  
+
+  **Limitation**: The error occurs when historical data was written to the source server when they had certain setting, but when it is changed, data cannot move.
+
+  **Workaround**: To resolve the issue, it is recommended to change the target SQL mode to non-strict or change all null values to be valid values.
+
+## Creating Object Failure
+
+- **Error**: An error occurred after view validation failed. 
+
+  **Limitation**: The error occurs when trying to migrate a view and the table that the view is supposed to be referencing cannot be found.
+
+  **Workaround**: It is recommended to migrate views manually.
+
+## Unable To Find Table
+
+- **Error**: An error occurred as referencing table cannot be found.
+
+  **Potential error message**: The pipeline was unable to create the schema of object '{object}' for activity '{activity}' using strategy MySqlSchemaMigrationViewUsingTableStrategy because of a query execution.   
+
+  **Limitation**: The error can occur when the view is referring to a table that has been deleted or renamed, or when the view was created with incorrect or incomplete information.
+
+  **Workaround**: It is recommended to migrate views manually.
+
+## All Pooled Connections Broken
+
+- **Error**: All connections on the source server were broken.  
+
+  **Limitation**: The error occurs when all the connections that are acquired at the start of initial load are lost due to server restart, network issues, heavy traffic on the source server or other transient problems. This error is not recoverable. 
+
+  **Workaround**: The migration must be restarted, and it is recommended to increase the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
+
+## Consistent Snapshot Broken  
+
+  **Limitation**: The error occurs when the customer performs DDL during the initial load of the  migration instance. 
+
+  **Workaround**: To resolve this issue, it is recommended to refrain from making DDL changes during the Initial Load.
+
+## Foreign Key Constraint
+
+- **Error**: The error occurs when there is a change in the referenced foreign key type from the table.
+
+  **Potential error message**: Referencing column '{pk column 1}' and referenced column '{fk column 1}' in foreign key constraint '{key}' are incompatible.
+
+  **Limitation**: The error can cause schema migration of a table to fail, as the PK column in table 1 may not be compatible with the FK column in table do.
+
+  **Workaround**: To resolve this issue, it is recommended to drop the foreign key and re-create it after the migration process is completed.
 
 ## Next steps
 
