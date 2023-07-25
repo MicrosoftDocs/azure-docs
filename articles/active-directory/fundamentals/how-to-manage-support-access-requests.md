@@ -30,7 +30,7 @@ Only certain Azure AD roles are authorized to manage Microsoft Support access re
 
     :::image type="content" source="media/how-to-manage-support-access-requests/diagnose-solve-problems-access-requests.png" alt-text="Screenshot of the Diagnose and solve problems page with the Manage pending requests link highlighted." lightbox="media/how-to-manage-support-access-requests/diagnose-solve-problems-approved-access-expanded.png":::
 
-1. Select either the **Support request ID** link  or **Review for approval** link for the request you need to approve.
+1. Select the **Support request ID** link for the request you need to approve.
 
     ![Screenshot of the pending request with links to view details highlighted.](media/how-to-manage-support-access-requests/pending-request-view-details-links.png)
 

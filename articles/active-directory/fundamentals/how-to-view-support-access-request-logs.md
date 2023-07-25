@@ -42,6 +42,9 @@ You can access a filtered view of audit logs for your tenant from the Microsoft 
 You can also access these logs from the Microsoft Entra ID Audit logs. Select **Core Directory** as the service and `MicrosoftSupportAccessManagement` as the category.
 
 ## Types of requests
+
+There are some details associated with support access request audit logs that are helpful to understand. Knowing the difference between the types of request may help when exploring the logs.
+
 Activity logs for Microsoft Support access requests fall into three categories: user-initiated requests, automated requests, and cross-tenant support requests.
 
 ### User-initiated requests
