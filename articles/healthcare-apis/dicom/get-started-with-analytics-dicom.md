@@ -1,5 +1,5 @@
 ---
-title: Get Started using DICOM Data in Analytics Workloads
+title: Get started using DICOM data in analytics workloads - Azure Health Data Services
 description: This guide demonstrates how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
 services: healthcare-apis
 author: mmitrik
@@ -33,7 +33,7 @@ In this example, an Azure Data Factory [pipeline](../../data-factory/concepts-pi
 
 From the Azure portal, open the Azure Data Factory instance and select **Launch Studio** to begin.  
 
-:::image type="content" source="media/data-factory-launch-studio.png" alt-text="View of Launch studio button in the Azure portal." lightbox="media/data-factory-launch-studio.png":::
+:::image type="content" source="media/data-factory-launch-studio.png" alt-text="Screenshot of the Launch studio button in the Azure portal." lightbox="media/data-factory-launch-studio.png":::
 
 ### Create linked services
 Azure Data Factory pipelines read from _data sources_ and write to _data sinks_, typically other Azure services. These connections to other services are managed as _linked services_. The pipeline in this example will read data from a DICOM service and write its output to a storage account, so a linked service must be created for both. 
@@ -41,15 +41,15 @@ Azure Data Factory pipelines read from _data sources_ and write to _data sinks_,
 #### Create linked service for the DICOM service
 1. In the Azure Data Factory Studio, select **Manage**  from the navigation menu. Under **Connections** select **Linked services** and then select **New**.
 
-:::image type="content" source="media/data-factory-linked-services.png" alt-text="View of Linked services screen in Azure Data Factory." lightbox="media/data-factory-linked-services.png":::
+:::image type="content" source="media/data-factory-linked-services.png" alt-text="Screenshot of the Linked services screen in Azure Data Factory." lightbox="media/data-factory-linked-services.png":::
 
 2. On the New linked service panel, search for "REST".  Select the **REST** tile and then **Continue**.
 
-:::image type="content" source="media/data-factory-rest.png" alt-text="New Linked services panel with REST tile selected." lightbox="media/data-factory-rest.png":::
+:::image type="content" source="media/data-factory-rest.png" alt-text="Screenshot of the New Linked services panel with REST tile selected." lightbox="media/data-factory-rest.png":::
 
 3. Enter a **Name** and **Description** for the linked service.  
 
-:::image type="content" source="media/data-factory-linked-service-dicom.png" alt-text="New linked service panel with DICOM service details." lightbox="media/data-factory-linked-service-dicom.png":::
+:::image type="content" source="media/data-factory-linked-service-dicom.png" alt-text="Screenshot of the New linked service panel with DICOM service details." lightbox="media/data-factory-linked-service-dicom.png":::
 
 4. In the **Base URL** field, enter the Service URL for your DICOM service.  For example, a DICOM service named `contosoclinic` in the `contosohealth` workspace will have the Service URL `https://contosohealth-contosoclinic.dicom.azurehealthcareapis.com`.
 
@@ -66,11 +66,11 @@ Azure Data Factory pipelines read from _data sources_ and write to _data sinks_,
 
 2. On the New linked service panel, search for "Azure Data Lake Storage Gen2".  Select the **Azure Data Lake Storage Gen2** tile and then **Continue**.
 
-:::image type="content" source="media/data-factory-adlsg2.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adlsg2.png":::
+:::image type="content" source="media/data-factory-adls.png" alt-text="Screenshot of the New Linked services panel with Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adls.png":::
 
 3. Enter a **Name** and **Description** for the linked service.
 
-:::image type="content" source="media/data-factory-linked-service-adlsg2.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-linked-service-adlsg2.png":::
+:::image type="content" source="media/data-factory-linked-service-adls.png" alt-text="Screenshot of the New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-linked-service-adls.png":::
 
 4. For Authentication type, select **System Assigned Managed Identity**.
 
@@ -85,15 +85,15 @@ Azure Data Factory pipelines are a collection of _activities_ that perform a tas
 
 1.  Select **Author** from the navigation menu.  In the **Factory Resources** pane, select the plus (+) to add a new resource.  Select **Pipeline** and then **Template gallery** from the menu.  
 
-:::image type="content" source="media/data-factory-create-pipeline-menu.png" alt-text="New Pipeline from Template Gallery." lightbox="media/data-factory-create-pipeline-menu.png":::
+:::image type="content" source="media/data-factory-create-pipeline-menu.png" alt-text="Screenshot of the New Pipeline from Template Gallery." lightbox="media/data-factory-create-pipeline-menu.png":::
 
 2. In the Template gallery, search for "DICOM".  Select the **Copy DICOM Metadata Changes to ADLS Gen2 in Delta Format** tile and then **Continue**.
 
-:::image type="content" source="media/data-factory-gallery-dicom.png" alt-text="DICOM template selected in Template gallery." lightbox="media/data-factory-gallery-dicom.png":::
+:::image type="content" source="media/data-factory-gallery-dicom.png" alt-text="Screenshot of the DICOM template selected in Template gallery." lightbox="media/data-factory-gallery-dicom.png":::
 
 3. In the **Inputs** section, select the linked services previously created for the DICOM service and Azure Data Lake Storage Gen2 account.
 
-:::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Create pipeline view with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
+:::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot of the Create pipeline view with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
 
 4. Select **Use this template** to create the new pipeline.  
 
@@ -103,13 +103,13 @@ Pipelines are scheduled by _triggers_. There are different types of triggers inc
 ### Create a new tumbling window trigger
 1. Select **Author** from the navigation menu.  Select the pipeline for the DICOM service and select **Add trigger** and **New/Edit** from the menu bar.
 
-:::image type="content" source="media/data-factory-add-trigger.png" alt-text="Select Add trigger from the menu bar in the pipeline view." lightbox="media/data-factory-add-trigger.png":::
+:::image type="content" source="media/data-factory-add-trigger.png" alt-text="Screenshot of the pipeline view of Data Factory Studio with the Add trigger button on the menu bar selected." lightbox="media/data-factory-add-trigger.png":::
 
 2. In the **Add triggers** panel, select the **Choose trigger** dropdown and then **New**.
 
 3. Enter a **Name** and **Description** for the trigger.
 
-:::image type="content" source="media/data-factory-new-trigger.png" alt-text="Enter details for the new trigger." lightbox="media/data-factory-new-trigger.png":::
+:::image type="content" source="media/data-factory-new-trigger.png" alt-text="Screenshot of the New trigger details panel, with name, description, type, date, and recurrence." lightbox="media/data-factory-new-trigger.png":::
 
 4. Select **Tumbling window** as the type.
 
@@ -138,7 +138,7 @@ Triggers not only define when to run a pipeline, they also include [parameters](
 
 1. In the **Trigger run parameters** panel, enter in the **ContainerName** that matches the name of the storage container created in the prerequisites.
 
-:::image type="content" source="media/data-factory-trigger-parameters.png" alt-text="Enter parameter values for the new trigger." lightbox="media/data-factory-trigger-parameters.png":::
+:::image type="content" source="media/data-factory-trigger-parameters.png" alt-text="Screenshot of the Trigger Run Parameters, with StartTime and EndTime values entered." lightbox="media/data-factory-trigger-parameters.png":::
 
 2. For **StartTime** use the system variable `@formatDateTime(trigger().outputs.windowStartTime)`.
 
@@ -157,14 +157,14 @@ Triggers not only define when to run a pipeline, they also include [parameters](
 
 4. Select **Save** to create the new trigger.  Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.  
 
-:::image type="content" source="media/data-factory-publish.png" alt-text="Publish changes from the main menu bar for changes to take effect." lightbox="media/data-factory-publish.png":::
+:::image type="content" source="media/data-factory-publish.png" alt-text="Screenshow showing the Publish button on the main menu bar." lightbox="media/data-factory-publish.png":::
 
 After the trigger is published, it can be triggered manually using the **Trigger now** option.  If the start time was set for a value in the past, the pipeline will start immediately.  
 
 ## Monitoring pipeline runs
 Trigger runs and their associated pipeline runs can be monitored in the **Monitor** tab. Here, users can browse when each pipeline ran, how long it took to execute, and potentially debug any problems that arose.
 
-:::image type="content" source="media/data-factory-monitor.png" alt-text="Monitor view showing list of pipeline runs." lightbox="media/data-factory-monitor.png":::
+:::image type="content" source="media/data-factory-monitor.png" alt-text="Screenshot of the Monitor view showing list of pipeline runs." lightbox="media/data-factory-monitor.png":::
 
 ## Microsoft Fabric
 [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](/fabric/onelake/onelake-overview). With the use of [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview), data in OneLake can be managed, structured, and analyzed in a single location. Any data outside of OneLake, written to Azure Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric’s suite of tools.
@@ -174,15 +174,15 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 
 2. Select **New shortcut** to create a new shortcut to the storage account that contains the DICOM analytics data.
 
-:::image type="content" source="media/fabric-create-shortcut.png" alt-text="Create new shortcut to the storage account. " lightbox="media/fabric-create-shortcut.png":::
+:::image type="content" source="media/fabric-create-shortcut.png" alt-text="Screenshot of the New shortcut option in the Explorer view. " lightbox="media/fabric-create-shortcut.png":::
 
 3. Select **Azure Data Lake Storage Gen2** as the source for the shortcut.
 
-:::image type="content" source="media/fabric-new-shortcut.png" alt-text="Select Azure Data Lake Storage Gen2 as the shortcut source. " lightbox="media/fabric-new-shortcut.png":::
+:::image type="content" source="media/fabric-new-shortcut.png" alt-text="Screenshot of the New shortcut view, showing the Azure Data Lake Storage Gen2 tile." lightbox="media/fabric-new-shortcut.png":::
 
 4. Under **Connection settings**, enter the **URL** used in the [Linked Services](#create-linked-service-for-azure-data-lake-storage-gen2) section above.  
 
-:::image type="content" source="media/fabric-connection-settings.png" alt-text="Enter the connection settings for the the Azure Data Lake Storage Gen2 account. " lightbox="media/fabric-connection-settings.png":::
+:::image type="content" source="media/fabric-connection-settings.png" alt-text="Screenshot of the connection settings for the the Azure Data Lake Storage Gen2 account. " lightbox="media/fabric-connection-settings.png":::
 
 5. Select an existing connection or create a new connection, selecting the Authentication kind you want to use. 
 
@@ -201,7 +201,7 @@ Trigger runs and their associated pipeline runs can be monitored in the **Monito
 
 After the shortcuts have been created, expanding a table will show the names and types of the columns.  
 
-:::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Table columns are listed in the explorer view. " lightbox="media/fabric-shortcut-schema.png":::
+:::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Screenshot of the table columns listed in the explorer view." lightbox="media/fabric-shortcut-schema.png":::
 
 ### Running notebooks
 Once the tables have been created in the lakehouse, they can be queried from [Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook).  Notebooks may be created directly from the lakehouse by selecting **Open Notebook** from the menu bar. 
@@ -217,11 +217,11 @@ SELECT * from instance
 
 This query will select all of the contents from the `instance` table. When ready, select the **Run cell** button to execute the query. 
 
-:::image type="content" source="media/fabric-notebook.png" alt-text="Notebook with sample Spark SQL query." lightbox="media/fabric-notebook.png":::
+:::image type="content" source="media/fabric-notebook.png" alt-text="Screenshot of a notebook with sample Spark SQL query." lightbox="media/fabric-notebook.png":::
 
 After a few seconds, the results of the query should appear in a table beneath the cell like (the time may be longer if this is the first Spark query in the session as the Spark context will need to be initialized).
 
-:::image type="content" source="media/fabric-notebook-results.png" alt-text="Notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
+:::image type="content" source="media/fabric-notebook-results.png" alt-text="Screenshot of a notebook with sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
 
 ## Summary
 In this article, you learned how to:
