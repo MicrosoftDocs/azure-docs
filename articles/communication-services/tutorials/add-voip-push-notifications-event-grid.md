@@ -31,7 +31,7 @@ Following services will be required :
 
 ## Steps to deliver the Push Notifications
 Following is the order of steps to deliver the push notification.
-1. When the application starts instead calling the API `CallAgent.registerPushNotifications` with device token. Send the device token to the Azure function app.
+1. When the application starts instead of calling the API `CallAgent.registerPushNotifications` with device token. Send the device token to the Azure function app.
 2. When there is an incoming call to be sent to the user, the EventGridTrigger Azure function API wil be trigger with the incoming call payload.
 3. Get all the device token information from the database.
 4. Convert the payload to how the VOIP push notification payload is expected by `PushNotificationInfo.fromDictionary` like in iOS SDK.
