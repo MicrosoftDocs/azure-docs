@@ -26,8 +26,6 @@ Using the information in this tutorial, an administrator of the application lear
 > * Access the sign-ins report
 > * Send logs to Azure Monitor
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -36,12 +34,14 @@ Using the information in this tutorial, an administrator of the application lear
 
 ## Create an access review
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The administrator wants to make sure that users or guests have appropriate access. They decide to ask users of the application to participate in an access review and recertify or attest to their need for access. When the access review is finished, they can then make changes and remove access from users who no longer need it. For more information, see
 [Manage user and guest user access with access reviews](../governance/manage-access-review.md).
 
 To create an access review:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 1. Go to **Azure Active Directory**, and then select **Identity Governance**.
 1. On the left menu, select **Access reviews**.
 1. Select **New access review** to create a new access review.

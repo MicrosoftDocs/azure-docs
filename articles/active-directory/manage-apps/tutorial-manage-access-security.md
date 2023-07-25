@@ -25,8 +25,6 @@ Using the information in this tutorial, an administrator learns how to:
 > * Communicate a term of use to users of the application
 > * Create a collection in the My Apps portal
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -35,6 +33,8 @@ Using the information in this tutorial, an administrator learns how to:
 * At least one user account added and assigned to the application. For more information, see [Quickstart: Create and assign a user account](add-application-portal-assign-users.md).
 
 ## Grant tenant wide admin consent
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](consent-and-permissions-overview.md).
 

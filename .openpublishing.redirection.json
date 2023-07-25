@@ -24009,6 +24009,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
+            "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
             "redirect_document_id": false
@@ -24050,7 +24055,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
-            "redirect_url": "/azure/virtual-machines/reliability-virtual-machines",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/reliability-virtual-machines.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
             "redirect_document_id": false
         },
         {

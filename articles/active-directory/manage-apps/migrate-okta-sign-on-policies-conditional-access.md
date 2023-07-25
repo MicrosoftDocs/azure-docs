@@ -118,6 +118,8 @@ If you deployed hybrid Azure AD join, you can deploy another group policy to com
 
 ## Configure Azure AD Multi-Factor Authentication tenant settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

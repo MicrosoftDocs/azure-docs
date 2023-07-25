@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/22/2023
 ms.author: greglin
 ---
 
@@ -14,6 +14,9 @@ ms.author: greglin
 
 The instructions below assume Application Gateway Ingress Controller (AGIC) will be
 installed in an environment with no pre-existing components.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Required Command Line Tools
 
