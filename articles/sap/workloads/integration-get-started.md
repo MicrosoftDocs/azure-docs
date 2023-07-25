@@ -201,6 +201,8 @@ Also see the following SAP resources:
 
 ### Microsoft Security for SAP
 
+#### Microsoft Defender for Endpoint
+
 For more information about using **Microsoft Defender for Endpoint** (MDE) for SAP applications regarding Next-generation protection (AntiVirus) and **Endpoint Detection and Response** (EDR) see the following Microsoft resources:
 
 > [!Note]: MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
@@ -212,6 +214,8 @@ Also see the following SAP resources:
 
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
+
+#### Microsoft Sentinel for SAP
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with **Microsoft Sentinel for SAP**, see the following Microsoft resources:
 
