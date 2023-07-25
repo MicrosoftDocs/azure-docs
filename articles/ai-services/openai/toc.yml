@@ -84,7 +84,7 @@ items:
         href: encrypt-data-at-rest.md
       - name: Manage identity
         href: ./how-to/managed-identity.md
-  - name: Service Management
+  - name: Service management
     items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
