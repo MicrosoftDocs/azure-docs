@@ -146,6 +146,8 @@ The Oracle PeopleSoft application needs to recognize the user. Using a name, the
 
 ## Enable Azure AD Multi-Factor Authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To provide more security for sign-ins, you can enforce Azure AD Multi-Factor Authentication (MFA). 
 
 Learn more: [Tutorial: Secure user sign-in events with Azure AD MFA](../authentication/tutorial-enable-azure-mfa.md)

@@ -85,7 +85,9 @@ In the following examples replace the contoso.com with your own tenant name, or 
 
 ## How to navigate the company branding process
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
     - If you currently have a customized sign-in experience, the **Edit** button is available.
@@ -183,7 +185,7 @@ Once your default sign-in experience is created, select the **Edit** button to m
 
 To create an inclusive experience for all of your users, you can customize the sign-in experience based on browser language.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Add browser language**.
 
