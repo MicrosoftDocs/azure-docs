@@ -41,6 +41,8 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 ## Grant your VM access to a resource group in Resource Manager
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
