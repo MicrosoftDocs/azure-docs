@@ -206,7 +206,7 @@ With the workload profiles environment (preview), you can fully secure your ingr
 
 ## <a name="mtls"></a> Environment level network encryption - preview
 
-Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. Applications within a Container Apps Environment are automatically authenticated. However, Container Apps currently does not support authorization for access control between applications using the built-in mTLS.
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. Applications within a Container Apps environment are automatically authenticated. However, Container Apps currently does not support authorization for access control between applications using the built-in mTLS.
 
 When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported, to learn more see [configure client certificates](client-certificate-authorization.md).
 
@@ -215,7 +215,7 @@ When your apps are communicating with a client outside of the environment, two-w
 
 # [Azure CLI](#tab/azure-cli)
 
-You can enable mTLS using the below commands.
+You can enable mTLS using the following commands.
 
 On create:
 ```azurecli
@@ -236,7 +236,7 @@ az containerapp env update \
 
 # [ARM template](#tab/arm-template)
 
-You can enable mTLS in the ARM template for Container Apps environments using the below.
+You can enable mTLS in the ARM template for Container Apps environments using the following configuration.
 
 ```json
 {
