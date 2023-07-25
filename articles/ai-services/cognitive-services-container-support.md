@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 07/21/2023
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
@@ -63,18 +63,18 @@ Azure AI services containers provide the following set of Docker containers, eac
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Speech Service API][sp-containers-stt] |  **Speech to text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-speech-to-text)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Speech Service API][sp-containers-cstt] | **Custom Speech to text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. | Generally available <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Speech Service API][sp-containers-ntts] | **Neural Text to speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | Determines the language of spoken audio. | Gated preview |
+| [Speech Service API][sp-containers-stt] |  **Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/about)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Speech Service API][sp-containers-cstt] | **Custom Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/about)) | Transcribes continuous real-time speech into text using a custom model. | Generally available <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Speech Service API][sp-containers-ntts] | **Neural Text to speech** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/about)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/about)) | Determines the language of spoken audio. | Gated preview |
 
 ### Vision containers
 
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. Gated - [request access](https://aka.ms/csgate). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
+| [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/about)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. Gated - [request access](https://aka.ms/csgate). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/spatial-analysis/about)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
 
 <!--
 |[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|

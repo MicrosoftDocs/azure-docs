@@ -141,6 +141,10 @@ Supported bandwidth offers:
 
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
 
+> [!NOTE]
+> ExpressRoute supports redundant pair of cross connection. If you exceed the configured bandwidth of your ExpressRoute circuit in a cross connection, your traffic would be subjected to rate limiting within that cross connection.
+>
+
 ### What's the maximum MTU supported?
 
 ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
