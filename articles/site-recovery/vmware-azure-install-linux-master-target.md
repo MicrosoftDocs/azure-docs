@@ -5,6 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 05/02/2023
@@ -401,4 +402,3 @@ From 9.42 version, ASR supports Linux master target server on Ubuntu 20.04. To u
 After the installation and registration of the master target has finished, you can see the master target appear on the **master target** section in **Site Recovery Infrastructure**, under the configuration server overview.
 
 You can now proceed with [reprotection](vmware-azure-reprotect.md), followed by failback.
-

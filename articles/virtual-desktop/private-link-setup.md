@@ -29,7 +29,7 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 ## Enable the feature
 
-To use of Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
+To use Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
 
 > [!IMPORTANT]
 > You need to re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
