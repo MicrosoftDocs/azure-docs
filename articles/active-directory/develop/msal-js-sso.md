@@ -49,12 +49,12 @@ When a user authenticates, a session cookie is set on the Azure AD domain in the
 
 To improve performance and ensure that the authorization server will look for the correct account session, you can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
-- `login_hint` , which can be retrieved from the `account` object username property or the `upn` claim in the ID token. If your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in)
+- `login_hint`, which can be retrieved from the `account` object username property or the `upn` claim in the ID token. If your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in)
 - Session ID, `sid`, which can be retrieved from `idTokenClaims` of an `account` object. 
 - `account`, which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis)
 
 
- We recommended to using the `login_hint`[optional ID token claim](optional-claims-reference.md#v10-and-v20-optional-claims-set) provided to `ssoSilent` as `loginHint` as it is the most reliable account hint of silent (and interactive) requests.
+ We recommended to using the `login_hint` [optional ID token claim](optional-claims-reference.md#v10-and-v20-optional-claims-set) provided to `ssoSilent` as `loginHint` as it is the most reliable account hint of silent and interactive requests.
 
 
 #### Using a login hint
@@ -62,7 +62,6 @@ To improve performance and ensure that the authorization server will look for th
 The `login_hint` optional claim provides a hint to Azure AD about the user account attempting to sign in. To bypass the account selection prompt typically shown during interactive authentication requests, provide the `loginHint` as shown:
 
 ```javascript
-
 const silentRequest = {
     scopes: ["User.Read", "Mail.Read"],
     loginHint: "user@contoso.com"
