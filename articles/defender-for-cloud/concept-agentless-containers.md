@@ -15,6 +15,8 @@ Learn more about [CSPM](concept-cloud-security-posture-management.md).
 
 ## Capabilities
 
+For support and prerequisites for agentless containers posture, see [Support and prerequisites for agentless containers posture](support-agentless-containers-posture.md).
+
 Agentless Container Posture provides the following capabilities:
 
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.

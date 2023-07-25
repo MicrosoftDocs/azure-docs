@@ -29,7 +29,7 @@ You can verify these items in the Azure portal and on the local server that's ru
 
 To verify that Azure detects the agent, and that the agent is healthy, follow these steps:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage sync**.
 1. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
 

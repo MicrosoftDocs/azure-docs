@@ -223,7 +223,7 @@
       href: concept-data-security-posture-prepare.md
   - name: Improve your container security posture
     items:
-    - name: Agentless Container Posture (Preview)
+    - name: Agentless Container Posture
       href: concept-agentless-containers.md
   - name: Security recommendations
     items:
@@ -470,9 +470,9 @@
       href: tutorial-enable-servers-plan.md    
     - name: Configure vulnerability scanning
       items:
-      - name: Enable agentless vulnerability scanning
+      - name: Enable agentless scanning for VMs
         displayName: vulnerability, software inventory, agentless scanning
-        href: enable-vulnerability-assessment-agentless.md
+        href: enable-agentless-scanning-vms.md
       - name: Enable vulnerability scanning with Microsoft Defender Vulnerability Management 
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
@@ -550,10 +550,10 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment for Azure Container Registry
+    - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
-    - name: Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management
+    - name: Vulnerability assessments for Azure powered by Microsoft Defender Vulnerability Management
       items:
       - name: Overview
         href: agentless-container-registry-vulnerability-assessment.md
@@ -565,7 +565,7 @@
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
         href: disable-vulnerability-findings-containers.md  
-    - name: Vulnerability assessment for Amazon Elastic Container Registry
+    - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
     - name: Kubernetes data plane hardening

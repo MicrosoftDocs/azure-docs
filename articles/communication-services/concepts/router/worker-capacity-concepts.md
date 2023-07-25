@@ -79,8 +79,8 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 client.createWorker(new CreateWorkerOptions("worker1", 100)
     .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration().setCapacityCostPerJob(100),
-        "chat", new ChannelConfiguration().setCapacityCostPerJob(20))))
+        "voice", new ChannelConfiguration(100),
+        "chat", new ChannelConfiguration(20))));
 ```
 
 ::: zone-end
@@ -147,9 +147,9 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 client.createWorker(new CreateWorkerOptions("worker1", 100)
     .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration().setCapacityCostPerJob(60),
-        "chat", new ChannelConfiguration().setCapacityCostPerJob(10).setMaxNumberOfJobs(2),
-        "email", new ChannelConfiguration().setCapacityCostPerJob(10).setMaxNumberOfJobs(2))))
+        "voice", new ChannelConfiguration(60),
+        "chat", new ChannelConfiguration(10).setMaxNumberOfJobs(2),
+        "email", new ChannelConfiguration(10).setMaxNumberOfJobs(2))));
 ```
 
 ::: zone-end

@@ -1,5 +1,5 @@
 ---
-title: Learn about agentless scanning
+title: Learn about agentless scanning for VMs
 description: Learn how Defender for Cloud can gather information about your multicloud compute resources without installing an agent on your machines.
 author: dcurwin
 ms.author: dacurwin
