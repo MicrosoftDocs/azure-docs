@@ -30,9 +30,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 ## July 2023
 
 > [!NOTE]
-> Form Recognizer is now Azure AI Document Intelligence!
+> Azure AI Document Intelligence is now Azure AI Document Intelligence!
 >
-> As of July 2023, Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> As of July 2023, Azure AI services encompass all of what were previously known as Azure AI services and Azure AI services. There are no changes to pricing. The names "Azure AI services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
 
 ## May 2023
 
@@ -1114,4 +1114,3 @@ This release introduces the Document Intelligence 2.0. In the next sections, you
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
-

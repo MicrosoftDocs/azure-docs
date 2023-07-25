@@ -18,7 +18,7 @@ Using pretrained models from Azure AI services, you can enrich your data with ar
 
 There are a few ways that you can use a subset of Azure AI services with your data in Synapse Analytics:
 
-- The "Cognitive Services" wizard in Synapse Analytics generates PySpark code in a Synapse notebook that connects to a with Azure AI services using data in a Spark table. Then, using pretrained machine learning models, the service does the work for you to add AI to your data. Check out [Sentiment analysis wizard](tutorial-cognitive-services-sentiment.md) and [Anomaly detection wizard](tutorial-cognitive-services-anomaly.md) for more details.
+- The "Azure AI services" wizard in Synapse Analytics generates PySpark code in a Synapse notebook that connects to a with Azure AI services using data in a Spark table. Then, using pretrained machine learning models, the service does the work for you to add AI to your data. Check out [Sentiment analysis wizard](tutorial-cognitive-services-sentiment.md) and [Anomaly detection wizard](tutorial-cognitive-services-anomaly.md) for more details.
 
 - Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources. Synapse Spark provide built-in SynapseML libraries including [synapse.ml.cognitive](https://github.com/microsoft/SynapseML/tree/master/notebooks/features/cognitive_services). 
 
@@ -75,7 +75,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 - Document Translation: Translates documents across all supported languages and dialects while preserving document structure and data format. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/DocumentTranslator.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.DocumentTranslator))
 
 ### Document Intelligence
-[**Document Intelligence**](https://azure.microsoft.com/services/form-recognizer/) (formerly known as Form Recognizer)
+[**Document Intelligence**](https://azure.microsoft.com/services/form-recognizer/) (formerly known as Azure AI Document Intelligence)
 - Analyze Layout: Extract text and layout information from a given document. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeLayout.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeLayout))
 - Analyze Receipts: Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeReceipts.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeReceipts))
 - Analyze Business Cards: Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeBusinessCards.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeBusinessCards))
@@ -248,7 +248,7 @@ display(
 ```
 
 ## Document Intelligence sample
-[Document Intelligence](https://azure.microsoft.com/services/form-recognizer/) (formerly known as "Form Recognizer") is a part of Azure AI services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
+[Document Intelligence](https://azure.microsoft.com/services/form-recognizer/) (formerly known as "Azure AI Document Intelligence") is a part of Azure AI services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
 
 
 ```python

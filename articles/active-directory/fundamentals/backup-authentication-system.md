@@ -29,7 +29,7 @@ In addition to Microsoft applications, we support:
 - SaaS applications available in the app gallery, like ADP, Atlassian, AWS, GoToMeeting, Kronos, Marketo, SAP, Trello, Workday, and more.
 - Selected line of business applications, based on their authentication patterns.
 
-Service to service authentication that relies on Azure AD managed identities or are built on Azure services, like virtual machines, cloud storage, Cognitive Services, and App Services, receives increased resilience from the back up authentication system. 
+Service to service authentication that relies on Azure AD managed identities or are built on Azure services, like virtual machines, cloud storage, Azure AI services, and App Services, receives increased resilience from the back up authentication system. 
 
 Microsoft is continuously expanding the number of supported scenarios. 
 
@@ -174,7 +174,7 @@ The backup authentication system is supported in all cloud environments except A
 | microsoft.cache | Azure Cache for Redis | Protected |
 | microsoft.cdn | Azure Content Delivery Network (CDN) | Not protected |
 | microsoft.chaos | Azure Chaos Engineering | Protected |
-| microsoft.cognitiveservices | Cognitive Services APIs and Containers | Protected |
+| microsoft.cognitiveservices | Azure AI services APIs and Containers | Protected |
 | microsoft.communication | Azure Communication Services | Not protected |
 | microsoft.compute | Azure Virtual Machines | Protected |
 | microsoft.containerinstance | Azure Container Instances | Protected |
@@ -223,7 +223,7 @@ The backup authentication system is supported in all cloud environments except A
 | microsoft.powerplatform | Microsoft Power Platform | Protected |
 | microsoft.purview | Azure Purview (formerly Azure Data Catalog) | Protected |
 | microsoft.quantum | Microsoft Quantum Development Kit | Protected |
-| microsoft.recommendationsservice | Azure Cognitive Services Recommendations API | Protected |
+| microsoft.recommendationsservice | Azure AI services Recommendations API | Protected |
 | microsoft.recoveryservices | Azure Site Recovery | Protected |
 | microsoft.resourceconnector | Azure Resource Connector | Protected |
 | microsoft.scom | System Center Operations Manager (SCOM) | Protected |

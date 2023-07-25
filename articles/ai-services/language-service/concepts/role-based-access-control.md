@@ -116,7 +116,9 @@ A user that is responsible for building and modifying an application, as a colla
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services Language Owner
+<a name='cognitive-services-language-owner'></a>
+
+### Azure AI Language Owner
 
 > [!NOTE]
 > If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language Owner* in Language studio portal.

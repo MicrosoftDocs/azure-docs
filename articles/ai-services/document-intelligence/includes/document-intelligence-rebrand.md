@@ -8,4 +8,4 @@ ms.author: lajanuar
 ---
 > [!NOTE]
 >
-> Azure Form Recognizer is now **Azure AI Document Intelligence**.
+> Azure AI Document Intelligence is now **Azure AI Document Intelligence**.
