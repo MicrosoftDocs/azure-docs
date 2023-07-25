@@ -35,7 +35,9 @@ Access Reviews for **Service Principals** requires an Entra Workload Identities 
 
 ## Create access reviews
 
-1. Sign in to [Azure portal](https://portal.azure.com/) as a user that is assigned to one of the prerequisite role(s).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user that is assigned to one of the prerequisite role(s).
 
 2. Select **Identity Governance**.
  

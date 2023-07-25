@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 07/13/2023
 ---
 
 # Data access strategies

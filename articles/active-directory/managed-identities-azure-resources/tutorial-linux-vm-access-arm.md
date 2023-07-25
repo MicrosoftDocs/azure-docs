@@ -37,6 +37,8 @@ You learn how to:
 
 ## Grant access
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
