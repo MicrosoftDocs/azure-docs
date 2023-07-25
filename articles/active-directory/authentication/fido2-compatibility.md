@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 07/25/2023
 
 author: justinha
 ms.author: justinha
@@ -21,40 +21,23 @@ Azure Active Directory allows [FIDO2 security keys](./concept-authentication-pas
 
 ## Supported browsers
 
-This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
+This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. 
 
-| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox | Safari | Safari | Safari |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
-| **Windows**  | ![Chrome supports USB on Windows for Azure AD accounts.][y] | ![Chrome supports NFC on Windows for Azure AD accounts.][y] | ![Chrome supports BLE on Windows for Azure AD accounts.][y] | ![Edge supports USB on Windows for Azure AD accounts.][y] | ![Edge supports NFC on Windows for Azure AD accounts.][y] | ![Edge supports BLE on Windows for Azure AD accounts.][y] | ![Firefox supports USB on Windows for Azure AD accounts.][y] | ![Firefox supports NFC on Windows for Azure AD accounts.][y] | ![Firefox supports BLE on Windows for Azure AD accounts.][y] |  ![Safari supports USB on Windows for Azure AD accounts.][n] | ![Safari supports NFC on Windows for Azure AD accounts.][n] | ![Safari supports BLE on Windows for Azure AD accounts.][n] |
-| **macOS**  | ![Chrome supports USB on macOS for Azure AD accounts.][y] | ![Chrome supports NFC on macOS for Azure AD accounts.][n] | ![Chrome supports BLE on macOS for Azure AD accounts.][n] | ![Edge supports USB on macOS for Azure AD accounts.][y] | ![Edge supports NFC on macOS for Azure AD accounts.][n] | ![Edge supports BLE on macOS for Azure AD accounts.][n] | ![Firefox supports USB on macOS for Azure AD accounts.][n] | ![Firefox supports NFC on macOS for Azure AD accounts.][n] | ![Firefox supports BLE on macOS for Azure AD accounts.][n] | ![Safari supports USB on macOS for Azure AD accounts.][y] | ![Safari supports NFC on macOS for Azure AD accounts.][n] | ![Safari supports BLE on macOS for Azure AD accounts.][n] |
-| **ChromeOS**  | ![Chrome supports USB on ChromeOS for Azure AD accounts.][y] | ![Chrome supports NFC on ChromeOS for Azure AD accounts.][n] | ![Chrome supports BLE on ChromeOS for Azure AD accounts.][n] | ![Edge supports USB on ChromeOS for Azure AD accounts.][n] | ![Edge supports NFC on ChromeOS for Azure AD accounts.][n] | ![Edge supports BLE on ChromeOS for Azure AD accounts.][n] | ![Firefox supports USB on ChromeOS for Azure AD accounts.][n] | ![Firefox supports NFC on ChromeOS for Azure AD accounts.][n] | ![Firefox supports BLE on ChromeOS for Azure AD accounts.][n] | ![Safari supports USB on ChromeOS for Azure AD accounts.][n] | ![Safari supports NFC on ChromeOS for Azure AD accounts.][n] | ![Safari supports BLE on ChromeOS for Azure AD accounts.][n] |
-| **Linux**  | ![Chrome supports USB on Linux for Azure AD accounts.][y] | ![Chrome supports NFC on Linux for Azure AD accounts.][n] | ![Chrome supports BLE on Linux for Azure AD accounts.][n] | ![Edge supports USB on Linux for Azure AD accounts.][n] | ![Edge supports NFC on Linux for Azure AD accounts.][n] | ![Edge supports BLE on Linux for Azure AD accounts.][n] | ![Firefox supports USB on Linux for Azure AD accounts.][n] | ![Firefox supports NFC on Linux for Azure AD accounts.][n] | ![Firefox supports BLE on Linux for Azure AD accounts.][n] | ![Safari supports USB on Linux for Azure AD accounts.][n] | ![Safari supports NFC on Linux for Azure AD accounts.][n] | ![Safari supports BLE on Linux for Azure AD accounts.][n] |
-| **iOS**  | ![Chrome supports USB on iOS for Azure AD accounts.][y] | ![Chrome supports NFC on iOS for Azure AD accounts.][y] | ![Chrome supports BLE on iOS for Azure AD accounts.][n] | ![Edge supports USB on iOS for Azure AD accounts.][y] | ![Edge supports NFC on iOS for Azure AD accounts.][y] | ![Edge supports BLE on iOS for Azure AD accounts.][n] | ![Firefox supports USB on Linux for Azure AD accounts.][n] | ![Firefox supports NFC on iOS for Azure AD accounts.][n] | ![Firefox supports BLE on iOS for Azure AD accounts.][n] | ![Safari supports USB on iOS for Azure AD accounts.][y] | ![Safari supports NFC on iOS for Azure AD accounts.][y] | ![Safari supports BLE on iOS for Azure AD accounts.][n] |
-| **Android**  | ![Chrome supports USB on Android for Azure AD accounts.][n] | ![Chrome supports NFC on Android for Azure AD accounts.][n] | ![Chrome supports BLE on Android for Azure AD accounts.][n] | ![Edge supports USB on Android for Azure AD accounts.][n] | ![Edge supports NFC on Android for Azure AD accounts.][n] | ![Edge supports BLE on Android for Azure AD accounts.][n] | ![Firefox supports USB on Android for Azure AD accounts.][n] | ![Firefox supports NFC on Android for Azure AD accounts.][n] | ![Firefox supports BLE on Android for Azure AD accounts.][n] | ![Safari supports USB on Android for Azure AD accounts.][n] | ![Safari supports NFC on Android for Azure AD accounts.][n] | ![Safari supports BLE on Android for Azure AD accounts.][n] |
-
-- Key registration is currently not supported with ChromeOS/Chrome Browser.
-- For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
-- Security key PIN for user verification isn't currently supported with Android.
+| OS  | Chrome | Edge | Firefox | Safari |
+|:---:|:------:|:----:|:-------:|:------:|
+| **Windows**  | &#x2705; | &#x2705; | &#x2705; | N/A |
+| **macOS**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **ChromeOS**  | &#x2705; | &#10060; | &#10060; | N/A |
+| **Linux**  | &#x2705; | &#10060; | &#10060; | N/A |
+| **iOS**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Android**  | &#10060; | &#10060; | &#10060; | N/A |
 
 >[!NOTE]
->This is the view for web support. Authentication for native apps in iOS and Android are not available yet.
-
-## Minimum browser version
-
-The following are the minimum browser version requirements. 
-
-| Browser | Minimum version |
-| ---- | ---- |
-| Chrome | 76 |
-| Edge | Windows 10 version 1903<sup>1</sup> |
-| Firefox | 66 |
-
-<sup>1</sup>All versions of the new Chromium-based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
+>This is the view for web support. Authentication for native apps in iOS and Android isn't available yet.
 
 ## Browser support for each platform
 
-The following tables show which transports are supported for each platform.
+The following tables show which transports are supported for each platform. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
 ### Windows
 
@@ -72,19 +55,17 @@ The following tables show which transports are supported for each platform.
 | Chrome   | &#x2705; | N/A | N/A |
 | Firefox<sup>2</sup>   | &#x2705; | N/A | N/A |
 | Safari<sup>2</sup>   | &#x2705; | N/A | N/A |
-| Native apps<sup>3</sup>  | &#10060; | N/A | N/A |
 
 <sup>1</sup>NFC and BLE security keys aren't supported on macOS by Apple.
 <sup>2</sup>New security key registration doesn't work on these macOS browsers because they don't prompt to set up biometrics and PIN.
-<sup>3</sup>We're working to add native app support on macOS.
 
 ### ChromeOS
 
-| Browser | USB  | NFC | BLE |
+| Browser<sup>1</sup> | USB  | NFC | BLE |
 |---------|------|-----|-----|
 | Chrome  | &#x2705; | &#10060; | &#10060; |
 
-- Security key registration isn't supported on ChromeOS or Chrome browser.
+<sup>1</sup>Security key registration isn't supported on ChromeOS or Chrome browser.
 
 ### Linux
 
@@ -102,22 +83,31 @@ The following tables show which transports are supported for each platform.
 | Edge    |  &#x2705;  | N/A | N/A | 
 | Chrome  |  &#x2705;  | N/A | N/A |
 | Firefox |  &#x2705;  | N/A | N/A |
-| Safari  |  &#x2705;  | N/A | N/A |
+| Safari<sup>1</sup>  |  &#x2705;  | N/A | N/A |
 
-- For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
-- Authentication for native apps in iOS isn't available yet.
+<sup>1</sup>For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
 
 ### Android
 
-| Browser | USB  | NFC | BLE |
+| Browser<sup>1</sup> | USB  | NFC | BLE |
 |---------|------|-----|-----|
-| Edge    | N/A  | N/A | N/A |
-| Chrome  | N/A  | N/A | N/A |
-| Firefox | N/A  | N/A | N/A |
-| Native apps  | &#10060; | N/A | N/A |
+| Edge    | &#10060;  | &#10060; | &#10060; |
+| Chrome  | &#10060;  | &#10060; | &#10060; |
+| Firefox | &#10060;  | &#10060; | &#10060; |
 
-- Security key PIN for user verification isn't currently supported with Android.
-- We're working to add native app support on Android.
+<sup>1</sup>Security key PIN for user verification isn't currently supported with Android.
+
+## Minimum browser version
+
+The following are the minimum browser version requirements. 
+
+| Browser | Minimum version |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10 version 1903<sup>1</sup> |
+| Firefox | 66 |
+
+<sup>1</sup>All versions of the new Chromium-based Microsoft Edge support FIDO2. Support on Microsoft Edge legacy was added in 1903.
 
 ## Next steps
 [Enable passwordless security key sign-in](./howto-authentication-passwordless-security-key.md)
