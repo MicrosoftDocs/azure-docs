@@ -861,11 +861,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/route-server/routing-preference.md",
-            "redirect_url": "/azure/route-server/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
             "redirect_document_id": false
@@ -23556,11 +23551,6 @@
         {
             "source_path": "articles/firewall/tutorial-protect-firewall.md",
             "redirect_URL": "/azure/firewall/tutorial-protect-firewall-ddos",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
         },
         {
