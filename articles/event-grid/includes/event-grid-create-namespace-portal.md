@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: event-grid
- author: sonalikaroy
+ author: sonalika-roy
  ms.service: event-grid
  ms.topic: include
  ms.date: 05/30/20223
@@ -27,7 +27,7 @@ To create a namespace:
 
     :::image type="content" source="../media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
 
-4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](concepts.md#availability-zones), and [throughput units](concepts-pull-delivery.md#throughput-units) for your Event Grid namespace.
+4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](../concepts.md#availability-zones), and [throughput units](../concepts-pull-delivery.md#throughput-units) for your Event Grid namespace.
 
     :::image type="content" source="../media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 

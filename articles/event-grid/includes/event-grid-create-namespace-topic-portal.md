@@ -6,7 +6,7 @@
  ms.service: event-grid
  ms.topic: include
  ms.date: 05/30/20223
- ms.author: sonalika-roy
+ ms.author: sonalikaroy
  ms.custom: include file
 ---
 
