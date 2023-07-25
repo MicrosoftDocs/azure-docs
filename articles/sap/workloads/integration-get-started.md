@@ -201,9 +201,9 @@ Also see the following SAP resources:
 
 ### Microsoft Security for SAP
 
-For more information about using Microsoft Defender for Endpoint (MDE) for SAP applications regarding Next-generation protection (AntiVirus), Endpoint detection and response (EDR) see the following Microsoft resources:
+For more information about using **Microsoft Defender for Endpoint** (MDE) for SAP applications regarding Next-generation protection (AntiVirus) and **Endpoint Detection and Response** (EDR) see the following Microsoft resources:
 
-> [!NOTE]: MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
+> [!Note]: MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus?view=o365-worldwide)
@@ -213,7 +213,7 @@ Also see the following SAP resources:
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
-For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with **Microsoft Sentinel for SAP**, see the following Microsoft resources:
 
 - [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
