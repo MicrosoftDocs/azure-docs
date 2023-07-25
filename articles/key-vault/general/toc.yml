@@ -6,11 +6,11 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-- name: Key Vault: keys documentation
+- name: Keys documentation
   href: ../keys/about-keys.md
-- name: Key Vault: secrets documentation
+- name: Secrets documentation
   href: ../secrets/about-secrets.md
-- name: Key Vault: certificates documentation
+- name: Certificates documentation
   href: ../certificates/about-certificates.md
 - name: Quickstarts
   expanded: true
