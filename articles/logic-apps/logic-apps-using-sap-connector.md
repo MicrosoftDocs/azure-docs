@@ -71,7 +71,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Longer timeout at 5 minutes compared to managed connector and ISE-versioned connector.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
 
 * By default, the preview SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -79,7 +79,9 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
 
-* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password. This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
+* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
+
+  This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
 * **Generate Schema** action
 
