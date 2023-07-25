@@ -21,31 +21,6 @@ Conditional Access templates provide a convenient method to deploy new policies 
 
 :::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
 
-There are 14 Conditional Access policy templates, filtered by five different scenarios: 
-
-- Secure foundation
-- Zero Trust
-- Remote work
-- Protect administrators
-- Emerging threats
-- All 
-
-Find the templates in the **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each scenario.
-
-:::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Create a Conditional Access policy from a preconfigured template in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
-
-> [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
-> 
-> By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
-
-Organizations can select individual policy templates and:
-
-- View a summary of the policy settings.
-- Edit, to customize based on organizational needs.
-- Export the JSON definition for use in programmatic workflows.
-   - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
-
 ## Conditional Access policy template categories
 
 Conditional Access templates are organized into the following categories:
@@ -112,6 +87,22 @@ Policies in this category provide new ways to protect against compromise.
 - [Require phishing-resistant multifactor authentication for administrators](how-to-policy-phish-resistant-admin-mfa.md)
 
 ---
+
+Find the templates in the **[Microsoft Entra admin center](https://entra.microsoft.com)** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each scenario.
+
+:::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Create a Conditional Access policy from a preconfigured template in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
+
+> [!IMPORTANT]
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Microsoft Entra admin center** > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
+> 
+> By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
+
+Organizations can select individual policy templates and:
+
+- View a summary of the policy settings.
+- Edit, to customize based on organizational needs.
+- Export the JSON definition for use in programmatic workflows.
+   - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
 
 ## Other common policies
 
