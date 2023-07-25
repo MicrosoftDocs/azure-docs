@@ -23,13 +23,11 @@ The [OAuth 2.0 client credentials grant flow](../../develop/v2-oauth2-client-cre
 In this tutorial, you'll:
 
 > [!div class="checklist"]
->
 > - Create a Node.js app, then install dependencies.
 > - Enable the Node.js app to acquire an access token for calling a web API. 
 
 ## Prerequisites
 
-Before continuing with this tutorial, ensure you have all of the following items in place:
 
 - [Node.js](https://nodejs.org).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
