@@ -50,6 +50,8 @@ You can use the Azure portal, PowerShell, or the invitation API to send a B2B in
 
 ## Use the Azure portal to send a B2B invitation
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
 1. Select the **Azure Active Directory** service.
 1. Select **Users**.

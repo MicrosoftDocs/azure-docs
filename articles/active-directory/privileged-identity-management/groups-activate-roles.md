@@ -30,6 +30,8 @@ This article is for eligible members or owners who want to activate their group 
 
 ## Activate a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you need to take on a group membership or ownership, you can request activation by using the **My roles** navigation option in PIM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
