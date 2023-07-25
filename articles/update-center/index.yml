@@ -77,14 +77,6 @@ landingContent:
             url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
-<<<<<<< HEAD
-          - text: Schedule updates on Dynamic scopes (preview)
-            url: tutorial-dynamic-scoping-for-scheduled-patching.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage dynamic scope (preview) operations
-            url: manage-dynamic-scoping.md
-=======
           - text: Check and install on-demand updates
             url: quickstart-on-demand.md
 
@@ -102,4 +94,3 @@ landingContent:
         links:
           - text: Manage dynamic scope (preview) operations
             url: manage-dynamic-scoping.md      
->>>>>>> e16a4607197aca0fa286ded8b8bc56d3389ab300
