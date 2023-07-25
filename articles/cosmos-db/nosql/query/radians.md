@@ -48,5 +48,5 @@ The following example returns the radians for various degree values.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DEGREES`](degrees.md)

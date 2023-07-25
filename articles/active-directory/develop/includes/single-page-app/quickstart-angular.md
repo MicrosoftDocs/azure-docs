@@ -30,6 +30,8 @@ This quickstart uses MSAL Angular v2 with the authorization code flow.
 
 ## Register and download your quickstart application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To start your quickstart application, use either of the following options.
 
 ### Option 1 (Express): Register and auto configure your app and then download your code sample

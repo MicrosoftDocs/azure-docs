@@ -24,7 +24,7 @@ monikerRange: '<=doc-intel-3.0.0'
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The Document Intelligence invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+The Document Intelligence invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports invoices in 27 languages.
 
 **Supported document types:**
 
@@ -174,6 +174,58 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Italian (it) | Italy (it)|
 | &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
 | &bullet; Dutch (nl) | Netherlands (nl)|
+| &bullet; Czech (cs) | Czechoslovakia (cz)|
+| &bullet; Danish (da) | Denmark (dk)|
+| &bullet; Estonian (et) | Estonia (ee)|
+| &bullet; Finnish (fi) | Finland (fl)|
+| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
+| &bullet; Hungarian (hu) | Hungary (hu)|
+| &bullet; Icelandic (is) | Iceland (is)|
+| &bullet; Japanese (ja) | Japan (ja)|
+| &bullet; Korean (ko) | Korea (kr)|
+| &bullet; Lithuanian (lt) | Lithuania (lt)|
+| &bullet; Latvian (lv) | Latvia (lv)|
+| &bullet; Malay (ms) | Malasia (ms)|
+| &bullet; Norwegian (nb) | Norway (no)|
+| &bullet; Polish (pl) | Poland (pl)|
+| &bullet; Romanian (ro) | Romania (ro)|
+| &bullet; Slovak (sk) | Slovakia (sv)|
+| &bullet; Slovenian (sl) | Slovenia (sl)|
+| &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
+| &bullet; Albanian (sq) | Albania (al)|
+| &bullet; Swedish (sv) | Sweden (se)|
+| &bullet; Chinese (simplified (zh-hans) | China (zh-hans-cn)|
+| &bullet; Chinese (traditional (zh-hant) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+
+| Supported Currency Codes | Details |
+|:----------------------|:---------|
+| &bullet; ARS | United States (us) |
+| &bullet; AUD | Australia (au) |
+| &bullet; BRL | United States (us) |
+| &bullet; CAD | Canada (ca) |
+| &bullet; CLP | United States (us) |
+| &bullet; CNY | United States (us) |
+| &bullet; COP | United States (us) |
+| &bullet; CRC | United States (us) |
+| &bullet; CZK | United States (us) |
+| &bullet; DKK | United States (us) |
+| &bullet; EUR | United States (us) |
+| &bullet; GBP | United Kingdom (uk) |
+| &bullet; HUF | United States (us) |
+| &bullet; IDR | United States (us) |
+| &bullet; INR | United States (us) |
+| &bullet; ISK | United States (us) |
+| &bullet; JPY | Japan (jp) |
+| &bullet; KRW | United States (us) |
+| &bullet; NOK | United States (us) |
+| &bullet; PAB | United States (us) |
+| &bullet; PEN | United States (us) |
+| &bullet; PLN | United States (us) |
+| &bullet; RON | United States (us) |
+| &bullet; RSD | United States (us) |
+| &bullet; SEK | United States (us) |
+| &bullet; TWD | United States (us) |
+| &bullet; USD | United States (us) |
 
 ## Field extraction
 
@@ -234,7 +286,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 ### Key-value pairs
 
-The prebuilt invoice **2022-06-30** and later releases support returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By defualt the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
