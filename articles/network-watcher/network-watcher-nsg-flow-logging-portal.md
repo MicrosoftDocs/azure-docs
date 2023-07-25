@@ -271,9 +271,7 @@ The comma-separated information for **flowTuples** is as follows:
 
 ## Clean up resources
 
-When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains and **myVM-nsg-myResourceGroup-flowlog** flow log:
-
-**Delete the resource group**:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
 1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
@@ -283,15 +281,8 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-**Delete the flow log**:
-
-1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
-
-1. Under **Logs**, select **Flow logs**.
-
-1. In **Network Watcher | Flow logs**, select the checkbox of the flow log.
-
-1. Select **Delete**.
+> [!NOTE]
+> The **myVM-nsg-myResourceGroup-flowlog** flow log is in the **NetworkWatcherRG** resource group, but it'll be deleted after deleting the **myVM-nsg** network security group (by deleting the **myResourceGroup** resource group).
 
 ## Next steps
 
