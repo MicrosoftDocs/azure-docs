@@ -8,7 +8,7 @@ author: veyaddan
 ms.author: veyaddan
 ---
 
-# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal
+# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal (Preview)
 
 Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services such as storage queues, and Event Hubs.
 In this tutorial, you perform the following tasks:
