@@ -11,11 +11,12 @@ ms.author: jodowns
 
 # What is rate limiting for Azure Front Door?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address.
+By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
 
-Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door. By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
+The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door.
 
-You can define rate limits at the socket IP address level or the remote address level. If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. The socket IP address is the source IP address the web application firewall (WAF) sees. If your user is behind a proxy, the socket IP address is often the proxy server address. The remote address is the original client IP that's usually sent via the X-Forwarded-For request header.
+You can define rate limits at the socket IP address level or the remote address level. If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. The socket IP address is the source IP address the web application firewall (WAF) sees. If your user is behind a proxy, the socket IP address is often the proxy server address. The remote address is the original client IP that's usually sent via the `X-Forwarded-For` request header.
 
 ## Configure a rate limit policy
 
@@ -35,7 +36,7 @@ The preceding match condition identifies all requests with a `Host` header of a 
 
 Requests from the same client often arrive at the same Azure Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
 
-It's possible that requests from the same client might arrive at a different Azure Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request.
+It's possible that requests from the same client might arrive at a different Azure Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request, and each TCP connection could be routed to a different Azure Front Door server.
 
 If the threshold is low enough, the first request to the new Azure Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, five minutes over one minute) with larger thresholds are typically more effective than the shorter-time window sizes with lower thresholds.
 
