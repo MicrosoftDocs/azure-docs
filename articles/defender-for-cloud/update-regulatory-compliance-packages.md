@@ -26,11 +26,11 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
 By default:
-- every Azure subscription has the Microsoft cloud security benchmark assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
-- every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
-- every GCP project has the "GCP Default" standard assigned.
+- Azure subscriptions get the Microsoft cloud security benchmark assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+- AWS accounts get the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+- GCP projects get the "GCP Default" standard assigned.
 
-Users that have one Defender bundle enabled can enable other standards. 
+If a subscription, account, or project has *any* Defender plan enabled, additional standards can be applied.
 
 
 **Available regulatory standards**:
@@ -59,8 +59,6 @@ Users that have one Defender bundle enabled can enable other standards.
 | - New Zealand ISM Restricted v3.5         |||
 | - Australian Government ISM Protected     |||
 | - RMIT Malaysia                           |||
-| | | | 
-
 
 > [!TIP]
 > Standards are added to the dashboard as they become available. This table might not contain recently added standards.
@@ -78,7 +76,7 @@ To add standards to your dashboard:
 
 ### Add a standard to your Azure subscriptions
 
-1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.
+1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you'll see the compliance standards assigned to the currently selected subscriptions.
 
 1. From the top of the page, select **Manage compliance policies**.
 
