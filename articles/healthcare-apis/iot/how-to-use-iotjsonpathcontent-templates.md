@@ -90,7 +90,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 ```json
 {
     "PatientId": "patient1",
-    "HeartRate" : "78"
+    "HeartRate" : 78
 }
 ```
 
