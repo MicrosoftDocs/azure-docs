@@ -245,9 +245,9 @@ The `mask` action masks attribute values by using a regular expression rule spec
     "type": "attribute",
     "actions": [
       {
-        "key": "attribute1",
-        "pattern": "<regular expression pattern with named matchers>",
-        "replace": "<value to be replaced with named matchers>",
+        "key": "attributeName",
+        "pattern": "<regular expression pattern>",
+        "replace": "<replacement value>",
         "action": "mask"
       }
     ]
