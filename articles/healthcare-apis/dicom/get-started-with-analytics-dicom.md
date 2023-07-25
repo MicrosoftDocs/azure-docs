@@ -131,9 +131,9 @@ Triggers not only define when to run a pipeline, they also include [parameters](
 | StartTime         | The inclusive start time for DICOM changes. | `0001-01-01T00:00:00Z` | 
 | EndTime           | The exclusive end time for DICOM changes. | `9999-12-31T23:59:59Z` | 
 | ContainerName     | The container name for the resulting Delta tables. | `dicom` | 
-| InstanceTablePath | The name of the Delta table containing SOP instances.| `instance` | 
-| SeriesTablePath   | The name of the Delta table containing DICOM series. | `series` | 
-| StudyTablePath    | The name of the Delta table containing DICOM studies. | `study` | 
+| InstanceTablePath | The path containing the Delta table for DICOM SOP instances within the container.| `instance` | 
+| SeriesTablePath   | The path containing the Delta table for DICOM series within the container. | `series` | 
+| StudyTablePath    | The path containing the Delta table for DICOM studies within the container. | `study` | 
 | RetentionHours    | The maximum retention in hours for data in the Delta tables. | `720` | 
 
 1. In the **Trigger run parameters** panel, enter in the **ContainerName** that matches the name of the storage container created in the prerequisites.
