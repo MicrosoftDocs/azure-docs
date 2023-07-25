@@ -46,7 +46,7 @@ For high availability, AKS supports two admission controller replicas.
 
 ## API Object
 
-The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is x.xx can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-vxx].
+The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is x.xx can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
