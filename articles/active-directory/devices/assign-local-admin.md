@@ -42,6 +42,8 @@ To view and update the membership of the Global Administrator role, see:
 
 ## Manage the device administrator role 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In the Azure portal, you can manage the device administrator role from **Device settings**. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.

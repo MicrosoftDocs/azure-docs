@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 # Submit Spark jobs in Azure Machine Learning
 
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+
 Azure Machine Learning supports submission of standalone machine learning jobs and creation of [machine learning pipelines](./concept-ml-pipelines.md) that involve multiple machine learning workflow steps. Azure Machine Learning handles both standalone Spark job creation, and creation of reusable Spark components that Azure Machine Learning pipelines can use. In this article, you'll learn how to submit Spark jobs using:
 - Azure Machine Learning studio UI
 - Azure Machine Learning CLI

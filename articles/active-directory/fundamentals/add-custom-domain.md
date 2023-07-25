@@ -26,7 +26,9 @@ Before you can add a custom domain name, create your domain name with a domain r
 
 ## Create your directory in Azure AD
 
-After you get your domain name, you can create your first Azure AD directory. Sign in to the Azure portal for your directory, using an account with the **Owner** role for the subscription.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+After you get your domain name, you can create your first Azure AD directory. Sign in to the [Azure portal](https://portal.azure.com) for your directory, using an account with the **Owner** role for the subscription.
 
 Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
@@ -44,7 +46,7 @@ For more information about subscription roles, see [Azure roles](../../role-base
 
 After you create your directory, you can add your custom domain name.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page. Then select **Custom domain names** > **Add custom domain**.
 
@@ -76,7 +78,7 @@ After you register your custom domain name, make sure it's valid in Azure AD. Th
 
 To verify your custom domain name, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page, then select **Custom domain names**.
 

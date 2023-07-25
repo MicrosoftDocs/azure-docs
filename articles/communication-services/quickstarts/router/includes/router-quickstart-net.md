@@ -115,7 +115,7 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 var worker = await routerClient.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         Labels = { ["Some-Skill"] = new LabelValue(11) },
         ChannelConfigurations = { ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1) },
         AvailableForOffers = true
@@ -128,7 +128,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp
-await Task.Delay(TimeSpan.FromSeconds(3));
+await Task.Delay(TimeSpan.FromSeconds(10));
 worker = await routerClient.GetWorkerAsync(worker.Value.Id);
 foreach (var offer in worker.Value.Offers)
 {

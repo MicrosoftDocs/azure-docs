@@ -34,6 +34,8 @@ The following roles provide read access to audit and sign-in logs. Always use th
 
 ## Access the activity logs in the portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs**.
 1. Adjust the filter according to your needs.
