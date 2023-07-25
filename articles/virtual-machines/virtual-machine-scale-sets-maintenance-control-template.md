@@ -100,8 +100,8 @@ For more information, see [configurationAssignments](/azure/templates/microsoft.
 "location": "string (e.g. westeurope)", 
 "scope": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
 "properties": {
-            "maintenanceConfigurationId": "Resource Id of the Maintenance Configuration"
-             "resourceId": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+  "maintenanceConfigurationId": "Resource Id of the Maintenance Configuration"
+  "resourceId": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
 }
 }
 ```
