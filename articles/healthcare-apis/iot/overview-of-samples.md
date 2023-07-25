@@ -34,6 +34,10 @@ Each MedTech service scenario-based sample contains the following resources:
 
 [Conversions using functions](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/calculatedcontent/conversions-using-functions)
 
+## IotJsonPathContent
+
+[Single device message into multiple resources](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/iotjsonpathcontent/single-device-message-into-multiple-resources)
+
 ## Next steps
 
 In this article, you learned about the MedTech service scenario-based mappings samples.
