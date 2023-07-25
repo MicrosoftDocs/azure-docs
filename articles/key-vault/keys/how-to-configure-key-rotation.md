@@ -256,7 +256,7 @@ Using the Azure Policy service, you can govern the key lifecycle and ensure that
 
 Once the built-in policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
 
-:::image type="content" source="../media/keys/key-rotation/key-rotation-policy.png" alt-text="Key Rotation Policy Compliance":::
+:::image type="content" source="../media/keys/key-rotation/key-rotation-policy.png" alt-text="Screenshot of key rotation policy compliance." lightbox="../media/keys/key-rotation/key-rotation-policy.png":::
 
 ## Resources
 
