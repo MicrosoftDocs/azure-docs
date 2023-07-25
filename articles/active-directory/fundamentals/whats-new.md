@@ -170,6 +170,36 @@ With API-driven inbound provisioning, Microsoft Entra ID provisioning service no
 
 ---
 
+### Public Preview - Dynamic Groups based on EmployeeHireDate User attribute
+
+**Type:** New feature       
+**Service category:** Group Management                                
+**Product capability:** Directory                    
+
+This feature enables admins to create dynamic group rules based on the user objects' employeeHireDate attribute. For more information, see: [Properties of type string](../enterprise-users/groups-dynamic-membership.md#properties-of-type-string).
+
+---
+
+### General Availability - Enhanced Create User and Invite User Experiences
+
+**Type:** Changed feature       
+**Service category:** User Management                                  
+**Product capability:** User Management                      
+
+We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, as well as assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+
+---
+
+### General Availability - All Users and User Profile
+
+**Type:** Changed feature       
+**Service category:** User Management                                  
+**Product capability:** User Management                   
+
+The All Users list now features an infinite scroll, and admins can now modify more properties in the User Profile. For more information, see: [How to create, invite, and delete users](../fundamentals/how-to-create-delete-users.md).
+
+---
+
 ### Public Preview - Windows MAM
 
 **Type:** New feature       
