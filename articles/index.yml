@@ -328,7 +328,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: /purview
+      url: /purview/index
     # Card
     - title: Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
