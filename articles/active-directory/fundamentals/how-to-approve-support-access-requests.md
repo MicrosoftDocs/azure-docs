@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 In many situations, enabling the collection of **Advanced diagnostic information** during the creation of a support access request is sufficient for Microsoft Support to troubleshoot your issue. In some situations though, a separate approval may be needed to allow Microsoft Support to access your identity diagnostic data.
 
-Microsoft Support access requests (preview) enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Microsoft Entra admin center and the Azure Active Directory (Azure AD) portal to manage Microsoft Support access requests (preview).
+Microsoft Support access requests (preview) enable you to [give Microsoft Support engineers access to diagnostic data](concept-support-access-requests.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Microsoft Entra admin center and the Azure Active Directory (Azure AD) portal to manage Microsoft Support access requests (preview).
 
 This article describes how the process works and how to approve Microsoft Support access requests.
 
