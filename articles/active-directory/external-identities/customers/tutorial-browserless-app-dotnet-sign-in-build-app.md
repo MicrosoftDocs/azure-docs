@@ -17,7 +17,7 @@ ms.date: 07/23/2023
 
 # Tutorial: Authenticate users to your .NET browserless application
 
-In this tutorial, you build your own .NET browserless app and sign in and sign out a user using Azure Active Directory (Azure AD) for customers.
+In this tutorial, you build your own .NET browserless app and authenticate a user using Azure Active Directory (Azure AD) for customers.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 - Registration details for the browserless app you created in the [prepare tenant tutorial](./tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md). You need the following details:
   - The Application (client) ID of the .NET broserless app that you registered.
-  - The Directory (tenant) subdomain where you registered your .NET browserless app. If your primary domain is *contoso.onmicrosoft.com*, your Directory (tenant) subdomain is *contoso*. If you don't have your primary domain, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+  - The Directory (tenant) subdomain where you registered your .NET browserless app.
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
@@ -60,7 +60,7 @@ Install Microsoft Identity Web library that simplifies adding authentication and
 dotnet add package Microsoft.Identity.Web
 ```
 
-## ## Create appsettings.json file and add registration configs
+## Create appsettings.json file and add registration configs
 
 1. In your code editor, create an *appsettings.json* file in the root folder of the app.
 1. Add the following code to the *appsettings.json* file.
@@ -147,7 +147,7 @@ dotnet add package Microsoft.Identity.Web
 ## Sign in to your app
 
 1. In your terminal, navigate to the root folder of your browserless app and run the app by running the command `dotnet run` in your terminal.
-1. Open your browser, then navigate to the URL printed in your terminal, `https://microsoft.com/devicelogin`. You should see a page similar to the following screenshot:
+1. Open your browser, then navigate to `https://<Enter_the_Tenant_Subdomain_Here>.ciamlogin.com/common/oauth2/deviceauth`. Replace `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. You should see a page similar to the following screenshot:
 
      :::image type="content" source="media/how-to-browserless-dotnet-sign-in-sign-in/browserless-app-dotnet-enter-code.png" alt-text="Screenshot of the enter code prompt in a node browserless application using the device code flow.":::
 
