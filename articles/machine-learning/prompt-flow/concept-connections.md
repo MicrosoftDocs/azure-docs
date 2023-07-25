@@ -42,3 +42,4 @@ By leveraging connections in Prompt flow, users can easily establish and manage 
 ## Next steps
 
 - [Get started with Prompt flow](get-started-prompt-flow.md)
+- [Consume custom connection in Python Tool](./tools-reference/python-tool.md#how-to-consume-custom-connection-in-python-tool)
