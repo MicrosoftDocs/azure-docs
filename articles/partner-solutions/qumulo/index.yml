@@ -62,4 +62,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.qumulo
           - text: Qumulo Developer tools 
-            url: qumulo-how-to-setup-features.md#Developer tools
+            url: qumulo-how-to-setup-features.md#developer-tools
