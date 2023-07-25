@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.devlang: java
 ms.topic: reference
 ms.date: 07/24/2023
-ms.author: kushagra.thapar
+ms.author: kuthapar
 ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 
 [!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
-The Spring Data Azure Cosmos DB version 5 for NoSQL allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
+The Spring Data Azure Cosmos DB version 5 for NoSQL allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact.
 
 The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model and framework for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
@@ -84,7 +84,7 @@ It's strongly recommended to use version 5.3.0 and above.
 
 ## Additional notes
 
-* Spring Data Azure Cosmos DB supports Java JDK 8 and Java JDK 11.
+* Spring Data Azure Cosmos DB v5 supports only Java JDK 17 and above.
 
 ## FAQ
 
