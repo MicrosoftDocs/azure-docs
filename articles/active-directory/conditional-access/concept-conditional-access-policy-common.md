@@ -50,13 +50,6 @@ Organizations can select individual policy templates and:
 
 Conditional Access templates are organized into the following categories:
 
-- Secure foundation
-- Zero Trust
-- Remote work
-- Protect administrator
-- Emerging threats
-- All
-
 # [Secure foundation](#tab/secure-foundation)
 
 Microsoft recommends these policies as the base for all organizations. We recommend these policies be deployed as a group.
