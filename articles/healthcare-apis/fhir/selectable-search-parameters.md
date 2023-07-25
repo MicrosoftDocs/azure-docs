@@ -13,8 +13,8 @@ ms.author: kesheth
 # Overview 
 Searching for resources is fundamental to FHIR. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. 
 The FHIR service in Azure Health Data Services supports almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined in the FHIR specification. Search parameters that are not supported are listed in the links below:
-    • [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json).
-    • [R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json).
+* [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json).
+* [R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json).
 
 As the FHIR service in Azure health data services is provisioned, supported search parameters are enabled by default. During the ingestion of data in the FHIR service, specific properties from FHIR resources are extracted and indexed with these search parameters. This is done to perform efficient searches. 
 
@@ -32,16 +32,16 @@ Throughout this article, we'll demonstrate FHIR search syntax in example API cal
 Overall, for selectable search parameter an API endpoint (‘$status’) is provided to enable or disable search parameters, individually or in bulk. This API endpoint can also allow customers to view the status of search parameters. 
 
 There are four different statuses that will be seen in the response: 
-•	Supported: This status indicates that the search parameter is supported by the FHIR service, and the user has submitted requests to enable the search parameter. Note : reindex operation needs to be executed to run from from supported to enabled
-•	Enabled: This status indicates that the search parameter is enabled for searching. This is the next step after the supported status. 
-•	PendingDisable: This status indicates that search parameter will be disabled after execution of the reindex operation. 
-•	Disabled: This status indicates that the search parameter is disabled. 
+* **Supported**: This status indicates that the search parameter is supported by the FHIR service, and the user has submitted requests to enable the search parameter. Note : reindex operation needs to be executed to run from from supported to enabled
+* **Enabled**: This status indicates that the search parameter is enabled for searching. This is the next step after the supported status. 
+* **PendingDisable**: This status indicates that search parameter will be disabled after execution of the reindex operation. 
+* **Disabled**: This status indicates that the search parameter is disabled. 
 
 # Guide on using selectable search parameter 
 
-To perform status updates on search parameter(s) you will need to follow the steps below:
-Step 1: Get status of search parameter(s)
-Step 2: Update status of search parameter(s)
+To perform status updates on search parameter(s) you will need to follow the steps below:\
+Step 1: Get status of search parameter(s)\
+Step 2: Update status of search parameter(s)\
 Step 3: Execute a reindex job 
 
 ## Step 1: Get status of search parameter(s)
@@ -54,12 +54,9 @@ This will return a list of all the search parameters with their individual statu
 
 You to identify status of individual or subset of search parameters you can use the filters listed below.
       
-      •	Name : To identify search parameter status by name use request, GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
-      
-      •	URL: To identify search parameter status by its canonical identifier use request, GET {{FHIR_URL}}/SearchParameter/$status?url=<SearchParameter url>
-      
-      •	Resource type : In FHIR, search parameters are enabled at individual resource level to enable filtering and retrieving specific subset of resources. To identify status of all the search parameters mapped 
-         to resource, use request. GET {{FHIR_URL}}/SearchParameter/$status?resourcetype=<ResourceType name>
+1. Name : To identify search parameter status by name use request, GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
+1. URL: To identify search parameter status by its canonical identifier use request, GET {{FHIR_URL}}/SearchParameter/$status?url=<SearchParameter url>
+1. Resource type : In FHIR, search parameters are enabled at individual resource level to enable filtering and retrieving specific subset of resources. To identify status of all the search parameters mapped to resource, use request. GET {{FHIR_URL}}/SearchParameter/$status?resourcetype=<ResourceType name>
 
 In response to the GET request to $status endpoint, you will see Parameters resource type returned with the status of the search parameter. See the example response below:
 
