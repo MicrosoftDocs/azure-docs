@@ -69,10 +69,10 @@ This section explains how the previous refunded overage credits process worked a
 
 Previously, when a reservation purchase refund occurred in a closed billing period, Microsoft updated your account retroactively, sometimes going back multiple years. The refund, if applied retroactively, could negatively affect financial reporting and cause problems.
 
-Now, to prevent problems with the new process, a refund is applied as a credit. The refund doesn't cause any change to a closed billing period. A refund is reimbursed to the same payment method that you used when you made the purchase. If the refund is results from an overage, then a credit note is issued to you. If a refund goes toward Azure prepayment (also called Monetary Commitment (MC)), then the overage portion results in issuing a credit note. Azure prepayment is applied as an adjustment.
+Now, to prevent problems with the new process, a refund is applied as a credit. The refund doesn't cause any change to a closed billing period. A refund is reimbursed to the same payment method that you used when you made the purchase. If the refund results from an overage, then a credit note is issued to you. If a refund goes toward Azure prepayment (also called Monetary Commitment (MC)), then the overage portion results in issuing a credit note. Azure prepayment is applied as an adjustment.
 
 > [!NOTE]
-> The reservation refund applies only to purchase refunds completed in previously closed billing periods. There's no change to refund behavior completed in an open billing period. When a refund is completed before the purchased is invoiced, then the refund is reimbursed as part of the purchase and noted on the invoice.
+> The reservation refund applies only to purchase refunds completed in previously closed billing periods. There's no change to refund behavior completed in an open billing period. When a refund is completed before the purchase is invoiced, then the refund is reimbursed as part of the purchase and noted on the invoice.
 
 #### Overage refund examples
 
