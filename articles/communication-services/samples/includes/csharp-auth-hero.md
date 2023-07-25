@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: ddematheu2
+author: chpalm
 manager: chpalm
+ms.author: tophpalmer
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/15/2022
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
 ---
 
 ## Getting started

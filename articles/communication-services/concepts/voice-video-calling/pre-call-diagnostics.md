@@ -2,11 +2,10 @@
 title: Azure Communication Services Pre-Call diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Overview of Pre-Call Diagnostic APIs
-author: ddematheu2
+author: chpalm
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: tophpalmer
 ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

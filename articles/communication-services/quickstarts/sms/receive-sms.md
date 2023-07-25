@@ -2,10 +2,10 @@
 title: Quickstart - Receive and Reply to SMS
 titleSuffix: Azure Communication Services
 description: "In this quickstart, you'll learn how to receive an SMS message by using Azure Communication Services."
-author: ddematheu2
+author: chpalm
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: tophpalmer
 ms.date: 02/09/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
