@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/tutorial-protect-route-server.md",
+            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
             "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
             "redirect_document_id": false
@@ -858,11 +868,6 @@
         {
             "source_path": "articles/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
             "redirect_url": "/azure/ddos-protection/ddos-protection-sku-comparison#limitations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/route-server/routing-preference.md",
-            "redirect_url": "/azure/route-server/overview",
             "redirect_document_id": false
         },
         {
@@ -23556,11 +23561,6 @@
         {
             "source_path": "articles/firewall/tutorial-protect-firewall.md",
             "redirect_URL": "/azure/firewall/tutorial-protect-firewall-ddos",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
         },
         {
