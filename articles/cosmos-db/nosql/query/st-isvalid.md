@@ -48,5 +48,5 @@ The following example how to check validity of multiple objects.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ST_ISVALIDDETAILED`](st-isvaliddetailed.md)

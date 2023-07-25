@@ -22,7 +22,9 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 - [New deployment of ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments)
 - [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
 
-## Release history
+## Latest Release (Recommended)
+July 24, 2023 - 0.4.023961 - Improved Ingress support
 
+## Release history
 July 24, 2023 - 0.4.023921 - Initial release of ALB Controller
 * Minimum supported Kubernetes version: v1.25

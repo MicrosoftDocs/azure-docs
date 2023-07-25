@@ -592,7 +592,7 @@
       },
       {
           "source_path_from_root": "/articles/purview/frequently-asked-questions.yml",
-          "redirect_url": "/purview/frequently-asked-questions.yml",
+          "redirect_url": "/purview/frequently-asked-questions",
           "redirect_document_id": "FALSE"
       },
       {
@@ -857,7 +857,7 @@
       },
       {
           "source_path_from_root": "/articles/purview/index.yml",
-          "redirect_url": "/purview/index.yml",
+          "redirect_url": "/purview/index",
           "redirect_document_id": "FALSE"
       },
       {
@@ -1152,7 +1152,7 @@
       },
       {
           "source_path_from_root": "/articles/purview/sensitivity-labels-frequently-asked-questions.yml",
-          "redirect_url": "/purview/sensitivity-labels-frequently-asked-questions.yml",
+          "redirect_url": "/purview/sensitivity-labels-frequently-asked-questions",
           "redirect_document_id": "FALSE"
       },
       {
