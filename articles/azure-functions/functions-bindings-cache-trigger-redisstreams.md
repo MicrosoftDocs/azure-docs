@@ -228,16 +228,7 @@ The following table explains the binding configuration properties that you set i
 
 See the Example section for complete examples.
 
-## Output
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
-
-| Output Type                                                                                                                                           | Description                                                                                                                                                                             |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
-| `StackExchange.Redis.NameValueEntry`[], `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
-| string, byte[], ReadOnlyMemory<byte>                                                                                                                  | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
-| `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
 
 ::: zone-end
 
@@ -258,7 +249,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
 | `StackExchange.Redis.NameValueEntry`[], `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
-| string, byte[], ReadOnlyMemory<byte>                                                                                                                  | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
+| `string, byte[], ReadOnlyMemory<byte>`                                                                                                                    | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
 | `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
 
 ::: zone-end
