@@ -16,8 +16,7 @@ In addition to the core SDK, there are also plugins available for specific frame
 
 These plugins provide extra functionality and integration with the specific framework.
 
-> [!IMPORTANT]
-> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
+If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
 
 ## Prerequisites
 
@@ -137,9 +136,6 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 Initialize a connection to Application Insights:
 
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [reactPlugin],`.
-
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -169,17 +165,19 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+#### (Optional) Add the Click Analytics plug-in
+   
+If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md):
+ 
+1. Uncomment the lines for Click Analytics
+1. Delete `extensions: [reactPlugin],`.
+1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 #### [React Native](#tab/reactnative)
 
 - **React Native Plug-in**
 
   To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
-
-  > [!TIP]
-  > If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
 
   ```typescript
   import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -208,9 +206,13 @@ appInsights.loadAppInsights();
 
   ```
 
-  > [!TIP]
-  > If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+  #### (Optional) Add the Click Analytics plug-in
 
+  If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md): 
+  
+  1. Uncomment the lines for Click Analytics. 
+  2. Delete `extensions: [RNPlugin]`.
+  3. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 - **React Native Manual Device Plugin**
 
@@ -283,9 +285,6 @@ Set up an instance of Application Insights in the entry component in your app:
 > [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled exceptions caught by the error service will not be sent.
 
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
-
 ```js
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -328,8 +327,13 @@ export class AppComponent {
 }
 ```
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+#### (Optional) Add the Click Analytics plug-in
+
+If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md): 
+
+1. Uncomment the lines for Click Analytics.
+1. Delete `extensions: [angularPlugin],`.
+1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ---
 
@@ -503,8 +507,7 @@ To chain more custom exception handlers:
 
 N/A
 
-> [!NOTE]
-> The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
+The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
 #### [React Native](#tab/reactnative)
 
@@ -517,8 +520,7 @@ N/A
 
 N/A
 
-> [!NOTE]
-> The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
+The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
 ---
 
@@ -566,8 +568,7 @@ customMetrics
 | summarize avg(value), count() by tostring(customDimensions["Component Name"])
 ```
 
-> [!NOTE]
-> It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
+It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
 #### Use Application Insights with React Context
 
