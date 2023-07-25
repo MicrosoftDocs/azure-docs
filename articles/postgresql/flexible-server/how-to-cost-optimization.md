@@ -9,6 +9,8 @@ ms.topic: how-to
 ms.date: 4/13/2023
 ---
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 # How to optimize costs in Azure Database for Postgres Flexible Server
 
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL Community Edition.](https://www.postgresql.org/).  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
