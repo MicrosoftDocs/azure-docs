@@ -62,7 +62,7 @@ These samples and how-to guides demonstrate how to write a browserless applicati
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Node | &#8226; [Sign in users](how-to-browserless-app-node-sample-sign-in.md)   | &#8226; [Sign in users](how-to-browserless-app-node-sign-in-overview.md )   |
-> | .NET | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](how-to-browserless-app-dotnet-sign-in-overview.md)   |
+> | .NET | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](./tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md)   |
 
 
 ### Desktop
@@ -102,7 +102,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | Browserless | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](how-to-browserless-app-dotnet-sign-in-overview.md)   |
+> | Browserless | &#8226; [Sign in users](how-to-browserless-app-dotnet-sample-sign-in.md)  | &#8226; [Sign in users](./tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md)   |
 > | Daemon |  &#8226; [Call an API](sample-daemon-dotnet-call-api.md)  | &#8226; [Call an API](tutorial-daemon-dotnet-call-api-prepare-tenant.md)   |
 
 
