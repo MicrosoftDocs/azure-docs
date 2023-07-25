@@ -424,7 +424,7 @@ First configuration example:
 ```
 
 
-Second configuration example expression group name:
+Second configuration example with regular expression group name:
 
 ```json
 {
