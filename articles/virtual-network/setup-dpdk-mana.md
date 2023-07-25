@@ -16,11 +16,32 @@ To make use of MANA, users must modify their DPDK initialization routines to acc
 - The Linux kernel must release control of the MANA network interfaces before DPDK initialization begins.
 
 # DPDK requirements for MANA
-Table detailing kernel and package requirements
 
-# DPDK installation example
+Utilizing DPDK on MANA hardware requires the Linux kernel 6.2 or later or a backport of the Ethernet and InfiniBand drivers from the latest Linux kernel. It also requires specific versions of DPDK and user-space drivers.
+
+DPDK requires the following set of drivers:
+1.	[Linux kernel Ethernet driver](https://github.com/torvalds/linux/tree/master/drivers/net/ethernet/microsoft/mana) (5.15 kernel and later)
+1.	[Linux kernel InfiniBand driver](https://github.com/torvalds/linux/tree/master/drivers/infiniband/hw/mana) (6.2 kernel and later)
+1.	[DPDK MANA poll-mode driver](https://github.com/DPDK/dpdk/tree/main/drivers/net/mana) (DPDK 22.11 and later)
+1.	[Libmana user-space drivers](https://github.com/linux-rdma/rdma-core/tree/master/providers/mana) (rdma-core v44 and later)
+
+DPDK with MANA is not available for Windows, it will only work on Linux VMs.
+
+# DPDK installation example (Ubuntu)
 ```
-example goes here
+#! /bin/bash
+
+DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
+pip3 install pyelftools
+
+# Try latest LTS DPDK, example uses DPDK tag v23.07-rc3
+git clone https://github.com/DPDK/dpdk.git -b v23.07-rc3 --depth 1
+pushd dpdk
+meson build
+cd build
+ninja
+sudo ninja install
+popd
 ```
 
 # Example: Testpmd setup and running tests
@@ -34,10 +55,10 @@ Note the following example code for running DPDK with MANA. We recommend using t
 
 # NOTE: DPDK requires either 2MB or 1GB hugepages to be enabled
 # Enable 2MB hugepages.
- echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
 
 # Assuming use of eth1 for DPDK in this demo
-MASTER="eth1"
+MASTER="eth0"
 
 # Get mac address for master interface.
 MASTER_MAC="`cat /sys/class/net/$MASTER/address`"
