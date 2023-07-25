@@ -15,7 +15,7 @@ ms.date: 07/10/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-Cognitive Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/cognitive-search-vector-pr/tree/main) tap the [similarity embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
+Cognitive Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/cognitive-search-vector-pr/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
 
 Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per vector field.
 
@@ -25,7 +25,7 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
   + For example, you can use **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
-  + To avoid [rate limiting](/azure/cognitive-services/openai/quotas-limits), you can implement retry logic in your workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
+  + To avoid [rate limiting](/azure/ai-services/openai/quotas-limits), you can implement retry logic in your workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
 
 + Query outputs are any matching documents found in a search index. Your search index must have been previously loaded with documents having one or more vector fields with embeddings. Whatever model you used for indexing, use the same model for queries.
 
@@ -33,7 +33,7 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
 If you want resources in the same region, start with:
 
-1. [A region for the similarity embedding model](/azure/cognitive-services/openai/concepts/models#embeddings-models-1), currently in Europe and the United States.
+1. [A region for the similarity embedding model](/azure/ai-services/openai/concepts/models#embeddings-models-1), currently in Europe and the United States.
 
 1. [A region for Cognitive Search](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-search). 
 
@@ -65,13 +65,13 @@ print(embeddings)
 
 + **Identify use cases:** Evaluate the specific use cases where embedding model integration for vector search features can add value to your search solution. This can include matching image content with text content, cross-lingual searches, or finding similar documents.
 + **Optimize cost and performance**: Vector search can be resource-intensive and is subject to maximum limits, so consider only vectorizing the fields that contain semantic meaning.
-+ **Choose the right embedding model:** Select an appropriate model for your specific use case, such as word embeddings for text-based searches or image embeddings for visual searches. Consider using pretrained models like **text-embedding-ada-002** from OpenAI or **Image Retrieval** REST API from [Azure AI Computer Vision](/azure/cognitive-services/computer-vision/how-to/image-retrieval).
++ **Choose the right embedding model:** Select an appropriate model for your specific use case, such as word embeddings for text-based searches or image embeddings for visual searches. Consider using pretrained models like **text-embedding-ada-002** from OpenAI or **Image Retrieval** REST API from [Azure AI Computer Vision](/azure/ai-services/computer-vision/how-to/image-retrieval).
 + **Normalize Vector lengths**: Ensure that the vector lengths are normalized before storing them in the search index to improve the accuracy and performance of similarity search. Most pretrained models already are normalized but not all. 
 + **Fine-tune the model**: If needed, fine-tune the selected model on your domain-specific data to improve its performance and relevance to your search application.
 + **Test and iterate**: Continuously test and refine your embedding model integration to achieve the desired search performance and user satisfaction.
 
 ## Next steps
 
-+ [Understanding embeddings in Azure OpenAI Service](/azure/cognitive-services/openai/concepts/understand-embeddings)
-+ [Learn how to generate embeddings](/azure/cognitive-services/openai/how-to/embeddings?tabs=console)
-+ [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line)
++ [Understanding embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
++ [Learn how to generate embeddings](/azure/ai-services/openai/how-to/embeddings?tabs=console)
++ [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings?tabs=command-line)

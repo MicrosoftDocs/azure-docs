@@ -4,7 +4,7 @@ description: Use transformations in a data collection rule in Azure Monitor to f
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/29/2022
+ms.date: 07/17/2023
 ms.reviwer: nikeist
 
 ---

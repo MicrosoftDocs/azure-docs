@@ -38,7 +38,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 In the Azure portal experience, we have improved the way that you can view password reset and password reset registration activity. Use the following the steps to find the password reset and password reset registration events:
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** in the left pane.
 3. Search for **Azure Active Directory** in the list of services and select it.
 4. Select **Users** from the Manage section.
@@ -48,7 +48,7 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 ### Combined registration
 
-[combined registration](./concept-registration-mfa-sspr-combined.md) security information registration and management events can be found in the audit logs under **Security** > **Authentication Methods**.
+[Combined registration](./concept-registration-mfa-sspr-combined.md) security information registration and management events can be found in the audit logs under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 

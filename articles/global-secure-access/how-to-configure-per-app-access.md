@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/18/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -42,7 +42,7 @@ To configure Per-App Access, you need to have a connector group with at least on
 
 To summarize, the overall process is as follows:
 
-1. Create an App Proxy connector group, if you don't already have one.
+1. Create a connector group with at least one active App Proxy connector, if you don't already have one. If you already have a connector group, make sure you're on the latest version.
 1. Create a Global Secure Access app.
 1. Assign users and groups to the app.
 1. Configure Conditional Access policies.
@@ -56,6 +56,10 @@ To configure a Global Secure Access app, you must have a connector group with at
 
 If you don't already have a connector set up, see [Configure connectors](how-to-configure-connectors.md).
 
+> [!NOTE]
+> If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders.
+>
+> The minimum version of connector required for Private Access is **1.5.3417.0**.
 ## Create a Global Secure Access application
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 

@@ -9,9 +9,11 @@ ms.author: veyaddan
 ---
 
 
-# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure CLI
+# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure CLI (Preview)
 
 Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services such as storage queues, and Event Hubs.
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 In this article, you perform the following tasks:
 - Create Event Subscription in your Event Grid topic
