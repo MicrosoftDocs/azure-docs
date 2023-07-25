@@ -45,9 +45,9 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
     azcopy copy [source] [destination]
     ```
-2. Mount the Ubuntu image vhd to a loop device.
+2. Mount the image.
 
-    A loop device is a feature in Linux that allows you to treat a file as a block device. By mounting the VHD to a loop device, you can access the contents of the VHD as if it were a physical disk drive. This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
+    This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
     The mount_vhd.sh script will perform the following operations to mount the vhd as shown below,
     ```
     #!/bin/bash
@@ -95,11 +95,11 @@ If there are any users with sudo privileges, they will be listed here,
     sudo chroot /mnt/dev/$loopdevice/ userdel -r [sudo_username]
     ```
 
-6. Validate on the mounted vhd that there are no sudo users as shown below, you should now not be able to see any user’s directory and their entries in the /etc/passwd and /etc/shadow files. Repeat step 4.
+6. Repeat step 4 to validate that there are no sudo users on the vhd, you should now not be able to see any user’s directory and their entries in the /etc/passwd and /etc/shadow files.
 
-6. Unmount the loop device. (Unmounting is done using the script umount.sh)
+7. Unmount the image. (Unmounting is done using the script umount.sh)
 
-    The umount.sh script will perform the following operations to unmount the loop device as shown below,
+    The umount.sh script will perform the following operations to unmount the image as shown below,
     ```
     #!/bin/bash
 
