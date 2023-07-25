@@ -816,6 +816,7 @@ Remove-AzResourceGroup -Name 'myResourceGroup' -Force
 Use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains
 
 ```azurecli-interactive
+# Delete the resource group and all the resources it contains. 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
