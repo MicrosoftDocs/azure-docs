@@ -52,7 +52,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: Please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
-## Duplicate Key Entry Issue
+## Duplicate key entry issue
 
 - **Error**: The error is often a symptom of timeouts, network issues or target scaling.
 
@@ -62,7 +62,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: To resolve this issue, ensure that there are no duplicate migrations running and that the source primary keys are unique. If error persists, please reach out to support by [creating a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot) and we can provide custom scripts to access our REST APIs directly.
 
-## Replicated Operation Had Mismatched Rows Error
+## Replicated operation had mismatched rows error
 
 - **Error**: Online Migration Fails to Replicate Expected Number of Changes.
 
@@ -72,7 +72,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: It is recommended to migrate the table manually.
 
-## Table Data Truncated Error
+## Table data truncated error
 
 - **Error**: Enum column has a null value in one or more rows and the target SQL mode is set to strict.
 
@@ -82,7 +82,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: To resolve the issue, it is recommended to change the target SQL mode to non-strict or change all null values to be valid values.
 
-## Creating Object Failure
+## Creating object failure
 
 - **Error**: An error occurred after view validation failed. 
 
@@ -90,7 +90,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: It is recommended to migrate views manually.
 
-## Unable To Find Table
+## Unable to find table
 
 - **Error**: An error occurred as referencing table cannot be found.
 
@@ -100,7 +100,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: It is recommended to migrate views manually.
 
-## All Pooled Connections Broken
+## All pooled connections broken
 
 - **Error**: All connections on the source server were broken.  
 
@@ -108,13 +108,13 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Workaround**: The migration must be restarted, and it is recommended to increase the performance of the source server. Another issue is scripts that kill long running connections, prevents these scripts from working.
 
-## Consistent Snapshot Broken  
+## Consistent snapshot broken  
 
   **Limitation**: The error occurs when the customer performs DDL during the initial load of the  migration instance. 
 
   **Workaround**: To resolve this issue, it is recommended to refrain from making DDL changes during the Initial Load.
 
-## Foreign Key Constraint
+## Foreign key constraint
 
 - **Error**: The error occurs when there is a change in the referenced foreign key type from the table.
 
