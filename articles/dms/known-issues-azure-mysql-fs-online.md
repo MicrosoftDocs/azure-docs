@@ -30,7 +30,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
 ## Binlog Retention Issues
 
-- **Error**: Fatal error reading binlog.This error may indicate that the binlog file name and/or the initial position were specified incorrectly.
+- **Error**: Fatal error reading binlog. This error may indicate that the binlog file name and/or the initial position were specified incorrectly.
 
   **Limitation**: This error occurs if binlog retention period is too short.
 
@@ -68,7 +68,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
   **Potential error message**: An error occurred applying records to the target server which were read from the source server's binary log. The changes started at binary log '{mysql-bin.log}' and position '{position}' and ended at binary log '{mysql-bin.log}' and position '{position}'. All records on the source server prior to position '{position}' in binary log '{mysql-bin.log}' have been committed to the target.  
 
-  **Limitation**: On the source, there were insert and delete statements into a table, and the deletes were by an apparent unique index.
+  **Limitation**: On the source, there were insert and delete statements into a table, and the deletions were by an apparent unique index.
 
   **Workaround**: It is recommended to migrate the table manually.
 
