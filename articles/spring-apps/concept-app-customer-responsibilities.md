@@ -23,7 +23,7 @@ Azure Spring Apps provides and maintains the SDKs and base OS images necessary t
 
 ### Java runtime version
 
-You may choose any LTS Java version as the major version, as long as it is still within official support, and we will regularly upgrade the minor version as described in our [maintenance policy](concept-maintenance-policy.md).
+You may choose any LTS Java version as the major version, as long as it is still within official support, and we will regularly upgrade the minor version as a part of the auto patching process.
 
 For details, see the [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
@@ -58,7 +58,7 @@ When you [deploy your polyglot applications to Enterprise Tier](how-to-enterpris
 
 You may choose your stack image during builder configuration, and we recommend using a LTS image within official support. Please refer to [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for more information.
 
-# Keeping track of version upgrade
+## Keeping track of version upgrade
 
 Please prepare early for the retirement of any major component LTS version that your applications rely on. You will receive an notification email from Microsoft one month prior to its end of support on Azure Spring Apps.
 
