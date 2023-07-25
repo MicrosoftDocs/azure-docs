@@ -43,7 +43,7 @@ If the threshold is low enough, the first request to the new Azure Front Door se
 A few considerations to keep in mind while you determine threshold values and time windows for rate limiting:
 
 - Larger window size and smaller thresholds are most effective in preventing against DDoS attacks.
-- Setting larger time window sizes (for example, five minutes over one minute) and larger thresholds values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limits thresholds than using the shorter time window sizes and lower thresholds values.
+- Setting larger time window sizes (for example, five minutes over one minute) and larger threshold values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limits thresholds than using the shorter time window sizes and lower threshold values.
 
 ## Next steps
 
