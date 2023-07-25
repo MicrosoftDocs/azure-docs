@@ -105,7 +105,7 @@ The IoT hub enriches and routes the device message to the event hub before the M
 {
     "Body": {
         "PatientId": "patient1",
-        "HeartRate": 78
+        "HeartRate": "78"
     },
     "SystemProperties": {
         "iothub-enqueuedtime": "2023-07-25T20:41:26.046Z",
