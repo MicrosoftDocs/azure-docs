@@ -82,19 +82,20 @@ Administrators have increased access to your environment. Because of the power t
 
 After registration with Azure AD Multifactor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
-- Global administrator
-- Application administrator
-- Authentication administrator
-- Billing administrator
-- Cloud application administrator
-- Conditional Access administrator
-- Exchange administrator
-- Helpdesk administrator
-- Password administrator
-- Privileged authentication administrator
-- Security administrator
-- SharePoint administrator
-- User administrator
+- Global Administrator
+- Application Administrator
+- Authentication Administrator
+- Billing Administrator
+- Cloud Application Administrator
+- Conditional Access Administrator
+- Exchange Administrator
+- Helpdesk Administrator
+- Password Administrator
+- Privileged Authentication Administrator
+- Privileged Role Administrator
+- Security Administrator
+- SharePoint Administrator
+- User Administrator
 
 ### Require users to do multifactor authentication when necessary
 
@@ -219,7 +220,7 @@ Organizations that choose to implement Conditional Access policies that replace 
 
 To disable security defaults in your directory:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Security Administrator, Conditional Access Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
