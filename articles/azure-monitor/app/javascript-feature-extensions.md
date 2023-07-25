@@ -139,8 +139,7 @@ appInsights.loadAppInsights();
 
 If you want to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). 
 
-> [!NOTE]
-> If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
+If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
 
 ## Use the plug-in
 
@@ -155,10 +154,7 @@ Telemetry data generated from the click events are stored as `customEvents` in t
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
   1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
-  1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`.
-
-  > [!TIP]
-  > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
+  1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`. We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
 ### `parentId` key
 
@@ -496,9 +492,7 @@ export const clickPluginConfigWithParentDataTag = {
    </div>
 ```
 
-For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
-> [!NOTE] 
-> If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence. If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
        
 ### Example 3 
 
@@ -523,8 +517,8 @@ export const clickPluginConfigWithParentDataTag = {
 </div>
 ```
 For example 3, for clicked element `<Button>`, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
-> [!NOTE]
-> If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
+
+If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 
 ## Troubleshooting
 
