@@ -11,7 +11,7 @@ ms.date: 07/09/2023
 
 # Migrate from deprecated VM insights policies
 
-We're deprecating the VM insights DCR deployment policies and introducing new policies that replace them because of a race condition issue. The deprecated policies will continue to work on existing assignments, but will no longer be available for new assignments. If you're using deprecated policies, we recommend you migrate to the new policies as soon as possible. 
+We're deprecating the VM insights DCR deployment policies and replacing them with new policies because of a race condition issue. The deprecated policies will continue to work on existing assignments, but will no longer be available for new assignments. If you're using deprecated policies, we recommend you migrate to the new policies as soon as possible. 
 
 This article explains how to migrate from deprecated VM insights policies to their replacement policies.
 
