@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 7/14/2023
+ms.date: 7/26/2023
 
-ms.author: v-leedennis
-author: DennisLee-DennisLee
+ms.author: gudlapreethi
+author: GudlaPreethi
 editor: v-jsitser
-ms.reviewer: gudlapreethi, bemey, filuz, robgarcia
+ms.reviewer: gudlapreethi, bemey, filuz, robgarcia, v-leedennis
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
@@ -54,7 +54,7 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, there was an error acquiring the PRT status from Azure AD.
 
-1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours <!-- Is there a missing phrase here? -->, there's probably an issue that's preventing the PRT from refreshing. Lock and unlock the device to force PRT refresh, and then check whether the time is updated.
+1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours, there's probably an issue that's preventing the PRT from refreshing. Lock and unlock the device to force PRT refresh, and then check whether the time is updated.
 
 ### Step 2: Get the error code
 
@@ -65,7 +65,7 @@ The next step is to get the error code that causes the PRT error. The quickest w
 > [!NOTE]  
 > This method is available only if you're using Windows 10 May 2021 update (version 21H1) or a later version of Windows.
 
-To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. Under the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`. <!-- The Server Error Description gives an error code name (although it differs from the attempt status) and an error description. Shouldn't we mention that, too? -->
+To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. Under the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`.
 
 ```output
                 AzureAdPrt : NO
@@ -116,7 +116,7 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 
 ### Step 3: Get troubleshooting instructions for certain error codes
 
-#### Status codes ("STATUS_" prefix, codes that begin with "0xc000") <!-- Can probably use a more descriptive name here -->
+#### Status codes ("STATUS_" prefix, codes that begin with "0xc000")
 
 <details>
 <summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d),<br/>
