@@ -20,9 +20,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## **July 2023**
 **Feature enhancement: Change to the exported file name format**
-FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. Ter are name changes with exported file and default storage account name.
-* Exported file names will follow the format <FHIR Resource Name>-<Number>- <Number>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
-* Default storage account name is updated to Export-<Number>.
+FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
+* Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+* Default storage account name is updated to Export-\<Number\>.
 
 There is no change to number of resources added in individual exported files.
 
