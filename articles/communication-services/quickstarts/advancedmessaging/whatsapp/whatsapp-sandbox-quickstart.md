@@ -13,18 +13,14 @@ ms.service: azure-communication-services
 
 # Quickstart: Try AdvancedMessaging For WhatsApp Sandbox
 
-To enable Contoso developers to try out the Advanced Messaging for WhatsApp quickly, Advanced Messaging is providing WhatsApp Business Account enabled sandbox. This WhatsApp Sandbox is available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
+Getting started to enable Contoso developers to try out the Advanced Messaging for WhatsApp quickly, Advanced Messaging is providing WhatsApp Business Account enabled sandbox. This WhatsApp Sandbox is available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
 
 ## Prerequisites 
 
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
 - [WhatsApp enabled phonenumber]()
 
-## Task
-
-Send text and template message to WhatsApp phone number using Azure Communication Services Advanced Messaging for WhatsApp.
-
-### Steps
+## Setting up
 
 1. Go to the Azure Communication Service Resource in the Azure portal.
 
@@ -41,27 +37,24 @@ Send text and template message to WhatsApp phone number using Azure Communicatio
 4. You're asked to send a unique keyword message to that phone number. Once we receive the keyword message, we reply with confirmation to you, that you have successfully joined the Sandbox. And we also save your WhatsApp phone number, which is used as the recipient number when sending messages from the sandbox. 
 
 :::image type="content" source="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging WhatsApp connection established in the Azure portal.":::
- 
-5. Once connected, you're able to send either a template message or a text message. Here is an example of text message.
+
+## Send Text Message 
+Once connected, you're able to send either a template message or a text message. Here is an example of text message.
 
 :::image type="content" source="./media/whatsapp-sandbox/send-message.png" alt-text="Screenshot that shows WhatsApp Send text message in the Azure portal.":::
- 
-6. Our sandbox also have a few preconfigured templates for you to try out. Fill in the parameters and they replace the double-bracketed numbers in the template message. 
+
+## Send Template Message 
+Our sandbox also have a few preconfigured templates for you to try out. Fill in the parameters and they replace the double-bracketed numbers in the template message. 
 
 :::image type="content" source="./media/whatsapp-sandbox/send-template.png" alt-text="Screenshot that shows WhatsApp Send template message in the Azure portal.":::
 
-```md
-   **Note**:There is one constraint from WhatsApp known as the 24-hour window. If a WhatsApp user has sent your application a message — whether it’s a reply to one of your outbound messages, or they have initiated communication themselves — your application has a 24-hour window (sometimes called a “24-hour session”) to send that user messages that don’t need to use a template. When your application sends a message to a WhatsApp user outside a 24-hour session, the message must use an approved template. 
-``` 
+> [!NOTE]
+>  There is one constraint from WhatsApp known as the 24-hour window. If a WhatsApp user has sent your application a message — whether it’s a reply to one of your outbound messages, or they have initiated communication themselves — your application has a 24-hour window (sometimes called a “24-hour session”) to send that user messages that don’t need to use a template. When your application sends a message to a WhatsApp user outside a 24-hour session, the message must use an approved template. 
+ 
 ## Next Steps
 
-In this quickstart, you have tried out Advanced Messaging for WhatsApp sandbox.
+In this quickstart, you have tried out Advanced Messaging for WhatsApp sandbox. Next you might also want to see the following articles:
 
-> [!div class="nextstepaction"]
-> [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
-
-You might also want to see the following articles: 
-
+- [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 -    [AdvancedMessaging For WhatsApp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
-
 -    [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md)
