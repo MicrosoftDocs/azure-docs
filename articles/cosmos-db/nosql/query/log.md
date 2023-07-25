@@ -49,5 +49,5 @@ The following example returns the logarithm value of various values.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`LOG10`](log10.md)

@@ -27,7 +27,7 @@ Azure Arc helps you onboard Amazon Web Services (AWS), Google Cloud Platform (GC
 
 ### Foundational cloud security posture management
 
-For free foundational cloud security posture management (CSPM) features, Azure Arc running on AWS or GCP machines isn't required. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
+The free foundational cloud security posture management (CSPM) features for AWS and GCP machines don't require Azure Arc. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
 
 Azure Arc onboarding is required for on-premises machines.
 

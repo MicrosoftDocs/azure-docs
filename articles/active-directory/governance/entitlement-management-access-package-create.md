@@ -52,6 +52,8 @@ Here are the high-level steps to create an access package:
 
 ## Start the creation process
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite role:** global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
