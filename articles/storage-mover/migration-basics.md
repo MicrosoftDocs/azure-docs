@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 07/25/2023
 ---
 
 <!-- 
@@ -137,9 +137,6 @@ There are two copy modes:
 |-----------------------------------------------------|--------------------|
 |**Mirror**<br/>The target looks like the source. | - *Files in the target are deleted if they don’t exist in the source.*<br/>- *Files and folders in the target are updated to match the source.* |
 |**Merge**<br/>The target has more content than the source, and you keep adding to it.    | - *Files are kept in the target, even if they don’t exist in the source.*<br/>- *Files with matching names and paths are updated to match the source.*<br/>- *Folder renames between copies may lead to duplicate content in the target.*|
-
-> [!NOTE]
-> The current release of Azure Storage Mover only supports the **Merge** mode.
 
 ## Phase 6: Post-migration tasks
 
