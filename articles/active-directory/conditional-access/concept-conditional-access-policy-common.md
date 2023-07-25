@@ -46,6 +46,8 @@ Organizations can select individual policy templates and:
 - Export the JSON definition for use in programmatic workflows.
    - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
 
+## Conditional Access policy template categories
+
 Conditional Access templates are organized into the following categories:
 
 - Secure foundation
