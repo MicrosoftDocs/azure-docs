@@ -17,15 +17,15 @@ monikerRange: 'doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence add-on capabilities (preview)
+# Document Intelligence add-on capabilities
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+**This article applies to:** ![Document Intelligence v3.1 checkmark](media/yes-icon.png) **Document Intelligence v3.1**.
 
 > [!NOTE]
 >
-> Add-on capabilities for Document Intelligence Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
+> Add-on capabilities for Document Intelligence Studio are available within all models except for the [Business card model](concept-business-card.md).
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-02-28-preview`:
+Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 
@@ -33,9 +33,14 @@ Document Intelligence now supports more sophisticated analysis capabilities. The
 
 * [`ocr.font`](#font-property-extraction)
 
+* [`ocr.barcode`](#barcode-property-extraction)
+
 ## High resolution extraction
 
 The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
+
+   > [!NOTE]
+   > High resolution capability works best for PDFs and images under 9216x7168 pixels resolution and 300 DPI.
 
 ## Formula extraction
 
@@ -108,6 +113,30 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
        }
      ]
    ```
+
+## Barcode property extraction
+
+The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. The `confidence` is hard-coded for as 1.
+
+#### Supported barcode types
+
+| **Barcode Type**   | **Example**   |
+| --- | --- |
+| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
+| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
+| Code 93 |:::image type="content" source="media/barcodes/code-93.gif" alt-text="Screenshot of the Code 93.":::|
+| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
+| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
+| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
+| EAN-8 |:::image type="content" source="media/barcodes/ean-8.gif" alt-text="Screenshot of the EAN-8.":::|
+| EAN-13 |:::image type="content" source="media/barcodes/ean-13.gif" alt-text="Screenshot of the EAN-13.":::|
+| Codabar |:::image type="content" source="media/barcodes/codabar.png" alt-text="Screenshot of the Codabar.":::|
+| Databar |:::image type="content" source="media/barcodes/databar.png" alt-text="Screenshot of the Databar.":::|
+| Databar Expanded |:::image type="content" source="media/barcodes/databar-expanded.gif" alt-text="Screenshot of the Databar Expanded.":::|
+| ITF |:::image type="content" source="media/barcodes/itf.png" alt-text="Screenshot of the ITF.":::|
+| Data Matrix |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
+
+
 
 ## Next steps
 
