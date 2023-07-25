@@ -6,7 +6,12 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-
+- name: Keys documentation
+  href: ../keys/about-keys.md
+- name: Secrets documentation
+  href: ../secrets/about-secrets.md
+- name: Certificates documentation
+  href: ../certificates/about-certificates.md
 - name: Quickstarts
   expanded: true
   items:
@@ -220,3 +225,4 @@
     href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0
+    
