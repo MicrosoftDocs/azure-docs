@@ -1,4 +1,4 @@
-- name: Azure confidential computing from toc.yml
+- name: Azure Confidential Computing
   href: ./index.yml
 - name: What is confidential computing? # WHAT?
   expanded: true
@@ -8,10 +8,10 @@
      - name: Silicon Level Innovation
        expanded: true
        items:
-        - name: Intel SGX, TDX 
-          href: intel-offerings.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
         - name: AMD EPYC, SEV-SNP
           href: amd-offerings.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
+        - name: Intel SGX, TDX 
+          href: intel-offerings.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
         - name: NVIDIA 
           href: nvidia-offerings.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
      - name: Trusted Execution Environment (TEE) #p1

@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021, inspire-july-2022
 
 Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines confidential computing as: The protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
 
-A TEE is an environment that enforces execution of only authorized code. Any data in the TEE can't be read or tampered with by any code outside that environment. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator and other actors in the tenant's domain to access code and data while being executed.
+A TEE is an environment that enforces execution of only authorized code. Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
 
 :::image type="content" source="media/overview-azure-products/three-states.png" alt-text="Graphic of three states of data protection, with confidential computing's data in use highlighted.":::
 
@@ -31,25 +31,27 @@ Running workloads on the cloud requires trust. You give this trust to various pr
 - **Infrastructure providers**: Trust cloud providers or manage your own on-premises data centers.
 
 ## Reducing the attack surface
-The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
+The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical." If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
-## Simple Analogy
+## Analogy
 
-Confidential Computing can initially be difficult to visualise, consider the following simple analogy;
+Confidential Computing can initially be difficult to visualize, consider the following analogy;
 
-Woodgrove Bank stores all the details of your financial transactions and balance inside locked bank vaults 
-The bank tellers are trusted staff who have access to this information on a need to know basis to manage your account (make withdrawls, manage loans etc.) and do so on your behalf.
-For many customers this is acceptable, they trust the bank as an insitution, and its staff
+Woodgrove Bank stores all the details of your financial transactions and balance inside locked bank vaults.
+ 
+The bank tellers are trusted staff with access to your information to make withdrawal and deposits with your permission on a need to know basis.
+
+For many customers, this posture is acceptable, they **trust** the standard security that the bank and its staff provide, for example background checking staff, monitoring what they're doing and managing the physical security of the building, vault, CCTV etc.
 
 However, there are other customers who don't want even the bank staff to see their account data and want a higher level of privacy (Confidential Computing)
 
-Confidential computing provides a conceptual security deposit box (TEE) within the Woodgrove bank vault where your account information and keys are held, the contents of the box are scrambled (encrypted) and can only be unscrabled (decrypted) with a single key allocated to the customer
+Confidential computing provides a conceptual security deposit box (TEE) within the Woodgrove bank vault where your account information is held. The contents of the box are scrambled (encrypted) and can only be unscrambled (decrypted) with a single key allocated to the customer.
 
 The physical key to the security deposit box is held in another safety deposit box (TEE) inside the bank vault (KeyVault, Managed HSM)\* and protected by a security guard
 
-At any time you, as the customer can ask the security guard of the bank (Attestation Service) to obtain and provide signed evidence that your data is held within this security deposit box inside Woodgrove Bank. (.. in future you'll also be able to ask a 3rd party to check the bank setup and validate this for you - project Amber)
+At any time you, as the customer can ask the security guard of the bank (Attestation Service) to obtain and provide signed evidence (security claim) that your data is held within your security deposit box inside Woodgrove Bank. (in future you'll also be able to ask a third party to check the bank setup and validate security claims for you - project Amber)
 
-If you need to access your account to work on your account data in private, for example to deposit or withdraw cash the customer can obtain the physical key (Secure key Relase) by; 
+If you need to access your account to work on your account data in private, for example to deposit or withdraw cash the customer can obtain the physical key (Secure key Release) by; 
 - Providing proof of identity to a security guard who protects the vault
 - The security guard checks and signs a letter stating that the customer is holding the correct security deposit box (attestation) and not the security deposit box of another customer
 - Once these facts are verified the security guard hands-over the physical key to the box, 
@@ -57,10 +59,11 @@ If you need to access your account to work on your account data in private, for 
 
 The contents of the box are private to you, and protected from others as follows;
 - The other tellers on the front-desk are unable to see what is in the security deposit box (as the TEE is protected by in-use encryption)
-- If the bank is robbed (for example a hacker) the security deposit box cannot be opened without the key, even if the box is stolen the contents are encrypted and useless without the key owned by the customer
-- If a corrupt teller has managed to evade the standard background checks and employee monitoring they are unable to open the security deposit box without the key owned by the customer and even if they smash it open the contents are scrambled (encrypted) and can only be unscrabled (decrypted) with the key owned by the customer.
+- If the bank is robbed (for example a hacker), the security deposit box can't be opened without the key
+- If a corrupt teller (insider threat) managed to evade the standard background checks and employee monitoring, they're unable to open the security deposit box without the key owned by the customer.
+- If someone without the key were able to physically access or steal the safety deposit box and smash it open the contents are scrambled (encrypted) and can only be unscrambled (decrypted) with the key owned by the customer.
 
-\*The customer *could* take the key home with them and store it there, but then there is a significantly higher risk of that key being lost, stolen or even copied from the person's home or car where there is a lower level of security than a typical bank-vault with 24/7 monitoring and security.
+\*The customer *could* take the key home with them and store it there, but then there's a higher risk of that key being stolen from the person's home or car where there's typically a lower level of security than a bank-vault with 24/7 monitoring and security.
 
 ### Next steps
 [Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
