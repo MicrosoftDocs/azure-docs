@@ -4,7 +4,7 @@
   expanded: true
   items:
      - name: Real-time Protection of data whilst in-use # what keys are where+protect what #p1
-       href: protect-data-in-use.md #new
+       href: overview.md # DONE #p1
      - name: Silicon Level Innovation
        expanded: true
        items:
@@ -24,7 +24,7 @@
        href: attestation-solutions.md # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used
      - name: Hardware attestation vs. software attestation #p1
        href: hardware-attestation-approach.md # new, why HW based attestation is better than the rest 
-     - name: Use-cases (link to https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-computing-solutions)
+     - name: Use-cases and scenarios
        href: use-cases-scenarios.md #DONE, link to the learn page  
        # sub sections here for use-cases 
 - name: Why might I need it? # WHY?
