@@ -20,7 +20,7 @@ This article will discuss how to download the OSM client library to be used to o
 > | Between 1.23.5 and 1.24.0 | 1.1.3                 |
 > | Below 1.23.5              | 1.0.0                 |
 >
-> Older versions of OSM may not be available for install or be actively supported if the corresponding AKS version has reached end of life. You can check the [AKS Kubernetes release calendar](https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar) for information on AKS version support windows.
+> Older versions of OSM may not be available for install or be actively supported if the corresponding AKS version has reached end of life. You can check the [AKS Kubernetes release calendar](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar) for information on AKS version support windows.
 
 ::: zone pivot="client-operating-system-linux"
 
