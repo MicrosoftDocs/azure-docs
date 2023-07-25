@@ -20,7 +20,7 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 1. Select the subscription that's onboarded to the Defender CSPM plan, then select **Settings**.
 
-1. Ensure the **Agentless discovery for Kubernetes** and **Container registries vulnerability assessments** extensions are toggled to **On**.
+1. Ensure the  **Container registries vulnerability assessments** extension is toggled to **On**.
 
 1. Select **Continue**.
 
