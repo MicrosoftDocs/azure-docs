@@ -70,17 +70,17 @@ To enable hibernation capabilities, set the `IsHibernateSupported` flag to true:
 
 ```azurecli-interactive
 az sig image-definition create /
-   --resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> --location <location> / 
-   --publisher <publishername> --offer <offername> --sku <skuname> --os-type windows --os-state Generalized / 
-   --features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
+--resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> --location <location> / 
+--publisher <publishername> --offer <offername> --sku <skuname> --os-type windows --os-state Generalized / 
+--features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
 ```
 
 If you're using sysprep and a generalized VM to create a custom image, capture your image using the Azure CLI:
 
 ```azurecli-interactive
 az sig image-version create /
-   --resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> /
-   --gallery-image-version <versionNumber> --virtual-machine <VMResourceId>
+--resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> /
+--gallery-image-version <versionNumber> --virtual-machine <VMResourceId>
 ```
 
 For more information about creating a custom image, see [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md).
@@ -118,7 +118,8 @@ You can enable hibernation on a dev box definition by using the Azure portal or 
 ### Update an existing dev box definition by using the CLI
  
 ```azurecli-interactive
-az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> –-hibernateSupport enabled
+az devcenter admin devbox-definition update /
+--dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> /–-hibernateSupport enabled
 ``` 
 
 ## Disable hibernation on a dev box definition
@@ -146,7 +147,8 @@ You can disable hibernation on a dev box definition by using the Azure portal or
 ### Disable hibernation on an existing dev box definition by using the CLI
  
 ```azurecli-interactive
-az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> –-hibernateSupport disabled  
+az devcenter admin devbox-definition update /
+--dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> /–-hibernateSupport disabled  
 ``` 
 
 ## Next steps
