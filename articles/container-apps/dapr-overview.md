@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 07/25/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -32,7 +32,7 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 
 | Dapr API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.                                      |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#unsupported-dapr-capabilities)                                     |
 | [**State management**][dapr-statemgmt]                | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
 | [**Pub/sub**][dapr-pubsub]                            | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker.                                                          |
 | [**Bindings**][dapr-bindings]                         | Trigger your applications based on events                                                                                                                       |
@@ -342,6 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
+- **Invoking non-Dapr services from Dapr as if they were Dapr-enabled**: Dapr's Service Invocation with Azure Container Apps is supported only between Dapr-enabled services.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
 - **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
