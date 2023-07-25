@@ -22,13 +22,13 @@ Getting started with the Azure Communication Services Advanced Message SDK, whic
 
 1.  [Facebook login account](https://www.facebook.com/index.php)
 2.  [Get Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
-        -   With the ability to send and receive SMS messages
-        -   With an active Event subscription (SMS received and SMS delivery reports). [Learn how to handle SMS events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
-        -   With an Event Grid viewer. [Learn how to deploy an Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
-        -   That isn't associated with a WhatsApp Business Account
-3.  Or [Bring Your Own Phonenumber]
-        -   With the ability to receive SMS and calls
-        -   That isn't associated with a WhatsApp Business Account
+    -  With the ability to send and receive SMS messages
+    -  With an active Event subscription (SMS received and SMS delivery reports). [Learn how to handle SMS events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
+    -  With an Event Grid viewer. [Learn how to deploy an Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
+    -  That isn't associated with a WhatsApp Business Account
+3.  Or bring your own phone number
+    -  With the ability to receive SMS and calls
+    -  That isn't associated with a WhatsApp Business Account
 4.  Your company details to be used in your WhatsApp Business Account including:
     -  Company Name: How you want your company identified to your WhatsApp users
     -  Website: A web page that verifies your business
@@ -59,7 +59,7 @@ You see the account and status listed in the Azure portal along with the other W
 
 :::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
 
-When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but not delete the account and the account can be reconnected later.
+When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but does not delete the account and the account can be reconnected later.
 
 ## Next Steps
 
