@@ -33,7 +33,11 @@ The match condition above identifies all requests with a `Host` header of length
 
 Requests from the same client often arrive at the same Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
 
-However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counter yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 100 requests per minute), you might see some requests above the threshold get through. Larger time window sizes (for example, 5 minutes over 1 minute) with larger thresholds are typically more effective than the shorter time window sizes with lower thresholds.
+However, it's possible that requests from the same client might arrive at a different Front Door server that hasn't refreshed the rate limit counters yet. For example, the client might open a new TCP connection for each request. If the threshold is low enough, the first request to the new Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 200 requests per minute), you may see some requests above the threshold get through.
+
+A few considerations to keep in mind while determining threshold values and time windows for rate limiting:
+-	Larger window size and smaller thresholds are most effective in preventing against DDoS attacks. 
+-	Setting larger time window sizes (e.g., 5 minutes over 1 minute)  and larger thresholds values (e.g., 200 over 100) tend to be more accurate in enforcing close to rate limits thresholds than using the shorter time window sizes and lower thresholds values.
 
 ## Next steps
 
