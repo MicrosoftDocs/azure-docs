@@ -30,7 +30,7 @@ In this example, we configure a worker with total capacity of 100 and set the vo
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
         ChannelConfigurations =
         {
             ["voice"] = new ChannelConfiguration(capacityCostPerJob: 100),
@@ -95,7 +95,7 @@ In this example, a worker is configured with total capacity of 100.  Next, the v
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
         ChannelConfigurations =
         {
             ["voice"] = new ChannelConfiguration(capacityCostPerJob: 60),

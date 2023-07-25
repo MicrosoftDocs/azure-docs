@@ -11567,7 +11567,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-sync/index.yml",
-      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/index.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/",
       "redirect_document_id": false
     },
     {
@@ -11582,7 +11582,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq",
       "redirect_document_id": false
     },
     {
@@ -11962,7 +11962,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq",
       "redirect_document_id": false
     },
     {
@@ -12007,7 +12007,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq",
       "redirect_document_id": false
     },
     {
@@ -12302,7 +12302,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq",
       "redirect_document_id": false
     },
     {
@@ -12317,7 +12317,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq",
       "redirect_document_id": false
     },
     {
@@ -12752,7 +12752,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md",
-      "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant",
       "redirect_document_id": false
     },
     {

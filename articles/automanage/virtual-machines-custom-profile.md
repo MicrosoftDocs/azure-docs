@@ -93,16 +93,15 @@ The following ARM template will create an Automanage custom profile. Details on 
         "location": "[parameters('location')]",
         "properties": {
             "configuration": {
-              "Antimalware/Enable": "true",
-              "Antimalware/EnableRealTimeProtection": "true",
-              "Antimalware/RunScheduledScan": "true",
+              "Antimalware/Enable": true,
+              "Antimalware/EnableRealTimeProtection": true,
+              "Antimalware/RunScheduledScan": true,
               "Antimalware/ScanType": "Quick",
               "Antimalware/ScanDay": "7",
               "Antimalware/ScanTimeInMinutes": "120",
               "AzureSecurityBaseline/Enable": true,
               "AzureSecurityBaseline/AssignmentType": "[parameters('azureSecurityBaselineAssignmentType')]",
-              "AzureSecurityCenter/Enable": true,
-              "Backup/Enable": "true",
+              "Backup/Enable": true,
               "Backup/PolicyName": "dailyBackupPolicy",
               "Backup/TimeZone": "UTC",
               "Backup/InstantRpRetentionRangeInDays": "2",
@@ -124,6 +123,9 @@ The following ARM template will create an Automanage custom profile. Details on 
               "LogAnalytics/Workspace": "[parameters('logAnalyticsWorkspace')]",
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
+              "WindowsAdminCenter/Enable": true,
+              "GuestConfiguration/Enable": true,
+              "DefenderForCloud/Enable": true,
               "Tags/ResourceGroup": {
                 "foo": "rg"
               },
