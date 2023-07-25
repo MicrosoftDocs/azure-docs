@@ -15,6 +15,16 @@ To make use of MANA, users must modify their DPDK initialization routines to acc
 - MANA's EAL arguments.
 - The Linux kernel must release control of the MANA network interfaces before DPDK initialization begins.
 
+# DPDK requirements for MANA
+Table detailing kernel and package requirements
+
+# DPDK installation example
+```
+example goes here
+```
+
+# Example: Testpmd setup and running tests
+
 Note the following example code for running DPDK with MANA. We recommend using the direct-to-vf 'netvsc' configuration on Azure for maximum performance with MANA.
 
 ```
