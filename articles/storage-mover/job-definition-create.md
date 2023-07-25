@@ -78,7 +78,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    Select the name of the Key Vault from the **Key Vault** drop-down lists. You can provide values for the **Secret for username** and **Secret for password** by selecting the relevant secret from the corresponding drop-down list. Alternatively, you can provide the URI to the secret as shown in the following screen capture.
 
-   For more information on endpoint resources, see the [Managing Storage Mover endpoints](endpoint-manage.md) article.
+   For more details on endpoint resources, see the [Managing Storage Mover endpoints](endpoint-manage.md) article.
 
    :::image type="content" source="media/job-definition-create/endpoint-smb-new-sml.png" alt-text="Screen capture of the fields required to create a new SMB source endpoint resource." lightbox="media/job-definition-create/endpoint-smb-new-lrg.png":::
 
