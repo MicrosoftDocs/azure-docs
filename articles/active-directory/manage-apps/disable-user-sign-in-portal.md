@@ -23,8 +23,6 @@ There may be situations while configuring or managing an application where you d
 
 In this article, you learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you're looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To disable user sign-in, you need:
@@ -33,6 +31,8 @@ To disable user sign-in, you need:
 - One of the following roles: An administrator, or owner of the service principal.
 
 ## Disable user sign-in
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 
