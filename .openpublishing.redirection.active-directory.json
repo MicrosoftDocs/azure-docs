@@ -1026,6 +1026,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-sign-in.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
+      "redirect_document_id": false 
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/delegate-invitations.md",
       "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
       "redirect_document_id": true
