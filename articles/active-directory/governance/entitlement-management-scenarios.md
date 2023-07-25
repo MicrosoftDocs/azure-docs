@@ -111,6 +111,10 @@ There are several ways that you can configure entitlement management for your or
 
 ## Day-to-day management
 
+### Administrator: View which connected organziations are configured
+
+1. [View the list of connected organizations](entitlement-management-organization.md)
+
 ### Access package manager: Update the resources for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)

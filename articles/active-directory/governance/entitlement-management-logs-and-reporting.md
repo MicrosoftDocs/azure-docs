@@ -188,5 +188,13 @@ $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -
 $bResponse.Results |ft 
 ```
 
+You can include the `TimeGenerated` field to scope a query to a particular time range. For example, to retrieve the audit log events for entitlement management access package assignment policies being created or updated in the last 90 days, you can supply a query that includes this field as well the category and operation type.
+
+```
+AuditLogs | 
+where TimeGenerated > ago(90d) and Category == "EntitlementManagement" and Result == "success" and (AADOperationType == "CreateEntitlementGrantPolicy" or AADOperationType == "UpdateEntitlementGrantPolicy") | 
+project ActivityDateTime,OperationName, InitiatedBy, AdditionalDetails, TargetResources
+```
+
 ## Next steps
 - [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

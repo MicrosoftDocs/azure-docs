@@ -46,7 +46,7 @@ Follow these steps if you want to allow users in your directory to be able to re
  **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../articles/active-directory/external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/external-identities/user-properties.md).
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, you can configure that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/external-identities/user-properties.md).
 
 Follow these steps if you want to allow users not in your directory to request this access package:
 
@@ -61,7 +61,7 @@ Follow these steps if you want to allow users not in your directory to request t
     |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
-    | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **All connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. |
     | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or blocklist settings should take precedence for any new external user. |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
@@ -74,10 +74,14 @@ Follow these steps if you want to allow users not in your directory to request t
 
     If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
+1. If you selected **All connected organizations**, then you should confirm with your global administrator which connected organizations are currently and planned to be in scope.
+
+1. If you selected **All users**, then you will need to configure approvals in the approvals section, as this scope would allow any identity on the Internet to request access.
+
 1. Once you've selected all your connected organizations, select **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or block list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or block list.  If you specify a social identity provider domain, such as **live.com**, then any user from the social identity provider will be able to request this access package. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Skip down to the [Approval](#approval) section.
 
@@ -114,6 +118,7 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 Follow these steps to specify the approval settings for requests for the access package:
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+   > [!NOTE] If the policy allows external users from outside your organization to request access, you should typically require approval, so there is oversight on who is being added to your organization's directory.
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
