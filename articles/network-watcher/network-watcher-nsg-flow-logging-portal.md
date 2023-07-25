@@ -271,9 +271,7 @@ The comma-separated information for **flowTuples** is as follows:
 
 ## Clean up resources
 
-When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains and **myVM-nsg-myResourceGroup-flowlog** flow log:
-
-**Delete the resource group**:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
 1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
