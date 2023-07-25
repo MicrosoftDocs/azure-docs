@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 06/16/2023
+ms.date: 07/25/2023
 ---
 
 <!-- 
@@ -80,7 +80,7 @@ Grouping sources into a project doesn't mean you have to migrate all of them in 
 A Job definition is contained within a project. The job definition describes a source, a target, and the migration settings you want to use the next time you start a copy from the defined source to the defined target in Azure.
 
 > [!IMPORTANT]
-> after a job definition is created, source and target information cannot be changed. However, migration settings can be changed any time. A change won't affect a running migration job, but will take effect the next time you start a migration job.
+> After a job definition is created, source and target information cannot be changed. However, migration settings can be changed any time. A change won't affect a running migration job, but will take effect the next time you start a migration job.
 
 It may not seem immediately logical that changing source and target information in an existing job definition isn't permitted. By way of example, imagine you define *Share A* as the migration source and that run several copy operations. Imagine also that you change the migration source to *Share B*. This change could have potentially dangerous consequences.
 
