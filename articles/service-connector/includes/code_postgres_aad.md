@@ -62,7 +62,7 @@ using Azure.Core;
 var sqlServerTokenProvider = new DefaultAzureCredential(
     new DefaultAzureCredentialOptions
     {
-        ManagedIdentityClientId = "userAssignedClientId"
+        ManagedIdentityClientId = userAssignedClientId
     });
 
 // system-assigned managed identity
@@ -84,7 +84,7 @@ using (var connection = new NpgsqlConnection(connectionString))
     Console.WriteLine("Opening connection using access token...");
     connection.Open();
     using var command = new NpgsqlCommand("SELECT version()", connection);
-    NpgsqlDataReader reader = command.ExecuteReader();
+    using NpgsqlDataReader reader = await command.ExecuteReaderAsync();
 
     while (reader.Read())
     {
