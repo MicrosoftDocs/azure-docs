@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Peering Service partner overview
+title: Azure Peering Service partner overview
 description: Learn about MAPS and how to become a partner.
 services: internet-peering
 author: jsaraco
@@ -10,9 +10,9 @@ ms.author: jsaraco
 ms.custom: template-overview, engagement-fy23
 ---
 
-# Microsoft Azure Peering Service partner overview
+# Azure Peering Service partner overview
 
-Microsoft Azure Peering Service (MAPS) is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft can partner with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from you to the Microsoft network.
+Azure Peering Service (MAPS) is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft can partner with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from you to the Microsoft network.
 
 With Peering Service, partners can configure local and geo-redundancy with their links. This achieves optimal and reliable routing to the Microsoft cloud over the public network. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
@@ -23,7 +23,7 @@ With Peering Service, partners can configure local and geo-redundancy with their
 
 ## Background
 
-For an overview of the Microsoft Azure Peering Service product, see [MAPS Overview](../peering-service/about.md)
+For an overview of the Azure Peering Service product, see [MAPS Overview](../peering-service/about.md)
 
 ## MAPS partner requirements
 
