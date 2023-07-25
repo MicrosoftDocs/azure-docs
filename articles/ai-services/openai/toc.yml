@@ -49,43 +49,55 @@ items:
       href: ./concepts/use-your-data.md
 - name: How-to 
   items:
-    - name: Resource creation & model deployment
-      href: ./how-to/create-resource.md
+  - name: Completions & chat completions
+    items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
-    - name: Work with function calling
+    - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
-    - name: OpenAI vs Azure OpenAI (Python)
-      href: ./how-to/switching-endpoints.md
-    - name: Configure content filters
-      href: ./how-to/content-filters.md
-    - name: Work with code (Codex)
+    - name: Work with code
       href: ./how-to/work-with-code.md
-    - name: Generate embeddings
-      href: ./how-to/embeddings.md
-    - name: Prepare dataset
-      href: ./how-to/prepare-dataset.md
-    - name: Fine-tuning your model
-      href: ./how-to/fine-tuning.md
-    - name: Manage identity
-      href: ./how-to/managed-identity.md
-    - name: Manage quota
-      href: ./how-to/quota.md
-    - name: Use virtual networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
-    - name: Encryption of data at rest
-      href: encrypt-data-at-rest.md
-    - name: Business continuity & disaster recovery (BCDR)
-      href: ./how-to/business-continuity-disaster-recovery.md
-    - name: Monitor Azure OpenAI
-      href: ./how-to/monitoring.md
-    - name: Plan and manage costs
-      href: ./how-to/manage-costs.md
+  - name: Content filtering
+    href: ./how-to/content-filters.md
+  - name: Embeddings
+    items:
+    - name: Embeddings basics
+      href: ./how-to/embeddings.md
+    - name: Getting started with embeddings (Python)
+      href: ./tutorials/embeddings.md
+  - name: Fine-tuning
+    items:
+      - name: Prepare dataset
+        href: ./how-to/prepare-dataset.md
+      - name: Fine-tuning your model
+        href: ./how-to/fine-tuning.md
+  - name: Networking & security
+    items:
+      - name: Use virtual networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
+      - name: Encryption of data at rest
+        href: encrypt-data-at-rest.md
+      - name: Manage identity
+        href: ./how-to/managed-identity.md
+  - name: Service Management
+    items:
+      - name: Resource creation & model deployment
+        href: ./how-to/create-resource.md
+      - name: OpenAI vs Azure OpenAI (Python)
+        href: ./how-to/switching-endpoints.md
+      - name: Manage quota
+        href: ./how-to/quota.md
+      - name: Monitor Azure OpenAI
+        href: ./how-to/monitoring.md
+      - name: Plan and manage costs
+        href: ./how-to/manage-costs.md
+      - name: Business continuity & disaster recovery (BCDR)
+        href: ./how-to/business-continuity-disaster-recovery.md
 - name: Tutorials
   items:
     - name: Embeddings
