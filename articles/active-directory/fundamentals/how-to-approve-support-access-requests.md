@@ -40,59 +40,41 @@ Let's take a closer look at the workflow for this scenario:
 
 This cross-tenant scenario is the primary scenario where a support access request is necessary. In these scenarios, Microsoft approved access is visible only in the resource tenant. To preserve cross-tenant privacy, an administrator of the *support request tenant* is unable to see whether an administrator of the *resource tenant* has manually removed this approval. 
 
-## Pending requests
+## View pending requests
 
-When you receive a notification for a Microsoft Support Access Request in your tenant, you need to approve that request in order for Microsoft Support to access your identity diagnostic data. 
-<!--- Confirm the notification process --->
-
-### See your pending requests
+When you have a pending support access request, you can view and approve that request from a couple places.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
 
-1. Select **Pending requests** from the **Microsoft Support Access Requests (Preview)** section at the bottom of the page.    
+1. Select the link from the banner message at the top of the page...
 
-1. Select the **Support request ID** link for the request you need to approve.
+    ![Screenshot of the Diagnose and solve problems page with the banner notification highlighted.](media/how-to-approve-support-access-requests/diagnose-solve-problems-banner.png)
 
-    You can also select the **Review for approval** link.
+    ... or scroll to the bottom of the page and select **Manage pending requests** from the **Microsoft Support Access Requests** section.
 
-    ![Screenshot of the Support Access requests page, with the Support Request ID and Action needed links highlighted](media/how-to-manage-support-access-requests/pending-requests.png) 
+    :::image type="content" source="media/how-to-approve-support-access-requests/diagnose-solve-problems-access-requests.png" alt-text="Screenshot of the Diagnose and solve problems page with the Manage pending requests link highlighted." lightbox="media/how-to-approve-support-access-requests/diagnose-solve-problems-access-requests-expanded.png":::
 
-### Pending request details
+1. Select either the **Support request ID** link  or **Review for approval** link for the request you need to approve.
 
-The **Pending request** page shows information about your support case, and the reason that Microsoft Support needs your approval in order to access your diagnostic data.
+    ![Screenshot of the pending request with links to view details highlighted.](media/how-to-approve-support-access-requests/pending-request-view-details-links.png)
 
-- To approve the Support Access Request, select the **Approve** button.
+## Approve or reject a support request
+
+The **Pending requests** page shows information about your support case, and the reason that Microsoft Support needs your approval in order to access your diagnostic data.
+
+- To approve the support access request, select the **Approve** button.
     - Microsoft Support now has *read-only* access to your identity diagnostic data until your support request is completed.
-- To reject the Support Access Request, select the **Reject** button.
+- To reject the support access request, select the **Reject** button.
     - Microsoft Support does *not* have access to your identity diagnostic data.
     - A message appears, indicating this choice may result in slower resolution of your support request.
-    - Your support engineer will ask you for data needed to diagnose the issue, and you'll need to collect and provide that information to your support engineer. 
+    - Your support engineer may ask you for data needed to diagnose the issue, and you must collect and provide that information to your support engineer. 
 
-![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted](media/how-to-manage-support-access-requests/pending-request-details.png)
+![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted](media/how-to-approve-support-access-requests/pending-request-details.png)
 
-## Approve access
-
-To view all Support Access Requests for your tenant that are no longer pending and less than 30 days old, navigate to the **Diagnose and solve problems** page in Azure AD, select **Approved access**. 
-
-Select the **Support request ID** link to see the details of the Support Access Request. The details page shows information about your support request.
-
-![Screenshot of the Support Access Requests with the pending requests link highlighted](media/how-to-manage-support-access-requests/request-history.png)
-
-## Revoke access
-
-Microsoft Support approved access to your identity diagnostic data is revoked when your support request is closed.
-
-If you want to remove Microsoft Support’s access to identity diagnostic data for the support request before it's closed, you can select the **Remove acces**s button. Microsoft Support’s access to identity diagnostic data in this tenant is immediately removed for this support request. 
-
-The status of a **Rejected, Revoked,** or **Completed** Support Access request can't be changed.
-<!--- is the above statement true? ---> 
-
-![Screenshot of the Support Access Requests history with the Revoke button highlighted](media/how-to-manage-support-access-requests/request-history-details.png)
-
-When your support request is closed, the status of an approved Microsoft Support Access Request is automatically set to **Completed.** Microsoft Support Access Requests remain in **Approved access** for 30 days.
 
 ## Next steps
 
 - [How to create a support request](how-to-get-support.md)
-
-- [Learn about the diagnostic data Azure identity support can access](concept-diagnostic-data-access.md)
+- [Manage Microsoft Support access requests](how-to-manage-support-access-requests.md)
+- [View Microsoft Support access request logs](how-to-view-support-access-request-logs.md)
+- [Learn how Microsoft uses data for Azure support](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)

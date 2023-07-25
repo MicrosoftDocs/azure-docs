@@ -22,34 +22,30 @@ You can use the Microsoft Entra admin center and the Azure Active Directory (Azu
 
 Only certain Azure AD roles are authorized to manage Microsoft Support access requests. To manage Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which Azure AD roles have this permission, search the [Azure AD built-in roles](../roles/permissions-reference.md) for the required permission.
 
-## View existing support access requests
+## View support access requests
 
-To view all Microsoft Support access requests for your tenant that are no longer pending and less than 30 days old, navigate to the **Diagnose and solve problems** page in Azure AD, select **Approved access**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
 
-Select the **Support request ID** link to see the details of the Support Access Request. The details page shows information about your support request.
+1. Scroll to the bottom of the page and select **Approved access** from the **Microsoft Support Access Requests** section.
 
-![Screenshot of the Support access requests with the pending requests link highlighted](media/how-to-manage-support-access-requests/request-history.png)
+    :::image type="content" source="media/how-to-manage-support-access-requests/diagnose-solve-problems-access-requests.png" alt-text="Screenshot of the Diagnose and solve problems page with the Manage pending requests link highlighted." lightbox="media/how-to-manage-support-access-requests/diagnose-solve-problems-approved-access-expanded.png":::
 
-Select the **Revoke** button to revoke access to an **Approved** Support Access Request. The status of a **Rejected, Revoked,** or **Completed** Support Access request can't be changed. 
+1. Select either the **Support request ID** link  or **Review for approval** link for the request you need to approve.
 
-![Screenshot of the Support access requests history with the Revoke button highlighted](media/how-to-manage-support-access-requests/request-history-details.png)
+    ![Screenshot of the pending request with links to view details highlighted.](media/how-to-manage-support-access-requests/pending-request-view-details-links.png)
 
-When your support request is closed, the status of an approved Microsoft Support Access Request is automatically set to **Completed.** Microsoft Support access requests remain in **Approved access** for 30 days.
+## Revoke access to an approved support access request
 
-## Remove Microsoft Support access
+Closing a support request automatically revokes the support engineer's access to your identity diagnostic data. You can manually revoke Microsoft Support's access to identity diagnostic data for the support request *before* your support request is closed. 
 
-Closing a support request automatically revokes the support engineer's access to your identity diagnostic data. If you want to remove Microsoft Support's access to identity diagnostic data for the support request *before* your support request is closed, you can manually revoke access. 
+Select the **Remove access** button to revoke access to an approved support access request. 
 
-1. Go to **Microsoft support access requests**.
-1. Select the **Remove access** button.
-<!--- Check on the process --->
-Microsoft Support's access to your identity diagnostic data is immediately revoked for that request.
+![Screenshot of the Support access requests history with the Revoke button highlighted](media/how-to-manage-support-access-requests/remove-approved-access.png)
 
-
+When your support request is closed, the status of an approved Microsoft Support access request is automatically set to **Completed.** Microsoft Support access requests remain in the **Approved access** list for 30 days.
 
 ## Next steps
 
-- [Create a support request](how-to-get-support.md)
 - [Approve Microsoft Support access requests](how-to-approve-support-access-requests.md)
 - [View Microsoft Support access request logs](how-to-view-support-access-request-logs.md)
 - [Learn how Microsoft uses data for Azure support](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)
