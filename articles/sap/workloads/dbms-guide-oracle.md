@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 07/13/2023
+ms.date: 07/25/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -68,7 +68,8 @@ Installing or migrating existing SAP on Oracle systems to Azure, the following d
 
 For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
 
-General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
+General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat) for application and database servers.
+ASCS/ERS servers can use RHEL/SUSE because Oracle client is not installed or used on these VMs. Application Servers (PAS/AAS) should not be installed on these VMs. Refer SAP Note [3074643 - OLNX: FAQ: if Pacemaker for Oracle Linux is supported in SAP Environment](https://me.sap.com/notes/3074643). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
 
 ## Storage configuration
 
