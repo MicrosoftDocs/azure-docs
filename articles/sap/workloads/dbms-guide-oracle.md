@@ -213,7 +213,7 @@ Oracle DBAs that aren't familiar with Oracle ASM follow the training materials a
 - [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
 - [Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 - [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
-- [Oracle for SAP Technology Update (April 2022)](https://www.oracle.com/a/ocom/docs/ora4sap-technology-update-5112158.pdf)
+- [Oracle for SAP Development Update (May 2022)](https://www.oracle.com/a/ocom/docs/sap-on-oracle-dev-update.pdf)
 - [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
 - [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
 - [Using RMAN to migrate to ASM \| The Oracle Mentor (wordpress.com)](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
