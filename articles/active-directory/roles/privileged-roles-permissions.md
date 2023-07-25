@@ -382,7 +382,7 @@ Content-type: application/json
 
 Here are some best practices for using privileged roles.
 
-- Manage to least privilege
+- Apply principle of least privilege
 - Use Privileged Identity Management to grant just-in-time access
 - Turn on multi-factor authentication for all your administrator accounts
 - Configure recurring access reviews to revoke unneeded permissions over time

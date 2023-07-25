@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 This article describes some of the best practices for using Azure Active Directory role-based access control (Azure AD RBAC). These best practices are derived from our experience with Azure AD RBAC and the experiences of customers like yourself. We encourage you to also read our detailed security guidance at [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md).
 
-## 1. Manage to least privilege
+## 1. Apply principle of least privilege
 
 When planning your access control strategy, it's a best practice to manage to least privilege. Least privilege means you grant your administrators exactly the permission they need to do their job. There are three aspects to consider when you assign a role to your administrators: a specific set of permissions, over a specific scope, for a specific period of time. Avoid assigning broader roles at broader scopes even if it initially seems more convenient to do so. By limiting roles and scopes, you limit what resources are at risk if the security principal is ever compromised. Azure AD RBAC supports over 65 [built-in roles](permissions-reference.md). There are Azure AD roles to manage directory objects like users, groups, and applications, and also to manage Microsoft 365 services like Exchange, SharePoint, and Intune. To better understand Azure AD built-in roles, see [Understand roles in Azure Active Directory](concept-understand-roles.md). If there isn't a built-in role that meets your need, you can create your own [custom roles](custom-create.md).  
  
@@ -61,7 +61,7 @@ For information about access reviews for roles, see [Create an access review of 
 
 ## 5. Limit the number of Global Administrators to less than 5
 
-As a best practice, Microsoft recommends that you assign the Global Administrator role to **fewer than five** people in your organization. Global Administrators hold keys to the kingdom, and it is in your best interest to keep the attack surface low. As stated previously, all of these accounts should be protected with multi-factor authentication.
+As a best practice, Microsoft recommends that you assign the Global Administrator role to **fewer than five** people in your organization. Global Administrators essentially have unrestricted access, and it is in your best interest to keep the attack surface low. As stated previously, all of these accounts should be protected with multi-factor authentication.
 
 By default, when a user signs up for a Microsoft cloud service, an Azure AD tenant is created and the user is made a member of the Global Administrators role. Users who are assigned the Global Administrator role can read and modify every administrative setting in your Azure AD organization. With a few exceptions, Global Administrators can also read and modify all configuration settings in your Microsoft 365 organization. Global Administrators also have the ability to elevate their access to read data.
 
