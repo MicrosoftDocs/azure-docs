@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/17/2023
+ms.date: 07/24/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -362,6 +362,165 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     The results show the `target` attribute specifies that for the container to run optimally, it doesn't need to change the CPU or the memory target. Your results may vary where the target CPU and memory recommendation are higher.
 
     The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a Pod and replace it with a new Pod. If a Pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the Pod and replaces it with a Pod that meets the target attribute.
+
+## Customized Recommender for Vertical Pod Autoscaler
+
+In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender and configure the VPA object to use the customized recommender.
+
+The following example is a customized recommender that you apply to your existing AKS cluster.
+
+1. Create a file named `customized_recommender.yaml` and copy in the following manifest:
+
+    ```json
+    apiVersion: apps/v1 
+    kind: Deployment 
+    metadata: 
+      name: customized-recommender 
+      namespace: kube-system 
+    spec: 
+      replicas: 1 
+      selector: 
+        matchLabels: 
+          app: customized-recommender 
+      template: 
+        metadata: 
+          labels: 
+            app: customized-recommender 
+        spec: 
+          serviceAccountName: vpa-recommender 
+          securityContext: 
+            runAsNonRoot: true 
+            runAsUser: 65534 # nobody 
+          containers: 
+          - name: recommender 
+            image: registry.k8s.io/autoscaling/vpa-recommender:0.13.0 
+            imagePullPolicy: Always 
+            args: 
+              - --recommender-name=customized-recommender 
+            resources: 
+              limits: 
+                cpu: 200m 
+                memory: 1000Mi 
+              requests: 
+                cpu: 50m 
+                memory: 500Mi 
+            ports: 
+            - name: prometheus 
+              containerPort: 8942 
+    ```
+
+2. Deploy the `customized-recomender.yaml`` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
+ 
+    ```bash
+    kubectl apply -f customized-recommender.yaml 
+    ```
+
+   After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+
+apiVersion: "autoscaling.k8s.io/v1" 
+
+kind: VerticalPodAutoscaler 
+
+metadata: 
+
+  name: hamster-vpa 
+
+spec: 
+
+  recommenders:  
+
+    - name: 'customized-recommender' 
+
+  targetRef: 
+
+    apiVersion: "apps/v1" 
+
+    kind: Deployment 
+
+    name: hamster 
+
+  updatePolicy: 
+
+    updateMode: "Auto" 
+
+  resourcePolicy: 
+
+    containerPolicies: 
+
+      - containerName: '*' 
+
+        minAllowed: 
+
+          cpu: 100m 
+
+          memory: 50Mi 
+
+        maxAllowed: 
+
+          cpu: 1 
+
+          memory: 500Mi 
+
+        controlledResources: ["cpu", "memory"] 
+
+--- 
+
+apiVersion: apps/v1 
+
+kind: Deployment 
+
+metadata: 
+
+  name: hamster 
+
+spec: 
+
+  selector: 
+
+    matchLabels: 
+
+      app: hamster 
+
+  replicas: 2 
+
+  template: 
+
+    metadata: 
+
+      labels: 
+
+        app: hamster 
+
+    spec: 
+
+      securityContext: 
+
+        runAsNonRoot: true 
+
+        runAsUser: 65534 # nobody 
+
+      containers: 
+
+        - name: hamster 
+
+          image: k8s.gcr.io/ubuntu-slim:0.1 
+
+          resources: 
+
+            requests: 
+
+              cpu: 100m 
+
+              memory: 50Mi 
+
+          command: ["/bin/sh"] 
+
+          args: 
+
+            - "-c" 
+
+            - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
 
 ## Next steps
 
