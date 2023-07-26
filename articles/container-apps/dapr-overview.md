@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 07/26/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -388,5 +388,5 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-cncf]: https://www.cncf.io/projects/dapr/
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
-[dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/
 [dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
