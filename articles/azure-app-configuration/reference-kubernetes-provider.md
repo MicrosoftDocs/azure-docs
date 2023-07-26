@@ -239,7 +239,7 @@ spec:
 
 ### Dynamically refresh ConfigMap and Secret
 
-Set the `spec.keyValues.refresh` property enables dynamic configuration refresh data in ConfigMap and Secret by monitoring designated key-values. The provider periodically polling the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
+Set the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap and Secret by monitoring designated key-values. The provider periodically polling the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
 
 The following sample instructs monitoring two key-values with 1 minute polling interval.
 
