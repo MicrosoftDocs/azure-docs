@@ -335,7 +335,7 @@ validate=False)
 
 To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
 
-1. Open your Application Insights resource in the Azure Portal. The Overview tab may or may not have a Workspace property. If it does not have the property you need to perform step 2. If it does, then you can proceed directly to step 3.
+1. Open your Application Insights resource in the Azure Portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
    1. > [!TIP]
       > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
