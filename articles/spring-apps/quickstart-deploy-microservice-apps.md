@@ -32,7 +32,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 - Monitors performance with Application Insights.
 
 > [!NOTE]
-> This article uses a simplified version of PetClinic, using an in-memory database to quickly deploy to Azure Spring Apps.
+> - This article uses a simplified version of PetClinic, using an in-memory database to quickly deploy to Azure Spring Apps.
 > 
 > The deployed app `admin-server` exposes public access; therefore, the production environment needs to secure the Spring Boot Admin application.
 
