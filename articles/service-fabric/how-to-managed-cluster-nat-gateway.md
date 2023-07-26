@@ -88,41 +88,41 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name mvVNe
 
 1. Place the virtual network into a variable
 
-  ```powershell
-  $net = @{
-  Name = `myVNet`
-  ResourceGroupName = 'myResourceGroup'
-  }
-  $vnet = Get-AzVirtualNetwork @net
-  ```
+    ```powershell
+    $net = @{
+      Name = `myVNet`
+      ResourceGroupName = 'myResourceGroup'
+    }
+    $vnet = Get-AzVirtualNetwork @net
+    ```
 
 1. Place the NAT gateway into a variable
 
-  ```powershell
-  $nat = @{
-  Name = 'myNATgateway'  
-  ResourceGroupName = 'myResourceGroup'
-  } 
-  $natGateway = Get-AzNatGateway @nat 
-  ```
+    ```powershell
+    $nat = @{
+      Name = 'myNATgateway'  
+      ResourceGroupName = 'myResourceGroup'
+    } 
+    $natGateway = Get-AzNatGateway @nat 
+    ```
 
 1. Set the subnet configuration
 
-  ```powershell
-  $subnet = @{  
-  Name = 'mySubnet' 
-  VirtualNetwork = $vnet 
-  NatGateway = $natGateway 
-  AddressPrefix = '10.0.2.0/24'  
-  } 
-  Set-AzVirtualNetworkSubnetConfig @subnet
-  ```
+    ```powershell
+    $subnet = @{  
+      Name = 'mySubnet' 
+      VirtualNetwork = $vnet 
+      NatGateway = $natGateway 
+      AddressPrefix = '10.0.2.0/24'  
+    } 
+    Set-AzVirtualNetworkSubnetConfig @subnet
+    ```
 
 1. Save the configuration to the virtual network
 
-  ```powershell
-  $vnet | Set-AzVirtualNetwork
-  ```
+    ```powershell
+    $vnet | Set-AzVirtualNetwork
+    ```
 
 ### Azure portal
 
@@ -134,7 +134,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name mvVNe
 
 1. Open the **NAT gateway** dropdown and select your NAT gateway.
 
-  ![Screenshot showing the dropdown for selecting your NAT gateway.](media/how-to-managed-cluster-nat-gateway/attach-nat-gateway-portal.png)
+    ![Screenshot showing the dropdown for selecting your NAT gateway.](media/how-to-managed-cluster-nat-gateway/attach-nat-gateway-portal.png)
 
 1. Click **Save**.
 
@@ -142,7 +142,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name mvVNe
 
 The following steps describe how to attach a NAT gateway to your virtual network subnets.
 
-> ![NOTE]
+> [!NOTE]
 > This scenario is only supported via ARM template.
 
 1. Follow the steps in the [Azure NAT Gateway quickstart](../nat-gateway/quickstart-create-nat-gateway-portal.md) to create a NAT gateway.
