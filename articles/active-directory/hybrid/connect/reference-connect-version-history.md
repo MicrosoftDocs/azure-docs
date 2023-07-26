@@ -49,9 +49,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
 > 
 
-Rather than list all the versions which are retired I think its simpler just to list the ones which aren’t retired.
-
-
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
 To learn more about what has changed in V2.0 and how this change affects you, see [Azure AD Connect V2.0](whatis-azure-ad-connect-v2.md).
