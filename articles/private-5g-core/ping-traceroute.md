@@ -36,21 +36,29 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
 
 1. Run the ping command, specifying the data network name and default gateway IP address.
 
-    ```ping --net <DN name> <IP address>```
+    ```azurecli
+    ping --net <DN name> <IP address>
+    ```
 
     For example:
 
-    ```ping --net network-1  10.0.0.1```
+    ```azurecli
+    ping --net network-1  10.0.0.1
+    ```
 
     The tool should report a list of packets transmitted and received with 0% packet loss.
 
 1. Run the traceroute command, specifying the data network name and default gateway IP address.
 
-    ```traceroute --net <DN name> <IP address>```
+    ```azurecli
+    traceroute --net <DN name> <IP address>
+    ```
 
     For example:
 
-    ```traceroute --net network-1  10.0.0.1```
+    ```azurecli
+    traceroute --net network-1  10.0.0.1
+    ```
 
     The tool should report a series of hops across different endpoints, with the default gateway IP address as the final hop.
 
