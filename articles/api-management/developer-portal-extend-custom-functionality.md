@@ -46,7 +46,7 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
 
 ## Create and upload custom widget
 
-For more advanced use cases, you can create and upload a custom widget to the developer portal. You can use
+For more advanced use cases, you can create and upload a custom widget to the developer portal. API Management provides a code scaffold for developers to create custom widgets in React, Vue, or plain TypeScript. The scaffold includes tools to help you develop and deploy your widget to the developer portal.
 
 ### Prerequisites 
  
