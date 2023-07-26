@@ -10,37 +10,16 @@ ms.date: 04/04/2022
 
 # Use customer-managed storage accounts in Azure Monitor Logs
 
-Azure Monitor Logs relies on Azure Storage in various scenarios. Azure Monitor typically manages this type of storage automatically, but some cases require you to provide and manage your own storage account, also known as a customer-managed storage account. This article describes the use cases in which you need customer-managed storage to ingest logs into Azure Monitor Logs and explains how to link a storage account to a Log Analytics workspace. 
+Azure Monitor Logs relies on Azure Storage in various scenarios. Azure Monitor typically manages this type of storage automatically, but some cases require you to provide and manage your own storage account, also known as a customer-managed storage account. This article describes the use cases and requirements for setting up customer-managed storage to ingest logs into Azure Monitor Logs and explains how to link a storage account to a Log Analytics workspace. 
 
 > [!NOTE]
 > We recommend that you don't take a dependency on the contents that Azure Monitor Logs uploads to customer-managed storage because formatting and content might change.
 
-## Ingest logs using the Azure Diagnostics extension (WAD/LAD)
-The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents, respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Azure Monitor to review and analyze them.
-
-### Collect Azure Diagnostics extension logs from your storage account
-Connect the storage account to your Log Analytics workspace as a storage data source by using the [Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage). You can also call the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
-
-Supported data types are:
-
-* [Syslog](../agents/data-sources-syslog.md)
-* [Windows events](../agents/data-sources-windows-events.md)
-* Azure Service Fabric
-* [Event Tracing for Windows (ETW) events](../agents/data-sources-event-tracing-windows.md)
-* [IIS logs](../agents/data-sources-iis-logs.md)
-
-## Use private links
+## Private links
 Customer-managed storage accounts are used to ingest custom logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace.
 
-> [!IMPORTANT]
-> Collection of IIS logs isn't supported with private links.
-
-### Use a customer-managed storage account over a private link
-
-Meet the following requirements.
-
-#### Workspace requirements
-When you connect to Azure Monitor over a private link, Log Analytics agents are only able to send logs to workspaces accessible over a private link. This requirement means you should:
+### Workspace requirements
+When you connect to Azure Monitor over a private link, Azure Monitor Agent can only send logs to workspaces accessible over a private link. This requirement means you should:
 
 * Configure an Azure Monitor Private Link Scope (AMPLS) object.
 * Connect it to your workspaces.
@@ -48,7 +27,7 @@ When you connect to Azure Monitor over a private link, Log Analytics agents are 
 
 For more information on the AMPLS configuration procedure, see [Use Azure Private Link to securely connect networks to Azure Monitor](./private-link-security.md).
 
-#### Storage account requirements
+### Storage account requirements
 For the storage account to successfully connect to your private link, it must:
 
 * Be located on your virtual network or a peered network and connected to your virtual network over a private link.
@@ -61,24 +40,24 @@ If your workspace handles traffic from other networks, configure the storage acc
 
 Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Azure Monitor Logs by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If required, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
 
-### Use a customer-managed storage account for CMK data encryption
-Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use CMKs from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
+## Customer-managed key data encryption
+Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use customer-managed keyd (CMKs) from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
 
-#### CMK scenarios that require a customer-managed storage account
+### CMK scenarios that require a customer-managed storage account
 
 A customer-managed storage account is required for:
 
 * Encrypting log-alert queries with CMKs.
 * Encrypting saved queries with CMKs.
 
-#### Apply CMKs to customer-managed storage accounts
+### Apply CMKs to customer-managed storage accounts
 
 Follow this guidance to apply CMKs to customer-managed storage accounts.
 
-##### Storage account requirements
+#### Storage account requirements
 The storage account and the key vault must be in the same region, but they also can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
-##### Apply CMKs to your storage accounts
+#### Apply CMKs to your storage accounts
 To configure your Azure Storage account to use CMKs with Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [Azure CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## Link storage accounts to your Log Analytics workspace
