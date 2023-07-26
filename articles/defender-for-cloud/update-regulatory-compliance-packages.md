@@ -32,33 +32,32 @@ By default:
 
 If a subscription, account, or project has *any* Defender plan enabled, additional standards can be applied.
 
-
 **Available regulatory standards**:
 
-| Standards for Azure subscriptions | Standards for AWS accounts                  | Standards for GCP projects  |
-| --------------------------------- | ------------------------------------------- | --------------------------- |
-| - PCI-DSS v3.2.1 **(deprecated)** | - CIS 1.2.0                                 | - CIS 1.1.0,                |
-| - PCI DSS v4                      | - CIS 1.5.0                                 | - CIS 1.2.0                 |
-| - SOC TSP                         | - PCI DSS 3.2.1                             | - PCI DSS 3.2.1             |
-| - SOC 2 Type 2                    | - AWS Foundational Security Best Practices  | - NIST 800 53               |
-| - ISO 27001:2013                  |                                             | - ISO 27001                 |
-| - Azure CIS 1.1.0                         |||
-| - Azure CIS 1.3.0                         |||
-| - Azure CIS 1.4.0                         |||
-| - NIST SP 800-53 R4                       |||
-| - NIST SP 800-53 R5                       |||
-| - NIST SP 800 171 R2                      |||
-| - CMMC Level 3                            |||
-| - FedRAMP H                               |||
-| - FedRAMP M                               |||
-| - HIPAA/HITRUST                           |||
-| - SWIFT CSP CSCF v2020                    |||
-| - UK OFFICIAL and UK NHS                  |||
-| - Canada Federal PBMM                     |||
-| - New Zealand ISM Restricted              |||
-| - New Zealand ISM Restricted v3.5         |||
-| - Australian Government ISM Protected     |||
-| - RMIT Malaysia                           |||
+| Standards for Azure subscriptions | Standards for AWS accounts    | Standards for GCP projects |
+| ----------------------------------| ------------------------------| ---------------------------|
+| PCI-DSS v3.2.1 **(deprecated)**   | CIS 1.2.0                     | CIS 1.1.0                  |
+| PCI DSS v4                        | CIS 1.5.0                     | CIS 1.2.0                  |
+| SOC TSP                           | PCI DSS v3.2.1                | PCI DSS v3.2.1             |
+| SOC 2 Type 2                      |                               | NIST 800-53                |
+| ISO 27001:2013                    |                               | ISO 27001                  |
+| Azure CIS 1.1.0                         |||
+| Azure CIS 1.3.0                         |||
+| Azure CIS 1.4.0                         |||
+| NIST SP 800-53 R4                       |||
+| NIST SP 800-53 R5                       |||
+| NIST SP 800 171 R2                      |||
+| CMMC Level 3                            |||
+| FedRAMP H                               |||
+| FedRAMP M                               |||
+| HIPAA/HITRUST                           |||
+| SWIFT CSP CSCF v2020                    |||
+| UK OFFICIAL and UK NHS                  |||
+| Canada Federal PBMM                     |||
+| New Zealand ISM Restricted              |||
+| New Zealand ISM Restricted v3.5         |||
+| Australian Government ISM Protected     |||
+| RMIT Malaysia                           |||
 
 > [!TIP]
 > Standards are added to the dashboard as they become available. This table might not contain recently added standards.
@@ -146,6 +145,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
-- [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
-- [Working with security policies](tutorial-security-policy.md)
+[Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
+[Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
+[Working with security policies](tutorial-security-policy.md)
