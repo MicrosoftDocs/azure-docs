@@ -22,7 +22,7 @@ If you enable network security policies for User-Defined Routes and create a rou
 
 To disable a /32 Private Endpoint route:
 1. Enable network policy for private endpoints 
-2. Create a UDR that supercedes the Private Endpoint route. The scope of the UDR can't be larger than the VNet address space where the Private Endpoint is provisioned.
+2. Create a UDR to include and override the Private Endpoint route. The scope of the UDR can't be larger than the VNet address space where the Private Endpoint is provisioned.
 
 > [!IMPORTANT]
 > To invalidate a Private Endpoint route, user-defined routes must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) does not invalidate Private Endpoint routes. 
