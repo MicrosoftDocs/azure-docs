@@ -51,7 +51,6 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |&#x2705; |&#10060;|&#10060; |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public preview |&#x2705;|&#10060;  |&#x2705; |
-|[Data Connectors health](monitor-data-connector-health.md#use-the-sentinelhealth-data-table-public-preview) |Public preview |&#x2705;| |&#10060; |
 |[DNS](data-connectors/dns.md) |Public preview |&#x2705;| &#10060; |&#x2705; |
 |[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#10060; |&#10060; |
 |[Microsoft 365 Defender](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
