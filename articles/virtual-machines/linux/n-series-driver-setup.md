@@ -171,7 +171,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
    Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and then proceed.
 
-   ![Secure Boot Password Configuration](./media/n-series-driver-setup/sb-passwd.png)
+   ![Secure Boot Password Configuration](./media/n-series-driver-setup/secure-boot-passwd.png)
 
 9. Reboot the VM
 
@@ -350,7 +350,7 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    EnableUI=FALSE
    ```
    
-9. Remove the following from `/etc/nvidia/gridd.conf` if its present:
+9. Remove the following from `/etc/nvidia/gridd.conf` if it is present:
  
    ```
    FeatureType=0
