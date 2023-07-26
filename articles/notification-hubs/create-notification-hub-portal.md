@@ -31,11 +31,11 @@ In this section, you create a notification hub in an existing namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All services** on the left menu.
-    ![A screenshot showing select All Services for an existing namespace.](./media/create-notification-hub-portal/select-all-services.png)
+    ![A screenshot showing select All Services for an existing namespace for a new hub.](./media/create-notification-hub-portal/select-all-services.png)
 
 1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      ![A screenshot showing how to create a new notification hub.](./media/create-notification-hub-portal/create-toolbar-button.png)
+      ![A screenshot showing how to create a new notification hub in a new hub.](./media/create-notification-hub-portal/create-toolbar-button.png)
 
 1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
 
