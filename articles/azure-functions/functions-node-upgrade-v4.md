@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Upgrade to version 4 of the Node.js programming model for Azure Functions
 
-This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article also highlights the most important concrete actions that you should take to upgrade your app.
+This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 
 Version 4 is designed to provide Node.js developers with the following benefits:
 
@@ -64,12 +64,11 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 In v4, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model. In previous versions, that code shipped directly in Azure and the npm package had only the TypeScript types. You now need to include this package for both TypeScript and JavaScript apps. You _can_ include the package for existing v3 apps, but it isn't required.
 
-1. Add the `@azure/functions` package in the `dependencies` section (not `devDependencies`) of your *package.json* file. 
-1. Install the v4 package locally by using the following command: 
-
-    ```bash
-    `npm install @azure/functions@preview`
-    ```
+> [!TIP]
+> Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your *package.json* file. You can install v4 by using the following command: 
+> ```
+> npm install @azure/functions@preview
+> ```
 
 ## Set your app entry point
 
@@ -84,11 +83,15 @@ Otherwise, you define the file structure by setting the `main` field in your *pa
   - `src/index.js`
   - `src/functions/*.js`
 
+> [!TIP]
+> Make sure you define a `main` field in your `package.json` file.
+
 ## Switch the order of arguments
 
 The trigger input, instead of the invocation context, is now the first argument to your function handler. The invocation context, now the second argument, is simplified in v4 and isn't as required as the trigger input. You can leave it off if you aren't using it.
 
-Switch the order of your arguments. For example, if you're using an HTTP trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
+> [!TIP]
+> Switch the order of your arguments. For example, if you're using an HTTP trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
 
 ## Define your function in code
 
@@ -153,7 +156,8 @@ module.exports = async function (context, req) {
 
 ---
 
-**What you need to do:** Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
+> [!TIP]
+> Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
 ## Review your usage of context
 
@@ -187,7 +191,8 @@ async function helloWorld1(context, request) {
 
 ---
 
-Make sure you aren't using `context.req` or `context.bindings` to get the input.
+> [!TIP]
+> Make sure you aren't using `context.req` or `context.bindings` to get the input.
 
 ### Set the primary output as your return value
 
@@ -228,7 +233,8 @@ return {
 
 ---
 
-Always return the output in your function handler, instead of setting it with the `context` object.
+> [!TIP]
+> Make sure you always return the output in your function handler, instead of setting it with the `context` object.
 
 ### Create a test context
 
@@ -259,7 +265,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 # [v4](#tab/v4)
 
-- **Body**. You can access the body by using a method specific to the type that you want to receive:
+- *Body*. You can access the body by using a method specific to the type that you want to receive:
 
   ```javascript
     const body = await request.text();
@@ -269,13 +275,13 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     const body = await request.blob();
     ```
 
-- **Header**:
+- *Header*:
 
     ```javascript
     const header = request.headers.get('content-type');
     ```
 
-- **Query parameter**:
+- *Query parameter*:
 
     ```javascript
     const name = request.query.get('name');
@@ -283,7 +289,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 # [v3](#tab/v3)
 
-- **Body**. You can access the body in several ways, but the type returned isn't always consistent:
+- *Body*. You can access the body in several ways, but the type returned isn't always consistent:
 
     ```javascript
     // returns a string, object, or Buffer
@@ -296,7 +302,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     const body = await request.parseFormBody();
     ```
 
-- **Header**. You can retrieve a header in several ways:
+- *Header*. You can retrieve a header in several ways:
 
     ```javascript
     const header = request.get('content-type');
@@ -304,7 +310,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     const header = context.bindingData.headers['content-type'];
     ```
 
-- **Query parameter**:
+- *Query parameter*:
 
     ```javascript
     const name = request.query.name;
@@ -316,19 +322,19 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 # [v4](#tab/v4)
 
-- **Status**:
+- *Status*:
 
     ```javascript
     return { status: 200 };
     ```
 
-- **Body**:
+- *Body*:
 
     ```javascript
     return { body: "Hello, world!" };
     ```
 
-- **Header**. You can set the header in two ways, depending on whether you're using the `HttpResponse` class or the `HttpResponseInit` interface:
+- *Header*. You can set the header in two ways, depending on whether you're using the `HttpResponse` class or the `HttpResponseInit` interface:
 
     ```javascript
     const response = new HttpResponse();
@@ -344,7 +350,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 # [v3](#tab/v3)
 
-- **Status**. You can set a status in several ways:
+- *Status*. You can set a status in several ways:
 
     ```javascript
     context.res.status(200);
@@ -354,7 +360,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     return { statusCode: 200 };
     ```
 
-- **Body**. You can set a body in several ways:
+- *Body*. You can set a body in several ways:
 
     ```javascript
     context.res.send("Hello, world!");
@@ -363,7 +369,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     return { body: "Hello, world!" };
     ```
 
-- **Header**. You can set a header in several ways:
+- *Header*. You can set a header in several ways:
 
     ```javascript
     response.set('content-type', 'application/json');
@@ -379,7 +385,8 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 ---
 
-Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll get build errors if you use old methods.
+> [!TIP]
+> Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll get build errors if you use old methods.
 
 ## Troubleshoot
 
