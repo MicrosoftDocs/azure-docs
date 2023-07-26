@@ -80,7 +80,7 @@ In Public Preview we have a functionality that triggers provisioning right after
 Provisioning configuration depends on the application. Generally, we recommend having at least two groups assigned to the application. Depending on the number of roles in your application, you may choose to define additional “privileged groups.”:
 
 
-||Purpose|Members|Group membership|Role assigned in the application|
+|Group|Purpose|Members|Group membership|Role assigned in the application|
 |-----|-----|-----|-----|-----|
 |All users group|Ensure that all users that need access to the application are constantly provisioned to the application.|All users that need to access application.|Active|None, or low-privileged role|
 |Privileged group|Provide just-in-time access to privileged role in the application.|Users that need to have just-in-time access to privileged role in the application.|Eligible|Privileged role|
