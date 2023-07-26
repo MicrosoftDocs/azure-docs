@@ -35,6 +35,8 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 
 ## Invite guest users in bulk
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **All Users**.

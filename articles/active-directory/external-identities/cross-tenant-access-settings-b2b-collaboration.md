@@ -32,6 +32,8 @@ Use External Identities cross-tenant access settings to manage how you collabora
 
 ## Configure default settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings.  If you want to modify the Azure AD-provided default settings, follow these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
