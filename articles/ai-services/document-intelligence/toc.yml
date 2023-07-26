@@ -138,13 +138,13 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/ai-services/document-intelligence/toc.json&bc=/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/ai-services/document-intelligence/toc.json&bc=/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Integration and responsible use
-    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/ai-services/document-intelligence/toc.json&bc=ai-services/document-intelligence/breadcrumb/toc.json
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/ai-services/document-intelligence/toc.json&bc=/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Model overview
