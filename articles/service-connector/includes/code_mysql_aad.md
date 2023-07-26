@@ -29,7 +29,9 @@ ms.author: xiaofanzhou
 
     ```java
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
-    Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin");
+    String pluginName = "com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin";
+    Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=" + pluginName +
+        "&authenticationPlugins=" + pluginName);
     ```
 
 ### [Spring](#tab/spring)

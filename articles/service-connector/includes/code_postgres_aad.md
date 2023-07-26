@@ -31,8 +31,9 @@ ms.author: xiaofanzhou
     ```java
     import java.sql.*;
 
-    String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");  
-    Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin");
+    String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
+    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
     ```
 
 For more information, see the following resources:
