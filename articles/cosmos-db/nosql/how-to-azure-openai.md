@@ -10,42 +10,58 @@ ms.date: 07/25/2023
 ms.custom: OpenAI, vector-search, RAG
 ---
 
-# Use Cosmos DB with Azure OpenAI 
+# Use Cosmos DB data with Azure OpenAI 
 
-Harnessing the power of Azure OpenAI models, developers can now leverage the rich and diverse data stored in Azure Cosmos DB to create highly customized AI applications. The process of using data with large language models is called Retrieval Augmented Generation (RAG). 
+Large Language Models (LLMs), such as those features in Azure OpenAI. are incredible powerful tools to employ in your AI-powered applications. The utility of LLMs can increase significantly when the models can be provided the right data at the right time for a given task or prompt. This process is known as Retrieval Augmented Generation (RAG), and there are a variety of approaches for this.
 
-This document starts off with an overview of some core terms and concepts used in RAG, LLMs, and AI. Then it transitions into real-world applications and implementation details providing links to documentation, end-to-end tutorials, assets, and code snippets, all of which will provide you the tools you need to build AI powered applications using Azure Cosmos DB and Azure OpenAI. 
+Here we'll cover some of most powerful RAG patterns using vector search to find the most semantically relevant information for your scenario. There are multiple ways to use this RAG pattern with Azure Cosmos DB today:
+
+1. **Azure Cosmos DB with Azure Cognitive Search**.  Augment your Cosmos DB data with the powerful semantic and vector search capabilities of Azure Cognitive Search.
+2. **Azure Cosmos DB for Mongo DB vCore**. Featuring native support for vector search, store your application data and vector embeddings together in a single MongoDB compatible service. 
+3. **Azure Cosmos DB for PostgreSQL**. Offering native support vector search, you can store your data and vectors together in a scalable PostgreSQL offering.
 
 
-## Concepts
 
-### AI Models
+ in this document, we start with an overview of some core terms and concepts used in RAG, LLMs, and AI. Then it transitions into real-world applications and implementation details providing links to documentation, end-to-end tutorials, assets, and code snippets, all of which will provide you the tools you need to build AI powered applications using Azure Cosmos DB and Azure OpenAI. 
+
+## Key concepts
+
+### Large Language Models (LLMs) 
 Artificial Intelligence (AI) models are software programs that have undergone training on specific datasets to carry out particular tasks, including pattern recognition. These models employ algorithms to learn from the provided training data and apply their acquired knowledge to achieve predefined objectives. They find applications in various fields such as computer vision, robotics, and natural language processing. Azure OpenAI offers a range of models designed for natural language processing, each with varying levels of power and speed to cater to different scenarios. Specifically, we'll be working with models to create vector embeddings and Large Language Models (LLMs) like the GPT-3.5 and GPT-4 series. You can find the list of available models at [Azure OpenAI Service models - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models)
 
-### Prompts
-A prompt refers to a specific text or information that functions as an instruction or directive to an LLM. It serves as sort of guide or directive, indicating the desired response or output and providing guidance on how to formulate it. A prompt can take various forms, such as a question, a statement, or even a code snippet. To create effective prompts for AI systems, it's important to grasp the fundamentals of chatbot systems, comprehend the distinctions between popular models, construct clear and concise messages, and continuously refine and test the prompts to ensure optimal performance.
+### Retrieval Augmented Generation (RAG)
+Retrieval-Augmented Generation, or RAG, involves the process of retrieving supplementary data to provide the LLM with the ability to use this data when it generates repspones. For example, when presented with a user's question or prompt, RAG aims to select the most pertinent and current domain-specific knowledge from external sources, such as articles or documents. This retrieved information serves as a valuable reference for the model when generating its response.
 
-#### Prompt engineering
+The RAG pattern, in conjunction with prompt engineering, serves the purpose of enhancing response quality by offering additional contextual information to the model. By incorporating relevant external sources into the generation process, RAG enables the model to leverage a broader knowledge base, resulting in more comprehensive and informed responses. This also known as “grounding” LLMs, which is explained more here: Grounding LLMs - Microsoft Community Hub 
 
-The objective of prompt engineering is to create and refine prompts that strike a balance between specificity and clarity, ensuring they effectively elicit the desired output from the model. These prompts should be tailored to capture the complete spectrum of relevant information while considering the capabilities and limitations of LLMs. By carefully crafting prompts, we equip chatbots with the necessary guidance to generate the most suitable and contextually appropriate responses.
+### Prompts and prompt engineering
+A prompt refers to a specific text or information that can serve as an instruction to an LLM, or as contextual data that the LLM can build upon. A prompt can take various forms, such as a question, a statement, or even a code snippet. Prompts can serve as  *instructions* that provide directives to the LLM, *primary content* that gives information to the LLM for processing, *examples* that help condition the model to a particular task or process, *cues* that can help point direct the LLM's output in the right direction, or *supporting content*, which can be supplemental information the LLM can use to generate output. The process of creating good prompts for a scenario is called *prompt engineering*. To learn more about prompts and best practices for prompt engineering, check out [Azure OpenAI Service - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/prompt-engineering) 
 
-To learn more check out [Azure OpenAI Service - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/prompt-engineering) and [Prompt engineering techniques with Azure OpenAI - Azure OpenAI Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
 
 ### Tokens
+Tokens are small chunks text that are generated by splitting the input text into smaller segments. These segments can either be words or groups of characters, varying in length from a single character to an entire word. For instance, the word "hamburger" would be divided into tokens such as "ham," "bur," and "ger," while a short and common word like "pear" would be considered a single token. 
 
-Tokens are units of text that are generated by splitting the input text into smaller segments. These segments can either be words or groups of characters, varying in length from a single character to an entire word. For instance, the word "hamburger" would be divided into tokens such as "ham," "bur," and "ger," while a short and common word like "pear" would be considered a single token. It's common for many tokens to begin with a whitespace, such as "hello" and "bye."
-
-Prior to processing prompts using the Azure OpenAI API, the input text is segmented into tokens. These tokens are not precisely divided at word boundaries but can include trailing spaces and even sub-words. The number of tokens processed in each API request depends on factors such as the length of the input, output, and request parameters. The quantity of tokens being processed also impacts the response time and throughput of the models. However, it's important to note that there exists a limit to the amount of text that can be sent due to the token limit imposed by each model, restricting the number of tokens that can be consumed in a single request/response from Azure OpenAI.
+In Azure OpenAI, input text provided to the API is turned into tokens (tokenized). The number of tokens processed in each API request depends on factors such as the length of the input, output, and request parameters. The quantity of tokens being processed also impacts the response time and throughput of the models. There are limits to the amount tokens each model can take in a single request/response from Azure OpenAI. [Learn more about AzureOpenAI Service quotas and limits here](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits)
 
 ### Vectors, embeddings, and vector search
 
-*Vectors* are ordered arrays of numbers (typically floats) that represents information about some data. The process for turning data into a vector is called *vectorization*. 
+#### Vectors
+Vectors are ordered arrays of numbers (typically floats) that can represent information about some data. For example, an image can be represented as a vector of pixel values, or a string of text can be represented as a vector or ASCII values. The process for turning data into a vector is called *vectorization*. 
 
-*Embeddings* are vectors that represent important features of data. Embeddings are often learned by using a deep learning model, and can be utilized by machine learning and AI models. Azure OpenAI features models for creating embeddings from text data. The service breaks text out into tokens and generates embeddings using models pre-trained by OpenAI.
+#### Embeddings 
+Embeddings are vectors that represent important features of data. Embeddings are often learned by using a deep learning model, and can be utilized by other machine learning and AI models as features. Embeddings can also capture semantic similarity between similar concepts. For example, in generating an embedding for the words "person" and "human", we would expect their embeddings (vector representation) to be similar in value since the words are also semantically similar.
 
- [Learn more about creating embeddings with Azure OpenAI here.](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/understand-embeddings) 
+ Azure OpenAI features models for creating embeddings from text data. The service breaks text out into tokens and generates embeddings using models pre-trained by OpenAI.[Learn more about creating embeddings with Azure OpenAI here.](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/understand-embeddings) 
 
-*Vector search* refers to the the process of finding all vectors in a dataset that are similar to a specific query vector. Similarity is measured using a distance metric (like cosine similarity). For example, if your data consists of thousands of documents, and you have a query document and want to find the most similar document in your data, you can create embeddings from your documents using Azure OpenAI, then perform a vector search to find the most similar documents from your dataset.
+#### Vector search
+Vector search refers to the the process of finding all vectors in a dataset that are semantically similar to a specific query vector. Keeping with the above example, if I have a query vector for the word "human", and I search the entire dictionary for semantically similar words, I would expect to find the word "person" as a close match. This closeness, or distance, is measured using a similarity metric such as cosine similarity. The more similar the vectors are, the smaller the distance between them.
+
+If your data consists of thousands or millions of documents, and you have a query document and want to find the most similar document in your data, you can create embeddings for your data and the query document using Azure OpenAI, then perform a vector search to find the most similar documents from your dataset. However, erforming a vector search across a few examples is trivial, however doing this across thousands or millions of data points becomes challenging. There are also trade-offs between exhaustive search and approximate nearest neighbor (ANN) search methods including latency, throughput, accuracy, and cost, all of which can depend on the requirements of your application.
+
+Adding Azure Cosmos DB vector search capabilities to Azure OpenAI Service enables you to store long term memory and chat history to improve your Large Language Model (LLM) solution. Vector search allows you to efficiently query back the most relevant context to personalize Azure OpenAI prompts in a token-efficient manner. Storing vector embeddings alongside the data in an integrated solution minimizes the need to manage data synchronization and accelerates your time-to-market for AI app development. 
+
+ In Azure, there are several products that can perform vector search at scale, including:
+
 
 <!-- 
 ### Vector search
@@ -53,10 +69,7 @@ Prior to processing prompts using the Azure OpenAI API, the input text is segmen
 :::image type="content" source="media/how-to-multi-master/enable-multi-region-writes.png" alt-text="A green background with black text that says Align."::: -->
 
 
-### Retrieval Augmented Generation (RAG)
-Retrieval-Augmented Generation, or RAG, involves the process of retrieving supplementary data to provide the LLM with the ability to use this data when it generates repspones. For example, when presented with a user's question or prompt, RAG aims to select the most pertinent and current domain-specific knowledge from external sources, such as articles or documents. This retrieved information serves as a valuable reference for the model when generating its response.
 
-The RAG pattern, in conjunction with prompt engineering, serves the purpose of enhancing response quality by offering additional contextual information to the model. By incorporating relevant external sources into the generation process, RAG enables the model to leverage a broader knowledge base, resulting in more comprehensive and informed responses. This also known as “grounding” LLMs, which is explained more here: Grounding LLMs - Microsoft Community Hub 
 
 ## Getting started with Azure Cosmos DB and Azure OpenAI
 
@@ -77,3 +90,30 @@ There are several ways to utilize Cosmos DB data with Azure OpenAI, including:
 •	Azure Cosmos DB NoSQL API: Utilizing Azure Cognitive Search. 
 •	Azure Cosmos DB NoSQL API: Leveraging Redis Vector Search.
 •	Azure Cosmos DB for PostgreSQL: use pgvector
+
+
+
+### Tutorials & related code
+- **Azure Cosmos DB NoSQL + Azure Cognitive Search**
+  - [.NET](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/combining-assets/CosmosRecipeGuide_NoSQLwithMongoDBVectorSearch)
+  - Python:
+- **Azure Cosmos DB for Mongo DB vCore**
+    - **Native vector search**
+      - [.NET]()
+    - **with Azure Cognitive Search**
+      - [Python](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/CosmosDB-MongoDB-CogSearchVector)
+- **Azure Cosmos DB for PostgreSQL + Azure Cognitive Search**
+  - Python: [Python](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/CosmosDB-PostGres-CogSearchVector)
+- **Azure Database for PostgreSQL**
+  - [Python](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Flex-PostGres-NativeSeachVector)
+- **Azure SQL**
+  - [Python](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/AzureSQL-CogSearchVector)
+
+### Assets & Code Examples
+
+#### Vector search in Azure
+ - [Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/vector-search)
+ - [Azure Cosmos DB PostgreSQL](https://learn.microsoft.com/azure/cosmos-db/postgresql/howto-use-pgvector)
+ - [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector)
+ - [Azure Cognitive Search](https://learn.microsoft.com/azure/search/vector-search-overview)
+ - [Azure Cache for Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/introducing-vector-search-similarity-capabilities-in-azure-cache/ba-p/3827512)
