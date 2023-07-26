@@ -31,7 +31,7 @@ Azure Orbital Ground Station uses Microsoft’s global infrastructure and low-la
    * Spacecraft contact self-service scheduling
    * Direct data ingestion into Azure
    * Marketplace integration with third-party data processing and image calibration services
-   * Integrated cloud modems for X and S bands and Certified cloud modems available through the Azure Marketplace
+   * Integrated cloud modems for X and S bands
    * Global reach through integrated third-party networks
 
 ## Next steps
