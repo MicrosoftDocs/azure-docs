@@ -261,6 +261,8 @@
   items:
   - name: Identity Governance Dashboard
     href: governance-dashboard.md
+  - name: Licensing fundamentals
+    href: licensing-fundamentals.md
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
