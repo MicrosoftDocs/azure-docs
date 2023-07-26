@@ -39,7 +39,7 @@ To help choose the right method for integrating Azure AD activity logs for stora
 
 ### Troubleshooting
 
-If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure Portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
+If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
 
 If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, take a look at the long-term storage options.
 
@@ -51,19 +51,19 @@ If you need to query the data that you're retaining for more than 30 days, take 
 
 ### Analysis and monitoring
 
-If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data on a regular basis, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
+If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data regularly, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
 
-If you have a 3rd party SIEM tool, we recommend setting up an Event Hub namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
+If you have a third party SIEM tool, we recommend setting up an Event Hubs namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
 
 If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. In Addition to Azure Monitor logs, Microsoft Sentinel provides near real-time security detection and threat hunting. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
 
 ## Cost considerations
 
-There is a cost for sending data to a Log Analytics workspace, archiving data in a storage account, or streaming logs to an event hub. The amount of data and the cost incurred can vary significantly depending on the tenant size, the amount of policies in use, and even the time of day.
+There's a cost for sending data to a Log Analytics workspace, archiving data in a storage account, or streaming logs to an event hub. The amount of data and the cost incurred can vary significantly depending on the tenant size, the number of policies in use, and even the time of day.
 
-Because the size and cost for sending logs to and endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to and endpoint for day or two. With this snapshot you can get an accurate prediction for your expected costs.
+Because the size and cost for sending logs to and endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to and endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs.
 
-Additional considerations for sending Azure AD logs to Azure Monitor are covered in the the following Azure Monitor cost details articles:
+Other considerations for sending Azure AD logs to Azure Monitor are covered in the following Azure Monitor cost details articles:
 
 - [Azure Monitor Logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
 - [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
@@ -73,7 +73,7 @@ Azure Monitor provides the option to exclude whole events, fields, or parts of f
 
 ## Estimate your costs
 
-To estimate the costs for your organization you can estimate either the daily log size or the daily cost for integrating your logs with an endpoint.
+To estimate the costs for your organization, you can estimate either the daily log size or the daily cost for integrating your logs with an endpoint.
 
 The following factors could affect costs for your organization:
 
@@ -98,13 +98,13 @@ With the data sample captured, multiply accordingly to find out how large the fi
 
 ### Estimate the daily cost
 
-To get an idea of how much a log integration could cost for your organization, you can enable an integration for a day or two. With the new cost incurred from those sample days you can then use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. Use this option if your budget allows for the temporary increase. 
+To get an idea of how much a log integration could cost for your organization, you can enable an integration for a day or two. With the new cost incurred from those sample days, you can then use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. Use this option if your budget allows for the temporary increase. 
 
-To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) article. 
+To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. 
 
 ## Calculate estimated costs
 
-From the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) landing page you can estimate the costs for a variety of products.
+From the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) landing page, you can estimate the costs for various products.
 
 - [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
 - [Azure storage](https://azure.microsoft.com/pricing/details/storage/blobs/)

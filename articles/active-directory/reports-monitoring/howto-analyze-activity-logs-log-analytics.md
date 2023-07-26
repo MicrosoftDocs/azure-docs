@@ -88,7 +88,7 @@ You can also set up alerts on a query. After running a query, the **+ New alert 
     
     ![Screenshot of the "+ New alert rule" button in Log Analytics.](media/howto-analyze-activity-logs-log-analytics/log-analytics-new-alert.png)
 
-1. On the **Actions** tab, select the **Action Group** that will be alerted when the signal occurs.
+1. On the **Actions** tab, select the **Action Group** that will receive the alert when the signal occurs.
     - You can choose to notify your team via email or text message, or you could automate the action using webhooks, Azure functions or logic apps.
     - Learn more about [creating and managing alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
 
@@ -100,7 +100,7 @@ You can also set up alerts on a query. After running a query, the **+ New alert 
 
 Azure AD workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. *You can also alert on any of the data provided in the reports, using the steps described in the previous section.*
 
-* **Provisioning analysis:** This workbook shows reports related to auditing provisioning activity. Activities can include the number of new users provisioned, provisioning failures, number of users updated, update failures, the number of users de-provisioned, and corresponding failures. For more information, see [Understand how provisioning integrates with Azure Monitor logs](../app-provisioning/application-provisioning-log-analytics.md).
+* **Provisioning analysis:** This workbook shows reports related to auditing provisioning activity. Activities can include the number of new users provisioned, provisioning failures, number of users updated, update failures, the number of users deprovisioned, and corresponding failures. For more information, see [Understand how provisioning integrates with Azure Monitor logs](../app-provisioning/application-provisioning-log-analytics.md).
 
 * **Sign-ins Events**: This workbook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, and a summary view tracking the number of sign-ins over time.
 

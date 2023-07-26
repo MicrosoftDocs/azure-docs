@@ -59,7 +59,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 ### Quick steps
 
 1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Create an Event Hub namespace and event hub.
+1. Create an Event Hubs namespace and event hub.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
     - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
@@ -69,7 +69,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ## Access logs with Microsoft Graph API
 
-The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up additional infrastructure to support your script or app. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
+The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
 
 ### Recommended uses
 
@@ -91,7 +91,7 @@ Using Microsoft Graph explorer, you can run queries to help you with the followi
  
 ## Integrate logs with Azure Monitor logs
 
-With the Azure Monitor logs integration you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. To integrate Azure AD activity logs with Azure Monitor logs, you need a Log Analytics workspace. From there you can run queries through Log Analytics.
+With the Azure Monitor logs integration, you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. To integrate Azure AD activity logs with Azure Monitor logs, you need a Log Analytics workspace. From there, you can run queries through Log Analytics.
 
 ### Recommended uses
 
@@ -142,11 +142,11 @@ The data captured in the Azure AD activity logs are used in many reports and ser
 
 ### Recommended uses
 
-The reports available in the Azure portal provide a wide range of capabilities to monitor activities and usage in your tenant. The following list of uses and scenarios is not exhaustive, so explore the reports for your needs.
+The reports available in the Azure portal provide a wide range of capabilities to monitor activities and usage in your tenant. The following list of uses and scenarios isn't exhaustive, so explore the reports for your needs.
 
 - Sign-in logs are helpful when researching a user's sign-in activity or to track an application's usage. 
 - With audit logs you can review details around group name changes, device registration, password resets, and more.
-- Use the Identity Protection reports to monitor at risk users, risky workload identities, and risky sign-ins.
+- Use the Identity Protection reports for monitoring at risk users, risky workload identities, and risky sign-ins.
 - To ensure that your users can access the applications in use in your tenant, you can review the sign-in success rate in the Azure AD application activity (preview) report from Usage and insights.
 - Compare the different authentication methods your users prefer with the Authentication methods report from Usage and insights.
 
@@ -186,7 +186,7 @@ The right solution for your long-term storage depends on your budget and what yo
 
 If you plan to query the logs often to run reports or perform analysis on the stored logs, you should integrate your data with Azure Monitor. Azure Monitor provides you with built-in reporting and alerting capabilities. To utilize this integration, you need to set up a Log Analytics workspace. Once you have the integration set up, you can use Log Analytics to query your logs. 
 
-If your budget is tight, and you need a cheap method to create a long-term backup of your activity logs, you can [manually download your logs](howto-download-logs.md). The user interface of the activity logs in the portal provides you with an option to download the data as **JSON** or **CSV**. One trade off of the manual download is that it requires a lot of manual interaction. If you are looking for a more professional solution, use either Azure Storage or Azure Monitor.
+If your budget is tight, and you need a cheap method to create a long-term backup of your activity logs, you can [manually download your logs](howto-download-logs.md). The user interface of the activity logs in the portal provides you with an option to download the data as **JSON** or **CSV**. One trade off of the manual download is that it requires more manual interaction. If you're looking for a more professional solution, use either Azure Storage or Azure Monitor.
 
 ### Recommended uses
 
@@ -203,7 +203,7 @@ Use the following basic steps to archive or download your activity logs.
 ### Archive activity logs to a storage account
 
 1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Create an storage account.
+1. Create a storage account.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
     - [Review the data retention policies](reference-reports-data-retention.md)
