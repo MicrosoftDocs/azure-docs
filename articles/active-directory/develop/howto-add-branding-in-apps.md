@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/16/2023
+ms.date: 07/26/2023
 ms.author: ryanwi
-ms.reviewer: arielgo, jiml
+ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ---
 
