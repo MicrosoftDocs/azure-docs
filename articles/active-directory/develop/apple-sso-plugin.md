@@ -14,10 +14,9 @@ ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev
 ---
-
 # Microsoft Enterprise SSO plug-in for Apple devices
 
-The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
+The **Microsoft Enterprise SSO plug-in for Apple devices** provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
 
 The Enterprise SSO plug-in is currently a built-in feature of the following apps:
 
@@ -189,7 +188,7 @@ Try this configuration only for applications that have unexpected sign-in failur
 | `Enable_SSO_On_All_ManagedApps` | Integer | `1` to enable SSO for all managed apps, `0` to disable SSO for all managed apps. |
 | `AppAllowList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications allowed to participate in SSO. |
 | `AppBlockList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications not allowed to participate in SSO. |
-| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers , Customers or Admins could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO. |
+| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. For iOS, the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers, Customers, or Admins could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO. |
 | `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. Please note that this key is to be used only for iOS apps and not for macOS apps. |
 
 #### Settings for common scenarios
@@ -359,6 +358,9 @@ The Microsoft Enterprise SSO plug-in relies on the [Apple Enterprise SSO framewo
 
 Native applications can also implement custom operations and communicate directly with the SSO plug-in. For more information, see this [2019 Worldwide Developer Conference video from Apple](https://developer.apple.com/videos/play/tech-talks/301/).
 
+> [!TIP]
+> Learn more about how the SSO plug-in works and how to troubleshoot the Microsoft Enterprise SSO Extension with the [SSO troubleshooting guide for Apple devices](../devices/troubleshoot-mac-sso-extension-plugin.md).
+
 ### Applications that use MSAL
 
 [MSAL for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versions 1.1.0 and later supports the Microsoft Enterprise SSO plug-in for Apple devices natively for work and school accounts. 
@@ -388,3 +390,5 @@ The end user sees the familiar experience and doesn't have to sign in again in e
 ## Next steps
 
 Learn about [Shared device mode for iOS devices](msal-ios-shared-devices.md).
+
+Learn about [troubleshooting the Microsoft Enterprise SSO Extension](../devices/troubleshoot-mac-sso-extension-plugin.md).

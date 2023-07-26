@@ -32,7 +32,8 @@ You need to register an agent to create a trust relationship with your Storage M
 
 You can connect to an Azure VNET from other networks, like an on-premises corporate network. This type of connection is made through a VPN connection such as Azure Express Route. To learn more about this approach, refer to the [Azure ExpressRoute documentation](/azure/expressroute/) and [Azure Private Link](/azure/private-link) documentation.
 
-[!IMPORTANT] Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
+> [!IMPORTANT]
+> Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
 
 In this article, you learn how to successfully register a previously deployed Storage Mover agent virtual machine (VM).
 

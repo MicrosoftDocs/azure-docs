@@ -102,7 +102,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 ### Maximum IOPS for your configuration
 
-|SKU Name                               |Storage Size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32768 |
+|SKU Name                               |Storage Size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32767 |
 |---------------------------------------|------------------------------------------|---|---|----|----|-----|-----|-----|-----|------|------|
 |                                       |Maximum IOPS                              |120|240|500 |1100|2300 |5000 |7500 |7500 |16000 |18000 |20000 |
 |**Burstable**                          |                                          |   |   |    |    |     |     |     |     |      |      |      |
@@ -143,7 +143,7 @@ When marked with a \*, IOPS are limited by the VM type you selected. Otherwise I
 
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 
-|SKU Name                         |Storage Size, GiB                             |32    |64     |128    |256   |512    |1,024  |2,048 |4,096 |8,192 |16,384|37,768|
+|SKU Name                         |Storage Size, GiB                             |32    |64     |128    |256   |512    |1,024  |2,048 |4,096 |8,192 |16,384|32,767|
 |---------------------------------|----------------------------------------------|---   |---    |----   |----  |-----  |-----  |----- |----- |------|------|
 |                                 |**Storage Bandwidth, MiB/sec**                |25    |50     |100    |125   |150    |200    |250   |250   |500   |750   |900   |
 |**Burstable**                    |                                              |      |       |       |      |       |       |      |      |      |      |      |

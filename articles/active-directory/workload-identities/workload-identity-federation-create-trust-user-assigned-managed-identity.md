@@ -70,7 +70,7 @@ Use the following values from your Azure AD Managed Identity for your GitHub wor
 
     [![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png#lightbox)
 
-- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](../fundamentals/active-directory-how-to-find-tenant.md).
+- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 #### Entity type examples
 
@@ -253,7 +253,7 @@ az identity federated-credential show --name $ficId --identity-name $uaId --reso
 
 Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
 
-```azure cli
+```azurecli
 az login
 
 # Set variables
