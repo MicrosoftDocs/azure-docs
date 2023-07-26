@@ -274,7 +274,7 @@ az vmss update \
 
 The `repairAction` setting under `automaticRepairsPolicy` allows you to specify the desired repair action performed in response to an unhealthy instance. If you are updating the repair action on an existing automatic repairs policy, you must first disable automatic repairs on the scale set and re-enable with the updated repair action. This process is illustrated in the examples below.  
 
-### [REST API](rest-api-3)
+### [REST API](#tab/rest-api-3)
 
 This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy. Use API version 2021-11-01 or higher. 
 
