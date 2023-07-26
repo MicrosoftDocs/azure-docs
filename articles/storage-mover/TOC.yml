@@ -7,6 +7,8 @@ items:
     href: service-overview.md
   - name: Cloud migration basics
     href: migration-basics.md
+  - name: What's new
+    href: whats-new.md
   expanded: true
 - name: Concepts
   items: 
@@ -47,5 +49,3 @@ items:
     href: status-code.md
   - name: Collect a support bundle
     href: troubleshooting.md
-  - name: Release notes
-    href: release-notes.md

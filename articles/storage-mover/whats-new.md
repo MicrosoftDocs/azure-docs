@@ -1,15 +1,15 @@
 ---
-title: Release notes for the Azure Storage Mover service | Microsoft Docs
+title: What's new in the Azure Storage Mover service | Microsoft Docs
 description: Read the release notes for the Azure Storage Mover service, which allows you to migrate your on-premises unstructured data to the Azure Storage service.
 services: storage-mover
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 4/14/2022
+ms.date: 07/24/2023
 ---
 
-# Release notes for the Azure Storage Mover service
+# What's new in the Azure Storage Mover service
 
 Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements to its cloud service and the agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
 
@@ -44,7 +44,7 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees. 
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
@@ -65,7 +65,7 @@ Existing migration scenarios from the GA release remain unchanged. This release 
 - When moving the storage mover resource in your resource group, an issue was fixed where some properties may have been left behind.
 - Error messages have been improved.
 
-## Agent
+### Agent
 
 - Fixed an issue with registration failing sometimes when a proxy server connection and a private link scope were configured at the same time.
 - Improved the security stance by omitting to transmit a specific user input to the service that is no longer necessary.

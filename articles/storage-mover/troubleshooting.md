@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 07/25/2023
 ms.custom: template-how-to
 ---
 
@@ -44,6 +44,7 @@ Extracting the logs from the Zstd compressed tar file will create the following 
     - df.txt              — Filesystem usage
     - dmesg.txt           — Kernel messages
     - files.txt           — Directory listings
+    - free.txt            — Display amount of free and used memory in the system
     - ifconfig.txt        — Network interface settings
     - meminfo.txt         — Memory usage
     - netstat.txt         — Network connections
@@ -52,6 +53,7 @@ Extracting the logs from the Zstd compressed tar file will create the following 
     - **xdmdata**
         - archive         — Archived job logs
         - azcopy          — AzCopy logs
+        - copylog         — Copy logs
         - kv—Agent        — persisted data
         - xdmsh           — Restricted shell logs
 - ***run***
@@ -86,5 +88,5 @@ Using the VM's host machine, enter the commands provided by the agent to fetch a
 
 You may find information in the following articles helpful:
 
-- [Release notes](release-notes.md)
+- [What's New in Azure Storage Mover](whats-new.md)
 - [Resource hierarchy](resource-hierarchy.md)

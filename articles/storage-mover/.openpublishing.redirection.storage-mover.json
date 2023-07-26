@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/storage-mover/release-notes.md",
+            "redirect_url": "/azure/storage-mover/whats-new",
+            "redirect_document_id": false
+        }
+    ]
+}
