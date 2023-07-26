@@ -33,4 +33,4 @@ items:
   - name: Azure PowerShell
     href: /powershell/module/az.qumulo
   - name: Qumulo Developer tools 
-    href: qumulo-how-to-setup-features.md#Developer Tools 
+    href: qumulo-how-to-setup-features.md#developer-tools 
