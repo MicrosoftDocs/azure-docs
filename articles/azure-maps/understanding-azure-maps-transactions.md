@@ -40,7 +40,7 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Conversion] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing) |
 | [Dataset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing)|
 | [Feature State]  | Yes, except for `FeatureState.CreateStateset`, `FeatureState.DeleteStateset`, `FeatureState.GetStateset`, `FeatureState.ListStatesets`, `FeatureState.UpdateStatesets` | One request = 1 transaction | Azure Maps Creator Feature State (Gen2 pricing)     |
-| [Render v2] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render v2, see Render v2 sec[Tileset]tion in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
+| [Render v2] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render v2, see Render v2 section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
 | [Tileset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning    (Gen2 pricing) |
 | [WFS] | Yes| One request = 1 transaction | Azure Maps Creator Web Feature (WFS) (Gen2 pricing) |
 
