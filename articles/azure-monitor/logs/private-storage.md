@@ -10,7 +10,7 @@ ms.date: 04/04/2022
 
 # Use customer-managed storage accounts in Azure Monitor Logs
 
-Azure Monitor Logs relies on Azure Storage in various scenarios. Azure Monitor typically manages this type of storage automatically, but some cases require you to provide and manage your own storage account, also known as a customer-managed storage account. This article describes the use cases and requirements for setting up customer-managed storage to ingest logs into Azure Monitor Logs and explains how to link a storage account to a Log Analytics workspace. 
+Azure Monitor Logs relies on Azure Storage in various scenarios. Azure Monitor typically manages this type of storage automatically, but some cases require you to provide and manage your own storage account, also known as a customer-managed storage account. This article describes the use cases and requirements for setting up customer-managed storage for Azure Monitor Logs and explains how to link a storage account to a Log Analytics workspace. 
 
 > [!NOTE]
 > We recommend that you don't take a dependency on the contents that Azure Monitor Logs uploads to customer-managed storage because formatting and content might change.
@@ -28,20 +28,20 @@ When you connect to Azure Monitor over a private link, Azure Monitor Agent can o
 For more information on the AMPLS configuration procedure, see [Use Azure Private Link to securely connect networks to Azure Monitor](./private-link-security.md).
 
 ### Storage account requirements
-For the storage account to successfully connect to your private link, it must:
+For the storage account to connect to your private link, it must:
 
 * Be located on your virtual network or a peered network and connected to your virtual network over a private link.
 * Be located on the same region as the workspace it's linked to.
-* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account**.
+* Allow Azure Monitor to access the storage account. To allow only specific networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account**.
 
   ![Screenshot that shows Storage account trust Microsoft services.](./media/private-storage/storage-trust.png)
 
 If your workspace handles traffic from other networks, configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
-Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Azure Monitor Logs by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If required, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
+Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Azure Monitor Logs by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If necessary, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
 
 ## Customer-managed key data encryption
-Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use customer-managed keyd (CMKs) from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
+Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use customer-managed keys (CMKs) from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
 
 ### CMK scenarios that require a customer-managed storage account
 
@@ -94,13 +94,13 @@ The applicable `dataSourceType` values are:
 Follow this guidance to manage your linked storage accounts.
 
 ### Create or modify a link
-When you link a storage account to a workspace, Azure Monitor Logs will start using it instead of the storage account owned by the service. You can:
+When you link a storage account to a workspace, Azure Monitor Logs starts using it instead of the storage account owned by the service. You can:
 
 * Register multiple storage accounts to spread the load of logs between them.
 * Reuse the same storage account for multiple workspaces.
 
 ### Unlink a storage account
-To stop using a storage account, unlink the storage from the workspace. Unlinking all storage accounts from a workspace means Azure Monitor Logs will attempt to rely on service-managed storage accounts. If your network has limited access to the internet, these storage accounts might not be available and any scenario that relies on storage will fail.
+To stop using a storage account, unlink the storage from the workspace. When you unlink all storage accounts from a workspace, Azure Monitor Logs uses service-managed storage accounts. If your network has limited access to the internet, these storage accounts might not be available and any scenario that relies on storage will fail.
 
 ### Replace a storage account
 To replace a storage account used for ingestion:
@@ -113,7 +113,7 @@ To replace a storage account used for ingestion:
 Follow this guidance to maintain your storage accounts.
 
 #### Manage log retention
-When you use your own storage account, retention is up to you. Azure Monitor Logs won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
+When you use your own storage account, retention is up to you. Azure Monitor Logs doesn't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
 Storage accounts can handle a certain load of read and write requests before they start throttling requests. For more information, see [Scalability and performance targets for Azure Blob Storage](../../storage/common/scalability-targets-standard-account.md).
@@ -121,7 +121,7 @@ Storage accounts can handle a certain load of read and write requests before the
 Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register another storage account to spread the load between them. To monitor your storage account's capacity and performance, review its [Insights in the Azure portal](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### Related charges
-Storage accounts are charged by the volume of stored data, the type of storage, and the type of redundancy. For more information, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).
+You're charged for storage accounts based on the volume of stored data, the type of storage, and the type of redundancy. For more information, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).
 
 ## Next steps
 
