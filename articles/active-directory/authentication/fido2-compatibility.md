@@ -27,7 +27,7 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 |:---:|:------:|:----:|:-------:|:------:|
 | **Windows**  | &#x2705; | &#x2705; | &#x2705; | N/A |
 | **macOS**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **ChromeOS**  | &#x2705; | &#10060; | &#10060; | N/A |
+| **ChromeOS**  | &#x2705; | N/A | N/A | N/A |
 | **Linux**  | &#x2705; | &#10060; | &#10060; | N/A |
 | **iOS**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Android**  | &#10060; | &#10060; | &#10060; | N/A |
@@ -79,16 +79,16 @@ The following tables show which transports are supported for each platform. Supp
 
 ### iOS
 
-| Browser | Lightning  | NFC | BLE<sup>1</sup> |
+| Browser<sup>1</sup> | Lightning  | NFC | BLE<sup>2</sup> |
 |---------|------------|-----|-----|
 | Edge    |  &#x2705;  | &#x2705; | N/A | 
 | Chrome  |  &#x2705;  | &#x2705; | N/A |
 | Firefox |  &#x2705;  | &#x2705; | N/A |
-| Safari<sup>2</sup>  |  &#x2705;  | N/A | N/A |
+| Safari  |  &#x2705;  | &#x2705; | N/A |
 
-<sup>1</sup>BLE security keys aren't supported on iOS by Apple.
+<sup>1</sup>New security key registration doesn't work on iOS browsers because they don't prompt to set up biometrics or PIN.
 
-<sup>2</sup>New security key registration doesn't work on iOS browsers because they don't prompt to set up biometrics or PIN.
+<sup>2</sup>BLE security keys aren't supported on iOS by Apple.
 
 ### Android
 
