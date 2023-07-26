@@ -27,5 +27,6 @@ July 25, 2023 - 0.4.023971 - Ingress + Gateway co-existence improvements
 
 ## Release history
 July 24, 2023 - 0.4.023961 - Improved Ingress support
+
 July 24, 2023 - 0.4.023921 - Initial release of ALB Controller
 * Minimum supported Kubernetes version: v1.25
