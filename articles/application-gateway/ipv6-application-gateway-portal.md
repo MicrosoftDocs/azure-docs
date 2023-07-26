@@ -1,20 +1,17 @@
 ---
-title: Configure Application Gateway with a frontend private IPv6 address
+title: Configure Application Gateway with a frontend private IPv6 address using the Azure portal
 titleSuffix: Azure Application Gateway
-description: This article provides information on how to configure Application Gateway with a frontend private IPv6 address. 
+description: Learn how to configure Application Gateway with a frontend private IPv6 address. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/26/2023
 ms.author: greglin
-ms.date: 07/23/23
-ms.topic: How-To
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
 ---
 
-# Configure Application Gateway with a frontend private IPv6 address
+# Configure Application Gateway with a frontend private IPv6 address using the Azure Portal
 
 Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
 If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
@@ -256,6 +253,8 @@ To delete the resource group:
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
 3. On the **Resource group page**, select **Delete resource group**.
 4. Enter *myResourceGroupAG* under **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
+
+## Unregister from the preview
 
 ## Next steps
 
