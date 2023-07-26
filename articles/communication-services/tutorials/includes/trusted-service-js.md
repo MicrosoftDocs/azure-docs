@@ -1,10 +1,10 @@
 ---
 title: Trusted Service JavaScript
 description: This is the JavaScript version of creating a Trusted Service for Communication Services.
-author: chpalm
+author: tophpalmer
 manager: nimag
 services: azure-communication-services
-ms.author: tophpalmer
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services

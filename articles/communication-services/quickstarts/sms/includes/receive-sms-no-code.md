@@ -2,9 +2,9 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: chpalm
+author: tophpalmer
 manager: shahen
-ms.author: tophpalmer
+ms.author: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/09/2023

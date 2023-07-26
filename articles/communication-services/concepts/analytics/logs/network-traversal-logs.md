@@ -2,9 +2,9 @@
 title: Azure Communication Services Network Traversal logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Network Traversal.
-author: chpalm
+author: tophpalmer
 services: azure-communication-services
-ms.author: tophpalmer
+ms.author: chpalm
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
