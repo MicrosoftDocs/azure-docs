@@ -20,13 +20,13 @@ Bring your own storage (BYOS) can be used in the following Speech to text scenar
 1. Real-time transcription with audio and transcription result logging enabled
 1. Custom Speech
 
-One Speech resource – Storage account combination can be used for all scenarios simultaneously in all combinations.
+One Speech resource to Storage account pairing can be used for all scenarios simultaneously.
 
-This article explains the details of use a BYOS-enabled Speech resource in all Speech to text scenarios. The article implies, that you have [a fully configured BYOS-enabled Speech resource and associated Storage account](byos-speech.md).
+This article explains in depth how to use a BYOS-enabled Speech resource in all Speech to text scenarios. The article implies, that you have [a fully configured BYOS-enabled Speech resource and associated Storage account](byos-speech.md).
 
 ## Data storage
 
-When using BYOS, Speech service doesn't keep any customer artifacts after the data processing (transcription, model training, model testing) is complete. However, some meta-data that isn't derived from the user content is stored within Speech service premises. For example, in Custom Speech scenario, the Service keeps certain information about the custom endpoints, like which models they use.
+When using BYOS, the Speech service doesn't keep any customer artifacts after the data processing (transcription, model training, model testing) is complete. However, some metadata that isn't derived from the user content is stored within Speech service premises. For example, in Custom Speech scenario, the Service keeps certain information about the custom endpoints, like which models they use.
 
 BYOS-associated Storage account stores the following data:
 
@@ -42,11 +42,11 @@ BYOS-associated Storage account stores the following data:
 
 **Custom Speech**
 - Source files of datasets for model training and testing (optional)
-- All data and meta-data related to Custom models hosted by the BYOS-enabled Speech resource
+- All data and metadata related to Custom models hosted by the BYOS-enabled Speech resource
 
 ## Batch transcription
 
-Batch transcription is used to transcribe a large amount of audio data in storage. If you're unfamiliar with Batch transcription, see [this section](batch-transcription.md) first.
+Batch transcription is used to transcribe a large amount of audio data in storage. If you're unfamiliar with Batch transcription, see [this article](batch-transcription.md) first.
 
 Perform these steps to execute Batch transcription with BYOS-enabled Speech resource:
 
@@ -57,15 +57,15 @@ Perform these steps to execute Batch transcription with BYOS-enabled Speech reso
 >
 > If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
 
-2. When transcription is complete, get transcription results [the usual way](batch-transcription-get.md), or directly in `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
+2. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md) or directly in the `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
 
 ### Get Batch transcription results via REST API
 
 [Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
 
-To achieve maximum security, use `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request. Here's an example of the request URL:
+For maximum security use the `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request. Here's an example request URL:
 
-```http
+```https
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/3b24ca19-2eb1-4a2a-b964-35d89eca486b/files?sasValidityInSeconds=0
 ```
 
