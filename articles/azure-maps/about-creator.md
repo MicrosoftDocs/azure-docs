@@ -21,18 +21,13 @@ scaling.
 
 ## Services in Azure Maps Creator
 
-Creator is the Azure Maps tool for managing your geospatial data and
-designing custom map styles for indoor maps. Use Creator to build and
-design indoor maps to your exact specifications by uploading and editing
-your own data, utilizing tilesets and creating custom styles. You can
-also provide directions within your indoor map using wayfinding and even
-monitor the state of any IoT enabled equipment within your facility.
+Creator is a platform for building indoor mapping solutions for all your needs. As an extension of Azure Maps, Creator allows blending of both indoor and outdoor maps for a seamless visual experience. Creator supports generating indoor maps from CAD drawings (DWG) or GeoJSON and enables custom styling of the map. You can also provide directions within your indoor map using wayfinding and even monitor the state of any IoT enabled equipment within your facility.
 
 ### Conversion
 
 An [onboarding tool] is provided to prepare your facility's DWGs by
 identifying the data to use and positioning your building on the map.
-The conversion service will then convert the geometry and data from
+The conversion service then converts the geometry and data from
 your DWG files into a digital indoor map.
 
 The first step in creating your indoor map is to upload a drawing
@@ -56,7 +51,7 @@ service. For more information, see [Work with datasets using the QGIS plugin].
 
 ### Rendering
 
-[Tilesets],created from your data, are used to render maps on mobile devices
+[Tilesets], created from your data, are used to render maps on mobile devices
 or in the browser.
 
 ### Styling
@@ -101,7 +96,7 @@ workflow.
     you to add it to an Azure Maps map and apply custom styling.
 
 1. **Styles**. Styles drive the visual appearance of spatial features on the map.
-    When creating a tileset, default styles are automatically associated with the
+    When a new tileset is created, default styles are automatically associated with the
     features it contains. These default styles can be modified to suit your needs
     using the [visual style editor]. For more information, see
     [Create custom styles for indoor maps].
