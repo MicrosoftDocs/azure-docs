@@ -45,6 +45,14 @@ The required roles and licenses may vary based on the report. Global Administrat
 
 Activity reports are available for features that you've licensed. To access the sign-ins activity logs, your tenant must have an Azure AD Premium license associated with it.
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs**.
+1. Adjust the filter according to your needs.
+    - For more information on the filter options for audit logs, see [Azure AD audit log categories and activities](reference-audit-activities.md). 
+    - For more information on the sign-in logs, see [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md).
+
 ## Stream logs to an event hub to integrate with SIEM tools
 
 Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md) in your Azure subscription. 
@@ -220,5 +228,4 @@ Use the following basic steps to archive or download your activity logs.
 - [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 - [Archive logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 - [Integrate logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
-
 

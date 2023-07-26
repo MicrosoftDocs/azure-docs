@@ -16,7 +16,7 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023, devx-track-py
 
 # Tutorial: Create production machine learning pipelines
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 > [!NOTE]
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
@@ -104,7 +104,7 @@ ml_client = MLClient(
 
 If you have been following along with the other tutorials in this series and already registered the data, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`. Then you may skip this section. To learn about data more in depth or if you would rather complete the data tutorial first, see [Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
 
-* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
+* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. `Data` assets from other sources can be created as well.
 
 
 
@@ -144,7 +144,7 @@ In the future, you can fetch the same dataset from the workspace using `credit_d
 ## Create a compute resource to run your pipeline
 
 > [!NOTE]
-> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment-for-pipeline-steps).
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md) to run this pipeline, you can skip this compute creation step and proceed directly to [create a job environment](#create-a-job-environment-for-pipeline-steps).
 
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
@@ -582,7 +582,7 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
 > [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute=azureml:serverless` in this code.
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute="serverless"` in this code.
 
 ```pythons
 # the dsl decorator tells the sdk that we are defining an Azure Machine Learning pipeline
@@ -590,7 +590,7 @@ from azure.ai.ml import dsl, Input, Output
 
 
 @dsl.pipeline(
-    compute=cpu_compute_target, # to use serverless compute, change this to: compute=azureml:serverless
+    compute=cpu_compute_target, # to use serverless compute, change this to: compute="serverless"
     description="E2E data_perp-train pipeline",
 )
 def credit_defaults_pipeline(
@@ -693,7 +693,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

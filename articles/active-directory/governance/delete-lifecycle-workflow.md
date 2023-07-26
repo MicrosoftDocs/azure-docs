@@ -22,9 +22,12 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Delete a workflow by using the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

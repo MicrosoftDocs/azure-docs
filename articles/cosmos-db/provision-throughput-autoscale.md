@@ -60,7 +60,7 @@ Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale
 
 For any value of `Tmax`, the database or container can store a total of `0.1 * Tmax GB`. After this amount of storage is reached, the maximum RU/s will be automatically increased based on the new storage value, with no impact to your application. 
 
-For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 5000 GB of data. If you exceed 500 GB - e.g. storage is now 6000 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
+For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 5000 GB of data. If you exceed 5000 GB - e.g. storage is now 6000 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
 When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 1000 (scales between 100 - 1000 RU/s), as long as you don't exceed 100 GB of storage. See this [documentation](autoscale-faq.yml#can-i-change-the-maximum-ru-s-on-a-database-or-container--) for more information.
 

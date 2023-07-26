@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 7/25/2023
 ---
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server

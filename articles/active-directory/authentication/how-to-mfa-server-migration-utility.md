@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 06/29/2023
 
 ms.author: justinha
 author: justinha
@@ -217,7 +217,13 @@ The **Settings** option allows you to change the settings for the migration proc
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
-- Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
+- Migrate – there are three options for migrating the user's default authentication method:
+  - Always migrate
+  - Only migrate if not already set in Azure AD
+  - Set to the most secure method available if not already set in Azure AD
+  
+  These options provide flexibility when you migrate the default method. In addition, the Authentication methods policy is checked during migration. If the default method being migrated isn't allowed by policy, it's set to the most secure method available instead.
+
 - User Match – Allows you to specify a different on-premises Active Directory attribute for matching Azure AD UPN instead of the default match to userPrincipalName:
   - The migration utility tries direct matching to UPN before using the on-premises Active Directory attribute.  
   - If no match is found, it calls a Windows API to find the Azure AD UPN and get the SID, which it uses to search the MFA Server user list. 

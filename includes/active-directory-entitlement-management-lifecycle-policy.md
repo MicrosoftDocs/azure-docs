@@ -27,7 +27,7 @@ On the **Lifecycle** tab, you specify when a user's assignment to the access pac
 
 1. Select **Show advanced expiration settings** to show more settings.
 
-    ![Access package - Lifecycle Expiration settings](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+    ![Access package - Lifecycle Expiration settings](./media/entitlement-management-lifecycle-policy/expiration.png)
 
 1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
 

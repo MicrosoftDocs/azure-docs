@@ -57,8 +57,8 @@ Let's say we check our health probe status and find out that all instances are s
   * If you find this NSG issue is the case, move the existing Allow rule or create a new high priority rule to allow AzureLoadBalancer traffic.
 * Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they aren't blocking the probe traffic originating from IP address `168.63.129.16`.
   * You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal.
-* Don't place a firewall NVA VM in the backend pool of the load balancer, use [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to route traffic to backend instances through the firewall,
 * Ensure you're using the right protocol. For example, a probe using HTTP to probe a port listening for a non-HTTP application fails.
+* Azure Firewall should not be placed in the backend pool of load balancers, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md) to properly integrate Azure Firewall with load balancer.
 
 If you've gone through this checklist and are still finding health probe failures, there may be rare platform issues impacting the probe service for your instances. In this case, Azure has your back and an automated alert is sent to our team to rapidly resolve all platform issues.
 

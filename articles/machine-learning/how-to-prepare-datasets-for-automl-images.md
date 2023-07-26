@@ -14,7 +14,7 @@ ms.date: 05/26/2022
 
 # Prepare data for computer vision tasks with automated machine learning
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ If you already have a data labeling project and you want to use that data, you c
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_data:
@@ -58,7 +58,7 @@ training_data:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.constants import AssetTypes, InputOutputModes
@@ -85,7 +85,7 @@ The following script uploads the image data on your local machine at path "./dat
 If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it will update the version number of the data asset and point it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Create a .yml file with the following configuration.
 
@@ -105,7 +105,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 
@@ -118,7 +118,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 If you already have your data present in an existing datastore and want to create a data asset out of it, you can do so by providing the path to the data in the datastore, instead of providing the path of your local machine. Update the code [above](how-to-prepare-datasets-for-automl-images.md#using-pre-labeled-training-data-from-local-machine) with the following snippet.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Create a .yml file with the following configuration.
 

@@ -43,6 +43,8 @@ To analyze Azure AD logs with Azure Monitor, you need the following roles and li
 
 To view the Azure AD Log Analytics, you must already be sending your activity logs from Azure AD to a Log Analytics workspace. This process is covered in the [How to integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md) article.
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Go to **Azure Active Directory** > **Log Analytics**. A default search query runs.

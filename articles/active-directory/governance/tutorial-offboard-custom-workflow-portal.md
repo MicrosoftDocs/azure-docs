@@ -28,7 +28,8 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Before you begin
 
@@ -43,6 +44,8 @@ The leaver scenario includes the following steps:
 1. Verify that the workflow was successfully executed.
 
 ## Create a workflow by using the leaver template
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Use the following steps to create a leaver on-demand workflow that will execute a real-time employee termination by using lifecycle workflows in the Azure portal:
 

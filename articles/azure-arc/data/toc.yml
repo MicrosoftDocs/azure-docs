@@ -156,6 +156,8 @@ items:
           items:
             - name: Configure
               href: configure-managed-instance.md
+            - name: Pod scheduling
+              href: pod-scheduling.md
             - name: Monitor, log analytics, and billing information - portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Reserved capacity

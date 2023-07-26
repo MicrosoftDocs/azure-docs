@@ -33,13 +33,13 @@ func init <PROJECT_FOLDER>
 
 When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with this name. Otherwise, the current folder is used.
 
-`func init` supports the following options, which are version 3.x/2.x-only, unless otherwise noted:
+`func init` supports the following options, which don't support version 1.x unless otherwise noted:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Creates .NET functions as C# script, which is the version 1.x behavior. Valid only with `--worker-runtime dotnet`. |
-| **`--docker`** | Creates a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
-| **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in local.settings.json. Use this option when you plan to publish an existing project to a custom Linux container. |
+| **`--docker`** | Creates a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to deploy a containerized function app. |
+| **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in local.settings.json. Use this option when you plan to deploy a containerized function app and the project already exists. |
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
 | **`--language`** | Initializes a language-specific project. Currently supported when `--worker-runtime` set to `node`. Options are `typescript` and `javascript`. You can also use `--worker-runtime javascript` or `--worker-runtime typescript`.  |
 | **`--managed-dependencies`**  | Installs managed dependencies. Currently, only the PowerShell worker runtime supports this functionality. |
@@ -49,7 +49,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 |
 
 > [!NOTE]
-> When you use either `--docker` or `--dockerfile` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. Use the Azure Functions [image list](https://github.com/Azure/azure-functions-docker) to find the correct base image for your container that runs Azure Functions.
+> When you use either `--docker` or `--dockerfile` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
 
 ## func logs
 
@@ -224,7 +224,7 @@ The following publish options apply, based on version:
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
 | **`--csx`** | Publish a C# script (.csx) project. |
-| **`--force`** | Ignore pre-publishing verification in certain scenarios. |
+| **`--force`** | Ignore prepublishing verification in certain scenarios. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this will be appended to the command line. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
@@ -254,7 +254,7 @@ func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 
 ## func deploy
 
-The `func deploy` command is deprecated. Please instead use [`func kubernetes deploy`](#func-kubernetes-deploy).
+The `func deploy` command is deprecated. Instead use [`func kubernetes deploy`](#func-kubernetes-deploy).
 
 ## func durable delete-task-hub
 

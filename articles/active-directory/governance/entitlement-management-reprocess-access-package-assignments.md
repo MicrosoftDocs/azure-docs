@@ -33,10 +33,12 @@ This article describes how to reprocess assignments in an existing access packag
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Open an existing access package and reprocess user assignments
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
