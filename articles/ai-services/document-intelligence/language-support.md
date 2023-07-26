@@ -21,10 +21,34 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ::: moniker range="doc-intel-3.0.0"
 
-This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
+This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Use the links in the tables to view language support and availability by model or feature.
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
+
+## Language detection and extraction support
+
+The following tables provides links to language support reference by supported models. 
+
+| Document Analysis models | Description |
+| --- | --- |
+|:::image type="icon" source="media/overview/icon-read.png" link=""::: **Read**     | Extract printed and handwritten text.    |
+|:::image type="icon" source="media/overview/icon-layout.png" link=""::: **Layout**| Extract text and document structure.|
+| :::image type="icon" source="media/overview/icon-general-document.png" link=""::: **General document** |  Extract text, structure, and key-value pairs.
+
+ Prebuilt models | Description |
+| --- | --- |
+|:::image type="icon" source="media/overview/icon-business-card.png" link=""::: **Business card**| Extract business contact details.|
+|:::image type="icon" source="media/overview/icon-insurance-card.png" link=""::: **Health insurance**| Extract health insurance details.|
+|:::image type="icon" source="media/overview/icon-id-document.png" link=""::: **ID document**| Extract identification and verification details.|
+|:::image type="icon" source="media/overview/icon-invoice.png" link=""::: **Invoice**| Extract customer and vendor details.|
+|:::image type="icon" source="media/overview/icon-receipt.png" link=""::: **Receipt**| Extract sales transaction details.|
+|:::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::  **W-2 form**| Extract taxable compensation details.|
+
+ Custom models | Description |
+| --- | --- |
+|:::image type="icon" source="media/overview/icon-custom-template.png" link=""::: **Custom template**|Extract data from static layouts.|
+|:::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural"::: **Custom neural**|Extract data from mixed-type documents.|
 
 ## Read, layout, and custom form (template) model
 
@@ -348,13 +372,14 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 > [!NOTE]
 > **Language detection**
 >
-> Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be
+> * Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages. 
+> * To determine if text can also be
 > extracted for a given language, see previous sections.
-
-> [!NOTE]
+>
 > **Detected languages vs extracted languages**
 >
-> This section lists the languages we can detect from the documents using the Read model, if present. Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
+> * This section lists the languages we can detect from the documents using the Read model, if present. 
+> * Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
 
 | Language            | Code |
 |---------------------|---------------|
