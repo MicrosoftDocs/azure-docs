@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-- **Policy Signing Certificate:** You need to upload an X.509 certificate, which is used by the attestation provider to validate signed policies. This certificate is either signed by a certificate authority or self-signed. Supported file extensions include pem, txt and cer. This article assumes that you already have a valid X.509 certificate.
+- **Policy Signing Certificate:** You need to upload an X.509 certificate, which is used by the attestation provider to validate signed policies. This certificate is either signed by a certificate authority or self-signed. Supported file extensions include `pem`, `txt`, and `cer`. This article assumes that you already have a valid X.509 certificate.
 
 ## Implement the Terraform code
 
