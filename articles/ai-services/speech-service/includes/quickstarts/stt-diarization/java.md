@@ -59,7 +59,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 ## Diarization from file with conversation transcription
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a new console application for conversation transcription.
 
 1. Create a new file named `ConversationTranscription.java` in the same project root directory.
 1. Copy the following code into `ConversationTranscription.java`:
@@ -141,7 +141,7 @@ Follow these steps to create a new console application for speech recognition.
 1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
-Run your new console application to start speech recognition:
+Run your new console application to start conversation transcription:
 
 ```console
 javac ConversationTranscription.java -cp ".;target\dependency\*"
