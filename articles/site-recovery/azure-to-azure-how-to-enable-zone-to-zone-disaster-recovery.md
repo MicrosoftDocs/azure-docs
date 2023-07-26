@@ -24,12 +24,19 @@ If you want to move VMs to an availability zone in a different region, [review t
 
 Support for Zone to Zone disaster recovery is currently limited to the following regions: 
 
-| Region | Supported Zones |
-|--------|-----------------|
-| **APAC** | Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, China North 3, Central India, East Asia, Southeast Asia,  |
-| **EMEA** | Qatar Central, UK South, West Europe, North Europe, Germany West Central, Norway East, France Central, Switzerland North, Sweden Central (Managed Access), Poland Central, Italy North, Israel Central, UAE North, South Africa North | 
-|**Americas** | Canada Central, US Gov Virginia, Central US, South Central US, East US, East US 2, West US 2, Brazil South, West US 3 | 
-
+| **Americas** | Europe | Middle East | Africa | APAC |
+|--------|--------------|-------------|--------|--------------|
+| Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
+| US Gov Virginia | West Europe | Israel Central | | East Asia |
+| Central US | North Europe | UAE North | | Japan East |
+| South Central US | Germany West Central | | | Korea Central |
+| East US | Norway East | | | Australia East |
+| East US 2 | France Central | | | India Central |
+| West US 2 | Switzerland North | | | China North 3 |
+| West US 3 | Sweden Central (Managed Access) | | | Central India |
+| Brazil South | Poland Central | | | East Asia |
+| | Italy North | | | |
+ 
 Site Recovery does not move or store customer data out of the region in which it's deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 >[!Note]
