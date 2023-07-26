@@ -30,9 +30,11 @@ ms.author: xiaofanzhou
     ```java
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
     String pluginName = "com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin";
-    Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=" + pluginName +
-        "&authenticationPlugins=" + pluginName);
+    Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=" +
+        pluginName + "&authenticationPlugins=" + pluginName);
     ```
+
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
 
 ### [Spring](#tab/spring)
 
@@ -87,4 +89,3 @@ For more code samples, see [Connect to Azure databases from App Service without 
 
 ---
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
