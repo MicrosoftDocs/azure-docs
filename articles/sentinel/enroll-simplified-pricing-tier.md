@@ -102,7 +102,7 @@ The following sample template sets Microsoft Sentinel to the classic pricing tie
             "properties": { 
                 "workspaceResourceId": "/subscriptions/{SubscriptionId}/resourcegroups/{ResourceGroup}/providers/microsoft.operationalinsights/workspaces/{YourWorkspaceName}", 
                 "sku": { 
-                    "name": "pergb2018", 
+                    "name": "PerGB", 
                     "capacityReservationLevel":
                 } 
             } 
@@ -124,6 +124,8 @@ The following sample template sets Microsoft Sentinel to the classic pricing tie
 ```
 
 See [Deploying the sample templates](../azure-monitor/resource-manager-samples.md) to learn more about using Resource Manager templates.
+
+To reference how to implement this in Terraform or Bicep start [here](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces).
 
 ---
 

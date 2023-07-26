@@ -109,7 +109,7 @@ Beyond these, many applications will also need the following environment variabl
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
-1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal `# GPUs per node x # nodes`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
+1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal to `# of GPUs per node`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
 
 Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 

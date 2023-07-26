@@ -404,7 +404,22 @@ Metadata is available through the `$TriggerMetadata` parameter.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The binding types supported by Blob trigger depend on the extension package version and the C# modality used in your function app. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
+
+The binding types supported by Blob trigger depend on the extension package version and the C# modality used in your function app.
+
+# [In-process](#tab/in-process)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
+
+# [Isolated process](#tab/isolated-process)
+
+[!INCLUDE [functions-bindings-storage-blob-trigger-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-trigger-dotnet-isolated-types.md)]
+
+# [C# Script](#tab/csharp-script)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
+
+---
 
 Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
 
@@ -485,7 +500,7 @@ If you require faster or more reliable blob processing, you should instead imple
 + Change your binding definition to consume [blob events](../storage/blobs/storage-blob-event-overview.md) instead of polling the container. You can do this in one of two ways:
     + Add the `source` parameter with a value of `EventGrid` to your binding definition and create an event subscription on the same container. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md).
     + Replace the Blob Storage trigger with an [Event Grid trigger](functions-bindings-event-grid-trigger.md) using an event subscription on the same container. For more information, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
-+ Consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
++ Consider creating a [queue message](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
 + Switch your hosting to use an App Service plan with Always On enabled, which may result in increased costs. 
 
 ## Blob receipts

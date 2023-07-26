@@ -3,7 +3,7 @@ title: Use Azure Private Link to connect networks to Azure Monitor
 description: Set up an Azure Monitor Private Link Scope to securely connect networks to Azure Monitor.
 ms.reviewer: mahesh.sundaram
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 07/25/2023
 ---
 
 # Use Azure Private Link to connect networks to Azure Monitor

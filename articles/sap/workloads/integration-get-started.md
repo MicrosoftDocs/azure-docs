@@ -48,7 +48,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 
 ### Azure OpenAI service
 
-For more information about integration with [Azure OpenAI service](/azure/cognitive-services/openai/overview), see the following Azure documentation:
+For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
 - [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)

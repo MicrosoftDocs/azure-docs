@@ -22,6 +22,8 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 ## Find tenant ID through the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
 1. Select **Azure Active Directory**.

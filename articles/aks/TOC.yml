@@ -448,8 +448,12 @@
               href: http-proxy.md
         - name: Ingress
           items:
-            - name: Use Web Application Routing add-on
-              href: web-app-routing.md
+            - name: Use application routing add-on 
+              items:
+              - name: Application routing add-on overview
+                href: app-routing.md
+              - name: Monitor using Prometheus and Grafana
+                href: app-routing-nginx-prometheus.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
@@ -592,6 +596,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Build Java app with WebLogic Server
           href: howto-deploy-java-wls-app.md
+        - name: Build Java app with Quarkus
+          href: howto-deploy-java-quarkus-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true

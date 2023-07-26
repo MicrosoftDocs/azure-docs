@@ -5,7 +5,7 @@ services: azure-cli
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-java, devx-track-extended-java, mode-api, event-tier1-build-2022
+ms.custom: devx-track-azurecli, devx-track-java, mode-api, event-tier1-build-2022
 ms.author: vramasubbu
 ms.date: 05/31/2022
 ---

@@ -39,9 +39,9 @@ You can allow users to self-remediate their sign-in risks and user risks by sett
 Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
 
 - To perform MFA to self-remediate a sign-in risk: 
-   - The user must have registered for Azure AD Multi-Factor Authentication.
+   - The user must have registered for Azure AD Multifactor Authentication.
 - To perform secure password change to self-remediate a user risk:
-   -  The user must have registered for Azure AD Multi-Factor Authentication.
+   -  The user must have registered for Azure AD Multifactor Authentication.
    -  For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them.
 
 If a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user is blocked. This block action is because they aren't able to perform the required access control, and admin intervention is required to unblock the user. 
