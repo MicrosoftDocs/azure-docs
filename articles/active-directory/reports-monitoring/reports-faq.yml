@@ -56,7 +56,7 @@ sections:
       - question: |
           What SIEM tools are currently supported for integrating Azure AD activity logs?
         answer: |
-          For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+          For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
       - question: |
           Can I access the data from an event hub without using an external SIEM tool?
