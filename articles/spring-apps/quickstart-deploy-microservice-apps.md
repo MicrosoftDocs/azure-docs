@@ -25,7 +25,7 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
-- Uses Azure Spring Apps to manage the Spring Boot apps, each app uses HSQLDB as the persistent store.
+- Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
 - Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
 - Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
