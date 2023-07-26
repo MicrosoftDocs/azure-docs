@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 06/18/2023
+ms.date: 07/26/2023
 ms.custom: ignite-2022
 ---
 
@@ -74,6 +74,9 @@ To add standards to your dashboard:
 - The subscription must have Defender for Cloud's enhanced security features enabled
 - The user must have owner or policy contributor permissions
 
+> [!NOTE]
+> It may take a few hours for a newly added standard to appear in the compliance dashboard.
+
 ### Add a standard to your Azure subscriptions
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you'll see the compliance standards assigned to the currently selected subscriptions.
@@ -92,14 +95,11 @@ To add standards to your dashboard:
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
 :::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="Screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
 
-1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
+1. Select **Create** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
 
     Your new standard appears in your list of Industry & regulatory standards.
-
-    > [!NOTE]
-    > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
     :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
 
@@ -108,14 +108,28 @@ To add standards to your dashboard:
 To add regulatory compliance standards on AWS accounts:
 
 1. Navigate to **Environment settings**.
-1. Select the relevant account.
+1. Select the AWS relevant account.
 1. Select **Standards**.
-1. Select **Add** and choose **Standard**.
-1. Choose a standard from the drop-down menu.
-1. Select **Save**.
+1. Select **Create** and choose **Standard**.
+1. Enter all the necessary details for the specific initiative such as scope, parameters, and remediationChoose a standard from the drop-down menu.
+1. Select **Create**.
+
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to GCP account." lightbox="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png":::
+
+
+### Add a standard to your GCP subscriptions
+
+To add regulatory compliance standards on GCP accounts:
+
+1. Navigate to **Environment settings**.
+1. Select the relevant GCP account.
+1. Select **Standards**.
+1. Select **Create** and choose **Standard**.
+1. Enter all the necessary details and select **Create**.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
+1. Your new standard appears in your list of Industry & regulatory standards.
 
 ## Remove a standard from your dashboard
 
