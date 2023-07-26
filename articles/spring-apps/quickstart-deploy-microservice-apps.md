@@ -79,7 +79,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 > [Quickstart: Integrate with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
 > [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
