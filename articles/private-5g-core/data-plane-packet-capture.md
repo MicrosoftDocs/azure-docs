@@ -1,7 +1,7 @@
 ---
-title: Perform data plane packet capture for a packet core instance
+title: Perform data plane packet capture on a packet core instance
 titleSuffix: Azure Private 5G Core
-description: In this how-to guide, you'll learn how to perform data plane packet capture for a packet core instance. 
+description: In this how-to guide, you'll learn how to perform data plane packet capture on a packet core instance. 
 author: James-Green-Microsoft
 ms.author: jamesgreen
 ms.service: private-5g-core
@@ -10,11 +10,11 @@ ms.date: 12/13/2022
 ms.custom: template-how-to
 ---
 
-# Perform data plane packet capture for a packet core instance
+# Perform data plane packet capture on a packet core instance
 
 Packet capture for data plane packets is performed using the **UPF Trace (UPFT)** tool. UPFT is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface. You can use this tool to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device.
 
-Data plane packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform data plane packet capture for a packet core instance.
+Data plane packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform data plane packet capture on a packet core instance.
 
 > [!IMPORTANT]
 > Performing packet capture will reduce the performance of your system and the throughput of your data plane. It is therefore only recommended to use this tool at low scale during initial testing.
@@ -70,3 +70,4 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 For more options to monitor your deployment and view analytics:
 
 - [Learn more about monitoring Azure Private 5G Core using Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
+- If you have found identified a problem and don't know how to resolve it, you can [Get support for your Azure Private 5G Core service](open-support-request.md)
