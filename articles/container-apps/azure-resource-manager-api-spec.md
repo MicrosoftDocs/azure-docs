@@ -23,9 +23,7 @@ The latest management API versions for Azure Container Apps are:
 
 ### Updating API versions
 
-To use a specific API version in ARM or Bicep, update the versions that are referenced in your templates.
-
-To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:
 
 ```bash
 az extension add -n containerapp --upgrade
