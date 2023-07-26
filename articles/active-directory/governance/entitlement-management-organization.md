@@ -34,20 +34,21 @@ There are four ways that entitlement management lets you specify the users that 
 * users in another Azure AD directory (from any Microsoft cloud),
 * users in another non-Azure AD directory that has been configured for direct federation,
 * users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
-* users with a Microsoft Account, such as from the domain *live.com*.
+* users with a Microsoft Account, such as from the domain *live.com*, if you have a business need for collaboration with users which have no common organization.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations.  You want to give users from both external organizations access to the same resources, but these two organizations have different configurations:
 
 - Graphic Design Institute uses Azure AD, and their users have a user principal name that ends with *graphicdesigninstitute.com*.
 - Contoso does not yet use Azure AD. Contoso users have a user principal name that ends with *contoso.com*.
 
-In this case, you can configure one access package, with one policy, and two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then specify the two connected organizations in a policy for **users not yet in your directory**, users from each organization, with a user principal name that matches one of the connected organizations, can request the access package. Users with a user principal name that has a domain of contoso.com would match the Contoso-connected organization and would also be allowed to request the package. Users with a user principal name that has a domain of *graphicdesigninstitute.com* and are using an organizational account would match the Graphic Design Institute-connected organization and be allowed to submit requests. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches another [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to the the Graphic Design Institute tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy. If you have [email one-time passcode (OTP) authentication](../external-identities/one-time-passcode.md) turned on, that includes users from those domains that aren't yet part of Azure AD directories who'll authenticate using email OTP when accessing your resources.
+In this case, you can configure one access package, with one policy, and two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then specify the two connected organizations in a policy for **users not yet in your directory**, users from each organization, with a user principal name that matches one of the connected organizations, can request the access package. Users with a user principal name that has a domain of contoso.com would match the Contoso-connected organization and would also be allowed to request the package. Users with a user principal name that has a domain of *graphicdesigninstitute.com* and are using an organizational account would match the Graphic Design Institute-connected organization and be allowed to submit requests. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches another [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to the Graphic Design Institute tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy. If you have [email one-time passcode (OTP) authentication](../external-identities/one-time-passcode.md) turned on, that includes users from those domains that aren't yet part of Azure AD directories who'll authenticate using email OTP when accessing your resources.
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
 How users from the Azure AD directory or domain authenticate depends on the authentication type. The authentication types for connected organizations are:
 
-- Azure AD, in the same or another cloud
+- Azure AD, in the same cloud
+- Azure AD, in another cloud
 - [Direct federation](../external-identities/direct-federation.md)
 - [One-time passcode](../external-identities/one-time-passcode.md) (domain)
 - Microsoft Account
@@ -88,14 +89,14 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
     Then **Select directories + domains** pane opens.
 
-1. In the search box, enter a domain name to search for the Azure AD directory or domain. You can also add domains that are not in Azure AD. Be sure to enter the entire domain name.
+1. In the search box, enter a domain name to search for the Azure AD directory or domain. You can also add domains that are not associated with any Azure AD directory. Be sure to enter the entire domain name.
 
-1. Confirm that the organization name(s) and authentication type(s) are correct. User sign in, prior to being able to access the MyAccess portal, depends on the authentication type for their organization.  If the authentication type for a connected organization is Azure AD, all users with an account in any verified domain of that Azure AD directory will sign into their directory, and then can request access to access packages that allow that connected organization. If the authentication type is One-time passcode, this allows users with email addresses from just that domain to visit the MyAccess portal. After they authenticate with the passcode, the user can make a request.  
+1. Confirm that the organization name(s) and authentication type(s) are correct. User sign in, prior to being able to access the MyAccess portal, depends on the authentication type for their organization.  If the authentication type for a connected organization is Azure AD, all users with an account in that organization's directory, with any verified domain of that Azure AD directory, will sign into their directory, and then can request access to access packages that allow that connected organization. If the authentication type is One-time passcode, this allows users with email addresses from just that domain to visit the MyAccess portal. After they authenticate with the passcode, the user can make a request.  
 
     ![The "Select directories + domains" pane](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
     > [!NOTE]
-    > Access from some domains could be blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > Access from some domains could be blocked by the Azure AD business to business (B2B) allow or deny list. In addition, users who have an email address that has the same domain as a connected organization configured for Azure AD authentication, but who do not authenticate to that Azure AD directory, will not be recognized as part of that connected organization. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).  
 
 1. Select **Add** to add the Azure AD directory or domain. **You can add multiple Azure AD directories and domains**.
 
@@ -156,14 +157,21 @@ You can also create, list, update, and delete connected organizations using Micr
 
 You can also manage connected organizations in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
 
-This script below illustrates using the `v1.0` profile of Graph to retrieve all the connected organizations.
+This script below illustrates using the `v1.0` profile of Graph to retrieve all the connected organizations.  Each returned connected organization contains a list  [identitySources](/graph/api/resources/identitysource) of the directories and domains of that connected organization.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "v1.0"
 
 $co = Get-MgEntitlementManagementConnectedOrganization -all
+
+foreach ($c in $co) {
+  foreach ($i in $c.identitySources) {
+    write-output $c.Id $c.DisplayName $i.AdditionalProperties["@odata.type"]
+  }
+}
 ```
+
 
 ## State properties of connected organizations
 

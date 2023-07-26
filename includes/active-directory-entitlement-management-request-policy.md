@@ -74,7 +74,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
     If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. If you selected **All connected organizations**, then you should confirm with your global administrator which connected organizations are currently and planned to be in scope.
+1. If you selected **All connected organizations**, then you should confirm with your global administrator the list of connected organizations that are currently configured and planned to be in scope.
 
 1. If you selected **All users**, then you will need to configure approvals in the approvals section, as this scope would allow any identity on the Internet to request access.
 
@@ -117,8 +117,7 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 
 Follow these steps to specify the approval settings for requests for the access package:
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
-   > [!NOTE] If the policy allows external users from outside your organization to request access, you should typically require approval, so there is oversight on who is being added to your organization's directory.
+1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.  If the policy allows external users from outside your organization to request access, you should require approval, so there is oversight on who is being added to your organization's directory.
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
