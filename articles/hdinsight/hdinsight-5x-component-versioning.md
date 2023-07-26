@@ -36,8 +36,6 @@ The following table lists the versions of open-source components that are associ
 | Apache Zeppelin  | 0.10.1 **              | 0.8.0       |
 | Apache Phoenix   | 5.1.2 **               | -           |
 
-\* Under development or planned
-
 ** Preview
 
 ### Spark versions supported in Azure HDInsight
