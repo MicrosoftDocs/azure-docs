@@ -12,9 +12,9 @@ ms.custom: ignite-2022, engagement-fy23
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor
 
-Connection monitor supports the Azure Monitor Agent extension, which eliminates any dependency on the legacy Log Analytics agent. 
+Connection monitor supports the Azure Monitor agent extension, which eliminates any dependency on the legacy Log Analytics agent. 
 
-Azure Monitor Agent consolidates all the features necessary to address connectivity logs and metrics data collection needs across Azure and on-premises machines compared to running various monitoring agents. 
+Azure Monitor agent consolidates all the features necessary to address connectivity logs and metrics data collection needs across Azure and on-premises machines compared to running various monitoring agents. 
 
 Azure Monitor agent provides the following benefits:
 * Enhanced security and performance capabilities
