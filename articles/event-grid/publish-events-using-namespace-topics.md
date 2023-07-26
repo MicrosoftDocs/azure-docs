@@ -10,7 +10,7 @@ ms.date: 05/24/2023
 
 # Publish to namespace topics and consume events in Azure Event Grid (Preview)
 
-The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and consume those events by using the pull delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and pull the events from an event subscription to the namespace topic. For more information about the pull delivery model, see ([pull delivery](pull-delivery-overview.md)).
+The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and consume those events by using the pull delivery model. To be specific, you'll use Azure CLI and Curl to publish events to a namespace topic in Event Grid and pull those events from an event subscription to the namespace topic. For more information about the pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
 
 [!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
@@ -26,7 +26,7 @@ The article provides step-by-step instructions to publish events to Azure Event 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.  
 
 ## Create a resource group
-Create an Azure resource group with the [az group create](/cli/azure/group#az-group-create) command. You use this resource group to contain all resources created in this article.
+Create an Azure resource group with the [az group create](/cli/azure/group#az-group-create) command. You'll use this resource group to contain all resources created in this article.
 
 The general steps to use Cloud Shell to run commands are:
 
@@ -34,10 +34,10 @@ The general steps to use Cloud Shell to run commands are:
 - Copy the command and paste into the Azure Cloud Shell window.
 - Press ENTER to run the command.
 
-1. First, set the name of the resource group on an environmental variable. 
+1. Declare a variable to hold the name of an Azure resource group. Specify a name for the resource group by replacing `<your-resource-group-name>` with a value you like. 
 
     ```azurecli-interactive
-    resource_group=<your-resource-group-name>
+    resource_group="<your-resource-group-name>"
     ```
 2. Create a resource group. Change the location as you see fit. 
 
@@ -56,12 +56,11 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 - Only allowed characters are a-z, A-Z, 0-9 and -
 - It shouldn't start with reserved key word prefixes like `Microsoft`, `System` or `EventGrid`.
     
-1. Set the name you want to provide to your namespace on an environmental variable.
+1. Declare a variable to hold the name for your Event Grid namespace. Specify a name for the namespace by replacing `<your-namespace-name>` with a value you like.
 
     ```azurecli-interactive
-    namespace=<your-namespace-name>
+    namespace="<your-namespace-name>"
     ```
-
 2. Create a namespace. You may want to change the location where it's deployed. 
 
     ```azurecli-interactive
@@ -70,12 +69,12 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 
 ## Create a namespace topic
 
-The topic created is used to hold all events published to the namespace endpoint.
+Create a topic that's used to hold all events published to the namespace endpoint.
 
-1. Set your topic name to a variable.
+1. Declare a variable to hold the name for your namespace topic. Specify a name for the namespace topic by replacing `<your-topic-name>` with a value you like.
 
     ```azurecli-interactive
-    topic=<your-topic-name>
+    topic="<your-topic-name>"
     ```
 2. Create your namespace topic:
 
@@ -87,10 +86,10 @@ The topic created is used to hold all events published to the namespace endpoint
 
 Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md#pull-delivery-1). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
-1. Set the name of your event subscription on a variable:
+1. Declare a variable to hold the name for an event subscription to your namespace topic. Specify a name for the event subscription by replacing `<your-event-subscription-name>` with a value you like.
 
     ```azurecli-interactive
-    event_subscription=<your-event-subscription-name>
+    event_subscription="<your-event-subscription-name>"
     ```
 2. Create an event subscription to the namespace topic:
 
@@ -103,7 +102,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
 
 ### List namespace access keys
 
-1. Get the access keys associated to the namespace created. You use one of them to authenticate when publishing events. In order to list your keys, you need the full namespace resource ID first.
+1. Get the access keys associated with the namespace you created. You'll use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
 
     ```azurecli-interactive 
     namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
@@ -116,12 +115,12 @@ Now, send a sample event to the namespace topic by following steps in this secti
 
 ### Publish an event
 
-1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. Note that the following operations were first available with API version `2023-06-01-preview`.
+1. Retrieve the namespace hostname. You'll use it to compose the namespace HTTP endpoint to which events are sent. Note that the following operations were first available with API version `2023-06-01-preview`.
 
     ```azurecli-interactive
     publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
     ```
-2. Create a sample CloudEvents-compliant event:
+2. Create a sample [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) compliant event:
 
     ```azurecli-interactive
     event=' { "specversion": "1.0", "id": "'"$RANDOM"'", "type": "com.yourcompany.order.ordercreatedV2", "source" : "/mycontext", "subject": "orders/O-234595", "time": "'`date +%Y-%m-%dT%H:%M:%SZ`'", "datacontenttype" : "application/json", "data":{ "orderId": "O-234595", "url": "https://yourcompany.com/orders/o-234595"}} '
@@ -138,7 +137,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
 
 You receive events from Event Grid using an endpoint that refers to an event subscription. 
 
-1. Compose that endpoint with the following command:
+1. Compose that endpoint by running the following command:
 
     ```azurecli-interactive
     receive_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
@@ -156,7 +155,7 @@ After you receive an event, you pass that event to your application for processi
 1. In the previous step, you should have received a response that includes a `brokerProperties` object with a `lockToken` property. Copy the lock token value and set it on an environment variable:
 
     ```azurecli-interactive
-    lockToken=<paste-the-lock-token-here>
+    lockToken="<paste-the-lock-token-here>"
     ```
 2. Now, build the acknowledge operation payload, which specifies the lock token for the event you want to be acknowledged.
 
