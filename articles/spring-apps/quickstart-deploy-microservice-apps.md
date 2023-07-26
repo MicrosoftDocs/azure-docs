@@ -100,7 +100,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 > [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Run microservice apps(Pet Clinic)](./quickstart-sample-app-introduction.md)
+> [Quickstart: Introduction to the sample app - Azure Spring Apps](./quickstart-sample-app-introduction.md)
 
 > [!div class="nextstepaction"]
 > [Run polyglot apps on Enterprise plan(ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)
