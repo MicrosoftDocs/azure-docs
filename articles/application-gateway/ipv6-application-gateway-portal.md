@@ -1,16 +1,16 @@
 ---
-title: Configure an internal load balancer (ILB) endpoint
+title: Configure Application Gateway with a frontend private IPv6 address
 titleSuffix: Azure Application Gateway
-description: This article provides information on how to configure Application Gateway Standard v1 with a private frontend IP address
+description: This article provides information on how to configure Application Gateway with a frontend private IPv6 address. 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 07/26/2023
 ms.author: greglin
 ---
 
-# Configure an application gateway with an internal load balancer (ILB) endpoint
+# Configure Application Gateway with a frontend private IPv6 address
 
 Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
 
