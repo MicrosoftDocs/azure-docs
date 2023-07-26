@@ -69,27 +69,27 @@ If the url auth is enabled:
 * If the access is for this url, then Ranger will check if the user is in the allow list.
 * Ranger won't check any of the fine grained policies.
 
-### Managing Ranger Audit Logs
+### Manage Ranger audit logs
 
 To prevent Ranger audit logs from consuming too much disk space on your hn0 headnode, you can change the number of days to retain the logs. 
 
 1. Sign in to the **Ambari UI**.
-2. Navigate to **Services** -> **Ranger** -> **Configs** -> **Advanced** -> **Advanced ranger-solr-configuration**.
+2. Navigate to **Services** > **Ranger** > **Configs** > **Advanced** > **Advanced ranger-solr-configuration**.
 3. Change the 'Max Retention Days' to 7 days or less.
-4. Click **Save** and restart affected components for the change to take effect. 
+4. Select **Save** and restart affected components for the change to take effect. 
 
 ### Use a custom Ranger DB  
 
-We recommend deploying an external Ranger DB to use with your ESP cluster for high-availability of Ranger metadata, which ensures that policies are available even if the cluster is unavailable. Since an external database is customer-managed, you will also have the ability to tune the DB size and share the database across multiple ESP clusters. You can specify your [external Ranger DB during the ESP cluster creation](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) process using the Azure Portal, ARM, Azure CLI, etc. 
+We recommend deploying an external Ranger DB to use with your ESP cluster for high availability of Ranger metadata, which ensures that policies are available even if the cluster is unavailable. Since an external database is customer-managed, you'll also have the ability to tune the DB size and share the database across multiple ESP clusters. You can specify your [external Ranger DB during the ESP cluster creation](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) process using the Azure portal, Azure Resource Manager, Azure CLI, etc. 
 
 ### Set Ranger user sync to run daily 
 
 HDInsight ESP clusters are configured for Ranger to synchronize AD users automatically every hour. The Ranger sync is a user sync and can cause extra load on the AD instance. For this reason, we recommend that you change the Ranger user sync interval to 24 hours. 
 
 1. Sign in to the **Ambari UI**. 
-2. Navigate to **Services** -> **Ranger** -> **Configs** -> **Advanced** -> **ranger-ugsync-site**
+2. Navigate to **Services** > **Ranger** > **Configs** > **Advanced** > **ranger-ugsync-site**
 3. Set property **ranger.usersync.sleeptimeinmillisbetweensynccycle** to 86400000 (24h in milliseconds).
-4. Click **Save** and restart affected components for the change to take effect. 
+4. Select **Save** and restart affected components for the change to take effect. 
 
 ## Resource groups
 
@@ -133,7 +133,7 @@ HDInsight can't depend on on-premises domain controllers or custom domain contro
 
 ### Choose correct Azure AD DS SKU 
 
-When creating your managed domain, [you can choose from different SKUs](https://learn.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the AAD-DS instance for authentication requests determine which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
+When creating your managed domain, [you can choose from different SKUs](/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the Azure AD-DS instance for authentication requests determines which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
 
 ### Azure AD DS instance
 
@@ -143,15 +143,15 @@ When creating your managed domain, [you can choose from different SKUs](https://
 * Configure the DNS for the virtual network properly (the Azure AD DS domain name should resolve without any hosts file entries).
 * If you're restricting outbound traffic, make sure that you have read through the [firewall support in HDInsight](../hdinsight-restrict-outbound-traffic.md)
 
-### Consider Azure AD DS Replica Sets 
+### Consider Azure AD DS replica sets 
 
-When you create an Azure AD DS managed domain, you define a unique namespace and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set. [Adding additional replica sets](https://learn.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) will provide resiliency and ensure availability of authentication services, which is critical for Azure HDInsight clusters.
+When you create an Azure AD DS managed domain, you define a unique namespace, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set. [Adding additional replica sets](/azure/active-directory-domain-services/tutorial-create-replica-set) will provide resiliency and ensure availability of authentication services, which is critical for Azure HDInsight clusters.
 
-### Configure Scoped user/group synchronization 
+### Configure scoped user/group synchronization 
 
-When enabling [Azure Active Directory Domain Services (AADDS) for your ESP cluster](https://learn.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster), you can choose to synchronize all users and groups from Azure AD or scoped groups and their members. We recommend that you choose "Scoped" synchronization for the best performance. 
+When you enable [Azure Active Directory Domain Services (Azure AD DS) for your ESP cluster](/azure/hdinsight/domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster), you can choose to synchronize all users and groups from Azure AD or scoped groups and their members. We recommend that you choose "Scoped" synchronization for the best performance. 
 
-[Scoped synchronization](https://learn.microsoft.com/azure/active-directory-domain-services/scoped-synchronization) can be modified with different group selections or converted to "All" users and groups if needed. ***You cannot change the synchronization type from "All" to "Scoped" unless you delete and recreate the AADDS instance.***
+[Scoped synchronization](/azure/active-directory-domain-services/scoped-synchronization) can be modified with different group selections or converted to "All" users and groups if needed. You can't change the synchronization type from "All" to "Scoped" unless you delete and recreate the Azure AD DS instance.
 
 ### Properties synced from Azure AD to Azure AD DS
 
@@ -180,7 +180,7 @@ To make it run once a day, perform the following steps:
 3. Apply the change in the crontab job: `sudo service cron reload`
 4. ssh to hn1 and repeat stepts 1 - 3 
 
-If needed, you can [use the Ambari REST API to manually synchronize new users and groups](https://learn.microsoft.com/azure/hdinsight/hdinsight-sync-aad-users-to-cluster#use-the-apache-ambari-rest-api-to-synchronize-users) immediately. 
+If needed, you can [use the Ambari REST API to manually synchronize new users and groups](/azure/hdinsight/hdinsight-sync-aad-users-to-cluster#use-the-apache-ambari-rest-api-to-synchronize-users) immediately. 
 
 ### Computer objects location
 
@@ -212,7 +212,7 @@ Most common reasons:
 
 For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [Ambari LDAP Authentication Setup](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
-### Generating domain user keytab(s) 
+### Generate domain user keytab(s) 
 
 All service keytabs are automatically generated for you during the ESP cluster creation process. To enable secure communication between the cluster and other services and/or jobs that require authentication, you can generate a keytab for your domain username. 
 
@@ -227,14 +227,14 @@ ktutil: wkt <username>.keytab
 ktutil: q
 ``` 
 
-If your TenantName & DomainName are different, you need to add a SALT value using the -s option. Check the HDInsight FAQ page to [determine the proper SALT value when creating a kerberos keytab](https://learn.microsoft.com/azure/hdinsight/hdinsight-faq#how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster-). 
+If your TenantName & DomainName are different, you need to add a SALT value using the -s option. Check the HDInsight FAQ page to [determine the proper SALT value when creating a Kerberos keytab](/azure/hdinsight/hdinsight-faq#how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster-). 
 
-### LDAP Certificate renewal
+### LDAP certificate renewal
 
-HDInsight will automatically renew the certificates for the managed identities you use for clusters with the Enterprise Security Package (ESP). However, there is a limitation when different managed identities are used for Azure AD-DS and ADLS gen2 that could cause the renewal process to fail. Follow the 2 recommendations below to ensure we are able to renew your certificates successfully:
+HDInsight will automatically renew the certificates for the managed identities you use for clusters with the Enterprise Security Package (ESP). However, there is a limitation when different managed identities are used for Azure AD DS and ADLS Gen2 that could cause the renewal process to fail. Follow the 2 recommendations below to ensure we are able to renew your certificates successfully:
 
-1. If you use different managed identities for ADLS Gen2 and Azure AD-DS clusters then both of them should have the **Storage blob data Owner** and **HDInsight Domain Services Contributor** roles assigned to them.
-2. HDInsight clusters require public IPs for certificate updates and other maintenance so **any policies that deny public IP on the cluster should be removed**.
+- If you use different managed identities for ADLS Gen2 and Azure AD DS clusters, then both of them should have the **Storage blob data Owner** and **HDInsight Domain Services Contributor** roles assigned to them.
+- HDInsight clusters require public IPs for certificate updates and other maintenance so **any policies that deny public IP on the cluster should be removed**.
 
 ## Next steps
 
