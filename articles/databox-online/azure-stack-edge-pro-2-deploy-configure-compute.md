@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/20/2023
+ms.date: 07/26/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro 2 device. 
 
-This procedure takes 20 to 30 minutes to complete.
+This procedure can take 20 to 30 minutes to complete.
 
 [!INCLUDE [deprecation-notice-managed-iot-edge](../../includes/azure-stack-edge-deprecation-notice-managed-iot-edge.md)]
 
