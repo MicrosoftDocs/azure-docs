@@ -9,8 +9,6 @@ ms.date: 07/25/2023
 ms.author: sanathr
 ---
 
-[!INCLUDE [Event Grid event source for voice and video calling events](../../../articles/event-grid/communication-services-voice-video-events.md)]
-
 # Deliver VOIP Push Notification to Devices without ACS Calling SDK
 
 This tutorial explains how to deliver VOIP push notifications to native applications without using the Azure Communication Services register push notifications API [!INCLUDE [here](../how-tos/calling-sdk/push-notifications.md)].
