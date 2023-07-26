@@ -43,13 +43,13 @@ The following steps describe how to attach a NAT gateway to your virtual network
 
 1. Follow the steps in the [Azure NAT Gateway quickstart](../nat-gateway/quickstart-create-nat-gateway-portal.md) to create a NAT gateway.
 
-1. Provide the Service Fabric resource provider permission to modify the NAT gateway's settings. <!-- How do they do this? -->
+1. Provide the Service Fabric resource provider permission to modify the NAT gateway's settings using role assignment. Follow the first two steps in [Bring your own virtual network section of the Configure managed cluster network settings article](how-to-managed-cluster-networking.md#bring-your-own-virtual-network), injecting your NAT gateway's information into subnet parameters.
 
 1. Now, you're ready to attach the NAT gateway to your virtual network's subnet. You can use an ARM template, the Azure CLI, Azure PowerShell, or the Azure portal.
 
 ### ARM template 
  
-Modify and deploy the following ARM template to include your subnet's information: <!-- Any specific callouts on what to modify? -->
+Modify and deploy the following ARM template to introduce the NAT gateway into your subnet's properties:
 
 ```json
 { 
@@ -101,7 +101,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name mvVNe
   ```powershell
   $nat = @{
   Name = 'myNATgateway'  
-  ResourceGroupName = 'myResourceGroupNAT' Should this be a different resource group than above?
+  ResourceGroupName = 'myResourceGroup'
   } 
   $natGateway = Get-AzNatGateway @nat 
   ```
@@ -147,7 +147,7 @@ The following steps describe how to attach a NAT gateway to your virtual network
 
 1. Follow the steps in the [Azure NAT Gateway quickstart](../nat-gateway/quickstart-create-nat-gateway-portal.md) to create a NAT gateway.
 
-1. Provide the Service Fabric resource provider permission to modify the NAT gateway's settings. <!-- How do they do this? -->
+1. Provide the Service Fabric resource provider permission to modify the NAT gateway's settings using role assignment. Follow the first two steps in [Bring your own virtual network section of the Configure managed cluster network settings article](how-to-managed-cluster-networking.md#bring-your-own-virtual-network), injecting your NAT gateway's information into subnet parameters.
 
 1. Add the following property to your deployment to attach the NAT gateway to your dedicated subnet:
 
