@@ -124,7 +124,6 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
  - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
  - **workspace_region**: Use the location of your Log Analytics workspace.
  - **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
- - Other parameters are for cluster settings, refer [to guide](http://LinkTobeAdded.com)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
