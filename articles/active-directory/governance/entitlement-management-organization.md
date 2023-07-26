@@ -33,7 +33,7 @@ There are four ways that entitlement management lets you specify the users that 
 
 * users in another Azure AD directory (from any Microsoft cloud),
 * users in another non-Azure AD directory that has been configured for direct federation,
-* users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
+* users in another non-Azure AD directory, whose email addresses all have the same domain name in common, or
 * users with a Microsoft Account, such as from the domain *live.com*, if you have a business need for collaboration with users which have no common organization.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations.  You want to give users from both external organizations access to the same resources, but these two organizations have different configurations:
