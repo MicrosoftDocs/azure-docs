@@ -52,3 +52,4 @@ The following tables show the licensing requirements for Microsoft Entra ID Gove
 |Wow - Guest Report - Public Preview||||x| 
 
 ## Next Steps
+- [What is Microsoft Entra ID Governance?](identity-governance-overview.md)
