@@ -24,7 +24,7 @@ With these integrations, you can enable rich visualizations, monitoring, and ale
 The following logs can be integrated with one of many endpoints:
 
 * The [**audit logs activity report**](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
-* With the [**sign-in activity report**](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* With the [**sign-in activity report**](concept-sign-ins.md), you can see when users attempt to sign in to your applications or troubleshoot sign-in errors.
 * With the [**provisioning logs**](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
 * The [**risky users logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users) helps you monitor changes in user risk level and remediation activity. 
 * With the [**risk detections logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
@@ -61,7 +61,7 @@ If you don't plan on using a third-party SIEM tool, we recommend sending your Az
 
 There's a cost for sending data to a Log Analytics workspace, archiving data in a storage account, or streaming logs to an event hub. The amount of data and the cost incurred can vary significantly depending on the tenant size, the number of policies in use, and even the time of day.
 
-Because the size and cost for sending logs to and endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to and endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs.
+Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs.
 
 Other considerations for sending Azure AD logs to Azure Monitor are covered in the following Azure Monitor cost details articles:
 
