@@ -20,7 +20,7 @@
      - name: Trusted Execution Environment (TEE) #p1
        href: trusted-execution-environment.md # new, an easy to understandding of what a TEE is - explain like the black box example #stubbed
      - name: Trusted Compute Base (TCB) #p1
-       href: trusted-compute-base.md an easy to understandding of what a TCB is - what it means to be in/out of the TCB #stubbed
+       href: trusted-compute-base.md #an easy to understandding of what a TCB is - what it means to be in/out of the TCB #stubbed
      - name: Application Enclaves vs. (Virtual Machines | Containers)
        href: application-development.md # existing, need to update to reflect new format #done
      - name: Secret & Key Mangement #p1
