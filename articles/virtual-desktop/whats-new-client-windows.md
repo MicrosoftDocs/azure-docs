@@ -239,7 +239,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- Fixed an issue where the narrator was announcing the *tenant expander* button as **on** or **off** instead of **expanded** or **collapsed**.
+- Fixed an issue where the narrator was announcing the **tenant expander** button as **on** or **off** instead of **expanded** or **collapsed**.
 - Fixed an issue where the text size didn't change when the user adjusted the text size system setting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
