@@ -22,7 +22,7 @@ This article describes different options for parsing log data in Azure Monitor w
 You can parse data either at ingestion time when the data is collected or at query time when you analyze the data with a query. Each strategy has unique advantages.
 
 ### Parse data at collection time
-When you parse data at collection time, you create [transformations](../essentials/data-collection-transformations.md) that create new properties in the table. Queries don't have to include any parsing logic and use these properties as any other field in the table.
+Use [transformations](../essentials/data-collection-transformations.md) to parse data at collection time and define which columns to send the parsed data to. 
 
 **Advantages:**
 
