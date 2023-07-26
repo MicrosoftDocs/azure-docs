@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 If you have an on-premises Active Directory Domain Services (AD DS) environment and you want to join your AD DS domain-joined computers to Azure AD, you can accomplish this task by doing hybrid Azure AD join.
 
 > [!TIP]
-> SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+> SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](device-sso-to-on-premises-resources.md).
 
 ## Prerequisites
 

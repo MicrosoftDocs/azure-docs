@@ -8,7 +8,7 @@
   expanded: false
   items:
   - name: Azure AD join a new Windows device
-    href: azuread-joined-devices-frx.md
+    href: device-join-out-of-box.md
 - name: Concepts
   expanded: true
   items:
@@ -21,7 +21,7 @@
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
-    href: azuread-join-sso.md
+    href: device-sso-to-on-premises-resources.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
 - name: How-to guides
@@ -33,7 +33,7 @@
     expanded: false
     items:
     - name: Plan your Azure AD join implementation
-      href: azureadjoin-plan.md
+      href: device-join-plan.md
     - name: Assign local admins to Azure AD joined devices
       href: assign-local-admin.md
   - name: Hybrid Azure AD join

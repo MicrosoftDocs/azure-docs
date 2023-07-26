@@ -46,7 +46,7 @@ The modern device scenario focuses on two of these methods:
 
 Registering and joining devices to Azure AD gives users Seamless Sign-on (SSO) to cloud-based resources.
 
-Devices that are Azure AD joined benefit from [SSO to your organization's on-premises resources](azuread-join-sso.md).
+Devices that are Azure AD joined benefit from [SSO to your organization's on-premises resources](device-sso-to-on-premises-resources.md).
 
 ## Provisioning
 
