@@ -111,9 +111,9 @@ The following table lists the supported languages for extracting handwritten tex
 ### Print text
 
 > [!div class="op_multi_selector" title1="a-k" title2="l-z"]
-> - apple | apples
-> - pear | pears
-> - berry | berries
+> - [apple | apples](overview.md)
+> - [pear | pears](overview.md)
+> - [berry | berries](overview.md)
 
 The following table lists the supported languages for print text by the most recent GA version.
 
