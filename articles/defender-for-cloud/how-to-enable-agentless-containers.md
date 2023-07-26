@@ -3,7 +3,7 @@ title: How-to enable Agentless Container posture in Microsoft Defender CSPM
 description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/13/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
@@ -96,7 +96,8 @@ You can customize your vulnerability assessment experience by exempting manageme
 ## Next Steps
 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
-- Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [Test the Attack Path and Security Explorer using a vulnerable container image](how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md)
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 

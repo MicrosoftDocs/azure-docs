@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 06/16/2023
+ms.date: 07/07/2023
 ms.service: storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -80,7 +80,7 @@ You can configure the values in [StorageTransferOptions](/dotnet/api/azure.stora
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
 
-To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with .NET](storage-blobs-tune-upload-download.md).
 
 ### Specify transfer validation options on upload
 

@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/02/2023
+ms.date: 07/07/2023
 ms.service: storage
 ms.topic: how-to
 ms.devlang: python
@@ -77,6 +77,8 @@ For upload operations, you can also pass the `max_concurrency` argument when cal
 The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_transfer_options":::
+
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Python](storage-blobs-tune-upload-download-python.md).
 
 ### Set a blob's access tier on upload
 

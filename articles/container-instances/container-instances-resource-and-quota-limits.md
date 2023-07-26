@@ -74,6 +74,12 @@ For a general list of available regions for Azure Container Instances, see [avai
 
 The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. 
 
+#### Windows Server 2022 LTSC 
+
+| 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support | 
+| :----: | :-----: | :-------: | 
+| 4 | 16 | 20 | Y | 
+
 #### Windows Server 2019 LTSC 
 
 > [!NOTE] 
@@ -98,12 +104,17 @@ The following maximum resources are available to a container group deployed with
 
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) | 
 | --- | --- | --- | --- | --- | 
+| V100 | 1 | 6 | 112 | 50 | 
+| V100 | 2 | 12 | 224 | 50 | 
+| V100 | 4 | 24 | 448 | 50 | 
+<!---
 | K80 | 1 | 6 | 56 | 50 | 
 | K80 | 2 | 12 | 112 | 50 | 
 | K80 | 4 | 24 | 224 | 50 | 
 | P100, V100 | 1 | 6 | 112 | 50 | 
 | P100, V100 | 2 | 12 | 224 | 50 | 
 | P100, V100 | 4 | 24 | 448 | 50 | 
+--->
 
 ## Next steps 
 

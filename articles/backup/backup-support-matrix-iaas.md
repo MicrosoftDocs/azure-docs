@@ -6,8 +6,8 @@ ms.date: 07/05/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure VM backups
@@ -189,8 +189,8 @@ Adding a disk to a protected VM | Supported.
 Resizing a disk on a protected VM | Supported.
 Shared storage| Backing up VMs by using Cluster Shared Volumes (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks that contain CSV volumes might not come up.
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
-<a name="ultra-disk-backup">Ultra SSD disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - Sweden Central, South Central US, East US, East US 2, West US 2, West Europe and North Europe.      <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).       <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Ultra disks. 
-<a name="premium-ssd-v2-backup">Premium SSD v2 disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - East US, West Europe, South Central US, East US 2, West US 2 and North Europe.       <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/h56TpTc773).       <br><br>    - Configuration of Premium v2 disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Premium v2 disks. 
+<a name="ultra-disk-backup">Ultra disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - Sweden Central, Central US, North Central US, South Central US, East US, East US 2, West US 2, West Europe and North Europe.      <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).       <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Ultra disks. 
+<a name="premium-ssd-v2-backup">Premium SSD v2</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - East US, West Europe, Central US, South Central US, East US 2, West US 2 and North Europe.       <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/h56TpTc773).       <br><br>    - Configuration of Premium v2 disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Premium v2 disks. 
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup doesn't back up temporary disks.
 NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supported.
 [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) restore | Supported. Volume Shadow Copy Service (VSS) supports app-consistent backups on ReFS.

@@ -101,6 +101,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/opentext-fax-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/xm-fax-and-xm-send-secure-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/opentext-directory-services-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/directory-services-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/r-and-d-tax-credit-services-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/pwc-identity-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tanium-cloud-sso-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tanium-sso-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/firstbird-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/radancys-employee-referrals-tutorial",
       "redirect_document_id": false
@@ -1006,6 +1026,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-sign-in.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-browserless-app-dotnet-sign-in-build-app",
+      "redirect_document_id": false 
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/delegate-invitations.md",
       "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
       "redirect_document_id": true
@@ -1034,6 +1074,26 @@
       "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-ciam.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/web-app-quickstart-portal-node-js-ciam",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-call-api.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": false 
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
@@ -4353,6 +4413,11 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/user-token.md",
       "redirect_url": "/azure/active-directory/external-identities/user-token",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/customize-branding.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
       "redirect_document_id": true
     },
     {
@@ -11542,7 +11607,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-sync/index.yml",
-      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/index.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/",
       "redirect_document_id": false
     },
     {
@@ -11557,7 +11622,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq",
       "redirect_document_id": false
     },
     {
@@ -11937,7 +12002,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq",
       "redirect_document_id": false
     },
     {
@@ -11982,7 +12047,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq",
       "redirect_document_id": false
     },
     {
@@ -12277,7 +12342,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq",
       "redirect_document_id": false
     },
     {
@@ -12292,7 +12357,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq.yml",
-      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq",
       "redirect_document_id": false
     },
     {
@@ -12727,7 +12792,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md",
-      "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant",
       "redirect_document_id": false
     },
     {

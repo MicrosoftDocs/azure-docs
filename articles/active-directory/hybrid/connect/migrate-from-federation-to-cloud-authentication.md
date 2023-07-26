@@ -359,13 +359,13 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
    ```powershell
     Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
+
 
 3. In the Azure portal, select **Azure Active Directory > Azure AD Connect**.
 
-4. Verify that the domain has been converted to managed by running the following command:
+4. Verify that the domain has been converted to managed by running the command below.  The Authentication type should be set to managed.
     ```powershell
-    Get-MgDomainFederationConfiguration -DomainId yourdomain.com
+    Get-MgDomain -DomainId yourdomain.com
     ```
 ## Complete your migration
 
