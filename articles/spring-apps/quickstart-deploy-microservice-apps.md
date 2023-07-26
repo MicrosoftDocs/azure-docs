@@ -103,7 +103,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 > [Quickstart: Introduction to the sample app - Azure Spring Apps](./quickstart-sample-app-introduction.md)
 
 > [!div class="nextstepaction"]
-> [Run polyglot apps on Enterprise plan(ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)
+> [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
 For more information, see the following articles:
 
