@@ -135,7 +135,7 @@ There are several ways that you can configure entitlement management for your or
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Remove users that no longer need access](entitlement-management-access-package-assignments.md)
 1. [Open an existing policy's request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-with-different-request-settings)
-1. [Add users that need access](entitlement-management-access-package-request-policy.md#allow-users-in-your-directory-to-request-the-access-package)
+1. [Add users that need access](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### Access package manager: Directly assign specific users to an access package
 
