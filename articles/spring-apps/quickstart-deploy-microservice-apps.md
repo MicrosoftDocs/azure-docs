@@ -82,7 +82,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 > [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
 
 > [!div class="nextstepaction"]
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
