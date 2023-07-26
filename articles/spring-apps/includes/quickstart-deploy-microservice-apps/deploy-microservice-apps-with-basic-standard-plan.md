@@ -55,7 +55,7 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/create-basics.png":::
 
-   Use the following table as a guide for completing the form, the recommended **Plan** is `Standard`.
+   Use the following table as a guide for completing the form. The recommended **Plan** is **Standard**.
 
    | Setting            | Suggested value                  | Description                                                                                                                                                                                                                                                                                         |
    |--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
