@@ -81,13 +81,13 @@ Press [e] to edit command line args (currently ''), [r] to resume testing, [o] T
 
 Press <kbd>w</kbd> on the terminal where Quarkus dev mode is running. The <kbd>w</kbd> key opens your default web browser to show the `Todo` application. You can also access the application GUI at `http://localhost:8080` directly.
 
-:::image type="content" source="media/howto-deploy-java-quarkus-app/aks-demo-gui.png" alt-text="Screenshot of the Todo sample app." lightbox="media/howto-deploy-java-quarkus-app/aks-demo-gui.png":::
+:::image type="content" source="media/howto-deploy-java-quarkus-app/demo.png" alt-text="Screenshot of the Todo sample app." lightbox="media/howto-deploy-java-quarkus-app/demo.png":::
 
 Try selecting a few todo items in the todo list. The UI indicates selection with a strikethrough text style. You can also add a new todo item to the todo list by typing *Verify Todo apps* and pressing <kbd>ENTER</kbd>, as shown in the following screenshot:
 
-:::image type="content" source="media/howto-deploy-java-quarkus-app/todo-local.png" alt-text="Screenshot of the Todo sample app with new items added." lightbox="media/howto-deploy-java-quarkus-app/todo-local.png":::
+:::image type="content" source="media/howto-deploy-java-quarkus-app/demo-local.png" alt-text="Screenshot of the Todo sample app with new items added." lightbox="media/howto-deploy-java-quarkus-app/demo-local.png":::
 
-Access the RESTful API (`/api``) to get all todo items that store in the local PostgreSQL database:
+Access the RESTful API (`/api`) to get all todo items that store in the local PostgreSQL database:
 
 ```azurecli-interactive
 curl --verbose http://localhost:8080/api | jq .
@@ -182,12 +182,9 @@ Azure Database for PostgreSQL is a managed service to run, manage, and scale hig
 | Admin username | *quarkus*                | The sample code assumes this value.                                                                                                        |
 | Password       | *Secret123456*           | The sample code assumes this value.                                                                                                        |
 
-With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
+With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal) up to the "Configure a firewall rule" section. Then, in the "Configure a firewall rule" section, be sure to select **Yes** for **Allow access to Azure services**, then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
 
-> [!NOTE]
-> In the section "Configure a firewall rule", you must select **Yes** for **Allow access to Azure services**. Then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
-
-After completing the steps in the quickstart up to **Configure a firewall rule**, and allowing access to Azure services, return to this article.
+After you complete the steps in the quickstart through the "Configure a firewall rule" section, including the step to allow access to Azure services, return to this article.
 
 ### Create a Todo database in PostgreSQL
 
@@ -219,7 +216,7 @@ If the command is successful, the output looks similar to the following example:
 
 Because Quarkus is a cloud native technology, it has built-in support for creating containers that run in Kubernetes. Kubernetes is entirely dependent on having a container registry from which it finds the container images to run. AKS has built-in support for Azure Container Registry (ACR).
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named with the value of your environment variable `${REGISTRY_NAME}.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named with the value of your environment variable `${REGISTRY_NAME}`:
 
 ```azurecli-interactive
 az acr create \
@@ -291,7 +288,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
+To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
 ```azurecli-interactive
 az aks install-cli
@@ -299,7 +296,7 @@ az aks install-cli
 
 For more information about `kubectl`, see [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/overview/) in the Kubernetes documentation.
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command, as shown in the following example. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials \
@@ -327,7 +324,7 @@ To verify the connection to your cluster, use the `kubectl get` command to retur
 kubectl get nodes
 ```
 
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the single node created in the previous steps. Make sure that the status of the node is **Ready**:
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
@@ -348,19 +345,19 @@ The output should look like the following example:
 namespace/<your namespace> created
 ```
 
-### Customize cloud native configuration
+### Customize the cloud native configuration
 
 As a cloud native technology, Quarkus offers the ability to automatically configure resources for standard Kubernetes, Red Hat OpenShift, and Knative. For more information, see the [Quarkus Kubernetes guide](https://quarkus.io/guides/deploying-to-kubernetes#kubernetes), [Quarkus OpenShift guide](https://quarkus.io/guides/deploying-to-kubernetes#openshift) and [Quarkus Knative guide](https://quarkus.io/guides/deploying-to-kubernetes#knative). Developers can deploy the application to a target Kubernetes cluster by applying the generated manifests.
 
-To generate the appropriate Kubernetes resources, add the `quarkus-kubernetes` and `container-image-jib` extensions in your local terminal:
+To generate the appropriate Kubernetes resources, use the following command to add the `quarkus-kubernetes` and `container-image-jib` extensions in your local terminal:
 
 ```azurecli-interactive
 quarkus ext add kubernetes container-image-jib
 ```
 
-Quarkus modifies the POM to ensure these extensions are listed as `<dependencies>`. If asked to install something called `JBang`, answer yes and allow it to be installed.
+Quarkus modifies the POM to ensure these extensions are listed as `<dependencies>`. If asked to install something called `JBang`, answer *yes* and allow it to be installed.
 
-The output should look like:
+The output should look like the following example:
 
 ```output
 [SUCCESS] ✅  Extension io.quarkus:quarkus-kubernetes has been installed
@@ -371,15 +368,15 @@ To verify the extensions are added, you can run `git diff` and examine the outpu
 
 As a cloud native technology, Quarkus supports the notion of configuration profiles. Quarkus has the following three built-in profiles:
 
-- **dev** - Activated when in development mode
-- **test** - Activated when running tests
-- **prod** - The default profile when not running in development or test mode
+- `dev` - Activated when in development mode
+- `test` - Activated when running tests
+- `prod` - The default profile when not running in development or test mode
 
 Quarkus supports any number of named profiles, as needed.
 
-The remaining steps in this section direct you to uncomment and customize values in the `src/main/resources/application.properties` file. Ensure all lines starting with `# %prod.` are uncommented by removing the leading `#`.
+The remaining steps in this section direct you to uncomment and customize values in the *src/main/resources/application.properties* file. Ensure that all lines starting with `# %prod.` are uncommented by removing the leading `#`.
 
-The `prod.` prefix indicates these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
+The `prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
 #### Database configuration
 
@@ -420,15 +417,15 @@ As a cloud native technology, Quarkus supports generating OCI container images c
 
 ### Build the container image and push it to ACR
 
-Now build the application itself. This command uses the Kubernetes and Jib extensions to build the container image.
+Now, use the following command to build the application itself. This command uses the Kubernetes and Jib extensions to build the container image.
 
 ```azurecli-interactive
 quarkus build --no-tests
 ```
 
-The output should end with `BUILD SUCCESS`. The Kubernetes manifest files are generated in *target/kubernetes*.
+The output should end with `BUILD SUCCESS`. The Kubernetes manifest files are generated in *target/kubernetes*, as shown in the following example:
 
-```
+```output
 tree target/kubernetes
 target/kubernetes
 ├── kubernetes.json
@@ -437,7 +434,7 @@ target/kubernetes
 0 directories, 2 files
 ```
 
-You can verify if the container image is generated as well using `docker` or `podman` command line (CLI). Output looks similar to the following.
+You can verify whether the container image is generated as well using `docker` or `podman` command line (CLI). Output looks similar to the following example:
 
 ```output
 docker images | grep todo
@@ -519,9 +516,9 @@ echo $QUARKUS_URL
 
 Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo item with the text `Deployed the Todo app to AKS`. Also, select the `Introduction to Quarkus Todo App` item as complete.
 
-:::image type="content" source="media/howto-deploy-java-quarkus-app/aks-demo-gui-2.png" alt-text="Screenshot of the Todo sample app running in AKS." lightbox="media/howto-deploy-java-quarkus-app/aks-demo-gui-2.png":::
+:::image type="content" source="media/howto-deploy-java-quarkus-app/demo-updated.png" alt-text="Screenshot of the Todo sample app running in AKS." lightbox="media/howto-deploy-java-quarkus-app/demo-updated.png":::
 
-Access the RESTful API (`/api``) to get all todo items stored in the Azure PostgreSQL database, as shown in the following example:
+Access the RESTful API (`/api`) to get all todo items stored in the Azure PostgreSQL database, as shown in the following example:
 
 ```azurecli-interactive
 curl --verbose ${QUARKUS_URL}/api | jq .
@@ -583,7 +580,7 @@ The output should look like the following example:
 
 Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon, as shown in the following screenshot:
 
-:::image type="content" source="media/howto-deploy-java-quarkus-app/azure-cli.png" alt-text="Screenshot of the Azure portal with the Cloud Shell button highlighted." lightbox="media/howto-deploy-java-quarkus-app/azure-cli.png":::
+:::image type="content" source="media/howto-deploy-java-quarkus-app/cloud-shell.png" alt-text="Screenshot of the Azure portal with the Cloud Shell button highlighted." lightbox="media/howto-deploy-java-quarkus-app/cloud-shell.png":::
 
 Run the following command locally and paste the result into Azure Cloud Shell:
 
@@ -593,23 +590,23 @@ echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --use
 
 When asked for the password, use the value you used when you created the database.
 
-Use the following query to get all todo items:
+Use the following query to get all the todo items:
 
 ```azurecli-interactive
 select * from todo;
 ```
 
-The output should be the same as the above _Todo App_ GUI:
+The output should look similar to the following example, and should include the same items in the Todo app GUI shown previously:
 
-:::image type="content" source="media/howto-deploy-java-quarkus-app/azure-cli-psql.png" alt-text="Database contents in ASCII table" lightbox="media/howto-deploy-java-quarkus-app/azure-cli-psql.png":::
+:::image type="content" source="media/howto-deploy-java-quarkus-app/query-output.png" alt-text="Screenshot of the query output as an ASCII table." lightbox="media/howto-deploy-java-quarkus-app/query-output.png":::
 
-If presented with `MORE`, type <kbd>q</kbd> to exit the pager.
+If you see `MORE` in the output, type <kbd>q</kbd> to exit the pager.
 
 Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 git reset --hard
