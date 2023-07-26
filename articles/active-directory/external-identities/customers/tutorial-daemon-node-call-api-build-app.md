@@ -1,6 +1,6 @@
 ---
-title:  Call an API in your Node.js daemon application - acquire an access token
-description: Learn how to acquire an access token by using client credentials flow, the use the token to call a web API in your own Node.js daemon application.
+title: "Tutorial: Call a web API from your Node.js daemon application"
+description: Learn about how to prepare your Node.js client daemon app, then configure it to acquire an access token for calling a web API.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -9,14 +9,57 @@ ms.author: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/22/2023
+ms.topic: tutorial
+ms.date: 07/26/2023
 ms.custom: developer, devx-track-js
 ---
 
-#  Call an API in your Node.js daemon application - acquire an access token
+# Tutorial: Call a web API from your Node.js daemon application
 
-In this article, you update the daemon app you prepared in the previous chapter, [prepare your client app and API](how-to-daemon-node-call-api-prepare-app.md), to acquire an access token, then call a web API. The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authorization to your node daemon application.
+This tutorial demonstrates how to prepare your Node.js daemon client app, then configure it to acquire an access token for calling a web API. The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authorization to your node daemon application.
+
+The [OAuth 2.0 client credentials grant flow](../../develop/v2-oauth2-client-creds-grant-flow.md) permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate before calling another web service. The client credentials grant flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
+
+In this tutorial, you'll:
+
+> [!div class="checklist"]
+> - Create a Node.js app, then install dependencies.
+> - Enable the Node.js app to acquire an access token for calling a web API. 
+
+## Prerequisites
+
+
+- [Node.js](https://nodejs.org).
+- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+- Registration details for the Node.js daemon app and web API you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md).
+- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
+    - `GET /api/todolist` to get all todos.
+    - `POST /api/todolist` to add a todo.
+
+## Create the Node.js daemon project
+
+Create a folder to host your Node.js daemon application, such as `ciam-call-api-node-daemon`:
+
+1. In your terminal, change directory into your Node daemon app folder, such as `cd ciam-call-api-node-daemon`, then run `npm init -y`. This command creates a default package.json file for your Node.js project. This command creates a default `package.json` file for your Node.js project.
+
+1. Create more folders and files to achieve the following project structure:
+
+    ```
+        ciam-call-api-node-daemon/
+        ├── auth.js
+        └── authConfig.js
+        └── fetch.js
+        └── index.js 
+        └── package.json
+    ```
+
+## Install app dependencies
+
+In your terminal, install `axios`, `yargs` and `@azure/msal-node` packages by running the following command:
+
+```console
+npm install axios yargs @azure/msal-node   
+```
 
 ## Create MSAL configuration object
 
@@ -70,7 +113,7 @@ In your *authConfig.js* file, replace:
 
 - `Enter_the_Web_Api_Application_Id_Here` with the Application (client) ID of the web API app that you copied earlier.
 
-Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](how-to-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. The complete scope URI looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
+Notice that the `scopes` property in the `protectedResources` variable is the resource identifier (application ID URI) of the [web API](tutorial-daemon-node-call-api-prepare-tenant.md#register-a-web-api-application) that you registered earlier. The complete scope URI looks similar to `api://Enter_the_Web_Api_Application_Id_Here/.default`.
 
 ## Acquire an access token
 
@@ -225,15 +268,33 @@ const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
 
 At this point, you're ready to test your client daemon app and web API:
 
-1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the file to use your web API's port number. 
+1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) tutorial to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the *authConfig.js* file to use the correct web API's port number. 
 
-1. In your terminal, make sure you're in the project folder that contains your daemon Node app such as `ciam-call-api-node-daemon`, then run the following command: 
+1. In your terminal, make sure you're in the project folder that contains your daemon Node.js app such as `ciam-call-api-node-daemon`, then run the following command: 
 
     ```console
     node . --op getToDos
     ```
 
-If your daemon app and web API successfully run, you should find the data returned by the web API endpoint `todos` variable.
+If your daemon app and web API run successfully, you should find the data returned by the web API endpoint `todos` variable, similar to the following JSON array, in your console window: 
+
+```json
+{
+    id: 1,
+    owner: '3e8....-db63-43a2-a767-5d7db...',
+    description: 'Pick up grocery'
+},
+{
+    id: 2,
+    owner: 'c3cc....-c4ec-4531-a197-cb919ed.....',
+    description: 'Finish invoice report'
+},
+{
+    id: 3,
+    owner: 'a35e....-3b8a-4632-8c4f-ffb840d.....',
+    description: 'Water plants'
+}
+```
 
 ## Next steps
 
