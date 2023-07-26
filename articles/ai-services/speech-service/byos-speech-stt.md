@@ -50,7 +50,7 @@ Batch transcription is used to transcribe a large amount of audio data in storag
 
 Perform these steps to execute Batch transcription with BYOS-enabled Speech resource:
 
-1. Start Batch transcription as described is [this guide](batch-transcription-create.md) .
+1. Start Batch transcription as described is [this guide](batch-transcription-create.md).
 
 > [!IMPORTANT]
 > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
