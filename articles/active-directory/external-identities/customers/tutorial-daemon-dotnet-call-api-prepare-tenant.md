@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
 
-## 3. Configure optional claims
+## 3. Configure idtyp token claim
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-optional-claims-access.md)]
 
