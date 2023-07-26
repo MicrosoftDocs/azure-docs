@@ -92,5 +92,3 @@ If you do not see logs appearing in the selected destination after 15 minutes, s
 * [Analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
 * [Learn about the data sources you can analyze with Azure Monitor](../../azure-monitor/data-sources.md)
 * [Automate creating diagnostic settings with Azure Policy](../../azure-monitor/essentials/diagnostic-settings-policy.md)
-
-

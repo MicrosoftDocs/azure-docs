@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 06/09/2023
+ms.date: 07/25/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -84,7 +84,11 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 
 ### Upgrade a legacy Azure AD cluster to AKS-managed Azure AD integration
 
-If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
+
+> [!WARNING]
+> Free tier clusters may experience API server downtime during the upgrade. We recommend upgrading during your nonbusiness hours. 
+> After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -142,6 +146,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
 
 > [!NOTE]
 > If you receive the message **error: The Azure auth plugin has been removed.**, you need to run the command `kubelogin convert-kubeconfig` to convert the kubeconfig format manually.
+>
+> For more information, you can refer to [Azure Kubelogin Known Issues][azure-kubelogin-known-issues].
 
 ## Troubleshoot access issues with AKS-managed Azure AD
 
@@ -159,6 +165,7 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 [kubelogin]: https://github.com/Azure/kubelogin
+[azure-kubelogin-known-issues]: https://azure.github.io/kubelogin/known-issues.html
 
 <!-- LINKS - Internal -->
 [aks-concepts-identity]: concepts-identity.md

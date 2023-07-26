@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 03/27/2023
 ms.custom: references_regions
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Kubernetes Service backup support matrix (preview)

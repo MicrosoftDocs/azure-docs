@@ -35,8 +35,6 @@ Here are some use cases for Connection Monitor:
 - You want to check the connectivity between your on-premises setups and the Azure VMs/virtual machine scale sets that host your cloud application.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or Non-Azure multi-tier application. 
 
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
-
 Here are some benefits of Connection Monitor:
 
 * Unified, intuitive experience for Azure and hybrid monitoring needs
@@ -119,8 +117,6 @@ To enable the Network Performance Monitor solution for on-premises machines, do 
 1. Select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
    After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
-
-   :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the Network Performance Monitor solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 

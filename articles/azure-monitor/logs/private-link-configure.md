@@ -1,9 +1,9 @@
 ---
 title: Configure your private link
 description: This article shows the steps to configure a private link.
-ms.reviewer: noakuper
+ms.reviewer: mahesh.sundaram
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 07/25/2023
 ---
 
 # Configure your private link
@@ -256,11 +256,11 @@ Follow the steps in this section to review and validate your private link setup.
 ### Review your endpoint's DNS settings
 The private endpoint you created should now have five DNS zones configured:
 
-* `privatelink-monitor-azure-com`
-* `privatelink-oms-opinsights-azure-com`
-* `privatelink-ods-opinsights-azure-com`
-* `privatelink-agentsvc-azure-automation-net`
-* `privatelink-blob-core-windows-net`
+* `privatelink.monitor.azure.com`
+* `privatelink.oms.opinsights.azure.com`
+* `privatelink.ods.opinsights.azure.com`
+* `privatelink.agentsvc.azure.automation-net`
+* `privatelink.blob.core.windows.net`
 
 Each of these zones maps specific Azure Monitor endpoints to private IPs from the virtual network's pool of IPs. The IP addresses shown in the following images are only examples. Your configuration should instead show private IPs from your own network.
 

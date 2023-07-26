@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.custom: devx-track-python
-author: lgayhardt
-ms.author: lagayhar
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.date: 02/09/2023
 ms.topic: how-to
