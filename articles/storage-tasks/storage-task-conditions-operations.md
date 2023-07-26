@@ -73,7 +73,7 @@ The following table shows the operators that you can use in a condition to evalu
 
 Explain matching and wild card patterns. At the time of this draft, it appears that `*` and `?` are supported with the addition of a "matches" operator soon which enables the escaping of these characters in a name. This section is TBD pending the addition of the "matches" operator.
 
-#### Obtaining date and time values dynamically
+### Obtaining date and time values dynamically
 
 - The values for all Date and time properties in a condition can by dynamically obtained from metadata.
 
@@ -83,7 +83,13 @@ Explain matching and wild card patterns. At the time of this draft, it appears t
 
 - While key names have no restrictions, the value of each key must be formatted by using the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard. Provide some examples of using that standard in values.
 
+- What happens if the key is no present?
+
+- What happens if the value is incorrectly formatted?
+
 - Choose which type of metadata to reference as you design the condition in the visual editor.
+
+- List the date time properties that support this capability.
 
   > [!div class="mx-imgBorder"]
   > ![Screenshot of the dialog box which enables you to reference metadata from objects.](./media/storage-task-conditions-operations/parameterized-condition.png)

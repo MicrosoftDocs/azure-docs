@@ -58,6 +58,15 @@ The following example specifies a value of `.log` along with the **Ends with** o
 > [!div class="mx-imgBorder"]
 > ![Screenshot of an example condition.](./media/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
 
+##### Obtain the value of a condition dynamically
+
+A date and time property can obtain its value dynamically from the metadata of a container or from the index tag of each blob that is evaluated by the storage task. In the **Property value** column, select **Edit**. In the **Select a value** dialog box, select **Container metadata** or **Blob index tags**, and then enter the name of the key associated with the value that you would like this condition to use. The following example adds a condition that will evaluate the creation time against the value of the `retainFor` key. For a blob to meet this condition at evaluation time, it must exist in a container that has a key named `retainFor` and the value of that key must be date and time value which an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) formatted duration value
+
+  > [!div class="mx-imgBorder"]
+  > ![Screenshot of the dialog box which enables you to reference metadata from objects.](./media/storage-task-conditions-operations-edit/parameterized-query.png)
+
+To learn more, see [Obtaining date and time values dynamically](storage-task-conditions-operations.md#obtaining-date-and-time-values-dynamically).
+
 #### Apply And / Or to a condition
 
 You add **And** or **Or** to a condition. Specify **And** if you want to target objects that meet the criteria in both the current condition and the previous condition. Specify **Or** to target objects that meet the criterion in either the current condition or the previous condition.
