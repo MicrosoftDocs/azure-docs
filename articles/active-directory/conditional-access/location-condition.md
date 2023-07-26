@@ -164,7 +164,7 @@ You can also find the client IP by clicking a row in the report, and then going 
 :::image type="content" source="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png" alt-text="A screenshot showing Azure AD Sign-in logs and an IP address filter for IPv6 addresses." lightbox="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png":::
 
 > [!NOTE]
-> IPv6 addresses may appear in the sign-in logs with failures due to the way service endpoints handle traffic. It's important to note that [service endpoints are not supported](/azure/virtual-network/virtual-network-service-endpoints-overview#limitations). If users are seeing these IPv6 addresses, remove the service endpoint from their virtual network subnet configuration.
+> IPv6 addresses from service endpoints may appear in the sign-in logs with failures due to the way they handle traffic. It's important to note that [service endpoints are not supported](/azure/virtual-network/virtual-network-service-endpoints-overview#limitations). If users are seeing these IPv6 addresses, remove the service endpoint from their virtual network subnet configuration.
 
 ## What you should know
 
