@@ -18,7 +18,7 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
-## Release date: Jul 25, 2023
+## Release date: July 25th, 2023
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2307201242**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
@@ -36,8 +36,8 @@ For workload specific versions, see
 
 ## ![Icon showing update.](media/hdinsight-release-notes/update-icon.svg) Updated
 * HDInsight 5.1 is supported with ESP cluster.  
-* Upgraded version of Ranger 2.3.0 and Ozzie 5.2.1 are now prat of HDI 5.1
-* The Spark 3.3.1 (HDI 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works well together with the Interactive Query (HDI 5.1) cluster. 
+* Upgraded version of Ranger 2.3.0 and Ozzie 5.2.1 are now part of HDInsight 5.1
+* The Spark 3.3.1 (HDI 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works together with the Interactive Query (HDI 5.1) cluster. 
 * Hadoop version is 3.3.4 in HDInsight 5.1 
 
 ## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Coming soon
@@ -48,11 +48,11 @@ For workload specific versions, see
 * In-line quota update.
    * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the API call fails, then customers need to create a new support request for quota increase.
 * HDInsight Cluster Creation with Custom VNets.
-  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs will need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this would be a mandatory check to avoid cluster creation failures before 30th September, 2023. 
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs will need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this change would be a mandatory check to avoid cluster creation failures before 30th September 2023. 
 * Basic and Standard A-series VMs Retirement.
    * On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before 31 August 2024.
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
-  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates before 30th September, 2023. 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates before 30th September 2023. 
 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
