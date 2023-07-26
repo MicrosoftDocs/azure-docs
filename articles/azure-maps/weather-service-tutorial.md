@@ -19,11 +19,11 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 >
-> * Work with data files in [Azure Notebooks](https://notebooks.azure.com) in the cloud.
+> * Work with data files in [Azure Notebooks] in the cloud.
 > * Load demo data from file.
 > * Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
-> * Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecast) weather data.
+> * Enrich the demo data with Azure Maps [Daily Forecast] weather data.
 > * Plot forecast data in graphs.
 
 ## Prerequisites
@@ -36,10 +36,10 @@ If you don't have an Azure subscription, create a [free account] before you begi
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
-To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
+To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook].
 
 > [!NOTE]
-> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
+> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository].
 
 ## Load the required modules and frameworks
 
@@ -55,7 +55,7 @@ import aiohttp
 
 ## Import weather data
 
-This tutorial uses weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data contained in [weather_dataset_demo.csv](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data) from GitHub. The script below imports demo data to the Azure Notebook.
+This tutorial uses weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data contained in [weather_dataset_demo.csv] from GitHub. The script below imports demo data to the Azure Notebook.
 
 ```python
 df = pd.read_csv("./data/weather_dataset_demo.csv")
@@ -63,7 +63,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecast) of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API] of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 ```python
 subscription_key = "Your Azure Maps key"
@@ -101,7 +101,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-The following script renders the turbine locations on the map by calling the [Get Map Image service](/rest/api/maps/render/getmapimage).
+The following script renders the turbine locations on the map by calling the [Get Map Image service].
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -170,19 +170,19 @@ windsPlot.set_ylabel("Wind direction")
 The following graphs visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
 
 <center>
-
-![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)
+</center>
 
 In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 
-To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](./tutorial-ev-routing.md).
+To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks].
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
-* [Daily Forecast](/rest/api/maps/weather/getdailyforecast)
-* [Render - Get Map Image](/rest/api/maps/render/getmapimage)
+* [Daily Forecast]
+* [Render - Get Map Image]
 
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](./consumption-model.md).
+For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 
 ## Clean up resources
 
@@ -193,9 +193,19 @@ There are no resources that require cleanup.
 To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://notebooks.azure.com)
+> [Azure Notebooks]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Azure Maps REST APIs]: consumption-model.md
+[Azure Notebooks]: https://notebooks.azure.com
+[Create an Azure Notebook]: tutorial-ev-routing.md#create-an-azure-notebooks-project
+[Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
+[Daily Forecast]: /rest/api/maps/weather/getdailyforecast
+[EV routing using Azure Notebooks]: tutorial-ev-routing.md
 [free account]: https://azure.microsoft.com/free/
+[Get Map Image service]: /rest/api/maps/render/getmapimage
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Render - Get Map Image]: /rest/api/maps/render/getmapimage
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Weather Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data
+[weather_dataset_demo.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data
