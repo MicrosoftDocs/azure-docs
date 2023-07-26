@@ -158,5 +158,5 @@ You can select what happens when an external user, who was invited to your direc
 ## Next steps
 
 - [Add a connected organization](entitlement-management-organization.md)
-- [Allow users in your directory to request an access package](entitlement-management-access-package-request-policy.md#allow-users-in-your-directory-to-request-the-access-package)
+- [For users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Troubleshoot](entitlement-management-troubleshoot.md)
