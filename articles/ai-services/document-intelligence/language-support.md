@@ -43,12 +43,12 @@ The following tables provides links to language support reference by supported m
 |:::image type="icon" source="media/overview/icon-id-document.png" link=""::: **ID document**| Extract identification and verification details.|
 |:::image type="icon" source="media/overview/icon-invoice.png" link=""::: **Invoice**| Extract customer and vendor details.|
 |:::image type="icon" source="media/overview/icon-receipt.png" link=""::: **Receipt**| Extract sales transaction details.|
-|:::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::  **W-2 form**| Extract taxable compensation details.|
+|:::image type="icon" source="media/overview/icon-w2.png" link="":::  **W-2 form**| Extract taxable compensation details.|
 
  Custom models | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-custom-template.png" link=""::: **Custom template**|Extract data from static layouts.|
-|:::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural"::: **Custom neural**|Extract data from mixed-type documents.|
+|:::image type="icon" source="media/overview/icon-custom-neural.png" link=""::: **Custom neural**|Extract data from mixed-type documents.|
 
 ## Read, layout, and custom form (template) model
 
