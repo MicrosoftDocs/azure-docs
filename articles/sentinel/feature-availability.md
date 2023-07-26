@@ -117,7 +117,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Advanced Security Information Model (ASIM)](normalization.md) |Public preview |&#x2705; |&#10060; |&#x2705; |
+|[Advanced Security Information Model (ASIM)](normalization.md) |Public preview |&#x2705; |&#x2705; |&#x2705; |
 
 ## Notebooks
 
@@ -130,9 +130,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Threat protection for SAP](sap/deployment-overview.md)<sup>[1](#sap)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
-
-<sup><a name="sap"></a>1</sup> Deploy SAP security content [via GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP).
+|[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
 
 ## Threat intelligence support		
 
