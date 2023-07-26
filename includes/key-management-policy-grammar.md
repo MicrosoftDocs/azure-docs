@@ -256,7 +256,7 @@ The encoding is as follows:
 An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority. An Environment Asserting contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The key encryption key is a public RSA key owned and protected by the target execution environment that is used for key export. It must appear in the TEE keys claim (x-ms-runtime/keys). This claim is a JSON object representing a JSON Web Key Set. Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
 
 ## Key Vault and Managed HSM Attestation Token Requirements
-Azure Key Vault Premium and Managed HSM Secure Key Release were designed alongside [Microsoft Azure Attestation Service](../articles/attestation/overview.md) but may work with any attestation server’s tokens if it conforms to the expected token structure, support OpenID connect, and have the expected claims. DigiCert is presently the only public CA that Azure Key Vault Premium and Managed HSM trust for attestation token signing certificates. 
+Azure Key Vault Premium and Managed HSM Secure Key Release were designed alongside [Microsoft Azure Attestation Service](../articles/attestation/overview.md) but may work with any attestation server’s tokens if it conforms to the expected token structure, supports OpenID connect, and has the expected claims. DigiCert is presently the only public CA that Azure Key Vault Premium and Managed HSM trust for attestation token signing certificates. 
 
  
 
