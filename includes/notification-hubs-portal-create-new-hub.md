@@ -13,15 +13,15 @@
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** on the left menu.
-    ![Azure portal - select All Services](../articles/notification-hubs/media/create-notification-hub-portal/select-all-services.png)
+    ![A screenshot showing select All Services for an existing namespace.](../articles/notification-hubs/media/create-notification-hub-portal/select-all-services.png)
 
 1. Type **Notification Hubs** in the **Filter services** text box. Select the star icon next to the service name to add the service to the **FAVORITES** section on the left menu. Select **Notification Hubs**.
 
-      ![Azure portal - select Notification Hubs](../articles/notification-hubs/media/create-notification-hub-portal/select-notification-hubs.png)
+      ![A screenshot showing how to filter for notification hubs.](../articles/notification-hubs/media/create-notification-hub-portal/select-notification-hubs.png)
 
 1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      ![Notification Hubs - Add toolbar button](../articles/notification-hubs/media/create-notification-hub-portal/create-toolbar-button.png)
+      ![A screenshot showing how to create a new notification hub.](../articles/notification-hubs/media/create-notification-hub-portal/create-toolbar-button.png)
 
 1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
 
