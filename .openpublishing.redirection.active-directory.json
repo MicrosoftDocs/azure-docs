@@ -12834,7 +12834,7 @@
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-configure-authentication.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-configure-authentication",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-prepare-app.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-prepare-app",
