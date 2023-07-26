@@ -34,9 +34,9 @@ To create a new HBase cluster with the Accelerated Writes feature, follow the st
 
 ## Verify Accelerated Writes feature was enabled
 
-You can use the Azure Portal to verify if the Accelerated Writes feature is enabled on an HBASE cluster. 
+You can use the Azure portal to verify if the Accelerated Writes feature is enabled on an HBASE cluster. 
 
-1. Search for your HBASE cluster in the Azure Portal.
+1. Search for your HBASE cluster in the Azure portal.
 2. Select the **Cluster Size** blade.
 3. **Premium disks per worker node** will be displayed.
 
