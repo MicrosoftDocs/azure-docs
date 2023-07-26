@@ -210,7 +210,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
 The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes many built-in filters for use in Gateway routes. Spring Cloud Gateway provides many custom filters in addition to the filters included in the OSS project.
 
-The following is an example of applying the `AddRequestHeadersIfNotPresent` filter to a route:
+The following example shows how to apply the `AddRequestHeadersIfNotPresent` filter to a route:
 
 ```json
 [
@@ -237,7 +237,7 @@ az spring gateway route-config create \
     --routes-file <json-file-with-routes>
 ```
 
-To learn more about available route filters, see [How to use VMware Spring Cloud Gateway Route Filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md).
+For more information on available route filters, see [How to use VMware Spring Cloud Gateway Route Filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md).
 
 ## Next steps
 

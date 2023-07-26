@@ -23,7 +23,7 @@ This article explains how to use VMware Spring Cloud Gateway route filters with 
 VMware Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
-- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claim to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
@@ -86,7 +86,7 @@ This listing adds `X-Request-red:blue` header to the downstream request’s head
 
 ### AddRequestHeadersIfNotPresent
 
-The `AddRequestHeadersIfNotPresent` filter adds headers if it is not present in the original request.
+The `AddRequestHeadersIfNotPresent` filter adds headers if it isn't present in the original request.
 
 The following list shows the configuration parameters:
 
@@ -180,7 +180,7 @@ The `CircuitBreaker` filter wraps routes in a circuit breaker.
 The following list shows the configuration parameters:
 
 - `name`: circuit breaker name.
-- `fallbackUri`: reroute url, can be a local route or external handler.
+- `fallbackUri`: reroute url (can be a local route or external handler).
 - `status codes`: (optional) colon-separated list of status codes to match, in number or in text format.
 - `failure rate`: (optional) threshold above which the circuit breaker opens (default 50%).
 - `duration`: (optional) time to wait before closing again (default 60s).
@@ -221,9 +221,9 @@ The `DedupeResponseHeader` filter also accepts an optional strategy parameter. T
 
 ### FallbackHeaders
 
-The `FallbackHeaders` filter adds any circuit breaker exception to a header. Note that this filter requires the use of the `CircuitBreaker` filter in another route.
+The `FallbackHeaders` filter adds any circuit breaker exception to a header. This filter requires the use of the `CircuitBreaker` filter in another route.
 
-No parameters are required for the `FallbackHeaders` filter.
+There are no parameters for the `FallbackHeaders` filter.
 
 ```json
 [
@@ -272,9 +272,9 @@ protoc --proto_path=src/main/resources/proto/ \
 ```
 
 > [!NOTE] 
-> `streaming` is not supported.
+> `streaming` isn't supported.
 
-The following is an example of the JSONToGRPCFilter using the output from `protoc`:
+The following configuration is an example of the JSONToGRPCFilter using the output from `protoc`:
 
 ```json
 [
@@ -313,7 +313,7 @@ The following list shows the configuration parameters:
 
 ### MapRequestHeader
 
-The `MapRequestHeader` GatewayFilter Factory takes the `fromHeader` and `toHeader` parameters. The `MapRequestHeader` filter creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header does not exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. The following example configures a `MapRequestHeader`:
+The `MapRequestHeader` GatewayFilter Factory takes the `fromHeader` and `toHeader` parameters. The `MapRequestHeader` filter creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. The following example configures a `MapRequestHeader`:
 
 ```json
 [
@@ -422,7 +422,7 @@ The `RemoveRequestHeader` GatewayFilter Factory takes `name` parameter, which is
 ]
 ```
 
-This configuration removes the `X-Request-Foo` header before it is sent downstream.
+This configuration removes the `X-Request-Foo` header before it's sent downstream.
 
 ### RemoveRequestParameter
 
@@ -441,7 +441,7 @@ The `RemoveRequestParameter` GatewayFilter Factory takes `name` parameter, which
 ]
 ```
 
-This configuration removes the `red` parameter before it is sent downstream.
+This configuration removes the `red` parameter before it's sent downstream.
 
 ### RemoveResponseHeader
 
@@ -460,11 +460,11 @@ The `RemoveResponseHeader` GatewayFilter factory takes `name` parameter, which i
 ]
 ```
 
-This configuration removes the `X-Response-Foo` header from the response before it is returned to the gateway client.
+This configuration removes the `X-Response-Foo` header from the response before it's returned to the gateway client.
 
 ### RequestHeaderSize
 
-The `RequestHeaderSize` GatewayFilter Factory takes `maxSize` and `errorHeaderName` parameters. The `maxSize` parameter is the maximum data size allowed by the request header (including key and value). The `errorHeaderName` parameter sets the name of the response header containing an error message. By default, the name of the response header is `errorMessage` The following listing configures a `RequestHeaderSize` GatewayFilter:
+The `RequestHeaderSize` GatewayFilter Factory takes `maxSize` and `errorHeaderName` parameters. The `maxSize` parameter is the maximum data size allowed by the request header (including key and value). The `errorHeaderName` parameter sets the name of the response header containing an error message. By default, the name of the response header is `errorMessage`. The following listing configures a `RequestHeaderSize` GatewayFilter:
 
 ```json
 [
@@ -502,13 +502,13 @@ For example, for a request of `POST` `api.example.com/some/object/name`, the `Lo
 
 The `stripVersionMode` parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST` (default), and `ALWAYS_STRIP`.
 
-- `NEVER_STRIP`: The version is not stripped, even if the original request path contains no version.
+- `NEVER_STRIP`: The version isn't stripped, even if the original request path contains no version.
 - `AS_IN_REQUEST`: The version is stripped only if the original request path contains no version.
 - `ALWAYS_STRIP`: The version is always stripped, even if the original request path contains version.
 
-The `hostValue` parameter, if provided, is used to replace the `host:port` portion of the response `Location` header. If it is not provided, the value of the `Host` request header is used.
+The `hostValue` parameter, if provided, is used to replace the `host:port` portion of the response `Location` header. If it isn't provided, the value of the `Host` request header is used.
 
-The `protocolsRegex` parameter must be a valid regex `String`, against which the protocol name is matched. If it is not matched, the filter doesn't work. The default is `http|https|ftp|ftps`.
+The `protocolsRegex` parameter must be a valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default is `http|https|ftp|ftps`.
 
 ### RewritePath
 
@@ -584,7 +584,7 @@ The `SetRequestHeader` GatewayFilter Factory takes `name` and `value` parameters
 ]
 ```
 
-The `SetRequestHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Request-Red:1234`, it is replaced with `X-Request-Red:Blue`.
+The `SetRequestHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Request-Red:1234`, it's replaced with `X-Request-Red:Blue`.
 
 `SetRequestHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `SetRequestHeader` GatewayFilter that uses a variable:
 
@@ -618,9 +618,9 @@ The `SetResponseHeader` GatewayFilter Factory takes `name` and `value` parameter
 ]
 ```
 
-The `SetResponseHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Response-Red:1234`, it will be replaced with `X-Response-Red:Blue`.
+The `SetResponseHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Response-Red:1234`, it's replaced with `X-Response-Red:Blue`.
 
-`SetResponseHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and will be expanded at runtime. The following example configures an `SetResponseHeader` GatewayFilter that uses a variable:
+`SetResponseHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and is expanded at runtime. The following example configures an `SetResponseHeader` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -662,7 +662,7 @@ The `SetStatus` GatewayFilter Factory takes the `status` parameter, which must b
 
 ### StripPrefix
 
-The StripPrefix GatewayFilter Factory takes one parameter, parts. The parts parameter indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the parts parameter is 1. The following listing configures a StripPrefix GatewayFilter:
+The `StripPrefix` GatewayFilter Factory takes the `parts` parameter. The `parts` parameter indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the `parts` parameter is 1. The following listing configures a `StripPrefix` GatewayFilter:
 
 ```json
 [
@@ -677,28 +677,28 @@ The StripPrefix GatewayFilter Factory takes one parameter, parts. The parts para
 ]
 ```
 
-When a request is made through the gateway to `/name/blue/red`, the request made to `nameservice` looks like `nameservice/red`.
+When a request is made through the gateway to `/name/blue/red`, the request made to `nameservice` appears as `nameservice/red`.
 
 ### Retry
 
-The Retry GatewayFilter Factory supports the following parameters:
+The `Retry` GatewayFilter Factory supports the following parameters:
 
 - `retries`: The number of retries that should be attempted.
-- `statuses`: The HTTP status codes that should be retried, represented by using org.springframework.http.HttpStatus.
-- `methods`: The HTTP methods that should be retried, represented by using org.springframework.http.HttpMethod.
-- `series`: The series of status codes to be retried, represented by using org.springframework.http.HttpStatus.Series.
+- `statuses`: The HTTP status codes that should be retried, represented by using `org.springframework.http.HttpStatus`.
+- `methods`: The HTTP methods that should be retried, represented by using `org.springframework.http.HttpMethod`.
+- `series`: The series of status codes to be retried, represented by using `org.springframework.http.HttpStatus.Series`.
 - `exceptions`: A list of thrown exceptions that should be retried.
 - `backoff`: The configured exponential backoff for the retries. Retries are performed after a backoff interval of `firstBackoff * (factor ^ n)`, where `n` is the iteration. If `maxBackoff` is configured, the maximum backoff applied is limited to `maxBackoff`. If `basedOnPreviousValue` is true, the `backoff` is calculated by using `prevBackoff * factor`.
 
-The following defaults are configured for Retry filter, if enabled:
+The following defaults are configured for the `Retry` filter, when enabled:
 
-- retries: Three times
-- series: 5XX series
-- methods: GET method
-- exceptions: IOException and TimeoutException
-- backoff: disabled
+- `retries`: Three times.
+- `series`: 5XX series.
+- `methods`: GET method.
+- `exceptions`: IOException and TimeoutException.
+- `backoff`: disabled.
 
-The following listing configures a Retry GatewayFilter:
+The following listing configures a `Retry` GatewayFilter:
 
 ```json
 [
@@ -715,7 +715,7 @@ The following listing configures a Retry GatewayFilter:
 
 ### RequestSize
 
-When the request size is greater than the permissible limit, the RequestSize GatewayFilter Factory can restrict a request from reaching the downstream service. The filter takes a maxSize parameter. The maxSize is a DataSize type, so values can be defined as a number followed by an optional DataUnit suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It is the permissible size limit of the request defined in bytes. The following listing configures a RequestSize GatewayFilter:
+When the request size is greater than the permissible limit, the `RequestSize` GatewayFilter Factory can restrict a request from reaching the downstream service. The filter takes a `maxSize` parameter. The `maxSize` is a `DataSize` type, where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It's the permissible size limit of the request defined in bytes. The following listing configures a `RequestSize` GatewayFilter:
 
 ```json
 [
@@ -730,7 +730,7 @@ When the request size is greater than the permissible limit, the RequestSize Gat
 ]
 ```
 
-The RequestSize GatewayFilter Factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage` when the request is rejected due to size. The following example shows such an `errorMessage`:
+When the request is rejected due to size, the `RequestSize` GatewayFilter Factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`. The following example shows an `errorMessage`:
 
 ```bash
 errorMessage : Request size is larger than permissible limit. Request size is 6.0 MB where permissible limit is 5.0 MB
@@ -738,7 +738,7 @@ errorMessage : Request size is larger than permissible limit. Request size is 6.
 
 ### TokenRelay
 
-Forwards OAuth2 access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter as seen in this example:
+The `TokenRelay` filter forwards `OAuth2` access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter:
 
 ```json
 [
@@ -753,13 +753,13 @@ Forwards OAuth2 access token to downstream resources. This filter is configured 
 
 ## Use Commercial Filters
 
-Spring Cloud Gateway for Kubernetes also provides a number of custom filters in addition to those included in the OSS project.
+Spring Cloud Gateway for Kubernetes also provides many custom filters in addition to those included in the OSS project.
 
 ### AllowedRequestCookieCount
 
-Determines if a matching request is allowed to proceed based on the number of cookies.
+The `AllowedRequestCookieCount` filter determines if a matching request is allowed to proceed based on the number of cookies.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `amount`: number of allowed cookies.
 
@@ -778,9 +778,9 @@ Configuration parameters:
 
 ### AllowedRequestHeadersCount
 
-Determines if a matching request is allowed to proceed based on the number of headers.
+ The `AllowedRequestHeadersCount` filter determines if a matching request is allowed to proceed based on the number of headers.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `amount`: number of allowed headers.
 
@@ -799,9 +799,9 @@ Configuration parameters:
 
 ### AllowedRequestQueryParamsCount
 
-Determines if a matching request is allowed to proceed based on the number query params.
+The `AllowedRequestQueryParamsCount` filter determines if a matching request is allowed to proceed based on the number query params.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `amount`: number of allowed parameters.
 
@@ -820,7 +820,7 @@ Configuration parameters:
 
 ### BasicAuth
 
-Adds a BasicAuth `Authorization` header to requests. No parameters required for this filter.
+The `BasicAuth` filter adds a `BasicAuth` `Authorization` header to requests. There are no parameters for this filter.
 
 ```json
 [
@@ -837,9 +837,9 @@ Adds a BasicAuth `Authorization` header to requests. No parameters required for 
 
 ### ClaimHeader
 
-Copies data from a JWT claim into an HTTP header.
+The `ClaimHeader` filter copies data from a JWT claim into an HTTP header.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `Claim name`: case sensitive name of the claim to pass.
 - `Header name`: name of the HTTP header.
@@ -859,9 +859,9 @@ Configuration parameters:
 
 ### ClientCertificateHeader
 
-Validate `X-Forwarded-Client-Cert` header certificate.
+The `ClientCertificateHeader` filter validates the `X-Forwarded-Client-Cert` header certificate.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `domain pattern`: `X-Forwarded-Client-Cert` value according to Kubernetes's ability to recognize client certificate's CA.
 - `certificate fingerprint`: (optional) SSL certificate's fingerprint.
@@ -881,9 +881,9 @@ Configuration parameters:
 
 ### Cors
 
-Activates CORS validations on a route.
+The `Cors` filter activates the CORS validations on a route.
 
-Configuration parameters are organized as key-value pairs for CORS options:
+The following list shows the configuration parameters that are organized as key-value pairs for CORS options:
 
 - `allowedOrigins`
 - `allowedMethods`
@@ -907,11 +907,11 @@ Configuration parameters are organized as key-value pairs for CORS options:
 
 ### JsonToXml
 
-Transforms JSON response body into XML response body
+The `JsonToXml` filter transforms JSON response body into XML response body.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
-- `wrapper`: root tag name for the XML response, default root tag is `response` if an additional root tag is required to generate valid XML.
+- `wrapper`: root tag name for the XML response if an additional root tag is required to generate valid XML. The default root tag name is `response`.
 
 ```json
 [
@@ -928,13 +928,13 @@ Configuration parameters:
 
 ### RateLimit
 
-Determines if a matching request is allowed to proceed based on request volume.
+The `RateLimit` filter determines if a matching request is allowed to proceed based on request volume.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `request limit`: maximum number of requests accepted during the window.
-- `window duration`: window duration in milliseconds. Alternatively the `s`, `m` or `h` suffixes can be used to specify the duration in seconds, minutes or hours.
-- `partition source`: (optional) location of the partition key ('claim', 'header' or 'IPs').
+- `window duration`: window duration in milliseconds. Alternatively the `s`, `m` or `h` suffixes can be used to specify the duration in seconds, minutes, or hours.
+- `partition source`: (optional) location of the partition key ('claim', 'header', or 'IPs').
 - `partition key`: (optional) value used to partition request counters.
 
 ```json
@@ -950,7 +950,7 @@ Configuration parameters:
 ]
 ```
 
-Here are some examples of other RateLimit configurations:
+Following are some examples of other `RateLimit` configurations:
 
 ```
     RateLimit=1,10s
@@ -961,10 +961,11 @@ Here are some examples of other RateLimit configurations:
 
 ### RestrictRequestHeaders
 
-Determines if a matching request is allowed to proceed based on the headers.
-If there are any HTTP headers that are not in the `headerList` configuration (case insensitive) then a response of 431 Forbidden error will be returned to client.
+The `RestrictRequestHeaders` filter determines if a matching request is allowed to proceed based on the headers.
 
-Configuration parameters:
+If there are any HTTP headers that are not in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
+
+The following list shows the configuration parameters:
 
 - `headerList`: list of names of allowed headers (case insensitive).
 
@@ -983,9 +984,9 @@ Configuration parameters:
 
 ### RewriteAllResponseHeaders
 
-Rewrite multiple response headers at once.
+The `RewriteAllResponseHeaders` filter rewrites multiple response headers at once.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `pattern to match`: regular expression to match against header values.
 - `replacement`: replacement value.
@@ -1005,9 +1006,9 @@ Configuration parameters:
 
 ### RewriteResponseBody
 
-Modifies the body of a response.
+The `RewriteResponseBody` filter modifies the body of a response.
 
-Configuration parameters are organized as a comma-separated list of key-value pairs, where each pair takes the form `pattern to match:replacement`:
+The following list shows the configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair takes the form `pattern to match:replacement`:
 
 - `pattern to match`: regular expression to match against text in the response body.
 - `replacement`: replacement value.
@@ -1027,11 +1028,11 @@ Configuration parameters are organized as a comma-separated list of key-value pa
 
 ### RewriteJsonAttributesResponseBody
 
-Rewrite JSON attributes using JSONPath notation.
+The `RewriteJsonAttributesResponseBody` rewrites JSON attributes using `JSONPath` notation.
 
-Configuration parameters are organized as a comma-separated list of key-value pairs, where each pair takes the form `jsonpath:replacement`:
+The following list shows the configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair takes the form `jsonpath:replacement`:
 
-- `jsonpath`: JSONPath expression to match against the response body.
+- `jsonpath`: `JSONPath` expression to match against the response body.
 - `replacement`: replacement value.
 
 ```json
@@ -1049,9 +1050,9 @@ Configuration parameters are organized as a comma-separated list of key-value pa
 
 ### Roles
 
-Authorizes requests whose authorization contains one of the configured roles.
+The `Roles` filter authorizes requests that contain one of the configured roles.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `roles`: comma-separated list of authorized roles.
 
@@ -1070,9 +1071,9 @@ Configuration parameters:
 
 ### Scopes
 
-Authorizes requests whose authorization contains one of the configured OAuth scopes.
+The `Scopes` filter authorizes requests that contains one of the configured OAuth scopes.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `scopes`: comma-separated list of authorized OAuth scopes.
 
@@ -1091,10 +1092,9 @@ Configuration parameters:
 
 ### StoreIpAddress
 
-Store IP address value in the context of the application.
-For extension development only.
+The `StoreIPAddress` filter is used for extension development only and in context of the application.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `attribute name`: name used to store the IP as an exchange attribute.
 
@@ -1113,7 +1113,7 @@ Configuration parameters:
 
 ### SSO login
 
-Redirects to authenticate if no valid Authorization token is found. This filter is configured as a `boolean` value in the route definition rather than an explicit filter as seen in this example:
+The `SSO login` filter redirects to authenticate if there's no valid authorization token. This filter is configured as a `boolean` value in the route definition rather than an explicit filter:
 
 ```json
 [
@@ -1128,10 +1128,9 @@ Redirects to authenticate if no valid Authorization token is found. This filter 
 
 ### StoreHeader
 
-Store a header value in the context of the application.
-For extension development only.
+The `StoreHeader` filter stores a header value in the context of the application. This filter is used for extension development only.
 
-Configuration parameters:
+The following list shows the configuration parameters:
 
 - `headers`: list of headers to check (the first one found is used).
 - `attribute name`: name used to store the header value as an exchange attribute.
@@ -1151,9 +1150,7 @@ Configuration parameters:
 
 ### XmlToJson
 
-Transforms XML response body into JSON response body
-
-No parameters required.
+The `XmlToJson` filter transforms XML response body into JSON response body. There are no parameters for this filter.
 
 ```json
 [
