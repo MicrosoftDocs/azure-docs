@@ -42,7 +42,7 @@ For workload specific versions, see
 
 ## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Coming soon
 
-* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters.
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. Customers need to plan for the updates before 30th September 2023.
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * In-line quota update.
