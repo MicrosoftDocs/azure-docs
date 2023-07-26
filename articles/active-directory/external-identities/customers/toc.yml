@@ -97,13 +97,13 @@ items:
               - name: Sign in users
                 items:
                   - name: Prepare tenant
-                    href: tutorial-single-page-app-react-prepare-tenant.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-tenant.md
                   - name: Prepare app
-                    href: tutorial-single-page-app-react-prepare-app.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-app.md
                   - name: Configure app for authentication
-                    href: tutorial-single-page-app-react-configure-authentication.md 
+                    href: tutorial-single-page-app-react-sign-in-configure-authentication.md 
                   - name: Sign in and sign out
-                    href: tutorial-single-page-app-react-sign-in-out.md
+                    href: tutorial-single-page-app-react-sign-in-sign-out.md
       - name: Web app
         items: 
           - name: Node/Express.js

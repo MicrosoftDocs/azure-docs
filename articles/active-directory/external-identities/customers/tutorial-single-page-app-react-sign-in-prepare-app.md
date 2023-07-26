@@ -14,7 +14,7 @@ ms.author: godonnell
 
 # Tutorial: Prepare a React single-page app (SPA) for authentication in a customer tenant
 
-In the [previous article](./tutorial-single-page-app-react-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This tutorial demonstrates how to create a React single-page app using `npm` and create files needed for authentication and authorization.
+In the [previous article](./tutorial-single-page-app-react-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This tutorial demonstrates how to create a React single-page app using `npm` and create files needed for authentication and authorization.
 
 In this tutorial;
 
@@ -25,7 +25,7 @@ In this tutorial;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate users in a React single-page app (SPA)](./tutorial-single-page-app-react-prepare-tenant.md).
+* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate users in a React single-page app (SPA)](./tutorial-single-page-app-react-sign-in-prepare-tenant.md).
 * Although any integrated development environment (IDE) that supports React applications can be used, this tutorial uses **Visual Studio Code**. You can download it [here](https://visualstudio.microsoft.com/downloads/).
 * [Node.js](https://nodejs.org/en/download/).
 
@@ -200,4 +200,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SPA for authentication](./tutorial-single-page-app-react-configure-authentication.md)
+> [Configure SPA for authentication](./tutorial-single-page-app-react-sign-in-configure-authentication.md)

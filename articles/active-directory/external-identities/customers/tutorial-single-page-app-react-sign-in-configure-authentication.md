@@ -16,7 +16,7 @@ ms.date: 06/09/2023
 
 # Tutorial: Handle authentication flows in a React single-page app 
 
-In the [previous article](./tutorial-single-page-app-react-prepare-app.md), you created a React single-page app (SPA) and prepared it for authentication with your Azure Active Directory (Azure AD) for customers tenant. In this article, you'll learn how to handle authentication flows in your app by adding components.
+In the [previous article](./tutorial-single-page-app-react-sign-in-prepare-app.md), you created a React single-page app (SPA) and prepared it for authentication with your Azure Active Directory (Azure AD) for customers tenant. In this article, you'll learn how to handle authentication flows in your app by adding components.
 
 In this tutorial;
 
@@ -27,7 +27,7 @@ In this tutorial;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./tutorial-single-page-app-react-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./tutorial-single-page-app-react-sign-in-prepare-app.md).
 
 ## Add components to the application
 
@@ -187,4 +187,4 @@ Functional components are the building blocks of React apps, and are used to bui
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the React SPA](./tutorial-single-page-app-react-sign-in-out.md)
+> [Sign in and sign out of the React SPA](./tutorial-single-page-app-react-sign-in-sign-out.md)
