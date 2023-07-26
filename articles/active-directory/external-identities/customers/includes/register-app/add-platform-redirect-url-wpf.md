@@ -3,7 +3,7 @@ author: SHERMANOUKO
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 06/30/2023
+ms.date: 07/26/2023
 ms.author: shermanouko
 ---
 To specify your app type to your app registration, follow these steps: 

@@ -9,7 +9,7 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 07/20/2023
+ms.date: 07/26/2023
 ---
 
 # Tutorial: Register and configure .NET WPF app authentication details in a customer tenant
