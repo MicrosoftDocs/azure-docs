@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Migrate from ContainerLog to ContainerLogV2
 
-With the upgraded offering of ContainerLogV2 becoming generally available, on 20t3 September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, please make sure to transition to using ContainerLogV2 prior to that date.
+With the upgraded offering of ContainerLogV2 becoming generally available, on 30th September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, please make sure to transition to using ContainerLogV2 prior to that date.
 
 ## Steps to complete the transition
 
