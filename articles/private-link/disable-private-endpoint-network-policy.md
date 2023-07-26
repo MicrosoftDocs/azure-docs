@@ -18,14 +18,14 @@ By default, network policies are disabled for a subnet in a virtual network. To 
 
 Network policies can be enabled either for Network Security Groups only, for User-Defined Routes only, or for both.
 
-If you enable network security policies for User-Defined Routes and create a route that includes one or more /32 private endpoints routes, the private endpoint routes are invalidated. This can be useful if you want all traffic (including traffic addressed to the private endpoint) to go through a firewall, since otherwise the /32 route would bypass other routes. 
+If you enable network security policies for UDRs and create a route that includes one or more /32 private endpoints routes, the private endpoint routes are invalidated. This can be useful if you want all traffic (including traffic addressed to the private endpoint) to go through a firewall, since otherwise the /32 route would bypass other routes. 
 
-To disable a /32 Private Endpoint route:
+To invalidate (disable) a /32 Private Endpoint route:
 1. Enable network policy for private endpoints 
 2. Create a UDR to include and override the Private Endpoint route. The scope of the UDR can't be larger than the VNet address space where the Private Endpoint is provisioned.
 
 > [!IMPORTANT]
-> To invalidate a Private Endpoint route, user-defined routes must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) does not invalidate Private Endpoint routes. 
+> To invalidate a Private Endpoint route, UDRs must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) does not invalidate Private Endpoint routes. 
 
 Use the following step to enable or disable network policy for private endpoints:
 
