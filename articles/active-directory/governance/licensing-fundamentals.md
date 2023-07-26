@@ -24,7 +24,7 @@ The following tables show the licensing requirements for Microsoft Entra ID Gove
 ## Microsoft Entra ID Governance licensing
 
 |Feature|Free|Mircorsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----| 
+|-----|:-----:|:-----:|:-----:|:-----:| 
 |HR Inbound Provisioning (SAAS)||x|x|x| 
 |HR Inbound Provisioning (Generic - Public Preview)||||x|  
 |Application Provisioning (SAAS)||x|x|x|  
