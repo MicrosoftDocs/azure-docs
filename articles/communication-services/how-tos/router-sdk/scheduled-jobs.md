@@ -84,9 +84,12 @@ client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
 
 ::: zone-end
 
+> [!NOTE]
+> The job's status after being scheduled is initially `PendingSchedule`, and once Job Router successfully schedules the job, the status is updated to `Scheduled`.
+
 ## Wait for the scheduled time to be reached, then queue the job
 
-When the scheduled time has been reached, Job Router will emit a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation).  If this event has been subscribed, the event can be parsed into a variable called `eventGridEvent`.  At this time, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker.
+When the scheduled time has been reached, the job's status is updated to `WaitingForActivation` and Job Router will emit a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation) to Event Grid.  If this event has been subscribed, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker, which updates the job's status to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
