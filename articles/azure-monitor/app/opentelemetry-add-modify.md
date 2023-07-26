@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
