@@ -51,6 +51,8 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 
 ## View the status for a user
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To view and manage user states, complete the following steps to access the Azure portal page:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
