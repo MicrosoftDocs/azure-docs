@@ -50,7 +50,7 @@ Batch transcription is used to transcribe a large amount of audio data in storag
 
 Perform these steps to execute Batch transcription with BYOS-enabled Speech resource:
 
-1. Start Batch transcription the usual way.
+1. Start Batch transcription as described is [this guide](batch-transcription-create.md) .
 
 > [!IMPORTANT]
 > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
@@ -84,7 +84,7 @@ URL of this format ensures, that only Azure Active Directory identities (users, 
 
 ## Real-time transcription with audio and transcription result logging enabled
 
-You can enable logging for both audio input and recognized speech when using speech to text or speech translation. See the complete description [here](logging-audio-transcription.md).
+You can enable logging for both audio input and recognized speech when using speech to text or speech translation. See the complete description [in this article](logging-audio-transcription.md).
 
 If you use BYOS, then you find the logs in `customspeech-audiologs` Blob container in the BYOS-associated Storage account.
 
@@ -95,9 +95,9 @@ If you use BYOS, then you find the logs in `customspeech-audiologs` Blob contain
 
 [Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
 
-To achieve maximum security, use `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request. Here's an example of the request URL:
+For maximum security use the `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request. Here's an example request URL:
 
-```http
+```https
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/base/en-US/files/logs?sasValidityInSeconds=0
 ```
 
@@ -135,9 +135,9 @@ There's nothing specific about how you use Custom Speech with BYOS-enabled Speec
 
 [Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
 
-To achieve maximum security, use `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) request. Here's an example of the request URL:
+For maximum security use the `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) request. Here's an example request URL:
 
-```http
+```https
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/8427b92a-cb50-4cda-bf04-964ea1b1781b/files?sasValidityInSeconds=0
 ```
 
