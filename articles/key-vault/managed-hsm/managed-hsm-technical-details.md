@@ -9,9 +9,11 @@ ms.author: davinune
 ms.date: 07/20/2023
 ---
 
-# Azure Managed HSM: key sovereignty, availability, performance, and scalability
+# Azure Managed HSM: Key sovereignty, availability, performance, and scalability
 
-Cryptographic keys are the root of trust for securing modern computer systems, be they in the cloud or on-premises. As such, controlling who has authority over those keys is critical to building secure and compliant applications. In Azure, our vision of how the key management should be done in the cloud is expressed in the concept of **key sovereignty**, which means a customer's organization has full and exclusive control over what people can access keys and change key management policies; and over what Azure services consume these keys. Once these decisions are made by the customer, Microsoft personnel are prevented through technical means from changing these decisions. The key management service code executes the customer's decisions until the customer tells it to do otherwise, and Microsoft personnel cannot intervene.
+Cryptographic keys are the root of trust for securing modern computer systems, whether on-premises or in the cloud. So, controlling who has authority over those keys is critical to building secure and compliant applications.
+
+In Azure, our vision of  is expressed in the concept of *key sovereignty* how the key management should be done in the cloud, which means a customer's organization has full and exclusive control over what people can access keys and change key management policies; and over what Azure services consume these keys. Once these decisions are made by the customer, Microsoft personnel are prevented through technical means from changing these decisions. The key management service code executes the customer's decisions until the customer tells it to do otherwise, and Microsoft personnel cannot intervene.
 
 At the same time, it is our belief that every service in the cloud must be fully managed – it must provide the availability, resiliency, security and cloud fundamental promises, backed by service level agreements (SLA). In order to deliver a managed service, Microsoft needs to patch key management servers, upgrade HSM firmware, heal failing hardware, perform failovers, etc. – high privilege operations. As most security professionals know, denying someone with high privilege or physical access to a system access to the data within that system is a difficult problem. This article explains how we solved this problem in the Managed HSM service (giving customers both full key sovereignty and fully managed service SLAs) by using confidential computing technology paired with Hardware Security Modules (HSMs).
 
