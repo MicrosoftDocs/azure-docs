@@ -66,7 +66,7 @@ You'll create the application gateway using the tabs on the **Create application
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
 
-     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/IPv6-app-gw.png) ??
+     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal-ipv6/IPv6-app-gw.png) ??
      
 
 2. For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new  dual stack virtual network or use an existing dual stack network. In this example, you'll create a new dual stack  virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create  three subnets in this example: Two for the application gateway, and another for the backend servers.
@@ -82,7 +82,7 @@ You'll create the application gateway using the tabs on the **Create application
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gateway-create-vnet.png)
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
