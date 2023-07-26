@@ -1,6 +1,6 @@
 ---
-title: Use customer-managed storage accounts in Azure Monitor Log Analytics
-description: Use your own Azure Storage account for Azure Monitor Log Analytics scenarios.
+title: Use customer-managed storage accounts in Azure Monitor Logs
+description: Use your own Azure Storage account to ingest logs into Azure Monitor Logs.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -8,15 +8,15 @@ ms.reviewer: noakuper
 ms.date: 04/04/2022
 ---
 
-# Use customer-managed storage accounts in Azure Monitor Log Analytics
+# Use customer-managed storage accounts in Azure Monitor Logs
 
-Log Analytics relies on Azure Storage in various scenarios. This use is typically managed automatically. But some cases require you to provide and manage your own storage account, which is also known as a customer-managed storage account. This article covers the use of customer-managed storage for WAD/LAD logs, Azure Private Link, and customer-managed key (CMK) encryption.
+Azure Monitor Logs relies on Azure Storage in various scenarios. Azure Monitor typically manages this type of storage automatically, but some cases require you to provide and manage your own storage account, also known as a customer-managed storage account. This article describes the use cases in which you need customer-managed storage to ingest logs into Azure Monitor Logs and explains how to link a storage account to a Log Analytics workspace. 
 
 > [!NOTE]
-> We recommend that you don't take a dependency on the contents that Log Analytics uploads to customer-managed storage because formatting and content might change.
+> We recommend that you don't take a dependency on the contents that Azure Monitor Logs uploads to customer-managed storage because formatting and content might change.
 
-## Ingest Azure Diagnostics extension logs (WAD/LAD)
-The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents, respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
+## Ingest logs using the Azure Diagnostics extension (WAD/LAD)
+The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents, respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Azure Monitor to review and analyze them.
 
 ### Collect Azure Diagnostics extension logs from your storage account
 Connect the storage account to your Log Analytics workspace as a storage data source by using the [Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage). You can also call the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
@@ -59,7 +59,7 @@ For the storage account to successfully connect to your private link, it must:
 
 If your workspace handles traffic from other networks, configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
-Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Log Analytics by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If required, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
+Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Azure Monitor Logs by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If required, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
 
 ### Use a customer-managed storage account for CMK data encryption
 Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use CMKs from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
@@ -115,13 +115,13 @@ The applicable `dataSourceType` values are:
 Follow this guidance to manage your linked storage accounts.
 
 ### Create or modify a link
-When you link a storage account to a workspace, Log Analytics will start using it instead of the storage account owned by the service. You can:
+When you link a storage account to a workspace, Azure Monitor Logs will start using it instead of the storage account owned by the service. You can:
 
 * Register multiple storage accounts to spread the load of logs between them.
 * Reuse the same storage account for multiple workspaces.
 
 ### Unlink a storage account
-To stop using a storage account, unlink the storage from the workspace. Unlinking all storage accounts from a workspace means Log Analytics will attempt to rely on service-managed storage accounts. If your network has limited access to the internet, these storage accounts might not be available and any scenario that relies on storage will fail.
+To stop using a storage account, unlink the storage from the workspace. Unlinking all storage accounts from a workspace means Azure Monitor Logs will attempt to rely on service-managed storage accounts. If your network has limited access to the internet, these storage accounts might not be available and any scenario that relies on storage will fail.
 
 ### Replace a storage account
 To replace a storage account used for ingestion:
@@ -134,7 +134,7 @@ To replace a storage account used for ingestion:
 Follow this guidance to maintain your storage accounts.
 
 #### Manage log retention
-When you use your own storage account, retention is up to you. Log Analytics won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
+When you use your own storage account, retention is up to you. Azure Monitor Logs won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
 Storage accounts can handle a certain load of read and write requests before they start throttling requests. For more information, see [Scalability and performance targets for Azure Blob Storage](../../storage/common/scalability-targets-standard-account.md).
