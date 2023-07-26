@@ -21,13 +21,13 @@ Here are some of the benefits of using a NAT gateway for your managed cluster:
 * Simplified network architecture: NAT gateways allow you to simplify your network architecture by eliminating the need for a bastion host or VPN connection to access instances in private subnets. 
 * Performance: Azure NAT Gateway is [performant and stable](../nat-gateway/nat-gateway-resource.md#performance).
 
-The following diagram depicts a cluster with a primary and secondary node type where each node type has their own subnet. The secondary node type is placed behind a NAT gateway, and all its outgoing traffic is routed through the gateway. When traffic originates from the secondary node type, the public IP address is that of the NAT gateway. Because all outgoing requests are routed through the NAT gateway, you can implement additional NSG rules, which improves security and prevents external services from discovering internal services.
+The following diagram depicts a cluster with a primary and secondary node type where each node type has their own subnet. The secondary node type is placed behind a NAT gateway, and all its outgoing traffic is routed through the gateway. When traffic originates from the secondary node type, the public IP address is that of the NAT gateway. Because all outgoing requests are routed through the NAT gateway, you can implement additional NSG rules, which improve security and prevents external services from discovering internal services.
 
 ![Diagram depicting a cluster using a NAT gateway to handle outgoing traffic.](media/how-to-managed-cluster-nat-gateway/nat-gateway-scenario-diagram.png)
 
 The following scenarios are supported use cases for NAT gateways on Service Fabric managed clusters:
 * Customers can attach a NAT gateway to any node type and subnet configuration under the [Bring your own virtual network section of the Configure managed cluster network settings article](how-to-managed-cluster-networking.md#bring-your-own-virtual-network).
-* Customers can attach a NAT gateway to secondary node types using a dedicated subnet as outlined in the [Bring your own Azure Load Balancer section of the Configure managed cluster network settings article](how-to-managed-cluster-networking.md#bring-your-own-azure-load-balancer). By adding your own load balancer and NAT gateway, customers get increased control over your network traffic to support the above-mentioned scenarios.
+* Customers can attach a NAT gateway to secondary node types using a dedicated subnet as outlined in the [Bring your own Azure Load Balancer section of the Configure managed cluster network settings article](how-to-managed-cluster-networking.md#bring-your-own-azure-load-balancer). When you add your own load balancer and NAT gateway, you get increased control over your network traffic.
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name mvVNe
 
 1. Under **Settings**, select **Subnets**.
 
-1. Select the subnet you want to associate ith your NAT gateway.
+1. Select the subnet you want to associate with your NAT gateway.
 
 1. Open the **NAT gateway** dropdown and select your NAT gateway.
 
