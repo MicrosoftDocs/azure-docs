@@ -32,7 +32,7 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploying Azure Communications Gateway |**Contributor** access to your subscription|
 | Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
 |Monitoring logs and metrics | **Reader** access to your subscription|
-|Using the API Bridge Number Management Portal|**NumberManagement.Read**, **NumberManagement.Write**, **PartnerSettings.Read**, and **PartnerSettings.Write** permissions for the Project Synergy enterprise application and **Reader** permissions to the Azure portal for your subscription|
+|Using the API Bridge Number Management Portal| [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for the Project Synergy enterprise application and **Reader** permissions to the Azure portal for your subscription|
 
 ## 2. Configure user roles
 
@@ -49,7 +49,7 @@ You need to use the Azure portal to configure user roles.
 ### 2.2 Assign a user role
 
 1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [1. Understand the user roles required for Azure Communications Gateway](#1-understand-the-user-roles-required-for-azure-communications-gateway).
-1. If you're managing access to the API Bridge Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign **NumberManagement.Read**, **NumberManagement.Write**, **PartnerSettings.Read**, and **PartnerSettings.Write** permissions for each user in the Project Synergy application.
+1. If you're managing access to the API Bridge Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for each user in the Project Synergy application.
 
 ## Next steps
 
