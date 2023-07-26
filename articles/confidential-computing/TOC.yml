@@ -44,7 +44,7 @@
         - name: Multi-party collaboration
           href: threat-multi-party-collab.md # new #p2
      - name: It's the future
-       href: confidential-computing-is-the-future.md.md # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
+       href: confidential-computing-is-the-future.md # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
      - name: Privacy by-default
        href: privacy-by-default.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
 - name: How do I get it? # HOW?
