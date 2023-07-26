@@ -52,7 +52,7 @@ Spring Cloud Gateway OSS includes a number of `GatewayFilter` factories used to 
 
 ### AddRequestHeader
 
-The `AddRequestHeader` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddRequestHeader` GatewayFilter:
+The `AddRequestHeader` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddRequestHeader` GatewayFilter:
 
 ```json
 [
@@ -107,7 +107,7 @@ The following list shows the configuration parameters:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddRequestParameter` GatewayFilter:
+The `AddRequestParameter` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddRequestParameter` GatewayFilter:
 
 ```json
 [
@@ -141,7 +141,7 @@ This configuration adds `red=blue` parameter to the downstream request’s query
 
 ### AddResponseHeader
 
-The `AddResponseHeader` GatewayFilter Factory takes a `name` and a `value` parameter. The following example configures an `AddResponseHeader` GatewayFilter:
+The `AddResponseHeader` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -332,7 +332,7 @@ This configuration adds the `X-Request-Red:<values>` header to the downstream re
 
 ### PrefixPath
 
-The `PrefixPath` GatewayFilter Factory takes a single prefix parameter. The following example configures a `PrefixPath` GatewayFilter:
+The `PrefixPath` GatewayFilter Factory takes a single `prefix` parameter. The following example configures a `PrefixPath` GatewayFilter:
 
 ```json
 [
@@ -368,7 +368,7 @@ The `PreserveHostHeader` GatewayFilter Factory has no parameters. This filter se
 
 ### RedirectTo
 
-The `RedirectTo` GatewayFilter Factory takes the `status` and the `url` parameters. The `status` parameter should be a 300 series redirect HTTP code, such as 301. The `url` parameter should be a valid URL. This is the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. The following listing configures a `RedirectTo` GatewayFilter:
+The `RedirectTo` GatewayFilter Factory takes `status` and `url` parameters. The `status` parameter should be a 300 series redirect HTTP code, such as 301. The `url` parameter should be a valid URL. This is the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. The following listing configures a `RedirectTo` GatewayFilter:
 
 ```json
 [
@@ -407,7 +407,7 @@ The following list shows the configuration parameters:
 
 ### RemoveRequestHeader
 
-The `RemoveRequestHeader` GatewayFilter Factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` GatewayFilter:
+The `RemoveRequestHeader` GatewayFilter Factory takes `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` GatewayFilter:
 
 ```json
 [
@@ -426,7 +426,7 @@ This configuration removes the `X-Request-Foo` header before it is sent downstre
 
 ### RemoveRequestParameter
 
-The `RemoveRequestParameter` GatewayFilter Factory takes a `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` GatewayFilter:
+The `RemoveRequestParameter` GatewayFilter Factory takes `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` GatewayFilter:
 
 ```json
 [
@@ -445,7 +445,7 @@ This configuration removes the `red` parameter before it is sent downstream.
 
 ### RemoveResponseHeader
 
-The `RemoveResponseHeader` GatewayFilter factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` GatewayFilter:
+The `RemoveResponseHeader` GatewayFilter factory takes `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -464,7 +464,7 @@ This configuration removes the `X-Response-Foo` header from the response before 
 
 ### RequestHeaderSize
 
-The RequestHeaderSize GatewayFilter Factory takes maxSize and errorHeaderName parameters. The maxSize parameter is the maximum data size allowed by the request header (including key and value). The errorHeaderName parameter sets the name of the response header containing an error message, by default it is "errorMessage". The following listing configures a RequestHeaderSize GatewayFilter:
+The `RequestHeaderSize` GatewayFilter Factory takes `maxSize` and `errorHeaderName` parameters. The `maxSize` parameter is the maximum data size allowed by the request header (including key and value). The `errorHeaderName` parameter sets the name of the response header containing an error message. By default, the name of the response header is `errorMessage` The following listing configures a `RequestHeaderSize` GatewayFilter:
 
 ```json
 [
@@ -479,11 +479,11 @@ The RequestHeaderSize GatewayFilter Factory takes maxSize and errorHeaderName pa
 ]
 ```
 
-This will send a status 431 if size of any request header is greater than 1000 Bytes.
+This configuration sends a status 431 if size of any request header is greater than 1000 Bytes.
 
 ### RewriteLocationResponseHeader
 
-The RewriteLocationResponseHeader GatewayFilter Factory modifies the value of the Location response header, usually to get rid of backend-specific details. It takes the stripVersionMode, locationHeaderName, hostValue, and protocolsRegex parameters. The following listing configures a RewriteLocationResponseHeader GatewayFilter:
+The `RewriteLocationResponseHeader` GatewayFilter Factory modifies the value of the `Location` response header, usually to get rid of backend-specific details. It takes the `stripVersionMode`, `locationHeaderName`, `hostValue`, and `protocolsRegex` parameters. The following listing configures a `RewriteLocationResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -498,7 +498,7 @@ The RewriteLocationResponseHeader GatewayFilter Factory modifies the value of th
 ]
 ```
 
-For example, for a request of `POST` `api.example.com/some/object/name`, the Location response header value of `object-service.prod.example.net/v2/some/object/id` is rewritten as `api.example.com/some/object/id`.
+For example, for a request of `POST` `api.example.com/some/object/name`, the `Location` response header value of `object-service.prod.example.net/v2/some/object/id` is rewritten as `api.example.com/some/object/id`.
 
 The `stripVersionMode` parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST` (default), and `ALWAYS_STRIP`.
 
@@ -508,11 +508,11 @@ The `stripVersionMode` parameter has the following possible values: `NEVER_STRIP
 
 The `hostValue` parameter, if provided, is used to replace the `host:port` portion of the response `Location` header. If it is not provided, the value of the `Host` request header is used.
 
-The `protocolsRegex` parameter must be a valid regex `String`, against which the protocol name is matched. If it is not matched, the filter does nothing. The default is `http|https|ftp|ftps`.
+The `protocolsRegex` parameter must be a valid regex `String`, against which the protocol name is matched. If it is not matched, the filter doesn't work. The default is `http|https|ftp|ftps`.
 
 ### RewritePath
 
-The RewritePath GatewayFilter Factory takes a path regexp parameter and a replacement parameter. This uses Java regular expressions for a flexible way to rewrite the request path. The following listing configures a RewritePath GatewayFilter:
+The `RewritePath` GatewayFilter Factory takes a path `regexp` parameter and a `replacement` parameter. This filter uses Java regular expressions for a flexible way to rewrite the request path. The following listing configures a `RewritePath` GatewayFilter:
 
 ```json
 [
@@ -527,11 +527,11 @@ The RewritePath GatewayFilter Factory takes a path regexp parameter and a replac
 ]
 ```
 
-For a request path of `/red/blue`, this sets the path to `/blue` before making the downstream request.
+For a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
 
 ### RewriteResponseHeader
 
-The RewriteResponseHeader GatewayFilter Factory takes name, regexp, and replacement parameters. It uses Java regular expressions for a flexible way to rewrite the response header value. The following example configures a RewriteResponseHeader GatewayFilter:
+The `RewriteResponseHeader` GatewayFilter Factory takes `name`, `regexp`, and `replacement` parameters. This filter uses Java regular expressions for a flexible way to rewrite the response header value. The following example configures a `RewriteResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -546,11 +546,11 @@ The RewriteResponseHeader GatewayFilter Factory takes name, regexp, and replacem
 ]
 ```
 
-For a header value of `/42?user=ford&password=omg!what&flag=true`, it is set to `/42?user=ford&password=***&flag=true` after making the downstream request.
+For a header value of `/42?user=ford&password=omg!what&flag=true`, the configuration is set to `/42?user=ford&password=***&flag=true` after making the downstream request.
 
 ### SetPath
 
-The SetPath GatewayFilter Factory takes a path template parameter. It offers a simple way to manipulate the request path by allowing templated segments of the path. This uses the URI templates from Spring Framework. Multiple matching segments are allowed. The following example configures a SetPath GatewayFilter:
+The `SetPath` GatewayFilter Factory takes a path `template` parameter. This filter offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments. The following example configures a `SetPath` GatewayFilter:
 
 ```json
 [
@@ -565,11 +565,11 @@ The SetPath GatewayFilter Factory takes a path template parameter. It offers a s
 ]
 ```
 
-For a request path of `/red/blue`, this sets the path to `/blue` before making the downstream request
+For a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
 
 ### SetRequestHeader
 
-The SetRequestHeader GatewayFilter Factory takes name and value parameters. The following listing configures a SetRequestHeader GatewayFilter:
+The `SetRequestHeader` GatewayFilter Factory takes `name` and `value` parameters. The following listing configures a `SetRequestHeader` GatewayFilter:
 
 ```json
 [
@@ -584,9 +584,9 @@ The SetRequestHeader GatewayFilter Factory takes name and value parameters. The 
 ]
 ```
 
-This GatewayFilter replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Request-Red:1234`, it will be replaced with `X-Request-Red:Blue`, which is what the downstream service would receive.
+The `SetRequestHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Request-Red:1234`, it is replaced with `X-Request-Red:Blue`.
 
-SetRequestHeader is aware of URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an SetRequestHeader GatewayFilter that uses a variable:
+`SetRequestHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `SetRequestHeader` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -603,7 +603,7 @@ SetRequestHeader is aware of URI variables used to match a path or host. URI var
 
 ### SetResponseHeader
 
-The SetResponseHeader GatewayFilter Factory takes name and value parameters. The following listing configures a SetResponseHeader GatewayFilter:
+The `SetResponseHeader` GatewayFilter Factory takes `name` and `value` parameters. The following listing configures a `SetResponseHeader` GatewayFilter:
 
 ```json
 [
@@ -618,9 +618,9 @@ The SetResponseHeader GatewayFilter Factory takes name and value parameters. The
 ]
 ```
 
-This GatewayFilter replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Response-Red:1234`, it will be replaced with `X-Response-Red:Blue`, which is what the gateway client would receive.
+The `SetResponseHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Response-Red:1234`, it will be replaced with `X-Response-Red:Blue`.
 
-SetResponseHeader is aware of URI variables used to match a path or host. URI variables may be used in the value and will be expanded at runtime. The following example configures an SetResponseHeader GatewayFilter that uses a variable:
+`SetResponseHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and will be expanded at runtime. The following example configures an `SetResponseHeader` GatewayFilter that uses a variable:
 
 ```json
 [
@@ -637,7 +637,7 @@ SetResponseHeader is aware of URI variables used to match a path or host. URI va
 
 ### SetStatus
 
-The SetStatus GatewayFilter Factory takes a single parameter, status. It must be a valid Spring HttpStatus. It may be the integer value `404` or the string representation of the enumeration: `NOT_FOUND`. The following listing configures a SetStatus GatewayFilter:
+The `SetStatus` GatewayFilter Factory takes the `status` parameter, which must be a valid Spring `HttpStatus`. It may be the integer value `404` or the string representation of the enumeration: `NOT_FOUND`. The following listing configures a `SetStatus` GatewayFilter:
 
 ```json
 [
