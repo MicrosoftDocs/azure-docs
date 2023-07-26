@@ -29,6 +29,15 @@ A high level view of how you can create a new request and get responses from the
 
 Once all the request/responses are successfully processed, the status of the request is closed. This final output of the request will be stored in Data Manager for Agriculture. You must ensure that you're submitting requests within the pre-defined thresholds.  
 
+# How do I discover a Bayer Ag Powered solution
+
+* Once you've installed an instance of Agri Data Manager from Azure portal, navigate to Solutions tab on the left hand side in your instance.
+* You will be able to view the Solutions supported by Bayer. Click on the solution of your choice and click on Add button against it.
+* You will be navigated to Azure Marketplace page for the Solution. 
+* Click on Contact Us CTA and Bayer will contact you to help with next steps of installation. 
+* To edit an installed Solution, click on the edit icon against the Solution in Solutions page and you will be redirected to Azure Marketplace from where you can Contact bayer by clicking on Contact Us.
+* To delete an installed Solution, click on the delete icon against the Solution in Solutions page and you will be redirected to Azure Marketplace from where you can Contact bayer by clicking on Contact Us.
+
 ## Next steps
 
 * Test our APIs [here](/rest/api/data-manager-for-agri).
