@@ -1,13 +1,13 @@
 ---
 title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
-author: ju-shim
+author: johnmarco
 ms.service: automanage
 ms.workload: infrastructure
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 08/01/2022
-ms.author: jushiman
+ms.date: 07/01/2023
+ms.author: johnmarc
 ---
 
 
@@ -117,6 +117,7 @@ The following ARM template will create an Automanage custom profile. Details on 
               "Backup/RetentionPolicy/DailySchedule/RetentionDuration/Count": "180",
               "Backup/RetentionPolicy/DailySchedule/RetentionDuration/DurationType": "Days",
               "BootDiagnostics/Enable": true,
+              "DefenderForCloud/Enable": true,
               "ChangeTrackingAndInventory/Enable": true,
               "LogAnalytics/Enable": true,
               "LogAnalytics/Reprovision": "[parameters('LogAnalyticsBehavior')]",
@@ -124,8 +125,6 @@ The following ARM template will create an Automanage custom profile. Details on 
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
               "WindowsAdminCenter/Enable": true,
-              "GuestConfiguration/Enable": true,
-              "DefenderForCloud/Enable": true,
               "Tags/ResourceGroup": {
                 "foo": "rg"
               },
