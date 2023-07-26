@@ -226,6 +226,12 @@ If no value is specified at runtime, `learning_rate` and `learning_rate_schedule
 python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
+### Output path expressions
+
+The following expressions can be used in the output path of your job:
+
+[!INCLUDE [output path expressions](includes/output-path-expressions.md)]
+
 ## Next steps
 
 * [Install and use the CLI (v2)](how-to-configure-cli.md)
