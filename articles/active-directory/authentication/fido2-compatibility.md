@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 07/26/2023
 
 author: justinha
 ms.author: justinha
@@ -49,7 +49,7 @@ The following tables show which transports are supported for each platform. Supp
 
 ### macOS
 
-| Browser | Lightning  | NFC<sup>1</sup> | BLE<sup>1</sup> |
+| Browser | USB  | NFC<sup>1</sup> | BLE<sup>1</sup> |
 |---------|------|-----|-----|
 | Edge    | &#x2705; | N/A | N/A |
 | Chrome   | &#x2705; | N/A | N/A |
@@ -57,7 +57,8 @@ The following tables show which transports are supported for each platform. Supp
 | Safari<sup>2</sup>   | &#x2705; | N/A | N/A |
 
 <sup>1</sup>NFC and BLE security keys aren't supported on macOS by Apple.
-<sup>2</sup>New security key registration doesn't work on these macOS browsers because they don't prompt to set up biometrics and PIN.
+
+<sup>2</sup>New security key registration doesn't work on these macOS browsers because they don't prompt to set up biometrics or PIN.
 
 ### ChromeOS
 
@@ -78,14 +79,16 @@ The following tables show which transports are supported for each platform. Supp
 
 ### iOS
 
-| Browser | Lightning  | NFC | BLE |
+| Browser | Lightning  | NFC | BLE<sup>1</sup> |
 |---------|------------|-----|-----|
-| Edge    |  &#x2705;  | N/A | N/A | 
-| Chrome  |  &#x2705;  | N/A | N/A |
-| Firefox |  &#x2705;  | N/A | N/A |
-| Safari<sup>1</sup>  |  &#x2705;  | N/A | N/A |
+| Edge    |  &#x2705;  | &#x2705; | N/A | 
+| Chrome  |  &#x2705;  | &#x2705; | N/A |
+| Firefox |  &#x2705;  | &#x2705; | N/A |
+| Safari<sup>2</sup>  |  &#x2705;  | N/A | N/A |
 
-<sup>1</sup>For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
+<sup>1</sup>BLE security keys aren't supported on iOS by Apple.
+
+<sup>2</sup>New security key registration doesn't work on iOS browsers because they don't prompt to set up biometrics or PIN.
 
 ### Android
 
@@ -95,7 +98,7 @@ The following tables show which transports are supported for each platform. Supp
 | Chrome  | &#10060;  | &#10060; | &#10060; |
 | Firefox | &#10060;  | &#10060; | &#10060; |
 
-<sup>1</sup>Security key PIN for user verification isn't currently supported with Android.
+<sup>1</sup>Security key biometrics or PIN for user verficiation isn't currently supported on Android by Google. Azure AD requires user verification for all FIDO2 authentications.
 
 ## Minimum browser version
 
