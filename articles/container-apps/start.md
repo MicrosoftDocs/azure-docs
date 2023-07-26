@@ -9,18 +9,22 @@ ms.date: 07/26/2023
 ms.author: cshoe
 ---
 
-# Azure Container Apps
+# Get started with Azure Container Apps
 
 :::row:::
    :::column span="":::
-      **I'm new to containers**
+      ## I'm new to containers
 
       Containers are all about simplicity, portability, and efficiency.
 
-      [Learn more about what container are and how they can help you build cloud-based applications.](start-containers.md)
+      > [!div class="nextstepaction"]
+      > [Learn more about containers](start-containers.md)
    :::column-end:::
    :::column span="":::
-      **I want to use serverless containers**
+      ## I want to use serverless containers**
+
+      > [!div class="nextstepaction"]
+      > [Learn more about serverless containers](start-serverless-containers.md)
    :::column-end:::
 :::row-end:::
 
