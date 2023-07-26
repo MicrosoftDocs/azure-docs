@@ -38,4 +38,4 @@ Here are the steps to deliver the push notification:
 6. VOIP push is successfully delivered to the device and `CallAgent.handlePush` API should be called.
 
 ## Sample
-Code sample is provided [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts). 
+Code sample is provided [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-calling-push-notifications-event-grid).
