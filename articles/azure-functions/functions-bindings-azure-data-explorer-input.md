@@ -18,7 +18,7 @@ The Azure Data Explorer input binding retrieves data from a database.
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 

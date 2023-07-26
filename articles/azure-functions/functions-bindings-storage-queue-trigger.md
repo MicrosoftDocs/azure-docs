@@ -62,61 +62,6 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "type": "queueTrigger",
-            "direction": "in",
-            "name": "myQueueItem",
-            "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionAppSetting"
-        }
-    ]
-}
-```
-
-The [section below](#attributes) explains these properties.
-
-Here's the C# script code:
-
-```csharp
-#r "Microsoft.WindowsAzure.Storage"
-
-using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Queue;
-using System;
-
-public static void Run(CloudQueueMessage myQueueItem, 
-    DateTimeOffset expirationTime, 
-    DateTimeOffset insertionTime, 
-    DateTimeOffset nextVisibleTime,
-    string queueTrigger,
-    string id,
-    string popReceipt,
-    int dequeueCount,
-    ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
-        $"queueTrigger={queueTrigger}\n" +
-        $"expirationTime={expirationTime}\n" +
-        $"insertionTime={insertionTime}\n" +
-        $"nextVisibleTime={nextVisibleTime}\n" +
-        $"id={id}\n" +
-        $"popReceipt={popReceipt}\n" + 
-        $"dequeueCount={dequeueCount}");
-}
-```
-
-The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
-
 ---
 
 ::: zone-end
@@ -294,7 +239,7 @@ def main(msg: func.QueueMessage):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#queue-trigger).
 
 
 # [In-process](#tab/in-process)
@@ -330,20 +275,6 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's const
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger":::
 
 This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
-
-|function.json property | Description|
-|------------|----------------------|
-|**type** |Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction**|  In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that contains the queue item payload in the function code.  |
-|**queueName** |  The name of the queue to poll. |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 ---
 
@@ -435,10 +366,6 @@ An in-process class library is a compiled C# function runs in the same process a
 # [Isolated process](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
-   
-# [C# script](#tab/csharp-script)
-
-C# script is used primarily when creating C# functions in the Azure portal.
 
 ---
 
@@ -476,30 +403,7 @@ When binding to an object, the Functions runtime tries to deserialize the JSON p
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 
-Isolated worker process currently only supports binding to string parameters.
-
-# [Extension 5.x+](#tab/extensionv5/csharp-script)
-
-Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the *function.json* file. You can bind to any of the following types:
-
-* Plain-old CLR object (POCO)
-* `string`
-* `byte[]`
-* [QueueMessage]
-
-When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
-
-
-# [Extension 2.x+](#tab/extensionv2/csharp-script)
-
-Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the *function.json* file. You can bind to any of the following types:
-
-* Plain-old CLR object (POCO)
-* `string`
-* `byte[]`
-* [CloudQueueMessage]
-
-When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
+Earlier versions of this extension in the isolated worker process only support binding to strings. Additional options are available to **Extension 5.x+**.
 
 ---
 ::: zone-end  
