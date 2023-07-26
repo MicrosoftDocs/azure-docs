@@ -145,6 +145,8 @@ The following metrics are collected by default from each default target. All oth
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
    - `kube_pod_container_info`
+   - `kube_resource_labels` (ex - kube_pod_labels, kube_deployment_labels)
+   - `kube_resource_annotations` (ex - kube_pod_annotations, kube_deployment_annotations)
 
 ## Default targets scraped for Windows
 Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section

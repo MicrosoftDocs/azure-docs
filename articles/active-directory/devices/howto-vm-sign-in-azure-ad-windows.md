@@ -78,6 +78,10 @@ Azure China 21Vianet:
 - `https://login.chinacloudapi.cn`: For authentication flows.
 - `https://pas.chinacloudapi.cn`: For Azure RBAC flows.
 
+### Authentication requirements
+
+[Azure AD Guest accounts](/azure/active-directory/external-identities/what-is-b2b) cannot connect to Azure Bastion via Azure AD authentication.
+
 ## Enable Azure AD login for a Windows VM in Azure
 
 To use Azure AD login for a Windows VM in Azure, you must: 
@@ -91,6 +95,8 @@ There are two ways to enable Azure AD login for your Windows VM:
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
@@ -163,7 +169,7 @@ Now that you've created the VM, you need to configure an Azure RBAC policy to de
 - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
-To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
+To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the Virtual Machine resource.
 
 > [!NOTE]
 > Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.
@@ -263,7 +269,7 @@ To connect to the remote computer:
 > [!IMPORTANT]
 > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
 >
-> If you're using an Azure AD-registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Azure AD authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/connect-native-client-windows.md). 
+> If you're using an Azure AD-registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Azure AD authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/native-client.md). 
 
 
 To log in to your Windows Server 2019 virtual machine by using Azure AD: 
@@ -421,7 +427,7 @@ Try these solutions:
 
 - Verify that the user doesn't have a temporary password. Temporary passwords can't be used to log in to a remote desktop connection.
 
-  Sign in with the user account in a web browser. For instance, open the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
+  Sign in with the user account in a web browser. For instance, sign in to the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
 
 ### MFA sign-in method required
 
@@ -460,7 +466,7 @@ Share your feedback about this feature or report problems with using it on the [
 
 If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **VM**. If you don't see **Azure Windows VM Sign-In** as a result, the service principal is missing from the tenant.
 

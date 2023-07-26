@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 07/25/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -35,7 +35,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>**Note**: Service Bus built-in connector triggers follow the [*polling trigger*](introduction.md#triggers) pattern, which means that the trigger continually checks for messages in the queue or topic subscription. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Prerequisites
 
@@ -57,15 +57,13 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
   For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
+* By default, the Service Bus built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
 ## Considerations for Azure Service Bus operations
 
 ### Infinite loops
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
-
-### Peek-lock
-
-In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
 
 ### Limit on saved sessions in connector cache
 
@@ -280,6 +278,8 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Built-in connector trigger
 
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
 1. On the designer, select **Choose an operation**.
@@ -314,9 +314,8 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
    > [!NOTE]
    >
-   > This Service Bus trigger follows the *push trigger* pattern, which means that the trigger waits and listens 
-   > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
-   > for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
+   > This Service Bus trigger follows the *polling trigger* pattern, which means that the trigger continually checks for messages
+   > in the queue or topic subscription. For more general information about polling triggers, review [Triggers](introduction.md#triggers).
 
 1. Add any actions that your workflow needs.
 
@@ -436,6 +435,8 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 #### Built-in connector action
 
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+
 1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
 
 1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
@@ -526,29 +527,27 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 ---
 
-<a name="built-in-connector-operations"></a>
-
-## Service Bus built-in connector operations
-
-The Service Bus built-in connector is available only for Standard logic app workflows and provides the following triggers and actions:
-
-| Trigger | Description |
-|-------- |-------------|
-| When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
-| When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
-
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
-
-| Action | Description |
-|--------|-------------|
-| Send message | Send a message to a queue or topic. |
-| Send multiple messages | Send more than one message to a queue or topic. |
-
 <a name="built-in-connector-app-settings"></a>
 
 ## Service Bus built-in connector app settings
 
 In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
+
+<a name="read-messages-dead-letter-queues"></a>
+
+## Read messages from dead-letter queues with Service Bus built-in triggers
+
+In Standard workflows, to read a message from a dead-letter queue in a queue or a topic subscription, follow these steps using the specified triggers:
+
+1. In your blank workflow, based on your scenario, add the Service Bus *built-in* connector trigger named **When messages are available in a queue** or **When a message are available in a topic subscription (peek-lock)**.
+
+1. In the trigger, set the following parameter values to specify your queue or topic subscription's default dead-letter queue, which you can access like any other queue:
+
+   * **When messages are available in a queue** trigger: Set the **Queue name** parameter to **queuename/$deadletterqueue**.
+
+   * **When a message are available in a topic subscription (peek-lock)** trigger: Set the **Topic name** parameter to **topicname/Subscriptions/subscriptionname/$deadletterqueue**.
+
+   For more information, see [Service Bus dead-letter queues overview](../service-bus-messaging/service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
 
 ## Troubleshooting
 

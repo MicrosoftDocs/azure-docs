@@ -11,7 +11,7 @@ ms.date: 01/03/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -32,7 +32,9 @@ For more information on Azure AD multifactor authentication, see [What is Azure 
 
 ## Policy configuration
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
    1. Under **Assignments** > **Users**
       1. Under **Include**, select **All users** or **Select individuals and groups** if limiting your rollout.

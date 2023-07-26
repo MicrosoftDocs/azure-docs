@@ -17,6 +17,31 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## July 11, 2023
+
+### Image tag
+
+`v1.21.0_2023-07-11`
+
+For complete release version information, review [Version log](version-log.md#july-11-2023).
+
+### Release notes
+
+- Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server.
+
+## June 13, 2023
+
+### Image tag
+
+`v1.20.0_2023-06-13`
+
+For complete release version information, review [Version log](version-log.md#june-13-2023).
+
+### Release notes
+
+- Azure Arc-enabled SQL Managed Instance
+    -  [Added Azure CLI support to manage transparent data encryption (TDE)](configure-transparent-data-encryption-sql-managed-instance.md).
+
 ## May 9, 2023
 
 ### Image tag

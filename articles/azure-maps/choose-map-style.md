@@ -38,7 +38,7 @@ map.setStyle({
 });
 ```
 
-For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples].
+For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For the source code for this sample, see [Map style options source code].
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
@@ -169,5 +169,6 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
-[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
+[Map style options]: https://samples.azuremaps.com/map/map-style-options
+[Map style options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20style%20options/Map%20style%20options.html
 [Azure Maps Samples]: https://samples.azuremaps.com

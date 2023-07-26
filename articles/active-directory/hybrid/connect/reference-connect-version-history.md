@@ -37,27 +37,20 @@ Required permissions | For permissions required to apply an update, see [Azure A
 
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
-> *As of August 31, 2022, all 1.x versions of Azure AD Connect are retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
-> AADConnect V1.x may stop working on December 31st, due to the retirement of the ADAL library service on that date.
+> Action required: Synchronization will stop working on October 1, 2023, for any customers still running Azure AD Connect Sync V1.  Customers using cloud sync or Azure AD Connect V2 will remain fully operational with no action required. For more information and next step guidance, see [Decommission Azure AD Connect V1](https://aka.ms/DecommissionAADConnectV1) if an upgrade is required.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]
 > We will begin retiring past versions of Azure AD Connect Sync 2.x 12 months from the date they are superseded by a newer version. 
 > This policy will go into effect on 15 March 2023, when we will retire all versions that are superseded by a newer version on 15 March 2022.
 > 
-> The following versions will retire on 15 March 2023:
->
-> - 2.0.89.0
-> - 2.0.88.0
-> - 2.0.28.0
-> - 2.0.25.1
-> - 2.0.10.0
-> - 2.0.9.0
-> - 2.0.8.0
-> - 2.0.3.0
+> Currently only builds 2.1.16.0 (release August 8th 2022) or later are supported.
 > 
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
 > 
+
+Rather than list all the versions which are retired I think its simpler just to list the ones which aren’t retired.
+
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
@@ -81,11 +74,11 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 ## 2.2.1.0
 
 ### Release status
-5/23/2023: Released for autoupgrade only
+6/19/2023: Released for download and autoupgrade.
 
 ### Functional Changes
  - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.
- - We have added Microsoft Azure AD Connect Agent Updater service to the install.
+ - We have added Microsoft Azure AD Connect Agent Updater service to the install. This new service will be used for future auto upgrades.
  - We have removed the Synchronization Service WebService Connector Config program from the install.
 
 ### Bug Fixes

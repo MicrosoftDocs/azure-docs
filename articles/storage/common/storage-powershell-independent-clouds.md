@@ -5,11 +5,11 @@ description: Managing Storage in the China Cloud, Government Cloud, and German C
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
 ---
 

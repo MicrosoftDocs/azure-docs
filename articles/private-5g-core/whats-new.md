@@ -22,6 +22,57 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## July 2023
+
+### 2023-06-01 API
+
+**Type:** New release
+
+**Date available:** July 19, 2023
+
+The 2023-06-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From July 19th, 2023-06-01 is the default API version for Azure Private 5G Core deployments.
+ 
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API or 2022-11-01, you don't need to do anything. Your portal will use the new API.
+ 
+ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
+ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
+ 
+Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
+## June 2023
+
+### Packet core 2306
+
+**Type:** New release
+
+**Date available:** July 10, 2023
+
+The 2306 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2306 release notes](azure-private-5g-core-release-notes-2306.md).
+### Configuration changes to Packet Core without a reinstall and changes to MCC, MNC
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+It is now possible to:
+- attach a new or existing data network
+- modify an attached data network's configuration
+  
+followed by a few minutes of downtime, but not a packet core reinstall.
+
+For details, see [Modify a packet core instance](modify-packet-core.md).
+
+### PLMN configuration
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+You can now change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), on an existing private mobile network. Previously, this required recreating the network with the new configuration.
+
+To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+
+
 ## May 2023
 
 ### Packet core 2305
@@ -31,6 +82,26 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 **Date available:** May 31, 2023
 
 The 2305 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2305 release notes](azure-private-5g-core-release-notes-2305.md).
+
+### Easier creation of a site using PowerShell
+
+**Type:** New feature
+
+**Date available:** May 31, 2023
+
+New-MobileNetworkSite now supports an additional parameter that makes it easier to create a site and its dependant resources.
+
+For details, see [Create additional Packet Core instances for a site using the Azure portal](create-additional-packet-core.md).
+ 
+### Multiple Packet Cores under the same Site
+
+**Type:** New feature
+
+**Date available:** May 1, 2023
+
+It is now possible to add multiple packet cores in the same site using the Azure portal. 
+
+For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
 
 ## March 2023
 

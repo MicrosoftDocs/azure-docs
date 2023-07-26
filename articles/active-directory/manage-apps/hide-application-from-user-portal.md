@@ -112,6 +112,8 @@ To hide an enterprise application using [Graph Explorer](https://developer.micro
 
 ## Hide Microsoft 365 applications from the My Apps portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to hide all Microsoft 365 applications from the My Apps portal. The applications are still visible in the Office 365 portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator for your directory.

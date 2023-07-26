@@ -3,7 +3,7 @@ title: How-to enable Agentless Container posture in Microsoft Defender CSPM
 description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/13/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
@@ -57,7 +57,8 @@ We do not support or charge stopped clusters. To get the value of agentless capa
 
 We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following: 
 
-1. Enable the feature flag manually via CLI: 
+1.  Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
+
 
     ``` CLI 
 
@@ -65,7 +66,7 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 
     ``` 
 
-1. Perform the bind operation in the CLI: 
+2. Perform the bind operation in the CLI: 
 
     ``` CLI 
 
@@ -84,6 +85,10 @@ For locked clusters, you can also do one of the following:
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
+## Are you using an updated version of AKS?
+
+Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
+
  ## Support for exemptions
 
 You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
@@ -91,6 +96,9 @@ You can customize your vulnerability assessment experience by exempting manageme
 ## Next Steps
 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
-- Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [Test the Attack Path and Security Explorer using a vulnerable container image](how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md)
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
+
+

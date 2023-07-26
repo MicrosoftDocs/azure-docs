@@ -2,8 +2,8 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: t-siddiquim
-manager: alexo
+author: mrayyan
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -36,7 +36,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0/jar) or above.
 
 #### Include the BOM file
 
@@ -85,7 +85,7 @@ Go to the /src/main/java/com/communication/quickstart directory and open the `Ap
 
 ```java
 
-package com.communication.quickstart;
+package com.communication.rooms.quickstart;
 
 import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
@@ -211,7 +211,7 @@ UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
     .setValidUntil(validUntil);
 
 CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
-            
+
 System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
 ```
 
@@ -228,7 +228,7 @@ List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
 // Updating current participant
 participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
-        
+
 AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
 System.out.println("Participant(s) added/updated");
@@ -245,7 +245,7 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 // Get list of participants
 try {
-     
+
 PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
 
 System.out.println("Participants:/n");
@@ -269,7 +269,7 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
 
 participantsToRemove.add(participant_3.getCommunicationIdentifier());
-            
+
 RemoveParticipantsResult removeParticipantsResult = roomsClient.removeParticipants(roomId,participantsToRemove);
 
 System.out.println("Participant(s) removed");
@@ -282,15 +282,19 @@ Retrieve all active `rooms` under your ACS resource.
 
 ```java
 try {
-    PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+    Iterable<PagedResponse<CommunicationRoom>> roomPages = roomsClient.listRooms().iterableByPage();
+
+    System.out.println("Listing all the rooms IDs in the first two pages of the list of rooms:");
+
     int count = 0;
-    
-    for (CommunicationRoom room : rooms) {
-        System.out.println("\nFirst two room ID's in the list of rooms: " + room.getRoomId());
+    for (PagedResponse<CommunicationRoom> page : roomPages) {
+        for (CommunicationRoom room : page.getElements()) {
+            System.out.println("\n" + room.getRoomId());
+        }
+
         count++;
-        
         if (count >= 2) {
-                break;
+            break;
         }
     }
 } catch (Exception ex) {
@@ -332,9 +336,7 @@ mvn package
 Execute the app
 
 ```console
-
-mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
-
+mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cleanupDaemonThreads"="false"
 ```
 
 The expected output describes each completed action:
@@ -351,13 +353,16 @@ Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05
 
 Participant(s) added/updated
 
-Participants: 
+Participants:
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
 
 Participant(s) removed
 
-First room ID in the list of rooms: 99445276259151407
+Listing all the rooms IDs in the first two pages of the list of rooms: 
+99445276259151407
+99445276259151408
+99445276259151409
 
 Deleted the room with ID:  99445276259151407
 
@@ -365,4 +370,4 @@ Deleted the room with ID:  99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).

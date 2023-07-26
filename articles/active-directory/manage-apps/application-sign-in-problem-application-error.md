@@ -34,6 +34,8 @@ If the error message doesn't clearly identify what's missing from the response, 
 
 - Send the SAML response to the app vendor and ask them what's missing.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Attributes are missing from the SAML response
 
 To add an attribute in the Azure AD configuration that will be sent in the Azure AD response, follow these steps:
@@ -106,7 +108,7 @@ Azure AD selects the format for the **NameID** attribute (User Identifier) based
 
 To change which parts of the SAML token are digitally signed by Azure AD, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -139,7 +141,7 @@ By default, Azure AD signs the SAML token by using the most-secure algorithm. We
 
 To change the signing algorithm, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
