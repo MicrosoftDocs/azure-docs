@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) with Microsoft Azure Maps'
+title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python)'
+titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
 author: eriklindeman
 ms.author: eriklind
@@ -54,7 +55,7 @@ import aiohttp
 
 ## Import weather data
 
-For the sake of this tutorial, we'll use weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data contained in [weather_dataset_demo.csv](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data) from GitHub. The script below imports demo data to the Azure Notebook.
+This tutorial uses weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data contained in [weather_dataset_demo.csv](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data) from GitHub. The script below imports demo data to the Azure Notebook.
 
 ```python
 df = pd.read_csv("./data/weather_dataset_demo.csv")
@@ -100,7 +101,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-The script below renders the turbine locations on the map by calling the [Get Map Image service](/rest/api/maps/render/getmapimage).
+The following script renders the turbine locations on the map by calling the [Get Map Image service](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -121,7 +122,7 @@ display(Image(poi_range_map))
 
 ![Turbine locations](./media/weather-service-tutorial/location-map.png)
 
-We'll group the forecast data with the demo data based on the station ID. The station ID is for the weather data center. This grouping augments the demo data with the forecast data.
+Group the forecast data with the demo data based on the station ID. The station ID is for the weather data center. This grouping augments the demo data with the forecast data.
 
 ```python
 # Group forecasted data for all locations
@@ -147,7 +148,7 @@ grouped_weather_data.get_group(station_ids[0]).reset_index()
 
 ## Plot forecast data
 
-We'll plot the forecasted values against the days for which they're forecasted. This plot allows us to see the speed and direction changes of the wind for the next 15 days.
+Plot the forecasted values against the days for which they're forecasted. This plot allows us to see the speed and direction changes of the wind for the next 15 days.
 
 ```python
 # Plot wind speed
@@ -166,13 +167,13 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-The graphs below visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
+The following graphs visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
 
 <center>
 
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-In this tutorial you learned, how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
+In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 
 To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](./tutorial-ev-routing.md).
 
