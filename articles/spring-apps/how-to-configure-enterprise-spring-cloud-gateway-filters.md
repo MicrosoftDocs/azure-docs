@@ -48,7 +48,7 @@ For example, a filter could be used in adding an HTTP header, or when denying ac
 
 ## Use Open Source Filters
 
-Spring Cloud Gateway OSS includes a number of `GatewayFilter` factories used to create filters for routes.
+Spring Cloud Gateway OSS includes several `GatewayFilter` Factories used to create filters for routes.
 
 ### AddRequestHeader
 
@@ -183,7 +183,7 @@ The following list shows the configuration parameters:
 - `fallbackUri`: reroute url (can be a local route or external handler).
 - `status codes`: (optional) colon-separated list of status codes to match, in number or in text format.
 - `failure rate`: (optional) threshold above which the circuit breaker opens (default 50%).
-- `duration`: (optional) time to wait before closing again (default 60s).
+- `duration`: (optional) time to wait before closing again (default 60 seconds).
 
 ```json
 [
