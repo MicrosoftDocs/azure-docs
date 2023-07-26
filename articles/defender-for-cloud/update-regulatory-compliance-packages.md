@@ -145,6 +145,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-[Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
-[Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
-[Working with security policies](tutorial-security-policy.md)
+- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
+- [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
+- [Working with security policies](tutorial-security-policy.md)
