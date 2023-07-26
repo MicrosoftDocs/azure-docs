@@ -69,7 +69,7 @@ For maximum security use the `sasValidityInSeconds` parameter with the value set
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/3b24ca19-2eb1-4a2a-b964-35d89eca486b/files?sasValidityInSeconds=0
 ```
 
-Such request returns plain Storage Account URLs for data files (no SAS or other additions). For example:
+Such a request returns direct Storage Account URLs to data files (without SAS or other additions). For example:
 
 ```json
 "links": {
@@ -116,7 +116,7 @@ URL of this format ensures, that only Azure Active Directory identities (users, 
 
 ## Custom Speech
 
-With Custom Speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription. See complete description of Custom Speech [here](custom-speech-overview.md).
+With Custom Speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription. For more information, see the [Custom Speech overview](custom-speech-overview.md).
 
 There's nothing specific about how you use Custom Speech with BYOS-enabled Speech resource. The only difference is where all custom model related data, which Speech service collects and produces for you, is stored. The data is stored in the following Blob containers of BYOS-associated Storage account:
 
