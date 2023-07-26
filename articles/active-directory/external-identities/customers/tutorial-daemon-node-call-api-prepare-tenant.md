@@ -39,7 +39,7 @@ If you've already registered a client daemon application and a web API in the Mi
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
 
-## Configure optional claims
+## Configure idtyp token claim
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-optional-claims-access.md)]
 
