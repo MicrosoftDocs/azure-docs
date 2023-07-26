@@ -274,7 +274,7 @@ protoc --proto_path=src/main/resources/proto/ \
 > [!NOTE] 
 > `streaming` isn't supported.
 
-The following configuration is an example of the JSONToGRPCFilter using the output from `protoc`:
+The following configuration is an example of the `JSONToGRPCFilter` using the output from `protoc`:
 
 ```json
 [
@@ -1071,11 +1071,11 @@ The following list shows the configuration parameters:
 
 ### Scopes
 
-The `Scopes` filter authorizes requests that contains one of the configured OAuth scopes.
+The `Scopes` filter authorizes requests that contains one of the configured `OAuth` scopes.
 
 The following list shows the configuration parameters:
 
-- `scopes`: comma-separated list of authorized OAuth scopes.
+- `scopes`: comma-separated list of authorized `OAuth` scopes.
 
 ```json
 [
