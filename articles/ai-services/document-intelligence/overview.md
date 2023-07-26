@@ -74,7 +74,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#w-2":::</br>
+      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [🆕 **Insurance card**](#w-2) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
