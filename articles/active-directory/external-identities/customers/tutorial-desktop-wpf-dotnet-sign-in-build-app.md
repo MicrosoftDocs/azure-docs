@@ -385,49 +385,49 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
 
 Open the *App.xaml.cs* file in the root folder of the app and add the following code in the file.
 
-    ```csharp
-    using System.Windows;
-    using System.Reflection;
-    using Microsoft.Identity.Client;
-    using Microsoft.Identity.Client.Broker;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Configuration.Json;
-    
-    namespace sign_in_dotnet_wpf
-    {
-        public partial class App : Application
-        {
-            static App()
-            {
-                CreateApplication();
-            }
-    
-            public static void CreateApplication()
-            {
-                var assembly = Assembly.GetExecutingAssembly();
-                using var stream = assembly.GetManifestResourceStream("sign_in_dotnet_wpf.appsettings.json");
-                AppConfiguration = new ConfigurationBuilder()
-                   .AddJsonStream(stream)
-                   .Build();
-    
-                AzureAdConfig azureADConfig = AppConfiguration.GetSection("AzureAd").Get<AzureAdConfig>();
-    
-                var builder = PublicClientApplicationBuilder.Create(azureADConfig.ClientId)
-                    .WithAuthority(azureADConfig.Authority)
-                    .WithDefaultRedirectUri();
-    
-                _clientApp = builder.Build();
-                TokenCacheHelper.EnableSerialization(_clientApp.UserTokenCache);
-            }
-            
-            private static IPublicClientApplication _clientApp;
-            private static IConfiguration AppConfiguration;
-            public static IPublicClientApplication PublicClientApp { get { return _clientApp; } }
-        }
-    }
-    ```
+```csharp
+using System.Windows;
+using System.Reflection;
+using Microsoft.Identity.Client;
+using Microsoft.Identity.Client.Broker;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
-    In this step, you load the *appsettings.json* file. The configuration builder helps you read the app configs defined in the *appsettings.json* file. You also define the WPF app as a public client app since it's a desktop app. The `TokenCacheHelper.EnableSerialization` method enables the token cache serialization.
+namespace sign_in_dotnet_wpf
+{
+    public partial class App : Application
+    {
+        static App()
+        {
+            CreateApplication();
+        }
+
+        public static void CreateApplication()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream("sign_in_dotnet_wpf.appsettings.json");
+            AppConfiguration = new ConfigurationBuilder()
+                .AddJsonStream(stream)
+                .Build();
+
+            AzureAdConfig azureADConfig = AppConfiguration.GetSection("AzureAd").Get<AzureAdConfig>();
+
+            var builder = PublicClientApplicationBuilder.Create(azureADConfig.ClientId)
+                .WithAuthority(azureADConfig.Authority)
+                .WithDefaultRedirectUri();
+
+            _clientApp = builder.Build();
+            TokenCacheHelper.EnableSerialization(_clientApp.UserTokenCache);
+        }
+        
+        private static IPublicClientApplication _clientApp;
+        private static IConfiguration AppConfiguration;
+        public static IPublicClientApplication PublicClientApp { get { return _clientApp; } }
+    }
+}
+```
+
+In this step, you load the *appsettings.json* file. The configuration builder helps you read the app configs defined in the *appsettings.json* file. You also define the WPF app as a public client app since it's a desktop app. The `TokenCacheHelper.EnableSerialization` method enables the token cache serialization.
 
 ## Run the app
 
