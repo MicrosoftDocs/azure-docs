@@ -110,7 +110,7 @@ This happens when another object in the directory has the same invited email add
 
 ## The guest user object doesn't have a proxyAddress
 
-Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users). Also, if the contact object you're synchronizing from on-premises AD conflicts with an existing guest user, the conflicting proxyAddress is removed from the existing guest user.
+Sometimes, the external guest user you're inviting conflicts with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user won't be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-process-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users). Also, if the contact object you're synchronizing from on-premises AD conflicts with an existing guest user, the conflicting proxyAddress is removed from the existing guest user.
 
 ## How does ‘\#’, which isn't normally a valid character, sync with Azure AD?
 
