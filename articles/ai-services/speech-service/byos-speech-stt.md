@@ -101,7 +101,7 @@ For maximum security use the `sasValidityInSeconds` parameter with the value set
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/base/en-US/files/logs?sasValidityInSeconds=0
 ```
 
-Such request returns plain Storage Account URLs for data files (no SAS or other additions). For example:
+Such a request returns direct Storage Account URLs to data files (without SAS or other additions). For example:
 
 ```json
 "links": {
@@ -141,7 +141,7 @@ For maximum security use the `sasValidityInSeconds` parameter with the value set
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/8427b92a-cb50-4cda-bf04-964ea1b1781b/files?sasValidityInSeconds=0
 ```
 
-Such request returns plain Storage Account URLs for data files (no SAS or other additions). For example:
+Such a request returns direct Storage Account URLs to data files (without SAS or other additions). For example:
 
 ```json
  "links": {
