@@ -114,20 +114,20 @@ To add regulatory compliance standards on AWS accounts:
 1. Enter all the necessary details for the specific initiative such as scope, parameters, and remediationChoose a standard from the drop-down menu.
 1. Select **Create**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to GCP account." lightbox="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-AWS-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 
-### Add a standard to your GCP subscriptions
+### Add a standard to your GCP projects
 
-To add regulatory compliance standards on GCP accounts:
+To add regulatory compliance standards on GCP projects:
 
 1. Navigate to **Environment settings**.
-1. Select the relevant GCP account.
+1. Select the relevant GCP project.
 1. Select **Standards**.
 1. Select **Create** and choose **Standard**.
 1. Enter all the necessary details and select **Create**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to GCP project." lightbox="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png":::
 
 1. Your new standard appears in your list of Industry & regulatory standards.
 
@@ -146,7 +146,7 @@ To remove a standard:
 
     The security policy page opens. For the selected subscription, it shows the default policy, the industry and regulatory standards, and any custom initiatives you've created.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Remove a regulatory standard from your regulatory compliance dashboard in Microsoft Defender for Cloud.":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Remove a regulatory standard from your regulatory compliance dashboard in Microsoft Defender for Cloud." lightbox="media/update-regulatory-compliance-packages/remove-standard.png":::
 
 1. For the standard you want to remove, select **Disable**. A confirmation window appears.
 
