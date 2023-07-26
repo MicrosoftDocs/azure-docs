@@ -41,9 +41,7 @@ For more information about the advantages of using Azure Resource Manager, see [
 
 Starting on September 1, 2024, customers will no longer be able to manage classic storage accounts using Azure Service Manager. Any data still contained in these accounts will be preserved.
 
-If your applications are using Azure Service Manager classic APIs to manage classic accounts, then those applications will no longer be able to manage those storage accounts after August 31, 2024. 
-
-If your applications are using Azure Service Manager classic APIs to access classic accounts, then those applications will no longer be able to access those storage accounts after August 31, 2024.
+If your applications are using Azure Service Manager classic APIs to manage classic accounts, then those applications will no longer be able to manage those storage accounts after August 31, 2024.
 
 > [!WARNING]
 > If you do not migrate your classic storage account to Azure Resource Manager by August 31, 2024, you will no longer be able to perform management operations through Azure Service Manager.
