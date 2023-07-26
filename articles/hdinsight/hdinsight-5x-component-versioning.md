@@ -40,9 +40,6 @@ The following table lists the versions of open-source components that are associ
 
 ** Preview
 
-> [!NOTE]
-> Enterprise Security Package (ESP) isn't supported for HDInsight 5.1 clusters.
-
 ### Spark versions supported in Azure HDInsight
 
 Azure HDInsight supports the following Apache Spark versions.
