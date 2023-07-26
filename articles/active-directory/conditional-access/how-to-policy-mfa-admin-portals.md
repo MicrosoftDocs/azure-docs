@@ -1,6 +1,6 @@
 ---
-title: Require MFA for administrators with Conditional Access
-description: Create a custom Conditional Access policy to require administrators to perform multifactor authentication
+title: Require multifactor authentication for Microsoft admin portals
+description: Create a Conditional Access policy requiring multifactor authentication for admins accessing Microsoft admin portals.
 
 services: active-directory
 ms.service: active-directory
@@ -11,41 +11,18 @@ ms.date: 07/18/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, lhuangnorth
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Common Conditional Access policy: Require MFA for administrators
+# Common Conditional Access policy: Require multifactor authentication for admins accessing Microsoft admin portals
 
-Accounts that are assigned administrative rights are targeted by attackers. Requiring multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
-
-Microsoft recommends you require MFA on the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
-
-- Global Administrator
-- Application Administrator
-- Authentication Administrator
-- Billing Administrator
-- Cloud Application Administrator
-- Conditional Access Administrator
-- Exchange Administrator
-- Helpdesk Administrator
-- Password Administrator
-- Privileged Authentication Administrator
-- Privileged Role Administrator
-- Security Administrator
-- SharePoint Administrator
-- User Administrator
-
-Organizations can choose to include or exclude roles as they see fit.
+Microsoft recommends securing access to any Microsoft admin portals like Microsoft Entra, Microsoft 365, Exchange, and Azure. Using the [Microsoft Admin Portals (Preview)](concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview) app organizations can control interactive access to Microsoft admin portals.
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
-[!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]
-
 ## Create a Conditional Access policy
-
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multifactor authentication.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
@@ -73,8 +50,8 @@ The following steps will help create a Conditional Access policy to require thos
       > Conditional Access policies support built-in roles. Conditional Access policies are not enforced for other role types including [administrative unit-scoped](../roles/admin-units-assign-roles.md) or [custom roles](../roles/custom-create.md).
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
-1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
+1. Under **Target resources** > **Cloud apps** > **Include**, **Select apps**, select **Microsoft Admin Portals (Preview)**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require authentication strength**, select **Multifactor authentication**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
