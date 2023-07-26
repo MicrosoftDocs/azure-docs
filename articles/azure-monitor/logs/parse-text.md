@@ -28,7 +28,6 @@ When you parse data at collection time, you configure [custom fields](../logs/cu
 
 - Must be defined in advance. Can't include data that's already been collected.
 - If you change the parsing logic, it will only apply to new data.
-- Fewer parsing options than available in queries.
 - Increases latency time for collecting data.
 - Errors can be difficult to handle.
 
