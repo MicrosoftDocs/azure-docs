@@ -4,12 +4,12 @@ titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 11/01/2022
+ms.date: 07/25/2023
 ms.service: api-management
-ms.topic: how-to
+ms.topic: article
 ---
 
-# Extend the developer portal with custom features
+# Extend the developer portal with custom widgets
 
 The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom interface. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
 
@@ -19,10 +19,8 @@ The following table summarizes three options, with links to more detail.
 |Method   |Description  |
 |---------|---------|
 |[Custom HTML code widget](#use-custom-html-code-widget)     | - Lightweight solution for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste custom HTML code into a form, and developer portal renders it in an iframe |
-|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Supports workflows for source control, versioning, and code reuse<br/><br/>        |
+|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Widget creation, testing, and deployment can be automated through open source [React Component Toolkit](#create-custom-widgets-using-open-source-react-component-toolkit)<br/><br/>- Supports workflows for source control, versioning, and code reuse      |
 |[Self-host developer portal](developer-portal-self-host.md)     | - Legacy extensibility option for customers who need to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Requires advanced configuration<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
-
-
 ## Use Custom HTML code widget
 
 The managed developer portal includes a **Custom HTML code** widget where you can insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
@@ -47,6 +45,8 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
 > Microsoft does not support the HTML code you add in the Custom HTML Code widget.
 
 ## Create and upload custom widget
+
+For more advanced use cases, you can create and upload a custom widget to the developer portal. You can use
 
 ### Prerequisites 
  
@@ -246,7 +246,17 @@ To implement your widget using another JavaScript UI framework and libraries, yo
 * If your framework of choice isn't compatible with [Vite build tool](https://vitejs.dev/), configure it so that it outputs compiled files to the `./dist` folder. Optionally, redefine where the compiled files are located by providing a relative path as the fourth argument for the [`deployNodeJs`](#azureapi-management-custom-widgets-toolsdeploynodejs) function.
 * For local development, the `config.msapim.json` file must be accessible at the URL `localhost:<port>/config.msapim.json` when the server is running. 
 
+## Create custom widgets using open source React Component Toolkit
 
+The open source [React Component Toolkit](https://github.com/microsoft/react-component-toolkit) provides a suite of npm package scripts to help you scaffold, test, and deploy a custom widget to the developer portal. If the Azure Open AI service is enabled in your subscription, the toolkit can also create a widget from a text description that you provide.
+
+Currently, you can use the toolkit in two ways to deploy a custom widget:
+
+* Manually, by installing the toolkit and running the npm package scripts locally. You run the scripts sequentially to create, test, and deploy a React component as a custom widget to the developer portal.
+* Using an [Azure Developer CLI (azd) template](https://github.com/Azure-Samples/react-component-toolkit-openai-demo) for an end-to-end deployment. The `azd` template deploys an Azure API Management instance and an Azure OpenAI instance. After resources are provisioned, an interactive script helps you create, test, and deploy a custom widget to the developer portal from a description that you provide.
+
+> [!NOTE]
+> The React Component Toolkit and Azure Developer CLI sample template are open source projects. Support is provided only through GitHub issues in the respective repositories.
 
 ## Next steps
 
