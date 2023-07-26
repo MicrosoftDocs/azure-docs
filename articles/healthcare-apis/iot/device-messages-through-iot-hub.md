@@ -193,6 +193,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
      ```json
      {
+         "PatientId": "patient1",
          "HeartRate": 78,
          "RespiratoryRate": 12,
          "HeartRateVariability": 30,
