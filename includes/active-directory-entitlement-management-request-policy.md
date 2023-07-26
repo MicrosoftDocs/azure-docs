@@ -17,7 +17,7 @@ Use the following steps if you want to allow users in your directory to be able 
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
-    When you select this option, new options appear to further refine who in your directory can request this access package.
+    When you select this option, new options appear so you can refine who in your directory can request this access package.
 
     ![Screenshot that shows the option for allowing users and groups in the directory to request an access package.](./media/entitlement-management-request-policy/for-users-in-your-directory.png)
 
@@ -29,11 +29,11 @@ Use the following steps if you want to allow users in your directory to be able 
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    *Guest users* are external users who have been invited into your directory via [Azure Active Directory B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Guest users are external users who have been invited into your directory via [Azure Active Directory B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, select **Add users and groups**.
 
-1. In the **Select users and groups** pane, select the users and groups that you want to add.
+1. On the **Select users and groups** pane, select the users and groups that you want to add.
 
     ![Screenshot that shows the pane for selecting users and groups for an access package.](./media/entitlement-management-request-policy/select-users-groups.png)
 
@@ -65,7 +65,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
     | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and the B2B allowlist or blocklist settings should take precedence for any new external user. |
 
-    A *connected organization* is an external Azure AD directory or domain that you have a relationship with.
+    A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
 1. If you selected **Specific connected organizations**, select **Add directories** to select from a list of connected organizations that your administrator previously added.
 
@@ -77,7 +77,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. After you select all your connected organizations, choose **Select**.
 
-    All users from the selected connected organizations will be able to request this access package. This list includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allowlist or blocklist. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
+    All users from the selected connected organizations will be able to request this access package. This list includes users in Azure AD from all subdomains associated with the organization, unless the Azure B2B allowlist or blocklist blocks those domains. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Skip down to the [Specify approval settings](#specify-approval-settings) section.
 
@@ -139,11 +139,11 @@ Use the following steps to add approvers after you select the number of stages.
 
 1. If you selected **Manager** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user who's requesting access.
 
-    Entitlement management finds the manager by using the **Manager** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    Entitlement management finds the manager by using the **Manager** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see [Add or update a user's profile information and settings](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. If you selected **Sponsors** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the sponsor for the user who's requesting access.
 
-    Entitlement management finds sponsors by using the **Sponsors** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    Entitlement management finds sponsors by using the **Sponsors** attribute. The attribute is in the user's profile in Azure Active Directory. For more information, see [Add or update a user's profile information and settings](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. If you selected **Choose specific approvers**, select **Add approvers** to select one or more users or groups in your directory to be approvers.
 
@@ -229,7 +229,7 @@ Also, requests can't be forwarded on the last day of the request duration. So in
 
     ![Screenshot that shows the option for enabling new requests and assignments.](./media/entitlement-management-request-policy/enable-requests.png)
 
-1. Go to the [next section](#add-a-verified-id-requirement-preview) section to learn how to add a verified ID requirement to your access package. Otherwise, select **Next**.
+1. Go to the [next section](#add-a-verified-id-requirement-preview) to learn how to add a verified ID requirement to your access package. Otherwise, select **Next**.
 
 ## Add a verified ID requirement (preview)
 

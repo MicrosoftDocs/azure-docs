@@ -54,7 +54,7 @@ Here are the high-level steps to create an access package:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-**Prerequisite role:** global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager
+To complete the following steps, you need a role of global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -88,7 +88,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 On the **Resource roles** tab, you select the resources to include in the access package. Users who request and receive the access package will receive all the resource roles, such as group membership, in the access package.
 
-If you're not sure which resource roles to include, you can skip adding resource roles while creating the access package, and then [add resource roles](entitlement-management-access-package-resources.md) later.
+If you're not sure which resource roles to include, you can skip adding them while creating the access package, and then [add them](entitlement-management-access-package-resources.md) later.
 
 1. Select the resource type that you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
