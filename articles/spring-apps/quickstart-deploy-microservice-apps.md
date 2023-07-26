@@ -33,7 +33,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 > [!NOTE]
 > 1. This article uses a simplified version of PetClinic, using an in-memory database to quickly deploy to Azure Spring Apps.
-> 2. The deployed app `admin-server` exposes public access, which is a risk point. Therefore, the production environment needs to secure the Spring Boot Admin application.
+> 2. The deployed app `admin-server` exposes public access; therefore, the production environment needs to secure the Spring Boot Admin application.
 
 ## 1. Prerequisites
 
