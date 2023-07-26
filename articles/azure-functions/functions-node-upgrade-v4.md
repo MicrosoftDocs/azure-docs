@@ -84,7 +84,7 @@ Otherwise, you define the file structure by setting the `main` field in your *pa
   - `src/functions/*.js`
 
 > [!TIP]
-> Make sure you define a `main` field in your `package.json` file.
+> Make sure you define a `main` field in your *package.json* file.
 
 ## Switch the order of arguments
 
@@ -157,7 +157,7 @@ module.exports = async function (context, req) {
 ---
 
 > [!TIP]
-> Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
+> Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in *function.json*, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
 ## Review your usage of context
 
