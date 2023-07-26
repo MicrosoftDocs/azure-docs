@@ -140,7 +140,7 @@ landingContent:
           - text: Manage SIM groups
             url: manage-sim-groups.md
   # Card
-  - title: Monitor and troubleshoot your private mobile network
+  - title: Monitor and diagnose your private mobile network
     linkLists:
       - linkListType: concept
         links:

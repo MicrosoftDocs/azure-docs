@@ -5,7 +5,7 @@ description: In this how-to guide, you'll learn how to perform data plane packet
 author: James-Green-Microsoft
 ms.author: jamesgreen
 ms.service: private-5g-core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2022
 ms.custom: template-how-to
 ---

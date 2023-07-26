@@ -5,7 +5,7 @@ description: In this how-to guide, you'll learn how to use the ping and tracerou
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/31/2023
 ms.custom: template-how-to
 ---
