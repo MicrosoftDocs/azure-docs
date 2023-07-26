@@ -75,6 +75,8 @@ If you prefer to manually configure the redirect URI, you can do so through the 
 
 ### Username-password authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If your app uses only username-password authentication, you don't need to register a redirect URI for your application. This flow does a round trip to the Microsoft identity platform. Your application won't be called back on any specific URI.
 
 However, identify your application as a public client application. To do so:

@@ -51,6 +51,8 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Create a Conditional Access policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The recommended way to enable and use Azure AD Multi-Factor Authentication is with Conditional Access policies. Conditional Access lets you create and define policies that react to sign-in events and that request additional actions before a user is granted access to an application or service.
 
 :::image type="content" alt-text="Overview diagram of how Conditional Access works to secure the sign-in process" source="media/tutorial-enable-azure-mfa/conditional-access-overview.png" lightbox="media/tutorial-enable-azure-mfa/conditional-access-overview.png":::

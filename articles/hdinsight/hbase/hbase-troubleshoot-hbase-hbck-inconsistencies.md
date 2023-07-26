@@ -8,7 +8,7 @@ ms.date: 08/28/2022
 
 # Scenario: `hbase hbck` command returns inconsistencies in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters. If you are using hbase-2.x, see [How to use Apache HBase HBCK2 tool](./how-to-use-hbck2-tool.md)
 
 ## Issue: Region is not in `hbase:meta`
 
