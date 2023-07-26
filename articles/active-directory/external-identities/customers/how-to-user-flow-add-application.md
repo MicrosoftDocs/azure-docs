@@ -45,8 +45,8 @@ If you already registered your application in your customer tenant, you can add 
 
 ## Extension app 
 
-You might find an app named *b2c-extensions-app* in the application list. This app is created automatically inside the new directory, and it contains all extension attributes for your customer tenant.
-If you want to collect information beyond the built-in attributes, you can create [custom user attributes](how-to-define-custom-attributes.md) and add them to your sign-up user flow. Custom attributes are also known as directory extension attributes, as they extend the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the *b2c-extensions-app*. Do not delete this app.
+You might find an app named **b2c-extensions-app** in the application list. This app is created automatically inside the new directory, and it contains all extension attributes for your customer tenant.
+If you want to collect information beyond the built-in attributes, you can create [custom user attributes](how-to-define-custom-attributes.md) and add them to your sign-up user flow. Custom attributes are also known as directory extension attributes, as they extend the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the **b2c-extensions-app**. Do not delete this app.
 You can learn more about this app [here](/azure/active-directory-b2c/extensions-app). 
 
 ## Next steps
