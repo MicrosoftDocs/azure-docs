@@ -89,20 +89,6 @@ Explain matching and wild card patterns. At the time of this draft, it appears t
 
 - Choose which type of metadata to reference as you design the condition in the visual editor.
 
-- List the date time properties that support this capability.
-
-  > [!div class="mx-imgBorder"]
-  > ![Screenshot of the dialog box which enables you to reference metadata from objects.](./media/storage-task-conditions-operations/parameterized-condition.png)
-
-The following table describes each option.
-
-| Option | Description |
-|--|--|
-| Container metadata | Uses the value associated with a key that is defined in the metadata of each container. You specify which key to use. |
-| Blob index tags | Uses the value associated with a tag that is set on objects in a container. You specify which tag to use. |
-| Custom value | An amount of time that has transpired since the current date and time. You specify a number, and then choose either seconds, minutes, hours, or days. This value uses the current Data and time, and is not obtained from metadata. |
-| Specific date | A specific date and time. This is value is not dynamically obtained from from metadata.  |
-
 ## Supported operations
 
 The following table shows the supported operations, parameters, and parameter values:

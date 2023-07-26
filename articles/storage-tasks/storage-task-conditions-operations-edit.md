@@ -60,12 +60,11 @@ The following example specifies a value of `.log` along with the **Ends with** o
 
 ##### Obtain the value of a condition dynamically
 
-A date and time property can obtain its value dynamically from the metadata of a container or from the index tag of each blob that is evaluated by the storage task. In the **Property value** column, select **Edit**. In the **Select a value** dialog box, select **Container metadata** or **Blob index tags**, and then enter the name of the key associated with the value that you would like this condition to use. The following example adds a condition that will evaluate the creation time against the value of the `retainFor` key. For a blob to meet this condition at evaluation time, it must exist in a container that has a key named `retainFor` and the value of that key must be date and time value which an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) formatted duration value
+A date and time property can obtain its value dynamically from the metadata of a container or from the index tag of each blob that is evaluated by the storage task. In the **Property value** column, select **Edit**. In the **Select a value** dialog box, select **Container metadata** or **Blob index tags**, and then enter the name of the key associated with the value that you would like this condition to use. 
 
-  > [!div class="mx-imgBorder"]
-  > ![Screenshot of the dialog box which enables you to reference metadata from objects.](./media/storage-task-conditions-operations-edit/parameterized-query.png)
+Add screenshot of experience here.
 
-To learn more, see [Obtaining date and time values dynamically](storage-task-conditions-operations.md#obtaining-date-and-time-values-dynamically).
+To more information about how to apply this capability, see [Obtaining date and time values dynamically](storage-task-conditions-operations.md#obtaining-date-and-time-values-dynamically).
 
 #### Apply And / Or to a condition
 
