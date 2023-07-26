@@ -26,9 +26,9 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
 By default:
-- Azure subscriptions get the Microsoft cloud security benchmark assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
-- AWS accounts get the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
-- GCP projects get the "GCP Default" standard assigned.
+- Azure subscriptions get the **Microsoft cloud security benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+- AWS accounts get the **AWS Foundational Security Best Practices** standard assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+- GCP projects get the **GCP Default** standard assigned.
 
 If a subscription, account, or project has *any* Defender plan enabled, additional standards can be applied.
 
@@ -37,11 +37,11 @@ If a subscription, account, or project has *any* Defender plan enabled, addition
 
 | Standards for Azure subscriptions | Standards for AWS accounts                  | Standards for GCP projects  |
 | --------------------------------- | ------------------------------------------- | --------------------------- |
-| - PCI-DSS v3.2.1 **(deprecated)** | - CIS 1.2.0                                 | - CIS 1.1.0, 1.2.0          |
-| - PCI DSS v4                      | - CIS 1.5.0                                 | - PCI DSS 3.2.1             |
-| - SOC TSP                         | - PCI DSS 3.2.1                             | - NIST 800 53               |
-| - SOC 2 Type 2                    | - AWS Foundational Security Best Practices  | - ISO 27001                 |
-| - ISO 27001:2013                          |||
+| - PCI-DSS v3.2.1 **(deprecated)** | - CIS 1.2.0                                 | - CIS 1.1.0,                |
+| - PCI DSS v4                      | - CIS 1.5.0                                 | - CIS 1.2.0                 |
+| - SOC TSP                         | - PCI DSS 3.2.1                             | - PCI DSS 3.2.1             |
+| - SOC 2 Type 2                    | - AWS Foundational Security Best Practices  | - NIST 800 53               |
+| - ISO 27001:2013                  |                                             | - ISO 27001                 |
 | - Azure CIS 1.1.0                         |||
 | - Azure CIS 1.3.0                         |||
 | - Azure CIS 1.4.0                         |||
