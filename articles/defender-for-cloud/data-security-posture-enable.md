@@ -57,6 +57,8 @@ The snapshot is used to create a live instance that is spun up, scanned and then
 
 Only scan findings are reported by the scanning platform.
 
+:::image type="content" source="media/data-security-posture-enable/rds-scanning-platform.png" alt-text="Diagram explaining the RDS scanning platform." lightbox="media/data-security-posture-enable/rds-scanning-platform.png":::
+
 ### Check for S3 blocking policies
 
 If the enable process didn't work because of a blocked policy, check the following:
