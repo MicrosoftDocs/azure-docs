@@ -11,7 +11,7 @@ services: azure-maps
 
 # Weather services in Azure Maps
 
-This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
+This article introduces concepts that apply to Azure Maps [Weather services]. We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
@@ -93,7 +93,7 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See the following guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API] users can request latest radar and infrared satellite images. See the following guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
@@ -465,9 +465,7 @@ Detailed color palette for infrared satellite tiles is shown in the following ta
 
 ## Index IDs and Index Groups IDs
 
-[Get Daily Indices API](/rest/api/maps/weather) allows users to
-restrict returned results to specific index types or index
-groups.
+[Get Daily Indices API] allows users to restrict returned results to specific index types or index groups.
 
 The following table lists the available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
 
@@ -539,7 +537,7 @@ The following table lists the available Index groups (indexGroupId):
 
 ## Daily index range sets
 
-[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets aren't the same for all indices. The following tables show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API] returns the ranged value and its associated category name for each index ID. Range sets aren't the same for all indices. The following tables show the various range sets used by the supported indices listed in [Index IDs and index groups IDs]. To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs] section of this document.
 
 ### Poor-Excellent 1
 
@@ -634,10 +632,18 @@ The following table lists the available Index groups (indexGroupId):
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services frequently asked questions (FAQ)](weather-services-faq.yml)
+> [Azure Maps Weather services frequently asked questions (FAQ)]
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services coverage](weather-coverage.md)
+> [Azure Maps Weather services coverage]
 
 > [!div class="nextstepaction"]
-> [Weather services API](/rest/api/maps/weather)
+> [Weather services API]
+
+[Azure Maps Weather services coverage]: weather-coverage.md
+[Azure Maps Weather services frequently asked questions (FAQ)]: weather-services-faq.yml
+[Get Daily Indices API]: /rest/api/maps/weather
+[Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
+[Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
+[Weather services API] /rest/api/maps/weather
+[Weather services]: /rest/api/maps/weather
