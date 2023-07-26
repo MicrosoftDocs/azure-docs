@@ -13,7 +13,7 @@ ms.date: 07/26/2023
 ms.custom: cliv2, sdkv2
 ---
 
-## Expressions in Azure Machine Learning SDK and CLI v2
+# Expressions in Azure Machine Learning SDK and CLI v2
 
 With Azure Machine Learning SDK and CLI v2, you can use _expressions_ when a value may not be known when you're authoring a job or component. When you submit a job or call a component, the expression is evaluated and the value is substituted.
 
