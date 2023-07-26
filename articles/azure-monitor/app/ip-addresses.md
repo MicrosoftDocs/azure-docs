@@ -30,7 +30,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2<br/>Find all supported regions in [this table](#addresses-grouped-by-region-azure-public-cloud).*|Global<br/>Global<br/>Global<br/><br/>Regional<br/>|20.49.111.32/29<br/>13.73.253.112/29| 443 |
 
 > [!NOTE]
-> Currently, all Application Insights ingestion endpoints are IPv4 only.
+> Application Insights ingestion endpoints are IPv4 only.
 
 > [!IMPORTANT]
 > For Live Metrics, it is *required* to add the list of [IPs for the respective region](#addresses-grouped-by-region-azure-public-cloud) aside from global IPs.
