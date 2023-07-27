@@ -125,7 +125,7 @@ Each time you create a data asset, you need a unique version for it.  If the ver
 
 You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. 
 
-In this tutorial, we use the name "initial" as the first version. The [Create production machine learning pipelines](pipeline.ipynb) tutorial will also use this version of the data, so here we are using a value that you'll see again in that tutorial.
+In this tutorial, we use the name "initial" as the first version. The [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) tutorial will also use this version of the data, so here we are using a value that you'll see again in that tutorial.
 
 
 ```python
