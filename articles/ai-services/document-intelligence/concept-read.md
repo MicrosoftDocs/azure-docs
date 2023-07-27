@@ -261,14 +261,14 @@ The following table lists the supported languages for print text by the most rec
   |Kumyk (Cyrillic)|kum|
   |Kurdish (Arabic)|ku-arab|
   |Kurdish (Latin)|ku-latn|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
   |Kurukh (Devanagari)|kru|
   |Kyrgyz (Cyrillic)|ky|
   |Lak|lbe|
   |Lakota|lkt|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
   |Latin|la|
   |Latvian|lv|
   |Lezghian|lex|
@@ -341,14 +341,14 @@ The following table lists the supported languages for print text by the most rec
   |Romansh|rm|
   |Rundi|rn|
   |Russian|ru|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
   |Samburu|saq|
   |Samoan (Latin)|sm|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
   |Sango|sg|
   |Sangu (Gabon)|snq|
   |Sanskrit (Devanagari)|sa|
