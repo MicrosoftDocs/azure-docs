@@ -277,7 +277,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 > [!TIP]
 > The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
 
-1. Sign in to the Azure CLI using Azure Cloud Shell and select Bash from the dropdown menu.
+1. Sign in to the Azure CLI using Azure Cloud Shell and select **Bash** from the dropdown menu.
 
 1. Set the following environment variables using the required values for your deployment:
 
