@@ -326,7 +326,7 @@ The following are the fields extracted per document type. The Document Intellige
 
 ## Supported document types and locales
 
- This Id document model is currently supports US driver licenses and the biographical page from international passports (excluding visa and other travel documents) extraction.
+ The ID document model currently supports US driver licenses and the biographical page from international passports (excluding visa and other travel documents) extraction.
 
 ## Fields extracted
 

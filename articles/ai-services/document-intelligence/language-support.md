@@ -21,7 +21,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ## Language detection and extraction support
 
-The following tables provides links to language support reference by supported models.
+The following tables provide links to language support reference by supported models.
 
 | Document Analysis models | Description |
 | --- | --- |
