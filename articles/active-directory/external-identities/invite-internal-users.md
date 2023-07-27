@@ -56,14 +56,14 @@ You can use the Azure portal, PowerShell, or the invitation API to send a B2B in
 1. Find the user in the list or use the search box. Then select the user.
 1. In the **Overview** tab, under **My Feed**, select **Convert to external user**. 
 
-   ![Screenshot of user profile Overview tab with B2B collaboration card.](media/invite-internal-users/manage-b2b-collaboration-link.png)
+    :::image type="content" source="media/invite-internal-users/manage-b2b-collaboration-link.png" alt-text="Screenshot of user profile Overview tab with B2B collaboration card.":::
 
    > [!NOTE] 
    > If the card says “Resend this B2B user's invitation or reset their redemption status.” the user has already been invited to use external credentials for B2B collaboration.
 
 1. Add an external email address and select **Send**. 
 
-   ![Screenshot showing the invite internal user radio button](media/invite-internal-users/invite-internal-user-selector.png)
+    :::image type="content" source="media/invite-internal-users/invite-internal-user-selector.png" alt-text="Screenshot showing the convert to external user page.":::
 
    > [!NOTE]
    > If the option is unavailable, make sure the user's **Email** property is set to the external email address they should use for B2B collaboration.
