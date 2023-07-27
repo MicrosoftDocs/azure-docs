@@ -25,7 +25,7 @@ Azure Machine Learning supports two types of vector stores that contain your sup
 
 + [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. The index is stored in your search service. A prompt flow can create, populate, and query your index on Cognitive Search.
 
-## Choosing a vector store
+## Choose a vector store
 
 You can use either store in prompt flow, so which one should you use?
 

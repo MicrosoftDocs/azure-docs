@@ -15,7 +15,9 @@ ms.custom: prompt-flow
 
 # Retrieval Augmented Generation using Azure Machine Learning prompt flow
 
-Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Large Language Models (LLM) and *your own data* to generate responses. In Azure Machine Learning, you can now implement RAG in a prompt flow. Support for RAG is currently in public preview. This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure Machine Learning.
+Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Large Language Models (LLM) and *your own data* to generate responses. In Azure Machine Learning, you can now implement RAG in a prompt flow. Support for RAG is currently in public preview. 
+
+This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure Machine Learning.
 
 > [!NOTE]
 > New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
