@@ -17,7 +17,7 @@ ms.topic: conceptual
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation (RAG). A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with a large language model (LLM) like GPT4 and retrieve the data efficiently.
+This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation (RAG). A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with a large language model (LLM) like GPT-4 and retrieve the data efficiently.
 
 Azure Machine Learning supports two types of vector stores that contain your supplemental data used in a RAG workflow:
 
