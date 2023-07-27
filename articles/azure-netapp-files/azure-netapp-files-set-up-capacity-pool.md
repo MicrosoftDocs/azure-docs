@@ -48,6 +48,20 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
+    <a name="1-tib-capacity-pool"></a>
+    If this is your first time using a 1-TiB capacity pool, you must first register the feature: 
+    1. Register the feature: 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF1TiBPoolSize
+        ```
+    2. Check the status of the feature registration: 
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF1TiBPoolSize
+        ```
+            You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
 
