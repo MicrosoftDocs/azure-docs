@@ -11,11 +11,11 @@ ms.author: cshoe
 
 # Introduction to serverless containers on Azure
 
-Serverless containers are a cloud-based technology run your applications in isolated environments without requiring you to manage server infrastructure.
+Serverless containers are a cloud-based technology that runs your applications in isolated environments without requiring you to manage server infrastructure.
 
-Just like with traditional containers, that package your application with its dependencies, these same containers can be hosted in the cloud to automatically scale to meet your application's demand. When you use serverless containers, your concern remains the needs of your application, while Azure Container Apps handles scaling, security, and whole of infrastructure management.
+Just like with traditional containers that package your application with its dependencies, these same containers are hosted in the cloud and automatically scale to meet the demand for your application. When you use serverless containers, your concern remains the needs of your application, while Azure Container Apps handles scaling, security, and whole of infrastructure management.
 
-Azure Container Apps allows you to run containers in the cloud so all you have to do is write and maintain your code, rather than worry about infrastructure.
+Azure Container Apps allows you to run containers in the cloud so all you have to do is write and maintain your code, rather than worry about server infrastructure.
 
 Container Apps makes it easy to manage:
 
@@ -35,7 +35,7 @@ Looking to dive in? Use the following table to help you get acquainted with Azur
 
 | Action | Description |
 |---|---|
-| Build an app | [Deploy your first app](quickstart-code-to-cloud), then [create an event driven app to process a message queue](background-processing.md). |
+| Build an app | [Deploy your first app](quickstart-code-to-cloud.md), then [create an event driven app to process a message queue](background-processing.md). |
 | Pick a plan | Do you need [customized hardware](plans.md), or does your app work great our general purpose machines? |
 | Scale an app | Learn how Containers Apps handles [meeting variable levels of demand](scale-app.md). |
 | Enable public access | Enable [ingress](ingress-overview.md) on your container app to accept request from the public web. |

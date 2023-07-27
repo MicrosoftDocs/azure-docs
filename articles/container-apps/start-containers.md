@@ -23,15 +23,15 @@ Virtual machines emulate different environments. These virtual contexts provide 
 
 Containers solve the same problems, but are fundamentally different.
 
-A container packages up every aspect required to run an application. From code to configuration, from system tools to the operating system, a container packages everything needed to run your application. Fortunately with containers, they're cheap, fast, and easy to move around the network.
+A container packages up every aspect required to run an application. From code to configuration, from system tools to the operating system, a container packages every dependency needed to run your application. Fortunately with containers, they're cheap, fast, and easy to move around the network.
 
 Containers are tailor-made for the entire software development lifecycle.
 
-With containers, you can create apps in your development environment, and then run the same container on a server in a data center. You can port your app to different locations without worrying about hardware and operating system differences between the two environments. All you have to do is make sure the configuration settings reflect the right environment.
+With containers, you create apps in your development environment, and then run the same container on a server. Containers makes your apps portable to various locations without worrying about hardware and operating system differences between environments. All you have to do is make sure the configuration settings reflect the right environment.
 
 ## Where to go next
 
-Looking to dive in? Use the following table to help you get acquainted with Azure Container Apps.
+Looking to dive in? Use the following table to help you get acquainted with using containers.
 
 | Action | Description |
 |---|---|
