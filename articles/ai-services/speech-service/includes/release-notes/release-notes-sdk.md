@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/01/2022
+ms.date: 7/27/2023
 ms.author: eur
 ---
 
@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Real-time diarization and conversation transcription
 
-Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, Python, Objective-C, and Swift. 
+Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python. 
 
 The following changes related to real-time diarization, conversation transcription, and meeting transcription were released in parallel: 
 - For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to identify multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.

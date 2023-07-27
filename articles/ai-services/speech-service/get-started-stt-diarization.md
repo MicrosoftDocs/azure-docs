@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/08/2023
+ms.date: 7/27/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-set-twenty-two
 keywords: speech to text, speech to text software
