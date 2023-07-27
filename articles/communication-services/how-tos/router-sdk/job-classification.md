@@ -115,7 +115,7 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
 
 ## Submit the job
 
-The following example causes the classification policy to evaluate the Job labels.  The outcome places the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.  Before the classification policy is evaluated, the job's state is `pendingClassification`.  Once the classification policy is evaluated, the job's state is updated to `queued`.
+The following example causes the classification policy to evaluate the Job labels.  The outcome places the Job in the queue called `XBOX_NA_QUEUE` and sets the priority to `1`.  Before the classification policy is evaluated, the job's state is `pendingClassification`.  Once the classification policy is evaluated, the job's state is updated to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
