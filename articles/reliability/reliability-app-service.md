@@ -31,7 +31,7 @@ To explore how Azure App Service can bolster the resiliency of your application 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [ASP-1 - Deploy App service with availability zone support](#asp-1---deploy-app-service-with-availability-zone-support) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [ASP-1 - Deploy zone-redundant App Service plans](#asp-1---deploy-zone-redundant-app-service-plans) |
 |[**Resiliency**](#resiliency)|:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-2 -Use an App Service plan that supports availability zones](#asp-2--use-an-app-service-plan-that-supports-availability-zoness) | 
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-4 - Create separate App Service plans for production and test](#asp-4---create-separate-app-service-plans-for-production-and-test) | 
 |[**Scalability**](#scalability)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-3 - Avoid frequently scaling up or down](#asp-3---avoid-frequently-scaling-up-or-down) | 
@@ -40,9 +40,8 @@ To explore how Azure App Service can bolster the resiliency of your application 
 
 ### High availability
  
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy App service with availability zone support** 
-
-To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans and App Service Environments to availability zone support. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy zone-redundant App Service plans** 
+as zone-redundant. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
 
 By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
 
