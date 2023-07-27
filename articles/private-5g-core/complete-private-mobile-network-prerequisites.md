@@ -167,7 +167,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 The following tables contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
-You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](/azure/databox-online/azure-stack-edge-pro-2-system-requirements#networking-port-requirements).
+You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](/azure/databox-online/azure-stack-edge-gpu-system-requirements#networking-port-requirements).
 
 #### Azure Private 5G Core
 
@@ -209,7 +209,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 Review and apply the firewall recommendations for the following services:
 
-- [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules)
+- [Azure Stack Edge](../databox-online/azure-stack-edge-pro-2-system-requirements.md#url-patterns-for-firewall-rules)
 - [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
 
