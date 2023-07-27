@@ -1,28 +1,30 @@
 ---
-title: About Azure Managed HSM security domain
-description: Overview of the Managed HSM Security Domain, a set of artifacts needed to recover a Managed HSM
+title: About the security domain in Azure Key Vault Managed HSM
+description: Get an overview of the Azure Key Vault Managed HSM security domain, a set of artifacts you must have to recover a managed HSM.
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbaldwin
 ms.author: mbaldwin
 ms.date: 03/28/2022
 ---
 
-# About the Managed HSM Security Domain
+# About the Managed HSM security somain
 
-A managed HSM is a single-tenant, [FIPS (Federal Information Processing Standards) 140-2 validated](https://csrc.nist.gov/publications/detail/fips/140/2/final), highly available hardware security module (HSM), with a customer-controlled security domain.  
+A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-2 validated](https://csrc.nist.gov/publications/detail/fips/140/2/final), highly available, hardware security module (HSM), with a customer-controlled security domain.  
 
-Every managed HSM must have a security domain to operate. The security domain is an encrypted blob file that contains artifacts such as the HSM backup, user credentials, the signing key, and the data encryption key unique to your managed HSM. It serves the following purposes:
+Every managed HSM must have a security domain to operate. The security domain is an encrypted blob file that contains artifacts such as the HSM backup, user credentials, the signing key, and the data encryption key that's unique to your managed HSM. 
 
-- Establishes "ownership" by cryptographically tying each managed HSM to a root of trust keys under your sole control,. This ensures that Microsoft does not have access to your cryptographic key material on the managed HSM.
-- Sets the cryptographic boundary for key material in a managed HSM instance
+A managed HSM serves the following purposes:
+
+- Establishes "ownership" by cryptographically tying each managed HSM to a root of trust keys under your sole control. This ensures that Microsoft does not have access to your cryptographic key material on the managed HSM.
+- Sets the cryptographic boundary for key material in a managed HSM instance.
 - Allows you to fully recover a managed HSM instance if there is a disaster. The following disaster scenarios are covered:
-  - A catastrophic failure where all member HSM instances of a managed HSM instance are destroyed.
-  - The managed HSM instance was soft deleted by a customer and the resource was purged after the expiry of the mandatory retention period.
-  - The end customer archived a project by performing a backup that included the managed HSM instance and all data, then deleted all Azure resources associated with the project.
+  - A catastrophic failure in which all member HSM instances of a managed HSM instance are destroyed.
+  - The managed HSM instance was soft-deleted by a customer and the resource was purged after the expiry of the mandatory retention period.
+  - The end customer archived a project by performing a backup that included the managed HSM instance and all data, and then deleted all Azure resources associated with the project.
 
-Without the security domain, disaster recovery is not possible. And Microsoft has no way of recovering the security domain, nor can it access your keys without the security domain. Protection of the security domain is of therefore of the utmost importance for business continuity, and to ensure you are not cryptographically locked out.
+Without the security domain, disaster recovery is not possible. Microsoft has no way to recover the security domain, and it can't access your keys without the security domain. Protection of the security domain is therefore of the utmost importance for business continuity, and to ensure that you are not cryptographically locked out.
 
 ## Security domain protection best practices
 
@@ -37,6 +39,7 @@ The keys to a security domain must be held in offline storage (such as an encryp
 It is again especially important to periodically review your security policy around the managed HSM quorum. Your security policy must be accurate, you must have up-to-date records of where the security domain and its private keys are stored, and you must know who has control of the security domain.
 
 Security domain key handling prohibitions:
+
 - One person should never be allowed to have physical access to all quorum keys. In other words, `m` must be greater than 1 (and should ideally be >= 3).
 - The security domain keys must never be stored on a computer with an internet connection. A computer with internet connection is exposed to various threats, such as viruses and malicious hackers. You significantly reduce your risk by storing the security domain keys offline
 

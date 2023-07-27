@@ -25,8 +25,8 @@ Azure Key Vault services provide encryption and key management solutions that sa
 
 Secure key management is essential to protect and control data in the cloud. Azure offers various solutions that you can use to manage and control access to encryption keys so that you choice and flexibility to meet stringent data protection and compliance needs.
 
-- **Azure Platform Encryption** is a *platform managed* encryption solution that encrypts by using host-level encryption. Platform managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
-- **Customer managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer managed keys can be stored in a cloud key management service like Azure Key Vault.
+- **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
+- **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
 - **Azure Key Vault Premium** encrypts by using FIPS 140-2 Level 2 hardware security module (HSM) protected keys.
 - **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft. It provides customers with the sole control of the cryptographic keys.
