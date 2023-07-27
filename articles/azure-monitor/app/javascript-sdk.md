@@ -24,11 +24,10 @@ We collect page views by default. But if you want to also collect clicks by defa
 
 Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
 
+If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
+
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
-
-> [!NOTE]
-> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
 
 ### 1. Add the JavaScript code
 

@@ -30,6 +30,8 @@ These plugins provide extra functionality and integration with the specific fram
 ### [Angular](#tab/angular)
 
 - If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
+- The Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+- When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
 
 ---
 
@@ -69,12 +71,6 @@ The Angular plugin for the Application Insights JavaScript SDK enables:
 - Track exceptions
 - Chain more custom exception handlers
 
-> [!WARNING]
-> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
-
-> [!IMPORTANT]
-> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
-
 ---
 
 ## Add a plug-in
@@ -82,6 +78,8 @@ The Angular plugin for the Application Insights JavaScript SDK enables:
 To add a plug-in, follow the steps in this section.
 
 ### 1. Install the package
+
+When you install the package, the Microsoft Azure Monitor Application Insights JavaScript SDK is also installed.
 
 #### [React](#tab/react)
 
