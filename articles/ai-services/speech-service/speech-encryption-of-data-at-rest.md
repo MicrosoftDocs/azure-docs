@@ -35,20 +35,14 @@ In the meantime, when you use Custom Command, you can manage your subscription w
 
 ## Bring your own storage (BYOS) for customization and logging
 
-To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity.
+Bring your own storage (BYOS) is an Azure AI technology for customers, who have high requirements for data security and privacy. The core of the technology is the ability to associate an Azure Storage account, that the user owns and fully controls with the Speech resource. The Speech resource then uses this storage account for storing different artifacts related to the user data processing, instead of storing the same artifacts within the Speech service premises as it is done in the regular case. This approach allows using all set of security features of Azure Storage account, including encrypting the data with the Customer-managed keys, using Private endpoints to access the data, etc.
 
-> [!IMPORTANT]
-> The user account you use to create a Speech resource with BYOS functionality enabled should be assigned the [Owner role at the Azure subscription scope](../../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator). Otherwise you will get an authorization error during the resource provisioning.
-
-After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. For more about managed identities, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
-
-> [!IMPORTANT]
-> If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
-
-The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve similar data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS (if used) and Speech service resource reside.
+The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve similar data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md).
 
 > [!IMPORTANT]
 > Microsoft **does not** use customer data to improve its Speech models. Additionally, if endpoint logging is disabled and no customizations are used, then no customer data is stored. 
+
+See detailed information on using BYOS-enabled Speech resource in [this article](bring-your-own-storage-speech-resource.md).
 
 ## Next steps
 
