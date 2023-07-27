@@ -13,7 +13,21 @@ ms.custom: mode-other, devx-track-js
 
 # QuickStart: Add 1:1 video calling as a Teams user to your application
 
-[!INCLUDE [Video calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Video Calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Video Calling with Windows](./includes/custom-teams-endpoint/voice-video-calling-cte-windows.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Video Calling with Android](./includes/custom-teams-endpoint/voice-video-calling-cte-java.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Video Calling with iOS]()]
+::: zone-end
 
 ## Clean up resources
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
