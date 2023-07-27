@@ -37,7 +37,7 @@ The following table shows what features are available with each license type.
 |Feature|Free|Mircorsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
 |-----|:-----:|:-----:|:-----:|:-----:| 
 |HR-driven Provisioning||x|x|x|
-|Automated user provisioning to SaaS apps|x||||	 
+|Automated user provisioning to SaaS apps|x|x|x|x|	 
 |Automated group provisioning to SaaS apps||x|x|x|	 
 |Automated provisioning to on-premises apps||x|x|x|
 |CA - Terms of use attestation||x|x|x| 
