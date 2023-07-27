@@ -29,6 +29,9 @@ You can access Azure AD activity logs and reports using the following methods:
 - [Export activity logs for **storage and queries**](#export-logs-for-storage-and-queries)
 
 Each of these methods provides you with capabilities that may align with certain scenarios. This article describes those scenarios, including recommendations and details about related reports that use the data in the activity logs. Explore the options in this article to learn about those scenarios so you can choose the right method.
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 ## Prerequisites
 
 The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
@@ -58,7 +61,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ### Quick steps
 
-1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Create an Event Hubs namespace and event hub.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
@@ -102,7 +105,7 @@ Integrating Azure AD logs with Azure Monitor logs provides a centralized locatio
  
 ### Quick steps
 
-1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
@@ -200,7 +203,7 @@ Use the following basic steps to archive or download your activity logs.
 
 ### Archive activity logs to a storage account
 
-1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Create a storage account.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
@@ -208,7 +211,7 @@ Use the following basic steps to archive or download your activity logs.
 
 #### Manually download activity logs
 
-1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
 1. Select **Download**.
     - [Learn more about how to download logs](howto-download-logs.md).
