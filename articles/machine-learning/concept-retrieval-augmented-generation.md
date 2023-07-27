@@ -15,6 +15,8 @@ ms.custom: prompt-flow
 
 # Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview)
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
 Retrieval Augmented Generation (RAG) is a feature that enables an LLM to utilize your own data for generating responses.  
 
 Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, when dealing with newer or more current data, two approaches can supplement the base model: fine-tuning or RAG. Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
