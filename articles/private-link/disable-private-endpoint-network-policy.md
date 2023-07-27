@@ -20,10 +20,6 @@ Network policies can be enabled either for Network Security Groups only, for Use
 
 If you enable network security policies for User-Defined Routes, you can use a custom address prefix equal to or larger than the VNet address space to invalidate the /32 default route propagated by the private endpoint. This can be useful if you want to ensure private endpoint connection requests go through a firewall or Virtual Appliance. Otherwise, the /32 default route would send traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
-To invalidate (disable) a /32 Private Endpoint route:
-1. Enable network policy for private endpoints 
-2. Create a UDR to include and override the Private Endpoint route. The scope of the UDR can't be larger than the VNet address space where the Private Endpoint is provisioned.
-
 > [!IMPORTANT]
 > To invalidate a Private Endpoint route, UDRs must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) doesn't invalidate Private Endpoint routes.  Network policies should be enabled in the subnet that hosts the private endpoint.
 
