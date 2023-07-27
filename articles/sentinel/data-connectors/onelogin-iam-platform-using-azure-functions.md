@@ -60,7 +60,7 @@ To integrate with OneLogin IAM Platform(using Azure Functions) make sure you hav
  Follow the [instructions](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010469) to configure Webhooks.
 
 1. Generate the **OneLoginBearerToken** according to your password policy.
-2. Set Custom Header in the format: Authorization: Bearer <OneLoginBearerToken>.
+2. Set Custom Header in the format: Authorization: Bearer OneLoginBearerToken.
 3. Use JSON Array Logs Format.
 
 
