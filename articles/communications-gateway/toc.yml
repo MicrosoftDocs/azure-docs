@@ -40,6 +40,8 @@ items:
   items:
   - name: Set up user roles
     href: provision-user-roles.md
+  - name: Use the Number Management Portal
+    href: manage-enterprise.md
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
   - name: Get support or request changes
