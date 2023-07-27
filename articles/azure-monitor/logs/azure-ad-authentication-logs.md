@@ -20,9 +20,7 @@ To enable Azure AD integration for Azure Monitor Logs and remove reliance on the
 
 ## Prerequisites
 
-- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
-- [Migrate to the Log Ingestion API](./custom-logs-migrate.md) from the HTTP Data Collector API to send data to Azure Monitor Logs.
-- Change the authorization method for VM insights and Container insights to local authorization.
+[Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
 
 ## Permissions required
 
@@ -39,8 +37,6 @@ Disabling local authentication might limit the availability of some functionalit
 - VM insights and Container insights will stop working. Local authorization will be the only authorization method supported by these features.
 
 You can disable local authentication by using Azure Policy. Or you can disable it programmatically through an Azure Resource Manager template, PowerShell, or the Azure CLI.
-
-
 
 ### [Azure Policy](#tab/azure-policy)
 
