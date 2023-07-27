@@ -6,7 +6,7 @@ ms.author: danielmassa
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 07/13/2023
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to
 ---
 
 # Instance readiness testing
