@@ -88,7 +88,7 @@ conceptualContent:
           links:
             - url: ./events/events-overview.md
               itemType: overview
-              text: [Currently not in TOC]
+              text: Currently not in TOC
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
