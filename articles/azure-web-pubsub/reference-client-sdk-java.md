@@ -4,7 +4,7 @@ description: This reference describes the Java client-side SDK for Azure Web Pub
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.custom: devx-track-js
+ms.custom: devx-track-extended-java
 ms.topic: conceptual 
 ms.date: 07/17/2023
 ---
