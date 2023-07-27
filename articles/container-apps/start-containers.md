@@ -19,23 +19,24 @@ As you build, develop, and deploy applications, you quickly need to answer quest
 
 In the past, we've turned to virtual machines to solve these problems.
 
-Virtual machines emulate different environments. These virtual contexts provide an isolated and consistent place to run applications. Virtual machines work, but come with some significant drawbacks. Unfortunately, they're expensive, can be slow, and are prohibitively large.
+Virtual machines emulate different environments. These virtual contexts provide an isolated and consistent place to run applications. Virtual machines work, but come with some significant drawbacks. Unfortunately, can be expensive, at times slow, and are prohibitively large.
 
 Containers solve the same problems, but are fundamentally different.
 
-A container packages up every aspect required to run an application. From code to configuration, from system tools to the operating system, a container packages every dependency needed to run your application. Fortunately with containers, they're cheap, fast, and easy to move around the network.
+Instead of creating a virtual representation of an entire computer, a container emulates all the necessary layers of computing on top of any computer. From code to configuration, from system tools to the operating system, a container packages every dependency needed to run your application. Fortunately with containers, they're cheap, fast, and easy to move around the network.
 
 Containers are tailor-made for the entire software development lifecycle.
 
-With containers, you create apps in your development environment, and then run the same container on a server. Containers makes your apps portable to various locations without worrying about hardware and operating system differences between environments. All you have to do is make sure the configuration settings reflect the right environment.
+You create apps in your development environment with a container, and then run the same container on another machine, like a server. Containers makes your apps portable to various locations without worrying about hardware and operating system differences between environments. All you have to do is make sure the configuration settings reflect the right environment.
 
 ## Where to go next
 
-Looking to dive in? Use the following table to help you get acquainted with using containers.
+Looking to dive in? Use the following table to help you get acquainted with containers.
 
 | Action | Description |
 |---|---|
-| Learn more about containers | Containers are [standardized, portable packaging for your applications](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-a-container). |
+| Containers defined | Containers are [standardized, portable packaging for your applications](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-a-container). |
+| Introduction to containers and Docker | https://learn.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/ |
 | Build an app | [Deploy your first app with a sample container](quickstart-portal.md). |
 
 > [!div class="nextstepaction"]

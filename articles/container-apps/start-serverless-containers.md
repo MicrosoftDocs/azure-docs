@@ -11,17 +11,15 @@ ms.author: cshoe
 
 # Introduction to serverless containers on Azure
 
-Serverless containers are a cloud-based technology that runs your applications in isolated environments without requiring you to manage server infrastructure.
+Serverless containers are a part of a cloud-based technology that runs your applications in isolated environments without requiring you to manage server infrastructure.
 
-Just like with traditional containers that package your application with its dependencies, these same containers are hosted in the cloud and automatically scale to meet the demand for your application. When you use serverless containers, your concern remains the needs of your application, while Azure Container Apps handles scaling, security, and whole of infrastructure management.
-
-Azure Container Apps allows you to run containers in the cloud so all you have to do is write and maintain your code, rather than worry about server infrastructure.
+When you use serverless containers, your concerns remain on the needs of your application, while Azure Container Apps handles scaling, security, and whole of infrastructure management.
 
 Container Apps makes it easy to manage:
 
 1. **Changes**: As your containers change and evolve, you need a way to keep track of the changes. Container Apps catalogs changes as revisions to your containers. If you're experiencing a problem with a container, you can easily roll back to an older version.
 
-1. **Demand levels**: Requests for your applications ebb and flow. Container Apps keeps your systems running even had high levels of demand.  Container Apps meets the demand for your app at any level by [automatically creating new copies](scale-app.md) (called replicas) of your container. As demand falls, the runtime removes unneeded replicas on your behalf.
+1. **Demand levels**: Requests for your applications ebb and flow. Container Apps keeps your systems running even at high levels of demand. Container Apps meets the demand for your app at any level by [automatically creating new copies](scale-app.md) (called replicas) of your container. As demand falls, the runtime removes unneeded replicas on your behalf.
 
 1. **Security**: Application security is enforced throughout many layers. From [authentication and authorization](authentication.md) to [network-level security](networking.md), Container Apps allows you to be explicit about the users and requests allowed into your system.
 

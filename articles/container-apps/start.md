@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps provides a fully managed experience for using containers on Azure. With Azure Container Apps, you can deploy a single containerized application all the way up to full microservices systems.
 
-Container Apps is here to take care of the server infrastructure while you focus on writing and maintaining your applications.
+Container Apps takes care of the server infrastructure while you focus on writing and maintaining your applications.
 
 To begin, select the following area that best describes your needs.
 
