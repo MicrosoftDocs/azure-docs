@@ -39,7 +39,7 @@ The following table lists the versions of open-source components that are associ
 ** Preview
 
 > [!NOTE]
-> Sqoop and Ping services are discontinued from HDInsight 5.1.
+> We have discontinued Sqoop and Pig add-ons from HDInsight 5.1 version.
 
 ### Spark versions supported in Azure HDInsight
 
