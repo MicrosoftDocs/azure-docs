@@ -15,15 +15,14 @@ These options might be cumbersome and pose a risk because it's difficult to mana
 
 To enable Azure AD integration for Azure Monitor Logs and remove reliance on these shared secrets:
 
-1. [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
 1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics).
 1. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Azure AD authentication for Application Insights (preview)](../app/azure-ad-authentication.md).
 
 ## Prerequisites
 
-- A Log Analytics workspace
-- If you want to 
-- Remove your reliance on the Log Analytics agent
+- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
+- [Migrate to the Log Ingestion API](./custom-logs-migrate.md) from the HTTP Data Collector API to send data to Azure Monitor Logs.
+- Change the authorization method for VM insights and Container insights to local authorization.
 
 ## Permissions required
 
