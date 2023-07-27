@@ -78,13 +78,17 @@ On the **Resolvers** tab:
 
 * You can create a new resolver by selecting **+ Create**.
 
+## Edit and test a resolver
+
 When you edit a single resolver, the **Edit resolver** page opens. You can:
 
-* Update the resolver's policy definition and optionally the data source. Changing the data source overwrites the resolver's current policy definition.
+* Update the resolver policy and optionally the data source. Changing the data source overwrites the current resolver policy.
 
 * Change the type and field that the resolver targets. 
 
-* Test and debug the resolver's configuration. Select **Run test** to see sample resolver output that you can validate against the schema. 
+* Test and debug the resolver's configuration. As you edit the resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
+
+    :::image type="content" source="media/configure-graphql-resolver/edit-resolver.png" alt-text="Screenshot of editing a resolver in the portal." lightbox="media/configure-graphql-resolver/edit-resolver.png":::
 
 ## GraphQL context
 
