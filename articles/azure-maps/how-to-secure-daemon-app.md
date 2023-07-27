@@ -213,7 +213,7 @@ This article uses the [Postman](https://www.postman.com/) application to create 
 5. Enter the following URL to address bar (replace `{Tenant-ID}` with the Directory (Tenant) ID, the `{Client-ID}` with the Application (Client) ID, and `{Client-Secret}` with your client secret:
 
     ```http
-    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=https://atlas.microsoft.com/.default
     ```
 
 6. Select **Send**
