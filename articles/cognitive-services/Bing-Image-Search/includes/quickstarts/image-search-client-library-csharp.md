@@ -22,7 +22,7 @@ You'll create a C# application sends an image search query, parses the JSON resp
 * If you're using macOS or Linux, [VS Code](https://code.visualstudio.com) with [.NET Core installed](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
 * [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
-See also [Azure AI services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+See also [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create a console project
 

@@ -19,7 +19,7 @@ The Azure Kinect DK development environment consists of the following multiple S
 
 - Sensor SDK for low-level sensor and device access.
 - Body Tracking SDK for tracking bodies in 3D.
-- Speech Azure AI services SDK for enabling microphone access and Azure cloud-based speech services.
+- Azure AI Speech SDK for enabling microphone access and Azure cloud-based speech services.
 
 In addition, Cognitive Vision services can be used with the device RGB camera.
 
@@ -70,7 +70,7 @@ The following body-tracking features are available on the accompanying SDK:
 
 <a name='speech-cognitive-services-sdk'></a>
 
-## Speech Azure AI services SDK
+## Azure AI Speech SDK
 
 The Speech SDK enables Azure-connected speech services.
 

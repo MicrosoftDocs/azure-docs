@@ -26,7 +26,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 * [PHP 5.6.x or later](https://php.net/downloads.php)
 
-For more information, see [Azure AI services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 

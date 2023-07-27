@@ -106,9 +106,9 @@ Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-serv
 
 ### [Azure AI services: QnA Maker](../ai-services/qnamaker/index.yml)
 
-- Configure encryption at rest of content in Azure AI services QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
+- Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
 
-Azure AI services QnA Maker is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI QnA Maker is part of [Azure AI Language](../ai-services/language-service/index.yml).
 
 <a name='cognitive-services-speech'></a>
 

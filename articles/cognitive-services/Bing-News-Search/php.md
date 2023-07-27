@@ -27,7 +27,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-For more information, see [Azure AI services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Run the application
 

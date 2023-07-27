@@ -27,7 +27,7 @@ Use this quickstart to learn how to send search requests to the Bing Image Searc
 
 * The [JavaScript Request Library](https://github.com/request/request).
 
-For more information, see [Azure AI services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 

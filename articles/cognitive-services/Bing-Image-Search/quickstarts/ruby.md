@@ -26,7 +26,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 
 * [The latest version of Ruby](https://www.ruby-lang.org/en/downloads/).
 
-For more information, see [Azure AI services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 

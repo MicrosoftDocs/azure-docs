@@ -31,7 +31,7 @@ This template defines 3 parameters:
 
 ## Prerequisites
 
-*  Azure AI services Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics))
+*  Azure AI services resource endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics))
 
 ## How to use this solution template
 

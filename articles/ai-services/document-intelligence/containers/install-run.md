@@ -90,7 +90,7 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
 
 ## Request approval to run container
 
-Complete and submit the [**Azure AI services Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
+Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
