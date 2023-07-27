@@ -12819,6 +12819,37 @@
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-restore.md",
       "redirect_url": "/azure/active-directory/fundamentals/users-restore",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-angular-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-react.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-react-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-configure-authentication.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-configure-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-prepare-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-sign-in-out.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-sign-out",
+      "redirect_document_id": false
+    },
+    
   ]
 }

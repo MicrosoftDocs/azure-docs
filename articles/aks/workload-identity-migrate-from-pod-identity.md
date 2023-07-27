@@ -3,7 +3,7 @@ title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 05/23/2023
+ms.date: 07/26/2023
 ---
 
 # Migrate from pod managed-identity to workload identity
@@ -77,6 +77,14 @@ If you don't have a managed identity created and assigned to your pod, perform t
     ```bash
     export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
+
+    The variable should contain the Issuer URL similar to the following example:
+
+    ```output
+    https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+    ```
+
+    By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
 
 ## Create Kubernetes service account
 
