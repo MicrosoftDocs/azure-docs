@@ -21,7 +21,7 @@ Azure Private 5G Core supports the standard **ping** and **traceroute** diagnost
 
 ## Choose the IP address to test
 
-You can use the ping and traceroute tools to check the reachability of any IP address over the specified interface. A common example is the default gateway. If you don't know the default gateway for the interface you want to test, you can find it on the **Advanced Networking** blade on the Azure Stack Edge (ASE) local UI.
+You can use the ping and traceroute tools to check the reachability of any IP address over the specified interface. A common example is the default gateway. If you don't know the default gateway address for the interface you want to test, you can find it on the **Advanced Networking** blade on the Azure Stack Edge (ASE) local UI.
 
 To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md).
 
@@ -48,7 +48,7 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
     n6trace0 (Data Network: internet)
     ```
 
-1. Run the ping command, specifying the network name and default gateway IP address. You can specify `access` for the access network or the network name for a data network.
+1. Run the ping command, specifying the network and IP address to test. You can specify `access` for the access network or the network name for a data network.
 
     ```azurecli
     ping --net <network name> <IP address>
@@ -62,7 +62,7 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
 
     The tool should report a list of packets transmitted and received with 0% packet loss.
 
-1. Run the traceroute command, specifying the network name and default gateway IP address. You can specify `access` for the access network or the network name for a data network.
+1. Run the traceroute command, specifying the network and IP address to test. You can specify `access` for the access network or the network name for a data network.
 
     ```azurecli
     traceroute --net <network name> <IP address>
@@ -74,7 +74,7 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
     traceroute --net enterprise 10.0.0.1
     ```
 
-    The tool should report a series of hops across different endpoints, with the specified IP address as the final hop.
+    The tool should report a series of hops, with the specified IP address as the final hop.
 
 ## Next steps
 
