@@ -139,7 +139,7 @@ Use the connection details below to connect compute services to Azure Database f
 
 | Application properties                   | Description                           | Example value                                                                                 |
 |------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless.enabled` | Enable passwordless authentication    | `true`                                                                                        |
+| `spring.datasource.passwordless_enabled` | Enable passwordless authentication    | `true`                                                                                        |
 | `spring.datasource.url`                  | Spring Boot JDBC database URL         | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | `spring.datasource.username`             | Database username                     | `<MySQL-DB-username>`                                                                         |
 
@@ -148,9 +148,9 @@ Use the connection details below to connect compute services to Azure Database f
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless-enabled`                        | Enable passwordless authentication| `true`                                                                                                  |
-| `spring.cloud.Azure.credential.client-id`                       | Your client ID                    | `<identity-client-ID>`                                                                                        |
-| `spring.cloud.Azure.credential.client-managed-identity-enabled` | Enable client managed identity    | `true`                                                                                                        |
+| `spring.datasource.passwordless_enabled`                        | Enable passwordless authentication| `true`                                                                                                  |
+| `spring.cloud.azure.credential.client_id`                       | Your client ID                    | `<identity-client-ID>`                                                                                        |
+| `spring.cloud.azure.credential.client_managed_identity_enabled` | Enable client managed identity    | `true`                                                                                                        |
 | `spring.datasource.url`                                         | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
 | `spring.datasource.username`                                    | Database username                 | `username`                                                                                             |
 
@@ -166,10 +166,10 @@ Use the connection details below to connect compute services to Azure Database f
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless-enabled`                        | Enable passwordless authentication| `true`                                                                                                  |
-| `spring.cloud.Azure.credential.client-id`                       | Your client ID                    | `<client-ID>`                                                                                                 |
-| `spring.cloud.Azure.credential.client-secret`                   | Your client secret                | `<client-secret>`                                                                                             |
-| `spring.cloud.Azure.credential.tenant-id`                       | Your tenant ID                    | `<tenant-ID>`                                                                                                 |
+| `spring.datasource.passwordless_enabled`                        | Enable passwordless authentication| `true`                                                                                                  |
+| `spring.cloud.azure.credential.client_id`                       | Your client ID                    | `<client-ID>`                                                                                                 |
+| `spring.cloud.azure.credential.client_secret`                   | Your client secret                | `<client-secret>`                                                                                             |
+| `spring.cloud.azure.credential.tenant_id`                       | Your tenant ID                    | `<tenant-ID>`                                                                                                 |
 | `spring.datasource.url`                                         | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
 | `spring.datasource.username`                                    | Database username                 | `username`                             |
 

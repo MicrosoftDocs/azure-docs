@@ -90,28 +90,28 @@ Use the environment variable names and application properties listed below to co
 ### Java Database Connectivity (JDBC)
 
 
-#### Java Database Connectivity System-assigned managed identity
+#### Java Database Connectivity (JDBC) System-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `Azure_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
-#### Java Database Connectivity User-assigned managed identity
+#### Java Database Connectivity (JDBC) User-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `Azure_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### Java Database Connectivity secret / connection string
+#### Java Database Connectivity (JDBC) secret / connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | `Azure_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
-#### Java Database Connectivity Service principal
+#### Java Database Connectivity (JDBC) Service principal
  
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
