@@ -82,7 +82,7 @@ You'll create the application gateway using the tabs on the **Create application
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gateway-create-vnet.png)
+     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet)
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
