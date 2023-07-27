@@ -35,7 +35,11 @@ Document Intelligence v3.0 supports the following tools:
 |----------|-------------|-----------|
 |**W-2 model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
-### Try W-2 data extraction
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### W-2 model data extraction
 
 Try extracting data from W-2 forms using the Document Intelligence Studio. You need the following resources:
 
@@ -44,8 +48,6 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 * A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
-
-#### Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with v3.0 API.
@@ -60,10 +62,6 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
-
-## Input requirements
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 
@@ -113,6 +111,7 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 | LocalityName | 20 | Number | Locality name. | CLEVELAND |
  | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
 | TaxYear |  | Number | Tax year | 2020 |
+
 * | W2FormVariant |  | String | The variants of W-2 forms, including *W-2*, *W-2AS*, *W-2CM*, *W-2GU*, *W-2VI* | W-2 |
 
 ### Migration guide and REST API v3.0

@@ -83,7 +83,7 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-### Try receipt data extraction
+### Receipt model data extraction
 
 See how Document Intelligence extracts data, including time and date of transactions, merchant information, and amount totals from receipts. You need the following resources:
 
@@ -94,8 +94,6 @@ See how Document Intelligence extracts data, including time and date of transact
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="doc-intel-3.0.0"
-
-#### Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with the v3.0 API.
@@ -221,18 +219,6 @@ See how Document Intelligence extracts data, including time and date of transact
 |Spanish|Spain (`es-ES`)|
 |Swedish|Sweden (`sv-SE`)|
 |Vietnamese|Vietnam (`vi-VN`)|
-
-#### Hotel receipts
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
 
 ::: moniker-end
 
@@ -371,7 +357,6 @@ See how Document Intelligence extracts data, including time and date of transact
 |`Items.*.Category`|`string`|Item category|Room|
 
 ---
-
 
 ::: moniker-end
 

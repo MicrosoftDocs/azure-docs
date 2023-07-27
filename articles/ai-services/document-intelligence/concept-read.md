@@ -28,23 +28,6 @@ Document Intelligence v3.0's Read Optical Character Recognition (OCR) model runs
 
 Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It includes features like higher-resolution scanning of document images for better handling of smaller and dense text; paragraph detection; and fillable form management. OCR capabilities also include advanced scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
 
-## Read OCR supported document types
-
-> [!NOTE]
->
-> * Only API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
-> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
-
-### Data extraction
-
-| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
-| --- | --- | --- |
-**prebuilt-read**  | ✓  |✓  |
-
 ## Development options
 
 Document Intelligence v3.0 supports the following resources:
@@ -53,7 +36,11 @@ Document Intelligence v3.0 supports the following resources:
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
-## Try OCR in Document Intelligence
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## Read model data extraction
 
 Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
 
@@ -62,8 +49,6 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 * A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
-
-### Document Intelligence Studio
 
 > [!NOTE]
 > Currently, Document Intelligence Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read version v3.0.
@@ -83,11 +68,18 @@ Try extracting text from forms and documents using the Document Intelligence Stu
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Input requirements
+## Supported document types
 
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
+> [!NOTE]
+>
+> * Only API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
+> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
 
-## Supported languages and locales
+| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
+
+## Supported extracted languages and locales
 
 The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
 
@@ -109,11 +101,6 @@ The following table lists the supported languages for extracting handwritten tex
 |Italian  |`it`|
 
 ### Print text
-
-> [!div class="op_multi_selector" title1="a-k" title2="l-z"]
-> - [apple | apples](overview.md)
-> - [pear | pears](overview.md)
-> - [berry | berries](overview.md)
 
 The following table lists the supported languages for print text by the most recent GA version.
 
@@ -196,6 +183,10 @@ The following table lists the supported languages for print text by the most rec
   |Fijian|fj|
   |Filipino|fil|
   |Finnish|fi|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
   |Fon|fon|
   |French|fr|
   |Friulian|fur|
@@ -221,10 +212,6 @@ The following table lists the supported languages for print text by the most rec
   |Herero|hz|
   |Hiligaynon|hil|
   |Hindi|hi|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
   |Hmong Daw (Latin)|mww|
   |Ho(Devanagiri)|hoc|
   |Hungarian|hu|
@@ -274,6 +261,10 @@ The following table lists the supported languages for print text by the most rec
   |Kumyk (Cyrillic)|kum|
   |Kurdish (Arabic)|ku-arab|
   |Kurdish (Latin)|ku-latn|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
   |Kurukh (Devanagari)|kru|
   |Kyrgyz (Cyrillic)|ky|
   |Lak|lbe|
@@ -325,10 +316,6 @@ The following table lists the supported languages for print text by the most rec
   |Ngomba|jgo|
   |Niuean|niu|
   |Nogay|nog|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
   |North Ndebele|nd|
   |Northern Sami (Latin)|sme|
   |Norwegian|no|
@@ -354,6 +341,10 @@ The following table lists the supported languages for print text by the most rec
   |Romansh|rm|
   |Rundi|rn|
   |Russian|ru|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
   |Rwa|rwk|
   |Sadri (Devanagari)|sck|
   |Samburu|saq|
@@ -433,7 +424,153 @@ The following table lists the supported languages for print text by the most rec
    :::column-end:::
 :::row-end:::
 
+## Detected languages: Read API
+
+The [Read API](concept-read.md) supports detecting the following languages in your documents. This list may include languages not currently supported for text extraction.
+
+> [!NOTE]
+> **Language detection**
+>
+> * Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages.
+> * To determine if text can also be
+> extracted for a given language, see previous sections.
+>
+> **Detected languages vs extracted languages**
+>
+> * This section lists the languages we can detect from the documents using the Read model, if present.
+> * Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
+
+:::row:::
+   :::column span="":::
+| Language            | Code          |
+|---------------------|---------------|
+| Afrikaans           | `af`          |
+| Albanian            | `sq`          |
+| Amharic             | `am`          |
+| Arabic              | `ar`          |
+| Armenian            | `hy`          |
+| Assamese            | `as`          |
+| Azerbaijani         | `az`          |
+| Basque              | `eu`          |
+| Belarusian          | `be`          |
+| Bengali             | `bn`          |
+| Bosnian             | `bs`          |
+| Bulgarian           | `bg`          |
+| Burmese             | `my`          |
+| Catalan             | `ca`          |
+| Central Khmer       | `km`          |
+| Chinese             | `zh`          |
+| Chinese Simplified  | `zh_chs`      |
+| Chinese Traditional | `zh_cht`      |
+| Corsican            | `co`          |
+| Croatian            | `hr`          |
+| Czech               | `cs`          |
+| Danish              | `da`          |
+| Dari                | `prs`         |
+| Divehi              | `dv`          |
+| Dutch               | `nl`          |
+| English             | `en`          |
+| Esperanto           | `eo`          |
+| Estonian            | `et`          |
+| Fijian              | `fj`          |
+| Finnish             | `fi`          |
+| French              | `fr`          |
+| Galician            | `gl`          |
+| Georgian            | `ka`          |
+| German              | `de`          |
+| Greek               | `el`          |
+| Gujarati            | `gu`          |
+| Haitian             | `ht`          |
+| Hausa               | `ha`          |
+| Hebrew              | `he`          |
+| Hindi               | `hi`          |
+| Hmong Daw           | `mww`         |
+| Hungarian           | `hu`          |
+| Icelandic           | `is`          |
+| Igbo                | `ig`          |
+| Indonesian          | `id`          |
+| Inuktitut           | `iu`          |
+| Irish               | `ga`          |
+| Italian             | `it`          |
+| Japanese            | `ja`          |
+| Javanese            | `jv`          |
+| Kannada             | `kn`          |
+| Kazakh              | `kk`          |
+| Kinyarwanda         | `rw`          |
+| Kirghiz             | `ky`          |
+| Korean              | `ko`          |
+| Kurdish             | `ku`          |
+| Lao                 | `lo`          |
+| Latin               | `la`          |
+   :::column-end:::
+   :::column span="":::
+| Language            | Code          |
+|---------------------|---------------|
+| Latvian             | `lv`          |
+| Lithuanian          | `lt`          |
+| Luxembourgish       | `lb`          |
+| Macedonian          | `mk`          |
+| Malagasy            | `mg`          |
+| Malay               | `ms`          |
+| Malayalam           | `ml`          |
+| Maltese             | `mt`          |
+| Maori               | `mi`          |
+| Marathi             | `mr`          |
+| Mongolian           | `mn`          |
+| Nepali              | `ne`          |
+| Norwegian           | `no`          |
+| Norwegian Nynorsk   | `nn`          |
+| Oriya               | `or`          |
+| Pasht               | `ps`          |
+| Persian             | `fa`          |
+| Polish              | `pl`          |
+| Portuguese          | `pt`          |
+| Punjabi             | `pa`          |
+| Queretaro Otomi     | `otq`         |
+| Romanian            | `ro`          |
+| Russian             | `ru`          |
+| Samoan              | `sm`          |
+| Serbian             | `sr`          |
+| Shona               | `sn`          |
+| Sindhi              | `sd`          |
+| Sinhala             | `si`          |
+| Slovak              | `sk`          |
+| Slovenian           | `sl`          |
+| Somali              | `so`          |
+| Spanish             | `es`          |
+| Sundanese           | `su`          |
+| Swahili             | `sw`          |
+| Swedish             | `sv`          |
+| Tagalog             | `tl`          |
+| Tahitian            | `ty`          |
+| Tajik               | `tg`          |
+| Tamil               | `ta`          |
+| Tatar               | `tt`          |
+| Telugu              | `te`          |
+| Thai                | `th`          |
+| Tibetan             | `bo`          |
+| Tigrinya            | `ti`          |
+| Tongan              | `to`          |
+| Turkish             | `tr`          |
+| Turkmen             | `tk`          |
+| Ukrainian           | `uk`          |
+| Urdu                | `ur`          |
+| Uzbek               | `uz`          |
+| Vietnamese          | `vi`          |
+| Welsh               | `cy`          |
+| Xhosa               | `xh`          |
+| Yiddish             | `yi`          |
+| Yoruba              | `yo`          |
+| Yucatec Maya        | `yua`         |
+| Zulu                | `zu`          |
+   :::column-end:::
+:::row-end:::
+
 ## Data detection and extraction
+
+| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| --- | --- | --- |
+**prebuilt-read**  | ✓  |✓  |
 
 ### Microsoft Office and HTML text extraction
 

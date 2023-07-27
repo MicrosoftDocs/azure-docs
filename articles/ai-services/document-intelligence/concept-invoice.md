@@ -91,7 +91,7 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-## Try invoice data extraction
+## Invoice model data extraction
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
@@ -102,8 +102,6 @@ See how data, including customer information, vendor details, and line items, is
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="doc-intel-3.0.0"
-
-## Document Intelligence Studio
 
 1. On the Document Intelligence Studio home page, select **Invoices**
 

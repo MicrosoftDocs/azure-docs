@@ -193,7 +193,6 @@ For a detailed walkthrough to create your first custom extraction model, see [ho
 
 ---
 
-
 ## Custom model extraction summary
 
 This table compares the supported data extraction areas:
@@ -247,13 +246,102 @@ The following table describes the features available with the associated tools a
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
- The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+::: moniker range="doc-intel-3.0.0"
+    The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
  Document Intelligence v3.0  introduces several new features and capabilities:
 
 * **Custom model API**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
 * [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
 * [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+:::row:::
+:::column:::
+
+|Language| Language code |
+|:-----|:----:|
+|Afrikaans|`af`|
+|Albanian |`sq`|
+|Asturian |`ast`|
+|Basque  |`eu`|
+|Bislama   |`bi`|
+|Breton    |`br`|
+|Catalan    |`ca`|
+|Cebuano    |`ceb`|
+|Chamorro  |`ch`|
+|Chinese (Simplified) | `zh-Hans`|
+|Chinese (Traditional) | `zh-Hant`|
+|Cornish     |`kw`|
+|Corsican      |`co`|
+|Crimean Tatar (Latin)  |`crh`|
+|Czech | `cs` |
+|Danish | `da` |
+|Dutch | `nl` |
+|English (printed and handwritten) | `en` |
+|Estonian  |`et`|
+|Fijian |`fj`|
+|Filipino  |`fil`|
+|Finnish | `fi` |
+|French | `fr` |
+|Friulian  | `fur` |
+|Galician   | `gl` |
+|German | `de` |
+|Gilbertese    | `gil` |
+|Greenlandic   | `kl` |
+|Haitian Creole  | `ht` |
+|Hani  | `hni` |
+|Hmong Daw (Latin) | `mww` |
+|Hungarian | `hu` |
+|Indonesian   | `id` |
+|Interlingua  | `ia` |
+|Inuktitut (Latin)  | `iu`  |
+|Irish    | `ga` |
+:::column-end:::
+:::column:::
+|Language| Language code |
+|:-----|:----:|
+|Italian | `it` |
+|Japanese | `ja` |
+|Javanese | `jv` |
+|K'iche'  | `quc` |
+|Kabuverdianu | `kea` |
+|Kachin (Latin) | `kac` |
+|Kara-Kalpak | `kaa` |
+|Kashubian | `csb` |
+|Khasi  | `kha` |
+|Korean | `ko` |
+|Kurdish (latin) | `kur` |
+|Luxembourgish  | `lb` |
+|Malay (Latin)  | `ms` |
+|Manx  | `gv` |
+|Neapolitan   | `nap` |
+|Norwegian | `no` |
+|Occitan | `oc` |
+|Polish | `pl` |
+|Portuguese | `pt` |
+|Romansh  | `rm` |
+|Scots  | `sco` |
+|Scottish Gaelic  | `gd` |
+|Slovenian  | `slv` |
+|Spanish | `es` |
+|Swahili (Latin)  | `sw` |
+|Swedish | `sv` |
+|Tatar (Latin)  | `tat` |
+|Tetum    | `tet` |
+|Turkish | `tr` |
+|Upper Sorbian  | `hsb` |
+|Uzbek (Latin)     | `uz` |
+|Volapük   | `vo` |
+|Walser    | `wae` |
+|Western Frisian | `fy` |
+|Yucatec Maya | `yua` |
+|Zhuang | `za` |
+|Zulu  | `zu` |
+:::column-end:::
+:::row-end:::
+:::moniker-end
 
 ### Try signature detection
 
