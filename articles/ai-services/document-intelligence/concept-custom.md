@@ -79,7 +79,7 @@ The following table compares custom template and custom neural features:
 |Training time | 1 to 5 minutes | 20 minutes to 1 hour |
 |Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks and tables|
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
-|Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](language-support.md#custom-neural-model) |
+|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
 
 ### Custom classification model
 
@@ -247,7 +247,7 @@ The following table describes the features available with the associated tools a
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 ::: moniker range="doc-intel-3.0.0"
-    The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
 
  Document Intelligence v3.0  introduces several new features and capabilities:
 

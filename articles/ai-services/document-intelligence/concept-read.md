@@ -568,7 +568,7 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ## Data detection and extraction
 
-| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+ | **Model**   | **Text**   | * [**Language extraction**](#supported-extracted-languages-and-locales) </br> * [**Language detection**](#language-detection) |
 | --- | --- | --- |
 **prebuilt-read**  | ✓  |✓  |
 
@@ -635,7 +635,7 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
 
 ### Language detection
 
-The Read OCR model in Document Intelligence adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+The Read OCR model in Document Intelligence adds [language detection](#language-detection) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ```json
 "languages": [
