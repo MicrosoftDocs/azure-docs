@@ -247,9 +247,9 @@ The following table describes the features available with the associated tools a
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 ::: moniker range="doc-intel-3.0.0"
-The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
+  The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
 
- Document Intelligence v3.0  introduces several new features and capabilities:
+  Document Intelligence v3.0  introduces several new features and capabilities:
 
 * **Custom model API**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
 * [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
