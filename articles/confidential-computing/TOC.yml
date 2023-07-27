@@ -134,8 +134,10 @@
       href: key-rotation-offline.md
     - name: Use sample app with guest attestation
       href: guest-attestation-example.md
-    - name: Hardening Linux image to remove sudo users for a confidential VM deployment
-      href: hardening-linux-image-to-remove-sudo-users-for-a-confidential-vm-deployment.md
+    - name: Hardening Linux image
+      items:
+      - name: Remove sudo users from Linux image
+        href: hardening-linux-image-to-remove-sudo-users-for-a-confidential-vm-deployment.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
     - name: Secure Key Release (SKR) with Azure Key Vault
