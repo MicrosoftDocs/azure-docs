@@ -28,6 +28,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 * HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 For workload specific versions, see 
 
