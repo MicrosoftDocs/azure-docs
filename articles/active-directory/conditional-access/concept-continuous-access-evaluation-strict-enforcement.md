@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,14 +45,14 @@ After enabling policies requiring strict location enforcement on a subset of tes
 
 If administrators don't perform this validation, their users may be negatively impacted. If traffic to Azure AD or a CAE supported resource is through a shared or undefinable egress IP, don't enable strict location enforcement in your Conditional Access policies.
 
-### Step 3 - Identify IP addresses that should be added to your named locations 
+### Step 3 - Use the CAE Workbook to Identify IP addresses that should be added to your named locations 
 
-If the filter search of **IP address (seen by resource)** in the Azure AD Sign-in logs isn't empty, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement, administrators should: 
+If you haven't already, create a new Azure Workbook using the public template "Continuous Access Evaluation Insights" to identify IP mismatch between IP address seen by Azure AD and **IP address (seen by resource)**. In this case, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement, administrators should: 
 
-- Investigate and identify any IP addresses identified in the Sign-in logs.
+- Investigate and identify any IP addresses identified in the CAE Workbook.
 - Add public IP addresses associated with known organizational egress points to their defined [named locations](location-condition.md#named-locations).
 
-     [ ![Screenshot of sign-in logs with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png#lightbox)
+     [ ![Screenshot of cae-workbook with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png#lightbox)
 
 The following screenshot shows an example of a client’s access to a resource being blocked. This block is due to policies requiring CAE strict location enforcement being triggered revoking the client’s session. 
 
