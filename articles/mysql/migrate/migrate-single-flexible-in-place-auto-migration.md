@@ -7,10 +7,7 @@ ms.date: 07/10/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom:
-  - mvc
-  - devx-track-azurecli
-  - mode-api
+ms.custom: mvc, mode-api
 ---
 # In-place automigration from Azure Database for MySQL – Single Server to Flexible Server
 

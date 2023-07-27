@@ -27,6 +27,10 @@ New DSVM offering for [Data Science VM – Windows 2022 (Preview)](https://azure
 
 Version `23.06.25`
 
+Main changes:
+
+- SDK `1.51.0`
+
 ## April 26, 2023
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
