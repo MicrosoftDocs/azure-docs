@@ -62,7 +62,7 @@ landingContent:
           - text: Configure a Quick Access app
             url: how-to-configure-quick-access.md
           - text: Configure a Private Access app
-            url: how-to-configure-per-app-access
+            url: how-to-configure-per-app-access.md
 
   - title: Access controls
     linkLists:
