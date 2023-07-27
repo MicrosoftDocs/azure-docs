@@ -36,8 +36,8 @@ In this tutorial, you learn how to:
     - Application (client) ID of the Web API
     - Directory (tenant) ID of the Web API is registered
     - Directory (tenant) subdomain of where the Web API is registered. For example, if your [primary domain](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details) is *contoso.onmicrosoft.com*, your Directory (tenant) subdomain is *contoso*.
-    - [*ToDoList.Read* and *ToDoList.ReadWrite* as the delegated permissions](./how-to-register-ciam-app.md#expose-permissions?tabs=webapi&preserve-view=true#expose-permissions) (scopes) exposed by the Web API. 
-    - [*ToDoList.Read.All* and *ToDoList.ReadWrite.All* as the application permissions](how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#to-add-app-roles-follow-the-steps-below-optional) (app roles) exposed by the Web API.
+    - *ToDoList.Read* and *ToDoList.ReadWrite* as the [delegated permissions (scopes) exposed by the Web API](./how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#expose-permissions). 
+    - *ToDoList.Read.All* and *ToDoList.ReadWrite.All* as the [application permissions (app roles) exposed by the Web API](how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#to-add-app-roles-follow-the-steps-below-optional).
 
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
@@ -233,7 +233,7 @@ In this section, we add code to the placeholders we created. The focus here isn'
 
 1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. The easiest way to do this is the claims to find whether the access token contains the `idtyp` optional claim. This `idtyp` claim is the easiest way for the API to determine whether a token is an app token or an app + user token. We recommend enabling the `idtyp` optional claim.
 
-If the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Azure AD has at least one of the two claims. Access tokens issued to a user have the `scp` claim. Access tokens issued to an application have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
+    If the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Azure AD has at least one of the two claims. Access tokens issued to a user have the `scp` claim. Access tokens issued to an application have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
 
     ```csharp
     private bool IsAppMakingRequest()

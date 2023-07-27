@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before going through this article, ensure you have a [protected web API](how-to-protect-web-api-dotnet-core-protect-endpoints.md) to use for testing purposes.
+Before going through this article, ensure you have a [protected web API](./tutorial-protect-web-api-dotnet-core-build-app.md) to use for testing purposes.
 
 ## Register the daemon app 
 
