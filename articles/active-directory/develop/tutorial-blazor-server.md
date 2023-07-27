@@ -59,7 +59,7 @@ This tool will automate the following tasks for you:
 - Store your application secret in user secrets storage
 - Update your appsettings.json with the client-id, tenant-id, etc...
 
-> .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools)
+> .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [https://learn.microsoft.com/dotnet/core/tools/global-tools](https://learn.microsoft.com/dotnet/core/tools/global-tools)
 
 > For more information on user secrets storage please visit: [https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows](https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
 
