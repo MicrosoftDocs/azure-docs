@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Health Data Services documentation # < 60 chars
-summary: Unify, manage, and analyze protected health information (PHI) using FHIR and DICOM global open standards.  # < 105/160 chars
+summary: Unify, manage, and analyze health data securely using FHIR and DICOM global open standards.  # < 160 chars
 brand: azure 
 
 metadata:
