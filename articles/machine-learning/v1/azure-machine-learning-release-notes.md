@@ -2154,7 +2154,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-core**
     + Fixed bug in `datastore.upload_files` were relative path that didn't start with `./` was not able to be used.
     + Added deprecation messages for all Image class code paths
-    + Fixed Model Management URL construction for Azure China 21Vianet region.
+    + Fixed Model Management URL construction for Microsoft Azure operated by 21Vianet region.
     + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.    
     + Added an option to [Environment.build_local()](/python/api/azureml-core/azureml.core.environment.environment) to push an image into Azure Machine Learning workspace container registry
     + Updated the SDK to use new token library on Azure synapse in a back compatible manner.

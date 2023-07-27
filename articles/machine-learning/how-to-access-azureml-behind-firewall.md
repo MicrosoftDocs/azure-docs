@@ -77,7 +77,7 @@ __Outbound traffic__
 | `BatchNodeManagement.<region>` | 443 | Communication Azure Batch. |
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
 | `Storage.<region>` | 443 | Access data stored in the Azure Storage Account for compute cluster and compute instance. This outbound can be used to exfiltrate data. For more information, see [Data exfiltration protection](how-to-prevent-data-loss-exfiltration.md). |
-| `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
+| `AzureFrontDoor.FrontEnd`</br>* Not needed in Microsoft Azure operated by 21Vianet. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
 | `MicrosoftContainerRegistry.<region>` | 443 | Access docker images provided by Microsoft. |
 | `Frontdoor.FirstParty` | 443 | Access docker images provided by Microsoft. |
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
@@ -268,7 +268,7 @@ The result of the API call is a JSON document. The following snippet is an excer
 
 ### Microsoft hosts
 
-The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Azure China 21Vianet regions.
+The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Microsoft Azure operated by 21Vianet regions.
 
 > [!IMPORTANT]
 > Azure Machine Learning uses Azure Storage Accounts in your subscription and in Microsoft-managed subscriptions. Where applicable, the following terms are used to differentiate between them in this section:
@@ -294,7 +294,7 @@ __General Azure hosts__
 | Azure portal | `management.azure.us` | TCP | 443 |
 | Azure Resource Manager | `management.usgovcloudapi.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
@@ -343,7 +343,7 @@ __Azure Machine Learning hosts__
 | Integrated notebook | `graph.microsoft.us` | TCP | 443 |
 | Integrated notebook | `*.aznbcontent.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
@@ -401,7 +401,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Your storage account | `<storage>.blob.core.usgovcloudapi.net` | TCP | 443 |
 | Azure Key Vault | `*.vault.usgovcloudapi.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |

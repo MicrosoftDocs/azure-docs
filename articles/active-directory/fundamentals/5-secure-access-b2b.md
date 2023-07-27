@@ -76,7 +76,7 @@ Some organizations have a blocklist of bad-actor domains from a managed security
 
 You can control inbound and outbound access using cross tenant access settings. In addition, you can trust multi-factor authentication (MFA), a compliant device, and hybrid Azure Active Directory joined device (HAAJD) claims from external Azure AD tenants. When you configure an organizational policy, it applies to the Azure AD tenant and applies to users in that tenant, regardless of domain suffix. 
 
-You can enable collaboration across Microsoft clouds, such as Microsoft Azure operated by 21Vianet (Azure China) or Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. 
+You can enable collaboration across Microsoft clouds, such as Microsoft Azure operated by 21Vianet or Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. 
 
 Learn more: 
 

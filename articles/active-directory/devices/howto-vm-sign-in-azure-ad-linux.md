@@ -51,7 +51,7 @@ The following Azure regions are currently supported for this feature:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 Use of the SSH extension for Azure CLI on Azure Kubernetes Service (AKS) clusters is not supported. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -82,7 +82,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For PAM-based authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Azure operated by 21Vianet:
 
 - `https://packages.microsoft.com`: For package installation and upgrades.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.

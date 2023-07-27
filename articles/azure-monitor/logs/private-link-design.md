@@ -158,7 +158,7 @@ If your private link setup was created before April 19, 2021, it won't reach the
     |:--|:--|:--|:--|
     |Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
     |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
-    |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+    |Microsoft Azure operated by 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ### Collect custom logs and IIS log over a private link
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. To ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspaces.

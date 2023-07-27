@@ -26,7 +26,7 @@ Sample Resource Manager templates are available in the [Azure samples on GitHub]
 This article uses the [five-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype] example template and template parameters. Download *azuredeploy.json* and *azuredeploy.parameters.json* to your computer and open both files in your favorite text editor.
 
 > [!NOTE]
-> For national clouds (Azure Government, Azure China, Azure Germany), you should also add the following `fabricSettings` to your template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
+> For national clouds (Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), you should also add the following `fabricSettings` to your template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
 
 ## Add certificates
 You add certificates to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those key-vault parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*).

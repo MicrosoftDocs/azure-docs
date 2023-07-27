@@ -100,7 +100,7 @@ Both approaches require the IP address for each application in the Azure Spring 
 Use the following steps to create a private DNS zone for an application in the private network.
 
 > [!NOTE]
-> If you're using Azure China, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Microsoft Azure operated by 21Vianet, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 #### [Azure portal](#tab/azure-portal)
 

@@ -24,7 +24,7 @@ At this time, the migration feature doesn't support migrations to App Service En
 - Jio India West
 - UAE Central
 
-### Azure China:
+### Microsoft Azure operated by 21Vianet:
 
 - China East 2
 - China North 2

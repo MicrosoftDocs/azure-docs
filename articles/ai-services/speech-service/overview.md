@@ -100,7 +100,7 @@ You can deploy Azure AI services Speech features in the cloud or on-premises.
 
 With [containers](speech-container-howto.md), you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
-Speech service deployment in sovereign clouds is available for some government entities and their partners. For example, the Azure Government cloud is available to US government entities and their partners. Azure China cloud is available to organizations with a business presence in China. For more information, see [sovereign clouds](sovereign-clouds.md). 
+Speech service deployment in sovereign clouds is available for some government entities and their partners. For example, the Azure Government cloud is available to US government entities and their partners. Microsoft Azure operated by 21Vianet cloud is available to organizations with a business presence in China. For more information, see [sovereign clouds](sovereign-clouds.md). 
 
 :::image type="content" border="false" source="media/overview/speech-delivery-presence.png" alt-text="Diagram showing where Speech service can be deployed and accessed.":::
 

@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Availability of services for Microsoft Azure operated by 21Vianet
 
-Microsoft Azure operated by 21Vianet (Azure China) is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
+Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
 
 
 ## Service availability
@@ -75,16 +75,16 @@ This section outlines variations and considerations when using Azure Container A
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+| Azure Monitor| The Azure Monitor integration is not supported in Azure operated by 21Vianet |
 
 ### Microsoft Cost Management + Billing
 
 This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
 
 
-### Azure China Commercial Marketplace
+### Azure operated by 21Vianet Commercial Marketplace
  
-To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+To learn which commercial marketplace features are available for Azure operated by 21Vianet Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure operated by 21Vianet Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
 
 #### Azure Retail Rates API for China
 
@@ -92,7 +92,7 @@ The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/
 
 #### Markup - China
 
-The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China and isn't available in Azure Global.
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure operated by 21Vianet and isn't available in Azure Global.
 
 ## Azure in China Account Sign in
 
@@ -276,7 +276,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ### Azure portal
 
-You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure China anywhere globally.
+You can sign in to the [Azure portal](https://portal.azure.cn/?l=en.en-us) to manage workloads in Azure operated by 21Vianet anywhere globally.
 
 ### Work with administrator roles
 

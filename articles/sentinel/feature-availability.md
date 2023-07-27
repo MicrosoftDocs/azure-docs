@@ -14,7 +14,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Analytics		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Microsoft Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Analytics rules health](monitor-analytics-rule-integrity.md) |Public Preview |&#x2705; |&#10060; |
 |[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public Preview |&#x2705; |&#10060; |
@@ -24,7 +24,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Content and content management		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Content hub](sentinel-solutions.md) and [solutions](sentinel-solutions-catalog.md) |Public preview |&#x2705; |&#10060; |
 |[Repositories](ci-cd.md?tabs=github) |Public preview |&#x2705; |&#10060; |
@@ -32,7 +32,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Data collection
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |
 |[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public Preview |&#x2705; |&#10060; |
@@ -73,7 +73,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Hunting
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Hunting blade](hunting.md) |GA |&#x2705; |&#x2705; |
 |[Restore historical data](restore.md) |GA |&#x2705; |&#x2705; |
@@ -81,7 +81,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Incidents
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public Preview |&#x2705; |&#10060; |
 |[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |Public Preview |&#x2705; |&#x2705; |
@@ -100,7 +100,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Machine Learning
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Anomalous RDP login detection - built-in ML detection](configure-connector-login-detection.md) |Public Preview |&#x2705; |&#x2705; |
 |[Anomalous SSH login detection - built-in ML detection](connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection) |Public Preview |&#x2705; |&#x2705; |
@@ -113,20 +113,20 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Normalization		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Advanced Security Information Model (ASIM)](normalization.md) |Public Preview |&#x2705; |&#x2705; |
 
 ## Notebooks
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Notebooks](notebooks.md) |GA |&#x2705; |&#x2705; |
 |[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public Preview |&#x2705; |&#x2705; |
 
 ## SAP
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)<sup>[1](#sap)</sup> |GA |&#x2705; |&#x2705; |
 
@@ -134,7 +134,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Threat intelligence support		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[GeoLocation and WhoIs data enrichment](work-with-threat-indicators.md) |Public Preview |&#x2705; |&#10060; |
 |[Import TI from flat file](indicators-bulk-file-import.md) |Public Preview |&#x2705; |&#x2705; |
@@ -147,7 +147,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## UEBA 
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Active Directory sync via MDI](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) |Public preview |&#x2705; |&#10060; |
 |[Azure resource entity pages](entity-pages.md) |Public Preview |&#x2705; |&#10060; |
@@ -162,7 +162,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Watchlists
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|
 |[Large watchlists from Azure Storage](watchlists.md) |Public Preview |&#x2705; |&#10060; |
 |[Watchlists](watchlists.md) |GA |&#x2705; |&#x2705; |

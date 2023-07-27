@@ -1,7 +1,7 @@
 ---
 title: Feature availability across cloud regions
 titleSuffix: Azure Machine Learning
-description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure operated by 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,12 +16,12 @@ ms.custom: references_regions, event-tier1-build-2022
 
 # Azure Machine Learning feature availability across clouds regions
 
-Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Azure China 21Vianet regions. 
+Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Microsoft Azure operated by 21Vianet regions. 
 
-In the list of global Azure regions, there are several regions that serve specific markets in addition to the public cloud regions. For example, the Azure Government and the Azure China 21Vianet regions. Azure Machine Learning is deployed into the following regions, in addition to public cloud regions:
+In the list of global Azure regions, there are several regions that serve specific markets in addition to the public cloud regions. For example, the Azure Government and the Azure operated by 21Vianet regions. Azure Machine Learning is deployed into the following regions, in addition to public cloud regions:
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
-* Azure China 21Vianet region **China-East-2**.
+* Azure operated by 21Vianet region **China-East-2**.
 
 Azure Machine Learning is still in development in air-gap Regions. 
 
@@ -139,7 +139,7 @@ The information in the rest of this document provides information on what featur
     * For both: `graph.windows.net` 
 
 
-## Azure China 21Vianet    
+## Azure operated by 21Vianet    
 
 | Feature                                       | Public cloud status | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
@@ -219,10 +219,10 @@ The information in the rest of this document provides information on what featur
 
 
 
-### Other Azure China limitations
+### Other Azure operated by 21Vianet limitations
 
-* Azure China has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
-* REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure China regions:
+* Azure operated by 21Vianet has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
+* REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure operated by 21Vianet regions:
 
     | REST endpoint                 | Global Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
@@ -231,7 +231,7 @@ The information in the rest of this document provides information on what featur
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
-* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
+* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Microsoft Azure operated by 21Vianet](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all Azure Machine Learning regions.
 * Searching for assets in the web UI with Chinese characters will not work correctly.
 

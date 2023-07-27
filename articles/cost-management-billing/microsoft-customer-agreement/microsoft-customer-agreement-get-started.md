@@ -28,7 +28,7 @@ When you move existing subscriptions to your Microsoft Customer Agreement billin
 If you’re a new customer, Azure automatically creates a default subscription for you.
 
 >[!NOTE]
->Azure China customers must manually create their first subscription. For more information, see [Create a Microsoft Customer Agreement subscription](../manage/create-subscription.md).
+>Microsoft Azure operated by 21Vianet customers must manually create their first subscription. For more information, see [Create a Microsoft Customer Agreement subscription](../manage/create-subscription.md).
 
 - [Move your existing pay-as-you-go subscriptions](../manage/mca-request-billing-ownership.md). You can link your subscriptions to the new MCA billing account by using billing ownership transfer.
 - [Move your existing EA subscriptions](../manage/mca-setup-account.md).

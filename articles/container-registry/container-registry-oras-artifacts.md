@@ -33,7 +33,7 @@ While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop 
 
 ## Preview limitations
 
-OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Azure China and government clouds aren't yet supported.
+OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Microsoft Azure operated by 21Vianet and government clouds aren't yet supported.
 
 ## Configure a registry
 

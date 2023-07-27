@@ -81,7 +81,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 	| PROXYUSEAUTH | Set to "true" if proxy requires authentication |
 	| PROXYUSERNAME | Set to Proxy username. PROXYUSE and PROXYUSEAUTH must be set to "true" |
 	| PROXYPASSWORD | Set to Proxy password. PROXYUSE and PROXYUSEAUTH must be set to "true" |
-	| CLOUDENV | Set to Cloud. "Azure Commercial", "Azure China", "Azure US Gov", "Azure USNat", or "Azure USSec
+	| CLOUDENV | Set to Cloud. "Azure Commercial", "Microsoft Azure operated by 21Vianet", "Azure US Gov", "Azure USNat", or "Azure USSec
 
 6. Verify successful installation:
 	- Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed

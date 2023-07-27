@@ -83,7 +83,7 @@ Availability zone support is a property of the App Service plan. The following a
     - West Europe
     - West US 2
     - West US 3
-    - Azure China - China North 3
+    - Microsoft Azure operated by 21Vianet - China North 3
     - Azure Government - US Gov Virginia
 
 

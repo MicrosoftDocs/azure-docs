@@ -66,7 +66,7 @@ In this section, you can register additional applications for various users and 
     * Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`
     * Azure Government: `51bb15d4-3a4f-4ebf-9dca-40096fe32426`
     * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
-    * Azure China 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
+    * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 1. Select the checkbox for the **Authorized scopes** to include. Then, click **Add application**.
 
    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/add-application.png" alt-text="Screenshot of Azure Active Directory add client application page." lightbox="./media/openvpn-azure-ad-tenant-multi-app/add-application.png":::
