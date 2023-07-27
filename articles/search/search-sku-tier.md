@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 07/17/2023
 ms.custom: contperf-fy21q2 
 ---
 
@@ -31,11 +31,11 @@ Pricing - or the estimated monthly cost of running the service - are shown in th
 
 ## Tier descriptions
 
-Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Standard and Storage Optimized are available with several configurations and capacities. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). 
+Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Standard and Storage Optimized are available with several configurations and capacities. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/)). 
 
 :::image type="content" source="media/search-sku-tier/tiers.png" alt-text="Pricing tier chart" border="true":::
 
-**Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, system resources are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a [limited search service](search-limits-quotas-capacity.md#subscription-limits) for smaller projects, like running tutorials and code samples. Internally, system resources are shared among multiple subscribers. You can't scale a free service or run significant workloads. You can only have one free search service per Azure subscription.
 
 The most commonly used billable tiers include the following:
 
@@ -59,7 +59,7 @@ Most features are available on all tiers, including the free tier. In a few case
 
 | Feature | Limitations |
 |---------|-------------|
-| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. Indexers have [more limitations](search-limits-quotas-capacity.md#indexer-limits) on the free tier. |
+| [indexers](search-indexer-overview.md) | Indexers aren't available on S3 HD. Indexers have [more limitations](search-limits-quotas-capacity.md#indexer-limits) on the free tier. |
 | [AI enrichment](cognitive-search-concept-intro.md) | Runs on the Free tier but not recommended. |
 | [Managed or trusted identities for outbound (indexer) access](search-howto-managed-identities-data-sources.md) | Not available on the Free tier.|
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
@@ -76,7 +76,7 @@ Tiers determine the  maximum storage of the service itself, as well as the maxim
 
 ## Partition size and speed
 
-Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, are not published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios. For more information about partitions, see [Estimate and manage capacity](search-capacity-planning.md) and [Reliability in Azure Cognitive Search](search-reliability.md).
+Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, aren't published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios. For more information about partitions, see [Estimate and manage capacity](search-capacity-planning.md) and [Reliability in Azure Cognitive Search](search-reliability.md).
 
 ## Billing rates
 

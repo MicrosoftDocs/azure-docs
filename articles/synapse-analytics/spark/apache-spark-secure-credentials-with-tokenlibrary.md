@@ -387,7 +387,7 @@ The following methods of accessing the linked services are not supported from th
   - Passing arguments to parameterized linked service
   - Connections with User assigned managed identities (UAMI)
 
-While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at https://portal.azure.com.
+While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 

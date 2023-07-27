@@ -86,7 +86,7 @@ The following scenarios are not supported for Staged Rollout:
 
 - When you first add a security group for Staged Rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programmatically updating PasswordPolicies attribute is not supported while users are in Staged Rollout. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "CloudPasswordPolicyForPasswordSyncedUsersEnabled". When "CloudPasswordPolicyForPasswordSyncedUsersEnabled" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programmatically updating PasswordPolicies attribute is not supported while users are in Staged Rollout. To learn how to set 'CloudPasswordPolicyForPasswordSyncedUsersEnabled' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#cloudpasswordpolicyforpasswordsyncedusersenabled).
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
 
@@ -165,6 +165,8 @@ To roll out a specific feature (*pass-through authentication*, *password hash sy
 
 ### Enable a Staged Rollout of a specific feature on your tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can roll out these options:
 
 - **Password hash sync** + **Seamless SSO**
@@ -175,7 +177,7 @@ You can roll out these options:
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
 
 1. Search for and select **Azure Active Directory**.
 

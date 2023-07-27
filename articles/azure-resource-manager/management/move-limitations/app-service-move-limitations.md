@@ -32,25 +32,25 @@ When you move a Web App across subscriptions, the following guidance applies:
 
 If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.
 
-![Select diagnostics](./media/app-service-move-limitations/select-diagnostics.png)
+:::image type="content" source="./media/app-service-move-limitations/select-diagnostics.png" alt-text="Screenshot of the Diagnose and solve problems section with the Configuration and Management option highlighted.":::
 
 Select **Migration Options**.
 
-![Select migration options](./media/app-service-move-limitations/select-migration.png)
+:::image type="content" source="./media/app-service-move-limitations/select-migration.png" alt-text="Screenshot of the Migration Options section in the Configuration and Management menu.":::
 
 Select the option for recommended steps to move the web app.
 
-![Select recommended steps](./media/app-service-move-limitations/recommended-steps.png)
+:::image type="content" source="./media/app-service-move-limitations/recommended-steps.png" alt-text="Screenshot of the Recommended Steps option in the Migration Options section.":::
 
 You see the recommended actions to take before moving the resources. The information includes the original resource group for the web app.
 
-![Screen capture shows recommended steps for moving Microsoft dot Web resources.](./media/app-service-move-limitations/recommendations.png)
+:::image type="content" source="./media/app-service-move-limitations/recommendations.png" alt-text="Screenshot of the Recommended Actions section displaying the original resource group for the web app.":::
 
 ## Move hidden resource types in portal
 
 When using the portal to move your App Service resources, you may see an error indicating that you haven't moved all of the resources. If you see this error, check if there are resource types that the portal didn't display. Select **Show hidden types**. Then, select all of the resources to move.
 
-:::image type="content" source="./media/app-service-move-limitations/show-hidden-types.png" alt-text="Show hidden types":::
+:::image type="content" source="./media/app-service-move-limitations/show-hidden-types.png" alt-text="Screenshot of the Show Hidden Types option in the portal when moving App Service resources.":::
 
 ## Move with free managed certificates
 
