@@ -18,14 +18,14 @@ By default, network policies are disabled for a subnet in a virtual network. To 
 
 Network policies can be enabled either for Network Security Groups only, for User-Defined Routes only, or for both.
 
-If you enable network security policies for User-Defined Routes, you can use a custom address prefix equal to or larger than the VNet address space to invalidate the /32 default route that is propagated by the private endpoint. This can be useful if you want ensure private endpoint connection requests go through a firewall or Virtual Appliance, otherwise the /32 default route would send traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
+If you enable network security policies for User-Defined Routes, you can use a custom address prefix equal to or larger than the VNet address space to invalidate the /32 default route propagated by the private endpoint. This can be useful if you want to ensure private endpoint connection requests go through a firewall or Virtual Appliance. Otherwise, the /32 default route would send traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 To invalidate (disable) a /32 Private Endpoint route:
 1. Enable network policy for private endpoints 
 2. Create a UDR to include and override the Private Endpoint route. The scope of the UDR can't be larger than the VNet address space where the Private Endpoint is provisioned.
 
 > [!IMPORTANT]
-> To invalidate a Private Endpoint route, UDRs must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) does not invalidate Private Endpoint routes.  Network policies should be enabled in the subnet that hosts the private endpoint.
+> To invalidate a Private Endpoint route, UDRs must have a prefix equal to or larger than the VNet address space where the Private Endpoint is provisioned. For example, a UDR default route (0.0.0.0/0) doesn't invalidate Private Endpoint routes.  Network policies should be enabled in the subnet that hosts the private endpoint.
 
 Use the following step to enable or disable network policy for private endpoints:
 
@@ -78,7 +78,7 @@ $vnet | Set-AzVirtualNetwork
 
 # [**CLI**](#tab/network-policy-cli)
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to enable the policy. The Azure CLI only supports the values `true` or `false`, it does not allow yet to enable the policies selectively only for User-Defined Routes or Network Security Groups:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to enable the policy. The Azure CLI only supports the values `true` or `false`, it doesn't allow yet to enable the policies selectively only for User-Defined Routes or Network Security Groups:
 
 ```azurecli
 az network vnet subnet update \
