@@ -70,7 +70,9 @@ Run the following command to register your app in your tenant and update the .Ne
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>
 ```
-
+> [!Note]
+> - you don't need to provide the username if you are signed-in with only one account in the developer tools.
+> - you don't need to provide the tenant-id if the tenant in which you want to create the application is your home tenant.
 ## Optional - Create a development SSL certificate
 
 In order to avoid SSL errors / warning when browsing the running application you can use the following on macOS and Windows to generate a self-signed SSL certificate for use by .Net core.
