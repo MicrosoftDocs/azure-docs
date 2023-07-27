@@ -117,7 +117,7 @@ If you aren't using CAE-capable clients, your default access token lifetime rema
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign), then a revocation event is sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession), then a revocation event is sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there's any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD then reevaluates all the conditions and prompt the user to reauthenticate in this case.
@@ -177,7 +177,7 @@ Changes made to Conditional Access policies and group membership made by adminis
 
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
-- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign) to revoke all refresh tokens of a specified user.
+- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession) to revoke all refresh tokens of a specified user.
 - Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies are applied immediately.
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
