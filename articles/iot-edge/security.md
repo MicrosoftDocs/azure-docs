@@ -71,7 +71,7 @@ For many intelligent edge devices, especially devices that can be physically acc
 
 ## Encryption at rest
 
-Encryption at rest provides data protection for stored data. Attacks against data at-rest include attempts to get physical access to the hardware where the data is stored, and then compromise the contained data. You can use encryption at rest to protect data stored on the device. Linux has several options for encryption at rest. Choose the option that best fits your needs. For Windows, [Windows BitLocker](/windows/security/operating-system-security/data-protection/bitlocker) is the recommended option.
+Encryption at rest provides data protection for stored data. Attacks against data at-rest include attempts to get physical access to the hardware where the data is stored, and then compromise the contained data. You can use encryption to protect data stored on the device. Linux has several options for encryption at rest. Choose the option that best fits your needs. For Windows, [Windows BitLocker](/windows/security/operating-system-security/data-protection/bitlocker) is the recommended option for encryption at rest.
 
 ## Certification
 
