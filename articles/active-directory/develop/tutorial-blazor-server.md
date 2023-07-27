@@ -65,7 +65,7 @@ This tool will automate the following tasks for you:
 
 ## Use the Microsoft Identity App Sync Tool
 
-Run the following command to register your app in your tenant and update the .Net configuration of your application. Provide the username/upn belonging to your Azure Account and the tenant id of the Azure Active Directory associated with your Azure Account.
+Run the following command to register your app in your tenant and update the .Net configuration of your application. Provide the username/upn belonging to your Azure Account (for instance username@domain.com) and the tenant id or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed-in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from Single Sign On (SSO).
 
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>
