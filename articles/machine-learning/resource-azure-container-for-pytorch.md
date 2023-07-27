@@ -50,7 +50,7 @@ The following configurations are supported:
 |acpt-pytorch-1.12-py39-cuda11.6|Ubuntu 20.04|cu116|3.9|1.12.1|1.14.1|0.8.2|1.14.0|
 |acpt-pytorch-1.12-cuda11.6|Ubuntu 20.04|cu116|3.8|1.12.1|1.14.1|0.8.2|1.14.0|
 |acpt-pytorch-1.11-cuda11.5|Ubuntu 20.04|cu115|3.8|1.11.0|1.11.1|0.7.3|1.11.0|
-|acpt-pytorch-1.11-cuda11.3|Ubuntu 20.04|cu113|3.8|1.11.0|1.14.1|0.8.2|1.14.0|
+|acpt-pytorch-1.11-cuda11.3|Ubuntu 20.04|cu113|3.8|1.11.0|1.15.0|0.9.5|1.14.0|
 
 Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorch-lightning, tensorboard, NebulaML, torchvision, torchmetrics to support all training needs
 
