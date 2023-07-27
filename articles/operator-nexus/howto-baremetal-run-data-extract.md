@@ -34,8 +34,7 @@ The current list of supported commands are
   - `TTYLog` - Storage TTYLog data
   - `Debug` - debug logs
 
-
-- Microsoft Defender for Endpoints (MDE) Agent Information\
+- Collect Microsoft Defender for Endpoints (MDE) agent information\
   Command Name: `mde-agent-information`\
   Arguments: None
 
@@ -105,9 +104,9 @@ Script execution result can be found in storage account:
 https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
 ```
 
-Data collected from the `mde-agent-information` command is formatted as JSON
-in a file named `mde-agent-information.json` which is contained in the data
-extract zip file.
+Data is collected from the `mde-agent-information` command and formatted as JSON
+to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file can be found
+in the data extract zip file located in the storage account.
 
 ```azurecli
 ====Action Command Output====
