@@ -50,6 +50,41 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024
 
+### AKS Kubernetes release schedule Gantt chart
+
+If you prefer to see this information visually, here's a Gantt chart with all the current releases displayed: 
+
+```mermaid
+gantt
+	title AKS Kubernetes Versions
+	dateFormat  YYYY-MM-DD
+	axisFormat %b/%y
+	section Kubernetes v1.24
+		Upstream release : milestone, 2022-04-22, 1d
+		Preview          : 2022-05-01, 2022-07-01
+		Live             : 2022-07-01, 2023-07-31
+		Support only     : crit, 2023-07-31, 30d
+		End of Life      : milestone, 2023-08-30, 1d
+	section Kubernetes 1.25
+		Upstream release : milestone, 2022-08-23, 1d
+		Preview          : 2022-10-02, 2022-12-14
+		Live             : 2022-12-14, 2023-12-31
+		Support only     : crit, 2023-12-31, 30d
+		End of Life      : milestone, 2024-01-30, 1d
+	section Kubernetes 1.26
+		Upstream release : milestone, 2022-12-09, 1d
+		Preview          : 2023-02-12, 2023-04-09
+		Live             : 2023-04-09, 2024-03-30
+		Support only     : crit, 2024-03-30, 30d
+		End of Life      : milestone, 2024-04-31, 1d
+	section Kubernetes 1.27
+		Upstream release : milestone, 2023-04-11, 1d
+		Preview          : 2023-06-11, 2023-07-31
+		Live             : 2023-07-31, 2024-07-31
+		LTS              : crit, 2024-07-31, 1y
+		End of Life      : milestone, 2025-07-31, 1d
+```
+
 ## AKS Components Breaking Changes by Version
 
 Note important changes to make, before you upgrade to any of the available minor versions per below.
