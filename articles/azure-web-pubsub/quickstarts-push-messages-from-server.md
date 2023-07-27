@@ -96,12 +96,19 @@ Now this client establishes a connection with your Web PubSub resource and is re
 
 
 # [C#](#tab/csharp)
+#### Connect to your Web PubSub resource and register a listener for the `ServerMessageReceived` event 
+A client uses a ***Client Access URL*** to connect and authenticate with your resource. 
+This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
+
+![The diagram shows how to get client access url.](./media/quickstarts-push-messages-from-server/push-messages-from-server.png)
+
+As shown in the diagram above, the client joins the hub named `myHub1`.
+
 #### Create a project directory named `subscriber` and install required dependencies
 
 ```bash
 mkdir subscriber
 cd subscriber
-
 # Create a .net console app
 dotnet new console
 
@@ -116,20 +123,41 @@ using Azure.Messaging.WebPubSub.Clients;
 
 // Instantiates the client object
 // <client-access-uri> is copied from Azure portal mentioned above
-var client = new WebPubSubClient(new Uri("<client-access-uri>"));
-
+var client = new WebPubSubClient(new Uri("<client-access-url>"));
 client.ServerMessageReceived += eventArgs =>
 {
     Console.WriteLine($"Receive message: {eventArgs.Message.Data}");
     return Task.CompletedTask;
 };
 
+client.Connected += eventArgs =>
+{
+    Console.WriteLine("Connected");
+    return Task.CompletedTask;
+};
+
 await client.StartAsync();
+
+
+// This keeps the subscriber active until the user closes the stream by pressing Ctrl+C
+var streaming = Console.ReadLine();
+while (streaming != null)
+{
+    if (!string.IsNullOrEmpty(streaming))
+    {
+        await client.SendToGroupAsync("stream", BinaryData.FromString(streaming + Environment.NewLine), WebPubSubDataType.Text);
+    }
+
+    streaming = Console.ReadLine();
+}
+
+await client.StopAsync();
+
 ```
    
 #### Run the following command
 ```bash
-dotnet run "myHub1"
+dotnet run
 ```
 Now this client establishes a connection with your Web PubSub resource and is ready to receive messages pushed from your application server.
 
@@ -416,6 +444,7 @@ The `SendToAllAsync()` call sends a message to all connected clients in the hub.
 #### Run the server program to push messages to all connected clients
 
 ```bash
+$connection_string="<connection-string>"
 dotnet run $connection_string "myHub1" "Hello World"
 ```
 
