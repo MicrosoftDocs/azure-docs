@@ -21,7 +21,7 @@ Access tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_To
 - **Payload** - Contains all of the important data about the user or application that's attempting to call the service.
 - **Signature** - Is the raw material used to validate the token.
 
-Each piece is separated by a period (`.`) and separately Base64 encoded.
+Each piece is separated by a period (`.`) and separately Base 64 encoded.
 
 Claims are present only if a value exists to fill it. An application shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential](v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications that don't have names). Claims used for access token validation are always present.
 
@@ -69,7 +69,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive. | |
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. | |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. | |
-| `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. It is often used along with claim `acrs`. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server or service application that the token is issued for controls the presence of this claim in a token. A value of `cp1` in the access token is the authoritative way to identify that a client application is capable of handling a claims challenge. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). |
+| `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. It's often used along with claim `acrs`. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server or service application that the token is issued for controls the presence of this claim in a token. A value of `cp1` in the access token is the authoritative way to identify that a client application is capable of handling a claims challenge. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). |
 
 ### Groups overage claim
 
