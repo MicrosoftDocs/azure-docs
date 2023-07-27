@@ -31,18 +31,20 @@ The following licenses are available for use with Microsoft Entra ID Governance.
 >Microsoft Entra ID Governance scenarios may depends upon other features that are not covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
 
-## Microsoft Entra ID Governance licensing
+## Features by license typ
+The following table shows what features are available with each license type.
 
 |Feature|Free|Mircorsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
 |-----|:-----:|:-----:|:-----:|:-----:| 
-|HR Inbound Provisioning (SAAS)||x|x|x| 
-|HR Inbound Provisioning API (Public Preview)||x|||  
-|Application Provisioning (SAAS)||x|x|x|  
-|CA - Terms of Use Controls||x|x|x| 
-|Entitlement Management (EM)|||x|x|  
+|HR-driven Provisioning||x|x|x|
+|Automated user provisioning to SaaS apps|x||||	 
+|Automated group provisioning to SaaS apps||x|x|x|	 
+|Automated provisioning to on-premises apps||x|x|x|
+|CA - Terms of use attestation||x|x|x| 
+|Entitlement Management (EM) - Basic entitlement management|||x|x|  
 |EM CA Scoping|||x|x| 
 |EM MyAccess Search|||x|x|  
-|EM + Verified Credentials||||x|  
+|EM with Verified ID||||x|  
 |EM + Custom Extensions (Logic Apps)||||x|  
 |EM + Auto Assignment Policies||||x|   
 |EM - Invite+Assign Any||||x| 
@@ -52,14 +54,14 @@ The following licenses are available for use with Microsoft Entra ID Governance.
 |Privileged Identity Management (PIM)|||x|x| 
 |PIM For Groups|||x|x| 
 |PIM CA Controls|||x|x| 
-|Access Reviews (AR)|||x|x| 
-|AR for PIM For Groups - Public Preview||||x| 
-|AR for Inactive Users||||x| 
-|AR with User to group ML recommendation||||x| 
+|Access Reviews (AR) - Basic access certifications and reviews|||x|x| 
+|AR - PIM For Groups - Public Preview||||x| 
+|AR - Inactive Users||||x| 
+|AR - Machine learning assisted access certifications and reviews||||x| 
 |Lifecycle Workflows (LCW) J/M/L||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
-|IG Dashboard (Wow) - Public Preview||x|x|x|
-|Wow - Guest Report - Public Preview||||x| 
+|Identity governance dashboard - Public Preview||x|x|x|
+|Guest Report - Public Preview||||x| 
 
 ## Next Steps
 - [What is Microsoft Entra ID Governance?](identity-governance-overview.md)
