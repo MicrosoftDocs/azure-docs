@@ -62,7 +62,7 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --limit-time-seconds 600
 ```
 
-This example executes the `mde-agent-information` command where no arguments are required.
+This example executes the `mde-agent-information` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -104,8 +104,8 @@ Script execution result can be found in storage account:
 https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
 ```
 
-Data is collected from the `mde-agent-information` command and formatted as JSON
-to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file can be found
+Data is collected with the `mde-agent-information` command and formatted as JSON
+to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file is found
 in the data extract zip file located in the storage account.
 
 ```azurecli
