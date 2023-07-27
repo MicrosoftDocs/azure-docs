@@ -7,13 +7,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 07/26/2023
 
 ---
 
 # RedisListTrigger Azure Function (preview)
 
-The `RedisListsTrigger` pops elements from a list and surfaces those entries to the function.
+The `RedisListsTrigger` pops new elements from a list and surfaces those entries to the function.
 
 ## Scope of availability for functions triggers
 
@@ -29,7 +29,6 @@ The `RedisListsTrigger` pops elements from a list and surfaces those entries to 
 
 ::: zone pivot="programming-language-csharp"
 
-
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
 ### [In-process](#tab/in-process)
@@ -37,10 +36,10 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
 public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString | "127.0.0.1:6379", Keys | "listTest")] RedisMessageModel model,
+    [RedisListTrigger("Redis", "listTest")] string entry,
     ILogger logger)
 {
-    logger.LogInformation(JsonSerializer.Serialize(model));
+    logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
 ```
 
@@ -49,6 +48,7 @@ public static void ListsTrigger(
 ```csharp
 //TBD
 ```
+
 ---
 
 ::: zone-end
@@ -57,16 +57,16 @@ public static void ListsTrigger(
 The following sample polls the key `listTest` at a localhost Redis instance at `redisLocalhost`:
 
 ```java
-@FunctionName("ListTrigger")
+    @FunctionName("ListTrigger")
     public void ListTrigger(
             @RedisListTrigger(
-                name | "entry",
-                connectionStringSetting | "redisLocalhost",
-                key | "listTest",
-                pollingIntervalInMs | 100,
-                messagesPerWorker | 10,
-                count | 1,
-                listPopFromBeginning | false)
+                name = "entry",
+                connectionStringSetting = "redisLocalhost",
+                key = "listTest",
+                pollingIntervalInMs = 100,
+                messagesPerWorker = 10,
+                count = 1,
+                listPopFromBeginning = false)
                 String entry,
             final ExecutionContext context) {
             context.getLogger().info(entry);
@@ -76,7 +76,9 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-index.js
+Each sample uses the same `index.js` file, with binding data in the `function.json` file.
+
+Here is the `index.js` file:
 
 ```javascript
 module.exports = async function (context, entry) {
@@ -84,7 +86,7 @@ module.exports = async function (context, entry) {
 }
 ```
 
-function.js
+From `function.json`, here is the binding data:
 
 ```javascript
 {
@@ -109,8 +111,9 @@ function.js
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
+Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
-run.ps1
+Here is the `run.ps1` file:
 
 ```powershell
 param($entry, $TriggerMetadata)
@@ -118,7 +121,7 @@ Write-Host $entry
 
 ```
 
-function.json
+From `function.json`, here is the binding data:
 
 ```powershell
 {
@@ -139,14 +142,15 @@ function.json
 }
 ```
 
-
 TBD
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-__init__.py
+Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
+
+Here is the `__init__.py` file:
 
 ```python
 import logging
@@ -154,6 +158,8 @@ import logging
 def main(entry: str):
     logging.info(entry)
 ```
+
+From `function.json`, here is the binding data:
 
 ```json
 {
@@ -227,11 +233,9 @@ The following table explains the binding configuration properties that you set i
 
 See the Example section for complete examples.
 
-::: zone-end
-
 ## Usage
 
-The `RedisListsTrigger` pops elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
+The `RedisListsTrigger` pops new elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
 ### Output
 <!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes.  -->

@@ -7,14 +7,15 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 07/26/2023
 
 ---
 
 # RedisPubSubTrigger Azure Function (preview)
 
-Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. 
-### Scope of availability for functions triggers
+Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
+
+## Scope of availability for functions triggers
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |---------|:---------:|:---------:|:---------:|
@@ -31,7 +32,6 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
 ### [In-process](#tab/in-process)
-
 
 This sample listens to the channel `pubsubTest`.
 
@@ -75,8 +75,8 @@ public static void KeyeventTrigger(
 ```csharp
 //TBD
 ```
----
 
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -95,6 +95,7 @@ This sample listens to the channel `pubsubTest`.
             context.getLogger().info(message);
     }
 ```
+
 This sample listens to any keyspace notifications for the key `myKey`.
 
 ```java
@@ -109,6 +110,7 @@ This sample listens to any keyspace notifications for the key `myKey`.
             context.getLogger().info(message);
     }
 ```
+
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```java
@@ -128,7 +130,9 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
+Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur.
+
+Here is the `index.js` file:
 
 ```javascript
 module.exports = async function (context, message) {
@@ -136,7 +140,9 @@ module.exports = async function (context, message) {
 }
 ```
 
-Here is binding data to listen to the channel `pubsubTest`:
+From `function.js`:
+
+Here is binding data to listen to the channel `pubsubTest`.
 
 ```json
 {
@@ -153,7 +159,8 @@ Here is binding data to listen to the channel `pubsubTest`:
 }
 ```
 
-Here is binding data to listen to keyspace notifications for the key `myKey`:
+Here is binding data to listen to keyspace notifications for the key `myKey`.
+
 ```json
 {
   "bindings": [
@@ -169,7 +176,7 @@ Here is binding data to listen to keyspace notifications for the key `myKey`:
 }
 ```
 
-Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```json
 {
@@ -189,13 +196,18 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
+Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur.
+
+Here is the `run.ps1` file:
 
 ```powershell
 param($message, $TriggerMetadata)
 Write-Host $message
 ```
-Here is binding data to listen to the channel `pubsubTest`:
+
+From `function.json`:
+
+Here is binding data to listen to the channel `pubsubTest`.
 
 ```json
 {
@@ -212,7 +224,8 @@ Here is binding data to listen to the channel `pubsubTest`:
 }
 ```
 
-Here is binding data to listen to keyspace notifications for the key `myKey`:
+Here is binding data to listen to keyspace notifications for the key `myKey`.
+
 ```json
 {
   "bindings": [
@@ -228,7 +241,7 @@ Here is binding data to listen to keyspace notifications for the key `myKey`:
 }
 ```
 
-Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```json
 {
@@ -248,7 +261,9 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
+Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur.
+
+Here is the `__init__.py` file:
 
 ```python
 import logging
@@ -257,7 +272,9 @@ def main(message: str):
     logging.info(message)
 ```
 
-Here is binding data to listen to the channel `pubsubTest`:
+From `function.json`:
+
+Here is binding data to listen to the channel `pubsubTest`.
 
 ```json
 {
@@ -274,7 +291,8 @@ Here is binding data to listen to the channel `pubsubTest`:
 }
 ```
 
-Here is binding data to listen to keyspace notifications for the key `myKey`:
+Here is binding data to listen to keyspace notifications for the key `myKey`.
+
 ```json
 {
   "bindings": [
@@ -289,7 +307,8 @@ Here is binding data to listen to keyspace notifications for the key `myKey`:
   "scriptFile": "__init__.py"
 }
 ```
-Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
+
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```json
 {
@@ -348,7 +367,6 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 >[!IMPORTANT]
 >The `connectionStringSetting` parameter does not hold the Redis cache connection string itself. Instead, it points to the name of the environment variable that holds the connection string. This makes the application more secure. For more information, see [Redis connection string](functions-bindings-cache.md#redis-connection-string).
 >
-
 
 ## Usage
 

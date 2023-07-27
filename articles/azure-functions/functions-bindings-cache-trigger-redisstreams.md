@@ -7,15 +7,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 07/26/2023
 
 ---
 
 # RedisStreamTrigger Azure Function (preview)
 
-The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
-
-
+The `RedisStreamsTrigger` reads new entries from a stream and surfaces those elements to the function.
 
 | Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |--------- |:---------:|:---------:|:---------:|
@@ -34,21 +32,22 @@ The `RedisStreamsTrigger` pops elements from a stream and surfaces those element
 ### [In-process](#tab/in-process)
 
 ```csharp
+
 [FunctionName(nameof(StreamsTrigger))]
 public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
+    [RedisStreamTrigger("Redis", "streamTest")] string entry,
     ILogger logger)
 {
-    logger.LogInformation(JsonSerializer.Serialize(model));
+    logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
 ```
-
 
 ### [Isolated process](#tab/isolated-process)
 
 ```csharp
 //TBD
 ```
+
 ---
 
 ::: zone-end
@@ -77,7 +76,9 @@ public static void StreamsTrigger(
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-index.js
+Each sample uses the same `index.js` file, with binding data in the `function.json` file.
+
+Here is the `index.js` file:
 
 ```javascript
 module.exports = async function (context, entry) {
@@ -85,8 +86,7 @@ module.exports = async function (context, entry) {
 }
 ```
 
-function.js
-
+From `function.json`, here is the binding data:
 
 ```json
 {
@@ -111,15 +111,16 @@ function.js
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-run.ps1
+Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
+Here is the `run.ps1` file:
 
 ```powershell
 param($entry, $TriggerMetadata)
 Write-Host ($entry | ConvertTo-Json)
 ```
 
-function.json
+From `function.json`, here is the binding data:
 
 ```powershell
 {
@@ -144,7 +145,9 @@ function.json
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-__init__.py
+Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
+
+Here is the `__init__.py` file:
 
 ```python
 import logging
@@ -153,8 +156,9 @@ def main(entry: str):
     logging.info(entry)
 ```
 
+From `function.json`, here is the binding data:
+
 ```json
-function.json
 {
   "bindings": [
     {
@@ -202,8 +206,6 @@ function.json
 | `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
 | `deleteAfterProcess`      | Whether to delete the stream entries after the function has run.                                                                                         | Optional | `false` |
 
-
-
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -228,14 +230,9 @@ The following table explains the binding configuration properties that you set i
 
 See the Example section for complete examples.
 
-
-
-::: zone-end
-
-
 ## Usage
 
-The `RedisStreamTrigger` Azure function reads entries from a stream and surfaces those entries to the function. 
+The `RedisStreamTrigger` Azure Function reads new entries from a stream and surfaces those entries to the function.
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
@@ -254,7 +251,6 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-csharp"
 
 <!-- TBD -->
@@ -266,7 +262,6 @@ The consumer group for all function instances is the `ID` of the function. For e
 ::: zone pivot="programming-language-java"
 
 <!-- TBD -->
-
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
