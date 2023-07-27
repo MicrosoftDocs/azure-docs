@@ -17,7 +17,7 @@ ms.topic: conceptual
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation (RAG). A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with an LLM and retrieve the data efficiently.
+This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation (RAG). A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with a large language model (LLM) like GPT4 and retrieve the data efficiently.
 
 Azure Machine Learning supports two types of vector stores that contain your supplemental data used in a RAG workflow:
 
@@ -36,13 +36,13 @@ You can use either store in prompt flow, so which one should you use?
 + You can share copies for individual use. If you want to host the index for an application, you need to set that up.
 + Faiss scales with underlying compute loading index.
 
-**Azure Cognitive Search** is a dedicated PaaS resource that you provision in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search scenarios. Indexes contain only the data you provide. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
+**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search scenarios. Indexes contain only the data you provide. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
 
 + [Vector capabilities](/azure/search/vector-search-overview) in Azure Cognitive Search are in public preview.
 + Vectors must be generated externally from Cognitive Search and then passed to a search index. The prompt flow can help with this step.
 + Vector data can coexist with nonvector data in the same search index, which means you can use all of the [features of Azure Cognitive Search](/azure/search/search-features-list) for hosting, indexing, and queries.
 
-To use Cognitive Search as a vector store for Azure Machine Learning, you must have a search service. Once the service exists, you can choose it as a vector index. Because this approach is all-Azure, there's deeper integration. The prompt flow creates the index, generates vectors from your source data, stores the vectors in the index on Cognitive Search, invokes similarity search on Cognitive Search, returns the response.
+To use Cognitive Search as a vector store for Azure Machine Learning, you must have a search service. Once the service exists, you can choose it as a vector index. Because this approach is all-Azure, there's deep integration. The prompt flow creates the index, generates vectors from your source data, stores the vectors in the index on Cognitive Search, invokes similarity search on Cognitive Search, returns the response.
 
 <!-- | Pros	| Cons |
 | ----------- | ----------- |

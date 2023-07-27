@@ -15,7 +15,7 @@ ms.custom: prompt-flow
 
 # Retrieval Augmented Generation using Azure Machine Learning prompt flow
 
-Retrieval Augmented Generation (RAG) is a language generation model that works with pretrained Large Language Models (LLM) and *your own data* to generate responses. In Azure Machine Learning, you can now implement RAG in a prompt flow. Support for RAG is currently in public preview. This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure Machine Learning.
+Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Large Language Models (LLM) and *your own data* to generate responses. In Azure Machine Learning, you can now implement RAG in a prompt flow. Support for RAG is currently in public preview. This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure Machine Learning.
 
 <!-- Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, when dealing with newer or more current data, two approaches can supplement the base model: fine-tuning or RAG. Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
 
@@ -48,7 +48,7 @@ Let us look at the diagram in more detail.
 
 ## RAG with Azure Machine Learning (preview)
 
-RAG in Azure Machine Learning is enabled by integration with Azure OpenAI Service for large language models and vectorization, with support for Azure Cognitive Search as a vector store, and support for open source offerings tools and frameworks such as LangChain for data chunking. 
+RAG in Azure Machine Learning is enabled by integration with Azure OpenAI Service for large language models and vectorization, with support for Faiss and Azure Cognitive Search as vector stores, and support for open source offerings tools and frameworks such as LangChain for data chunking. 
 
 To implement RAG, a few key requirements must be met. First, data should be formatted in a manner that allows efficient searchability before sending it to the LLM, which ultimately reduces token consumption. To ensure the effectiveness of RAG, it's also important to regularly update your data on a periodic basis. Furthermore, having the capability to evaluate the output from the LLM using your data enables you to measure the efficacy of your techniques. Azure Machine Learning not only allows you to get started easily on these aspects, but also enables you to improve and productionize RAG. Azure Machine Learning offers: 
 
@@ -58,7 +58,6 @@ To implement RAG, a few key requirements must be met. First, data should be form
 * Advanced scenarios with more control using the new built-in RAG components for creating custom pipelines in notebooks. 
 * Code experience, which allows utilization of data created with open source offerings like LangChain. 
 * Seamless integration of RAG workflows into MLOps workflows using pipelines and jobs. 
-
 
 ## Conclusion
 
