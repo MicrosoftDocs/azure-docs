@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/26/2023
+ms.date: 07/27/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 # Azure AD activity log integrations
 
-Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term data retention and insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
 
 With these integrations, you can enable rich visualizations, monitoring, and alerting on the connected data. This article describes the recommended uses for each integration type or access method. Cost considerations for sending Azure AD activity logs to various endpoints are also covered.
 
@@ -47,7 +47,7 @@ If you're performing troubleshooting tasks *and* you need to retain the logs for
 
 If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, you can export your logs to an Azure storage account. This option is ideal of you don't plan on querying that data often.
 
-If you need to query the data that you're retaining for more than 30 days, take a look at the monitoring, insights, and integrations options.
+If you need to query the data that you're retaining for more than 30 days, take a look at the analysis and monitoring options.
 
 ### Analysis and monitoring
 
@@ -61,11 +61,11 @@ If you don't plan on using a third-party SIEM tool, we recommend sending your Az
 
 There's a cost for sending data to a Log Analytics workspace, archiving data in a storage account, or streaming logs to an event hub. The amount of data and the cost incurred can vary significantly depending on the tenant size, the number of policies in use, and even the time of day.
 
-Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs.
+Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs. You can also get an estimate of your costs by downloading a sample of your logs and multiplying accordingly to get an estimate for one day.
 
-Other considerations for sending Azure AD logs to Azure Monitor are covered in the following Azure Monitor cost details articles:
+Other considerations for sending Azure AD logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
 
-- [Azure Monitor Logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
+- [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
 - [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
 - [Optimize costs in Azure Monitor](../../azure-monitor/best-practices-cost.md)
 
