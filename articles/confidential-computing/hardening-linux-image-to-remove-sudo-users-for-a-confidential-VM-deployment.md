@@ -45,7 +45,10 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
     azcopy copy [source] [destination]
     ```
-2. Mount the image.
+2. Mount the image. (Mounting is done using the script mount_vhd.sh)
+
+    Command to run : ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
+    For example: ./mount_vhd.sh Ubuntu_20.04.vhd
 
     This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
     The mount_vhd.sh script performs the following operations to mount the vhd as shown,
