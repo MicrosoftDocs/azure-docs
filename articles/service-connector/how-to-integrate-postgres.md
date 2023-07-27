@@ -141,7 +141,7 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 #### Java - Spring Boot (JDBC) System-assigned managed identity
 | Application properties                    | Description                         | Example value                                                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless-enabled`  | Enable passwordless authentication  | `true`                                                                                                        |
+| `spring.datasource.azure.passwordless-enabled`  | Enable passwordless authentication  | `true`                                                                                                        |
 | `spring.datasource.url`                   | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
 | `spring.datasource.username`              | Database username                   | `username`                                                                                             |
 
@@ -149,9 +149,9 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless_enabled`                      | Enable passwordless authentication  | `true`                                                                                                        |
-| `spring.cloud.azure.credential.client_id`                     | Your client ID                      | `<identity-client-ID>`                                                                                        |
-| `spring.cloud.azure.credential.client_managed_identity_enabled`| Enable client managed identity      | `true`                                                                                                 |
+| `spring.datasource.azure.passwordless-enabled`                      | Enable passwordless authentication  | `true`                                                                                                        |
+| `spring.cloud.azure.credential.client-id`                     | Your client ID                      | `<identity-client-ID>`                                                                                        |
+| `spring.cloud.azure.credential.client-managed-identity-enabled`| Enable client managed identity      | `true`                                                                                                 |
 | `spring.datasource.url`                                       | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` | 
 | `spring.datasource.username`                                  | Database username                   | `username`                                                                                             |
 
@@ -168,10 +168,10 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `spring.datasource.passwordless_enabled `                     | Enable passwordless authentication  | `true`                                                                                                        |
-| `spring.cloud.azure.credential.client_id`                     | Your client ID                      | `<client-ID>`                                                                                                 |
-| `spring.cloud.azure.credential.client_secret`                 | Your client secret                  | `<client-secret>`                                                                                             |
-| `spring.cloud.azure.credential.tenant_id`                     | Your tenant ID                      | `<tenant-ID>`                                                                                                 |
+| `spring.datasource.azure.passwordless-enabled`                     | Enable passwordless authentication  | `true`                                                                                                        |
+| `spring.cloud.azure.credential.client-id`                     | Your client ID                      | `<client-ID>`                                                                                                 |
+| `spring.cloud.azure.credential.client-secret`                 | Your client secret                  | `<client-secret>`                                                                                             |
+| `spring.cloud.azure.credential.tenant-id`                     | Your tenant ID                      | `<tenant-ID>`                                                                                                 |
 | `spring.datasource.url`                                       | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
 | `spring.datasource.username`                                  | Database username                   | `username`                                                                                             |
 
