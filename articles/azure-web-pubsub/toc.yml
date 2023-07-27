@@ -115,6 +115,20 @@
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+- name: Socket.IO
+  expanded: false
+    items: 
+      - name: Overview
+        href: socketio-overview.md
+      - name: Tutorials
+      - name: How-to guides
+        items:
+          - name: Easily migrate a self-hosted Socket.IO app 
+            href: socketio-migrate-from-self-hosted.md
+      - name: Concept
+        items:
+          - name: Self-hosted vs fully-managed
+            href: socketio-concept-difference-between-selfhosted-and-fully-managed.md
 - name: Concepts
   expanded: true
   items:

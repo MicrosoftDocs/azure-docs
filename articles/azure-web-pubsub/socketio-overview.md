@@ -1,8 +1,8 @@
 ---
 title: Overview of Web PubSub for Socket.IO
 description: 
-author: xingsy97
-ms.author: xingsy97
+author: kevinguo-ed
+ms.author: kevinguo
 ms.date: 07/27/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
@@ -38,11 +38,11 @@ A common approach to meeting the challenge of a large number of concurrent conne
 With Web PubSub for Socket.IO, you are freed from handling scaling issues and implementing code logic related to using an adapter.
 
 ## Same programming model
-To migrate a self-hosted Socket.IO app to Azure, you only need to add a few lines of code with **no need** to change the rest of the application code. This means the programming model remains the same with less complexity to worry about.
+To migrate a self-hosted Socket.IO app to Azure, you only need to add a few lines of code with **no need** to change the rest of the application code. This means the programming model remains the same and the complexity of managing a real-time app is significantly reduced.
 
 ## 
-
-[!INCLUDE [next step](includes/include-next-step.md)]
+> [!div class="nextstepaction"]
+> [Quickstart: host Socket.IO app on Azure](./reference-cloud-events-amqp.md)
 
 
 
