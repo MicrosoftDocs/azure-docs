@@ -81,7 +81,7 @@ Azure AD cloud HR provisioning can also manage Active Directory accounts for exi
 
 ### Move lifecycle workflows
 
-Evaluate your existing joiner/mover/leaver workflows and processes for applicability and relevance to your Azure AD cloud environment. You can then simplify these workflows and [create new ones](../governance/create-lifecycle-workflow) using [lifecycle workflows](../governance/what-are-lifecycle-workflows).
+Evaluate your existing joiner/mover/leaver workflows and processes for applicability and relevance to your Azure AD cloud environment. You can then simplify these workflows and [create new ones](../governance/create-lifecycle-workflow.md) using [lifecycle workflows](../governance/what-are-lifecycle-workflows.md).
 
 ### Move external identity management
 
