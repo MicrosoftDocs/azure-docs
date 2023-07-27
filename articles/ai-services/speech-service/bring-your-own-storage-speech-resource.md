@@ -24,29 +24,29 @@ BYOS can be used with several Azure AI services. For Speech, it can be used in t
 
 **Speech to text**
 
-1. [Batch transcription](batch-transcription.md)
-1. Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
-1. [Custom Speech](custom-speech-overview.md) (Custom models for Speech recognition)
+- [Batch transcription](batch-transcription.md)
+- Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
+- [Custom Speech](custom-speech-overview.md) (Custom models for Speech recognition)
 
 **Text to speech**
 
-4. [Audio Content Creation](how-to-audio-content-creation.md)
-1. [Custom Neural Voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
+- [Audio Content Creation](how-to-audio-content-creation.md)
+- [Custom Neural Voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
 
 
 One Speech resource – Storage account combination can be used for all four scenarios simultaneously in all combinations.
 
 This article describes how to create and maintain BYOS-enabled Speech resource and applicable to all mentioned scenarios. See the scenario-specific information in the [corresponding articles](#next-steps).
 
-## BYOS-enabled Speech resource. Basic rules
+## BYOS-enabled Speech resource: Basic rules
 
 Consider the following rules when planning BYOS-enabled Speech resource configuration:
 
-1. Speech resource can be BYOS-enabled only during creation. Existing Speech resource can't be converted to BYOS-enabled. BYOS-enabled Speech resource can't be converted to the “conventional” (non-BYOS) one.
-1. Storage account association with the Speech resource is declared during the Speech resource creation. It can't be changed later. That is, you can't change what Storage account is associated with the existing BYOS-enabled Speech resource. To use another Storage account, you have to create another BYOS-enabled Speech resource.
-1. When creating a BYOS-enabled Speech resource, you can use an existing Storage account or create one automatically during Speech resource provisioning (the latter is valid only when using Azure portal).
-1. One Storage account can be associated with many Speech resources. We recommend using one Storage account per one Speech resource.
-1. Storage account and the related BYOS-enabled Speech resource can be located in either the same or different Azure regions. We recommend using the same region to minimize latency. For the same reason, we don't recommend selecting too remote regions for multi-region configuration. (For example, we don’t recommend placing Storage account in East US and the associated Speech resource in West Europe).
+- Speech resource can be BYOS-enabled only during creation. Existing Speech resource can't be converted to BYOS-enabled. BYOS-enabled Speech resource can't be converted to the “conventional” (non-BYOS) one.
+- Storage account association with the Speech resource is declared during the Speech resource creation. It can't be changed later. That is, you can't change what Storage account is associated with the existing BYOS-enabled Speech resource. To use another Storage account, you have to create another BYOS-enabled Speech resource.
+- When creating a BYOS-enabled Speech resource, you can use an existing Storage account or create one automatically during Speech resource provisioning (the latter is valid only when using Azure portal).
+- One Storage account can be associated with many Speech resources. We recommend using one Storage account per one Speech resource.
+- Storage account and the related BYOS-enabled Speech resource can be located in either the same or different Azure regions. We recommend using the same region to minimize latency. For the same reason, we don't recommend selecting too remote regions for multi-region configuration. (For example, we don’t recommend placing Storage account in East US and the associated Speech resource in West Europe).
 
 ## Create and configure BYOS-enabled Speech resource
 
@@ -66,7 +66,7 @@ If you want to use existing Storage account and don't intend to use Azure portal
 - To fully configure BYOS, you need at least *Resource Owner* right for the selected Storage account.
 
 > [!NOTE]
-> Storage account *Resource Owner* right or higher is not required to use a BYOS-enabled Speech resource. However it is required during the one time initial configuration of the Storage account for the usage in BYOS scenario. See details in [this section](#configure-byos-associated-storage-account).
+> Storage account *Resource Owner* right or higher is not required to use a BYOS-enabled Speech resource. However it is required during the one-time initial configuration of the Storage account for the usage in BYOS scenario. See details in [this section](#configure-byos-associated-storage-account).
 
 ### Create BYOS-enabled Speech resource
 
@@ -74,13 +74,13 @@ Make sure your Azure subscription is enabled for using BYOS before attempting to
 
 There are two ways of creating a BYOS-enabled Speech resource:
 
-1. With Azure portal.
-1. With Cognitive Services API (PowerShell, Azure CLI, REST request).
+- With Azure portal.
+- With Cognitive Services API (PowerShell, Azure CLI, REST request).
 
 Azure portal option has tighter requirements:
 
-1.	Account used for the BYOS-enabled Speech resource provisioning should have a right of the *Subscription Owner*.
-1.	BYOS-associated Storage account should only be located in the same region as the Speech resource.
+-	Account used for the BYOS-enabled Speech resource provisioning should have a right of the *Subscription Owner*.
+-	BYOS-associated Storage account should only be located in the same region as the Speech resource.
 
 If any of these extra requirements don't fit your scenario, use Cognitive Services API option (PowerShell, Azure CLI, REST request).
 
@@ -89,7 +89,7 @@ To use any of the methods above you need an Azure account that is assigned a rol
 # [Azure portal](#tab/portal)
 
 > [!NOTE]
-> If you use Azure portal to create a BYOS-enabled Speech resource, we recommend to select the option of creating a new Storage account. 
+> If you use Azure portal to create a BYOS-enabled Speech resource, we recommend selecting the option of creating a new Storage account. 
 
 To create a BYOS-enabled Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
@@ -263,7 +263,7 @@ If you used Azure portal to create your BYOS-enabled Speech resource, you may sk
 1. Select *Storage Blob Data Contributor* under *Role* and then select *Next*.
 1. Select *Managed identity* under *Members* > *Assign access to*.
 1. Assign the managed identity of your Speech resource and then select *Review + assign*.
-1. After confirming the settings, select *Review + assign*
+1. After confirming the settings, select *Review + assign*.
 
 ### Configure Storage account security settings for Speech to text
 
@@ -286,7 +286,7 @@ You should consider this configuration as a model as far as the security of your
 For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
 
 > [!NOTE] 
-> Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the Storage account. Private endpoints for Speech secure the channels for Speech API requests, and can be use as an extra component in your solution.
+> Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the Storage account. Private endpoints for Speech secure the channels for Speech API requests, and can be used as an extra component in your solution.
 
 **Restrict access to the Storage account**
 
@@ -313,14 +313,14 @@ Having restricted access to the Storage account, you need to grant networking ac
 1. Select *Save*.
 
     > [!NOTE]
-    > It may take up to 5 min for the network changes to propagate.
+    > It may take up to 5 minutes for the network changes to propagate.
 
 ### Configure Storage account security settings for Text to Speech
 
 This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech. In case you use the BYOS-associated Storage account for Speech to text only, use [this section](#configure-storage-account-security-settings-for-speech-to-text).
 
 > [!NOTE]
-> Text to speech requires more relaxed settings of Storage account firewall, comparing to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you may consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
+> Text to speech requires more relaxed settings of Storage account firewall, compared to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you may consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
 
 If you perform all actions in the section, your Storage account will be in the following configuration:
 - External network traffic is allowed.
@@ -388,4 +388,4 @@ You need to allow access for the machine, where you run the browser using Speech
 
 ## Next steps
 
-- [Use the Bring your own storage (BYOS) Speech resource for Speech to text](byos-speech-stt.md)
+- [Use the Bring your own storage (BYOS) Speech resource for Speech to text](bring-your-own-storage-speech-resource-speech-to-text.md)

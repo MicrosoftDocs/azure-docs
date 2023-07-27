@@ -364,10 +364,10 @@ items:
       - name: Use Bring your own storage (BYOS)
         items:
         - name: Set up BYOS Speech resource
-          href: byos-speech.md
+          href: bring-your-own-storage-speech-resource.md
           displayName: byos
         - name: Use BYOS Speech resource for Speech to text
-          href: byos-speech-stt.md
+          href: bring-your-own-storage-speech-resource-speech-to-text.md
           displayName: byos speech to text
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md

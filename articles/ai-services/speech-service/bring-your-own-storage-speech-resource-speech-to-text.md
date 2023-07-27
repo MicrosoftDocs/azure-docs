@@ -16,13 +16,13 @@ ms.author: alexeyo
 
 Bring your own storage (BYOS) can be used in the following Speech to text scenarios:
 
-1. Batch transcription
-1. Real-time transcription with audio and transcription result logging enabled
-1. Custom Speech
+- Batch transcription
+- Real-time transcription with audio and transcription result logging enabled
+- Custom Speech
 
 One Speech resource to Storage account pairing can be used for all scenarios simultaneously.
 
-This article explains in depth how to use a BYOS-enabled Speech resource in all Speech to text scenarios. The article implies, that you have [a fully configured BYOS-enabled Speech resource and associated Storage account](byos-speech.md).
+This article explains in depth how to use a BYOS-enabled Speech resource in all Speech to text scenarios. The article implies, that you have [a fully configured BYOS-enabled Speech resource and associated Storage account](bring-your-own-storage-speech-resource.md).
 
 ## Data storage
 
@@ -31,7 +31,7 @@ When using BYOS, the Speech service doesn't keep any customer artifacts after th
 BYOS-associated Storage account stores the following data:
 
 > [!NOTE]
-> *Optional* in this section means, that it's possible, but not required to store the particular artifacts in the BYOS-associated Storage account. If needed, they can be stored elsewhere.
+> *Optional* in this section means that it's possible, but not required to store the particular artifacts in the BYOS-associated Storage account. If needed, they can be stored elsewhere.
 
 **Batch transcription**
 - Source audio (optional)
@@ -50,14 +50,14 @@ Batch transcription is used to transcribe a large amount of audio data in storag
 
 Perform these steps to execute Batch transcription with BYOS-enabled Speech resource:
 
-1. Start Batch transcription as described is [this guide](batch-transcription-create.md).
+1. Start Batch transcription as described in [this guide](batch-transcription-create.md).
 
-> [!IMPORTANT]
-> Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
->
-> If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
+    > [!IMPORTANT]
+    > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
+    >
+    > If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
 
-2. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md) or directly in the `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
+1. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md) or directly in the `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
 
 ### Get Batch transcription results via REST API
 
@@ -77,7 +77,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
@@ -109,7 +109,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
@@ -149,14 +149,14 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
       }
 ```
 
-URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
 
 ## Next steps
 
-- [Set up the Bring your own storage (BYOS) Speech resource](byos-speech.md)
+- [Set up the Bring your own storage (BYOS) Speech resource](bring-your-own-storage-speech-resource.md)
 - [Batch transcription overview](batch-transcription.md)
 - [How to log audio and transcriptions for speech recognition](logging-audio-transcription.md)
 - [Custom Speech overview](custom-speech-overview.md)
