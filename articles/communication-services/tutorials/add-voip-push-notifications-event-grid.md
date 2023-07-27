@@ -11,7 +11,7 @@ ms.author: sanathr
 
 # Deliver VOIP Push Notification to Devices without ACS Calling SDK
 
-This tutorial explains how to deliver VOIP push notifications to native applications without using the Azure Communication Services register push notifications API [!INCLUDE [here](../how-tos/calling-sdk/push-notifications.md)].
+This tutorial explains how to deliver VOIP push notifications to native applications without using the Azure Communication Services register push notifications API [here](../how-tos/calling-sdk/push-notifications.md).
 
 ## Current Limitations
 The current limitations of using the ACS Native Calling SDK are that 
