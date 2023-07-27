@@ -173,17 +173,24 @@ $PeArguments  = @{
 New-AzPrivateEndpoint @PeArguments # -ByManualRequest # (Uncomment the `-ByManualRequest` parameter if you are using the two-step process).
 ```
 
-Use this sample code to approve the private link service connection if you are using the two-step process. Replace all placeholder text with your own values:
+Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous example:
 
 ```powershell
 # Get the private endpoint and associated connection.
-$PrivateEndpoint = Get-AzPrivateEndpoint -ResourceGroupName $RgName -Name $EndpointName
-$EndpointConnection = Get-AzPrivateEndpointConnection -ResourceGroupName $RgName -ServiceName $EsanName -PrivateLinkResourceType "Microsoft.ElasticSan/elasticSans" | 
+$PrivateEndpoint = Get-AzPrivateEndpoint @PeArguments
+$PeConnArguments  = @{
+    ServiceName                  = $EsanName
+    ResourceGroupName            = $RgName
+    PrivateLinkResourceType      = "Microsoft.ElasticSan/elasticSans"
+}
+$EndpointConnection = Get-AzPrivateEndpointConnection @PeConnArguments | 
 Where-Object {($_.PrivateEndpoint.Id -eq $PrivateEndpoint.Id)}
+
 # Approve the private link service connection.
-Approve-AzPrivateEndpointConnection -Name $EndpointConnection.Name -ResourceGroupName $rgname -ServiceName $ElasticSanName -PrivateLinkResourceType Microsoft.ElasticSan/elasticSans 
-# Verify the connection status.
-$EndpointConnection = Get-AzPrivateEndpointConnection -ResourceGroupName $RgName -ServiceName $EsanName -PrivateLinkResourceType "Microsoft.ElasticSan/elasticSans" | 
+Approve-AzPrivateEndpointConnection @PeConnArguments -Name $EndpointConnection.Name 
+
+# Get the private endpoint connection anew and verify the connection status.
+$EndpointConnection = Get-AzPrivateEndpointConnection @PeConnArguments | 
 Where-Object {($_.PrivateEndpoint.Id -eq $PrivateEndpoint.Id)}
 $EndpointConnection.PrivateLinkServiceConnectionState
 ```
