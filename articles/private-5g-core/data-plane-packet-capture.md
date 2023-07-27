@@ -22,7 +22,6 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 ## Prerequisites
 
 - Identify the **Kubernetes - Azure Arc** resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
-- Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the **Kubernetes - Azure Arc** resource.
 - Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Performing packet capture
@@ -33,10 +32,19 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
     kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash
     ```
 
-1. View the list of interfaces that can be monitored:
+1. View the list of configured user plane interfaces:
 
     ```azurecli
     upft list
+    ```
+
+    This should report a single interface on the access network (N3) and an interface for each attached data network (N6). For example:
+
+    ```azurecli
+    n6trace1 (Data Network: enterprise)
+    n6trace2 (Data Network: test)
+    n3trace
+    n6trace0 (Data Network: internet)
     ```
 
 1. Run `upftdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>. The following examples are common use cases:
@@ -62,7 +70,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 1. Remove the output files:
 
     ```azurecli
-        kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
+        kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>
     ```
 
 ## Next steps
