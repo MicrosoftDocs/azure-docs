@@ -21,7 +21,7 @@ In [Tutorial: Prepare a Node.js web application for authentication](tutorial-web
 
 In this tutorial, you'll:
 
-> > [!div class="checklist"]
+> [!div class="checklist"]
 >
 > - Add sign-in and sign-out logic
 > - View ID token claims
