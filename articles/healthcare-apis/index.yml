@@ -1,8 +1,8 @@
 ### YamlMime:Hub
 
 title: Azure Health Data Services documentation # < 60 chars
-summary: Unify, manage, and analyze health data and protected health information (PHI) from different sources and formats, using FHIR and DICOM global open standards.  # < 156/160 chars
-brand: azure # brand: aspnet | azure | bash | bizapps | bot-framework | dotnet | dynamics | education | enterprise-mobility | gaming | graph | m365 | nuget | office | powershell | playfab | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | project | sharepoint | sql | surface | system-center | teams | visual-studio | windows | workplace-analytics | xamarin
+summary: Unify, manage, and analyze protected health information (PHI) using FHIR and DICOM global open standards.  # < 105/160 chars
+brand: azure 
 
 metadata:
   title: Azure Health Data Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -15,18 +15,18 @@ metadata:
 
 highlightedContent:
   items:
-    - title: What is Azure Health Data Services?
-      itemType: overview
-      url: ./healthcare-apis-overview.md
-    - title: What's new?
-      itemType: whats-new
-      url: ./release-notes
-    - title: Get an access token
-      itemType: how-to-guide
-      url: ./get-access-token.md
-    - title: Update from Azure API for FHIR to Azure Health Data Services
-      itemType: how-to-guide
-      url: ./healthcare-apis-faqs
+       -  title: What's new?
+          itemType: whats-new
+          url: ./release-notes
+       -  title: What is Azure Health Data Services?
+          itemType: overview
+          url: ./healthcare-apis-overview.md
+       -  title: Get an access token
+          itemType: how-to-guide
+          url: ./get-access-token.md
+       -  title: Azure Health Data Services video
+          itemType: video
+          url: https://www.youtube.com/c/mspowerplatform/
 
 conceptualContent:
   items: 
@@ -47,7 +47,7 @@ conceptualContent:
               text: Register your application
          
         # Card
-        - title: Exchange and analyze health data using FHIR
+        - title: FHIR - Exchange and analyze health data
           links:
             - url: ./fhir/overview.md
               itemType: overview
@@ -59,7 +59,7 @@ conceptualContent:
               itemType: how-to-guide
               text: linktext3
         # Card
-        - title: Wrangle medical imaging data using DICOM
+        - title: DICOM - Wrangle medical imaging data
           links:
             - url: ./iot/overview.md
               itemType: overview
@@ -71,7 +71,7 @@ conceptualContent:
               itemType: how-to-guide
               text: linktext3
         # Card
-        - title: Transform medical device data using MedTech
+        - title: MedTech - Transform medical device data 
           links:
             - url: ./iot/overview.md
               itemType: overview
@@ -97,7 +97,7 @@ conceptualContent:
               text: linktext3
           
         # Card
-        - title: Legacy - Azure API for FHIR
+        - title: Azure API for FHIR
           links:
             - url: ./file1.md OR /file1
               itemType: overview
@@ -111,7 +111,7 @@ conceptualContent:
           
 additionalContent:
   sections:
-    - title: Additional resources 
+    - title: More resources 
       items:
         # Card
         - title: Sample code
