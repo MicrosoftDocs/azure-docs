@@ -115,15 +115,15 @@ Instead, delete the service, which also deletes the infrastructure resource grou
 
 For managed applications, choose the service you deployed.
 
-![Select service](./media/lock-resources/select-service.png)
+:::image type="content" source="./media/lock-resources/select-service.png" alt-text="Screenshot of the Azure portal with the service selected.":::
 
 Notice the service includes a link for a **Managed Resource Group**. That resource group holds the infrastructure and is locked. You can only delete it indirectly.
 
-![Show managed group](./media/lock-resources/show-managed-group.png)
+:::image type="content" source="./media/lock-resources/show-managed-group.png" alt-text="Screenshot displaying the Managed Resource Group link in the Azure portal.":::
 
 To delete everything for the service, including the locked infrastructure resource group, choose **Delete** for the service.
 
-![Delete service](./media/lock-resources/delete-service.png)
+:::image type="content" source="./media/lock-resources/delete-service.png" alt-text="Screenshot of the Azure portal with the Delete option for the selected service.":::
 
 ## Configure locks
 
