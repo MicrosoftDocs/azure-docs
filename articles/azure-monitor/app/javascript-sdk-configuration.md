@@ -18,7 +18,7 @@ The Azure Application Insights JavaScript SDK provides configuration for trackin
 > - [Source map un-minify support](#source-map)
 > - [Tree shaking optimized code](#tree-shaking)
 
-If you need to add Microsoft Azure Monitor Application Insights JavaScript SDK configuration, add it directly under `connectionString`. For more information, see [Add SDK configuration](./javascript-sdk.md#3-optional-add-sdk-configuration).
+Add any Microsoft Azure Monitor Application Insights JavaScript SDK configuration directly under `connectionString`. For more information, see [Add SDK configuration](./javascript-sdk.md#3-optional-add-sdk-configuration).
 
 ## SDK configuration
 
