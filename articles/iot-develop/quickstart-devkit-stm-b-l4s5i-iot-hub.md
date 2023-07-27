@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: cs
 ms.topic: quickstart
-ms.date: 05/09/2023
+ms.date: 06/27/2023
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to IoT Hub
