@@ -107,7 +107,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 ### Identity secure score
 
-The [identity secure score](./identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It's key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
+The [identity secure score](./../fundamentals/identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It's key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements

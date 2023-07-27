@@ -273,7 +273,7 @@ Incorporating zero-trust principles into your Azure AD design strategy can help 
 
 ## Next steps
 
-* [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
+* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

@@ -132,7 +132,7 @@ The [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AAD
 
 ### Group-based licensing for Microsoft cloud services
 
-Azure Active Directory streamlines the management of licenses through [group-based licensing](./active-directory-licensing-whatis-azure-portal.md) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
+Azure Active Directory streamlines the management of licenses through [group-based licensing](../fundamentals/licensing-whatis-azure-portal.md) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
 
 - **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in Microsoft 365.
 

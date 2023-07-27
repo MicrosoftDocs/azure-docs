@@ -117,13 +117,13 @@ Use Azure AD security groups to assign:
   * Microsoft 365
   * Dynamics 365
   * Enterprise mobility and security
-  * See, [What is group-based licensing in Azure Active Directory?](./active-directory-licensing-whatis-azure-portal.md)
+  * See, [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * Elevated permissions
   * See, [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
 
 Learn more:
 
-* [Manage Azure AD groups and group membership](how-to-manage-groups.md)
+* [Manage Azure AD groups and group membership](../fundamentals/how-to-manage-groups.md)
 * [Azure AD version 2 cmdlets for group management](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
 > [!NOTE]
