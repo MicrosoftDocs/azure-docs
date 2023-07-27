@@ -42,7 +42,7 @@ You can use either store in prompt flow, so which one should you use?
 + Vectors must be generated externally from Cognitive Search and then passed to a search index. The prompt flow can help with this step.
 + Vector data can coexist with nonvector data in the same search index, which means you can use all of the [features of Azure Cognitive Search](/azure/search/search-features-list) for hosting, indexing, and queries.
 
-To use Cognitive Search as a vector store for Azure Machine Learning, you must have a search service. Once the service exists, you can choose it as a vector index. Because this approach is all-Azure, there's deep integration. The prompt flow creates the index, generates vectors from your source data, stores the vectors in the index on Cognitive Search, invokes similarity search on Cognitive Search, returns the response.
+To use Cognitive Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists, you can choose it as a vector index. Because this approach is all-Azure, there's deep integration between Azure Machine Learning and Cognitive Search. The prompt flow creates the index, generates vectors from your source data, stores the vectors in the index on Cognitive Search, invokes similarity search on Cognitive Search, and returns the response.
 
 <!-- | Pros	| Cons |
 | ----------- | ----------- |
