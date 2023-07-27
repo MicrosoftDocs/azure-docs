@@ -14,7 +14,7 @@ The steps in this article help you configure forced tunneling and split tunnelin
 
 By default, Internet-bound traffic from your VMs goes directly to the Internet via the VPN gateway S2S connection. If you want to force all Internet-bound traffic through the VPN gateway to an on-premises site for inspection and auditing, you can do so by configuring **forced tunneling**. After you configure forced tunneling, if desired, you can split tunnel Internet-bound traffic for specified subnets using custom user-defined routes (UDRs).
 
-:::image type="content" source="./media/about-site-to-site-tunneling/split-tunnel.png" alt-text="Diagram shows split tunneling." lightbox="./media/about-site-to-site-tunneling/split-tunnel.png":::
+:::image type="content" source="./media/about-site-to-site-tunneling/split-tunnel.png" alt-text="Diagram shows split tunneling." lightbox="./media/about-site-to-site-tunneling/split-tunnel-high-res.png":::
 
 The following steps help you configure a forced tunneling scenario by specifying a default site. Optionally, using custom UDR, you can then split tunnel traffic by specifying that Internet-bound traffic from the Frontend subnet goes directly to the Internet, instead of to the on-premises site.
 
@@ -134,7 +134,7 @@ To assign a default site for the gateway, you use the **-GatewayDefaultSite** pa
 
 At this point, all Internet-bound traffic is now configured to be force tunneled to *DefaultSiteHQ*. Note that the on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors.
 
-* If you want to only configure forced tunneling, and not split tunnel Internet traffic for specific subnets, you can skip to the [Establish Connections](#establish-site-to-site-vpn-connections) section of this article to create your connections.
+* If you want to only configure forced tunneling, and not split tunnel Internet traffic for specific subnets, you can skip to the [Establish Connections](#establish-s2s-vpn-connections) section of this article to create your connections.
 * If you want specific subnets to send Internet-bound traffic directly to the Internet, continue with the next sections to configure custom UDRs and assign routes.
 
 ## Create route tables and routes
