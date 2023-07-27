@@ -15,7 +15,7 @@ If a user doesn't have the required access for adding tags, you can assign the *
 
 1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
 
-   :::image type="content" source="./media/tag-resources-portal/view-tags.png" alt-text="Screenshot of Azure portal showing tags for a resource or resource group.":::
+   :::image type="content" source="./media/tag-resources-portal/view-tags.png" alt-text="Screenshot of Azure portal showing tags for a resource group.":::
 
 1. To add a tag, select **Click here to add tags**.
 
@@ -37,7 +37,7 @@ If a user doesn't have the required access for adding tags, you can assign the *
 
 1. To delete a tag, select the trash icon. Then, select **Save**.
 
-   :::image type="content" source="./media/tag-resources-portal/delete-tag.png" alt-text="Screenshot of Azure portal with the Delete Tag icon and Save button highlighted.":::
+   :::image type="content" source="./media/tag-resources-portal/delete-tag.png" alt-text="Screenshot of Azure portal with the Delete Tag icon highlighted.":::
 
 ## Add tags to multiple resources
 

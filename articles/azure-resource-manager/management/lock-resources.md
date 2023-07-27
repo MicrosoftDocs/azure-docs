@@ -115,7 +115,7 @@ Instead, delete the service, which also deletes the infrastructure resource grou
 
 For managed applications, choose the service you deployed.
 
-:::image type="content" source="./media/lock-resources/select-service.png" alt-text="Screenshot of the Azure portal with the service selected.":::
+:::image type="content" source="./media/lock-resources/select-service.png" alt-text="Screenshot of the Azure portal with an instance of Azure Databricks selected.":::
 
 Notice the service includes a link for a **Managed Resource Group**. That resource group holds the infrastructure and is locked. You can only delete it indirectly.
 
