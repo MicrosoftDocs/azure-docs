@@ -30,6 +30,9 @@ Drawbacks without RAG:
 Models may return more incorrect knowledge
 Data is trained on a broader range of data. More intensive training resources are required to fine-tune your model  -->
 
+> [!NOTE]
+> New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
+
 ## Technical overview of using RAG on Large Language Models (LLMs)
 
 In information retrieval, RAG is an approach that enables you to harness the power of LLMs with your own data. Enabling an LLM to access custom data involves the following steps. First, the large data should be chunked into manageable pieces. Second, the chunks need to be converted into a searchable format. Third, the converted data should be stored in a location that allows efficient access. Additionally, it's important to store relevant metadata for citations or references when the LLM provides responses. 
