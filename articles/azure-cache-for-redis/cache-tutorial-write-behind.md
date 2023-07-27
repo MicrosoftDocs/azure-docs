@@ -42,13 +42,13 @@ This example uses the portal:
 
 1. Enter a database name and select **Create new** to create a new server to hold the database.
 
-1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
+1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
 
 1. Go to the **Networking** tab, and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
-1. After deployment finishes, go to the resource in the Azure portal, and select the **Query editor** tab. Create a new table called *inventory* that holds the data you'll be writing to it. Use the following SQL command to make a new table with two fields:
+1. After deployment finishes, go to the resource in the Azure portal, and select the **Query editor** tab. Create a new table called *inventory* that holds the data you'll write to it. Use the following SQL command to make a new table with two fields:
 
    - `ItemName` lists the name of each item.
    - `Price` stores the price of the item.
