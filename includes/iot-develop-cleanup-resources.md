@@ -1,7 +1,6 @@
-
 ---
  title: Include file to clean up IoT resources. 
- description: Contains code samples to show how to delete a resource group and its contained resources. 
+ description: include file
  author: timlt
  ms.service: iot-develop
  ms.topic: include
