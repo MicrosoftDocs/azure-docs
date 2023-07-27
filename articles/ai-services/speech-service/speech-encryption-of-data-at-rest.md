@@ -46,5 +46,5 @@ See detailed information on using BYOS-enabled Speech resource in [this article]
 
 ## Next steps
 
-* [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk)
+* [Set up the Bring your own storage (BYOS) Speech resource](bring-your-own-storage-speech-resource.md)
 * [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
