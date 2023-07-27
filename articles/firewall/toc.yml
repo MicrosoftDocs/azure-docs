@@ -116,20 +116,24 @@ items:
        href: tutorial-hybrid-portal.md
      - name: Deploy Firewall Basic
        href: deploy-firewall-basic-portal-policy.md
+     - name: Deploy using Azure PowerShell
+       href: deploy-ps.md
+     - name: Deploy policy using Azure PowerShell
+       href: deploy-ps-policy.md
+     - name: Deploy in hybrid network - PowerShell
+       href: tutorial-hybrid-ps.md
+     - name: Deploy using Azure CLI
+       href: deploy-cli.md
+     - name: Deploy with multiple public IP
+       href: deploy-multi-public-ip-powershell.md
+     - name: Deploy with Availability Zones
+       href: deploy-availability-zone-powershell.md
+     - name: Deploy and configure Firewall Premium
+       href: premium-deploy.md
+     - name: Deploy Enterprise CA Certificates for Premium
+       href: premium-deploy-certificates-enterprise-ca.md
   - name: Filter inbound traffic with DNAT - classic
     href: tutorial-firewall-dnat.md
-  - name: Deploy using Azure PowerShell
-    href: deploy-ps.md
-  - name: Deploy policy using Azure PowerShell
-    href: deploy-ps-policy.md
-  - name: Deploy in hybrid network - PowerShell
-    href: tutorial-hybrid-ps.md
-  - name: Deploy using Azure CLI
-    href: deploy-cli.md
-  - name: Deploy with multiple public IP
-    href: deploy-multi-public-ip-powershell.md
-  - name: Deploy with Availability Zones
-    href: deploy-availability-zone-powershell.md
   - name: Integrate with load balancer
     href: integrate-lb.md
   - name: Application rules with SQL FQDNs
@@ -153,10 +157,6 @@ items:
     href: enable-top-ten-and-flow-trace.md
   - name: Azure Firewall Workbook
     href: firewall-workbook.md
-  - name: Deploy and configure Firewall Premium
-    href: premium-deploy.md
-  - name: Deploy Enterprise CA Certificates for Premium
-    href: premium-deploy-certificates-enterprise-ca.md
   - name: Migrate to Azure Firewall Premium
     href: premium-migrate.md
   - name: Migrate to Premium using Terraform
