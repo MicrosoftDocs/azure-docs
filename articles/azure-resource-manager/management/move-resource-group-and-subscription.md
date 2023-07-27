@@ -116,7 +116,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 Moving resources from one subscription to another is a three-step process:
 
-:::image type="content" source="./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png" alt-text="Diagram that shows the three-step process of moving resources across subscriptions.":::
+:::image type="content" source="./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png" alt-text="Diagram that shows the three-step process of moving resources across subscriptions." border="false":::
 
 For illustration purposes, we have only one dependent resource.
 
