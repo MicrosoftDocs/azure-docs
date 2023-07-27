@@ -47,7 +47,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.  You can also configure a connected organization for a social identity provider.
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory) and specifies the approver and lifecycle settings.
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package) and specifies the approver and lifecycle settings.
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 

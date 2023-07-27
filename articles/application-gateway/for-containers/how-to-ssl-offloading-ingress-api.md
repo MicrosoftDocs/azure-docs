@@ -50,7 +50,7 @@ metadata:
   namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-name: alb-test
-    alb.networking.azure.io/alb-namespace: test-infra
+    alb.networking.azure.io/alb-namespace: alb-test-infra
 spec:
   ingressClassName: azure-alb-external
   tls:
