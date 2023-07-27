@@ -97,7 +97,7 @@ Some quotas let you specify a quota limit that's submitted for review and either
 
 1. In the search box, enter _subscriptions_. Or if you've recently viewed your subscription, select **Subscriptions**.
 
-    :::image type="content" source="media/error-resource-quota/subscriptions.png" alt-text="Screenshot of the Azure portal search box displaying the term 'subscriptions' as the search query.":::
+    :::image type="content" source="media/error-resource-quota/subscriptions.png" alt-text="Screenshot of the Azure portal with search box and Subscriptions highlighted.":::
 
 
 1. Select the link for your subscription.

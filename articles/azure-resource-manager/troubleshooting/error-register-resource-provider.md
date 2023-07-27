@@ -148,7 +148,7 @@ You can see the registration status and register a resource provider namespace t
 
 1. In the search box, enter _subscriptions_. Or if you've recently viewed your subscription, select **Subscriptions**.
 
-    :::image type="content" source="media/error-register-resource-provider/select-subscriptions.png" alt-text="Screenshot of the Azure portal search box where the user is typing 'subscriptions' to find and select their desired subscription.":::
+    :::image type="content" source="media/error-register-resource-provider/select-subscriptions.png" alt-text="Screenshot of the Azure portal with search box and Subscriptions highlighted.":::
 
 
 1. Select the subscription you want to use to register a resource provider.
