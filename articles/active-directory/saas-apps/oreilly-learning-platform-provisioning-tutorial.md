@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure O Reilly learning platform for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to O Reilly learning platform.
+title: Configure O'Reilly learning platform for automatic user provisioning with Azure Active Directory
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to O'Reilly learning platform.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -35,9 +35,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in O'Reilly learning platform with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
-1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and O'Reilly learning platform](../app-provisioning/customize-application-attributes.md).
+* Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+* Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* Determine what data to [map between Azure AD and O'Reilly learning platform](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure O'Reilly learning platform to support provisioning with Azure AD
 Contact O'Reilly learning platform support to configure O'Reilly learning platform to support provisioning with Azure AD.
