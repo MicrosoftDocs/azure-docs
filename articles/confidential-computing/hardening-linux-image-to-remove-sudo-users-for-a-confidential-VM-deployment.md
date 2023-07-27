@@ -99,7 +99,7 @@ If there are any users with sudo privileges, they are listed here,
     sudo chroot /mnt/dev/$loopdevice/ userdel -r [sudo_username]
     ```
 
-6. Repeat step 4 to validate that there are no sudo users on the vhd, you should now not be able to see any user’s directory and their entries in the /etc/passwd and /etc/shadow files.
+6. Repeat step 4 to validate that there are no sudo users on the vhd, you should now not be able to see any user’s directory and their entries in the /etc/sudoers.d, /etc/passwd and /etc/shadow files.
 
 7. Unmount the image. (Unmounting is done using the script umount.sh)
 
