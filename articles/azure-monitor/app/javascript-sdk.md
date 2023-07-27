@@ -12,7 +12,7 @@ ms.reviewer: mmcc
 
 The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
-We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md). If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
+We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md). If you're adding a [framework extension](./javascript-framework-extensions.md), you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ## Prerequisites
 
@@ -113,7 +113,7 @@ To paste the connection string in your environment, follow these steps:
 
    1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string](./sdk-connection-string.md) copied to the clipboard.
 
-      The connection string isn't considered a security token or key.
+      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml##do-new-azure-regions-require-the-use-of-connection-strings-).
 
 ### 3. (Optional) Add SDK configuration
 
@@ -145,7 +145,7 @@ If you want to use the extra features provided by plugins for specific framework
 
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
-1. If you need to query data to confirm data is flowing:
+1. If you want to query data to confirm data is flowing:
 
    1. Select **Logs** in the left pane. 
 

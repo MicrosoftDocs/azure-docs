@@ -279,7 +279,7 @@ If you want to add the [Click Analytics plug-in](./javascript-feature-extensions
 
 Set up an instance of Application Insights in the entry component in your app:
 
-TEMPORARY EDIT > [!IMPORTANT]
+> [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled exceptions caught by the error service will not be sent.
 
 ```js
@@ -448,7 +448,7 @@ appInsights.loadAppInsights();
 
 To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
 
-TEMPORARY EDIT > [!IMPORTANT]
+> [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled exceptions caught by the error service will not be sent.
 
 ```js

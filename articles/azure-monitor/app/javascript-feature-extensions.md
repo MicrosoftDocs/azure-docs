@@ -18,7 +18,7 @@ In this article, we cover the Click Analytics plug-in, which automatically track
 
 ## Prerequisites
 
-If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable the Click Analytics plug-in.
+[Install the JavaScript SDK](./javascript-sdk.md) before you enable the Click Analytics plug-in.
 
 ## What data does the plug-in collect?
 
