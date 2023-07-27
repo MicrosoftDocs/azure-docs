@@ -38,6 +38,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```csharp
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Audio;
+    using Microsoft.CognitiveServices.Speech.Transcription;
     
     class Program 
     {
@@ -97,7 +98,7 @@ Follow these steps to create a new console application and install the Speech SD
                         stopRecognition.TrySetResult(0);
                     };
     
-                    await conversationTranscriber.StartTranscribingAsync();
+                    //await conversationTranscriber.StartTranscribingAsync();
     
                     // Waits for completion. Use Task.WaitAny to keep the task rooted.
                     Task.WaitAny(new[] { stopRecognition.Task });
@@ -110,6 +111,8 @@ Follow these steps to create a new console application and install the Speech SD
     ```
 
 1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
+  > [!NOTE]
+  > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start conversation transcription:
@@ -124,39 +127,20 @@ dotnet run
 The transcribed conversation should be output as text: 
 
 ```console
-TRANSCRIBING: Text=good morning 
-TRANSCRIBING: Text=good morning steve 
-TRANSCRIBED: Text=Good morning, Steve. Speaker ID=GUEST-1 
-TRANSCRIBING: Text=good morning 
-TRANSCRIBING: Text=good morning katie 
-TRANSCRIBING: Text=good morning katie have you heard 
-TRANSCRIBING: Text=good morning katie have you heard about 
-TRANSCRIBING: Text=good morning katie have you heard about the new 
-TRANSCRIBING: Text=good morning katie have you heard about the new conversation 
-TRANSCRIBING: Text=good morning katie have you heard about the new conversation transcription 
-TRANSCRIBING: Text=good morning katie have you heard about the new conversation transcription capability 
-TRANSCRIBED: Text=Good morning. Katie, have you heard about the new conversation transcription capability? Speaker ID=GUEST-2 
-TRANSCRIBING: Text=no 
-TRANSCRIBING: Text=no tell me more 
-TRANSCRIBED: Text=No, tell me more. Speaker ID=GUEST-1 
-TRANSCRIBING: Text=it's the new 
-TRANSCRIBING: Text=it's the new feature 
-TRANSCRIBING: Text=it's the new feature that 
-TRANSCRIBING: Text=it's the new feature that transcribes our 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know who 
-TRANSCRIBING: Text=it's the new feature that transcribes our discussion and lets us know who said what 
-TRANSCRIBED: Text=It's the new feature that transcribes our discussion and lets us know who said what. Speaker ID=GUEST-2 
-TRANSCRIBING: Text=that 
-TRANSCRIBING: Text=that sounds interesting 
-TRANSCRIBING: Text=that sounds interesting i'm 
-TRANSCRIBING: Text=that sounds interesting i'm going to give this a try 
-TRANSCRIBED: Text=That sounds interesting. I'm going to give this a try. Speaker ID=GUEST-1 
+TRANSCRIBED: Text=Good morning, Steve. Speaker ID=Unknown
+TRANSCRIBED: Text=Good morning. Katie. Speaker ID=Unknown
+TRANSCRIBED: Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time? Speaker ID=Guest-1
+TRANSCRIBED: Text=Not yet. I've been using the batch transcription with diarization functionality, but it produces diarization result until whole audio get processed. Speaker ID=Guest-2
+TRANSRIBED: Text=Is the new feature can diarize in real time? Speaker ID=Guest-2
+TRANSCRIBED: Text=Absolutely. Speaker ID=GUEST-1
+TRANSCRIBED: Text=That's exciting. Let me try it right now. Speaker ID=GUEST-2
 CANCELED: Reason=EndOfStream
 ```
+
+Speakers are identified as Guest-1, Guest-2, and so on, depending on the number of speakers in the conversation.
+
+> [!NOTE]
+> The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 
 ## Clean up resources
 

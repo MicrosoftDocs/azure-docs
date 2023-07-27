@@ -38,39 +38,34 @@ Follow these steps to create a new console application.
 1. Copy the following code into `conversation_transcription.py`: 
 
     ```Python
-    import os
-    import time
-    import azure.cognitiveservices.speech as speechsdk
+        import os
+        import time
+        import azure.cognitiveservices.speech as speechsdk
 
-    def conversation_transcriber_recognition_canceled_cb(evt: speechsdk.SessionEventArgs):
+        def conversation_transcriber_recognition_canceled_cb(evt: speechsdk.SessionEventArgs):
         print('Canceled event')
-        
-    def conversation_transcriber_session_stopped_cb(evt: speechsdk.SessionEventArgs):
+
+        def conversation_transcriber_session_stopped_cb(evt: speechsdk.SessionEventArgs):
         print('SessionStopped event')
 
-    def conversation_transcriber_recognized_cb(evt: speechsdk.SpeechRecognitionEventArgs):
+        def conversation_transcriber_transcribed_cb(evt: speechsdk.SpeechRecognitionEventArgs):
         print('TRANSCRIBED:')
         if evt.result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            print('\tText={}'.format(evt.result.text))
-            print('\tSpeaker ID={}'.format(evt.result.speaker_id))
+                print('\tText={}'.format(evt.result.text))
+                print('\tSpeaker ID={}'.format(evt.result.speaker_id))
         elif evt.result.reason == speechsdk.ResultReason.NoMatch:
-            print('\tNOMATCH: Speech could not be TRANSCRIBED: 
-        {}'.format(evt.result.no_match_details))
+                print('\tNOMATCH: Speech could not be TRANSCRIBED: {}'.format(evt.result.no_match_details))
 
-    def conversation_transcriber_transcribing_cb(evt: speechsdk.SpeechRecognitionEventArgs):
-        print('TRANSCRIBING:')
-        print('\tText={}'.format(evt.result.text))
-
-    def conversation_transcriber_session_started_cb(evt: speechsdk.SessionEventArgs):
+        def conversation_transcriber_session_started_cb(evt: speechsdk.SessionEventArgs):
         print('SessionStarted event')
 
-    def recognize_from_file():
+        def recognize_from_file():
         # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
         speech_config.speech_recognition_language="en-US"
 
         audio_config = speechsdk.audio.AudioConfig(filename="katiesteve.wav")
-        conversation_transcriber = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+        conversation_transcriber = speechsdk.transcription.ConversationTranscriber(speech_config=speech_config, audio_config=audio_config)
 
         transcribing_stop = False
         def stop_cb(evt: speechsdk.SessionEventArgs):
@@ -79,33 +74,34 @@ Follow these steps to create a new console application.
                 nonlocal transcribing_stop
                 transcribing_stop = True
 
-        # Connect callbacks to the events fired by the speech recognizer
-        conversation_transcriber.recognizing.connect(conversation_transcriber_transcribing_cb)
-        conversation_transcriber.recognized.connect(conversation_transcriber_transcribed_cb)
+        # Connect callbacks to the events fired by the convesation transcriber
+        conversation_transcriber.transcribed.connect(conversation_transcriber_transcribed_cb)
         conversation_transcriber.session_started.connect(conversation_transcriber_session_started_cb)
         conversation_transcriber.session_stopped.connect(conversation_transcriber_session_stopped_cb)
         conversation_transcriber.canceled.connect(conversation_transcriber_recognition_canceled_cb)
         # stop transcribing on either session stopped or canceled events
         conversation_transcriber.session_stopped.connect(stop_cb)
         conversation_transcriber.canceled.connect(stop_cb)
-
-        conversation_transcriber.start_transcribing()
+        
+        conversation_transcriber.start_transcribing_async()
 
         # Waits for completion.
         while not transcribing_stop:
-            time.sleep(.5)
+                time.sleep(.5)
 
-        conversation_transcriber.stop_transcribing()
+        conversation_transcriber.stop_transcribing_async()
 
-    # Main
-    
-    try:
+        # Main
+
+        try:
         recognize_from_file()
-    except Exception as err:
+        except Exception as err:
         print("Encountered exception. {}".format(err))
     ```
 
 1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
+  > [!NOTE]
+  > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start conversation transcription:
@@ -121,74 +117,37 @@ The transcribed conversation should be output as text:
 
 ```console
 SessionStarted event
-TRANSCRIBING: 
-        Text=good morning 
-TRANSCRIBING: 
-        Text=good morning steve 
-TRANSCRIBED: 
-        Text=Good morning, Steve. Speaker ID=GUEST-1 
-TRANSCRIBING: 
-        Text=good morning 
-TRANSCRIBING: 
-        Text=good morning katie 
-TRANSCRIBING: 
-        Text=good morning katie have you heard 
-TRANSCRIBING: 
-        Text=good morning katie have you heard about 
-TRANSCRIBING: 
-        Text=good morning katie have you heard about the new 
-TRANSCRIBING: 
-        Text=good morning katie have you heard about the new conversation 
-TRANSCRIBING: 
-        Text=good morning katie have you heard about the new conversation transcription 
-TRANSCRIBING: 
-        Text=good morning katie have you heard about the new conversation transcription capability 
-TRANSCRIBED: 
-        Text=Good morning. Katie, have you heard about the new conversation transcription capability? Speaker ID=GUEST-2 
-TRANSCRIBING: 
-        Text=no 
-TRANSCRIBING: 
-        Text=no tell me more 
-TRANSCRIBED: 
-        Text=No, tell me more. Speaker ID=GUEST-1 
-TRANSCRIBING: 
-        Text=it's the new 
-TRANSCRIBING: 
-        Text=it's the new feature 
-TRANSCRIBING: 
-        Text=it's the new feature that 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion and lets 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion and lets us 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion and lets us know 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion and lets us know who 
-TRANSCRIBING: 
-        Text=it's the new feature that transcribes our discussion and lets us know who said what 
-TRANSCRIBED: 
-        Text=It's the new feature that transcribes our discussion and lets us know who said what. Speaker ID=GUEST-2 
-TRANSCRIBING: 
-        Text=that 
-TRANSCRIBING: 
-        Text=that sounds interesting 
-TRANSCRIBING: 
-        Text=that sounds interesting i'm 
-TRANSCRIBING: 
-        Text=that sounds interesting i'm going to give this a try 
-TRANSCRIBED: 
-        Text=That sounds interesting. I'm going to give this a try. Speaker ID=GUEST-1 
-CANCELED: Reason=EndOfStream 
+TRANSCRIBED:
+        Text=Good morning, Steve.
+        Speaker ID=Unknown-0
+TRANSCRIBED:
+        Text=Good morning, Katie.
+        Speaker ID=Unknown-0
+TRANSCRIBED:
+        Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time?
+        Speaker ID=Guest-1
+TRANSCRIBED:
+        Text=Not yet. I've been using the batch transcription with diarization functionality, but it produces diarization result until whole audio get processed.
+        Speaker ID=Guest-2
+TRANSCRIBED:
+        Text=Is the new feature can diarize in real time?
+        Speaker ID=Guest-2
+TRANSCRIBED:
+        Text=Absolutely.
+        Speaker ID=Guest-1
+TRANSCRIBED:
+        Text=That's exciting. Let me try it right now.
+        Speaker ID=Guest-2
 Canceled event
-CLOSING on SpeechRecognitionCanceledEventArgs(session_id=f415cb140e3a4dce8b293af06ac3790d, result=SpeechRecognitionResult(result_id=e946024af48a4588b887ac881a1b056a, text="", reason=ResultReason.Canceled))
+CLOSING on ConversationTranscriptionCanceledEventArgs(session_id=606e8b5e65b94419b824d224127d9f92, result=ConversationTranscriptionResult(result_id=21d17c5738b442f8a7d428d0d5363fa8, speaker_id=, text=, reason=ResultReason.Canceled))  
 SessionStopped event
-CLOSING on SessionEventArgs(session_id=f415cb140e3a4dce8b293af06ac3790d)
+CLOSING on SessionEventArgs(session_id=606e8b5e65b94419b824d224127d9f92)
 ```
+
+Speakers are identified as Guest-1, Guest-2, and so on, depending on the number of speakers in the conversation.
+
+> [!NOTE]
+> The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 
 ## Clean up resources
 

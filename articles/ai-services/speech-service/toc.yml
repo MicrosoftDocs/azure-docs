@@ -64,7 +64,7 @@ items:
       - name: Get speech recognition results
         href: get-speech-recognition-results.md
       - name: Real-time diarization
-        href: get-started-real-time-diarization.md
+        href: get-started-stt-diarization.md
     - name: Batch transcription
       items:
       - name: What is batch transcription?
