@@ -134,11 +134,11 @@ This section lists the supported languages and required environment variables fo
 > [!NOTE]
 > Previously, you would manage APM integration and CA certificates via bindings in the builder. The bindings in builder feature is discontinued and is being removed in the future. We recommend that you migrate the APM configured in bindings. For more information, see the [Migrate the APM configured in bindings](#migrate-the-apm-configured-in-bindings) section.
 >
-> When you use your own container registry the build service or disable the build service, the bindings feature in builder is not available.
+> When you use your own container registry for the build service or disable the build service, the bindings feature in builder is not available.
 >
 > When you use a managed Azure Container Registry for the build service, the registry is still available for backward compatibility, but is being removed in the future.
 
-When you use Azure CLI to create a service instance, you might get the error message `Buildpack bindings feature is deprecated, it's not available when your own container registry is used for build service or build service is disabled`. This message indicates that you're using an old version of Azure CLI. To fix this issue, upgrade the Azure CLI. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+When you use the Azure CLI to create a service instance, you might get the error message `Buildpack bindings feature is deprecated, it's not available when your own container registry is used for build service or build service is disabled`. This message indicates that you're using an old version of the Azure CLI. To fix this issue, upgrade the Azure CLI. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
 ## Configure APM integration for app builds and deployments
 
@@ -162,29 +162,29 @@ You can manage APM integration by configuring properties or secrets in the APM c
 
 ##### [Azure portal](#tab/azure-portal)
 
-Use the following steps to show, add, edit, and delete an APM configuration:
+Use the following steps to show, add, edit, or delete an APM configuration:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. In the navigation pane, select **APM**.
-1. To create an APM configuration, select **Add**. If you want to enable the APM configuration globally, check the **Enable globally** option. All the subsequent builds and deployments will use the APM configuration automatically.
+1. To create an APM configuration, select **Add**. If you want to enable the APM configuration globally, select **Enable globally**. All the subsequent builds and deployments will use the APM configuration automatically.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Add APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Add button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
-1. To view and edit the APM configuration, select **Edit APM**.  
+1. To view or edit an APM configuration, select the ellipsis (**...**) button for the configuration, then select **Edit APM**.  
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Edit APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
-1. To delete the APM configuration, select **Delete**. If the APM configuration is used by any build or deployment, you won't be able to delete it.
+1. To delete an APM configuration, select the ellipsis (**...**) button for the configuration, then select **Delete**. If the APM configuration is used by any build or deployment, you won't be able to delete it.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with the Delete APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Delete button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
 
 Use the following steps to view the APM configurations bound to the build:
 
-1. Navigate to your build page.
+1. Navigate to the **Build Service** page for your Azure Spring Apps instance.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the Azure portal showing the build service page with the current build in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
    
-1. In the left navigation page, go to **Settings**, and then select **APM bindings**.
+1. On the navigation pane, in the **Settings** section, select **APM bindings**.
    
 1. On the **APM bindings** page, view the APM configurations bound to the build.
 
@@ -194,7 +194,7 @@ Use the following steps to view the APM configurations bound to the deployment:
 
 1. Navigate to your application page.
    
-1. In the left navigation pane, go to **Settings**, and then select **APM bindings**.
+1. On the navigation pane, in the **Settings** section, select **APM bindings**.
    
 1. On the **APM bindings** page, view the APM configurations bound to the deployment.
 
@@ -414,7 +414,7 @@ Use the following steps to view the CA certificates bound to the build:
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the Azure portal showing the build service page with the current build in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
    
-1. In the left navigation pane, go to **Settings**, and then select **Certificate bindings**.
+1. On the navigation pane, in the **Settings** section, select **Certificate bindings**.
    
 1. On the **Certificate bindings** page, view the CA certificates bound to the build.
 
