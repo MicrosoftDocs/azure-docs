@@ -116,7 +116,7 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the version you were previously running.
 
-If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
+If any of the configuration options you set while your packet core instance was running a newer version aren't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 > [!NOTE]
 > You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
