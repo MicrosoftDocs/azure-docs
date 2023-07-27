@@ -125,7 +125,7 @@ After running this command, in the **Firewall** section under **Resource instanc
 
 You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
-[!INCLUDE [Specific IP ranges for storage account](~/common-ipaddress-storageaccount)]
+[!INCLUDE [Specific IP ranges for storage account](~/includes/Azure%20health%20data%20services/common-ipaddress-storageaccount)]
 
 ## Next steps
 
