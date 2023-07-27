@@ -125,38 +125,7 @@ After running this command, in the **Firewall** section under **Resource instanc
 
 You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
-### Allowing specific IP addresses from other Azure regions to access the Azure storage account
-
-In the Azure portal, go to the ADLS Gen2 account and select the **Networking** blade. 
-   
-Select **Enabled from selected virtual networks and IP addresses**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. You can find the IP address in the table below for the Azure region where the FHIR service is provisioned.
-
-|**Azure Region**         |**Public IP Address** |
-|:----------------------|:-------------------|
-| Australia East       | 20.53.44.80       |
-| Canada Central       | 20.48.192.84      |
-| Central US           | 52.182.208.31     |
-| East US              | 20.62.128.148     |
-| East US 2            | 20.49.102.228     |
-| East US 2 EUAP       | 20.39.26.254      |
-| Germany North        | 51.116.51.33      |
-| Germany West Central | 51.116.146.216    |
-| Japan East           | 20.191.160.26     |
-| Korea Central        | 20.41.69.51       |
-| North Central US     | 20.49.114.188     |
-| North Europe         | 52.146.131.52     |
-| South Africa North   | 102.133.220.197   |
-| South Central US     | 13.73.254.220     |
-| Southeast Asia       | 23.98.108.42      |
-| Switzerland North    | 51.107.60.95      |
-| UK South             | 51.104.30.170     |
-| UK West              | 51.137.164.94     |
-| West Central US      | 52.150.156.44     |
-| West Europe          | 20.61.98.66       |
-| West US 2            | 40.64.135.77      |
-
-> [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](configure-settings-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access).
+[!INCLUDE [Specific IP ranges for storage account](~/shared-ipaddresses-storageaccount.md)]
 
 ### Allowing specific IP addresses to access the Azure storage account in the same region
 
