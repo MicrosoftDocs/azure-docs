@@ -73,21 +73,9 @@ The following table shows the operators that you can use in a condition to evalu
 
 Explain matching and wild card patterns. At the time of this draft, it appears that `*` and `?` are supported with the addition of a "matches" operator soon which enables the escaping of these characters in a name. This section is TBD pending the addition of the "matches" operator.
 
-### Obtaining date and time values dynamically
+### Referencing values from object metadata
 
-- The values for all Date and time properties in a condition can by dynamically obtained from metadata.
-
-- The value can be any key-value attribute in the metadata of a container or the index tag of a blob.
-
-- Provide a quick example of why anyone would care or use this capability.
-
-- While key names have no restrictions, the value of each key must be formatted by using the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard. Provide some examples of using that standard in values.
-
-- What happens if the key is no present?
-
-- What happens if the value is incorrectly formatted?
-
-- Choose which type of metadata to reference as you design the condition in the visual editor.
+Conditions that include a date and time property can reference a value from the metadata of a container or an index tag of a blob. These values are obtained dynamically at runtime when the task executes. To learn more, see [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
 ## Supported operations
 
