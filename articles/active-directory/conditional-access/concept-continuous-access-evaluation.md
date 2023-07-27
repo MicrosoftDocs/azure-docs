@@ -137,6 +137,12 @@ In the following example, a Conditional Access Administrator has configured a lo
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD reevaluates all the conditions and will deny access in this case.
 
+## Exception for IP address variations and how to turn the exception off 
+
+In step 8 above, when Azure AD reevaluates the conditions, it denies access because the new location detected by Azure AD is outside the allowed IP range.  This is not always the case.  Due to [IP address variations in complex network topologies](concept-continuous-access-evaluation.md#ip-address-variation-and-networks-with-ip-address-shared-or-unknown-egress-ips), the authentication request can arrive at Azure AD from an allowed IP address (i.e. egress IP address) even after the access request received by the resource provider arrived from an IP address that is not allowed. Under these conditions, Azure AD interprets that the client continues to be in an allowed location and should be granted access.  Therefore, Azure AD will issue a one-hour token that suspends IP address checks at the resource until token expiration. Azure AD will continue to enforce IP address checks. 
+
+Standard vs. Strict mode. The granting of access under this exception (i.e. an allowed location detected between Azure AD with a disallowed location detected by the resource provider) protects user productivity by maintaining access to critical resources. This is standard location enforcement. On the other hand, Administrators who operate under stable network topologies and wish remove this exception can use [Strict Location Enforcement (Public Preview)](concept-continuous-access-evaluation-strict-enforcement.md).
+
 ## Enable or disable CAE
 
 The CAE setting has been moved to under the Conditional Access blade. New CAE customers can access and toggle CAE directly when creating Conditional Access policies. However, some existing customers must go through migration before they can access CAE through Conditional Access.
