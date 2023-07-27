@@ -25,13 +25,13 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 1. A client in a virtual network issues a DNS query.
 2. If the DNS servers for this virtual network are [specified as custom](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#specify-dns-servers), then the query is forwarded to the specified IP addresses.
-3. If Default (Azure-provided) DNS servers are configured in the virtual network, and there are Private DNS zones [linked to the same virtual network](private-dns-virtual-network-links.md), these zones are consulted.
-4. If the query doesn't match a Private DNS zone linked to the virtual network, then [Virtual network links](#virtual-network-links) for [DNS forwarding rulesets](#dns-forwarding-rulesets) are consulted.
-5. If no ruleset links are present, then Azure DNS is used to resolve the query.
-6. If ruleset links are present, the [DNS forwarding rules](#dns-forwarding-rules) are evaluated.
-7. If a suffix match is found, the query is forwarded to the specified address.
-8. If multiple matches are present, the longest suffix is used.
-9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
+3. If Default (Azure-provided) DNS servers are configured in the virtual network, then:
+   - If there are Private DNS zones [linked to the same virtual network](private-dns-virtual-network-links.md), these zones are consulted.<br>
+   - If no ruleset links are present, then Azure DNS is used to resolve the query.
+   - If there are ruleset links present and the query didn't match a Private DNS zone linked to the virtual network, then [Virtual network links](#virtual-network-links) for [DNS forwarding rulesets](#dns-forwarding-rulesets) are consulted and [DNS forwarding rules](#dns-forwarding-rules) are evaluated:
+     - If a suffix match is found, the query is forwarded to the specified address. If multiple matches are present, the longest suffix is used.
+     - If a suffix match is not found, if a [wildcard rule](private-resolver-endpoints-rulesets.md#rules) is present (domain Name is "."), the query is forwarded to the specified address, otherwise Azure DNS is used to resolve the query.
+
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
