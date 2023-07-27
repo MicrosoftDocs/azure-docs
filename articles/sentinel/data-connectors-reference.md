@@ -464,7 +464,7 @@ Data connectors are available as part of the following offerings:
 
 ## OneLogin
 
-- [OneLogin IAM Platform (using Azure Functions)](data-connectors/onelogin-iam-platform-using-azure-function.md)
+- [OneLogin IAM Platform (using Azure Functions)](data-connectors/onelogin-iam-platform-using-azure-functions.md)
 
 ## OpenVPN
 

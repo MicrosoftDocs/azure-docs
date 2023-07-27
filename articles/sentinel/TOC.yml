@@ -372,7 +372,7 @@
       - name: Cisco ASA
         href: data-connectors/cisco-asa.md
       - name: Cisco ASA/FTD via AMA (Preview)
-        href: data-connectors/cisco-asa-ftd-via-ama-preview.md
+        href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Functions)
         href: data-connectors/cisco-duo-security-using-azure-functions.md
       - name: Cisco Firepower eStreamer
@@ -417,8 +417,6 @@
         href: data-connectors/corelight.md
       - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
         href: data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md
-      - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
-        href: data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md
       - name: CrowdStrike Falcon Endpoint Protection
         href: data-connectors/crowdstrike-falcon-endpoint-protection.md
       - name: CyberArk Enterprise Password Vault (EPV) Events
@@ -750,7 +748,7 @@
       - name: Zimperium Mobile Threat Defense
         href: data-connectors/zimperium-mobile-threat-defense.md
       - name: Zoom Reports (using Azure Functions)
-        href: data-connectors/zoom-reports-using-azure-function.md
+        href: data-connectors/zoom-reports-using-azure-functions.md
       - name: Zscaler
         href: data-connectors/zscaler.md
       - name: Zscaler Private Access
