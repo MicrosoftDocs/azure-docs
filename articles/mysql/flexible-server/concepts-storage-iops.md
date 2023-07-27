@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL - Flexible Server storage cops
+title: Azure Database for MySQL - Flexible Server storage iops
 description: This article describes the storage IOPS in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server

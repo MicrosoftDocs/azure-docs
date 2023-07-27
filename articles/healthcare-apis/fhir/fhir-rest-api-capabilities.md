@@ -65,6 +65,8 @@ After you've found the record you want to restore, use the `PUT` operation to re
 > [!NOTE]
 > There is no time-based expiration for history/soft delete data. The only way to remove history/soft deleted data is with a hard delete or the purge history operation.
 
+[!INCLUDE [Bundle details](~/includes/fhir-rest-api-bundle.md)]
+
 ## Patch and Conditional Patch
 
 Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three ways to patch resources: JSON Patch, XML Patch, and FHIRPath Patch. The FHIR Service support both JSON Patch and FHIRPath Patch along with Conditional JSON Patch and Conditional FHIRPath Patch (which allows you to patch a resource based on a search criteria instead of a resource ID). To walk through some examples, refer to the sample [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http) and the [JSON Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/JsonPatchRequests.http) for each approach. For additional details, read the [HL7 documentation for patch operations with FHIR](https://www.hl7.org/fhir/http.html#patch).
