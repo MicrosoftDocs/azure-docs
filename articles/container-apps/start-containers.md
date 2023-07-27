@@ -54,5 +54,5 @@ Looking to dive in? Use the following table to help you get acquainted with Azur
 | Scale an app | Learn how Containers Apps handles [meeting variable levels of demand](scale-app.md). |
 | Enable public access | Enable [ingress](ingress-overview.md) on your container app to accept request from the public web. |
 | Observe your app | Use log streaming, your apps console, application logs, and alerts to [observe the state](observability.md) of your container app.  |
-| Configure your virtual network | Learn to set up your virtual network to   |
+| Configure your virtual network | Learn to set up your virtual network to secure your containers and communicate between applications.  |
 | Run a process that executes and exits | Find out how [jobs](jobs.md) can help you run tasks that have finite beginning and end.  |
