@@ -19,7 +19,7 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitoring overview page in Azure portal
 
-The **Monitoring** tab on the **Overview** page offers a quick way to get started viewing monitoring data in the Azure portal for each AKS cluster. Thia includes graphs with common metrics for the cluster separated by node pool. Click on any of these graphs to further analyze the data in [Metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+The **Monitoring** tab on the **Overview** page offers a quick way to get started viewing monitoring data in the Azure portal for each AKS cluster. This includes graphs with common metrics for the cluster separated by node pool. Click on any of these graphs to further analyze the data in [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
 :::image type="content" source="media/monitor-aks/overview.png" alt-text="Screenshot of AKS overview page." lightbox="media/monitor-aks/overview.png":::
 
@@ -31,7 +31,7 @@ The **Monitoring** tab on the **Overview** page offers a quick way to get starte
  
  ## Monitoring data 
 
-AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data as shown in the following diagram and table.
+AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) will collect additional data and enable other analysis options as shown in the following diagram and table.
 
 :::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring datat from AKS." lightbox="media/monitor-aks/aks-monitor-data.png" border="false":::
 
@@ -40,9 +40,9 @@ AKS generates the same kinds of monitoring data as other Azure resources that ar
  Source | Description |
 |:---|:---|
 | Platform metrics | [Platform metrics](monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) or use them for [metric alerts](../azure-monitor/alerts/alerts-types.md#metric-alerts).  |
-| Prometheus metrics | Prometheus metrics are collected by [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) and stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). Analyze them with dashboards in [Azure Managed Grafana](../managed-grafana/overview.md). You can also create [Prometheus alerts](../azure-monitor/alerts/prometheus-alerts.md) from this data. |
+| Prometheus metrics | Prometheus metrics are collected by [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) and stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). Analyze them with dashboards in [Azure Managed Grafana](../managed-grafana/overview.md) and with [Prometheus alerts](../azure-monitor/alerts/prometheus-alerts.md). |
 | Activity logs | [Activity log](monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Send the [Activity log to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with your other log data. |
-| Resource logs | [Control plane logs](monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. [Create a diagnostic setting](#resource-logs) to send them to [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) where you can analyze them with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md). |
+| Resource logs | [Control plane logs](monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. [Create a diagnostic setting](#resource-logs) to send them to [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) where you can analyze and alert on them with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md). |
 | Container insights | Container insights collects various logs and performance data from a cluster including stdout/stderr streams and stores them in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) and [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). Analyze this data with views and workbooks included with Container insights or with [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).  |
 
 
@@ -54,15 +54,17 @@ See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings
 
 :::image type="content" source="media/monitor-aks/diagnostic-setting-categories.png" alt-text="Screenshot of AKS diagnostic setting dialog box." lightbox="media/monitor-aks/diagnostic-setting-categories.png":::
 
-AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode) or [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific) for resource logs. Azure diagnostics mode sends all data to the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics), while resource-specific mode sends data to [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit), [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin), and [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane). as shown in the table at [Resource logs](monitor-aks-reference.md#resource-logs).
+AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode) or [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific) for resource logs. This specifies the tables in the Log Analytics workspace where the data is sent. Azure diagnostics mode sends all data to the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics), while resource-specific mode sends data to [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit), [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin), and [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane) as shown in the table at [Resource logs](monitor-aks-reference.md#resource-logs).
 
 Resource-specific mode is recommended for AKS for the following reasons:
 
 - Data is easier to query because it's in individual tables dedicated to AKS.
-- Save cost by configuring the tables for [basic logs](../azure-monitor/logs/basic-logs-configure.md).
+- Supports configuration as [basic logs](../azure-monitor/logs/basic-logs-configure.md) for significant cost savings.
+
+For more details on the difference between collection modes including how to change an existing setting, see [Select the collection mode](../azure-monitor/essentials/resource-logs.md##select-the-collection-mode).
 
 ## Integrations
-The following Azure services and features of Azure Monitor can be used for additional monitoring of your Kubernetes clusters. You can enable these features when you create your AKS cluster, or onboard your cluster to them later. Each of these features may include additional cost, so refer to the pricing information for each before you enabled them.
+The following Azure services and features of Azure Monitor can be used for additional monitoring of your Kubernetes clusters. You can enable these features when you create your AKS cluster (on the Integrations tab when creating the cluster in the Azure portal), or onboard your cluster to them later. Each of these features may include additional cost, so refer to the pricing information for each before you enabled them.
 
 
 | Service / Feature | Description |
@@ -91,11 +93,12 @@ If the [diagnostic setting for your cluster](#resource-logs) uses Azure diagnost
 
 | Description | Log query |
 |:---|:---|
-| API server logs | `AzureDiagnostics | where Category == "kube-apiserver"` |
-| Count logs for each category | `AzureDiagnostics | where ResourceType == "MANAGEDCLUSTERS" | summarize count() by Category` |
+| Count logs for each category | AzureDiagnostics<br>\| where ResourceType == "MANAGEDCLUSTERS"<br>\| summarize count() by Category |
+| All API server logs | AzureDiagnostics<br>\| where Category == "kube-apiserver" |
+| All kube-audit logs withing a time range | let starttime = datetime("2023-02-23");<br>let endtime = datetime("2023-02-24");<br>AzureDiagnostics<br>\| where TimeGenerated between(starttime..endtime)<br>\| where Category == "kube-audit"<br>\| extend event = parse_json(log_s)<br>\| extend HttpMethod = tostring(event.verb)<br>\| extend User = tostring(event.user.username)<br>\| extend Apiserver = pod_s<br>\| extend SourceIP = tostring(event.sourceIPs[0])<br>\| project TimeGenerated, Category, HttpMethod, User, Apiserver, SourceIP, OperationName, event |
 
 
-For a list of common queries for AKS, see the [Log Analytics queries interface](../azure-monitor/logs/queries.md#queries-interface). Select resource type **Kubernetes Services** for queries that you can load directly into Log Analytics. For a list of common queries for Container insights, see [Container insights queries](../azure-monitor/containers/container-insights-log-query.md).
+To access a set of prebuilt queries in the Log Analytics workspace, see the [Log Analytics queries interface](../azure-monitor/logs/queries.md#queries-interface) and select resource type **Kubernetes Services**. For a list of common queries for Container insights, see [Container insights queries](../azure-monitor/containers/container-insights-log-query.md).
 
 ## Alerts
 
@@ -135,5 +138,3 @@ When you [enable collection of Prometheus metrics](#integrations) for your clust
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-
