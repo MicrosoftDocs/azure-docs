@@ -220,7 +220,7 @@ For some service-specific binding types, binding data can be provided using type
 | Dependency | Version requirement |
 |-|-|
 |[Microsoft.Azure.Functions.Worker]| For **Generally Available** extensions in the table below: 1.18.0 or later<br/>For extensions that have **preview support**: 1.15.0-preview1 |
-|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.12.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
+|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.13.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
 
 When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
 
@@ -232,7 +232,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 | [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
