@@ -34,7 +34,7 @@ In this tutorial:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
-- The tenant-id of the of the Azure Active Directory associated with your Azure Account
+- The tenant-id or domain of the of the Azure Active Directory associated with your Azure Account
 
 ## Create the app using the .NET CLI
 
