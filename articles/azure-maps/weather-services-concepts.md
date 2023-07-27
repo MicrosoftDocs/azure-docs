@@ -645,5 +645,5 @@ The following table lists the available Index groups (indexGroupId):
 [Get Daily Indices API]: /rest/api/maps/weather
 [Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
 [Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
-[Weather services API] /rest/api/maps/weather
+[Weather services API]: /rest/api/maps/weather
 [Weather services]: /rest/api/maps/weather
