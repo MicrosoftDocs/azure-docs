@@ -91,7 +91,7 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-## Try invoice data extraction
+## Invoice model data extraction
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
@@ -102,8 +102,6 @@ See how data, including customer information, vendor details, and line items, is
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="doc-intel-3.0.0"
-
-## Document Intelligence Studio
 
 1. On the Document Intelligence Studio home page, select **Invoices**
 
@@ -286,7 +284,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 ### Key-value pairs
 
-The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By defualt the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By default, the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 

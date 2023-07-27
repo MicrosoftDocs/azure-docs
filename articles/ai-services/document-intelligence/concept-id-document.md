@@ -108,7 +108,7 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-### Try Document Intelligence
+### ID document model data extraction
 
 Extract data, including name, birth date, and expiration date, from ID documents. You need the following resources:
 
@@ -119,8 +119,6 @@ Extract data, including name, birth date, and expiration date, from ID documents
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="doc-intel-3.0.0"
-
-## Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
@@ -328,7 +326,7 @@ The following are the fields extracted per document type. The Document Intellige
 
 ## Supported document types and locales
 
- **Prebuilt ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
+ The ID document model currently supports US driver licenses and the biographical page from international passports (excluding visa and other travel documents) extraction.
 
 ## Fields extracted
 

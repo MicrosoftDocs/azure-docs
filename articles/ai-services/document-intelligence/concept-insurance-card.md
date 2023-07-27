@@ -31,7 +31,11 @@ Document Intelligence v3.0 supports the prebuilt health insurance card model wit
 |----------|-------------|-----------|
 |**health insurance card model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-healthInsuranceCard.us**|
 
-### Try Document Intelligence
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### Try Document Intelligence Studio
 
 See how data is extracted from health insurance cards using the Document Intelligence Studio. You need the following resources:
 
@@ -40,8 +44,6 @@ See how data is extracted from health insurance cards using the Document Intelli
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
-
-#### Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with API version v3.0.
@@ -56,10 +58,6 @@ See how data is extracted from health insurance cards using the Document Intelli
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
-
-## Input requirements
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 

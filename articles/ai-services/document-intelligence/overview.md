@@ -74,7 +74,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#w-2":::</br>
+      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [🆕 **Insurance card**](#w-2) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
@@ -165,7 +165,7 @@ You can use Document Intelligence to automate document processing in application
 
 |About| Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Read OCR model**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#data-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
+|[**Read OCR model**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#data-detection-and-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -409,7 +409,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ## Data privacy and security
 
- As with all AI services, developers using the Document Intelligence service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/form-recognizer/fr-data-privacy-security) page.
+ As with all AI services, developers using the Document Intelligence service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/data-privacy-security) page.
 
 ## Next steps
 

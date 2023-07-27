@@ -516,14 +516,13 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
-
 * Document Intelligence v3.0 preview release introduces several new features, capabilities and enhancements:
 
   * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-structured and **unstructured documents**.
   * [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
   * [**Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
   * [**General document**](concept-general-document.md) pretrained model is now updated to support selection marks in addition to API  text, tables, structure, and key-value pairs from forms and documents.
-  * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
+  * [**Invoice API**](concept-invoice.md#supported-languages-and-locales) Invoice prebuilt model expands support to Spanish invoices.
   * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Document Intelligence Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 

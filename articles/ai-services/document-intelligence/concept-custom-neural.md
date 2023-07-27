@@ -44,7 +44,7 @@ The build custom model operation has added support for the *template* and *neura
 
 Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
-## Language support
+## Supported languages and locales
 
 1. Neural models now support added languages in the ```2023-02-28-preview``` API.
 

@@ -79,7 +79,7 @@ The following table compares custom template and custom neural features:
 |Training time | 1 to 5 minutes | 20 minutes to 1 hour |
 |Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks and tables|
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
-|Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](language-support.md#custom-neural-model) |
+|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
 
 ### Custom classification model
 
@@ -125,7 +125,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
@@ -169,30 +169,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
-## Document Intelligence Studio
-
-> [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API.
-
-1. On the **Document Intelligence Studio** home page, select **Custom classification models**.
-
-1. Under **My Projects**, select **Create a project**.
-
-1. Complete the project details fields.
-
-1. Configure the service resource by adding your **Storage account** and **Blob container** to **Connect your training data source**.
-
-1. Review and create your project.
-
-1. Label your documents to build and test your custom classification model.
-
-    > [!div class="nextstepaction"]
-    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)
-
-For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
-
----
-
+:::moniker-end
 
 ## Custom model extraction summary
 
@@ -247,13 +224,102 @@ The following table describes the features available with the associated tools a
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
- The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+::: moniker range="doc-intel-3.0.0"
+  The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
 
- Document Intelligence v3.0  introduces several new features and capabilities:
+  Document Intelligence v3.0  introduces several new features and capabilities:
 
 * **Custom model API**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
 * [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
 * [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
+:::moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+:::row:::
+:::column:::
+
+|Language| Language code |
+|:-----|:----:|
+|Afrikaans|`af`|
+|Albanian |`sq`|
+|Asturian |`ast`|
+|Basque  |`eu`|
+|Bislama   |`bi`|
+|Breton    |`br`|
+|Catalan    |`ca`|
+|Cebuano    |`ceb`|
+|Chamorro  |`ch`|
+|Chinese (Simplified) | `zh-Hans`|
+|Chinese (Traditional) | `zh-Hant`|
+|Cornish     |`kw`|
+|Corsican      |`co`|
+|Crimean Tatar (Latin)  |`crh`|
+|Czech | `cs` |
+|Danish | `da` |
+|Dutch | `nl` |
+|English (printed and handwritten) | `en` |
+|Estonian  |`et`|
+|Fijian |`fj`|
+|Filipino  |`fil`|
+|Finnish | `fi` |
+|French | `fr` |
+|Friulian  | `fur` |
+|Galician   | `gl` |
+|German | `de` |
+|Gilbertese    | `gil` |
+|Greenlandic   | `kl` |
+|Haitian Creole  | `ht` |
+|Hani  | `hni` |
+|Hmong Daw (Latin) | `mww` |
+|Hungarian | `hu` |
+|Indonesian   | `id` |
+|Interlingua  | `ia` |
+|Inuktitut (Latin)  | `iu`  |
+|Irish    | `ga` |
+:::column-end:::
+:::column:::
+|Language| Language code |
+|:-----|:----:|
+|Italian | `it` |
+|Japanese | `ja` |
+|Javanese | `jv` |
+|K'iche'  | `quc` |
+|Kabuverdianu | `kea` |
+|Kachin (Latin) | `kac` |
+|Kara-Kalpak | `kaa` |
+|Kashubian | `csb` |
+|Khasi  | `kha` |
+|Korean | `ko` |
+|Kurdish (latin) | `kur` |
+|Luxembourgish  | `lb` |
+|Malay (Latin)  | `ms` |
+|Manx  | `gv` |
+|Neapolitan   | `nap` |
+|Norwegian | `no` |
+|Occitan | `oc` |
+|Polish | `pl` |
+|Portuguese | `pt` |
+|Romansh  | `rm` |
+|Scots  | `sco` |
+|Scottish Gaelic  | `gd` |
+|Slovenian  | `slv` |
+|Spanish | `es` |
+|Swahili (Latin)  | `sw` |
+|Swedish | `sv` |
+|Tatar (Latin)  | `tat` |
+|Tetum    | `tet` |
+|Turkish | `tr` |
+|Upper Sorbian  | `hsb` |
+|Uzbek (Latin)     | `uz` |
+|Volapük   | `vo` |
+|Walser    | `wae` |
+|Western Frisian | `fy` |
+|Yucatec Maya | `yua` |
+|Zhuang | `za` |
+|Zulu  | `zu` |
+:::column-end:::
+:::row-end:::
+:::moniker-end
 
 ### Try signature detection
 

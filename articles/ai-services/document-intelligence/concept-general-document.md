@@ -57,7 +57,11 @@ Document Intelligence v3.0 supports the following tools:
 |----------|----------|---------------|
 | **General document model**|<ul ><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
 
-### Try Document Intelligence
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### General document model data extraction
 
 Try extracting data from forms and documents using the Document Intelligence Studio.
 
@@ -68,8 +72,6 @@ You need the following resources:
 * A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
-
-#### Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio and the general document model are available with the v3.0 API.
@@ -98,10 +100,6 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 |General document  | ✓  |  ✓ | ✓  | ✓  | ✓* |
 
 ✓* - Only available in the 2023-02-28-preview API version.
-
-## Input requirements
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 
