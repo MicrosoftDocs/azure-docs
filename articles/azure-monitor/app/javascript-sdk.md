@@ -111,7 +111,7 @@ To paste the connection string in your environment, follow these steps:
 
       :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string]((sdk-connection-string.md)) copied to the clipboard.
+   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string](./sdk-connection-string.md) copied to the clipboard.
 
       The connection string isn't considered a security token or key.
 
