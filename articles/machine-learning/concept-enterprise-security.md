@@ -81,9 +81,13 @@ To restrict network access to Azure Machine Learning resources, you can use an [
 
 You don't have to pick one or the other. For example, you can use a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
-* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
+* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications. The following managed compute resources are secured by a managed network:
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+    * Serverless compute (including Spark serverless)
+    * Compute cluster
+    * Compute instance
+    * Managed online endpoints
+    * Batch online endpoints
 
     For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
 
