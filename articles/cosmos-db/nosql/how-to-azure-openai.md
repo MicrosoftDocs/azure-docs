@@ -70,7 +70,8 @@ Adding Azure Cosmos DB vector search capabilities to Azure OpenAI Service enable
 #### Code samples
 - [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector-v2)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/combining-assets/CosmosRecipeGuide_NoSQLwithMongoDBVectorSearch)
-- [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/)
+- [.Net samples - Hackathon project](https://github.com/AzureCosmosDB/OpenAIHackathon)
+- [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Notebooks)
 
 ### Azure Cosmos DB for MongoDB vCore
 Carry out RAG (Retrieval-Augmented Generation) by leveraging vector search in Azure Cosmos DB for MongoDB vCore, facilitating a smooth merger of your AI-centric applications with your stored data in Azure Cosmos DB. The use of vector search offers an efficient way to store, index, and search high-dimensional vector data directly within Azure Cosmos DB for MongoDB vCore. This approach eradicates the necessity of migrating your data to pricier alternatives for availing vector search functionalities.
@@ -96,11 +97,6 @@ The RAG pattern harnesses external knowledge and models to effectively handle cu
 Considering the limitation of a restricted number of tokens per request, a robust mechanism is necessary to identify the most relevant data from the external source that can be passed to the model. This is where embeddings play a crucial role. By converting the data in our database into embeddings and storing them as vectors for future use, we leverage the advantage of capturing the semantic meaning of the text, going beyond mere keywords to comprehend the context.
 
 Prior to sending a request to Azure OpenAI, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the model request using prompt engineering.
-
-Notebooks)
-
-
-### Code samples
 
 #### Documentation for vector search with Azure Cosmos DB
  - [Azure Cognitive Search](https://learn.microsoft.com/azure/search/vector-search-overview)
