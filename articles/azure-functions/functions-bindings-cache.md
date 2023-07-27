@@ -104,7 +104,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
 ```json
 {

@@ -186,7 +186,7 @@ From `function.json`, here is the binding data:
 ## Attributes
 
 | Parameter                 | Description                                                                                                                                                                                                                           | Required | Default |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).                                                                            | Yes      |         |
 | `Key`                     | Key to read from. This field can be resolved using `INameResolver`.                                                                                                                                                                   | Yes      |         |
 | `PollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                                                                                              | Optional | `1000`  |
@@ -200,7 +200,7 @@ From `function.json`, here is the binding data:
 ## Annotations
 
 | Parameter                 | Description                                                                                                                                                 | Required | Default |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `name`                    | "entry"                                                                                                                                                     |          |         |
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` | Yes      |         |
 | `key`                     | This field can be resolved using INameResolver.                                                                                                             | Yes      |         |
@@ -218,16 +218,16 @@ From `function.json`, here is the binding data:
 The following table explains the binding configuration properties that you set in the function.json file.
 
 | function.json Property | Description                                                                                                                                                 | Optional | Default |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `type`                 | Name of the trigger.                                                                                                                                        | No       |         |
 | `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to `true`.                                                                             | Yes      | `true`  |
 | `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` | No       |         |
 | `key`                  | This field can be resolved using `INameResolver`.                                                                                                           | No       |         |
 | `pollingIntervalInMs`  | How often to poll Redis in milliseconds.                                                                                                                    | Yes      | `1000`  |
 | `messagesPerWorker`    | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                | Yes      | `100`   |
-| `count`                | Number of entries to read from the cache at one time. These are processed in parallel.                                                            | Yes      | `10`      |
-| `name`                 | ?                                                                                                                                                            | Yes      |         |
-| `direction`            | Set to `in`.                                                                                                                                                 | No       |         |
+| `count`                | Number of entries to read from the cache at one time. These are processed in parallel.                                                                      | Yes      | `10`    |
+| `name`                 | ?                                                                                                                                                           | Yes      |         |
+| `direction`            | Set to `in`.                                                                                                                                                | No       |         |
 
 ::: zone-end
 
@@ -242,11 +242,10 @@ The `RedisListsTrigger` pops new elements from a list and surfaces those entries
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-| Output Type | Description|
-|---|---|
-|  |
-| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The entry from the list.|
-| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. |
+|| Output Type                                                                                                                              | Description                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs) | `string`, `byte[]`, `ReadOnlyMemory<byte>`: The entry from the list.                                          |
+| `Custom`                                                                                                                                 | The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. |
 
 <!--Any usage information specific to isolated worker process, including types. -->
 

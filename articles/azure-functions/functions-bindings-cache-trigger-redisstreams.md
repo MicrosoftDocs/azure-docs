@@ -15,9 +15,9 @@ ms.date: 07/26/2023
 
 The `RedisStreamsTrigger` reads new entries from a stream and surfaces those elements to the function.
 
-| Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|--------- |:---------:|:---------:|:---------:|
-| Streams  | Yes  | Yes   |  Yes  |
+| Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
+|---------|:-----:|:-----------------:|:----------------------------:|
+| Streams | Yes   | Yes               | Yes                          |
 
 > [!IMPORTANT]
 > Redis triggers are not currently supported on consumption functions.
@@ -183,7 +183,7 @@ From `function.json`, here is the binding data:
 ## Attributes
 
 | Parameters                | Description                                                                                                                                              | Required | Default |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `ConnectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
 | `Key`                     | Key to read from.                                                                                                                                        | Yes      |         |
 | `PollingIntervalInMs`     | How often to poll the Redis server in milliseconds.                                                                                                      | Optional | `1000`  |
@@ -197,7 +197,7 @@ From `function.json`, here is the binding data:
 ## Annotations
 
 | Parameter                 | Description                                                                                                                                              | Required | Default |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `name`                    | `entry`                                                                                                                                                  |  Yes     |         |
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
 | `key`                     | Key to read from.                                                                                                                                        | Yes      |         |
@@ -215,7 +215,7 @@ From `function.json`, here is the binding data:
 The following table explains the binding configuration properties that you set in the function.json file.
 
 | function.json Properties  | Description                                                                                                                                              | Required | Default |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------:|
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `type`                    |                                                                                                                                                          | Yes      |         |
 | `deleteAfterProcess`      |                                                                                                                                                          | Optional | `false` |
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
@@ -245,8 +245,8 @@ The consumer group for all function instances is the `ID` of the function. For e
 | Output Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
-| `StackExchange.Redis.NameValueEntry`[], `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
-| `string, byte[], ReadOnlyMemory<byte>`                                                                                                                    | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
+| `StackExchange.Redis.NameValueEntry[]`, `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
+| `string, byte[], ReadOnlyMemory<byte>`                                                                                                                | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
 | `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
 
 ::: zone-end

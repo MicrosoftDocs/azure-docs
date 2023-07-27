@@ -140,7 +140,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-From `function.js`:
+From `function.json`:
 
 Here is binding data to listen to the channel `pubsubTest`.
 
@@ -332,7 +332,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ## Attributes
 
 | Parameter                 | Description                                                                                                                                   | Required   | Default    |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----| -----:|
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|:-----:| -----:|
 | `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string. For example,`<cacheName>.redis.cache.windows.net:6380,password=...`). |   Yes  |     |
 | `Channel`                 | The pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`.       |  Yes   |     |
 
@@ -342,7 +342,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ## Annotations
 
 | Parameter                 | Description                                                                                                                                               | Required   | Default    |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| -----| -----:|
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|: -----:| -----:|
 | `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
 | `connectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
 | `channel`                 | The pubsub channel that the trigger should listen to. Supports glob-style channel patterns.                                                               | Yes    |     |
@@ -355,7 +355,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 <!-- Equivalent values for the annotation parameters in Java.-->
 
 | function.json property    | Description                                                                                                                                               | Required   | Default    |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| -----| -----:|
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| :-----:| -----:|
 | `type`                    | Trigger type. For the pubsub trigger, this is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
 | `connectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
 | `channel`                 | Name of the pubsub channel that is being subscribed to                                                                                                    |  Yes   |     |
