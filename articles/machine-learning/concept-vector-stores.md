@@ -36,7 +36,7 @@ You can use either store in prompt flow, so which one should you use?
 + You can share copies for individual use. If you want to host the index for an application, you need to set that up.
 + Faiss scales with underlying compute loading index.
 
-**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search scenarios. Indexes contain only the data you provide. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
+**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search scenarios. Indexes contain only the data you provide and can be queried and used in a RAG pattern. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
 
 + [Vector capabilities](/azure/search/vector-search-overview) in Azure Cognitive Search are in public preview.
 + Vectors must be generated externally from Cognitive Search and then passed to a search index. The prompt flow can help with this step.
