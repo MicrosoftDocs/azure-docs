@@ -47,8 +47,6 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
 2. Mount the image. (Mounting is done using the script mount_vhd.sh)
 
-    This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
-
     Copy the contents of the script shown below, to create a mount_vhd.sh file.
 
     Command to run : ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
@@ -57,6 +55,8 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
     ./mount_vhd.sh Ubuntu_20.04.vhd
     ```
+
+    This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
 
     The mount_vhd.sh script performs the following operations to mount the vhd as shown,
     ```
@@ -106,6 +106,15 @@ If there are any users with sudo privileges, they are listed here,
 
 7. Unmount the image. (Unmounting is done using the script umount.sh)
 
+    Copy the contents of the script shown below, to create a umount.sh file.
+
+    Command to run : ./umount.sh <$loopdevice in step 3>
+
+    For example:
+    ```
+    ./umount.sh /dev/loop3
+    ```
+
     The umount.sh script performs the following operations to unmount the image as shown,
     ```
     #!/bin/bash
@@ -125,9 +134,6 @@ If there are any users with sudo privileges, they are listed here,
     done
 
     sudo losetup -d $1
-    ```
-    ```
-    ./umount.sh /dev/loop3
     ```
 
 The image is prepared without any sudo users in it that can be used as a base/reference image for creating the Confidential vms.
