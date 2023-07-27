@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/14/2023
-ms.custom: mode-other, engagement-fy23, devx-track-azurecli
+ms.date: 06/27/2023
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
