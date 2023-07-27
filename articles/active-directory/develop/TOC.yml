@@ -129,7 +129,6 @@
           href: quickstart-single-page-app-javascript-sign-in.md
         - name: React
           href: quickstart-single-page-app-react-sign-in.md
-      href: single-page-app-quickstart.md
     - name: Tutorials
       items:
         - name: React
