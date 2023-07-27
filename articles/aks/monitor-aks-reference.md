@@ -47,11 +47,12 @@ The following table lists [dimensions](../azure-monitor/essentials/data-platform
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS and the table they're sent to when you send the logs to a Log Analytics workspace. These are the logs for AKS control plane components. See [Configure monitoring](monitor-aks.md#control-plane-logs) for details on creating a diagnostic setting to collect these logs and recommendations on which to enable. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
+AKS implements control plane logs for the cluster as [resource logs in Azure Monitor.](../azure-monitor/essentials/resource-logs.md). See [Resource logs](monitor-aks.md#resource-logs) for details on creating a diagnostic setting to collect these logs and [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
+The following table lists the resource log categories you can collect for AKS. It also includes the table the logs for each category are sent to when you send the logs to a Log Analytics workspace using [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific). In [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), all logs are written to the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-| Category | Description | Table |
+
+| Category | Description | Table<br>(resource-specific mode) |
 |:---|:---|:---|
 | kube-apiserver          | Logs from the API server. | AKSControlPlane |
 | kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. | AKSAudit |
@@ -64,7 +65,9 @@ For reference, see a list of [all resource logs category types supported in Azur
 | csi-azuredisk-controller | Logs from the Azure Disk CSI storage driver. | AKSControlPlane |
 | csi-azurefile-controller | Logs from the Azure Files CSI storage driver. | AKSControlPlane |
 | csi-snapshot-controller | Logs from the Azure CSI driver snapshot controller. | AKSControlPlane |
-| AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries. |
+| AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries. | AzureMetrics |
+
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
 
 ## Azure Monitor Logs tables
 
