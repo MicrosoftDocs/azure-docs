@@ -21,6 +21,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md) (Preview)
+
+    Azure NetApp Files now supports a lower limit of 1 TiB for capacity pool sizing with Standard network features.
+
 ## June 2023
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) (Preview)

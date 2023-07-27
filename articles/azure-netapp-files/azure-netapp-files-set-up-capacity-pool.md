@@ -43,10 +43,10 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
 
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
-     The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
+     The minimum capacity pool size is 1 TiB. You can change the size of a capacity pool in 1-TiB increments.
     
     >[!NOTE]
-    >[!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
+    >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
