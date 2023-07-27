@@ -5,15 +5,14 @@ description: Learn about VNet flow logs feature of Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
-ms.topic: conceptual
-ms.date: 06/08/2023
-ms.custom: template-concept, engagement-fy23
+ms.topic: concept-article
+ms.date: 07/26/2023
 ---
 
 # VNet flow logs (preview)
 
 > [!IMPORTANT]
-> VNet flow logs is currently in PREVIEW.
+> VNet flow logs is currently in PREVIEW. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Virtual network (VNet) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a virtual network. Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice. Network Watcher VNet flow logs capability overcomes some of the existing limitations of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
@@ -49,16 +48,21 @@ Flow logs are the source of truth for all network activity in your cloud environ
 - Analyze network flows from compromised IPs and network interfaces.
 - Export flow logs to any SIEM or IDS tool of your choice.
 
+## VNet flow logs compared to NSG flow logs 
+
+Both VNet flow logs and [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) record IP traffic but they differ in their behavior & capabilities. VNet flow logs simplify the scope of traffic monitoring by allowing you to enable logging at [virtual networks](../virtual-network/virtual-networks-overview.md), ensuring that traffic through all supported workloads within a virtual network are recorded. VNet flow logs also avoids the need to enable multi-level flow logging such as in cases of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md#best-practices) where network security groups are configured at both subnet & NIC.
+
+In addition to existing support to identify allowed/denied traffic by [network security group rules](../virtual-network/network-security-groups-overview.md), VNet flow logs support identification of traffic allowed/denied by [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md). VNet flow logs also support evaluating the encryption status of your network traffic in scenarios where [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md) is enabled.
+
 ## How logging works
 
 Key properties of VNet flow logs include:
 
 - Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going through a virtual network.
 - Logs are collected at 1-minute intervals through the Azure platform and don't affect your Azure resources or network traffic.
-- Logs are written in the JSON (JavaScript Object Notation) format 
-- Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state & throughput information.
-- All traffic flows in your network are evaluated through the rules in the applicable [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md) or [AVNM security admin rules](../virtual-network-manager/concept-security-admins.md)
--   For more information, see [Log Format](#log-format).
+- Logs are written in the JSON (JavaScript Object Notation) format.
+- Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state and throughput information.
+- All traffic flows in your network are evaluated through the rules in the applicable [network security group rules](../virtual-network/network-security-groups-overview.md) or [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md). For more information, see [Log format](#log-format).
 
 ## Log format
 
@@ -104,7 +108,8 @@ VNet flow logs have the following properties:
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
 				- `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload. 
 
-Traffic in your virtual networks is Unencrypted(NX) by default. For encrypted traffic, enable [Virtual Network encryption](../virtual-network/virtual-network-encryption-overview.md)
+Traffic in your virtual networks is Unencrypted (NX) by default. For encrypted traffic, enable [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
+
 `Flow encryption` has the following possible encryption statuses:
 
 | Encryption Status | Description |
@@ -220,9 +225,23 @@ If you want to retain data forever and don't want to apply any retention policy,
 
 VNet flow logs are charged per gigabyte of "Network Logs Collected" and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
+## Availability
+
+VNet flow logs is available in the following regions during the preview:
+
+- East US 2 EUAP
+- Central US EUAP
+- West Central US
+- East US
+- East US 2
+- West US
+- West US 2
+
+To sign up to obtain access to the public preview, see [VNet flow logs - public preview sign up](https://aka.ms/VNetflowlogspreviewsignup).
+
 ## Next steps
 
-- To learn how to create, change, enable, disable, or delete VNet flow logs, see [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) VNet flow logs articles.
+- To learn how to create, change, enable, disable, or delete VNet flow logs, see [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md) VNet flow logs articles.
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
