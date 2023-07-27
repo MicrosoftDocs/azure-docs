@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 08/27/2023
+ms.date: 07/27/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
