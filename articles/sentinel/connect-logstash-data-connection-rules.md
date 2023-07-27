@@ -47,10 +47,9 @@ The Logstash engine is comprised of three components:
 >
 > - See the [prerequisites](#prerequisites) for the plugin’s Logstash version support.
 
-The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom log or standard table.
+The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom logs or standard table.
 
-- Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md). 
+- Learn more about the [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
@@ -62,7 +61,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
 1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
 1. [Restart Logstash](#restart-logstash)
-1. [View inc    oming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
+1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
 1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 
 ### Prerequisites
@@ -397,6 +396,8 @@ After you retrieve the required values:
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
 |`compress_data` |When this field is `True`, the event data is compressed before using the API. Recommended for high throughput pipelines. |`False` |
 |`proxy` |Specify which proxy URL to use for all API calls. |None (field is empty) |
+|`proxy_aad` |Specify which proxy URL to use for API calls to Azure Active Directory. |Same value as 'proxy' (field is empty) |
+|`proxy_endpoint` |Specify which proxy URL to use for API calls to the Data Collection Endpoint. |Same value as 'proxy' (field is empty) |
 
 #### Example: Output plugin configuration section
 
