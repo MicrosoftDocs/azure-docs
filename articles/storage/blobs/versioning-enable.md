@@ -92,6 +92,9 @@ For more information about deploying resources with templates in the Azure porta
 
 ---
 
+> [!IMPORTANT]
+> Currently, once you configure the retention, there will be a rule created in the lifecycle management policy to delete the older version based on the retention period set. Thereafter, the settings shall not be visible in the data protection options. In case you want to change the retention period, you will have to delete the rule, which shall make the settings visible for editing again. In case you have any other rule already to delete the versions, then also this setting shall not appear.
+
 ## List blob versions
 
 To display a blob's versions, use the Azure portal, PowerShell, or Azure CLI. You can also list a blob's versions using one of the Blob Storage SDKs.
