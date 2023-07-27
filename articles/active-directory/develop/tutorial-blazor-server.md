@@ -61,7 +61,7 @@ This tool will automate the following tasks for you:
 
 > .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools)
 
-> For more information on user secrets storage please visit: [https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
+> For more information on user secrets storage please visit: [https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows](https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
 
 ## Use the Microsoft Identity App Sync Tool
 
