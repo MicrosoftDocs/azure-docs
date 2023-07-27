@@ -62,7 +62,7 @@ Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.Storage
 
 1. On the navigation panel, choose **Containers**.
 
-1. On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *imageanalysis*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only**.  Then select **Create**.
+1. On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *imageanalysis*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only)**.  Then select **Create**.
 
     :::image type="content" source="./media/blob-upload-storage-function/portal-container-create-small.png" alt-text="A screenshot showing how to create a new storage container." lightbox="media/blob-upload-storage-function/portal-container-create.png":::
 

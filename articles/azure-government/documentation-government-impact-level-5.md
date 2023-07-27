@@ -80,7 +80,7 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 ### [Azure AI services: Custom Vision](../ai-services/custom-vision-service/index.yml)
 
-- Configure encryption at rest of content in Azure AI services Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-face'></a>
 
@@ -100,7 +100,7 @@ Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-serv
 
 ### [Azure AI services: Personalizer](../ai-services/personalizer/index.yml)
 
-- Configure encryption at rest of content in Azure AI services Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-qna-maker'></a>
 
