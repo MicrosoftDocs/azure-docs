@@ -7,6 +7,7 @@ keywords: Azure AI services, cognitive
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 7/18/2023
 ms.author: eur
