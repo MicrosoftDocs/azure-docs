@@ -31,9 +31,9 @@ Support for Zone to Zone disaster recovery is currently limited to the following
 | Central US | North Europe | UAE North | | Japan East |
 | South Central US | Germany West Central | | | Korea Central |
 | East US | Norway East | | | Australia East |
-| East US 2 | France Central | | | India Central |
+| East US 2 | France Central | | | Central India |
 | West US 2 | Switzerland North | | | China North 3 |
-| West US 3 | Sweden Central (Managed Access) | | | Central India |
+| West US 3 | Sweden Central (Managed Access) | | |  |
 | Brazil South | Poland Central | | | East Asia |
 | | Italy North | | | |
  
