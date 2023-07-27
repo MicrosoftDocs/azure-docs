@@ -47,11 +47,17 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
 2. Mount the image. (Mounting is done using the script mount_vhd.sh)
 
+    This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
+
+    Copy the contents of the script shown below, to create a mount_vhd.sh file.
+
     Command to run : ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
 
-    For example: ./mount_vhd.sh Ubuntu_20.04.vhd
+    For example:
+    ```
+    ./mount_vhd.sh Ubuntu_20.04.vhd
+    ```
 
-    This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
     The mount_vhd.sh script performs the following operations to mount the vhd as shown,
     ```
     #!/bin/bash
@@ -73,9 +79,6 @@ Steps to create a generalized image which removes the sudo users are as follows,
             echo "Partition $part skipped"
         fi
     done
-    ```
-    ```
-    ./mount_vhd.sh Ubuntu_20.04.vhd
     ```
 
 3. Chroot into the vhd filesystem to run the following command, which enumerates the list of users under the sudo group.
