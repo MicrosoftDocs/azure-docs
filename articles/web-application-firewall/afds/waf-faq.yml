@@ -88,7 +88,7 @@ sections:
       - question: |
           Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
         answer: |
-          You might not see requests immediately blocked by the rate limit when requests are processed by different Front Door servers. For more information, see [Rate limiting and Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-front-door-servers).
+          You might not see requests immediately blocked by the rate limit when requests are processed by different Front Door servers. For more information, see [Rate limiting and Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-azure-front-door-servers).
 
       - question: |
           What content types does WAF support?

@@ -26,9 +26,11 @@ The following quickstart uses a ASP.NET Core web API code sample to demonstrate 
 
 ## Step 1: Register the application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 First, register the web API in your Azure AD tenant and add a scope by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

@@ -4,7 +4,7 @@ description: Learn how to create a Java function from the command line, then pub
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B

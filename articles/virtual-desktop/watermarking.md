@@ -17,7 +17,7 @@ Here's a screenshot showing what watermarking looks like when it's enabled:
 > [!IMPORTANT]
 > - Once watermarking is enabled on a session host, only clients that support watermarking can connect to that session host. If you try to connect from an unsupported client, the connection will fail and you'll get an error message that is not specific.
 >
-> - Watermarking is for remote desktops only. With remote apps, watermarking is not applied and the connection is allowed.
+> - Watermarking is for remote desktops only. With RemoteApp, watermarking is not applied and the connection is allowed.
 >
 > - If you connect to a session host directly (not through Azure Virtual Desktop) using the Remote Desktop Connection app (`mstsc.exe`), watermarking is not applied and the connection is allowed.
 
@@ -33,11 +33,11 @@ You'll need the following things before you can use watermarking:
 
 ## Enable watermarking
 
-To enable watermarking, follow the steps below:
+To enable watermarking:
 
-1. Follow the steps to download and add the [Administrative template for Azure Virtual Desktop](administrative-template.md).
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available.
 
-1. Once you've verified that the Azure Virtual Desktop administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
+1. Once you've verified that the administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
 
 1. You can configure the following options:
 
@@ -53,7 +53,7 @@ To enable watermarking, follow the steps below:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session, where you should see QR codes appear. For any changes you make to the policy and apply to the session host, you'll need to disconnect and reconnect to your remote session to see the difference.
+1. Connect to a remote session with a supported client, where you should see QR codes appear. Any existing sessions will need to sign out and back in again for the change to take effect.
 
 ## Find session information
 

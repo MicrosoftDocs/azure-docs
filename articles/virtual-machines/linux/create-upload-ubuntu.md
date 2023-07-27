@@ -3,12 +3,12 @@ title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
 author: srijang
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
-
 ---
 # Prepare an Ubuntu virtual machine for Azure
 
@@ -187,7 +187,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     1. Change directory to the boot EFI directory:
     
        ```bash
-        sudo cd /boot/efi/EFI
+        cd /boot/efi/EFI
        ```
 
     2. Copy the ubuntu directory to a new directory named boot:
@@ -199,7 +199,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     3. Change directory to the newly created boot directory:
 
        ```bash
-        sudo cd boot
+       cd boot
        ```
 	
     4. Rename the shimx64.efi file:
