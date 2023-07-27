@@ -115,7 +115,7 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 var worker = await routerClient.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         Labels = { ["Some-Skill"] = new LabelValue(11) },
         ChannelConfigurations = { ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1) },
         AvailableForOffers = true

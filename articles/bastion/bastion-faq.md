@@ -96,6 +96,10 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
+### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
+
+No, custom domains are not supported with Bastion shareable links. Users will receive a certificate error upon trying to add specific domains in the CN/SAN of the Bastion host certificate.
+
 ## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?

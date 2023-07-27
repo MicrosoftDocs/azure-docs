@@ -31,9 +31,9 @@ To delete an enterprise application, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - An [enterprise application added to your tenant](add-application-portal.md)
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Delete an enterprise application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 

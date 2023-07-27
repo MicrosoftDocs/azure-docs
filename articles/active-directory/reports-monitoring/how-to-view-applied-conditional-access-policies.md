@@ -87,6 +87,8 @@ The Azure AD Graph PowerShell module doesn't support viewing applied Conditional
 
 ## View Conditional Access policies in Azure AD sign-in logs
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The activity details of sign-in logs contain several tabs. The **Conditional Access** tab lists the Conditional Access policies applied to that sign-in event. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the Security Reader role.
