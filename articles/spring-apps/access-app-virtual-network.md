@@ -1,6 +1,6 @@
 ---
-title: Access your application in a private network
-description: Access an app in Azure Spring Apps in a virtual network.
+title: Access an app in Azure Spring Apps in a virtual network
+description: Shows how to access an app in Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 ms.devlang: azurecli
 ---
 
-# Access your application in a private network
+# Access an app in Azure Spring Apps in a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When **Assign Endpoint** on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Find the IP for your application
 
