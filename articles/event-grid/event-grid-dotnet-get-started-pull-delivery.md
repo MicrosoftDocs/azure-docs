@@ -5,11 +5,11 @@ ms.topic: quickstart
 ms.author: sonalikaroy
 author: sonalika-roy
 ms.custom: references_regions
-ms.date: 05/30/2023
+ms.date: 07/26/2023
 ---
 
 
-# Quickstart: Send and receive messages from an Azure Event Grid Namespace Topic (.NET) - (Public Preview)
+# Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET) - (Preview)
 
 In this quickstart, you'll do the following steps:
 
@@ -53,7 +53,7 @@ If you're new to the service, see [Event Grid overview](overview.md) before you 
 
 ## Launch Visual Studio
 
-You can authorize access to the event grid namespace using the following steps:
+You can authorize access to the Event Grid namespace using the following steps:
 
 Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 
@@ -71,15 +71,13 @@ This section shows you how to create a .NET console application to send messages
     1. Select **Console App** from the results list.
     1. Then, select **Next**.
 
-        :::image type="content" source="./media/event-grid-dotnet-get-started-with-events/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
+        :::image type="content" source="./media/event-grid-dotnet-get-started-events/new-send-project.png" alt-text="Screenshot showing the Create a new project dialog box with C# and Console selected.":::
 3. Enter **EventSender** for the project name, **EventGridQuickStart** for the solution name, and then select **Next**.
 
-    :::image type="content" source="./media/event-grid-dotnet-get-started-with-events/EventSender.png" alt-text="Image showing the solution and project names in the Configure your new project dialog box ":::
+    :::image type="content" source="./media/event-grid-dotnet-get-started-events/event-sender.png" alt-text="Screenshot showing the solution and project names in the Configure your new project dialog box.":::
 4. On the **Additional information** page, select **Create** to create the solution and the project.
 
 ### Add the NuGet packages to the project
-
-### [Connection String](#tab/connection-string)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 2. Run the following command to install the **Azure.Messaging.EventGrid** NuGet package:
@@ -94,10 +92,6 @@ This section shows you how to create a .NET console application to send messages
 ## Add code to send event to the namespace topic
 
 1. Replace the contents of `Program.cs` with the following code. The important steps are outlined below, with additional information in the code comments.
-
-
-    ### [Connection string](#tab/connection-string)
-
 
     > [!IMPORTANT]
     > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>` and `<TOPIC-KEY>`) in the code snippet with names of your topic endpoint , topic name and topic key.
@@ -151,17 +145,16 @@ This section shows you how to create a .NET console application to send messages
     > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
 4. In the Azure portal, follow these steps:
-    1. Navigate to your EventGrid namespace.
+    1. Navigate to your Event Grid namespace.
     1. On the **Overview** page, select the queue in the middle pane.
 
-        :::image type="content" source="./media/event-grid-dotnet-get-started-with-events/event-grid-namespace-metrics.png" alt-text="Image showing the Event Grid Namespace page in the Azure portal." lightbox="./media/event-grid-dotnet-get-started-with-events/event-grid-namespace-metrics.png":::
+        :::image type="content" source="./media/event-grid-dotnet-get-started-events/event-grid-namespace-metrics.png" alt-text="Screenshot showing the Event Grid Namespace page in the Azure portal." lightbox="./media/event-grid-dotnet-get-started-events/event-grid-namespace-metrics.png":::
 
    
 
-## Pull messages from the Topic
+## Pull messages from the topic
 
 In this section, you create a .NET console application that receives messages from the topic.
-
 
 ### Create a project to receive the published CloudEvents
 
@@ -172,8 +165,6 @@ In this section, you create a .NET console application that receives messages fr
 
 ### Add the NuGet packages to the project
 
-### [Connection String](#tab/connection-string)
-
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.EventGrid** NuGet package:
 
@@ -181,7 +172,7 @@ In this section, you create a .NET console application that receives messages fr
     Install-Package Azure.Messaging.EventGrid -Version 4.17.0-beta.1
     ```
 
-    :::image type="content" source="./media/event-grid-dotnet-get-started-with-events/install-eventgrid-package.png" alt-text="Screenshot showing EventReceiver project selected in the Package Manager Console.":::
+    :::image type="content" source="./media/event-grid-dotnet-get-started-events/install-eventgrid-package.png" alt-text="Screenshot showing EventReceiver project selected in the Package Manager Console.":::
 
 
 ---
@@ -192,9 +183,6 @@ In this section, you create a .NET console application that receives messages fr
 In this section, you add code to retrieve messages from the queue.
 
 1. Within the `Program` class, add the following code:
-
-
-    ### [Connection string](#tab/connection-string)
     
     ```csharp
     using System.Threading.Tasks;
@@ -320,4 +308,4 @@ In this section, you add code to retrieve messages from the queue.
 
 ## Clean up resources
 
-Navigate to your Event Grid namespace in the Azure portal, and select **Delete** on the Azure portal to delete the event grid namespace and the topic in it.
+Navigate to your Event Grid namespace in the Azure portal, and select **Delete** on the Azure portal to delete the Event Grid namespace and the topic in it.

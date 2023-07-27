@@ -5,7 +5,7 @@ services: eventgrid
 author: sonalika-roy
 ms.service: eventgrid
 ms.topic: include
-ms.date: 05/30/2023
+ms.date: 07/26/2023
 ms.author: sonalikaroy
 ms.custom: include file
 ---
@@ -16,8 +16,7 @@ This quick start shows you two ways of connecting to Azure Event Grid: **connect
 
 This document shows you how to use a connection string to connect to an Event Grid namespace. If you're new to Azure, you may find the connection string option easier to follow. 
 
-## [Connection String](#tab/connection-string)
-Creating a new event grid namespace automatically generates an initial primary and secondary key that each grant full control over all aspects of the namespace or topics. 
+Creating a new Event Grid namespace automatically generates an initial primary and secondary key that each grant full control over all aspects of the namespace or topics. 
 
 A client can use the connection string to connect to the Event Grid namespace. To copy the access keys for your namespace topic, follow these steps: 
 

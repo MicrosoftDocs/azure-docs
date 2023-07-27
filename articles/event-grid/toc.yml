@@ -121,7 +121,7 @@ items:
       - name: Send and pull messages
         items:
         - name: .NET
-          href: event-grid-dotnet-get-started-with-pull-delivery.md
+          href: event-grid-dotnet-get-started-pull-delivery.md
     - name: How-to 
       items:
       - name: Create, view, and manage namespaces
