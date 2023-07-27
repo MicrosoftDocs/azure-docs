@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 07/27/2023
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -27,14 +27,14 @@ Support for Zone to Zone disaster recovery is currently limited to the following
 | **Americas** | Europe | Middle East | Africa | APAC |
 |--------|--------------|-------------|--------|--------------|
 | Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
-| US Gov Virginia | West Europe | Israel Central | | East Asia |
+| US Gov Virginia | West Europe | | | East Asia |
 | Central US | North Europe | UAE North | | Japan East |
 | South Central US | Germany West Central | | | Korea Central |
 | East US | Norway East | | | Australia East |
 | East US 2 | France Central | | | Central India |
 | West US 2 | Switzerland North | | | China North 3 |
 | West US 3 | Sweden Central (Managed Access) | | |  |
-| Brazil South | Poland Central | | | East Asia |
+| Brazil South | Poland Central | | | |
 | | Italy North | | | |
  
 Site Recovery does not move or store customer data out of the region in which it's deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
