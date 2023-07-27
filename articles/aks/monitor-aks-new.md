@@ -54,6 +54,14 @@ See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings
 
 :::image type="content" source="media/monitor-aks/diagnostic-setting-categories.png" alt-text="Screenshot of AKS diagnostic setting dialog box." lightbox="media/monitor-aks/diagnostic-setting-categories.png":::
 
+AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode) or [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific) for resource logs. This specifies the tables in the Log Analytics workspace where the data is sent. Azure diagnostics mode sends all data to the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics), while resource-specific mode sends data to [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit), [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin), and [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane) as shown in the table at [Resource logs](monitor-aks-reference.md#resource-logs).
+
+Resource-specific mode is recommended for AKS for the following reasons:
+
+- Data is easier to query because it's in individual tables dedicated to AKS.
+- Supports configuration as [basic logs](../azure-monitor/logs/basic-logs-configure.md) for significant cost savings.
+
+For more details on the difference between collection modes including how to change an existing setting, see [Select the collection mode](../azure-monitor/essentials/resource-logs.md#select-the-collection-mode).
 
 ## Integrations
 The following Azure services and features of Azure Monitor can be used for additional monitoring of your Kubernetes clusters. You can enable these features when you create your AKS cluster (on the Integrations tab when creating the cluster in the Azure portal), or onboard your cluster to them later. Each of these features may include additional cost, so refer to the pricing information for each before you enabled them.
@@ -73,7 +81,15 @@ The following Azure services and features of Azure Monitor can be used for addit
 > When you select **Logs** from the menu for an AKS cluster, Log Analytics is opened with the query scope set to the current cluster. This means that log queries will only include data from that resource. If you want to run a query that includes data from other clusters or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 
-The resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
+
+If the [diagnostic setting for your cluster](#resource-logs) uses resource-specific mode, the resource logs are stored in the [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit), [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin), and [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane) tables. 
+
+| Description | Log query |
+|:---|:---|
+|  |  |
+|  |  |
+
+If the [diagnostic setting for your cluster](#resource-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
 
 | Description | Log query |
 |:---|:---|
