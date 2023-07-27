@@ -177,7 +177,7 @@ Devices: This tenant contains a reduced number of devices; only those that are n
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
+* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

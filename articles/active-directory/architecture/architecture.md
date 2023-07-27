@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # What is the Azure Active Directory architecture?
 
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](active-directory-whatis.md)
+Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 
-With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](active-directory-whatis.md).
+With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](../fundamentals/active-directory-whatis.md).
 
 ## Azure AD architecture
 
@@ -39,7 +39,7 @@ The most common way to build an accessible and usable, data-rich system is throu
 
 The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed datacenters.
 
-  ![Single-directory partition diagram](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Single-directory partition diagram](./media/architecture/active-directory-architecture.png)
 
 The components of Azure AD architecture include a primary replica and secondary replicas.
 

@@ -341,7 +341,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 - [What is Azure Active Directory B2B collaboration?](../external-identities/what-is-b2b.md)
 - [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md)
 - [Apps, permissions, and consent in Azure Active Directory.](../develop/quickstart-register-app.md)
-- [Use groups to manage access to resources in Azure Active Directory](./active-directory-manage-groups.md)
+- [Use groups to manage access to resources in Azure Active Directory](../fundamentals/concept-learn-about-groups.md)
 - [Setting up self-service application access management in Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### Traffic from unexpected locations

@@ -94,7 +94,7 @@ The following list describes features and services for productivity gains in hyb
   * See, [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
 * **Azure AD B2B collaboration** - Improve external-user collaboration with secure access to applications: 
   * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
-  * See, [Plan an Azure Active Directory B2B collaboration deployment](../fundamentals/secure-external-access-resources.md)
+  * See, [Plan an Azure Active Directory B2B collaboration deployment](secure-external-access-resources.md)
 
 ## Identity Governance and reporting
 

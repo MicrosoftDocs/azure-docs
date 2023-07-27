@@ -56,7 +56,7 @@ If you can’t use connected organizations in entitlement management, create an 
 Learn more: 
 
 * [What is entitlement management?](../governance/entitlement-management-overview.md)
-* [Manage Azure Active Directory groups and group membership](how-to-manage-groups.md)
+* [Manage Azure Active Directory groups and group membership](../fundamentals/how-to-manage-groups.md)
 * [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
 
 ### Conditional Access policy creation
@@ -101,7 +101,7 @@ Learn more: [Manage emergency access accounts in Azure AD](../roles/security-eme
 
 There are scenarios when it's necessary to allow access for a small, specific group. 
 
-Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](active-directory-groups-view-azure-portal.md).
+Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](../fundamentals/groups-view-azure-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

@@ -336,7 +336,7 @@ For this isolated model, it's assumed that there's no connectivity to the VNet t
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
+* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
 
 * [Resource isolation in a single tenant](secure-single-tenant.md)
 

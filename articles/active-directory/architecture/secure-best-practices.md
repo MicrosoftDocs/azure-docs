@@ -497,7 +497,7 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
+* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 
