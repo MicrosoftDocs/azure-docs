@@ -124,16 +124,16 @@ Deploying a private endpoint for an Elastic SAN Volume group using PowerShell in
 1. Create the private endpoint using the subnet and the private link service connection as input.
 1. **(Optional** *if you are using the two-step process (creation then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Uncomment the `-ByManualRequest` parameter if you are using the two-step process and replace all placeholder text with your own values:
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Uncomment the `-ByManualRequest` parameter if you are using the two-step process. Replace all placeholder text with your own values:
 
 | Placeholder                     | Description |
 |---------------------------------|-------------|
-| `<VnetResourceGroupName>`       | The name of the resource group your virtual network belongs to. |
-| `<VnetName>`                    | The name of your virtual network. |
-| `<SubnetName>`                  | The name of your subnet. |
+| `<SubnetName>`                  | The name of the subnet from which access to the volume group will be allowed. |
+| `<VnetName>`                    | The name of the virtual network that includes the subnet. |
+| `<VnetResourceGroupName>`       | The name of the resource group the virtual network belongs to. |
+| `<ElasticSanVolumeGroupName>`   | The name of your Elastic SAN Volume Group to which a connection is to be created. |
+| `<ElasticSanName>`              | The name of your Elastic SAN that the volume group belongs to. |
 | `<ElasticSanResourceGroupName>` | The name of the resource group your Elastic SAN belongs to. |
-| `<ElasticSanName>`              | The name of your Elastic SAN. |
-| `<ElasticSanVolumeGroupName>`   | The name of your Elastic SAN Volume Group. |
 
 ```powershell
 # Get the virtual network and subnet. The subnet is input to creating the private endpoint.
