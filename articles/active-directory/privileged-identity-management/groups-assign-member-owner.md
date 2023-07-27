@@ -36,7 +36,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
 
@@ -79,7 +79,7 @@ Follow these steps to update or remove an existing role assignment. You will nee
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with appropriate role permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with appropriate role permissions.
 
 1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
 
@@ -99,4 +99,3 @@ Follow these steps to update or remove an existing role assignment. You will nee
 
 - [Activate your group membership or ownership in Privileged Identity Management](groups-activate-roles.md)
 - [Approve activation requests for group members and owners](groups-approval-workflow.md)
-

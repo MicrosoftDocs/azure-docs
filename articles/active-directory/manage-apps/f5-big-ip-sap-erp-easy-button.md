@@ -21,7 +21,7 @@ In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD)
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) 
 * [What is Conditional Access?](../conditional-access/overview.md)
 * Single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from the [Azure portal](https://portal.azure.com)
 
 Learn more: 
 
@@ -84,13 +84,15 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it. 
 
 See, [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Register the Easy Button client in Azure AD, then it's allowed to establish a trust between SAML SP instances of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
 2. In the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a **Name**. 
