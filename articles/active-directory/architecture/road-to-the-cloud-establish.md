@@ -11,7 +11,6 @@ ms.date: 06/14/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---
-
 # Establish an Azure AD footprint
 
 Before you migrate identity and access management (IAM) from Active Directory to Azure Active Directory (Azure AD), you need to set up Azure AD.
@@ -47,10 +46,7 @@ To learn more, check [Plan your hybrid Azure Active Directory join implementatio
 
 ## Next steps
 
-[Introduction](road-to-the-cloud-introduction.md)
-
-[Cloud transformation posture](road-to-the-cloud-posture.md)
-
-[Implement a cloud-first approach](road-to-the-cloud-implement.md)
-
-[Transition to the cloud](road-to-the-cloud-migrate.md)
+* [Introduction](road-to-the-cloud-introduction.md)
+* [Cloud transformation posture](road-to-the-cloud-posture.md)
+* [Implement a cloud-first approach](road-to-the-cloud-implement.md)
+* [Transition to the cloud](road-to-the-cloud-migrate.md)
