@@ -33,7 +33,7 @@ Updates in July include:
 | July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
 
-### Agentless container posture in Defender CSPM is now Generally Available (GA)
+### Agentless container posture in Defender CSPM is now Generally Available
 
 **July 30, 2023**
 
