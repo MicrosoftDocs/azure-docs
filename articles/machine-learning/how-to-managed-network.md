@@ -41,24 +41,15 @@ The managed virtual network is preconfigured with [required default rules](#list
 
 ## Supported scenarios
 
-|Scenarios|Supported|To be supported|
-|---|---|---|
-|Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound||
-|Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
-|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag|&#x2022; FQDN| 
+|Scenarios|Supported|
+|---|---|
+|Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound|
+|Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)<br>&#x2022; New managed online endpoint creation<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless |
+|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag<br>&#x2022; FQDN | 
 
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
-
-> [!IMPORTANT]
-> To use the information in this article, you must enable this preview feature for your subscription. To check whether it has been registered, or to register it, use the steps in the [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features). Depending on whether you use the Azure portal, Azure CLI, or Azure PowerShell, you may need to register the feature with a different name. Use the following table to determine the name of the feature to register:
->
-> | Registration method | Feature name |
-> | ----- | ----- |
-> | Azure portal | `Azure Machine Learning Managed Network` |
-> | Azure CLI | `AMLManagedNetworkEnabled` |
-> | Azure PowerShell | `AMLManagedNetworkEnabled` |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -120,7 +111,7 @@ Before following the steps in this article, make sure you have the following pre
 ## Configure a managed virtual network to allow internet outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. [Manually start provisioning if you plan to submit serverless spark jobs](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -303,7 +294,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 ## Configure a managed virtual network to allow only approved outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. [Manually start provisioning if you plan to submit serverless spark jobs](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -542,7 +533,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 ## Configure for serverless spark jobs
 
 > [!TIP]
-> The steps in this section are only needed for __Spark serverless__. If you are using [serverless __compute cluster__](how-to-use-serverless-compute.md), you can skip this section.
+> The steps in this section are only needed if you plan to submit __serverless spark jobs__. If you aren't going to be submitting serverless spark jobs, you can skip this section.
 
 To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
@@ -737,6 +728,7 @@ Currently we don't have any recommended outbound rules.
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed network will be deleted and cleaned up when the workspace is deleted. 
+* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, we cannot guarantee that you are protected from data exfiltration.
 
 ## Next steps
 
