@@ -31,11 +31,11 @@ To explore how Azure App Service can bolster the resiliency of your application 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [ASP-1 - Deploy App service with availability zone support](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-|[**Resiliency**](#resiliency)|:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-2 -Use an App Service plan that supports availability zones](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
-||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-4 - Create separate App Service plans for production and test](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
-|[**Scalability**](#scalability)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-3 - Avoid frequently scaling up or down](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
-||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
+| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [ASP-1 - Deploy App service with availability zone support](#asp-1---deploy-app-service-with-availability-zone-support) |
+|[**Resiliency**](#resiliency)|:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-2 -Use an App Service plan that supports availability zones](#asp-2--use-an-app-service-plan-that-supports-availability-zoness) | 
+||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-4 - Create separate App Service plans for production and test](#asp-4---create-separate-app-service-plans-for-production-and-test) | 
+|[**Scalability**](#scalability)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-3 - Avoid frequently scaling up or down](#asp-3---avoid-frequently-scaling-up-or-down) | 
+||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#asp-5---enable-autoscaleautomatic-scaling-to-ensure-that-adequate-resources-are-available-to-service-requests) | 
 
 
 ### High availability
@@ -54,7 +54,7 @@ By distributing your applications across multiple availability zones, you can en
 
 ### Resiliency
  
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-2 -Use an App Service plan that supports availability zones* 
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-2 -Use an App Service plan that supports availability zones**
 
 Availability zone support is only available on certain App Service plans. To see which plan you need in order to use availability zones, see [Availability zone prerequisites](#prerequisites).
 
@@ -68,27 +68,17 @@ Availability zone support is only available on certain App Service plans. To see
 
 To enhance the resiliency and reliability of your business-critical workloads, you should migrate your existing App Service plans and App Service Environments to availability zone support. By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
 
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app service plan/code/asp-4/asp-4.kql":::
-
-----
 
 ### Scalability
  
-#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: *ASP-3 - Avoid frequently scaling up or down** 
+#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **ASP-3 - Avoid frequently scaling up or down** 
 
 It's recommended that you avoid frequently scaling up or down your Azure App Service instances. Instead, choose an appropriate tier and instance size that can handle your typical workload, and scale out the instances to accommodate changes in traffic volume. Scaling up or down can potentially trigger an application restart, which may result in service disruptions.
 
-# [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app service plan/code/asp-3/asp-3.kql":::
+#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **ASP-5 - Enable Autoscale/Automatic scaling to ensure that adequate resources are available to service requests** 
 
-----
-
-#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: *ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests** 
-
-To enhance the resiliency and reliability of your business-critical workloads, you should migrate your existing App Service plans and App Service Environments to availability zone support. By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
+It's recommended that you enable autoscale/automatic scaling for your Azure App Service to ensure that sufficient resources are available to handle incoming requests. Autoscaling is rule based scaling, while automatic scaling performs automatic in and out scaling based on HTTP traffic. For more information see, [automatic scaling in Azure App Service](/azure/app-service/manage-automatic-scaling) or [get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 # [Azure Resource Graph](#tab/graph)
 
