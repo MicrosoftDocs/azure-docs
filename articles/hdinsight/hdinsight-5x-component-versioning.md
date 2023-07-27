@@ -38,6 +38,9 @@ The following table lists the versions of open-source components that are associ
 
 ** Preview
 
+> [!NOTE]
+> Sqoop and Ping services are discontinued from HDInsight 5.1.
+
 ### Spark versions supported in Azure HDInsight
 
 Azure HDInsight supports the following Apache Spark versions.
