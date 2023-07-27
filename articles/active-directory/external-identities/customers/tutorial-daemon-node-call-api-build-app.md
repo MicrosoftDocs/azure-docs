@@ -42,7 +42,7 @@ Create a folder to host your Node.js daemon application, such as `ciam-call-api-
 
 1. In your terminal, change directory into your Node daemon app folder, such as `cd ciam-call-api-node-daemon`, then run `npm init -y`. This command creates a default package.json file for your Node.js project. This command creates a default `package.json` file for your Node.js project.
 
-1. Create more folders and files to achieve the following project structure:
+1. Create additional folders and files to achieve the following project structure:
 
     ```
         ciam-call-api-node-daemon/

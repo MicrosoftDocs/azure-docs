@@ -84,8 +84,6 @@ In your *authConfig.js* file, replace:
 
 If you use the *.env* file to store your configuration information:
 
-1. In your project folder such as `ciam-sign-in-node-express-web-app`, create a *.env* file. 
-
 1. In your code editor, open *.env* file, then add the following code. 
 
     ```
