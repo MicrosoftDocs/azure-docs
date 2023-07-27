@@ -172,28 +172,8 @@ ml_client.data.import_data(data_import=data_import)
      - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
      - **Tags**: the selected schedule tags.
 
-   - **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
-
-      `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
-
-     - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
-     - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
-     - The next table lists the valid values for each field:
- 
-        | Field          |   Range  | Comment                                                   |
-        |----------------|----------|-----------------------------------------------------------|
-        | `MINUTES`      |    0-59  | -                                                         |
-        | `HOURS`        |    0-23  | -                                                         |
-        | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
-        | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
-        | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
-
-     - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
-
-    > [!IMPORTANT]
-    > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
-
-   - (Optional) `start` specifies the start date and time with the timezone of the schedule. If `start` is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+   > [!NOTE]
+   > `start` specifies the start date and time with the timezone of the schedule. If `start` is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
 
    The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
 
@@ -206,34 +186,36 @@ ml_client.data.import_data(data_import=data_import)
    - **Name**: the unique identifier of the schedule within the workspace.
    - **Description**: the schedule description.
    - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
-     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-     - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
-     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
-     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
-     - **Tags**: the selected schedule tags.
+      - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
+      - **Recurrence** or **Cron expression**: select cron expression to specify the cron details.
 
-   - **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
+      - **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
 
-      `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
+         `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
 
-     - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
-     - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
-     - The next table lists the valid values for each field:
+         - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
+         - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
+         - The next table lists the valid values for each field:
  
-        | Field          |   Range  | Comment                                                   |
-        |----------------|----------|-----------------------------------------------------------|
-        | `MINUTES`      |    0-59  | -                                                         |
-        | `HOURS`        |    0-23  | -                                                         |
-        | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
-        | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
-        | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
+            | Field          |   Range  | Comment                                                   |
+            |----------------|----------|-----------------------------------------------------------|
+            | `MINUTES`      |    0-59  | -                                                         |
+            | `HOURS`        |    0-23  | -                                                         |
+            | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
+            | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
+            | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
 
-     - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+      - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
 
-    > [!IMPORTANT]
-    > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
+      > [!IMPORTANT]
+      > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
 
-   - (Optional) `start` specifies the start date and time with the timezone of the schedule. If `start` is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+      - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
+      - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
+      - **Tags**: the selected schedule tags.
+
+   > [!NOTE]
+   > `start` specifies the start date and time with the timezone of the schedule. If `start` is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
 
    The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
 
