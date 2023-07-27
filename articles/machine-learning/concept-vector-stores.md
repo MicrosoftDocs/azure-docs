@@ -23,7 +23,7 @@ Azure Machine Learning supports two types of vector stores that contain your sup
 
 + [Faiss](https://github.com/facebookresearch/faiss) is an open source library that provides a local file-based store. The vector index is stored in the storage account of your Azure Machine Learning workspace. Since it's stored locally, the costs are minimal making it ideal for development and testing.
 
-+ [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. The index is stored in your search service. A prompt flow can create, populate, and query your index on Cognitive Search.
++ [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. Vectors are stored in fields in an search index in your search service. A prompt flow can create, populate, and query your vector data on Cognitive Search.
 
 ## Choose a vector store
 
@@ -32,17 +32,22 @@ You can use either store in prompt flow, so which one should you use?
 **Faiss** is an open source library that you download and use a component of your solution. This library might be the best place to start if you have vector-only data. Some key points about working with Faiss:
 
 + Local storage, with no costs for creating an index (only storage cost).
+
 + You can build and query an index in memory.
+
 + You can share copies for individual use. If you want to host the index for an application, you need to set that up.
+
 + Faiss scales with underlying compute loading index.
 
-**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search scenarios. Indexes contain only the data you provide and can be queried and used in a RAG pattern. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
+**Azure Cognitive Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of search indexes for vector search and full text search. Indexes contain only the data you provide and can be queried and used in a RAG pattern. If you have enterprise level business requirements, hosting your vector data on Azure might be the best choice. Some key points about vector support in Cognitive Search:
 
 + [Vector capabilities](/azure/search/vector-search-overview) in Azure Cognitive Search are in public preview.
-+ Vectors must be generated externally from Cognitive Search and then passed to a search index. The prompt flow can help with this step.
-+ Vector data can coexist with nonvector data in the same search index, which means you can use all of the [features of Azure Cognitive Search](/azure/search/search-features-list) for hosting, indexing, and queries.
 
-To use Cognitive Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists, you can choose it as a vector index. Because this approach is all-Azure, there's deep integration between Azure Machine Learning and Cognitive Search. The prompt flow creates the index, generates vectors from your source data, stores the vectors in the index on Cognitive Search, invokes similarity search on Cognitive Search, and returns the response.
++ Vectors must be generated externally from Cognitive Search and then passed to a search index. The prompt flow can help with this step.
+
++ Vector data can coexist with nonvector data in the same search index, which means you can use any of the [features of Azure Cognitive Search](/azure/search/search-features-list) for hosting, indexing, and queries.
+
+To use Cognitive Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists and you've granted access to developers, you can choose **Azure Cognitive Search** as a vector index in prompt flow. The prompt flow creates the index on Cognitive Search, generates vectors from your source data, sends the vectors to the index, invokes similarity search on Cognitive Search, and returns the response.
 
 <!-- | Pros	| Cons |
 | ----------- | ----------- |
