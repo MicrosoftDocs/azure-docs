@@ -98,9 +98,15 @@ With the data sample captured, multiply accordingly to find out how large the fi
 
 ### Estimate the daily cost
 
-To get an idea of how much a log integration could cost for your organization, you can enable an integration for a day or two. With the new cost incurred from those sample days, you can then use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs. Use this option if your budget allows for the temporary increase. 
+To get an idea of how much a log integration could cost for your organization, you can enable an integration for a day or two. Use this option if your budget allows for the temporary increase.
 
-To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. 
+To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. If possible, create a new resource group for the logs and endpoint you want to try out. Having a devoted resource group makes it easy to view the cost analysis and then delete it when you're done.
+
+With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](../../cost-management-billing/costs/quick-acm-cost-analysis.md) should help you get started.
+
+![Screenshot of a cost analysis breakdown as a pie chart.](media/concept-activity-logs-azure-monitor/cost-analysis-breakdown.png)
+
+Make sure you're using your new resource group as the scope. Explore the daily costs and forecasts to get an idea of how much your log integration could cost.
 
 ## Calculate estimated costs
 
