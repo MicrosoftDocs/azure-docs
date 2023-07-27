@@ -56,7 +56,7 @@ If you've already registered a web application in the Microsoft Entra admin cent
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Record your app registration details 
+## Collect your app registration details 
 
 Make sure you record the following details for use is later steps:
 
