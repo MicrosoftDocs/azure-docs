@@ -108,42 +108,48 @@ items:
       href: firewall-multi-hub-spoke.md
 - name: How-to guides
   items:
-    - name: Deploy and configure - classic
-      href: tutorial-firewall-deploy-portal.md
-    - name: Deploy in hybrid network - classic
-      href: tutorial-hybrid-portal.md
-    - name: Deploy Firewall Basic
-      href: deploy-firewall-basic-portal-policy.md
-    - name: Filter inbound traffic with DNAT - classic
-      href: tutorial-firewall-dnat.md
-    - name: Deploy using Azure PowerShell
-      href: deploy-ps.md
-    - name: Deploy policy using Azure PowerShell
-      href: deploy-ps-policy.md
-    - name: Deploy in hybrid network - PowerShell
-      href: tutorial-hybrid-ps.md
-    - name: Deploy using Azure CLI
-      href: deploy-cli.md
-    - name: Deploy with multiple public IP
-      href: deploy-multi-public-ip-powershell.md
-    - name: Deploy with Availability Zones
-      href: deploy-availability-zone-powershell.md
-    - name: Integrate with load balancer
-      href: integrate-lb.md
-    - name: Application rules with SQL FQDNs
-      href: sql-fqdn-filtering.md
-    - name: SNAT private ranges
-      href: snat-private-range.md
-    - name: Create IP Groups
-      href: create-ip-group.md
+  - name: Deploy
+    items:
+     - name: Deploy and configure - classic
+       href: tutorial-firewall-deploy-portal.md
+     - name: Deploy in hybrid network - classic
+       href: tutorial-hybrid-portal.md
+     - name: Filter inbound traffic with DNAT - classic
+       href: tutorial-firewall-dnat.md
+     - name: Deploy Firewall Basic
+       href: deploy-firewall-basic-portal-policy.md
+     - name: Deploy using Azure PowerShell
+       href: deploy-ps.md
+     - name: Deploy policy using Azure PowerShell
+       href: deploy-ps-policy.md
+     - name: Deploy in hybrid network - PowerShell
+       href: tutorial-hybrid-ps.md
+     - name: Deploy using Azure CLI
+       href: deploy-cli.md
+     - name: Deploy with multiple public IP
+       href: deploy-multi-public-ip-powershell.md
+     - name: Deploy with Availability Zones
+       href: deploy-availability-zone-powershell.md
+     - name: Deploy and configure Firewall Premium
+       href: premium-deploy.md
+     - name: Deploy Enterprise CA Certificates for Premium
+       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Protect
+    items:
     - name: Protect Azure Virtual Desktop
       href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
     - name: Protect Office 365
       href: protect-office-365.md
-    - name: DNS settings
-      href: dns-settings.md
+  - name: Migrate
+    items:
+    - name: Migrate to Azure Firewall Premium
+      href: premium-migrate.md
+    - name: Migrate to Premium using Terraform
+      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Monitor
+    items:
     - name: Monitor diagnostic logs
       href: firewall-diagnostics.md
       displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
@@ -151,22 +157,24 @@ items:
       href: enable-top-ten-and-flow-trace.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
-    - name: Deploy and configure Firewall Premium
-      href: premium-deploy.md
-    - name: Deploy Enterprise CA Certificates for Premium
-      href: premium-deploy-certificates-enterprise-ca.md
-    - name: Migrate to Azure Firewall Premium
-      href: premium-migrate.md
-    - name: Migrate to Premium using Terraform
-      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-    - name: Scale Outbound SNAT Ports
-      href: integrate-with-nat-gateway.md
-    - name: Add or modify rules using PowerShell
-      href: deploy-rules-powershell.md
-    - name: Backup Azure Firewall
-      href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
-    - name: Connect to Azure Storage via SFTP
-      href: firewall-sftp.md
+  - name: Scale Outbound SNAT Ports
+    href: integrate-with-nat-gateway.md
+  - name: Add or modify rules using PowerShell
+    href: deploy-rules-powershell.md
+  - name: Backup Azure Firewall
+    href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
+  - name: Connect to Azure Storage via SFTP
+    href: firewall-sftp.md
+  - name: Integrate with load balancer
+    href: integrate-lb.md
+  - name: Application rules with SQL FQDNs
+    href: sql-fqdn-filtering.md
+  - name: SNAT private ranges
+    href: snat-private-range.md
+  - name: Create IP Groups
+    href: create-ip-group.md
+  - name: DNS settings
+    href: dns-settings.md
 - name: Reference
   items:
   - name: Azure CLI
