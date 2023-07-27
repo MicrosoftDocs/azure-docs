@@ -17,7 +17,7 @@ ms.custom: developer, devx-track-js
 
 # Tutorial: Prepare your customer tenant to sign in users in a Node.js web app
 
-This tutorial demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users in a Node.js web application. To prepare your tenant, you do the following tasks:
+This tutorial demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users in a Node.js web application.
 
 
 In this tutorial, you'll;
