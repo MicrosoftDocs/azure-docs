@@ -247,7 +247,7 @@ The following table describes the features available with the associated tools a
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 ::: moniker range="doc-intel-3.0.0"
-The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
+  The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
 
  Document Intelligence v3.0  introduces several new features and capabilities:
 

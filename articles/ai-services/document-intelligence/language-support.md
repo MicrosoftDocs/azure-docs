@@ -21,15 +21,19 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ## Language detection and extraction support
 
-The following tables provide links to language support reference by supported models.
+Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by model and feature.
 
-| Document Analysis models | Description |
+## Document Analysis models
+
+|Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-read.png" link="concept-read.md#supported-extracted-languages-and-locales"::: [**Read**](concept-read.md#supported-extracted-languages-and-locales)| Extract printed and handwritten text.    |
 |:::image type="icon" source="media/overview/icon-layout.png" link="concept-layout.md#supported-languages-and-locales"::: [**Layout**](concept-layout.md#supported-languages-and-locales)| Extract text and document structure.|
 | :::image type="icon" source="media/overview/icon-general-document.png" link="concept-general-document.md#supported-languages-and-locales"::: [**General document**](concept-general-document.md#supported-languages-and-locales) |  Extract text, structure, and key-value pairs.
 
- Prebuilt models | Description |
+## Prebuilt models
+
+Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-business-card.png" link="concept-business-card.md#supported-languages-and-locales"::: [**Business card**](concept-business-card.md#supported-languages-and-locales)| Extract business contact details.|
 |:::image type="icon" source="media/overview/icon-insurance-card.png" link="concept-insurance-card.md#supported-languages-and-locales"::: [**Health insurance**](concept-insurance-card.md#supported-languages-and-locales)| Extract health insurance details.|
@@ -38,7 +42,9 @@ The following tables provide links to language support reference by supported mo
 |:::image type="icon" source="media/overview/icon-receipt.png" link="concept-receipt.md#supported-languages-and-locales"::: [**Receipt**](concept-receipt.md#supported-languages-and-locales)| Extract sales transaction details.|
 |:::image type="icon" source="media/overview/icon-w2.png" link="concept-w2.md#supported-languages-and-locales":::  [**W-2 form**](concept-w2.md#supported-languages-and-locales)| Extract taxable compensation details.|
 
- Custom models | Description |
+## Custom models
+
+ Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-custom-template.png" link="concept-custom-template.md#supported-languages-and-locales"::: [**Custom template**](concept-custom-template.md#supported-languages-and-locales)|Extract data from static layouts.|
 |:::image type="icon" source="media/overview/icon-custom-neural.png" link="concept-custom-neural.md#supported-languages-and-locales"::: [**Custom neural**](concept-custom-neural.md#supported-languages-and-locales)|Extract data from mixed-type documents.|

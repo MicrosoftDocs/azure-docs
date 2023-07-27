@@ -345,11 +345,11 @@ The following table lists the supported languages for print text by the most rec
   |Sadri (Devanagari)|sck|
   |Samburu|saq|
   |Samoan (Latin)|sm|
+  |Sango|sg|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Sango|sg|
   |Sangu (Gabon)|snq|
   |Sanskrit (Devanagari)|sa|
   |Santali(Devanagiri)|sat|
