@@ -17,7 +17,7 @@ Developers strive to bring the best user experience to their users. Azure Commun
 
 
 ## Hide buttons that are not enabled
-Developers building their audio and video experience with Azure Communication Services calling SDK are facing issues that some actions available in the calling SDK are unavailable for a given call type, role, meeting, or tenant. This issue leads to undesired situations when users see a button to, for example, share screen. Still, this action fails because the user cannot share the screen. Capability API is the tool that helps you render just the actions that apply to the user in the current context. You can learn more about [Capability APIs here](../../how-tos/calling-sdk/capabilities).
+Developers building their audio and video experience with Azure Communication Services calling SDK are facing issues that some actions available in the calling SDK are unavailable for a given call type, role, meeting, or tenant. This issue leads to undesired situations when users see a button to, for example, share screen. Still, this action fails because the user cannot share the screen. Capability API is the tool that helps you render just the actions that apply to the user in the current context. You can learn more about [Capability APIs here](../../how-tos/calling-sdk/capabilities.md).
 
 ## Next steps
-- Learn more about [Capability APIs](../../how-tos/calling-sdk/capabilities).
+- Learn more about [Capability APIs](../../how-tos/calling-sdk/capabilities.md).
