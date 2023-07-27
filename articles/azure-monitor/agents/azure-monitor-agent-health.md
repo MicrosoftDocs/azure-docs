@@ -5,9 +5,8 @@ ms.topic: conceptual
 author: shseth
 ms.author: shseth
 ms.date: 7/25/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 ms.reviewer: shseth
-
 ---
 
 # Azure Monitor Agent Health (Preview)

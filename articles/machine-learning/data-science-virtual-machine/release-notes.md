@@ -21,6 +21,12 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## July 26, 2023
+
+New DSVM offering for [Data Science VM – Windows 2022 (Preview)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is currently live in the marketplace.
+
+Version `23.06.25`
+
 ## April 26, 2023
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 

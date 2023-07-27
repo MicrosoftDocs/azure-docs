@@ -28,7 +28,7 @@ sections:
           1. Enable the Read/Write cache on the OS disk. 
              - To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
           2. Create the image using the following sysprep options:
-            `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
+            `/generalize /oobe /mode:vm`.
              - These options prevent a lengthy search for and installation of drivers during the first boot.
           3. Enable nested virtualization in your base image.
              - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
