@@ -16,11 +16,12 @@ The following reference outlines the properties supported by the Azure App Confi
 
 ## Properties
 
-An `AzureAppConfigurationProvider` resource has the following top-level child properties under the `spec`.
+An `AzureAppConfigurationProvider` resource has the following top-level child properties under the `spec`. Either `endpoint` or `connectionStringReference` has to be specified.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from|true|string|
+|endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from|alternative|string|
+|connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string|alternative|string|
 |target|The destination of the retrieved key-values in Kubernetes|true|object|
 |auth|The authentication method to access Azure App Configuration|false|object|
 |keyValues|The settings for querying and processing key-values|false|object|
@@ -156,6 +157,22 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         configMapName: configmap-created-by-appconfig-provider
       auth:
         servicePrincipalReference: <your-service-principal-secret-name>
+    ```
+
+#### Use Connection String
+
+1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add Azure App Configuration connection string with key *azure_app_configuration_connection_string* in the Secret.
+2. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
+
+    ``` yaml
+    apiVersion: azconfig.io/v1beta1
+    kind: AzureAppConfigurationProvider
+    metadata:
+      name: appconfigurationprovider-sample
+    spec:
+      connectionStringReference: <your-connection-string-secret-name>
+      target:
+        configMapName: configmap-created-by-appconfig-provider
     ```
 
 ### Key-value selection
