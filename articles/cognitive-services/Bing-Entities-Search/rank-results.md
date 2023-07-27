@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Using ranking to display entity search results  
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Each entity search response includes a [RankingResponse](/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer that specifies how you must display search results returned by the Bing Entity Search API. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
   

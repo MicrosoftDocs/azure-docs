@@ -84,13 +84,13 @@
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: Develop and operationalize features
       items:
-        - name: Develop and register a feature set with managed feature store (preview)
+        - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
-        - name: Enable materialization and backfill feature data (preview)
+        - name: Enable materialization and backfill feature data
           href: tutorial-enable-materialization-backfill-data.md
-        - name: Experiment and train models using features (preview)
+        - name: Experiment and train models using features
           href: tutorial-experiment-train-models-using-features.md
-        - name: Enable recurrent materialization and run batch inference (preview)
+        - name: Enable recurrent materialization and run batch inference
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
     # v1
     - name: Python get started (Day 1)

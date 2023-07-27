@@ -24,9 +24,11 @@ Add new users or delete existing users from your Azure Active Directory (Azure A
 
 ## Add a new user
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can create a new user for your organization or invite an external user from the same starting point.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -75,7 +77,7 @@ You can delete an existing user using Azure portal.
 
 To delete a user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the appropriate roles listed above.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the appropriate roles listed above.
 
 1. Go to **Azure Active Directory** > **Users**.
 
