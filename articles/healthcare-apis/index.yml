@@ -45,6 +45,9 @@ conceptualContent:
               url: ./register-application.md
               itemType: how-to-guide
               text: Register your application
+              url: ./register-application.md
+              itemType: how-to-guide
+              text: etc.
          
         # Card
         - title: FHIR - Exchange and analyze health data
@@ -61,9 +64,9 @@ conceptualContent:
         # Card
         - title: DICOM - Wrangle medical imaging data
           links:
-            - url: ./iot/overview.md
+            - url: ./dicom/dicom-services-overview
               itemType: overview
-              text: What is the MedTech service?
+              text: What is the DICOM service?
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
