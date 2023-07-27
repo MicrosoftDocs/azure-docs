@@ -1,18 +1,27 @@
 ---
 title: 'Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis'
-description: Learn how to use Azure Functions with Azure Cache for Redis.
+description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis.
 author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
 ms.date: 07/19/2023
+#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
 
-# Get started with Azure Functions triggers in Azure Cache for Redis
+# Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis
 
 This tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. It guides you through using Visual Studio Code (VS Code) to write and deploy the Azure function in C#.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Set up the necessary tools.
+> * Configure and connect to a cache.
+> * Create an Azure function and deploy code to it.
+> * Confirm the logging of triggers.
 
 ## Prerequisites
 
@@ -256,7 +265,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
     :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
 
-## Next steps
+## Next step
 
-- [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
-- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)
+> [!div class="nextstepaction"]
+> Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
