@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Socket.IO
-description: How to use Azure Socket.IO
+title: How to use Web PubSub for Socket.IO
+description: 
 author: xingsy97
 
 ms.author: xingsy97
