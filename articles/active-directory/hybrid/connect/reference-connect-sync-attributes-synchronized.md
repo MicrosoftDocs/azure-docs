@@ -124,7 +124,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchRecipientTypeDetails |X |X |X | |
 | msExchRemoteRecipientType |X | | | |
 | msExchRequireAuthToSendTo |X |X |X | |
-| *msExchResourceCapacity |X| | | |
+| msExchResourceCapacity |X| | |This attribute is currently not consumed by Exchange Online. |
 | msExchResourceDisplay |X | | | |
 | msExchResourceMetaData |X | | | |
 | msExchResourceSearchProperties |X | | | |
@@ -166,8 +166,6 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
-
-*Although msExchResourceCapacity is synchronized by AAD Connec to Azure AD, Exchange Online does not use this attribute value, as it relies instead on the Set-Place PowerShell cmdlet to manage capacity for synchronized room mailboxes in a hybrid Exchange deployment.
 
 ## SharePoint Online
 | Attribute Name | User | Contact | Group | Comment |
