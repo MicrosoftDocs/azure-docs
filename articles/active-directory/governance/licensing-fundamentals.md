@@ -19,6 +19,16 @@ ms.author: billmath
 
 The following tables show the licensing requirements for Microsoft Entra ID Governance features
 
+## Types of licenses
+The following licenses are available for use with Microsoft Entra ID Governance.  The type of licenses you need will depend on the features you are using.
+
+- **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.1
+- **Microsoft Azure AD P1** - Azure Active Directory P1 (becoming Microsoft Entra ID P1) is available as a standalone or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
+- **Microsoft Azure AD P2** - Azure Active Directory P2 (becoming Microsoft Entra ID P2) is available as a standalone or included with Microsoft 365 E5 for enterprise customers.
+- **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers.
+
+>[!NOTE]
+>Microsoft Entra ID Governance scenarios may depends upon other features that are not covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
 
 ## Microsoft Entra ID Governance licensing
@@ -44,8 +54,8 @@ The following tables show the licensing requirements for Microsoft Entra ID Gove
 |PIM CA Controls|||x|x| 
 |Access Reviews (AR)|||x|x| 
 |AR for PIM For Groups - Public Preview||||x| 
-|AR w ML for Inactive Users||||x| 
-|AR w ML for Group Outlier||||x| 
+|AR for Inactive Users||||x| 
+|AR with User to group ML recommendation||||x| 
 |Lifecycle Workflows (LCW) J/M/L||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
 |IG Dashboard (Wow) - Public Preview||x|x|x|
