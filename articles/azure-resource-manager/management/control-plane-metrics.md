@@ -50,7 +50,7 @@ Now, let's look at some scenarios that can help you exploring Azure Resource Man
 
 First, navigate to the Azure Monitor blade within the [portal](https://portal.azure.com):
 
-:::image type="content" source="./media/view-arm-monitor-metrics/explore-metrics-portal.png" alt-text="Screenshot of navigating to the Azure portal's Monitor page.":::
+:::image type="content" source="./media/view-arm-monitor-metrics/explore-metrics-portal.png" alt-text="Screenshot of navigating to the Azure portal's Monitor page with Explore Metrics highlighted.":::
 
 After selecting **Explore Metrics**, select a single subscription and then select the **Azure Resource Manager** metric:
 

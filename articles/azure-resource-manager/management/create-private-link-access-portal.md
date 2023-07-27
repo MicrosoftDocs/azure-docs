@@ -17,7 +17,7 @@ When you create a resource management private link, the private link association
 
 1. In the [portal](https://portal.azure.com), search for **Resource management private links** and select it from the available options.
 
-   :::image type="content" source="./media/create-private-link-access-portal/search.png" alt-text="Screenshot of Azure portal search bar with 'Resource management private links' entered.":::
+   :::image type="content" source="./media/create-private-link-access-portal/search.png" alt-text="Screenshot of Azure portal search bar with 'Resource management' entered.":::
 
 1. If your subscription doesn't already have resource management private links, you'll see a blank page. Select **Create resource management private link**.
 
@@ -35,7 +35,7 @@ Now, create a private endpoint that references the resource management private l
 
 1. Navigate to the **Private Link Center**. Select **Create private endpoint**.
 
-   :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Screenshot of Azure portal with 'Private Link Center' highlighted in the navigation menu.":::
+   :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Screenshot of Azure portal's Private Link Center with 'Create private endpoint' highlighted.":::
 
 1. In the **Basics** tab, provide values for your private endpoint.
 
