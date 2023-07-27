@@ -44,7 +44,7 @@ TrendMicro_XDR_WORKBENCH_CL
 
 To integrate with Trend Vision One (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **Trend Vision One API Token**: A Trend Vision One API Token is required. See the documentation to learn more about the [Trend Vision One API](https://automation.trendmicro.com/xdr/home).
 
 
@@ -79,7 +79,7 @@ This method provides an automated deployment of the Trend Vision One connector u
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter a unique **Function Name**, **Workspace ID**, **Workspace Key**, **API Token** and **Region Code**. 
  - Note: Provide the appropriate region code based on where your Trend Vision One instance is deployed: us, eu, au, in, sg, jp  
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+ - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 

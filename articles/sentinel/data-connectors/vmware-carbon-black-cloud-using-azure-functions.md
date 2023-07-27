@@ -97,7 +97,7 @@ This method provides an automated deployment of the VMware Carbon Black connecto
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346)
  - The default **Time Interval** is set to pull the last five (5) minutes of data. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion. 
  - Carbon Black requires a seperate set of API ID/Keys to ingest Notification alerts. Enter the SIEM API ID/Key values or leave blank, if not required. 
-> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
