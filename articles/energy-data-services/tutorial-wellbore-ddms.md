@@ -131,7 +131,7 @@ API: **Well** > **Well by ID**
 
 Method: GET
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-get-well.png" alt-text="Screenshot that shows the API that gets a well by ID." lightbox="media/tutorial-wellbore-ddms/postman-api-get-wells.png":::
+:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-get-well.png" alt-text="Screenshot that shows the API that gets a well by ID." lightbox="media/tutorial-wellbore-ddms/postman-api-get-well.png":::
 
 ### Get well versions
 
