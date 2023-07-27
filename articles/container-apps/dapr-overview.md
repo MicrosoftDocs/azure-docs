@@ -116,7 +116,7 @@ Dapr components in container apps are environment-level resources that:
 
 ### Component schema
 
-All Dapr OSS components conform to the following basic schema.
+All Dapr OSS components conform to the following basic [schema][dapr-component-spec].
 
 ```yaml
 apiVersion: dapr.io/v1alpha1
@@ -384,5 +384,5 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-cncf]: https://www.cncf.io/projects/dapr/
 [dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
 [dapr-component]: https://docs.dapr.io/concepts/components-concept/
-[dapr-component-spec]: https://docs.dapr.io/operations/components/component-schema/
+[dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/
 [dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
