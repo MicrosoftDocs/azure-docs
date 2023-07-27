@@ -181,7 +181,7 @@ Shows Azure IaaS, and in this case, use of VMs to host your applications, which 
 Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large Instances connectivity offering low latency.
 
 > [!Note]
->To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
+>To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, see [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 
 
 
