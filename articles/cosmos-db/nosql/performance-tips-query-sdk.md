@@ -361,7 +361,7 @@ Pre-fetching works the same way regardless of the degree of parallelism, and the
 
 ## Optimizing single partition queries with Optimistic Direct Execution
 
-Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiencyof certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition, or have responses that do not require [pagination](https://learn.microsoft.com/azure/cosmos-db/nosql/query/pagination). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latnecy and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
+Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiencyof certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition, or have responses that do not require [pagination](query/pagination.md). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latnecy and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
 
 Single partition queries that feature GROUP BY, ORDER BY, DISTINCT, and aggregation functions (sum, mean, min, max, etc.) can significantly benefit from using ODE. However, in scenarios where the query is targeting multiple partitions, or still requires pagination, the latency of the query response and RU cost may be higher than without using ODE. Therefore, when using ODE, it’s recommended to:
 -	Specify the partition key in the call or query itself. 
@@ -377,7 +377,7 @@ Here are a few examples of simple single partition queries which can benefit fro
 - SELECT TOP 5 r.id FROM r ORDER BY r.id
 - SELECT * FROM r WHERE r.id > 5 OFFSET 5 LIMIT 3 
 ```
-There can be cases where single partition queries may still require distribution if the number of data items increases over time and your Azure Cosmos DB database [splits the partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview#physical-partitions).  Examples of queries where this could occur include:
+There can be cases where single partition queries may still require distribution if the number of data items increases over time and your Azure Cosmos DB database [splits the partition](../partitioning-overview.md#physical-partitions).  Examples of queries where this could occur include:
 ```
 - SELECT Count(r.id) AS count_a FROM r
 - SELECT DISTINCT r.id FROM r
