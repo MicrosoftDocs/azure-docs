@@ -6,8 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/22/2023
-ms.custom:  
+ms.date: 06/27/2023
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Hub
