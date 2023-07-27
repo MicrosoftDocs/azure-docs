@@ -124,11 +124,11 @@
     - name: Quickstart
       items: 
         - name: Angular
-          href: quickstart-single-page-app-angular.md
+          href: quickstart-single-page-app-angular-sign-in.md
         - name: JavaScript
-          href: quickstart-single-page-app-javascript.md
+          href: quickstart-single-page-app-javascript-sign-in.md
         - name: React
-          href: quickstart-single-page-app-react.md
+          href: quickstart-single-page-app-react-sign-in.md
       href: single-page-app-quickstart.md
     - name: Tutorials
       items:

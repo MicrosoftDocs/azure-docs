@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code"
+title: Quickstart - Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript
 description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: henrymbuguakiarie
@@ -16,6 +16,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
+# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript
 
 In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow with Proof Key for Code Exchange (PKCE). The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
@@ -47,7 +48,7 @@ To start your quickstart application, use either of the following options.
 #### Step 1: Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -87,7 +88,7 @@ Modify the values in the `msalConfig` section:
 - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 
    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](../../authentication-national-cloud.md).
+- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` is one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 
@@ -150,7 +151,7 @@ Run the project with a web server by using Node.js.
 
 ### How the sample works
 
-![Diagram showing the authorization code flow for a single-page application.](../../media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
+![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### MSAL.js
 
@@ -172,4 +173,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in users and call Microsoft Graph](../../tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in users and call Microsoft Graph](tutorial-v2-javascript-auth-code.md)

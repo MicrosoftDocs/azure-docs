@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users in JavaScript Angular single-page apps (SPA) with auth code and call Microsoft Graph"
+title: "Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using Angular"
 description: In this quickstart, learn how a JavaScript Angular single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow and call Microsoft Graph.
 services: active-directory
 author: henrymbuguakiarie
@@ -14,6 +14,8 @@ ms.reviewer: j-mantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
 ---
+
+# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using Angular
 
 In this quickstart, you download and run a code sample that demonstrates how a JavaScript Angular single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
@@ -47,7 +49,7 @@ To start your quickstart application, use either of the following options.
 #### Step 1: Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -58,7 +60,7 @@ To start your quickstart application, use either of the following options.
 1. Set the **Redirect URIs** value to `http://localhost:4200/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
-1. Confirm that under **Grant types** ![Already configured](../../media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
 #### Step 2: Download the project
 
@@ -89,7 +91,7 @@ Modify the values in the `auth` section as described here:
 - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 
    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-- `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](../../authentication-national-cloud.md).
+- `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` is set to one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 
@@ -142,7 +144,7 @@ Run the project with a web server by using Node.js:
 
 ### How the sample works
 
-![Diagram showing the authorization code flow for a single-page application.](../../media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
+![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### msal.js
 
@@ -159,4 +161,4 @@ npm install @azure/msal-browser @azure/msal-angular@2
 For a detailed step-by-step guide on building the auth code flow application using vanilla JavaScript, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in users and call Microsoft Graph](../../tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in users and call Microsoft Graph](tutorial-v2-javascript-auth-code.md)
