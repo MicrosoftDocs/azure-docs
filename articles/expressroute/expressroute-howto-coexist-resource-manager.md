@@ -4,6 +4,7 @@ description: Configure ExpressRoute and a site-to-site VPN connection that can c
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023
 ms.author: duau

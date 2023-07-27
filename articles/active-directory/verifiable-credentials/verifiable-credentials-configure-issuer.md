@@ -47,9 +47,12 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 
 ## Create the verified credential expert card in Azure
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
-1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Search for **Verified ID** and select it.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
 1. In **Create credential**, select **Custom Credential** and click **Next**:
 

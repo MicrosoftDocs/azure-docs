@@ -39,6 +39,8 @@ By default, the **Allow invitations to be sent to any domain (most inclusive)** 
 
 ### Add a blocklist
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This is the most typical scenario, where your organization wants to work with almost any organization, but wants to prevent users from specific domains to be invited as B2B users.
 
 To add a blocklist:

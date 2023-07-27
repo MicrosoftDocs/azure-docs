@@ -162,13 +162,15 @@ To configure tenant restrictions, you'll need the following:
 
 - Azure AD Premium P1 or P2
 - Account with a role of Global administrator or Security administrator
-- Windows devices running Windows 10, Windows 11, or Windows Server 2022 with the latest updates
+- Windows devices running Windows 10, Windows 11 with the latest updates
 
 ## Step 1: Configure default tenant restrictions V2
 
 Settings for tenant restrictions V2 are located in the Azure portal under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
 
 ### To configure default tenant restrictions
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
 
@@ -305,6 +307,13 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 1. The applications you selected are listed on the **External applications** tab. Select **Save**.
 
    :::image type="content" source="media/tenant-restrictions-v2/add-app-save.png" alt-text="Screenshot showing the selected application.":::
+
+> [!NOTE]
+   >
+   > Blocking MSA tenant will not block 
+   > - user-less traffic for devices. This includes traffic for Autopilot, Windows Update, and organizational telemetry.
+   > - B2B authentication of consumer accounts.
+   > - "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
 
 ## Step 3: Enable tenant restrictions on Windows managed devices
 

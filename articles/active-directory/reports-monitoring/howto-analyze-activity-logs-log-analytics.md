@@ -38,6 +38,8 @@ To follow along, you need:
     
 ## Navigate to the Log Analytics workspace
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 2. Select **Azure Active Directory**, and then select **Logs** from the **Monitoring** section to open your Log Analytics workspace. The workspace will open with a default query.

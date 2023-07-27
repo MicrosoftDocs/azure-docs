@@ -60,7 +60,7 @@ You can select the patch orchestration option for new VMs that would be associat
 
 To update the patch mode, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Virtual machine**, and select **+Create** to open *Create a virtual machine* page.
 1. In **Basics** tab, complete all the mandatory fields.
 1. In **Management** tab, under **Guest OS updates**, for **Patch orchestration options**, select *Azure-orchestrated*.
@@ -79,7 +79,7 @@ You can update the patch orchestration option for existing VMs that either alrea
 
 To update the patch mode, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Update management center (Preview)**, select **Update Settings**.    
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
@@ -99,7 +99,7 @@ To check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to *
 **Enable on Windows VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -125,7 +125,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 **Enable on Linux VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -169,7 +169,7 @@ You can select the patch orchestration option for new VMs that would be associat
 
 To update the patch mode, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Virtual machine**, and select **+Create** to open *Create a virtual machine* page.
 1. In **Basics** tab, complete all the mandatory fields.
 1. In **Management** tab, under **Guest OS updates**, for **Patch orchestration options**, select *Azure-orchestrated*.
@@ -181,7 +181,7 @@ To update the patch mode, follow these steps:
 
 To update the patch mode, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Update management center (Preview)**, select **Update Settings**. 
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
@@ -198,7 +198,7 @@ To update the patch mode, follow these steps:
 **Enable on Windows VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -225,7 +225,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 **Enable on Linux VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
