@@ -71,6 +71,8 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Set group expiration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
 
 2. Browse to **Azure Active Directory** > **Groups**, then select **Expiration** to open the expiration settings.

@@ -98,6 +98,8 @@ Within the JWT, these claims are emitted with the following name format:  `extn.
 
 ## Configure groups optional claims
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the Azure portal or application manifest. Group optional claims are only emitted in the JWT for user principals. Service principals aren't included in group optional claims emitted in the JWT.
 
 > [!IMPORTANT]
