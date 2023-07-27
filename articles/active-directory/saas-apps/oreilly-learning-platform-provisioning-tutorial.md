@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure O'Reilly learning platform for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to O'Reilly learning platform.
+title: 'Tutorial: Configure OReilly learning platform for automatic user provisioning with Azure Active Directory'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to OReilly learning platform.
 services: active-directory
 author: twimmers
 writer: twimmers
