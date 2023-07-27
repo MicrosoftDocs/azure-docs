@@ -250,7 +250,7 @@ Using the Azure Policy service, you can govern the key lifecycle and ensure that
     - Select the name of the policy definition: "[Keys should have a rotation policy ensuring that their rotation is scheduled within the specified number of days after creation.
 ](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd8cf8476-a2ec-4916-896e-992351803c44)"
     - Go to the **Parameters** tab at the top of the page.
-        - Set **The maximum days to rotate** to desired number of days e.g., 730.
+        - Set **The maximum days to rotate** parameter to desired number of days for example, 730.
         - Define the desired effect of the policy (Audit, or Disabled). 
 1. Fill out any additional fields. Navigate the tabs clicking on **Previous** and **Next** buttons at the bottom of the page.
 1. Select **Review + create**
