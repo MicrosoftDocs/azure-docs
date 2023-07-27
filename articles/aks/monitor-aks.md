@@ -48,10 +48,9 @@ AKS generates the same kinds of monitoring data as other Azure resources that ar
 
 ## Resource logs
 
-Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md#create-diagnostic-settings) in Azure Monitor. Resource logs are not collected and stored until you create a diagnostic setting to route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where most of the data for Container insights is stored.
+Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md) in Azure Monitor. Resource logs are not collected and stored until you create a diagnostic setting to route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where most of the data for Container insights is stored.
 
-See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-di
-agnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
+See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
 
 :::image type="content" source="media/monitor-aks/diagnostic-setting-categories.png" alt-text="Screenshot of AKS diagnostic setting dialog box." lightbox="media/monitor-aks/diagnostic-setting-categories.png":::
 
@@ -63,7 +62,7 @@ Resource-specific mode is recommended for AKS for the following reasons:
 - Save cost by configuring the tables for [basic logs](../azure-monitor/logs/basic-logs-configure.md).
 
 ## Integrations
-The following Azure services and features of Azure Monitor can be used for additional monitoring of your Kubernetes clusters. You can enable these features when you [create your AKS cluster](), or onboard your cluster to them later. Each of these features may include additional cost, so refer to the pricing information for each before you enabled them.
+The following Azure services and features of Azure Monitor can be used for additional monitoring of your Kubernetes clusters. You can enable these features when you create your AKS cluster, or onboard your cluster to them later. Each of these features may include additional cost, so refer to the pricing information for each before you enabled them.
 
 
 | Service / Feature | Description |
@@ -81,14 +80,14 @@ The following Azure services and features of Azure Monitor can be used for addit
 
 
 
-If the [diagnostic setting for your cluster](#resource-logs) uses resource-specific mode, the resource logs are stored in the []() tables. 
+If the [diagnostic setting for your cluster](#resource-logs) uses resource-specific mode, the resource logs are stored in the [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit), [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin), and [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane) tables. 
 
 | Description | Log query |
 |:---|:---|
 |  |  |
 |  |  |
 
-If the [diagnostic setting for your cluster](#cesource-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
+If the [diagnostic setting for your cluster](#resource-logs) uses Azure diagnostics mode, the resource logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](monitor-aks-reference.md).
 
 | Description | Log query |
 |:---|:---|
