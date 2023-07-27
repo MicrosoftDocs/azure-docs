@@ -59,9 +59,9 @@ This tool will automate the following tasks for you:
 - Store your application secret in user secrets storage
 - Update your appsettings.json with the client-id, tenant-id, etc...
 
-> .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [https://learn.microsoft.com/dotnet/core/tools/global-tools](https://learn.microsoft.com/dotnet/core/tools/global-tools)
+> .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [.NET Tools](/dotnet/core/tools/global-tools)
 
-> For more information on user secrets storage please visit: [https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows](https://learn.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
+> For more information on user secrets storage please visit: [safe storage of app secrets during development](/aspnet/core/security/app-secrets)
 
 ## Use the Microsoft Identity App Sync Tool
 
@@ -70,9 +70,12 @@ Run the following command to register your app in your tenant and update the .Ne
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>
 ```
+
 > [!Note]
+>
 > - you don't need to provide the username if you are signed-in with only one account in the developer tools.
 > - you don't need to provide the tenant-id if the tenant in which you want to create the application is your home tenant.
+
 ## Optional - Create a development SSL certificate
 
 In order to avoid SSL errors / warning when browsing the running application you can use the following on macOS and Windows to generate a self-signed SSL certificate for use by .Net core.
