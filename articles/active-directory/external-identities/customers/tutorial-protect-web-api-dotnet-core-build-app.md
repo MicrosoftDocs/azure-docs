@@ -22,7 +22,7 @@ Web APIs may contain information that requires user authentication and authoriza
 
 In this tutorial, we build a web API that publishes both delegated permissions (scopes) and application permissions (app roles). Client apps such as web apps that acquire tokens on behalf of a signed-in user use the delegated permissions. Client apps such as daemon apps that acquire tokens for themselves use the application permissions. 
 
-In this tutorial, you'll lerarn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -233,7 +233,7 @@ In this section, we add code to the placeholders we created. The focus here isn'
 
 1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. The easiest way to do this is the claims to find whether the access token contains the `idtyp` optional claim. This `idtyp` claim is the easiest way for the API to determine whether a token is an app token or an app + user token. We recommend enabling the `idtyp` optional claim.
 
-It the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Azure AD will have at least one of the two claims. Access tokens issued to a user will have the `scp` claim. Access tokens issued to an application will have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
+If the `idtyp` claim isn't enabled, you can use the `roles` and `scp` claims to determine whether the access token is an app token or an app + user token. An access token issued by Azure AD has at least one of the two claims. Access tokens issued to a user have the `scp` claim. Access tokens issued to an application have the `roles` claim. Access tokens that contain both claims are issued only to users, where the `scp` claim designates the delegated permissions, while the `roles` claim designates the user's role. Access tokens that have neither aren't to be honored.
 
     ```csharp
     private bool IsAppMakingRequest()
