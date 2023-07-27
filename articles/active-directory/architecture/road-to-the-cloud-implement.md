@@ -11,7 +11,6 @@ ms.date: 06/03/2022
 ms.author: jricketts
 ms.custom: references_regions
 ---
-
 # Implement a cloud-first approach
 
 It's mainly a process and policy-driven phase to stop, or limit as much as possible, adding new dependencies to Active Directory and implement a cloud-first approach for new demand of IT solutions.
@@ -102,10 +101,7 @@ The organization has a process to evaluate Azure AD alternatives when it's consi
 
 ## Next steps
 
-[Introduction](road-to-the-cloud-introduction.md)
-
-[Cloud transformation posture](road-to-the-cloud-posture.md)
-
-[Establish an Azure AD footprint](road-to-the-cloud-establish.md)
-
-[Transition to the cloud](road-to-the-cloud-migrate.md)
+* [Introduction](road-to-the-cloud-introduction.md)
+* [Cloud transformation posture](road-to-the-cloud-posture.md)
+* [Establish an Azure AD footprint](road-to-the-cloud-establish.md)
+* [Transition to the cloud](road-to-the-cloud-migrate.md)

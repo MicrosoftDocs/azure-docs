@@ -11,7 +11,6 @@ ms.date: 06/14/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---
-
 # Road to the cloud: Introduction
 
 Some organizations set goals to remove Active Directory and their on-premises IT footprint. Others take advantage of some cloud-based capabilities to reduce the Active Directory footprint, but not to completely remove their on-premises environments. 
@@ -29,10 +28,7 @@ Transformation must be aligned with and achieve business objectives, including i
 
 ## Next steps
 
-[Cloud transformation posture](road-to-the-cloud-posture.md)
-
-[Establish an Azure AD footprint](road-to-the-cloud-establish.md)
-
-[Implement a cloud-first approach](road-to-the-cloud-implement.md)
-
-[Transition to the cloud](road-to-the-cloud-migrate.md)
+* [Cloud transformation posture](road-to-the-cloud-posture.md)
+* [Establish an Azure AD footprint](road-to-the-cloud-establish.md)
+* [Implement a cloud-first approach](road-to-the-cloud-implement.md)
+* [Transition to the cloud](road-to-the-cloud-migrate.md)

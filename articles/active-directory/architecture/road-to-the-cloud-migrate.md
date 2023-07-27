@@ -11,7 +11,6 @@ ms.date: 06/03/2022
 ms.author: jricketts
 ms.custom: references_regions
 ---
-
 # Transition to the cloud
 
 After you align your organization toward halting growth of the Active Directory footprint, you can focus on moving the existing on-premises workloads to Azure Active Directory (Azure AD). This article describes the various migration workstreams. You can execute the workstreams in this article based on your priorities and resources.
@@ -321,10 +320,7 @@ Azure AD DS allows you to migrate application servers to the cloud IaaS and deco
 
 ## Next steps
 
-[Introduction](road-to-the-cloud-introduction.md)
-
-[Cloud transformation posture](road-to-the-cloud-posture.md)
-
-[Establish an Azure AD footprint](road-to-the-cloud-establish.md)
-
-[Implement a cloud-first approach](road-to-the-cloud-implement.md)
+* [Introduction](road-to-the-cloud-introduction.md)
+* [Cloud transformation posture](road-to-the-cloud-posture.md)
+* [Establish an Azure AD footprint](road-to-the-cloud-establish.md)
+* [Implement a cloud-first approach](road-to-the-cloud-implement.md)
