@@ -17,21 +17,23 @@ ms.custom: prompt-flow
 
 Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Large Language Models (LLM) and *your own data* to generate responses. In Azure Machine Learning, you can now implement RAG in a prompt flow. Support for RAG is currently in public preview. This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure Machine Learning.
 
-<!-- Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, when dealing with newer or more current data, two approaches can supplement the base model: fine-tuning or RAG. Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
+> [!NOTE]
+> New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
+
+## Why use RAG?
+
+Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, sometimes you need to work with newer or more current data. Two approaches can supplement the base model: fine-tuning or further training of the base model with new data, or RAG that uses prompt engineering to supplement or guide the model in real time. 
+
+Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data provided in a prompt. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
 
 RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs. By adopting RAG, companies can use the reasoning capabilities of LLMs, utilizing their existing models to process and generate responses based on new data. RAG facilitates periodic data updates without the need for fine-tuning, thereby streamlining the integration of LLMs into businesses. 
 
 Benefits of adopting RAG in your LLMs:
-Adds a fact checking component on your existing models
-Train your model on up to date data without needed fine-tuning
-Train on your business specific data
 
-Drawbacks without RAG:
-Models may return more incorrect knowledge
-Data is trained on a broader range of data. More intensive training resources are required to fine-tune your model  -->
-
-> [!NOTE]
-> New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
++ Provide supplemental data as a directive or a prompt to the LLM
++ Adds a fact checking component on your existing models
++ Train your model on up-to-date data without incurring the extra time and costs associated with fine-tuning
++ Train on your business specific data
 
 ## Technical overview of using RAG on Large Language Models (LLMs)
 
