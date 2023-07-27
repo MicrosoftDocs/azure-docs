@@ -123,7 +123,7 @@ using Azure.Messaging.WebPubSub.Clients;
 
 // Instantiates the client object
 // <client-access-uri> is copied from Azure portal mentioned above
-var client = new WebPubSubClient(new Uri("<client-access-url>"));
+var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 client.ServerMessageReceived += eventArgs =>
 {
     Console.WriteLine($"Receive message: {eventArgs.Message.Data}");
