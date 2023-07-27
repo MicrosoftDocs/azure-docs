@@ -24,7 +24,7 @@ highlightedContent:
        -  title: Get an access token
           itemType: how-to-guide
           url: ./get-access-token.md
-       -  title: Azure Health Data Services video
+       -  title: Azure Health Data Services videos
           itemType: video
           url: https://www.youtube.com/c/mspowerplatform/
 
