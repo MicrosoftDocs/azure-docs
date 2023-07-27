@@ -157,7 +157,7 @@
           },
           {
             "source_path": "articles/sentinel/data-connectors/trend-micro-vision-one-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/trend-micro-vision-one-using-azure-functions",
+            "redirect_url": "/azure/sentinel/data-connectors/trend-vision-one-using-azure-functions",
             "redirect_document_id": true
           },
           {
