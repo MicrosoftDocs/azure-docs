@@ -193,9 +193,9 @@ items:
       items:
         - name: Register WhatsApp Business Account
           href: quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
-        - name: Get Started With Advanced Messages
+        - name: Send WhatsApp Messages
           href: quickstarts/advancedmessaging/whatsapp/get-started.md
-        - name: Try AdvancedMessaging For Whatsapp Sandbox
+        - name: Try AdvancedMessaging Sandbox
           href: quickstarts/advancedmessaging/whatsapp/whatsapp-sandbox-quickstart.md
 - name: Tutorials
   items:
