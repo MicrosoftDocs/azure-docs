@@ -13,9 +13,9 @@ ms.date: 04/20/2023
 
 # Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis
 
-The objective of this tutorial is to use an Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The _write-behind_ pattern in this tutorial shows how writes to the cache trigger corresponding writes to an Azure SQL database.
+The objective of this tutorial is to use an Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
 
-You use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, you see how to use Azure Cache for Redis to store inventory and pricing information, while backing up that information in an Azure SQL Database.
+You use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, you see how to use Azure Cache for Redis to store inventory and pricing information, while backing up that information in a SQL database.
 
 Every new item or new price written to the cache is then reflected in a SQL table in the database.
 
@@ -29,14 +29,14 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) with the following resources provisioned:
+- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md), with the following resources provisioned:
   - Azure Cache for Redis instance
   - Azure Functions instance
   - Visual Studio Code (VS Code) environment set up with NuGet packages installed
 
-## Create and configure a new Azure SQL Database instance
+## Create and configure a new SQL database
 
-The SQL database is the backing database for this example. You can create an Azure SQL Database instance through the Azure portal or through your preferred method of automation.
+The SQL database is the backing database for this example. You can create a SQL database through the Azure portal or through your preferred method of automation.
 
 This example uses the portal:
 
@@ -64,7 +64,7 @@ This example uses the portal:
 
 ## Configure the Redis trigger
 
-First, make a copy of the same VS Code project used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as *RedisWriteBehindTrigger* and open it in VS Code.
+First, make a copy of the same VS Code project that you used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as *RedisWriteBehindTrigger*, and open it in VS Code.
 
 In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
 
@@ -74,7 +74,7 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
   - If so, update the value of that key.
   - If not, write a new row with the key and its value.
 
-1. Import the `System.Data.SqlClient` NuGet package to enable communication with the SQL Database instance. Go to the VS Code terminal and use the following command:
+1. Import the `System.Data.SqlClient` NuGet package to enable communication with the SQL database. Go to the VS Code terminal and use the following command:
 
    ```dos
    dotnet add package System.Data.SqlClient
@@ -100,27 +100,27 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
                [RedisPubSubTrigger(connectionString, "__keyevent@0__:set")] string message,
                ILogger logger)
            {
-               // Retrieve a Redis connection string from environmental variables
+               // Retrieve a Redis connection string from environmental variables.
                var redisConnectionString = System.Environment.GetEnvironmentVariable(connectionString);
             
-               // Connect to a Redis cache instance
+               // Connect to a Redis cache instance.
                var redisConnection = ConnectionMultiplexer.Connect(redisConnectionString);
                var cache = redisConnection.GetDatabase();
             
-               // Get the key that was set and its value
+               // Get the key that was set and its value.
                var key = message;
                var value = (double)cache.StringGet(key);
                logger.LogInformation($"Key {key} was set to {value}");
 
-               // Retrieve a SQL connection string from environmental variables
+               // Retrieve a SQL connection string from environmental variables.
                String SQLConnectionString = System.Environment.GetEnvironmentVariable(SQLAddress);
             
-               // Define the name of the table you created and the column names
+               // Define the name of the table you created and the column names.
                String tableName = "dbo.inventory";
                String column1Value = "ItemName";
                String column2Value = "Price";
            
-              // Connect to the database. Check if the key exists in the database. If it does, update the value. If it doesn't, add it to the database
+              // Connect to the database. Check if the key exists in the database. If it does, update the value. If it doesn't, add it to the database.
                using (SqlConnection connection = new SqlConnection(SQLConnectionString))
                {
                    connection.Open();
@@ -129,14 +129,14 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
                        command.Connection = connection;
 
                        //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
-                       //An example query would be something like "UPDATE dbo.inventory SET Price = 1.75 WHERE ItemName = 'Apple'"
+                       //An example query would be something like "UPDATE dbo.inventory SET Price = 1.75 WHERE ItemName = 'Apple'".
                        command.CommandText = "UPDATE " + tableName + " SET " + column2Value + " = " + value + " WHERE " + column1Value + " = '" + key + "'";
                        int rowsAffected = command.ExecuteNonQuery(); //The query execution returns the number of rows affected by the query. If the key doesn't exist, it will return 0.
 
                        if (rowsAffected == 0) //If key doesn't exist, add it to the database
                     {
                             //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
-                            //An example query would be something like "INSERT INTO dbo.inventory (ItemName, Price) VALUES ('Bread', '2.55')"
+                            //An example query would be something like "INSERT INTO dbo.inventory (ItemName, Price) VALUES ('Bread', '2.55')".
                            command.CommandText = "INSERT INTO " + tableName + " (" + column1Value + ", " + column2Value + ") VALUES ('" + key + "', '" + value + "')";
                            command.ExecuteNonQuery();
                         
@@ -150,7 +150,7 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
                    connection.Close();
                }
             
-               //Log the time that the function was executed
+               //Log the time that the function was executed.
                logger.LogInformation($"C# Redis trigger function executed at: {DateTime.Now}");
            }
        }
@@ -162,7 +162,7 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
 
 ## Configure connection strings
 
-You need to update the *local.settings.json* file to include the connection string for your SQL Database instance. Add an entry in the `Values` section for `SQLConnectionString`. Your file should look like this:
+You need to update the *local.settings.json* file to include the connection string for your SQL database. Add an entry in the `Values` section for `SQLConnectionString`. Your file should look like this example:
 
 ```json
 {
@@ -176,7 +176,11 @@ You need to update the *local.settings.json* file to include the connection stri
 }
 ```
 
-You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically. You can find the Redis connection string in the **Access Keys** area of the **Resource** menu of the Azure Cache for Redis resource. You can find the SQL database connection string under the **ADO.NET** tab in **Connection strings** on the **Resource** menu in the SQL database resource.
+You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
+
+To find the Redis connection string, go to the **Resource** menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area.
+
+To find the SQL database connection string, go to the **Resource** menu in the SQL database resource, and then select the **ADO.NET** tab. The string is in **Connection strings** area.
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
@@ -185,17 +189,17 @@ You need to manually enter the password for your SQL database connection string,
 ## Build and run the project
 
 1. In VS Code, go to the **Run and debug tab** and run the project.
-1. Go back to your Azure Cache for Redis instance in the Azure portal and select the **Console** button to enter the Redis Console. Try using some set commands:
+1. Go back to your Azure Cache for Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some set commands:
 
    - `SET apple 5.25`
    - `SET bread 2.25`
    - `SET apple 4.50`
 
-1. Back in VS Code, you should see the triggers being registered. To validate that the triggers are working:
+1. Back in VS Code, the triggers are being registered. To validate that the triggers are working:
 
-   1. Go to the SQL Database instance in the Azure portal.
+   1. Go to the SQL database in the Azure portal.
    1. On the **Resource** menu, select **Query editor**.
-   1. For **New Query**, create a query with the following SQL to view the top 100 items in the inventory table:
+   1. For **New Query**, create a query with the following SQL statement to view the top 100 items in the inventory table:
 
       ```sql
       SELECT TOP (100) * FROM [dbo].[inventory]
@@ -205,13 +209,13 @@ You need to manually enter the password for your SQL database connection string,
 
 ## Deploy to your function app
 
-The only thing left is to deploy the code to the Azure function app:
+The only task left is to deploy the code to the Azure function app:
 
 1. In VS Code, go to the **Azure** tab.
 
 1. Find your subscription and expand it. Then, find the **Function App** section and expand that.
 
-1. Select and hold (or right-click) your function app. Then, select **Deploy to Function App**.
+1. Select and hold (or right-click) your function app, and then select **Deploy to Function App**.
 
 ## Add connection string information
 
@@ -221,11 +225,11 @@ The only thing left is to deploy the code to the Azure function app:
 
 1. Set **Type** to **Custom**, and then select **Ok** to close the menu.
 
-1. Select **Save** on the **Configuration** pane to confirm. The function app will restart with the new connection string information.
+1. On the **Configuration** pane, select **Save** to confirm. The function app restarts with the new connection string information.
 
 ## Verify deployment
 
-After the deployment has finished, go back to your Azure Cache for Redis instance and use `SET` commands to write more values. Confirm that they also appear in your Azure SQL database.
+After the deployment finishes, go back to your Azure Cache for Redis instance and use `SET` commands to write more values. Confirm that they also appear in your SQL database.
 
 If you want to confirm that your function app is working properly, go to the app in the portal and select **Log stream** from the **Resource** menu. You should see the triggers running there, and the corresponding updates being made to your SQL database.
 
@@ -237,9 +241,9 @@ TRUNCATE TABLE [dbo].[inventory]
 
 ## Summary
 
-This tutorial and [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) show how to use Azure Cache for Redis to trigger Azure function apps, and how to use that functionality to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
+This tutorial and [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) show how to use Azure Cache for Redis to trigger Azure function apps. They also show how to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Azure Cache for Redis and Azure Functions are a powerful combination that can solve many integration and performance problems.
 
 ## Related content
 
 - [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
-- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md))
+- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)
