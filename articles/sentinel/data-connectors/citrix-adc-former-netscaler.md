@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Citrix ADC (former NetScaler) connector for Microsoft Sentinel
 
-The [Citrix ADC (former NetScaler)](https://www.citrix.com/products/citrix-adc/) data connector provides the capability to ingest Citrix ADC logs into Microsoft Sentinel. If you want to ingest Citrix WAF logs into Microsoft Sentinel, refer this [documentation](azure/sentinel/data-connectors/citrix-waf-web-app-firewall)
+The [Citrix ADC (former NetScaler)](https://www.citrix.com/products/citrix-adc/) data connector provides the capability to ingest Citrix ADC logs into Microsoft Sentinel. If you want to ingest Citrix WAF logs into Microsoft Sentinel, refer this [documentation](/azure/sentinel/data-connectors/citrix-waf-web-app-firewall).
 
 ## Connector attributes
 
