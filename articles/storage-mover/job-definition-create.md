@@ -44,9 +44,9 @@ There are three prerequisites to the definition the migration of your source sha
 
 A job definition is created within a project resource. Creating a job definition requires you to select or configure a project, a source and target storage endpoint, and a job name. If you've followed the examples contained in previous articles, you may have an existing project within a previously deployed storage mover resource. Follow the steps in this section to add a job definition to a project.
 
-Storage endpoints are separate resources in your storage mover. You need to create a source and target endpoint before you can reference them by a job definition. The examples in this section describe this process.
+Storage endpoints are separate resources in your storage mover. You need to create a source and target endpoint before you can reference them within a job definition. The examples in this section describe the process of creating endpoints.
 
-Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) for help with choosing supported resource names.
+Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) article for help with choosing supported resource names.
 
 ### [Azure portal](#tab/portal)
 
