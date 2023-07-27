@@ -72,7 +72,7 @@ Using the above example, the API might return the following summarized sentences
 
 You can use document extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
-You can use the `sentenceCount` parameter to guide how many sentences will be returned, with `3` being the default. The range is from 1 to 20. If you skip this parameter, the model will decide the length.
+You can use the `sentenceCount` parameter to guide how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
 
 You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
 
