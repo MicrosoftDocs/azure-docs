@@ -27,7 +27,6 @@ When **branch-to-branch** is enabled and Route Server learns multiple routes acr
 When Route Server has multiple routes to an on-premises destination prefix, Route Server selects the best route(s) in order of preference, as follows:
 
 1. Prefer routes with the longest prefix match (LPM)
-1. Prefer static routes over BGP routes
 1. Prefer routes based on routing preference configuration:
     - **ExpressRoute**: (default setting): Prefer routes learned through ExpressRoute over routes learned through VPN/SD-WAN connections
     - **VPN/NVA**: Prefer routes learned through VPN/NVAconnections over routes learned through ExpressRoute.
