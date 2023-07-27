@@ -27,7 +27,7 @@ You can enrich user attributes in Azure AD to make more user attributes availabl
 
 * App provisioning: The data source of app provisioning is Azure AD, and necessary user attributes must be in there.
 
-* Application authorization: A token that Azure AD issues can include claims generated from user attributes so that applications can make authorization decisions based on the claims in the token. It can also contain attributes coming from external data sources through a [custom claims provider](/develop/custom-claims-provider-overview).
+* Application authorization: A token that Azure AD issues can include claims generated from user attributes so that applications can make authorization decisions based on the claims in the token. It can also contain attributes coming from external data sources through a [custom claims provider](../develop/custom-claims-provider-overview.md).
 
 * Group membership population and maintenance: Dynamic groups enable dynamic population of group membership based on user attributes, such as department information.
 
@@ -71,7 +71,7 @@ Client workstations are traditionally joined to Active Directory and managed via
 
 [Windows Autopilot](/mem/autopilot/windows-autopilot) can help you establish a streamlined onboarding and device provisioning, which can enforce these directives.
 
-[Windows Local Administrator Password Solution](/devices/howto-manage-local-admin-passwords) (LAPS) enables a cloud-first solution to manage the passwords of local administrator accounts.
+[Windows Local Administrator Password Solution](../devices/howto-manage-local-admin-passwords.md) (LAPS) enables a cloud-first solution to manage the passwords of local administrator accounts.
 
 For more information, see [Learn more about cloud-native endpoints](/mem/cloud-native-endpoints-overview).
 
