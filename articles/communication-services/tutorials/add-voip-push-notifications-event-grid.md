@@ -1,7 +1,7 @@
 ---
 title: Using Event Grid Notifications to send VOIP push payload to ANH.
-titleSuffix: Event Grid Notification from Azure Communicaion Services Native Calling for Incoming VOIP payload. 
-description: Using Event Grid Notification from Azure Communicaion Services Native Calling to Incoming VOIP payload to devices via ANH. 
+titleSuffix: Azure Communication Services and Event Grid. 
+description: Using Event Grid Notification from Azure Communication Services Native Calling to Incoming VOIP payload to devices via ANH. 
 author: raosanat
 ms.service: azure-communication-services
 ms.topic: include
