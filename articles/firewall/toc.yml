@@ -114,6 +114,8 @@ items:
        href: tutorial-firewall-deploy-portal.md
      - name: Deploy in hybrid network - classic
        href: tutorial-hybrid-portal.md
+     - name: Filter inbound traffic with DNAT - classic
+       href: tutorial-firewall-dnat.md
      - name: Deploy Firewall Basic
        href: deploy-firewall-basic-portal-policy.md
      - name: Deploy using Azure PowerShell
@@ -146,6 +148,15 @@ items:
       href: premium-migrate.md
     - name: Migrate to Premium using Terraform
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Monitor
+    items:
+    - name: Monitor diagnostic logs
+      href: firewall-diagnostics.md
+      displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
+    - name: Enable Top 10 flow and Flow trace logs
+      href: enable-top-ten-and-flow-trace.md
+    - name: Azure Firewall Workbook
+      href: firewall-workbook.md
   - name: Scale Outbound SNAT Ports
     href: integrate-with-nat-gateway.md
   - name: Add or modify rules using PowerShell
@@ -154,8 +165,6 @@ items:
     href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
   - name: Connect to Azure Storage via SFTP
     href: firewall-sftp.md
-  - name: Filter inbound traffic with DNAT - classic
-    href: tutorial-firewall-dnat.md
   - name: Integrate with load balancer
     href: integrate-lb.md
   - name: Application rules with SQL FQDNs
@@ -166,13 +175,6 @@ items:
     href: create-ip-group.md
   - name: DNS settings
     href: dns-settings.md
-  - name: Monitor diagnostic logs
-    href: firewall-diagnostics.md
-    displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
-  - name: Enable Top 10 flow and Flow trace logs
-    href: enable-top-ten-and-flow-trace.md
-  - name: Azure Firewall Workbook
-    href: firewall-workbook.md
 - name: Reference
   items:
   - name: Azure CLI
