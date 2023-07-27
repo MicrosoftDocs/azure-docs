@@ -25,10 +25,6 @@ ms.custom: mode-other, devx-track-js
 [!INCLUDE [Video Calling with Android](./includes/custom-teams-endpoint/voice-video-calling-cte-java.md)]
 ::: zone-end
 
-::: zone pivot="platform-ios"
-[!INCLUDE [Video Calling with iOS]()]
-::: zone-end
-
 ## Clean up resources
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
