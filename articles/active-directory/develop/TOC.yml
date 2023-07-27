@@ -122,6 +122,13 @@
     - name: SPA authentication
       href: index-spa.yml
     - name: Quickstart
+      items: 
+        - name: Angular
+          href: quickstart-single-page-app-angular.md
+        - name: JavaScript
+          href: quickstart-single-page-app-javascript.md
+        - name: React
+          href: quickstart-single-page-app-react.md
       href: single-page-app-quickstart.md
     - name: Tutorials
       items:
