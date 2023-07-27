@@ -1,5 +1,5 @@
 ---
-title: Managed virtual network isolation (Preview)
+title: Managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed virtual network isolation for network security with Azure Machine Learning.
 services: machine-learning
@@ -13,13 +13,11 @@ ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ---
 
-# Workspace managed network isolation (preview)
+# Workspace managed network isolation
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning provides preview support for managed virtual network (VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+Azure Machine Learning provides support for managed virtual network (VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network.
 
 ## Managed virtual network architecture
 
@@ -41,9 +39,9 @@ There are two different configuration modes for outbound traffic from the manage
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
-## Supported scenarios in preview and to be supported scenarios
+## Supported scenarios
 
-|Scenarios|Supported in preview|To be supported|
+|Scenarios|Supported|To be supported|
 |---|---|---|
 |Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound||
 |Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
