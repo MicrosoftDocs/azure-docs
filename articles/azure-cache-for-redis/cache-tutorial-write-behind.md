@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md), with the following resources provisioned:
+- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md), with these resources provisioned:
   - Azure Cache for Redis instance
   - Azure Functions instance
   - Visual Studio Code (VS Code) environment set up with NuGet packages installed
@@ -44,11 +44,11 @@ This example uses the portal:
 
 1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
 
-1. Go to the **Networking** tab, and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
+1. Go to the **Networking** tab and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
-1. After deployment finishes, go to the resource in the Azure portal, and select the **Query editor** tab. Create a new table called *inventory* that holds the data you'll write to it. Use the following SQL command to make a new table with two fields:
+1. After deployment finishes, go to the resource in the Azure portal and select the **Query editor** tab. Create a new table called *inventory* that holds the data you'll write to it. Use the following SQL command to make a new table with two fields:
 
    - `ItemName` lists the name of each item.
    - `Price` stores the price of the item.
@@ -60,7 +60,7 @@ This example uses the portal:
        );
    ```
 
-1. After the command finishes running, expand the **Tables** folder and verify that the new table was created.
+1. After the command finishes running, expand the *Tables* folder and verify that the new table was created.
 
 ## Configure the Redis trigger
 
@@ -69,7 +69,7 @@ First, make a copy of the same VS Code project that you used in the previous tut
 In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
 
 - Trigger every time a `SET` event occurs. A `SET` event happens when either new keys are written to the cache instance or the value of a key is changed.
-- After a `SET`` event is triggered, access the cache instance to find the value of the new key.
+- After a `SET` event is triggered, access the cache instance to find the value of the new key.
 - Determine if the key already exists in the *inventory* table in the SQL database.
   - If so, update the value of that key.
   - If not, write a new row with the key and its value.
@@ -178,9 +178,9 @@ You need to update the *local.settings.json* file to include the connection stri
 
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
 
-To find the Redis connection string, go to the **Resource** menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area.
+To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area.
 
-To find the SQL database connection string, go to the **Resource** menu in the SQL database resource, and then select the **ADO.NET** tab. The string is in **Connection strings** area.
+To find the SQL database connection string, go to the resource menu in the SQL database resource, and then select the **ADO.NET** tab. The string is in the **Connection strings** area.
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
@@ -189,7 +189,7 @@ To find the SQL database connection string, go to the **Resource** menu in the S
 ## Build and run the project
 
 1. In VS Code, go to the **Run and debug tab** and run the project.
-1. Go back to your Azure Cache for Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some set commands:
+1. Go back to your Azure Cache for Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some `SET` commands:
 
    - `SET apple 5.25`
    - `SET bread 2.25`
@@ -198,8 +198,8 @@ To find the SQL database connection string, go to the **Resource** menu in the S
 1. Back in VS Code, the triggers are being registered. To validate that the triggers are working:
 
    1. Go to the SQL database in the Azure portal.
-   1. On the **Resource** menu, select **Query editor**.
-   1. For **New Query**, create a query with the following SQL statement to view the top 100 items in the inventory table:
+   1. On the resource menu, select **Query editor**.
+   1. For **New Query**, create a query with the following SQL command to view the top 100 items in the inventory table:
 
       ```sql
       SELECT TOP (100) * FROM [dbo].[inventory]
@@ -207,9 +207,7 @@ To find the SQL database connection string, go to the **Resource** menu in the S
 
       Confirm that the items written to your Azure Cache for Redis instance appear here.
 
-## Deploy to your function app
-
-The only task left is to deploy the code to the Azure function app:
+## Deploy the code to your function app
 
 1. In VS Code, go to the **Azure** tab.
 
@@ -219,7 +217,7 @@ The only task left is to deploy the code to the Azure function app:
 
 ## Add connection string information
 
-1. Go to your function app in the Azure portal. On the **Resource** menu, select **Configuration**.
+1. Go to your function app in the Azure portal. On the resource menu, select **Configuration**.
 
 1. Select **New application setting**. For **Name**, enter **SQLConnectionString**. For **Value**, enter your connection string.
 
@@ -231,7 +229,7 @@ The only task left is to deploy the code to the Azure function app:
 
 After the deployment finishes, go back to your Azure Cache for Redis instance and use `SET` commands to write more values. Confirm that they also appear in your SQL database.
 
-If you want to confirm that your function app is working properly, go to the app in the portal and select **Log stream** from the **Resource** menu. You should see the triggers running there, and the corresponding updates being made to your SQL database.
+If you want to confirm that your function app is working properly, go to the app in the portal and select **Log stream** from the resource menu. You should see the triggers running there, and the corresponding updates being made to your SQL database.
 
 If you ever want to clear the SQL database table without deleting it, you can use the following SQL query:
 
@@ -241,7 +239,7 @@ TRUNCATE TABLE [dbo].[inventory]
 
 ## Summary
 
-This tutorial and [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) show how to use Azure Cache for Redis to trigger Azure function apps. They also show how to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Azure Cache for Redis and Azure Functions are a powerful combination that can solve many integration and performance problems.
+This tutorial and [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) show how to use Azure Cache for Redis to trigger Azure function apps. They also show how to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
 
 ## Related content
 

@@ -13,7 +13,7 @@ ms.date: 07/19/2023
 
 # Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis
 
-This tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. It guides you through using Visual Studio Code (VS Code) to write and deploy the Azure function in C#.
+This tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
 
 In this tutorial, you learn how to:
 
@@ -163,7 +163,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. To trigger on Redis activity, you need to pass in the connection string of your cache instance. This information is stored in the _local.settings.json_ file that was automatically created in your folder. We recommend that you use the [local settings file](../azure-functions/functions-run-local.md#local-settings) as a security best practice.
 
-1. To connect to your cache, add a `ConnectionStrings` section in the _local.settings.json_ file, and then add your connection string by using the `redisConnectionString` parameter. The section should look like this:
+1. To connect to your cache, add a `ConnectionStrings` section in the _local.settings.json_ file, and then add your connection string by using the `redisConnectionString` parameter. The section should look like this example:
 
     ```json
     {
@@ -268,4 +268,4 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ## Next step
 
 > [!div class="nextstepaction"]
-> Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
+> [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
