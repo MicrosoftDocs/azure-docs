@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 07/27/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
@@ -98,7 +98,17 @@ az network vnet subnet update --resource-group $resourceGroupName --vnet-name $v
 
 ### Configure a private endpoint
 
-To configure a private endpoint, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role. The Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are part of a different Azure AD tenant.
+There are two steps involved in creating a private endpoint connection:
+
+> [!div class="checklist"]
+> - Creating the endpoint and the associated connection.
+> - Approving the connection.
+
+To create a private endpoint, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
+
+If you create the endpoint from a user that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps.
+
+The Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are part of a different Azure AD tenant.
 
 # [Portal](#tab/azure-portal)
 
