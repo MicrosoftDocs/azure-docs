@@ -133,4 +133,4 @@ additionalContent:
         - title: etc.
           summary: cardsummary5
           url: ./cardsummary5.md 
-  footer: "Find an issue with Azure Health Data Services docs? [Let us know](../use-docs.md#about-feedback)!"
+  footer: "Found an issue with the docs? [Let us know](../use-docs.md#about-feedback)!"
