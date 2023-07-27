@@ -31,7 +31,7 @@ The following licenses are available for use with Microsoft Entra ID Governance.
 >Microsoft Entra ID Governance scenarios may depends upon other features that are not covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
 
-## Features by license typ
+## Features by license type
 The following table shows what features are available with each license type.
 
 |Feature|Free|Mircorsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
