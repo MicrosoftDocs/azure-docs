@@ -92,6 +92,8 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 ### Move a custom configuration from the active server to the staging server
 If you have made configuration changes to the active server, you need to make sure that the same changes are applied to the new staging server. To help with this move, you can use the feature for [exporting and importing synchronization settings](./how-to-connect-import-export-config.md). With this feature you can deploy a new staging server in a few steps, with the exact same settings as another Azure AD Connect server in your network.
 
+
+### Moving individual custom sync rules
 For individual custom sync rules that you have created, you can move them by using PowerShell. If you must apply other changes the same way on both systems, and you cannot migrate the changes, then you might have to manually do the following configurations on both servers:
 
 * Connection to the same forests
