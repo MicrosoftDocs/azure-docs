@@ -125,7 +125,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
@@ -169,29 +169,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
-## Document Intelligence Studio
-
-> [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API.
-
-1. On the **Document Intelligence Studio** home page, select **Custom classification models**.
-
-1. Under **My Projects**, select **Create a project**.
-
-1. Complete the project details fields.
-
-1. Configure the service resource by adding your **Storage account** and **Blob container** to **Connect your training data source**.
-
-1. Review and create your project.
-
-1. Label your documents to build and test your custom classification model.
-
-    > [!div class="nextstepaction"]
-    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)
-
-For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
-
----
+:::moniker-end
 
 ## Custom model extraction summary
 
