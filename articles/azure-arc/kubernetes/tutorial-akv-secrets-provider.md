@@ -2,7 +2,7 @@
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 ms.custom: ignite-2022, devx-track-azurecli
-ms.date: 04/21/2023
+ms.date: 07/27/2023
 ms.topic: how-to
 ---
 
@@ -310,6 +310,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
      parameters:
        usePodIdentity: "false"
        keyvaultName: <key-vault-name>
+       cloudName:                           # Defaults to AzurePublicCloud
        objects:  |
          array:
            - |
@@ -318,6 +319,8 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
              objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
        tenantId: <tenant-Id>                # The tenant ID of the Azure Key Vault instance
    ```
+
+   For use with national clouds, change `cloudName` to `AzureUSGovernmentCloud` for U.S. Government Cloud, or to `AzureChinaCloud` for Azure China Cloud.
 
 1. Apply the SecretProviderClass to your cluster:
 
