@@ -49,16 +49,14 @@ Steps to create a generalized image which removes the sudo users are as follows,
 
     Copy the contents of the script shown below, to create a mount_vhd.sh file.
 
-    Command to run : ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
-
     For example:
     ```
-    ./mount_vhd.sh Ubuntu_20.04.vhd
+    ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
     ```
 
     This process is commonly used to access and work with disk images. In here, it is used to remove the sudo users on the Ubuntu image.
 
-    The mount_vhd.sh script performs the following operations to mount the vhd as shown,
+    The mount_vhd.sh script performs the following operations to mount the vhd on the loop device as shown. There are several ways to do this, the example script uses the loopdevice to mount the image.
     ```
     #!/bin/bash
 
@@ -108,11 +106,9 @@ If there are any users with sudo privileges, they are listed here,
 
     Copy the contents of the script shown below, to create a umount.sh file.
 
-    Command to run : ./umount.sh <$loopdevice in step 3>
-
     For example:
     ```
-    ./umount.sh /dev/loop3
+    ./umount.sh /dev/$loopdevice
     ```
 
     The umount.sh script performs the following operations to unmount the image as shown,
@@ -136,7 +132,7 @@ If there are any users with sudo privileges, they are listed here,
     sudo losetup -d $1
     ```
 
-The image is prepared without any sudo users in it that can be used as a base/reference image for creating the Confidential vms.
+The image is prepared without any sudo users in it that can be used as a base/reference image for creating the confidential vms.
 
 Follow the steps [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) to create an Azure confidential VM.
 Use the adminless image in step 4 of [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) while doing azcopy and the rest of the steps remains the same.
