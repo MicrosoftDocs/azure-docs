@@ -19,6 +19,7 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
+| Refresh release              | x.x.xxx        | August 5, 2023     | Supported                                                         |
 | Refresh release              | 1.1.256        | June 14, 2023      | Supported                                                         |
 | General availability release | 1.0.229        | April 17, 2023     | Supported                                                         |
 | Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|
@@ -48,6 +49,25 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+
+## 2023 August 5
+
+Refresh release notes for:
+
+- Service version: August 5, 2023
+- Agent version: x.x.xxxx
+
+### Migration scenarios
+Azure Storage mover can migrate your SMB share to Azure Files shares (in public preview).
+
+### Service
+
+- Two new endpoints have been introduced.
+- Error messages have been improved.
+
+### Agent
+
+- Handling credentials via Azure Key Vault.
 
 ## 2023 June 14
 
