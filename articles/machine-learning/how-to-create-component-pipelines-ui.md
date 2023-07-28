@@ -88,29 +88,28 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 
-  Find the *train*, *score* and *eval* components registered in previous section then drag-and-drop them on the canvas. By default it uses the default version of the component, and you can change to a specific version in the right pane of component. The component right pane is invoked by double click on the component.
+    Find the *train*, *score* and *eval* components registered in previous section then drag-and-drop them on the canvas. By default it uses the default version of the component, and you can change to a specific version in the right pane of component. The component right pane is invoked by double click on the component.
     
-     :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
+        :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
     
-  In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to align with the [train component definition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
+    In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to align with the [train component definition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
 
-     :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
+        :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
 
-  Then drag and drop the data into canvas. Your pipeline looks like below screenshot now.
+    Then drag and drop the data into canvas. Your pipeline looks like below screenshot now.
     
-     :::image type="content" source="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png" alt-text="Screenshot showing the pipeline draft." lightbox ="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png":::
+        :::image type="content" source="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png" alt-text="Screenshot showing the pipeline draft." lightbox ="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png":::
 
 
     
 4. Connect the data and components by dragging connections in the canvas.
-
-       
+  
      :::image type="content" source="./media/how-to-create-component-pipelines-ui/connect.gif" alt-text="Screenshot showing connecting the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/connect.gif":::
 
 
 5. Double click one component, you'll see a right pane where you can configure the component.
 
-    :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-parameter.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/component-parameter.png":::
+     :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-parameter.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/component-parameter.png":::
 
     For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane, under **Inputs** section.
 
@@ -118,7 +117,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     Now let's promote the *max_epocs* input of the *train* component to pipeline level input. Doing so, you can assign a different value to this input every time before submitting the pipeline.
 
-    :::image type="content" source="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png":::
+     :::image type="content" source="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png":::
 
 
 
