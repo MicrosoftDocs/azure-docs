@@ -26,7 +26,7 @@ Learn to use a classification policy in Job Router to dynamically resolve the qu
 
 ## Create a classification policy
 
-The following example will leverage [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job will be sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+The following example leverages [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression attempts to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job is sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority is `10` if a label called `Hardware_VIP` was matched, otherwise it is `1`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -114,7 +114,7 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
 
 ## Submit the job
 
-The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
+The following example causes the classification policy to evaluate the Job labels.  The outcome places the Job in the queue called `XBOX_NA_QUEUE` and sets the priority to `1`.  Before the classification policy is evaluated, the job's state is `pendingClassification`.  Once the classification policy is evaluated, the job's state is updated to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -186,11 +186,11 @@ client.createJob(new CreateJobWithClassificationPolicyOptions("job1", "voice", "
 
 ## Attaching Worker Selectors
 
-You can use the classification policy to attach additional worker selectors to a job.
+You can use the classification policy to attach more worker selectors to a job.
 
 ### Static Attachments
 
-In this example, the Classification Policy is configured with a static attachment, which will always attach the specified label selector to a job.
+In this example, the Classification Policy is configured with a static attachment, which always attaches the specified label selector to a job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -248,7 +248,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ### Conditional Attachments
 
-In this example, the Classification Policy is configured with a conditional attachment. So it will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
+In this example, the Classification Policy is configured with a conditional attachment. So it evaluates a condition against the job labels to determine if the said label selectors should be attached to the job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -374,7 +374,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ### Weighted Allocation Attachments
 
-In this example, the Classification Policy is configured with a weighted allocation attachment. This will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
+In this example, the Classification Policy is configured with a weighted allocation attachment. This policy divides up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -456,7 +456,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way of increasing the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -500,4 +500,4 @@ client.updateJob(new UpdateJobOptions("job1")
 ::: zone-end
 
 > [!NOTE]
-> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you'll receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job will be re-queued and you'll receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channel configurations are updated.
+> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job is re-queued and you receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channel configurations are updated.
