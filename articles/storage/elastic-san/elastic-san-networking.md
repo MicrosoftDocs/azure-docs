@@ -175,7 +175,7 @@ Use this sample code to approve the private link service connection if you are u
 
 ```powershell
 # Get the private endpoint and associated connection.
-$PrivateEndpoint = Get-AzPrivateEndpoint @PeArguments
+$PrivateEndpoint = Get-AzPrivateEndpoint -Name $EndpointName -ResourceGroupName $RgName
 $PeConnArguments  = @{
     ServiceName                  = $EsanName
     ResourceGroupName            = $RgName
