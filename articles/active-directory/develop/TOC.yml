@@ -254,7 +254,11 @@
     - name: Web API authentication
       href: index-web-api.yml
     - name: Quickstart
-      href: web-api-quickstart.md
+      items:
+        - name: ASP.NET
+          href: quickstart-web-api-aspnet-protect-api.md
+        - name: ASP.NET Core
+          href: quickstart-web-api-aspnet-core-protect-api.md
     - name: Tutorials
       items:
         - name: ASP.NET
@@ -409,6 +413,7 @@
     - name: Service/daemon authentication
       href: index-service.yml
     - name: Quickstart
+      items:
       href: console-app-quickstart.md
     - name: Tutorials
       items:
