@@ -1,6 +1,5 @@
 ---
-title: Protect your resources with Defender CSPM plan on your subscription - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your resources with Defender CSPM plan on your subscription
 description: Learn how to enable Defender CSPM on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023

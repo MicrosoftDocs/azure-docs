@@ -5,7 +5,7 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, devx-track-linux
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -33,7 +33,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
-  * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+  * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
@@ -107,6 +107,14 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 
 There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+git checkout 20230723
+```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+
 ```
 java-app
 ├─ src/main/
@@ -128,7 +136,7 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build the project
 
@@ -258,8 +266,13 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
-
-   1. Go to `https://<ADDRESS>` to test the application.
+      
+   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
+      
+      ```bash
+      export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
+      echo $APP_URL
+      ```
 
 ## Clean up resources
 

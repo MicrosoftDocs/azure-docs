@@ -31,7 +31,7 @@ Whether you know if you have any existing cost anomalies or not, Cost analysis i
 
 ### View anomalies in Cost analysis
 
-Anomaly detection is available in Cost analysis (preview) when you select a subscription scope. You view your anomaly status as part of **Insights**. And as with [other insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights), the experience is simple.
+Anomaly detection is available in Cost analysis (preview) when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
 
 In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Preview views**. In the following example, the **Resources** preview view is selected. If you have a cost anomaly, you see an insight.
 

@@ -30,6 +30,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This procedure describes how to list role assignments with organization-wide scope.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

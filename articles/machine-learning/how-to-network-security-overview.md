@@ -18,12 +18,10 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 # Secure Azure Machine Learning workspace resources using virtual networks (VNets)
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 :::moniker-end
 :::moniker range="azureml-api-1"
-[!INCLUDE [sdk v1](includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](includes/machine-learning-cli-v1.md)]
+[!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
 :::moniker-end
 
 Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
