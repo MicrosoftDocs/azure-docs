@@ -12,7 +12,10 @@ ms.reviewer: mmcc
 
 The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
-We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md). If you're adding a [framework extension](./javascript-framework-extensions.md), you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
+We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md): 
+
+- If you're adding a [framework extension](./javascript-framework-extensions.md), which you can [optionally add](#4-optional-add-advanced-sdk-configuration) after you follow the steps to get started below, you'll have the option to add Click Analytics when you add the framework extension. 
+- If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md) after you follow the steps to get started.
 
 ## Prerequisites
 
@@ -23,8 +26,6 @@ We collect page views by default. But if you want to also collect clicks by defa
 ## Get started
 
 Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
-
-If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
 
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
@@ -113,7 +114,7 @@ To paste the connection string in your environment, follow these steps:
 
    1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string](./sdk-connection-string.md) copied to the clipboard.
 
-      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml##do-new-azure-regions-require-the-use-of-connection-strings-).
+      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml#do-new-azure-regions-require-the-use-of-connection-strings-).
 
 ### 3. (Optional) Add SDK configuration
 
