@@ -334,7 +334,7 @@ sections:
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
         answer: |
-          Yes. First, switch your disk to use platform-managed keys with the following steps:
+          Yes. First, switch your disk to use platform-managed keys with one of the following steps:
 
           # [Portal](#tab/azure-portal)
 
