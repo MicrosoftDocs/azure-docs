@@ -37,7 +37,7 @@ If your cluster is already using the latest version of the Azure Identity SDK, p
 
 If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
 
-- You can use a migration sidecar that we provide within your applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity.  Perform the following steps to:
+- You can use a migration sidecar that we provide within your Linux applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity.  Perform the following steps to:
 
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Verify the authentication transactions are completing successfully.
@@ -46,6 +46,7 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
 
    > [!NOTE]
    > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+   > The migration sidecar is only for Linux containers as pod-managed identities was available on Linux node pools only. 
 
 - Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 
@@ -103,8 +104,6 @@ kind: ServiceAccount
 metadata:
   annotations:
     azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-  labels:
-    azure.workload.identity/use: "true"
   name: ${SERVICE_ACCOUNT_NAME}
   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
 EOF
@@ -131,6 +130,7 @@ az identity federated-credential create --name federatedIdentityName --identity-
 
 > [!NOTE]
 > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+> The migration sidecar is only for Linux containers as pod-managed identities was available on Linux node pools only.
 
 If your application is using managed identity and still relies on IMDS to get an access token, you can use the workload identity migration sidecar to start migrating to workload identity. This sidecar is a migration solution and in the long-term applications, you should modify their code to use the latest Azure Identity SDKs that support client assertion.
 
@@ -151,11 +151,13 @@ metadata:
   labels:
     app: httpbin
     azure.workload.identity/use: "true"
+  annotations:
+    azure.workload.identity/inject-proxy-sidecar: "true"
 spec:
   serviceAccountName: workload-identity-sa
   initContainers:
   - name: init-networking
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v1.1.0
     securityContext:
       capabilities:
         add:
@@ -173,7 +175,7 @@ spec:
     ports:
     - containerPort: 80
   - name: proxy
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v1.1.0
     ports:
     - containerPort: 8000
 ```
