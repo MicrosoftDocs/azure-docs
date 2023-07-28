@@ -35,12 +35,12 @@ Most GeoJSON files wrap all data within a `FeatureCollection`. With this scenari
 The following steps show you how to import a GeoJSON file into the application and deserialize it as a GeoJSON `FeatureCollection` object.
 
 1. Complete the [Quickstart: Create an Android app] as the following steps build on top of this application.
-1. In the project panel of Android studio, right-click on the **app** folder and go to `New > Folder > Assets Folder`.
-1. Drag and drop the [Sample Points of Interest] GeoJSON file into the assets folder.
+2. In the project panel of Android studio, right-click on the **app** folder and go to `New > Folder > Assets Folder`.
+3. Drag and drop the [Sample Points of Interest] GeoJSON file into the assets folder.
 
 ::: zone pivot="programming-language-java-android"
 
-1. Go into the _MainActivity.java_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the _SamplePoiDataSet.json_ file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+4. Go into the _MainActivity.java_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the _SamplePoiDataSet.json_ file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```java
 //Create a data source and add it to the map.
@@ -57,7 +57,7 @@ map.sources.add(source);
 
 ::: zone pivot="programming-language-kotlin"
 
-1. Go into the _MainActivity.kt_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the _SamplePoiDataSet.json_ file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+4. Go into the _MainActivity.kt_ file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the _SamplePoiDataSet.json_ file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```kotlin
 //Create a data source and add it to the map.
@@ -72,7 +72,7 @@ map.sources.add(source);
 
 ::: zone-end
 
-1. Using the code to load the GeoJSON data a data source, we now need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer], [Symbol layer], and [Heat map layer] are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
+5. Using the code to load the GeoJSON data a data source, we now need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer], [Symbol layer], and [Heat map layer] are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -94,8 +94,8 @@ map.layers.add(layer)
 
 ::: zone-end
 
-1. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called _popup_text.xml_.
-1. Open the _popup_text.xml_ file. If the file opens in a designer view, right-click on the screen and select **Go to XML**. Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
+6. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called _popup_text.xml_.
+7. Open the _popup_text.xml_ file. If the file opens in a designer view, right-click on the screen and select **Go to XML**. Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -122,7 +122,7 @@ map.layers.add(layer)
 
 ::: zone pivot="programming-language-java-android"
 
-1. Go back into the  _MainActivity.java_ file and after the code for the bubble layer, add the following code to create a reusable popup.
+8. Go back into the  _MainActivity.java_ file and after the code for the bubble layer, add the following code to create a reusable popup.
 
 ```java
 //Create a popup and add it to the map.
@@ -137,7 +137,7 @@ popup.close();
 
 ::: zone pivot="programming-language-kotlin"
 
-1. Go back into the  _MainActivity.kt_ file and after the code for the bubble layer, add the following code to create a reusable popup.
+8. Go back into the  _MainActivity.kt_ file and after the code for the bubble layer, add the following code to create a reusable popup.
 
 ```kotlin
 //Create a popup and add it to the map.
@@ -150,7 +150,7 @@ popup.close()
 
 ::: zone-end
 
-1. Add the following code to attach a `click` event to the bubble layer. When a bubble in the bubble layer is tapped, the event fires and retrieves details from the properties of the selected feature, create a view using the _popup_text.xml_ layout file, pass it in as content into the popup, then show the popup at the features position.
+9. Add the following code to attach a `click` event to the bubble layer. When a bubble in the bubble layer is tapped, the event fires and retrieves details from the properties of the selected feature, create a view using the _popup_text.xml_ layout file, pass it in as content into the popup, then show the popup at the features position.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -236,7 +236,7 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
 ::: zone-end
 
-1. Run the application. A map is displayed with bubbles overlaid for each location in the GeoJSON file. Tapping on any bubble displays a popup with the name and entity type of the feature touched.
+10. Run the application. A map is displayed with bubbles overlaid for each location in the GeoJSON file. Tapping on any bubble displays a popup with the name and entity type of the feature touched.
 
     ![Map of data from a GeoJSON file displayed with a popup being opened when location tapped](media/tutorial-load-geojson-file-android/android-import-geojson.gif)
 
