@@ -34,7 +34,7 @@ Here are the couple of scenarios supported by this feature:
 
 ## Save an image to a compute gallery
 > [!IMPORTANT]
-> Images can only be saved from Labs that were created in the same region as their Lab Plan.
+> Images can only be saved from labs that were created in the same region as their lab plan.
 
 1. On the **Template** page for the lab, select **Export to Azure Compute Gallery** on the toolbar.
 
