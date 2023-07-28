@@ -81,7 +81,7 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
 - [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
-- [Cross Region Restore for MARS (Preview)](Link-To-MARS-overview-page)
+- [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview)
 
 ## Set encryption settings
 

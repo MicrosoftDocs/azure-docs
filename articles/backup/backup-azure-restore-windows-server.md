@@ -114,7 +114,7 @@ These steps include the following terminology:
 
     If you want to use Cross Region Restore to restore backup data from the secondary region, you need to download the *Secondary Region” vault credential file* from the Azure portal, and then pass the file in the MARS agent.
 
-   :::image type="content" source="{source}" alt-text="{alt-text}":::
+   :::image type="content" source="./media/backup-azure-restore-windows-server/pass-vault-credentials-in-mars-agent.png" alt-text="Screenshot shows the vault credentials added to MARS agent.":::
 
    , Select **Next** to continue.
 
