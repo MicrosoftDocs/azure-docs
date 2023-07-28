@@ -12,7 +12,7 @@ zone_pivot_groups: devops-or-github
 
 # Tutorial:  Deploy an Angular app on Azure Static Web Apps
 
-In this article, you learn to deploy a Angular application to Azure Static Web Apps using the Azure portal.
+In this article, you learn to deploy an Angular application to Azure Static Web Apps using the Azure portal.
 
 ## Prerequisites
 
