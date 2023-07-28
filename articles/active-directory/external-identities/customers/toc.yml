@@ -33,11 +33,11 @@ items:
             - name: Angular
               items:
                 - name: Sign in users
-                  href: sample-single-page-application-angular.md
+                  href: sample-single-page-app-angular-sign-in.md
             - name: React
               items:
                 - name: Sign in users
-                  href: sample-single-page-application-react.md
+                  href: sample-single-page-app-react-sign-in.md
         - name: Web app
           items:
             - name: Node.js
@@ -97,11 +97,13 @@ items:
               - name: Sign in users
                 items:
                   - name: Prepare tenant
-                    href: how-to-single-page-application-react-prepare-tenant.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-tenant.md
                   - name: Prepare app
-                    href: how-to-single-page-application-react-prepare-app.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-app.md
+                  - name: Configure app for authentication
+                    href: tutorial-single-page-app-react-sign-in-configure-authentication.md 
                   - name: Sign in and sign out
-                    href: how-to-single-page-application-react-sign-in-out.md
+                    href: tutorial-single-page-app-react-sign-in-sign-out.md
       - name: Web app
         items: 
           - name: Node/Express.js
@@ -145,14 +147,10 @@ items:
         items: 
           - name: Protect ASP.NET API
             items:
-              - name: Overview
-                href: how-to-protect-web-api-dotnet-core-overview.md
-              - name: Prepare the API
-                href: how-to-protect-web-api-dotnet-core-prepare-api.md
-              - name: Protect API endpoints
-                href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-              - name: Test the API
-                href: how-to-protect-web-api-dotnet-core-test-api.md
+              - name: Build a protected API 
+                href: tutorial-protect-web-api-dotnet-core-build-app.md
+              - name: Test protected API 
+                href: tutorial-protect-web-api-dotnet-core-test-api.md
       - name: Browserless app
         items: 
           - name: Node.js

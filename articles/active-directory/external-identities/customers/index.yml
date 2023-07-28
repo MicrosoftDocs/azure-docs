@@ -93,7 +93,7 @@ landingContent:
           - text: ASP.NET web app
             url: how-to-web-app-dotnet-sign-in-prepare-tenant.md
           - text: Secure an ASP.NET web API
-            url: how-to-protect-web-api-dotnet-core-overview.md
+            url: tutorial-protect-web-api-dotnet-core-build-app.md
           - text: More build and integrate guides
             url: samples-ciam-all.md
   - title: Samples by app type and language/platform 

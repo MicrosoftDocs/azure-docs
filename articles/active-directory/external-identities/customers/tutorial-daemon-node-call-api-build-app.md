@@ -32,7 +32,7 @@ In this tutorial, you'll:
 - [Node.js](https://nodejs.org).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Registration details for the Node.js daemon app and web API you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md).
-- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
+- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](./tutorial-protect-web-api-dotnet-core-build-app.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
     - `GET /api/todolist` to get all todos.
     - `POST /api/todolist` to add a todo.
 
