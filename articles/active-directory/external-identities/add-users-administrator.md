@@ -34,9 +34,11 @@ Make sure your organization's external collaboration settings are configured suc
 
 ## Add guest users to the directory
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 

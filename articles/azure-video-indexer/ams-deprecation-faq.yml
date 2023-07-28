@@ -19,9 +19,9 @@ sections:
         answer: |
             Azure Media Services is being deprecated as a product. For more information, see [AMS deprecation announcement](https://aka.ms/ams-retirement).
           
-      - question:  Azure Video Indexer also being deprecated?
+      - question:  Is Azure Video Indexer also being deprecated?
         answer: |
-          No, Azure Video Indexer isn't part of Azure Media Services and isn't being deprecated. 
+          No. While Azure Video Indexer currently relies on Azure Media Services for video encoding, Azure Video Indexer is not being deprecated. 
 
       - question:  Will I be able to use Video Indexer after Media Services is deprecated?
         answer: |
@@ -49,8 +49,7 @@ sections:
 
       - question:  Will my billing change after the deprecation?
         answer: |
-          Video Indexer will replace the encoding and streaming functionality provided by Media Services. What was previously billed by Media Services will now be billed by Video Indexer directly. You will not pay more for the replacement service offered by Video Indexer. 
-          
+          Video Indexer will replace the encoding and streaming functionality provided by Media Services. What was previously billed by Media Services will now be billed by Video Indexer directly. You will not pay more for the replacement encoding and packaging service offered by Video Indexer.
       - question:  Can I use Video Indexer for live Analysis?
         answer: |
           No, while Media Services provided live transcription on live events, Video Indexer does not provide live streaming or Analysis capability.
@@ -61,4 +60,4 @@ sections:
 
       - question: What can I do if I have more questions?
         answer: |
-          If you have additional questions you can contact Microsoft Support and create a ticket.
+          If you have additional questions you can contact Microsoft Support, follow [create a support ticket](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).

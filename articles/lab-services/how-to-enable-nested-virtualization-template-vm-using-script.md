@@ -274,8 +274,6 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 Now that you've configured nested virtualization on the template VM, you can [create nested virtual machines with Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v). See [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
 
-You can further configure your lab:
-
-- [Add lab users](./how-to-configure-student-usage.md)
-- [Set quota hours](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Configure a lab schedule](tutorial-setup-lab.md#add-a-lab-schedule)
+- [Add lab users](how-to-manage-lab-users.md)
+- [Set quota hours](how-to-manage-lab-users.md#set-quotas-for-users)
+- [Configure a lab schedule](./how-to-create-schedules.md)

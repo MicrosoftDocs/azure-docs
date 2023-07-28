@@ -128,10 +128,10 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Get started
+          - name: Get Started with JavaScript SDK
             displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK configuration
+          - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
           - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
@@ -242,8 +242,11 @@ items:
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md
-        - name: SLA Report
+        - name: SLA report
           href: app/sla-report.md
+        - name: Migrate from URL ping tests
+          href: app/availability-test-migration.md
+          displayName: ping test, availability, migrate, convert, standard test, synthetics
       - name: Transaction diagnostics
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
@@ -443,6 +446,8 @@ items:
           href: vm/vminsights-dependency-agent-maintenance.md
         - name: Configure workspace 
           href: vm/vminsights-configure-workspace.md
+        - name: Migrate from deprecated VM insights policies 
+          href: vm/vminsights-migrate-deprecated-policies.md          
       - name: Map dependencies
         href: vm/vminsights-maps.md
       - name: Monitor performance
@@ -571,15 +576,19 @@ items:
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
     items:
-    - name: Overview
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-overview.md
-    - name: Topology
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-topology.md
-    - name: Troubleshooting
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-troubleshooting.md 
+    - name: Network Watcher
+      href: ../network-watcher/network-watcher-monitoring-overview.md
+    - name: Network Insights
+      items:
+      - name: Overview
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-overview.md
+      - name: Topology
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data sources
@@ -1292,7 +1301,7 @@ items:
       href: alerts/alerts-types.md
     - name: Alert rules
       items:
-        - name: Create a new alert rule
+        - name: Create or edit an alert rule
           href: alerts/alerts-create-new-alert-rule.md
         - name: Manage alert rules
           href: alerts/alerts-manage-alert-rules.md
@@ -1537,13 +1546,13 @@ items:
   - name: Supported metrics
     items:
     - name: Resource metrics
-      href: essentials/metrics-supported.md
+      href: /azure/azure-monitor/reference/supported-metrics/metrics-index
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
   - name: Log sources
     items:
     - name: Supported resource log categories
-      href: essentials/resource-logs-categories.md
+      href: /azure/azure-monitor/reference/supported-logs/logs-index
     - name: Resource log schemas
       href: essentials/resource-logs-schema.md
     - name: Activity log schema

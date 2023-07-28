@@ -45,7 +45,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package).
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
@@ -103,7 +103,7 @@ To ensure people outside of your organization can request access packages and ge
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
 
 > [!NOTE]
-> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure Portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
+> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
 
 ### Review your SharePoint Online external sharing settings
 

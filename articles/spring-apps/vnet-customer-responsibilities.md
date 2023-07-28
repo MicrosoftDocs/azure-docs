@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Customer responsibilities for running Azure Spring Apps in a virtual network
