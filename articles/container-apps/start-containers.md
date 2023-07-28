@@ -34,7 +34,7 @@ Looking to dive in? Use the following table to help you get acquainted with cont
 | Action | Description |
 |---|---|
 | Containers defined | Containers are [standardized, portable packaging for your applications](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-a-container). |
-| Introduction to containers and Docker | https://learn.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/ |
+| Introduction to containers and Docker | Learn the basics of how to [build an use containers](/dotnet/architecture/microservices/container-docker-introduction/). |
 | Build an app | [Deploy your first app with a sample container](quickstart-portal.md). |
 
 > [!div class="nextstepaction"]
