@@ -1321,6 +1321,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/devices/howto-hybrid-join-downlevel.md",
+      "redirect_url": "/azure/active-directory/devices/how-to-hybrid-join-downlevel",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/howto-hybrid-join-verify.md",
+      "redirect_url": "/azure/active-directory/devices/how-to-hybrid-join-verify",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/howto-hybrid-azure-ad-join.md",
+      "redirect_url": "/azure/active-directory/devices/how-to-hybrid-join",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-join-hybrid.md",
+      "redirect_url": "/azure/active-directory/devices/concept-hybrid-join",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/azuread-joined-devices-frx.md",
+      "redirect_url": "/azure/active-directory/devices/device-join-out-of-box",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/azuread-join-sso.md",
+      "redirect_url": "/azure/active-directory/devices/device-sso-to-on-premises-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/azureadjoin-plan.md",
+      "redirect_url": "/azure/active-directory/devices/device-join-plan",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/devices/concept-azure-managed-workstation.md",
       "redirect_url": "/security/compass/concept-azure-managed-workstation",
       "redirect_document_id": false

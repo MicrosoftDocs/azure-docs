@@ -80,11 +80,11 @@ Azure AD Join can be deployed by using any of the following methods:
 
 - [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
 - [Bulk deployment](/intune/windows-bulk-enroll)
-- [Self-service experience](azuread-joined-devices-frx.md)
+- [Self-service experience](device-join-out-of-box.md)
 
 ## Next steps
 
-- [Plan your Azure AD join implementation](azureadjoin-plan.md)
+- [Plan your Azure AD join implementation](device-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
 - [How to manage the local administrators group on Azure AD joined devices](assign-local-admin.md)
 - [Manage device identities using the Azure portal](device-management-azure-portal.md)
