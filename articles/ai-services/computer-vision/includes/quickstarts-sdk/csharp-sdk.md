@@ -112,7 +112,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 ## Output
 
 ```console
-Azure AI services Azure AI Vision - .NET quickstart example
+Azure AI Vision - .NET quickstart example
 
 ----------------------------------------------------------
 READ FILE FROM URL

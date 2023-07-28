@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: devx-track-dotnet
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 07/26/2023
 ---
 
 # C# samples for Azure Cognitive Search
@@ -36,6 +36,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [FieldBuilderIgnore](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample04_FieldBuilderIgnore.md) | Demonstrates a technique for working with unsupported data types.  |
 | [Indexing documents (push model)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md) | "Push" model indexing, where you send a JSON payload to an index on a service.   |
 | [Encryption key sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample06_EncryptedIndex.md) | Demonstrates using a customer-managed encryption key to add an extra layer of protection over sensitive content.  |
+| [Vector search sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md) | Shows you how to index a vector field and perform vector search using the Azure SDK for .NET. Vector search is in preview. A beta version of azure.search.documents provides support for this preview feature. |
 
 ## Doc samples
 
@@ -51,24 +52,40 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [How to use the .NET client library](search-howto-dotnet-sdk.md) | Steps through the basic workflow, but in more detail and with discussion of API usage.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md) | Synonym lists are used for query expansion, providing matchable  terms that are external to an index. |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | [Tutorial: Index Azure SQL data](search-indexer-tutorial.md) | Shows how to configure an Azure SQL indexer that has a schedule, field mappings, and parameters.  |
-| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md) | Shows how to create objects that are encrypted with a customer key. |
-| [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). | Merges content from two data sources into one search index.
-| [Optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md).| Demonstrates optimization techniques for pushing data into a search index. |
+| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md) | Shows how to create objects that are encrypted with a Customer Key. |
+| [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/master/multiple-data-sources)  | [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). | Merges content from two data sources into one search index.
+| [Optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/master/optimize-data-indexing) | [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md).| Demonstrates optimization techniques for pushing data into a search index. |
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | [Tutorial: AI-generated searchable content from Azure blobs](cognitive-search-tutorial-blob-dotnet.md) | Shows how to configure an indexer and skillset. |
 | [create-mvc-app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-mvc-app) |  [Tutorial: Add search to an ASP.NET Core (MVC) app](tutorial-csharp-create-mvc-app.md) | While most samples are console applications, this MVC sample uses a web page to front the sample Hotels index, demonstrating basic search, pagination, and other server-side behaviors.|
+
+## Accelerators
+
+An accelerator is an end-to-end solution that includes code and documentation that you can adapt for your own implementation of a specific scenario.
+
+| Samples | Repository | Description |
+|---------|------------|-------------|
+| [Search + QnA Maker Accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator) | [search-qna-maker-accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator)| A [solution](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) combining the power of Search and QnA Maker. See the live [demo site](https://aka.ms/qnaWithAzureSearchDemo). |
+| [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | [azure-search-knowledge-mining](https://github.com/azure-samples/azure-search-knowledge-mining/tree/main/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
+
+## Demos
+
+A demo repo provides proof-of-concept source code for examples or scenarios shown in demonstrations. Demo solutions aren't designed for adaptation by customers.
+
+| Samples | Repository | Description |
+|---------|------------|-------------|
+| [Covid-19 search app](https://github.com/liamca/covid19search/blob/master/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
+| [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files/blob/master/README.md) | [AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
 
 ## Other samples
 
 The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
-| Samples | Description |
-|---------|-------------|
-| [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/main/check-storage-usage/README.md) | Invokes an Azure function that checks search service storage on a schedule. |
-| [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/main/export-data/README.md) | C# console app that partitions and export a large index. |
-| [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services) |  Issue a single query across multiple search services and combine the results into a single page.  |
-| [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) | Source code demonstrating indexer connections and indexing of Azure Data Lake Gen2 files and folders that are secured through Azure AD and role-based access controls. |
-| [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
-| [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
-| [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
-| [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
-| [Search + QnA Maker Accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator) | A [solution](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) combining the power of Search and QnA Maker. See the live [demo site](https://aka.ms/qnaWithAzureSearchDemo). |
+| Samples | Repository | Description |
+|---------|------------|-------------|
+| [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services) |  [azure-search-dotnet-scale](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Issue a single query across multiple search services and combine the results into a single page.  |
+| [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/check-storage-usage/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Invokes an Azure function that checks search service storage on a schedule. |
+| [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/export-data/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that partitions and export a large index. |
+| [Backup and restore an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/index-backup-restore/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that copies an index from one service to another, and in the process, creates JSON files on your computer with the index schema and documents.|
+| [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/master/data-lake-gen2-acl-indexing/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Source code demonstrating indexer connections and indexing of Azure Data Lake Gen2 files and folders that are secured through Azure AD and role-based access controls. |
+| [Search aggregations](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/search-aggregations/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Proof-of-concept source code that demonstrates how to obtain aggregations from a search index and then filter by them. |
+| [Power Skills](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/README.md) | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |

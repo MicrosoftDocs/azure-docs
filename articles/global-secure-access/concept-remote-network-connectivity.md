@@ -1,11 +1,11 @@
 ---
 title: Global Secure Access (preview) remote network connectivity
-description: Learn about remote network connectivity in Global Secure Access (preview).
+description: Learn how remote network connectivity in Global Secure Access (preview) allows users to connect to your corporate network from a remote location, such as a branch office.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 06/01/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
