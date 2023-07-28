@@ -24,8 +24,8 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 | Action  | Direction | Type | Preview |
 |---------|-----------|------|------|
 | Triggers on Redis pubsub messages   | N/A | [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) | Yes|
-| Triggers on Redis lists | N/A | [RedisListsTrigger](functions-bindings-cache-trigger-redislists.md)  | Yes |
-| Triggers on Redis streams | N/A | [RedisStreamsTrigger](functions-bindings-cache-trigger-redisstreams.md) | Yes |
+| Triggers on Redis lists | N/A | [RedisListsTrigger](functions-bindings-cache-trigger-redislist.md)  | Yes |
+| Triggers on Redis streams | N/A | [RedisStreamsTrigger](functions-bindings-cache-trigger-redisstream.md) | Yes |
 
 ## Scope of availability for functions triggers
 
