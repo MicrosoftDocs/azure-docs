@@ -204,7 +204,7 @@ Add a reference to MSAL for Java by adding the following code at the start of th
 import com.microsoft.aad.msal4j.*;
 ```
 
-[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
+[!INCLUDE [Help and support](includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 
