@@ -21,203 +21,83 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 ## Access reviews
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create or do access reviews. For more information, see [Access reviews license requirements](access-reviews-overview.md).
 
+You might also need other Identity Governance features, such as [entitlement lifecycle management](entitlement-management-overview.md) or PIM. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## App provisioning
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## App proxy
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+Azure AD Application Proxy, requires Azure AD Premium P1 or P2 licenses. For more information about licensing, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 ## Authentication
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+No licensing requirements ????
 
 ## Cloud sync
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+No licensing requirements (Correct?)
 
 ## Conditional access
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+
+Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features. 
+
+Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which is an Azure AD P2 feature.
+
+Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
+
+When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted. This grants customers the ability to migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
+
+[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
+
+[!INCLUDE [active-directory-zero-trust](../../../includes/active-directory-zero-trust.md)]
+
+
+## Features in preview
+
+
+### Feature A
+
+Place holder
+
+### Feature B
+
+Place holder
 
 ## Hybrid
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+
 
 
 ## Identity protection
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
 
-## Multi tenant organizations
-
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
 
 
 ## Managed identities for Azure resources
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+ There are no licensing requirements for using managed identities for Azure resources. Managed identities is a feature of Azure Active Directory (Azure AD) that provides an automatically managed identity for applications to use when connecting to resources that support Azure AD authentication. One of the benefits of using managed identities is that you don’t need to manage credentials, and they can be used at no extra cost. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+
+## Multi tenant organizations
+
 
 
 ## Privileged identity management
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
 
 ## Reports and monitoring
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+
 
 
 ## Roles
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+
 
 
 ## SaaS apps
@@ -239,18 +119,7 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 ## Veriried ID
 
-|Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
-|-----|-----|-----|-----|-----|
-|Cloud authentication (Pass-through authentication, password hash synchronization)|x|x|x||
-|Federated authentication (Active Directory Federation Services or federation with other identity providers)|x|x|x||
-|Single sign-on (SSO) unlimited|x|x|x||
-|Software as a service (SaaS) apps with modern authentication (Microsoft Entra ID application gallery apps, SAML, and OAUTH 2.0)|x|x|x||
-|Group assignment to applications||x|x||
-|Cloud app discovery (Microsoft Defender for Cloud Apps)||x|x||
-|Application proxy for on-premises, header-based, and integrated Windows authentication||x|x||
-|Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication)|x|x|x||
-|Service level agreement||x|x||
-|Customizable user sign-in page|x|x|x||
+
 
 
 ## Workload Identities
