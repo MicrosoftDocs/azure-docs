@@ -66,7 +66,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Cross Region Restore for MARS Agent (preview)
 
-You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Gep-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. In the case of disasters causing partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
+You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Gep-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters causing partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
 
 For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
 

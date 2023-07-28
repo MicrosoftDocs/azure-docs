@@ -38,7 +38,7 @@ Cross Region Restore (CRR) allows you to restore MARS backup data from a seconda
 To use the feature:
 
 1. [Turn on Cross Region Restore in your Recovery Services Vault](backup-create-rs-vault.md#set-cross-region-restore). Once Cross Region Restore is enabled, you can't disable it.
-2. After you turn on the feature, it can take up to *48 hours* for the backup items to be available in the secondary region. Currently, the secondary region RPO is *36 hours*, because the RPO in the primary region is *24 hours* and it can take up to *12 hours* to replicate the backup data from the primary to secondary region.
+2. After you turn on the feature, it can take up to *48 hours* for the backup items to be available in the secondary region. Currently, the secondary region RPO is *36 hours*, because the RPO in the primary region is *24 hours*, and it can take up to *12 hours* to replicate the backup data from the primary to secondary region.
 3. To restore the backup data for the original machine, you can directly select **Secondary Region** as the source of the backup data in the wizard.
 
    :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection for secondary region as the backup data source during Cross Region Restore.":::
@@ -47,7 +47,7 @@ To use the feature:
 
    :::image type="content" source="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png .png" alt-text="Screenshot shows how to download vault credentials for secondary region.":::
 
-5. To automate recovery from secondary region for audit or compliance drills, [use the command](backup-client-automation.md#cross-region-restore). 
+5. To automate recovery from secondary region for audit or compliance drills, [use this command](backup-client-automation.md#cross-region-restore). 
 
 >[!Note]
 >- Recovery Services vaults with private endpoint are currently not supported for Cross Region Restore with MARS.
