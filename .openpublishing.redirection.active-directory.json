@@ -1042,7 +1042,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-test-api.md",
-      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-test-api.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-test-api",
       "redirect_document_id": false 
     },
     {
