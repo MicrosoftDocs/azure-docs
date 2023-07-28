@@ -36,15 +36,3 @@ Key capabilities offered in Azure Operator Nexus Network Fabric -
 * **Network Policy Automation** - Automating the management of consistent network policies across the fabric to ensure security, performance, and access controls are enforced uniformly.
 
 * **Networking features built for Operators** - Support for unique features like multicast, SCTP, and jumbo frames.
-
-Key benefits of Azure Operator Nexus Network Fabric -
-
-* **Speed and Agility** - Automation reduces the time required for network bootstrap, configuration deployment and change management, enabling faster service delivery and better response to business needs.
-
-* **Consistency and Reliability** - Automation eliminates human errors, leading to consistent and reliable network configurations and operations. 
-
-* **Security** - Automated policy enforcement helps maintain consistent security measures across the network fabric.
-
-* **Reduced OPEX** - Automation reduces operational expenses by reducing manual efforts and simplifying management.
-
-* **Flexibility and Adaptability** - Automation enables the fabric to adapt to dynamic workloads and changing network requirements efficiently.
