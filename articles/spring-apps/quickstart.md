@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 07/28/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
 ---
