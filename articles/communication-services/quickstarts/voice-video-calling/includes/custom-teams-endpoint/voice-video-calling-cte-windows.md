@@ -21,7 +21,7 @@ To complete this tutorial, you need the following prerequisites:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../manage-teams-identity?pivots=programming-language-csharp) for your Azure Communication Service.
+- A [User Access Token](../../../manage-teams-identity.md?pivots=programming-language-csharp) for your Azure Communication Service.
 - Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
   
 ### Setting up
@@ -191,7 +191,7 @@ The next table listed the classes and interfaces handle some of the major featur
 
 Initialize a `TeamsCallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../manage-teams-identity?pivots=programming-language-csharp) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../manage-teams-identity.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
 
@@ -373,7 +373,7 @@ To complete this tutorial, you need the following prerequisites:
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.3](/windows/apps/windows-app-sdk/stable-channel#version-13).
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../manage-teams-identity?pivots=programming-language-csharp) for your Azure Communication Service.
+- A [User Access Token](../../../manage-teams-identity.md?pivots=programming-language-csharp) for your Azure Communication Service.
 - Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
   
 ### Setting up
@@ -534,7 +534,7 @@ The next table listed the classes and interfaces handle some of the major featur
 
 Initialize a `TeamsCallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../manage-teams-identity?pivots=programming-language-csharp) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../manage-teams-identity.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
 

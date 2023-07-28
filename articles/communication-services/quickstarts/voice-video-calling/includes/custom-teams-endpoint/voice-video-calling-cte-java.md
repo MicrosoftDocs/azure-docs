@@ -17,7 +17,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../manage-teams-identity?pivots=programming-language-java) for your Azure Communication Service.
+- A [User Access Token](../../../manage-teams-identity.md?pivots=programming-language-java) for your Azure Communication Service.
 - Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
   
 ## Setting up
@@ -270,7 +270,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With a user token, an authenticated call agent can be instantiated. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../manage-teams-identity?pivots=programming-language-java) guide.
+With a user token, an authenticated call agent can be instantiated. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../manage-teams-identity.md?pivots=programming-language-java) guide.
 
 For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
