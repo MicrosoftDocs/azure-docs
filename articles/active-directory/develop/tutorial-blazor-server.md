@@ -34,7 +34,7 @@ In this tutorial:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
-- The tenant-id or domain of the of the Azure Active Directory associated with your Azure Account
+- The tenant-id or domain of the Azure Active Directory associated with your Azure Account
 
 ## Create the app using the .NET CLI
 
@@ -57,28 +57,27 @@ This tool will automate the following tasks for you:
   - Register redirect URIs based on your launchsettings.json
 - Initialize the use of user secrets in your project
 - Store your application secret in user secrets storage
-- Update your appsettings.json with the client-id, tenant-id, etc...
+- Update your appsettings.json with the client-id, tenant-id, and others.
 
-> .Net Tools extend the capabilities of the dotnet cli command. To learn more about .Net Tools visit: [.NET Tools](/dotnet/core/tools/global-tools)
+.NET Tools extend the capabilities of the dotnet CLI command. To learn more about .NET Tools, see [.NET Tools](/dotnet/core/tools/global-tools).
 
-> For more information on user secrets storage please visit: [safe storage of app secrets during development](/aspnet/core/security/app-secrets)
+For more information on user secrets storage, see [safe storage of app secrets during development](/aspnet/core/security/app-secrets).
 
 ## Use the Microsoft Identity App Sync Tool
 
-Run the following command to register your app in your tenant and update the .Net configuration of your application. Provide the username/upn belonging to your Azure Account (for instance username@domain.com) and the tenant id or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed-in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from Single Sign On (SSO).
+Run the following command to register your app in your tenant and update the .NET configuration of your application. Provide the username/upn belonging to your Azure Account (for instance, username@domain.com) and the tenant ID or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from Single Sign On (SSO).
 
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>
 ```
 
 > [!Note]
->
-> - you don't need to provide the username if you are signed-in with only one account in the developer tools.
-> - you don't need to provide the tenant-id if the tenant in which you want to create the application is your home tenant.
+> - You don't need to provide the username if you are signed in with only one account in the developer tools.
+> - You don't need to provide the tenant-id if the tenant in which you want to create the application is your home tenant.
 
 ## Optional - Create a development SSL certificate
 
-In order to avoid SSL errors / warning when browsing the running application you can use the following on macOS and Windows to generate a self-signed SSL certificate for use by .Net core.
+In order to avoid SSL errors/warnings when browsing the running application, you can use the following on macOS and Windows to generate a self-signed SSL certificate for use by .NET Core.
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -99,5 +98,4 @@ Browse to the running web application using the URL outputted by the command lin
 Learn about calling building web apps that sign in users in our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-
 > [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
