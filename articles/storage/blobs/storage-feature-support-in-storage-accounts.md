@@ -4,7 +4,7 @@ description: Determine the level of support for each storage account feature giv
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 07/28/2023
 ms.author: normesta
 ---
 
@@ -55,7 +55,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6;<sup>4</sup> | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-managed keys with key vault in the same tenant](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-managed keys with key vault in a different tenant (cross-tenant)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -81,12 +81,6 @@ The following table describes whether a feature is supported in a standard gener
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
 <sup>3</sup>    Setting the tier of a blob by using the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
-
-<sup>4</sup>    The customer-managed account failover preview for HNS is currently only supported in the following regions:
-- (Asia Pacific) Central India
-- (Europe) Switzerland North
-- (Europe) Switzerland West
-- (North America) Canada Central
 
 ## Premium block blob accounts
 
