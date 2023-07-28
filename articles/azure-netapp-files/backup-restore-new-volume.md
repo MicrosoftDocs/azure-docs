@@ -51,8 +51,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 1. Select **Backup Vault**. Navigate to **Backups**.
 
     > [!NOTE]
-    > If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage, and you can find them under the associated NetApp account.  See [Search backups at NetApp account level](backup-search.md#search-backups-at-netapp-account-level).
-
+    > If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage, and you can find them under the associated NetApp account.
 
 2. From the backup list, select the backup to restore. Select the three dots (`…`) to the right of the backup, then select **Restore to new volume** from the Action menu.   
 
