@@ -7,7 +7,7 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
@@ -39,8 +39,8 @@ This guide will help you get started with recognizing DTMF input provided by par
 |RecognizeCompleted|200|8531|Action completed, max digits received.|
 |RecognizeCompleted|200|8514|Action completed as stop tone was detected.|
 |RecognizeCompleted|400|8508|Action failed, the operation was canceled.|
-|RecognizeFailed|400|8510|Action failed, initial silence timeout reached|
-|RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
+|RecognizeCompleted|400|8532|Action failed, inter-digit silence timeout reached.|
+|RecognizeFailed|400|8510|Action failed, initial silence timeout reached.|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
 |RecognizeFailed|500|8512|Unknown internal server error.|
 |RecognizeCanceled|400|8508|Action failed, the operation was canceled.|

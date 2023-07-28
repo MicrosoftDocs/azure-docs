@@ -34,7 +34,7 @@ Use the following steps to change the default backup options for an existing Azu
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Update the backup interval and the backup retention period as required.
 

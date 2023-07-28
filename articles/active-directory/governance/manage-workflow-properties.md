@@ -32,6 +32,8 @@ If done via the Azure portal, the new version is created automatically. If done 
 
 ## Edit the properties of a workflow using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To edit the properties of a workflow using the Azure portal, you do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

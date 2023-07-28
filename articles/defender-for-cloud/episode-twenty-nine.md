@@ -1,6 +1,6 @@
 ---
 title: Security policy enhancements in Defender for Cloud | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about security policy enhancements and dashboard in Defender for Cloud
 ms.topic: reference
 ms.date: 04/27/2023

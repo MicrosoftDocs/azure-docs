@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/09/2022
+ms.custom: UpdateFrequency2
 ---
 # Move a schedule to another region
 
