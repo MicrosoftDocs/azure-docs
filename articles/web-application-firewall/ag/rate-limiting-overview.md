@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: overview
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/26/2023
+ms.date: 07/28/2023
 ms.author: victorh
 ---
 
@@ -23,7 +23,7 @@ Rate limiting is configured using custom WAF rules in a policy.
 
 When you configure a rate limit rule, you must specify the threshold: the number of requests allowed within the specified time period.  Rate limiting on Application Gateway WAF_v2 uses a sliding window algorithm to determine when traffic has breached the threshold and needs to be dropped. During the first window where the threshold for the rule is breached, any more traffic matching the rate limit rule is dropped.  From the second window onwards, traffic up to the threshold within the window configured is allowed, producing a throttling effect.
 
-You must also specify a match condition, which tells the WAF when to activate the rate limit.  You can configure multiple rate limits rules that match different variables and paths within your policy.
+You must also specify a match condition, which tells the WAF when to activate the rate limit.  You can configure multiple rate limit rules that match different variables and paths within your policy.
 
 Application Gateway WAF_v2 also introduces a *GroupByUserSession*, which must be configured.  The *GroupByUserSession* specifies how requests are grouped and counted for a matching rate limit rule.  
 
@@ -36,9 +36,9 @@ The following three *GroupByVariables* are currently available:
 
 The configured rate limit thresholds are counted and tracked independently for each endpoint the Web Application Firewall policy is attached to.  For example, a single WAF policy attached to five different listeners maintains independent counters and threshold enforcement for each of the listeners.
 
-The rate limit thresholds aren't always enforced exactly as defined, so it shouldn't be used for fined-grain control of application traffic. Instead, it's recommended for mitigating anomalous rates of traffic and for maintaining application availability.
+The rate limit thresholds aren't always enforced exactly as defined, so it shouldn't be used for fine-grain control of application traffic. Instead, it's recommended for mitigating anomalous rates of traffic and for maintaining application availability.
 
-The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttle traffic in future windows.  Use caution when defining thresholds for configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
+The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows.  Use caution when defining thresholds for configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
 
 
 ## Next step
