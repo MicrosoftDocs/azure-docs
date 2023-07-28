@@ -3,20 +3,24 @@ title: Recover from accidental deletion of resource bridge VM
 description: Learn how to perform recovery operations for the Azure Arc resource bridge VM in Azure Arc-enabled System Center Virtual Machine Manager (preview) disaster scenarios.
 ms.topic: how-to 
 ms.custom:
-ms.date: 07/25/2023
+ms.date: 07/28/2023
+ms.services: azure-arc
+ms.subservice: azure-arc-scvmm
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Recover from accidental deletion of resource bridge virtual machine
 
 In this article, you'll learn how to recover the Azure Arc resource bridge (preview) connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
 
-## Recovering the Arc resource bridge in case of virtual machine deletion
+## Recover the Arc resource bridge in case of virtual machine deletion
 
 To recover from Arc resource bridge VM deletion, you need to deploy a new resource bridge with the same resource ID as the current resource bridge using the following steps.
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and vCenter Azure resources.
+1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
 
-2. Find and delete the old Arc resource bridge template from your vCenter.
+2. Find and delete the old Arc resource bridge template from your SCVMM.
 
 3. Download the [onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) from the Azure portal and update the following section in the script, using the same information as the original resources in Azure.
 
@@ -25,14 +29,14 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
     $applianceSubscriptionId = <subscription-id>
     $applianceResourceGroupName = <resource-group-name>
     $applianceName = <resource-bridge-name>
-    
+
     $customLocationSubscriptionId = <subscription-id>
     $customLocationResourceGroupName = <resource-group-name>
     $customLocationName = <custom-location-name>
-    
-    $vCenterSubscriptionId = <subscription-id>
-    $vCenterResourceGroupName = <resource-group-name>
-    $vCenterName = <vcenter-name-in-azure>
+
+    $vmmserverSubscriptionId = <subscription-id>
+    $vmmserverResourceGroupName = <resource-group-name>
+    $vmmserverName= <SCVMM-name-in-azure>
     ```
 
 4. [Run the onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) again with the `--force` parameter.
