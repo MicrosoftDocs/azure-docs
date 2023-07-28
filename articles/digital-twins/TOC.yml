@@ -319,8 +319,6 @@
       href: https://www.nuget.org/packages/DTDLParser
     - name: DTDL parser sample
       href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
-    - name: DTMI spec
-      href: https://github.com/Azure/digital-twin-model-identifier
   - name: Learning paths
     items:  
     - name: 'Extend IoT solutions by using Azure Digital Twins'
