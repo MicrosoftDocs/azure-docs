@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Authenticate the app to Azure
 
-This quick start shows you two ways of connecting to Azure Event Grid: **connection string**. 
+This quick start shows you ways of connecting to Azure Event Grid: **connection string**. 
 
 This document shows you how to use a connection string to connect to an Event Grid namespace. If you're new to Azure, you may find the connection string option easier to follow. 
 
