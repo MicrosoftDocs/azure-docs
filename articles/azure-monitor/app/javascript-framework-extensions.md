@@ -31,7 +31,7 @@ None.
 ### [Angular](#tab/angular)
 
 - The Angular plugin is NOT ECMAScript 3 (ES3) compatible.
-- When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
+- When we add support for a new Angular version, our npm package becomes incompatible with down-level Angular versions. Continue to use older npm packages until you're ready to upgrade your Angular version.
 
 ---
 
