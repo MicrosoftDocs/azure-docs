@@ -309,7 +309,13 @@
     - name: Desktop app authentication
       href: index-desktop.yml
     - name: Quickstart
-      href: desktop-app-quickstart.md
+      items:
+        - name: Universal Windows Platform
+          href: quickstart-desktop-app-uwp-sign-in.md
+        - name: Windows Presentation Foundation
+          href: quickstart-desktop-app-wpf-sign-in.md
+        - name: Node.js Electron
+          href: quickstart-desktop-app-nodejs-electron-sign-in.md
     - name: Tutorials
       items:
         - name: Universal Windows Platform (UWP)
