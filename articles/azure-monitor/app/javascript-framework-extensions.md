@@ -491,8 +491,6 @@ To chain more custom exception handlers:
 
 #### [React](#tab/react)
 
-N/A
-
 The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
 #### [React Native](#tab/reactnative)
@@ -503,8 +501,6 @@ The device information, which includes Browser, OS, version, and language, is al
    - Uses your own device info collection class
 
 #### [Angular](#tab/angular)
-
-N/A
 
 The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
