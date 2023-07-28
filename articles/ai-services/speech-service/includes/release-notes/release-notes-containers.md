@@ -15,7 +15,7 @@ Add support for the latest model versions:
 
 Fix the issue of running speech to text container via `docker` mount options with local custom model files.
 
-Fix the issue that in some cases `RECOGNIZING` event does not show up in response through speech SDK.
+Fix the issue that in some cases the `RECOGNIZING` event does not show up in response through the Speech SDK.
 
 Fix vulnerability issues.
 
