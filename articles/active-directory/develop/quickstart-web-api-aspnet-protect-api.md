@@ -38,7 +38,7 @@ The code sample can be obtained in two ways:
 
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](includes/error-handling-and-tips/path-length-tip.md)]
 
 ## Register the web API (TodoListService)
 
