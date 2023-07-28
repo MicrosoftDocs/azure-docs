@@ -173,7 +173,17 @@
     - name: Web app authentication
       href: index-web-app.yml
     - name: Quickstart
-      href: web-app-quickstart.md
+      items: 
+        - name: ASP.NET Core
+          href: quickstart-web-app-aspnet-core-sign-in.md
+        - name: ASP.NET 
+          href: quickstart-web-app-aspnet-sign-in.md
+        - name: Node.js - MSAL
+          href: quickstart-web-app-nodejs-msal-sign-in.md
+        - name: Java
+          href: quickstart-web-app-java-sign-in.md
+        - name: Python
+          href: quickstart-web-app-python-sign-in.md
     - name: Tutorials
       items:
         - name: ASP.NET
