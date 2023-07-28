@@ -19,7 +19,7 @@ The following table summarizes three options, with links to more detail.
 |Method   |Description  |
 |---------|---------|
 |[Custom HTML code widget](#use-custom-html-code-widget)     | - Lightweight solution for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste custom HTML code into a form, and developer portal renders it in an iframe |
-|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Widget creation, testing, and deployment can be automated through open source [React Component Toolkit](#create-custom-widgets-using-open-source-react-component-toolkit)<br/><br/>- Supports workflows for source control, versioning, and code reuse      |
+|[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Widget creation, testing, and deployment can be scripted through open source [React Component Toolkit](#create-custom-widgets-using-open-source-react-component-toolkit)<br/><br/>- Supports workflows for source control, versioning, and code reuse      |
 |[Self-host developer portal](developer-portal-self-host.md)     | - Legacy extensibility option for customers who need to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Requires advanced configuration<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
 ## Use Custom HTML code widget
 
@@ -248,7 +248,7 @@ To implement your widget using another JavaScript UI framework and libraries, yo
 
 ## Create custom widgets using open source React Component Toolkit
 
-The open source [React Component Toolkit](https://github.com/microsoft/react-component-toolkit) provides a suite of npm package scripts to help you scaffold, test, and deploy a custom widget to the developer portal. If the Azure Open AI service is enabled in your subscription, the toolkit can also create a widget from a text description that you provide.
+The open source [React Component Toolkit](https://github.com/microsoft/react-component-toolkit) provides a suite of npm package scripts to help you convert a React application to the custom widget framework, test it, and deploy the custom widget to the developer portal. If you have access to an Azure OpenAI service, the toolkit can also create a widget from a text description that you provide.
 
 Currently, you can use the toolkit in two ways to deploy a custom widget:
 
