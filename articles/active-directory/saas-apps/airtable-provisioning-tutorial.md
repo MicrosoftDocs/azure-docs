@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Create an Airtable Personal Access Token to authorize provisioning with Azure AD.
 
-1. As the Admin user, visit the [Airtable Developer Hub](https://airtable.com/create/tokens).
+1. Login to [Airtable Developer Hub](https://airtable.com) as an Admin user, and then navigate to `https://airtable.com/create/tokens`.
 1. Select "Personal Access Tokens" from the left hand navigation bar.
 
    ![Screenshot of Personal Access Token Selection.](media/airtable-provisioning-tutorial/developer-hub-personal-access-token.png)
