@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
-ms.date: 08/12/2022
+ms.date: 07/28/2023
 ms.author: kesheth
 ---
 
@@ -127,7 +127,7 @@ You're now ready to securely export FHIR data to the storage account.
 
 The storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
-[!INCLUDE [Specific IP ranges for storage account](~/includes/azure-health-data-services/common-ip-address-storage-account.md)]
+[!INCLUDE [Specific IP ranges for storage account](../includes/common-ip-address-storage-account.md)]
 
 ## Next steps
 
