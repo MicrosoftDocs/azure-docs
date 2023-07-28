@@ -13354,6 +13354,21 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/NZ_ISM_Restricted_v3_5.md",
+          "redirect_url": "/azure/governance/policy/samples/nz-ism-restricted-3-5",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/RBI_ITF_Banks_v2016.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-banks-2016",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/rbi_itf_nbfc_v2017.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-nbfc-2017",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
