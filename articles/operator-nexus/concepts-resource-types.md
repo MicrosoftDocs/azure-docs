@@ -34,7 +34,7 @@ You can manage the lifecycle of a Network Fabric Controller via Azure using any 
 
 ### Network Fabric
 
-Network Fabric (NF) is an Operator Nexus resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated to and controlled by a Network Fabric Controller which is deployed in the same Azure region. You can associate up to 20 Network Fabric resources per Network Fabric Controller. A single deployment of Operator's infrastructure is considered a Network Fabric intance.
+Network Fabric (NF) is an Operator Nexus resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated to and controlled by a Network Fabric Controller which is deployed in the same Azure region. You can associate multiple Network Fabric resources per Network Fabric Controller, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md). A single deployment of Operator's infrastructure is considered a Network Fabric intance.
 
 Operator Nexus allows you to create Network Fabrics based on specific SKU types, where each SKU represents the number of network racks and compute servers in each rack deployed on-premises. You can create Network Fabric of the following SKU types -
 
@@ -78,7 +78,7 @@ Primarily, there are two types of isolation domains -
 * Layer 2 or L2 Isolation Domains
 * Layer 3 or L3 Isolation Domains
 
-Layer 2 isolation domains enable your infrastructure and workloads communicate with each other within or across racks over a Layer 2 network. Layer 2 networks enable east-west communication within your Operator Nexus instance. You can configure an L2 isolation domain with a desired Vlan ID and MTU size. You can set MTU value anywhere from 1500 to 9000 (jumbo frames).
+Layer 2 isolation domains enable your infrastructure and workloads communicate with each other within or across racks over a Layer 2 network. Layer 2 networks enable east-west communication within your Operator Nexus instance. You can configure an L2 isolation domain with a desired Vlan ID and MTU size, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md) for MTU limits.
 
 Layer 3 isolation domains enable your infrastructure and workloads communicate with each other within or across racks over a Layer 3 network. Layer 3 networks enable east-west and north-south communication within and outside your Operator Nexus instance.
 
