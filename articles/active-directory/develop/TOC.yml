@@ -429,7 +429,7 @@
         - name: Java
           href: quickstart-daemon-app-java-acquire-token.md
         - name: Node.js
-          href: quickstart-console-app-node-acquire-token.md
+          href: quickstart-console-app-nodejs-acquire-token.md
         - name: Python
           href: quickstart-daemon-app-python-acquire-token.md
       href: console-app-quickstart.md
