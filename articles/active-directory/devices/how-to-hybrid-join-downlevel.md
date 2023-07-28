@@ -46,5 +46,5 @@ The installer creates a scheduled task on the system that runs in the user conte
 
 ## Next steps
 
-- [Hybrid Azure AD join verification](howto-hybrid-join-verify.md)
+- [Hybrid Azure AD join verification](how-to-hybrid-join-verify.md)
 - [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

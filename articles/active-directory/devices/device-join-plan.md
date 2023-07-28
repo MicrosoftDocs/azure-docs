@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to: Plan your Azure AD join implementation
 
-You can join devices directly to Azure Active Directory (Azure AD) without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments. Single sign-on (SSO) access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+You can join devices directly to Azure Active Directory (Azure AD) without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments. Single sign-on (SSO) access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](device-sso-to-on-premises-resources.md).
 
 This article provides you with the information you need to plan your Azure AD join implementation.
 
@@ -126,7 +126,7 @@ Through co-management, you can use Microsoft Configuration Manager to manage cer
 
 ## Understand considerations for applications and resources
 
-We recommend migrating applications from on-premises to cloud for a better user experience and access control. Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+We recommend migrating applications from on-premises to cloud for a better user experience and access control. Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](device-sso-to-on-premises-resources.md).
 
 The following sections list considerations for different types of applications and resources.
 
@@ -155,13 +155,13 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
 > [!NOTE]
-> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](device-sso-to-on-premises-resources.md).
 
 **Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
-Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller. [Learn how this works](azuread-join-sso.md)
+Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller. [Learn how this works](device-sso-to-on-premises-resources.md)
 
 ### Printers
 
@@ -222,19 +222,19 @@ The Azure portal allows you to control the deployment of Azure AD joined devices
 
 Set this option to **All** or **Selected** based on the scope of your deployment and who you want to set up an Azure AD joined device. 
 
-![Users may join devices to Azure AD](./media/azureadjoin-plan/01.png)
+![Users may join devices to Azure AD](./media/device-join-plan/01.png)
 
 ### Additional local administrators on Azure AD joined devices
 
 Choose **Selected** and selects the users you want to add to the local administrators’ group on all Azure AD joined devices. 
 
-![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
+![Additional local administrators on Azure AD joined devices](./media/device-join-plan/02.png)
 
 ### Require multifactor authentication (MFA) to join devices
 
 Select **“Yes** if you require users to do MFA while joining devices to Azure AD.
 
-![Require multifactor Auth to join devices](./media/azureadjoin-plan/03.png)
+![Require multifactor Auth to join devices](./media/device-join-plan/03.png)
 
 **Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 
@@ -248,7 +248,7 @@ Before you can configure your mobility settings, you may have to add an MDM prov
 1. Select **Add application**.
 1. Select your MDM provider from the list.
 
-   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::
+   :::image type="content" source="./media/device-join-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::
 
 Select your MDM provider to configure the related settings. 
 
@@ -256,7 +256,7 @@ Select your MDM provider to configure the related settings.
 
 Select **Some** or **All** based on the scope of your deployment. 
 
-![MDM user scope](./media/azureadjoin-plan/05.png)
+![MDM user scope](./media/device-join-plan/05.png)
 
 Based on your scope, one of the following happens: 
 
@@ -271,7 +271,7 @@ There are three URLs that are related to your MDM configuration:
 - MDM discovery URL 
 - MDM compliance URL
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
+:::image type="content" source="./media/device-join-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
 
 Each URL has a predefined default value. If these fields are empty, contact your MDM provider for more information.
 
@@ -289,11 +289,11 @@ If you want to enable state roaming to Azure AD so that users can sync their set
 
 If you have an MDM provider configured for your Azure AD joined devices, the provider flags the device as compliant as soon as the device is under management. 
 
-![Compliant device](./media/azureadjoin-plan/46.png)
+![Compliant device](./media/device-join-plan/46.png)
 
 You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
 
 ## Next steps
 
-- [Join a new Windows 10 device to Azure AD during a first run](azuread-joined-devices-frx.md)
+- [Join a new Windows 10 device to Azure AD during a first run](device-join-out-of-box.md)
 - [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)

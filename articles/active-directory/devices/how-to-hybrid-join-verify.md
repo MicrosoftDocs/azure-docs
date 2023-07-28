@@ -79,6 +79,6 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 ## Next steps
 
-- [Downlevel device enablement](howto-hybrid-join-downlevel.md)
-- [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md)
+- [Downlevel device enablement](how-to-hybrid-join-downlevel.md)
+- [Configure hybrid Azure AD join](how-to-hybrid-join.md)
 - [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
