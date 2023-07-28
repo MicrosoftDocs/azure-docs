@@ -89,7 +89,7 @@ There are many open-source and third-party integrations you can install on your 
 [helm-qs]: quickstart-helm.md
 [prometheus]: https://prometheus.io/
 [prometheus-helm-chart]: https://github.com/prometheus-community/helm-charts#usage
-[prometheus-az-monitor]: monitor-aks.md#container-insights
+[prometheus-az-monitor]: monitor-aks.md#integrations
 [istio]: https://istio.io/
 [istio-install]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/

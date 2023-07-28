@@ -22,12 +22,10 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 | Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 | Virtual machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
-In addition to the above platform metrics, see the following for custom metrics collected by features in Azure Monitor when these features are enabled for the cluster:
-
-- [Container insights](../azure-monitor/containers/container-insights-custom-metrics.md) - These metrics are stored in [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) with the data above and can be analyzed using [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
-- [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) - This data is stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md) and can be included in a dashboard in [Azure managed Grafana](../managed-grafana/overview.md).
-
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+
+In addition to the above platform metrics, Azure Monitor container insights collects [these custom metrics](../azure-monitor/containers/container-insights-custom-metrics.md) for nodes, pods, containers, and persistent volumes.
+
 ## Metric dimensions
 
 The following table lists [dimensions](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics) for AKS metrics. 
@@ -49,11 +47,12 @@ The following table lists [dimensions](../azure-monitor/essentials/data-platform
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Collection and routing](monitor-aks.mdcontrol-plane-logs) for information on creating a diagnostic setting to collect these logs and [Sample Kusto queries](monitor-aks.md#sample-kusto-queries) for query examples.
+AKS implements control plane logs for the cluster as [resource logs in Azure Monitor.](../azure-monitor/essentials/resource-logs.md). See [Resource logs](monitor-aks.md#resource-logs) for details on creating a diagnostic setting to collect these logs and [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
+The following table lists the resource log categories you can collect for AKS. All logs are written to the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-| Category                | Description |
+
+| Category | Description |
 |:---|:---|
 | kube-apiserver          | Logs from the API server. |
 | kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. |
@@ -68,18 +67,17 @@ For reference, see a list of [all resource logs category types supported in Azur
 | csi-snapshot-controller | Logs from the Azure CSI driver snapshot controller. |
 | AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries. |
 
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
+
 ## Azure Monitor Logs tables
 
-For all of the tables stored in your Log Analytics workspace related to Kubernetes monitoring in Azure Monitor Logs, see [Kubernetes services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services).
+This section refers to all of the Azure Monitor Logs tables relevant to AKS and available for query by Log Analytics.
 
+|Resource Type | Notes |
+|-------|-----|
+| [Kubernetes services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) | Follow this link for a list of all tables used by AKS and a description of their structure. |
 
-### Resource logs
-
-| Table | Description |
-|:---|:---|
-| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) | Resource logs if your diagnostic settings specifies Azure diagnostics mode. |
-| [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit)<br>[AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin)<br>[AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane) | Resource logs if your diagnostic settings specifies resource-specific mode.  |
-
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 
@@ -93,7 +91,9 @@ The following table lists a few example operations related to AKS that may be cr
 | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List clusterAdmin credential |
 | Microsoft.ContainerService/managedClusters/agentpools/write | Create or Update Agent Pool |
 
-For a complete list of possible log entries, see [Microsoft.ContainerService Resource Provider options](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice). For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md). 
+For a complete list of possible log entries, see [Microsoft.ContainerService Resource Provider options](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+
+For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 ## See also
 
