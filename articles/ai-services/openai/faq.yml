@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 07/20/2023
+  ms.date: 07/28/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -53,6 +53,11 @@ sections:
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
           Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are extremely powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've mastered the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
+      - question: |
+          My guest account has been given access to an Azure OpenAI resource, but I am unable to access that resource in the Azure OpenAI Studio. How do I enable access?
+        answer: | 
+          This is expected behavior when using the default login experience for the [Azure OpenAI Studio](https://oai.azure.com). To access Azure OpenAI Studio from a guest account you must first open a private browser session and then naviage to [https://oai.azure.com](https://oai.azure.com). Rather than immediately entering your guest account credentials instead select **Sign-in options** > **Sign in to an organization** > Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. > Now sign-in with your guest account credentials. You should now be able to access the Azure OpenAI resource via the Studio. Alternatively if are you logged into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically login with the appropriate orginizational context.   
+  
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
