@@ -128,6 +128,9 @@ This placement hint uses the `Affinity` hintType to ensure that the virtual mach
 --placement-hints '[{"hintType":"Affinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/racks/<compute-rack-2>","schedulingExecution":"Hard","scope":"Rack"}]'
 ```
 
+> [!NOTE]
+> The current placement hint configuration with the Affinity hintType ensures that the virtual machine is scheduled exclusively on the specified rack with the provided rack ID. However, it's important to note that the rack affinity cannot be specified for more than one rack with `Hard` scheduling execution. This limitation may influence your deployment strategy, particularly if you are considering placing VMs on multiple racks and allowing the scheduler to select from them.
+
 #### Preferred scheduling (rack affinity)
 
 This placement hint utilizes the `Affinity` hintType to establish an affinity rule between the virtual machine and the designated rack. It also employs a `Soft` schedulingExecution to enable the VM to be placed on an alternative rack in case the specified rack isn't accessible or lacks capacity.
