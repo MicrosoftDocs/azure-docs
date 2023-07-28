@@ -58,7 +58,7 @@ Azure AD for customers tenant. If you don't already have one, [sign up for a fre
 The next step after this tutorial is to build a daemon app that calls your web API. Ensure you have the following details:
 
 - The Application (client) ID of the client daemon app that you registered.
-- The Directory (tenant) subdomain where you registered your daemon app. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal#get-the-customer-tenant-details.md).
+- The Directory (tenant) subdomain where you registered your daemon app. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 - The application secret value for the daemon app you created.
 - The Application (client) ID of the web API app you registered.
 
