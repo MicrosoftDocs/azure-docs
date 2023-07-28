@@ -4,7 +4,7 @@ description: Learn how your workload's performance is handled by Azure Elastic S
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 07/14/2023
+ms.date: 07/28/2023
 ms.author: rogarana
 ---
 
@@ -110,7 +110,7 @@ It's important to know the behavior of a SAN in the worst case scenario, where e
 
 In this scenario, all the workloads hit their spike at almost the same time. At this point, the total IOPS required by all the workloads combined (64,000 + 45,000 + 40,000 + 5,000) is more than the IOPS provisioned at the SAN level (135,000). So the workloads are throttled. Throttling happens on a first-come, first-served basis, so whichever workloads request IOPS after the max capacity has been reached doesn't get more performance. In this case, workload 1 requested 40,000 IOPS after the other workloads, the SAN had already allocated most of its available IOPS, so only the remaining IOPS was provided.
 
-:::image type="content" source="media/elastic-san-performance/scenario_three.png" alt-text="All workloads peaking example diagram." lightbox="media/elastic-san-performance/scenario_three.png":::
+:::image type="content" source="media/elastic-san-performance/scenario_three.png" alt-text="All workloads spiking example diagram." lightbox="media/elastic-san-performance/scenario_three.png":::
 
 ## Next steps
 
