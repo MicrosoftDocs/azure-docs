@@ -33,7 +33,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
 1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
-## Service limts
+## Service limits
 
 The following are the recommended limits for the mentioned indicators:
 

@@ -59,7 +59,7 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 
 ## Service limts
 
-The following are the Dynamic Scope Limits for **each dynamic scope**.
+The following are the Dynamic scope (preview) limits for **each dynamic scope**.
 
 | Resource    | Limit          |
 |----------|----------------------------|
@@ -68,7 +68,7 @@ The following are the Dynamic Scope Limits for **each dynamic scope**.
 | Number of Resource Group filters    | 50 |
 
 > [!NOTE]
-> The above limits are for the Dynamic scope (preview) in the Guest scope only.
+> The above limits are for Dynamic scope (preview) in the Guest scope only.
 
 ## Next steps
 
