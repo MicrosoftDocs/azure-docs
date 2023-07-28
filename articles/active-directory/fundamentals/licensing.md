@@ -146,7 +146,7 @@ If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial lice
 
 ## Verified ID
 
-Verified ID is currently included with any Azure Active Directory subscription, including Azure AD Free, at no additional cost. For information about Verified ID and how to enable it, see [Verified ID overview](../verifiable-credentials/overview.md).
+Verified ID is currently included with any Azure Active Directory subscription, including Azure AD Free, at no additional cost. For information about Verified ID and how to enable it, see [Verified ID overview](../verifiable-credentials/decentralized-identifier-overview.md).
 
 
 ## Workload Identities
