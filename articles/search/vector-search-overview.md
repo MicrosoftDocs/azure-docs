@@ -80,7 +80,7 @@ You can use other Azure services to provide embeddings and data storage.
 
 If you're new to vectors, this section explains some core concepts.
 
-### What is vector search
+### About vector search
 
 Vector search is a method of information retrieval where documents and queries are represented as vectors instead of plain text. In vector search, machine learning models generate the vector representations of source inputs, which can be text, images, audio, or video content. Having a mathematic representation of content provides a common basis for search scenarios. If everything is a vector, a query can find a match in vector space, even if the associated original content is in different media or in a different language than the query.
 
