@@ -44,91 +44,45 @@ Steps to create a generalized image which removes the sudo users are as follows,
     ```
     azcopy copy [source] [destination]
     ```
-2. Mount the image. (Mounting is done using the script mount_vhd.sh)
+2. Mount the image.
 
-    Copy the contents of the script shown below, to create a mount_vhd.sh file.
+    There are several ways to do this, the example uses the loop device to mount the image. It can either be a disk attached or a loop device.
 
-    For example:
+    $imagedevice is the root filesystem's partition on the device that contains the image.
     ```
-    ./mount_vhd.sh <path to the Ubuntu VHD downloaded in step 1>
+    mount /dev/$imagedevice /mnt/dev/$imagedevice
     ```
 
     This process is commonly used to access and work with disk images. Here, it is used to remove the sudo users on the Ubuntu image.
 
-    The mount_vhd.sh script performs the following operations to mount the vhd on the loop device as shown. There are several ways to do this, the example script uses the loopdevice to mount the image.
-    ```
-    #!/bin/bash
-
-    size=$(ls -l $1 | awk '{print $5}')
-
-    dev=$(sudo losetup --sizelimit $(($size - 512)) -P -f $1 --show)
-
-    parts=$(sudo fdisk -l $dev | grep ^${dev}p | awk '{print $1}')
-
-    for part in $parts
-    do
-        echo "$part"
-        mntpoint=/mnt${part}
-        echo $mntpoint
-        sudo mkdir -p $mntpoint
-        sudo mount $part $mntpoint
-        if [[ $? != 0 ]]; then
-            echo "Partition $part skipped"
-        fi
-    done
-    ```
 
 3. Chroot into the vhd filesystem to run the following command, which lists users under the sudo group.
     ```
-    sudo chroot /mnt/dev/$loopdevice/ getent group sudo
+    sudo chroot /mnt/dev/$imagedevice/ getent group sudo
     ```
 
 4. Validate step 3 by listing out the users in the sudoers.d home directory and in /etc/passwd, /etc/shadow files.
 If there are any users with sudo privileges, they are listed here,
 
     ```
-    sudo ls /mnt/dev/$loopdevice/etc/sudoers.d
+    sudo ls /mnt/dev/$imagedevice/etc/sudoers.d
 
-    sudo cat /mnt/dev/$loopdevice/etc/passwd
+    sudo cat /mnt/dev/$imagedevice/etc/passwd
 
-    sudo cat /mnt/dev/$loopdevice/etc/shadow
+    sudo cat /mnt/dev/$imagedevice/etc/shadow
     ```
 
 5. Remove sudo privileges: Use the userdel command to remove users from the sudo group,
     ```
-    sudo chroot /mnt/dev/$loopdevice/ userdel -r [sudo_username]
+    sudo chroot /mnt/dev/$imagedevice/ userdel -r [sudo_username]
     ```
 
 6. Repeat step 4 to validate that there are no sudo users on the vhd, you should now not be able to see any user’s directory and their entries in the /etc/sudoers.d, /etc/passwd and /etc/shadow files.
 
-7. Unmount the image. (Unmounting is done using the script umount.sh)
+7. Unmount the image.
 
-    Copy the contents of the script shown below, to create a umount.sh file.
-
-    For example:
     ```
-    ./umount.sh /dev/$loopdevice
-    ```
-
-    The umount.sh script performs the following operations to unmount the image as shown,
-    ```
-    #!/bin/bash
-
-    parts=$(sudo fdisk -l $1 | grep ^$1p | awk '{print $1}')
-
-    for part in $parts
-    do
-        # echo "$part"
-        mntpoint=/mnt/dev/${part}
-        # echo $mntpoint
-        sudo umount $mntpoint > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            echo "Partition $part skipped"
-        fi
-        sudo rmdir $mntpoint
-    done
-
-    sudo losetup -d $1
+    umount /mnt/dev/$imagedevice
     ```
 
 The image is now prepared without any sudo users in it that can be used as a base/reference image for creating the confidential VMs.
