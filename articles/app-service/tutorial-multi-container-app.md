@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: cli-validate, devx-track-azurecli
+ms.custom: cli-validate, devx-track-azurecli, devx-track-linux
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 ## Download the sample
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). In the sample below, note that `depends_on` is an **unsupported option** and is ignored. For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 

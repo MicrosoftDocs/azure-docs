@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with C# - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: "Use this quickstart to send requests to the Bing Web Search REST API using C#, and receive a JSON response."
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: seodec2018, devx-track-csharp, mode-api
 
 # Quickstart: Search the web using the Bing Web Search REST API and C#
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This C# application sends a search request to the API, and shows the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 A few variables must be set before we can continue. Add this code to the `Program` class you created in the previous section: 
 
-1. For the `uriBase` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+1. For the `uriBase` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 2. Confirm that `uriBase` is valid and replace the `accessKey` value with a subscription key from your Azure account. 
 

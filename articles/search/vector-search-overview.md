@@ -27,15 +27,17 @@ We recommend this article for background, but if you'd rather get started, follo
 
 ## What's vector search in Cognitive Search?
 
-Vector search is a new capability for indexing, storing, and retrieving vector embeddings. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
+Vector search is a new capability for indexing, storing, and retrieving vector embeddings from a search index. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
 
-Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector, returning documents with the requested `k` nearest neighbors (kNN) according to the selected vector similarity metric.
+Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, define a *vector field* in the index definition and index documents with vector data. Then you can issue a search request with a query vector, returning documents with the requested `k` nearest neighbors (kNN) according to the selected vector similarity metric.
 
 You can index vector data as fields in documents alongside textual and other types of content. Vector queries can be issued independently or in combination with other query types, including term queries (hybrid search) and filters in the same search request.
 
 ## Limitations
 
 Azure Cognitive Search doesn't generate vector embeddings for your content. You need to provide the embeddings yourself by using a service such as Azure OpenAI. See [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more.
+
+Vector search does not support customer-managed keys (CMK) at this time. This means you will not be able to add vector fields to a index with CMK enabled.
 
 ## Availability and pricing
 
@@ -54,10 +56,9 @@ Scenarios for vector search include:
 
 + **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
-<!-- @Farzad, filterable is false on a vector field, so we need to explain what we mean here. I wonder if it goes with hybrid query? -->
-+ **Filtered vector search**. Use [filters](search-filters.md) with vector queries to select a specific category of indexed documents, or to implement document-level security, geospatial search, and more.
++ **Hybrid search**. Vector search is implemented at the field level, which means you can build queries that include vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
-+ **Hybrid search**. For text data, combine the best of vector retrieval and keyword retrieval to obtain the best results. Use with [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.  
++ **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter first, reducing the surface area of the search corpus before running the vector query.
 
 + **Vector database**. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
 
@@ -65,9 +66,9 @@ Scenarios for vector search include:
 
 You can use other Azure services to provide embeddings and data storage.
 
-+ Azure OpenAI provides embedding models. Demos and samples target the [text-embedding-ada-002](/azure/cognitive-services/openai/concepts/models#embeddings-models) and other models. We recommend Azure OpenAI for generating embeddings for text.
++ Azure OpenAI provides embedding models. Demos and samples target the [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings-models) and other models. We recommend Azure OpenAI for generating embeddings for text.
 
-+ [Image Retrieval Vectorize Image API(Preview)](/azure/cognitive-services/computer-vision/how-to/image-retrieval#call-the-vectorize-image-api) supports vectorization of image content. We recommend this API for generating embeddings for images.
++ [Image Retrieval Vectorize Image API(Preview)](/azure/ai-services/computer-vision/how-to/image-retrieval#call-the-vectorize-image-api) supports vectorization of image content. We recommend this API for generating embeddings for images.
 
 + Azure Cognitive Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
 
@@ -85,7 +86,7 @@ Vector search is a method of information retrieval that aims to overcome the lim
 
 ### Embeddings and vectorization
 
-*Embeddings* are a specific type of vector representation created by machine learning models that capture the semantic meaning of text, or representations of other content such as images. Natural language machine learning models are trained on large amounts of data to identify patterns and relationships between words. During training, they learn to represent any input as a vector of real numbers in an intermediary step called the *encoder*. After training is complete, these language models can be modified so the intermediary vector representation becomes the model's output. The resulting embeddings are high-dimensional vectors, where words with similar meanings are closer together in the vector space, as explained in [this Azure OpenAI Service article](/azure/cognitive-services/openai/concepts/understand-embeddings). 
+*Embeddings* are a specific type of vector representation created by machine learning models that capture the semantic meaning of text, or representations of other content such as images. Natural language machine learning models are trained on large amounts of data to identify patterns and relationships between words. During training, they learn to represent any input as a vector of real numbers in an intermediary step called the *encoder*. After training is complete, these language models can be modified so the intermediary vector representation becomes the model's output. The resulting embeddings are high-dimensional vectors, where words with similar meanings are closer together in the vector space, as explained in [this Azure OpenAI Service article](/azure/ai-services/openai/concepts/understand-embeddings). 
 
 The effectiveness of vector search in retrieving relevant information depends on the effectiveness of the embedding model in distilling the meaning of documents and queries into the resulting vector. The best models are well-trained on the types of data they're representing. You can evaluate existing models such as Azure OpenAI text-embedding-ada-002, bring your own model that's trained directly on the problem space, or fine-tune a general-purpose model. Azure Cognitive Search doesn't impose constraints on which model you choose, so pick the best one for your data. 
 
@@ -100,7 +101,7 @@ For example, documents that talk about different species of dogs would be cluste
 Popular vector similarity metrics include the following, which are all supported by Azure Cognitive Search. 
 
 + `euclidean` (also known as `L2 norm`): This measures the length of the vector difference between two vectors.
-+ `cosine`: This measures the angle between two vectors, and is not affected by differing vector lengths.
++ `cosine`: This measures the angle between two vectors, and isn't affected by differing vector lengths.
 + `dotProduct`: This measures both the length of each of the pair of two vectors, and the angle between them. For normalized vectors, this is identical to `cosine` similarity, but slightly more performant.
 
 ### Approximate Nearest Neighbors

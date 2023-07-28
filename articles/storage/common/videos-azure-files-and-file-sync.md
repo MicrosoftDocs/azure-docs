@@ -4,7 +4,7 @@ description: View a comprehensive list of Azure Files and Azure File Sync video 
 author: sindamnataraj
 ms.topic: conceptual
 ms.author: nasindam
-ms.date: 04/19/2023
+ms.date: 07/26/2023
 ms.service: azure-file-storage
 ---
 
@@ -12,6 +12,15 @@ ms.service: azure-file-storage
 If you're new to Azure Files and File Sync or looking to deepen your understanding, this article provides a comprehensive list of video content released over time. Some videos might not reflect the latest updates.
 
 ## Video list
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TOHaNJpAOfc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        **How Azure Files can help protect against ransomware and accidental data loss**
+   :::column-end:::
+:::row-end:::
 
 :::row:::
     :::column:::

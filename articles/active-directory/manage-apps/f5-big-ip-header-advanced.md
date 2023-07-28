@@ -86,6 +86,8 @@ The following instructions are an advanced configuration method, a flexible way 
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off preauthentication and Conditional Access to Azure AD, before granting access to the published service.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)

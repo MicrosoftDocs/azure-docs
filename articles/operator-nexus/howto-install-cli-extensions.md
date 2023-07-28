@@ -27,12 +27,20 @@ If you haven't already installed Azure CLI: [Install Azure CLI][installation-ins
     ```
 
 
-- Install and test the `networkcloud` CLI extension
+- Install and test the latest version of `networkcloud` CLI extension
 
     ```azurecli
     az extension add --name networkcloud
     az networkcloud --help
     ```
+
+For list of available versions, see [the extension release history][az-cli-networkcloud-cli-versions].
+
+To install a specific version of the networkcloud CLI extension, add `--version` parameter to the command. For example, below installs 0.4.1
+
+```azurecli
+az extension add --name networkcloud --version 0.4.1
+```
 
 ## Install `managednetworkfabric` CLI extension
 
@@ -106,18 +114,20 @@ Example output:
 ```output
 Name                     Version
 -----------------------  -------------
-arcappliance             0.2.31
+arcappliance             0.2.32
 monitor-control-service  0.2.0
 connectedmachine         0.5.1
 connectedk8s             1.3.20
 k8s-extension            1.4.2
-networkcloud             0.4.0.post94
+networkcloud             1.0.0b2
 k8s-configuration        1.7.0
-managednetworkfabric     0.1.0.post45
+managednetworkfabric     0.1.0.post49
 customlocation           0.1.3
 hybridaks                0.2.1
-ssh                      1.1.6
+ssh                      2.0.1
 ```
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
+
+[az-cli-networkcloud-cli-versions]: https://github.com/Azure/azure-cli-extensions/blob/main/src/networkcloud/HISTORY.rst

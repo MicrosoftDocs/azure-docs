@@ -2,11 +2,11 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 07/18/2023
 ms.custom: references_regions 
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
@@ -30,6 +30,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **HANA database size**     | HANA databases of size <= 8 TB  (this isn't the memory size of the HANA system)               |                                                              |
 | **Backup types**           | Full, Differential, Incremental and Log backups                          |  Snapshots                                       |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
+| **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). | Not supported |
 | **Backup limits**          | Up to 8 TB of full backup size per SAP HANA instance (soft limit)         |                                                              |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
 | **HANA deployments** | HANA System Replication (HSR) |           |

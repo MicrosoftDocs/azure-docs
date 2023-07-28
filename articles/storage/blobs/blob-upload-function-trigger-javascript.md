@@ -1,6 +1,6 @@
 ---
 title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Storage
-description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
+description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
 author: diberry
 ms.author: diberry
 ms.service: azure-storage
@@ -29,7 +29,7 @@ In this tutorial, learn how to:
 > [!div class="checklist"]
 > * Upload images and files to Blob Storage
 > * Use an Azure Function event trigger to process data uploaded to Blob Storage
-> * Use Cognitive Services to analyze an image
+> * Use Azure AI services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
 :::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing an image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos DB.":::
@@ -156,8 +156,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ---
 
-## Create the Computer Vision service account
-Create the Computer Vision service account that processes our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
+## Create the Azure AI Vision service
+
+Next, create the Azure AI Vision service account that will process our uploaded files. Vision is part of Azure AI services and offers various features for extracting data out of images.  You can learn more about Azure AI Vision on the [overview page](../../ai-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/computer-vision-azure-portal)
 

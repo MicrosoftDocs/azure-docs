@@ -44,8 +44,8 @@ Before you begin, verify that:
 ## Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
-1. Select **Content hub**, and in the search bar, search for *Dynamics 365 F&O*.
-1. Select **Dynamics 365 F&O**.
+1. Select **Content hub**, and in the search bar, search for *Dynamics 365 Finance and Operations*.
+1. Select **Dynamics 365 Finance and Operations**.
 1. Select **Install**.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).

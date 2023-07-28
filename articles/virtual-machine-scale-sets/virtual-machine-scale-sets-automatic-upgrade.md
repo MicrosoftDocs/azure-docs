@@ -6,7 +6,8 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 11/22/2022
+ms.custom: devx-track-linux
+ms.date: 07/25/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -149,7 +150,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30-60 minutes.
+> It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades due to certain factors such as Maintenance Windows or other restrictions. Customers on the latest image may not get an upgrade until a new image is available. 
 
 
 ## Configure automatic OS image upgrade
@@ -213,6 +214,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
         "disableAutomaticRollback": false 
     } 
   },
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -228,8 +230,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
  "imageOSVersion": {
    "type": "string",
    "defaultValue": "latest"
- } 
-}
+ }
 
 ```
 
@@ -245,6 +246,7 @@ properties: {
         enableAutomaticOSUpgrade: true 
       } 
     } 
+}
 ```
 
 ## Using Application Health Probes
