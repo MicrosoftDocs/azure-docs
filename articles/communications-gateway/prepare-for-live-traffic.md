@@ -100,8 +100,10 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
     # [Number Management Portal](#tab/number-management-portal)
 
-    1. Open the Number Management Portal from your list of Azure resources.
-    1. Select **Go to Consents**.
+    1. Sign in to the [Azure portal](https://azure.microsoft.com/).
+    1. In the search bar at the top of the page, search for your Communications Gateway resource.
+    1. Select your Communications Gateway resource.
+    1. On the overview page, select **Consents** in the sidebar.
     1. Select your test tenant.
     1. From the menu, select **Update Relationship Status**. Set the status to **Agreement signed**.
     1. From the menu, select **Manage Numbers**.
