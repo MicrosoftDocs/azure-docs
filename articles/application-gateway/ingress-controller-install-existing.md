@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 07/28/2023
 ms.author: greglin
 ---
 
@@ -41,7 +41,9 @@ Gateway should that become necessary
 
 ## Install Helm
 [Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
-Use [Cloud Shell](https://shell.azure.com/) to install Helm:
+
+> [!NOTE]
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
@@ -59,7 +61,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
     helm init
     ```
 
-1. Add the AGIC Helm repository:
+2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
