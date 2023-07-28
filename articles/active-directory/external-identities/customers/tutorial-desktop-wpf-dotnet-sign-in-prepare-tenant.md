@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Register and configure .NET WPF app authentication details in a customer tenant"
+title: "Tutorial: Prepare your customer tenant to sign in user in .NET WPF application"
 description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users to your .NET WPF application
 services: active-directory
 author: SHERMANOUKO
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 07/26/2023
 ---
 
-# Tutorial: Register and configure .NET WPF app authentication details in a customer tenant
+# Tutorial: Prepare your customer tenant to sign in user in .NET WPF application
 
 The first step in securing your applications is to register them. In this tutorial, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. This tutorial is part of a series that guides you to add authentication to a .NET Windows Presentation Form (WPF) app that signs in and signs out users using Azure AD for customers.
 
@@ -25,10 +25,6 @@ In this tutorial, you learn how to:
 > - Associate your WPF desktop app with the user flow.
 
 ## Prerequisites
-
-- [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
-
-- [Visual Studio 2022](https://code.visualstudio.com/download) or another code editor.
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
  

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Authenticate users to your WPF desktop application"
-description: Learn about how to call a protected web API from your WPF desktop app. 
+description: Learn how to sign in and sign out user to your WPF desktop app. 
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -242,8 +242,8 @@ Modify the *MainWindow.xaml* file to add the UI elements for the app. Open the *
 
 This code adds key UI elements. The methods and objects that handles the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
 
-- A button that signs in the user. This button calls the `SignInButton_Click` method when clicked on by the user. 
-- A button that signs out the user. This button calls the `SignOutButton_Click` method when clicked on by the user.
+- A button that signs in the user. `SignInButton_Click` method is called when the user selects this button. 
+- A button that signs out the user. `SignOutButton_Click`  method is called when the user selects this button. 
 - A text box that displays the authentication result details after the user attempts to sign in. Information displayed here's returned by the `ResultText` object.
 - A text box that displays the token details after the user successfully signs in. Information displayed here's returned by the `TokenInfoText` object. 
 
