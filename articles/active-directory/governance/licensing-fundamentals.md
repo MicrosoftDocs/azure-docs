@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/02/2023
+ms.date: 07/28/2023
 ms.subservice: hybrid
 ms.author: billmath
 ---
@@ -20,7 +20,7 @@ ms.author: billmath
 The following tables show the licensing requirements for Microsoft Entra ID Governance features
 
 ## Types of licenses
-The following licenses are available for use with Microsoft Entra ID Governance.  The type of licenses you need will depend on the features you are using.
+The following licenses are available for use with Microsoft Entra ID Governance.  The type of licenses you need will depend on the features your're using.
 
 - **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.1
 - **Microsoft Azure AD P1** - Azure Active Directory P1 (becoming Microsoft Entra ID P1) is available as a standalone or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
