@@ -23,7 +23,7 @@ Virtual machines emulate full computing environments. These virtual contexts pro
 
 Containers solve the same problems, but are fundamentally different.
 
-Instead of creating a virtual representation of an entire system, a container creates an isolated environment for you application that can run on any machine. From code to configuration, from system tools to the operating system, a container packages every dependency required by your application. Fortunately, containers are cheap, fast, and easy to move around the network.
+Instead of creating a virtual representation of an entire system, a container creates an isolated environment for your application that can run on any machine. From code to configuration, from system tools to the operating system, a container packages every dependency required by your application. Fortunately, containers are cheap, fast, and easy to move around the network.
 
 Containers are tailor-made for the entire software development lifecycle.
 
