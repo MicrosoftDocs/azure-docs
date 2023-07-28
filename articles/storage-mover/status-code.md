@@ -60,7 +60,7 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM1044"></a>**AZSM1044** |Failed to finalize the job  | Retry or create a support ticket. |
 | <a name="AZSM1045"></a>**AZSM1045** |Job was aborted while it was still running  | Retry or create a support ticket. |
 | <a name="AZSM1060"></a>**AZSM1060** |Miscellaneous error during job execution  | Retry or create a support ticket. |
-| <a name="AZSM2021"></a>**AZSM2021** |File type not supported by target. | This target type does not support files of this type. Verify that you're using a [valid source/target pair](endpoint-manage). |
+| <a name="AZSM2021"></a>**AZSM2021** |File type not supported by target. | This target type does not support files of this type. Verify that you're using a [valid source/target pair](endpoint-manage.md). |
 | <a name="AZSM2024"></a>**AZSM2024** |Source path length longer than max supported by target.  | Shorten the names of the parent folders or reorder the file structure. |
 | <a name="AZSM2026"></a>**AZSM2026** |Source file has size larger than max supported by target.  | Enable the *large file share* feature at the storage account level or upgrade your storage account. |
 | <a name="AZSM2061"></a>**AZSM2061** |Unknown Error encountered when scanning the source. |  This is probably a transient error. Rerun the migration job. |
