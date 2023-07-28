@@ -1,6 +1,6 @@
 ---
 title: Configure a hosted UI for Bing Custom Search | Microsoft Docs
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to configure and integrate a hosted UI for Bing Custom Search.
 services: cognitive-services
 author: aahill
@@ -48,7 +48,7 @@ To configure a hosted UI for your web applications, follow these steps. As you m
 
 6. Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right. Available configuration options are:  
 
-7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](../cognitive-services-apis-create-account.md).  
+7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Azure AI services API account](../cognitive-services-apis-create-account.md).  
 
 8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
