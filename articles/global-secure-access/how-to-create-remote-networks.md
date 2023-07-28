@@ -1,11 +1,11 @@
 ---
 title: How to create remote networks for Global Secure Access (preview)
-description: Learn how to create remote networks for Global Secure Access (preview).
+description: Learn how to create remote networks, such as branch office locations, for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
