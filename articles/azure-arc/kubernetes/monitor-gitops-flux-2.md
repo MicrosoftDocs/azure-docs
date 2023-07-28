@@ -37,9 +37,9 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 
    If you're using a service principal, grant the **Reader** role to the service principal that you'll use for your data source connection. Follow these same steps, but select **User, group, or service principal** in the **Members** tab, then select your service principal. (If you aren't using Azure Managed Grafana, you must use a service principal for data connection access.)
 
-4. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance. This connection lets the dashboard access Azure Resource Graph data.
-5. Download the [GitOps Flux - Application Deployments Dashboard](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/GitOps%20Flux%20-%20Application%20Deployments%20Dashboard.json).
-6. Follow the steps to [import the JSON dashboard to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
+1. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance. This connection lets the dashboard access Azure Resource Graph data.
+1. Download the [GitOps Flux - Application Deployments Dashboard](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/GitOps%20Flux%20-%20Application%20Deployments%20Dashboard.json).
+1. Follow the steps to [import the JSON dashboard to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
 After you have imported the dashboard, it will display information from the clusters that you're monitoring, with several panels that provide details. For more details on an item, select the link to visit the Azure portal, where you can find more information about configurations, errors and logs.
 
