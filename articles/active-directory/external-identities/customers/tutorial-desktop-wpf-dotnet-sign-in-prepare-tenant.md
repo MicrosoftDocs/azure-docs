@@ -54,7 +54,7 @@ Since this app signs-in users, add delegated permissions:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Pick your registration details
+## Record your registration details
 
 The next step after this tutorial is to build a WPF desktop app that authenticates users. Ensure you have the following details:
 

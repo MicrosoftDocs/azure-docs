@@ -216,6 +216,7 @@ items:
                 href: tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md
               - name: Sign in and sign out
                 href: tutorial-desktop-wpf-dotnet-sign-in-build-app.md
+                displayName: Windows Presentation Form
       - name: Mobile
         items: 
         - name: .NET MAUI

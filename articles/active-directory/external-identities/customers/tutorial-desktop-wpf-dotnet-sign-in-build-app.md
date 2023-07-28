@@ -240,7 +240,7 @@ Modify the *MainWindow.xaml* file to add the UI elements for the app. Open the *
     </StackPanel>
 ```
 
-This code adds key UI elements. The methods and objects handling the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
+This code adds key UI elements. The methods and objects that handles the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
 
 - A button that signs in the user. This button calls the `SignInButton_Click` method when clicked on by the user. 
 - A button that signs out the user. This button calls the `SignOutButton_Click` method when clicked on by the user.
@@ -381,9 +381,9 @@ The *MainWindow.xaml.cs* file contains the code that provides th runtime logic f
 
 ## Add code to the App.xaml.cs file
 
-*App.xaml* is where you declare resources that are used across the app. It's the entry point for your app. *App.xaml.cs8 is the code behind file for *App.xaml*. *App.xaml.cs* also defines the start window for your application. 
+*App.xaml* is where you declare resources that are used across the app. It's the entry point for your app. *App.xaml.cs* is the code behind file for *App.xaml*. *App.xaml.cs* also defines the start window for your application. 
 
-Open the *App.xaml.cs* file in the root folder of the app and add the following code in the file.
+Open the *App.xaml.cs* file in the root folder of the app, then add the following code into it.
 
 ```csharp
 using System.Windows;
