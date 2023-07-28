@@ -116,14 +116,14 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     
         1. Select *time column*: This column contains the time data to be used.
 
-        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it becomes. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
+        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further into the future the model is required to predict, the less accurate the model becomes. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set up step.
+   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set-up step.
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you don't spend more time on the training job than necessary.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job won't run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
@@ -170,7 +170,7 @@ Impute with| Select what value to impute missing values with in your data.
 
 ## Run experiment and view results
 
-Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an another 2-3 minutes more for each pipeline to finish running. If you have specified to generate RAI dashboard for the best recommended model, it may take up to 40 minutes.
+Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running. If you have specified to generate RAI dashboard for the best recommended model, it may take up to 40 minutes.
 
 > [!NOTE]
 > The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
