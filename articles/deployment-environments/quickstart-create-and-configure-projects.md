@@ -65,26 +65,7 @@ To create a project in your dev center:
 
     :::image type="content" source="media/quickstart-create-configure-projects/created-project.png" alt-text="Screenshot that shows the project overview pane.":::
 
-### Assign a managed identity the owner role to the subscription
-Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
-
-In this quickstart you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
-
-1.	Navigate to your dev center.
-1.  On the left menu under Settings, select **Identity**.
-1.	Under System assigned > Permissions, select **Azure role assignments**.
-
-    :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
-
-1. In Azure role assignments, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
-    
-    |Name     |Value     |
-    |---------|----------|
-    |**Scope**|Subscription|
-    |**Subscription**|Select the subscription in which to use the managed identity.|
-    |**Role**|Owner|
-
-## Configure a project
+## Create a project environment type
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
 
@@ -110,7 +91,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
-## Give project access to the development team
+## Give access to the development team
 
 1. In the Azure portal, go to your project.
 

@@ -23,7 +23,7 @@ The following diagram shows the steps you perform in this quickstart to configur
 First, you create a dev center to organize your deployment environments resources. Next, you create a key vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Then, you attach an identity to the dev center and assign that identity access to the key vault. Then, you add a catalog that stores your IaC templates to the dev center. Finally, you create environment types to define the types of environments that development teams can create. 
 
 
-The following diagram shows the steps you perform in the [Create and configure a project quickstart](quickstart-create-and-configure-projects.md) to configure a project associated with a dev center for Deployment Environments.
+The following diagram shows the remaining steps you must perform before you can create a deployment environment. You perform these steps in the [Create and configure a project quickstart](quickstart-create-and-configure-projects.md) 
 
 :::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages-1b.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
 
@@ -143,11 +143,11 @@ Using an authentication token like a GitHub PAT enables you to share your reposi
     - Select **Create**.
 1.	Leave this tab open, you need to come back to the Key Vault later.
 
-## Attach an identity to the dev center
+## Configure a managed identity for the dev center
 
 After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
 
-In this quickstart, you configure a system-assigned managed identity for your dev center. 
+In this quickstart, you configure a system-assigned managed identity for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the key vault secret that contains the GitHub PAT.
 
 ### Attach a system-assigned managed identity
 
@@ -161,23 +161,32 @@ To attach a system-assigned managed identity to your dev center:
 
 1.	In the **Enable system assigned managed identity** dialog, select **Yes**.
 
-### Assign the system-assigned managed identity access to the key vault secret
-Make sure that the identity has access to the key vault secret that contains the personal access token to access your repository. Key Vaults support two methods of access; Azure role-based access control (RBAC) or Vault access policy. In this quickstart, you use an RBAC key vault.
+### Assign roles for the dev center managed identity
 
-Configure vault access:
-1. In the Azure portal, go to the key vault that contains the secret with the personal access token.
+Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). You must also give the managed identity access to the key vault secret that stores your GitHub PAT. 
 
-1. In the left menu, select **Access control (IAM)**.
+1.	Navigate to your dev center.
+1.  On the left menu under Settings, select **Identity**.
+1.	Under System assigned > Permissions, select **Azure role assignments**.
 
-1. Select **Add** > **Add role assignment**.
+    :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. To give access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
     
-    | Setting | Value |
-    | --- | --- |
-    | **Role** | Select **Key Vault Secrets User**. |
-    | **Assign access to** | Select **Managed identity**. |
-    | **Members** | Select the dev center managed identity that you created in [Attach a system-assigned managed identity](#attach-a-system-assigned-managed-identity). |
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Owner|
+
+1. To give access to the key vault, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Key Vault|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Resource**|Select the key vault that you created earlier.|
+    |**Role**|Key Vault Secrets User|
 
 ## Add a catalog to the dev center
 Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
