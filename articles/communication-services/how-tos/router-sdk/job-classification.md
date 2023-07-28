@@ -7,9 +7,8 @@ ms.author: jassha
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want Job Router to classify my Job for me.
 ---
 
@@ -499,3 +498,6 @@ client.updateJob(new UpdateJobOptions("job1")
 ```
 
 ::: zone-end
+
+> [!NOTE]
+> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you'll receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job will be re-queued and you'll receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channel configurations are updated.

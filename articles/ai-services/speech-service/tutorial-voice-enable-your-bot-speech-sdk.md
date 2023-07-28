@@ -16,7 +16,7 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp
 
 # Tutorial: Voice-enable your bot
 
-You can use Azure AI services Speech to voice-enable a chat bot.
+You can use Azure AI Speech to voice-enable a chat bot.
 
 In this tutorial, you'll use the Microsoft Bot Framework to create a bot that responds to what you say. You'll deploy your bot to Azure and register it with the Bot Framework Direct Line Speech channel. Then, you'll configure a sample client app for Windows that lets you speak to your bot and hear it speak back to you.
 

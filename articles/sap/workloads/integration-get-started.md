@@ -160,7 +160,7 @@ Also see the following SAP resources:
 
 - [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
 - [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
-- [Automate SAP invoice processing using Azure Logic Apps and Cognitive Services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
+- [Automate SAP invoice processing using Azure Logic Apps and Azure AI services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
 
 ### App development in any language including ABAP and DevOps
 
