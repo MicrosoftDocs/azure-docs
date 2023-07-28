@@ -66,7 +66,7 @@ landingContent:
             url: how-to-add-attributes-to-token.md  
   - title: Developer guides for samples
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: sample
         links:
           - text: JavaScript SPA sign-in
             url: how-to-single-page-app-vanillajs-sample-sign-in.md
