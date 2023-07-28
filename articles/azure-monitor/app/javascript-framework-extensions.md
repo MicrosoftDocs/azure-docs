@@ -162,14 +162,6 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-#### (Optional) Add the Click Analytics plug-in
-   
-If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md):
- 
-1. Uncomment the lines for Click Analytics.
-1. Delete `extensions: [reactPlugin],`.
-1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
 #### [React Native](#tab/reactnative)
 
 - **React Native Plug-in**
@@ -202,14 +194,6 @@ If you want to add the [Click Analytics plug-in](./javascript-feature-extensions
   appInsights.loadAppInsights();
 
   ```
-
-  #### (Optional) Add the Click Analytics plug-in
-
-  If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md): 
-  
-  1. Uncomment the lines for Click Analytics. 
-  2. Delete `extensions: [RNPlugin]`.
-  3. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 - **React Native Manual Device Plugin**
 
@@ -324,15 +308,20 @@ export class AppComponent {
 }
 ```
 
-#### (Optional) Add the Click Analytics plug-in
-
-If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md): 
-
-1. Uncomment the lines for Click Analytics.
-1. Delete `extensions: [angularPlugin],`.
-1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
 ---
+
+### 3. (Optional) Add the Click Analytics plug-in
+   
+If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md):
+ 
+1. Uncomment the lines for Click Analytics.
+1. Do one of the following, depending on which plug-in you're adding:
+
+   - For React, delete `extensions: [reactPlugin],`.
+   - For React Native, delete `extensions: [RNPlugin]`.
+   - For Angular, delete `extensions: [angularPlugin],`.
+
+1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ## Configuration
 
