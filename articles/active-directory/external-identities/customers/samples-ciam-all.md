@@ -52,7 +52,7 @@ These samples and how-to guides demonstrate how to protect a web API with the Mi
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- |
-> | ASP.NET Core | ---  | &#8226; [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md)   |
+> | ASP.NET Core | ---  | &#8226; [Secure an ASP.NET web API](tutorial-protect-web-api-dotnet-core-build-app.md)   |
 
 ###  Browserless
 
@@ -111,7 +111,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Web API| ---  | &#8226; [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md)   |
+> | Web API| ---  | &#8226; [Secure an ASP.NET web API](tutorial-protect-web-api-dotnet-core-build-app.md)   |
 > | Web app | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### .NET (MAUI)
