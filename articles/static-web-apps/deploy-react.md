@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 07/21/2023
+ms.date: 07/28/2023
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
@@ -66,26 +66,6 @@ This article uses an Azure DevOps repository to make it easy for you to get star
 ## Create a static web app
 
 [!INCLUDE [create steps](../../includes/static-web-apps/static-web-apps-tutorials-portal-create.md)]
-
-In the _Basics_ section, begin by configuring your new app and linking it to an Azure DevOps repository.
-
-| Setting | Value |
-|--|--|
-| Subscription | Select your Azure subscription. |
-| Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
-| Name | Enter **my-first-static-web-app** in the textbox. |
-| Plan type | Select **Free**. |
-| Azure Functions and staging details | Select a region closest to you. |
-| Source | Select **DevOps**. |
-| Organization | Select your organization. |
-| Project | Select your project. |
-| Repository| Select **my-first-web-static-app**. |
-| Branch | Select **main**. |
-
-> [!NOTE]
-> Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.
-
-::: zone-end
 
 In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
