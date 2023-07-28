@@ -1,10 +1,8 @@
 ---
 title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template (ARM template). Tags let you logically organize resources.
-author: mumian
-ms.date: 08/22/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-arm-template
 ---
 
