@@ -959,7 +959,7 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Cognitive Services containers documentation
+        - name: Azure AI services containers documentation
           href: ../containers/index.yml
     - name: Tutorials
       items:
