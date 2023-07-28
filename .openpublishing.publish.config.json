@@ -1015,7 +1015,13 @@
       "url": "https://github.com/Azure/actions-workflow-samples",
       "branch": "master",
       "branch_mapping": {}
-    }  
+    },
+    {
+      "path_to_root": "azure-proactive-resiliency-library",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -1060,15 +1066,18 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  ".openpublishing.redirection.sentinel.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
   "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
-  "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
   "articles/confidential-computing/.openpublishing.redirection.json",
   "articles/container-apps/.openpublishing.redirection.container-apps.json",

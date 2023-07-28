@@ -118,6 +118,10 @@ items:
       items:
       - name: Publish and subscribe using namespace topics
         href: publish-events-using-namespace-topics.md
+      - name: Send and pull messages
+        items:
+        - name: .NET
+          href: event-grid-dotnet-get-started-pull-delivery.md
     - name: How-to 
       items:
       - name: Create, view, and manage namespaces
@@ -297,6 +301,8 @@ items:
               href: communication-services-presence-events.md
             - name: Email Events
               href: communication-services-email-events.md
+            - name: Job Router Events
+              href: communication-services-router-events.md
           - name: Azure Container Registry
             href: event-schema-container-registry.md
           - name: Azure Data Box

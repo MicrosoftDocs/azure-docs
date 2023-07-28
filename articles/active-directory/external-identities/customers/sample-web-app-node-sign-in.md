@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -132,7 +131,7 @@ When users select the **Sign in** link, the app initiates an authentication requ
 
 When the users select the **Sign out** link, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
 
-If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md) article. 
+If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application](tutorial-web-app-node-sign-in-prepare-tenant.md) article. 
 
 ## Next steps
 
@@ -144,4 +143,4 @@ You may want to:
  
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
 
-- [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md)
+- [Sign in users in your Node.js web application](tutorial-web-app-node-sign-in-prepare-tenant.md)

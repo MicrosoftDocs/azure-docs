@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer face detection overview
-titleSuffix: Azure Video Indexer 
-description: This article gives an overview of an Azure Video Indexer face detection.
+title: Azure AI Video Indexer face detection overview
+titleSuffix: Azure AI Video Indexer 
+description: This article gives an overview of an Azure AI Video Indexer face detection.
 author: juliako
 ms.author: juliako
 manager: femila
@@ -15,7 +15,7 @@ ms.topic: article
 > [!IMPORTANT]
 > Face identification, customization and celebrity recognition features access is limited based on eligibility and usage criteria in order to support our Responsible AI principles. Face identification, customization and celebrity recognition features are only available to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access.
 
-Face detection is an Azure Video Indexer AI feature that automatically detects faces in a media file and aggregates instances of similar faces into the same group. The celebrities recognition module is then run to recognize celebrities. This module covers approximately one million faces and is based on commonly requested data sources. Faces that aren't recognized by Azure Video Indexer are still detected but are left unnamed. Customers can build their own custom [Person modules](/azure/azure-video-indexer/customize-person-model-overview) whereby the Azure Video Indexer recognizes faces that aren't recognized by default. 
+Face detection is an Azure AI Video Indexer AI feature that automatically detects faces in a media file and aggregates instances of similar faces into the same group. The celebrities recognition module is then run to recognize celebrities. This module covers approximately one million faces and is based on commonly requested data sources. Faces that aren't recognized by Azure AI Video Indexer are still detected but are left unnamed. Customers can build their own custom [Person modules](/azure/azure-video-indexer/customize-person-model-overview) whereby the Azure AI Video Indexer recognizes faces that aren't recognized by default. 
 
 The resulting insights are generated in a categorized list in a JSON file that includes a thumbnail and either name or ID of each face. Clicking face’s thumbnail displays information like the name of the person (if they were recognized), the % of appearances in the video, and their biography if they're a celebrity. It also enables scrolling between the instances in the video.  
 
@@ -35,7 +35,7 @@ This article discusses faces detection and the key considerations for making use
 |Term|Definition|
 |---|---|
 |Insight  |The information and knowledge derived from the processing and analysis of video and audio files that generate different types of insights and can include detected objects, people, faces, keyframes and translations or transcriptions. |
-|Face recognition  |The analysis of images to identify the faces that appear in the images. This process is implemented via the Azure Cognitive Services Face API. |
+|Face recognition  |The analysis of images to identify the faces that appear in the images. This process is implemented via the Azure AI Face API. |
 |Template |Enrolled images of people are converted to templates, which are then used for facial recognition. Machine-interpretable features are extracted from one or more images of an individual to create that individual’s template. The enrollment or probe images aren't stored by Face API and the original images can't be reconstructed based on a template. Template quality is a key determinant on the accuracy of your results. |
 |Enrollment |The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system used for authentication, their template is also associated with a primary identifier2 that is used to determine which template to compare with the probe template. High-quality images and images representing natural variations in how a person looks (for instance wearing glasses, not wearing glasses) generate high-quality enrollment templates. |
 |Deep search  |The ability to retrieve only relevant video and audio files from a video library by searching for specific terms within the extracted insights.|
@@ -93,7 +93,7 @@ To see face detection insight in the JSON file, do the following:
     ]
     ```
 
-To download the JSON file via the API, [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 > [!IMPORTANT]
 > When reviewing face detections in the UI you may not see all faces, we expose only face groups with a confidence of more than 0.5 and the face must appear for a minimum of 4 seconds or 10% * video_duration. Only when these conditions are met we will show the face in the UI and the Insights.json. You can always retrieve all face instances from the Face Artifact file using the api `https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/ArtifactUrl[?Faces][&accessToken]`
@@ -113,7 +113,7 @@ During the Faces Detection procedure, images in a media file are processed, as f
 
 * Summarizing where an actor appears in a movie or reusing footage by deep searching for specific faces in organizational archives for insight on a specific celebrity. 
 * Improved efficiency when creating feature stories at a news or sports agency, for example deep searching for a celebrity or football player in organizational archives. 
-* Using faces appearing in the video to create promos, trailers or highlights. Azure Video Indexer can assist by adding keyframes, scene markers, timestamps and labeling so that content editors invest less time reviewing numerous files.   
+* Using faces appearing in the video to create promos, trailers or highlights. Azure AI Video Indexer can assist by adding keyframes, scene markers, timestamps and labeling so that content editors invest less time reviewing numerous files.   
 
 ## Considerations when choosing a use case 
 
@@ -147,7 +147,7 @@ When used responsibly and carefully face detection is a valuable tool for many i
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [OCR](ocr.md)

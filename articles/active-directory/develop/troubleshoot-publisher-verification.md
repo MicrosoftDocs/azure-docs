@@ -46,7 +46,7 @@ Below are some common issues that may occur during the process.
 - **I am getting an error saying that my MPN ID is invalid or that I do not have access to it.**
     Follow the [remediation guidance](#mpnaccountnotfoundornoaccess).
 
-- **When I sign into the Azure portal, I do not see any apps registered. Why?** 
+- **When I sign in to the Azure portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 

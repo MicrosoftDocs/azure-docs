@@ -217,7 +217,36 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](./functions-bindings-return-value.md).
+You can use a method return value for an output binding, by using the name `$return` in *function.json*. 
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Here's the C# script code using the return value, followed by an async example:
+
+```csharp
+public static string Run(WorkItem input, ILogger log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.LogInformation($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```csharp
+public static Task<string> Run(WorkItem input, ILogger log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.LogInformation($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
 
 Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 

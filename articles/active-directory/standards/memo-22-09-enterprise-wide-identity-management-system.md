@@ -140,7 +140,7 @@ Learn more:
 Devices integrated with Azure AD are hybrid-joined devices or Azure AD joined devices. Separate device onboarding by client and user devices, and by physical and virtual machines that operate as infrastructure. For more information about deployment strategy for user devices, see the following guidance.
 
 * [Plan your Azure AD device deployment](../devices/plan-device-deployment.md)
-* [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
+* [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
 * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
 * [Log in to a Windows virtual machine in Azure by using Azure AD including passwordless](../devices/howto-vm-sign-in-azure-ad-windows.md)
 * [Log in to a Linux virtual machine in Azure by using Azure AD and OpenSSH](../devices/howto-vm-sign-in-azure-ad-linux.md)
