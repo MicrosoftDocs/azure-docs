@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: Learn about services and capabilities in Microsoft Azure Maps Creator and how to use them in your applications.
 author: brendansco
 ms.author: Brendanc
-ms.date: 07/21/2023
+ms.date: 07/28/2023
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -14,8 +14,8 @@ services: azure-maps
 
 Azure Maps Creator is a geospatial platform that enables you to create
 and render maps, based on indoor map data, on top of the outdoor map in
-your web and mobile applications. Being an Azure service provides the
-core infrastructure that enables you to focus on developing your
+your web and mobile applications. Being a first party Azure service provides
+the core infrastructure that enables you to focus on developing your
 application rather than worrying about data storage, security, and
 scaling.
 
