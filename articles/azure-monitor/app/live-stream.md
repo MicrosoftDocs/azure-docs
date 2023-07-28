@@ -453,4 +453,3 @@ If you open the Live Metrics pane, the SDKs switch to a higher frequency mode an
 * [Use Diagnostic Search](./diagnostic-search.md)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)
-* 
