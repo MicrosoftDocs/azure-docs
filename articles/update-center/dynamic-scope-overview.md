@@ -57,7 +57,7 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 - Write permissions to create or modify a schedule.
 - Read permissions to assign or read a schedule.
 
-## Service limts
+## Service limits
 
 The following are the Dynamic scope (preview) limits for **each dynamic scope**.
 
