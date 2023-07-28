@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -27,7 +27,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Run the application
 
