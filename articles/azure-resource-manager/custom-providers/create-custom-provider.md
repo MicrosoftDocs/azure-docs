@@ -79,13 +79,13 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 To deploy the template from the Azure portal, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Illustration of the Deploy to Azure button." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json":::
 
 ## View custom resource provider and resource
 
 In the portal, the custom resource provider is a hidden resource type. To confirm that the resource provider was deployed, go to the resource group and select **Show hidden types**.
 
-:::image type="content" source="./media/create-custom-provider/show-hidden.png" alt-text="Screenshot that shows hidden resource types and resources deployed in Azure.":::
+:::image type="content" source="./media/create-custom-provider/show-hidden.png" alt-text="Screenshot of Azure portal displaying hidden resource types and resources deployed in a resource group.":::
 
 To see the custom resource that you deployed, use the `GET` operation on your resource type. The resource type `Microsoft.CustomProviders/resourceProviders/users` shown in the JSON response includes the resource that was created by the template.
 
