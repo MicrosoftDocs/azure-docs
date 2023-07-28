@@ -42,4 +42,4 @@ Looking to dive in? Use the following table to help you get acquainted with Azur
 | Run a process that executes and exits | Find out how [jobs](jobs.md) can help you run tasks that have finite beginning and end.  |
 
 > [!div class="nextstepaction"]
-> [Deploy your first app with a sample container](quickstart-portal.md)
+> [Deploy your first app](quickstart-code-to-cloud.md)
