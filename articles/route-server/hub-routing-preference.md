@@ -21,9 +21,6 @@ When **branch-to-branch** is enabled and Route Server learns multiple routes acr
 
 ## Routing preference configuration
 
-> [!NOTE]
-> Routing preference is only available for Route Servers deployed on or after April 7, 2023. Support for existing Route Servers, deployed before April 7, 2023, will be backfilled at a later date. For any questions, please open [a support request in the Azure Portal](https://aka.ms/azsupt).
-
 When Route Server has multiple routes to an on-premises destination prefix, Route Server selects the best route(s) in order of preference, as follows:
 
 1. Prefer routes with the longest prefix match (LPM)
