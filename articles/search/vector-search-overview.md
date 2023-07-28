@@ -37,6 +37,8 @@ You can index vector data as fields in documents alongside textual and other typ
 
 Azure Cognitive Search doesn't generate vector embeddings for your content. You need to provide the embeddings yourself by using a service such as Azure OpenAI. See [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more.
 
+Vector search does not support customer-managed keys (CMK) at this time. This means you will not be able to add vector fields to a index with CMK enabled.
+
 ## Availability and pricing
 
 Vector search is available as part of all Cognitive Search tiers in all regions at no extra charge.
