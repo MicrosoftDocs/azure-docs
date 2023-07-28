@@ -89,7 +89,7 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
    RecordingChannel = RecordingChannel.Unmixed,
    RecordingFormat = RecordingFormat.Wav,
    RecordingStateCallbackUri = new Uri("<CallbackUri>"),
-   ChannelAffinity = { channelAffinity }
+   ChannelAffinity = new List<ChannelAffinity>{ channelAffinity }
 };
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
 ```
