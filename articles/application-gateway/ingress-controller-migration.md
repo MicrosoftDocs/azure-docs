@@ -22,7 +22,7 @@ Before you start the migration process, there are a few things to check.
   - Are you using more than one AGIC Helm deployment per AKS cluster? 
   - Are you using multiple AGIC Helm deployments to target one Application Gateway? 
 
-If you answered yes to any of the previous questions, AGIC add-on won't support your use case yet, so it is be best to continue using AGIC Helm. Otherwise, use the following migration process during off-business hours. 
+If you answered yes to any of the previous questions, AGIC add-on won't support your use case yet, so it's best to continue using AGIC Helm. Otherwise, use the following migration process during off-business hours. 
 
 ## Find the Application Gateway resource ID that AGIC Helm is currently targeting 
 Navigate to the Application Gateway that your AGIC Helm deployment is targeting. Copy and save the resource ID of that Application Gateway. You need the resource ID in a later step. The resource ID can be found in Portal, under the Properties tab of your Application Gateway or through Azure CLI. The following example saves the Application Gateway resource ID to *appgwId* for a gateway named *myApplicationGateway* in the resource group *myResourceGroup*.
