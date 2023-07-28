@@ -1,7 +1,7 @@
 ---
 title: Restore all files in a volume with MARS
 description: Learn how to restore all the files in a volume using the MARS Agent.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -101,11 +101,6 @@ These steps include the following terminology:
    :::image type="content" source="{source}" alt-text="{alt-text}":::
 
    Select **Next** to continue.
-
-
-
-
-
 
 1. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 

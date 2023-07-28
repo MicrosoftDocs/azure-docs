@@ -28,10 +28,13 @@ sections:
           - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you are using the latest Recovery Services Agent, and then select **Download**.
           - If you're performing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
+
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region.":::
             >[!Note]
             >You can't use this secondary region vault credential for registration of the MARS agent.
           
-          ![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+          
           
       - question: |
           How long are vault credentials valid?
