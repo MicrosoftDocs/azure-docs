@@ -41,11 +41,9 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   1. In search, enter and select **Subscriptions**.
   1. In **Subscriptions** home page, select your subscription from the list.
   1. In the **Subscription | Preview features** page, under **Settings**, select **Preview features**.
-  1. Search and select **Dynamic Scope (preview)**.
+  1. Search for **Dynamic Scope (preview)**. 
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
-     
-     If a preview feature doesn't require any approval, the registration state  **Registered** else, it is **Pending**. To request approval, submit an [Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). After the approval, the preview feature's state changes to **Registered**.
-     
+             
 #### [Arc-enabled VMs](#tab/arcvms)
 
 There are no pre-requisities for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
@@ -61,16 +59,7 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 
 ## Service limts
 
-The following are the recommended limits for the mentioned indicators:
-
-| Indicator    | Limit          |
-|----------|----------------------------|
-| Number of schedules per Subscription per Region     | 250  |
-| Total number of Resource associations to a schedule | 3000 |
-| Resource associations on each dynamic scope    | 1000 |
-| Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
-
-The following are the Dynamic Scope Limits for **each dynamic scope**
+The following are the Dynamic Scope Limits for **each dynamic scope**.
 
 | Resource    | Limit          |
 |----------|----------------------------|
@@ -80,7 +69,6 @@ The following are the Dynamic Scope Limits for **each dynamic scope**
 
 > [!NOTE]
 > The above limits are for the Dynamic scope (preview) in the Guest scope only.
-
 
 ## Next steps
 
