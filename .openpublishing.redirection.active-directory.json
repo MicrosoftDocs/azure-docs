@@ -248,12 +248,517 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation.md",
       "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust.md",
       "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust",
-      "redirect_document_id": false
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/10-secure-local-guest.md",
+      "redirect_url": "/azure/active-directory/architecture/10-secure-local-guest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/11-onboard-external-user.md",
+      "redirect_url": "/azure/active-directory/architecture/11-onboard-external-user",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/1-secure-access-posture.md",
+      "redirect_url": "/azure/active-directory/architecture/1-secure-access-posture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/2-secure-access-current-state.md",
+      "redirect_url": "/azure/active-directory/architecture/2-secure-access-current-state",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/3-secure-access-plan.md",
+      "redirect_url": "/azure/active-directory/architecture/3-secure-access-plan",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/4-secure-access-groups.md",
+      "redirect_url": "/azure/active-directory/architecture/4-secure-access-groups",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/5-secure-access-b2b.md",
+      "redirect_url": "/azure/active-directory/architecture/5-secure-access-b2b",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/6-secure-access-entitlement-managment.md",
+      "redirect_url": "/azure/active-directory/architecture/6-secure-access-entitlement-managment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/7-secure-access-conditional-access.md",
+      "redirect_url": "/azure/active-directory/architecture/7-secure-access-conditional-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/8-secure-access-sensitivity-labels.md",
+      "redirect_url": "/azure/active-directory/architecture/8-secure-access-sensitivity-labels",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/9-secure-access-teams-sharepoint.md",
+      "redirect_url": "/azure/active-directory/architecture/9-secure-access-teams-sharepoint",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/architecture.md",
+      "redirect_url": "/azure/active-directory/architecture/architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-header-based.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-header-based",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-kcd.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-kcd",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-ldap.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-ldap",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-oauth2.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-oauth2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-oidc.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-oidc",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-password-based-sso.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-password-based-sso",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-passwordless.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-passwordless",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-prov-overview.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-prov-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-radius.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-radius",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-remote-desktop-gateway.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-remote-desktop-gateway",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-saml.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-saml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-ssh.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-ssh",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/auth-sync-overview.md",
+      "redirect_url": "/azure/active-directory/architecture/auth-sync-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/automate-provisioning-to-applications-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/automate-provisioning-to-applications-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/automate-provisioning-to-applications-solutions.md",
+      "redirect_url": "/azure/active-directory/architecture/automate-provisioning-to-applications-solutions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/b2c-deployment-plans.md",
+      "redirect_url": "/azure/active-directory/architecture/b2c-deployment-plans",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/backup-authentication-system.md",
+      "redirect_url": "/azure/active-directory/architecture/backup-authentication-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/backup-authentication-system-apps.md",
+      "redirect_url": "/azure/active-directory/architecture/backup-authentication-system-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/deployment-plans.md",
+      "redirect_url": "/azure/active-directory/architecture/deployment-plans",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/govern-service-accounts.md",
+      "redirect_url": "/azure/active-directory/architecture/govern-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/monitor-sign-in-health-for-resilience.md",
+      "redirect_url": "/azure/active-directory/architecture/monitor-sign-in-health-for-resilience",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-baseline.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-baseline",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-decision-tree.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-solution-one.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-solution-one",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-solution-three.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-solution-three",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multilateral-federation-solution-two.md",
+      "redirect_url": "/azure/active-directory/architecture/multilateral-federation-solution-two",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multi-tenant-common-considerations.md",
+      "redirect_url": "/azure/active-directory/architecture/multi-tenant-common-considerations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multi-tenant-common-solutions.md",
+      "redirect_url": "/azure/active-directory/architecture/multi-tenant-common-solutions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multi-tenant-user-management-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/multi-tenant-user-management-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/multi-tenant-user-management-scenarios.md",
+      "redirect_url": "/azure/active-directory/architecture/multi-tenant-user-management-scenarios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/ops-guide-auth.md",
+      "redirect_url": "/azure/active-directory/architecture/ops-guide-auth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/ops-guide-govern.md",
+      "redirect_url": "/azure/active-directory/architecture/ops-guide-govern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/ops-guide-iam.md",
+      "redirect_url": "/azure/active-directory/architecture/ops-guide-iam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/ops-guide-intro.md",
+      "redirect_url": "/azure/active-directory/architecture/ops-guide-intro",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/ops-guide-ops.md",
+      "redirect_url": "/azure/active-directory/architecture/ops-guide-ops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/parallel-identity-options.md",
+      "redirect_url": "/azure/active-directory/architecture/parallel-identity-options",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/protect-m365-from-on-premises-attacks.md",
+      "redirect_url": "/azure/active-directory/architecture/protect-m365-from-on-premises-attacks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/recoverability-overview.md",
+      "redirect_url": "/azure/active-directory/architecture/recoverability-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/recover-from-deletions.md",
+      "redirect_url": "/azure/active-directory/architecture/recover-from-deletions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/recover-from-misconfigurations.md",
+      "redirect_url": "/azure/active-directory/architecture/recover-from-misconfigurations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-app-development-overview.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-app-development-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-b2b-authentication.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-b2b-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-b2c.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-b2c",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-b2c-developer-best-practices.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-b2c-developer-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-client-app.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-client-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-daemon-app.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-daemon-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-in-credentials.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-in-credentials",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-in-hybrid.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-in-hybrid",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-in-infrastructure.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-in-infrastructure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-on-premises-access.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-on-premises-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-overview.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-with-continuous-access-evaluation.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-with-continuous-access-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-with-device-states.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-with-device-states",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilience-with-monitoring-alerting.md",
+      "redirect_url": "/azure/active-directory/architecture/resilience-with-monitoring-alerting",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilient-end-user-experience.md",
+      "redirect_url": "/azure/active-directory/architecture/resilient-end-user-experience",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/resilient-external-processes.md",
+      "redirect_url": "/azure/active-directory/architecture/resilient-external-processes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/road-to-the-cloud-establish.md",
+      "redirect_url": "/azure/active-directory/architecture/road-to-the-cloud-establish",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/road-to-the-cloud-implement.md",
+      "redirect_url": "/azure/active-directory/architecture/road-to-the-cloud-implement",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/road-to-the-cloud-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/road-to-the-cloud-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/road-to-the-cloud-migrate.md",
+      "redirect_url": "/azure/active-directory/architecture/road-to-the-cloud-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/road-to-the-cloud-posture.md",
+      "redirect_url": "/azure/active-directory/architecture/road-to-the-cloud-posture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-best-practices.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-external-access-resources.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-external-access-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-fundamentals.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-fundamentals",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-multiple-tenants.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-multiple-tenants",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-resource-management.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-resource-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-service-accounts.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/secure-single-tenant.md",
+      "redirect_url": "/azure/active-directory/architecture/secure-single-tenant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-applications.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-applications",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-consumer-accounts.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-consumer-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-devices.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-infrastructure.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-infrastructure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-introduction.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-privileged-accounts.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-privileged-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-privileged-identity-management.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-privileged-identity-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/security-operations-user-accounts.md",
+      "redirect_url": "/azure/active-directory/architecture/security-operations-user-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-computer.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-computer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-govern-on-premises.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-govern-on-premises",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-group-managed.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-group-managed",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-managed-identities.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-managed-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-on-premises.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-on-premises",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-principal.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-principal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-standalone-managed.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-standalone-managed",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-user-on-premises.md",
+      "redirect_url": "/azure/active-directory/architecture/service-accounts-user-on-premises",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/sync-directory.md",
+      "redirect_url": "/azure/active-directory/architecture/sync-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/sync-ldap.md",
+      "redirect_url": "/azure/active-directory/architecture/sync-ldap",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/sync-scim.md",
+      "redirect_url": "/azure/active-directory/architecture/sync-scim",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity.md",
@@ -1024,6 +1529,26 @@
       "source_path_from_root": "/articles/active-directory/active-directory-create-users-external.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-admin-add-users",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-prepare-api.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-protect-endpoints.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-build-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-protect-web-api-dotnet-core-test-api.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-protect-web-api-dotnet-core-test-api",
+      "redirect_document_id": false 
     },
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sign-in-overview.md",

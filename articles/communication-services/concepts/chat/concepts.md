@@ -130,7 +130,7 @@ One way to achieve this is by having your trusted service act as a participant o
 
 This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Azure AI Services interacting with Communication Services.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Azure AI services interacting with Communication Services.":::
 
 ## Next steps
 
