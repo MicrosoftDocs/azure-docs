@@ -22,7 +22,7 @@ In this quickstart, you'll do the following steps:
 
 >[!Important]
 > Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions:
-
+>
 >- East US
 >- Central US
 >- South Central US
@@ -85,8 +85,6 @@ This section shows you how to create a .NET console application to send messages
     ```powershell
     Install-Package Azure.Messaging.EventGrid -Version 4.17.0-beta.1
     ```
-
----
 
 
 ## Add code to send event to the namespace topic
@@ -172,7 +170,7 @@ In this section, you create a .NET console application that receives messages fr
     Install-Package Azure.Messaging.EventGrid -Version 4.17.0-beta.1
     ```
 
-    :::image type="content" source="./media/event-grid-dotnet-get-started-events/install-eventgrid-package.png" alt-text="Screenshot showing EventReceiver project selected in the Package Manager Console.":::
+    :::image type="content" source="./media/event-grid-dotnet-get-started-events/install-event-grid-package.png" alt-text="Screenshot showing EventReceiver project selected in the Package Manager Console.":::
 
 
 ---
