@@ -44,7 +44,7 @@ To enable a policy-based (scheduled) backup:
 2. Select your Azure NetApp Files account.
 3. Select **Backups**. 
 
-    :::image type="content" source="../media/azure-netapp-files/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="../media/azure-netapp-files/backup-navigate.png":::
+    <!-- :::image type="content" source="../media/azure-netapp-files/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="../media/azure-netapp-files/backup-navigate.png"::: -->
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
