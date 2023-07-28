@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-Use Visual studio code or your favorite editor to create a file with the following content and name it **main.bicep**:
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it **main.bicep**:
 
 ```bicep
 @minLength(5)
