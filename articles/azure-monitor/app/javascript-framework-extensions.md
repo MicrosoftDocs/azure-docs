@@ -138,7 +138,7 @@ import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
-// Add the Click Analytics plug-in.
+// *** Add the Click Analytics plug-in. ***
 /* var clickPluginInstance = new ClickAnalyticsPlugin();
    var clickPluginConfig = {
      autoCapture: true
@@ -146,13 +146,13 @@ var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        // If you're adding the Click Analytics plug-in, delete the next line.
+        // *** If you're adding the Click Analytics plug-in, delete the next line. ***
         extensions: [reactPlugin],
-     // Add the Click Analytics plug-in.
+     // *** Add the Click Analytics plug-in. ***
      // extensions: [reactPlugin, clickPluginInstance],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
-       // Add the Click Analytics plug-in.
+       // *** Add the Click Analytics plug-in. ***
        // [clickPluginInstance.identifier]: clickPluginConfig
         }
     }
@@ -169,10 +169,10 @@ appInsights.loadAppInsights();
   ```typescript
   import { ApplicationInsights } from '@microsoft/applicationinsights-web';
   import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-  // Add the Click Analytics plug-in.
+  // *** Add the Click Analytics plug-in. ***
   // import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
   var RNPlugin = new ReactNativePlugin();
-  // Add the Click Analytics plug-in.
+  // *** Add the Click Analytics plug-in. ***
   /* var clickPluginInstance = new ClickAnalyticsPlugin();
   var clickPluginConfig = {
   autoCapture: true
@@ -180,9 +180,9 @@ appInsights.loadAppInsights();
   var appInsights = new ApplicationInsights({
       config: {
           connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-          // If you're adding the Click Analytics plug-in, delete the next line.
+          // *** If you're adding the Click Analytics plug-in, delete the next line. ***
           extensions: [RNPlugin]
-       // Add the Click Analytics plug-in.
+       // *** Add the Click Analytics plug-in. ***
        /* extensions: [RNPlugin, clickPluginInstance],
                extensionConfig: {
                    [clickPluginInstance.identifier]: clickPluginConfig
@@ -268,7 +268,7 @@ Set up an instance of Application Insights in the entry component in your app:
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
-// Add the Click Analytics plug-in.
+// *** Add the Click Analytics plug-in. ***
 // import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 import { Router } from '@angular/router';
 
@@ -282,7 +282,7 @@ export class AppComponent {
         private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-     // Add the Click Analytics plug-in.
+     // *** Add the Click Analytics plug-in. ***
      /* var clickPluginInstance = new ClickAnalyticsPlugin();
         var clickPluginConfig = {
           autoCapture: true
@@ -290,13 +290,13 @@ export class AppComponent {
         const appInsights = new ApplicationInsights({
             config: {
                 connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-                // If you're adding the Click Analytics plug-in, delete the next line.        
+                // *** If you're adding the Click Analytics plug-in, delete the next line. ***  
                 extensions: [angularPlugin],
-             // Add the Click Analytics plug-in.
+             // *** Add the Click Analytics plug-in. ***
              // extensions: [angularPlugin, clickPluginInstance],
                 extensionConfig: {
                     [angularPlugin.identifier]: { router: this.router }
-                 // Add the Click Analytics plug-in.
+                 // *** Add the Click Analytics plug-in. ***
                  // [clickPluginInstance.identifier]: clickPluginConfig
                 }
             } 
