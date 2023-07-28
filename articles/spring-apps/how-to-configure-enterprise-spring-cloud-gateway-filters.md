@@ -863,7 +863,7 @@ The following example configures a `TokenRelay` `GatewayFilter` factory:
 
 ## Use Commercial Filters
 
-Spring Cloud Gateway for Kubernetes also provides many custom filters in addition to those included in the OSS project.
+Spring Cloud Gateway for Kubernetes also provides many custom filters in addition to the ones included in the OSS project.
 
 ### AllowedRequestCookieCount
 
@@ -1093,7 +1093,7 @@ Examples of other `RateLimit` configurations:
 
 The `RestrictRequestHeaders` `GatewayFilter` factory determines if a matching request is allowed to proceed based on the headers.
 
-If there are any HTTP headers that are not in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
+If there are any HTTP headers that aren't in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
 
 This factory accepts the following configuration parameters:
 
@@ -1211,7 +1211,7 @@ The following example configures a `Roles` `GatewayFilter` factory:
 
 ### Scopes
 
-The `Scopes` `GatewayFilter` factory authorizes requests that contains one of the configured `OAuth` scopes.
+The `Scopes` `GatewayFilter` factory authorizes requests that contain one of the configured `OAuth` scopes.
 
 This factory accepts the following configuration parameters:
 
@@ -1278,7 +1278,7 @@ The `StoreHeader` `GatewayFilter` factory stores a header value in the context o
 
 This factory accepts the following configuration parameters:
 
-- `headers`: list of headers to check (the first one found is used).
+- `headers`: list of headers to check (use the first one that you find).
 - `attribute name`: name used to store the header value as an exchange attribute.
 
 The following example configures a `StoreHeader` `GatewayFilter` factory:
