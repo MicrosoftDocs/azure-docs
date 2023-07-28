@@ -92,7 +92,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 ### [**Azure portal**](#tab/portal-pp)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. On the **Overview** page under **Essentials**, enable **Soft-delete** and **Purge protection**.
 
@@ -138,7 +138,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 Skip key generation if you already have a key in Azure Key Vault that you want to use, but collect the key identifier. You'll need this information when creating an encrypted object.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. Select **Keys** on the left, and then select **+ Generate/Import**.
 
@@ -179,7 +179,7 @@ Conditions that will prevent you from adopting this approach include:
 > 
 > The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
-1. [Sign into Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **+ Create a new resource**.
 

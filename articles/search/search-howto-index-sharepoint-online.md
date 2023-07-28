@@ -75,7 +75,7 @@ If your Azure Active Directory organization has [Conditional Access enabled](../
 
 The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
 
-1. [Sign in to Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for or navigate to **Azure Active Directory**, then select **App registrations**. 
 

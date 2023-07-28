@@ -22,6 +22,23 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## July 2023
+
+### 2023-06-01 API
+
+**Type:** New release
+
+**Date available:** July 19, 2023
+
+The 2023-06-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From July 19th, 2023-06-01 is the default API version for Azure Private 5G Core deployments.
+ 
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API or 2022-11-01, you don't need to do anything. Your portal will use the new API.
+ 
+ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
+ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
+ 
+Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
 ## June 2023
 
 ### Packet core 2306

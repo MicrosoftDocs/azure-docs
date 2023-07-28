@@ -7,6 +7,7 @@ ms.subservice: redhat
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/25/2023
 ms.author: maries
@@ -1496,4 +1497,3 @@ For more details, see the information about [rebuilding initramfs](https://acces
 * You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
 * For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
 * To learn more about using production-ready RHEL BYOS images, go to the documentation page for [BYOS](../workloads/redhat/byos.md).
-

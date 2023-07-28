@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/26/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -36,10 +36,35 @@ When you create a volume in a double-encryption capacity pool, the default key m
 
 Azure NetApp Files double encryption at rest is supported for the following regions:  
 
+* Australia Central 
+* Australia Central 2 
+* Australia East  
+* Australia Southeast 
+* Brazil South  
+* Canada Central  
+* Central US  
+* East Asia
+* East US
+* East US 2
+* France Central  
+* Germany West Central 
+* Japan East  
+* Korea Central 
+* North Central US
+* North Europe 
+* Norway East 
+* Qatar Central
+* South Africa North 
+* South Central US  
+* Sweden Central  
+* Switzerland North 
+* UAE North
+* UK South 
 * West Europe
-* East US 2 
-* East Asia    
-
+* West US
+* West US 2
+* West US 3
+ 
 ## Considerations
 
 * Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. 

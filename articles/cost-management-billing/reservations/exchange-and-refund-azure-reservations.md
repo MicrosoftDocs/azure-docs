@@ -43,7 +43,7 @@ The following reservations aren't eligible for refunds:
 
 ## How to exchange or refund an existing reservation
 
-You can exchange your reservation from [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+You can exchange your reservation from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Select the reservations that you want to refund and select **Exchange**.  
     [![Example image showing reservations to return](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
