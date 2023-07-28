@@ -117,7 +117,7 @@ Place holder
 |Customizable user sign-in page|x|x|x||
 
 
-## Veriried ID
+## Verified ID
 
 
 
