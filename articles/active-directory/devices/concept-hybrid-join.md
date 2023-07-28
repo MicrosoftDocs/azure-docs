@@ -42,7 +42,7 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 |   | Conditional Access through Domain join or through Intune if co-managed |
 |   | [Self-service Password Reset and Windows Hello PIN reset on lock screen](../authentication/howto-sspr-windows.md) |
 
-![Hybrid Azure AD joined devices](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
+![Hybrid Azure AD joined devices](./media/concept-hybrid-join/azure-ad-hybrid-joined-device.png)
 
 ## Scenarios
 
