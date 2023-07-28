@@ -52,7 +52,12 @@ Spring Cloud Gateway OSS includes several `GatewayFilter` factories used to crea
 
 ### AddRequestHeader
 
-The `AddRequestHeader` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddRequestHeader` `GatewayFilter`:
+The `AddRequestHeader` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `name`
+- `value` 
+
+The following example configures an `AddRequestHeader` `GatewayFilter` factory that adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests:
 
 ```json
 [
@@ -67,9 +72,9 @@ The `AddRequestHeader` `GatewayFilter` factory takes `name` and `value` paramete
 ]
 ```
 
-The following example adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests.
+`AddRequestHeader` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
 
-`AddRequestHeader` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddRequestHeader` `GatewayFilter` that uses a variable:
+The following example configures an `AddRequestHeader` `GatewayFilter` factory that uses a variable:
 
 ```json
 [
@@ -86,11 +91,13 @@ The following example adds the header `X-Request-red:blue` to the downstream req
 
 ### AddRequestHeadersIfNotPresent
 
-The `AddRequestHeadersIfNotPresent` filter adds headers if they aren't present in the original request.
+The `AddRequestHeadersIfNotPresent` `GatewayFilter` factory adds headers if they aren't present in the original request.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `headers`: comma-separated list of key-value pairs (header name, header value).
+
+The following example configures an `AddRequestHeadersIfNotPresent` `GatewayFilter` factory:
 
 ```json
 [
@@ -107,7 +114,12 @@ The following list shows the configuration parameters:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddRequestParameter` `GatewayFilter`:
+The `AddRequestParameter` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `name`
+- `value` 
+
+The following example configures an `AddRequestParameter` `GatewayFilter` that adds a `red=blue` parameter to the downstream request’s query string for all matching requests:
 
 ```json
 [
@@ -122,9 +134,9 @@ The `AddRequestParameter` `GatewayFilter` factory takes `name` and `value` param
 ]
 ```
 
-This configuration adds a `red=blue` parameter to the downstream request’s query string for all matching requests.
+`AddRequestParameter` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
 
-`AddRequestParameter` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddRequestParameter` `GatewayFilter` that uses a variable:
+The following example configures an `AddRequestParameter` `GatewayFilter` factory that uses a variable:
 
 ```json
 [
@@ -141,7 +153,12 @@ This configuration adds a `red=blue` parameter to the downstream request’s que
 
 ### AddResponseHeader
 
-The `AddResponseHeader` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddResponseHeader` `GatewayFilter`:
+The `AddResponseHeader` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `name`
+- `value` 
+
+The following example configures an `AddResponseHeader` `GatewayFilter` factory that adds a `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests:
 
 ```json
 [
@@ -156,9 +173,9 @@ The `AddResponseHeader` `GatewayFilter` factory takes `name` and `value` paramet
 ]
 ```
 
-This configuration adds a `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests.
+`AddResponseHeader` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
 
-`AddResponseHeader` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddResponseHeader` `GatewayFilter` that uses a variable:
+The following example configures an `AddResponseHeader` `GatewayFilter` factory that uses a variable:
 
 ```json
 [
@@ -175,15 +192,17 @@ This configuration adds a `X-Response-Red:Blue` header to the downstream respons
 
 ### CircuitBreaker
 
-The `CircuitBreaker` filter wraps routes in a circuit breaker.
+The `CircuitBreaker` `GatewayFilter` factory wraps routes in a circuit breaker.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `name`: circuit breaker name.
 - `fallbackUri`: reroute url (can be a local route or external handler).
 - `status codes`: (optional) colon-separated list of status codes to match, in number or in text format.
 - `failure rate`: (optional) threshold above which the circuit breaker opens (default 50%).
 - `duration`: (optional) time to wait before closing again (default 60 seconds).
+
+The following example configures a `CircuitBreaker` `GatewayFilter` factory:
 
 ```json
 [
@@ -200,7 +219,14 @@ The following list shows the configuration parameters:
 
 ### DeDupeResponseHeader
 
-The `DedupeResponseHeader` GatewayFilter Factory takes a `name` parameter and an optional `strategy` parameter. `name` can contain a space-separated list of header names. The following example configures a `DedupeResponseHeader` GatewayFilter:
+The `DedupeResponseHeader` `GatewayFilter` factory removes duplicate values of response headers.
+
+This factory accepts the following configuration parameters:
+
+- `name`: can contain a space-separated list of header names.
+- `strategy` (optional): the accepted values are `RETAIN_FIRST` (default), `RETAIN_LAST`, and `RETAIN_UNIQUE`.
+
+The following example configures a `DedupeResponseHeader` `GatewayFilter` factory that removes duplicate values of `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` response headers when both values are added by the gateway CORS logic and the downstream logic:
 
 ```json
 [
@@ -215,15 +241,13 @@ The `DedupeResponseHeader` GatewayFilter Factory takes a `name` parameter and an
 ]
 ```
 
-This configuration removes duplicate values of `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` response headers when both values are added by the gateway CORS logic and the downstream logic.
-
-The `DedupeResponseHeader` filter also accepts an optional strategy parameter. The accepted values are `RETAIN_FIRST` (default), `RETAIN_LAST`, and `RETAIN_UNIQUE`.
-
 ### FallbackHeaders
 
-The `FallbackHeaders` filter adds any circuit breaker exception to a header. This filter requires the use of the `CircuitBreaker` filter in another route.
+The `FallbackHeaders` `GatewayFilter` factory adds any circuit breaker exception to a header. This filter requires the use of the `CircuitBreaker` filter in another route.
 
-There are no parameters for the `FallbackHeaders` filter.
+There are no parameters for this factory.
+
+The following example configures a `FallbackHeaders` `GatewayFilter` factory with the exception type, message, and (if available) root cause exception type and message that are added to the request by the `FallbackHeaders` filter:
 
 ```json
 [
@@ -246,8 +270,6 @@ There are no parameters for the `FallbackHeaders` filter.
 ]
 ```
 
-The headers with the exception type, message, and (if available) root cause exception type and message are added to that request by the `FallbackHeaders` filter.
-
 You can overwrite the names of the headers in the configuration by setting the values of the following arguments (shown with their default values):
 
 - `executionExceptionTypeHeaderName` ("Execution-Exception-Type")
@@ -257,9 +279,9 @@ You can overwrite the names of the headers in the configuration by setting the v
 
 ### JSONToGRPC
 
-The `JSONToGRPCFilter` GatewayFilter Factory converts a JSON payload to a gRPC request.
+The `JSONToGRPCFilter` `GatewayFilter` factory converts a JSON payload to a gRPC request.
 
-The filter takes the following arguments:
+This factory accepts the following configuration parameters:
 
 - `protoDescriptor`: Proto descriptor file.
 
@@ -274,7 +296,7 @@ protoc --proto_path=src/main/resources/proto/ \
 > [!NOTE] 
 > `streaming` isn't supported.
 
-The following configuration is an example of the `JSONToGRPCFilter` using the output from `protoc`:
+The following configuration is an example of the `JSONToGRPCFilter` `GatewayFilter` factory using the output from `protoc`:
 
 ```json
 [
@@ -291,12 +313,14 @@ The following configuration is an example of the `JSONToGRPCFilter` using the ou
 
 ### LocalResponseCache
 
-The `LocalResponseCache` filter overrides the local response cache configuration for specific routes when global cache is activated.
+The `LocalResponseCache` `GatewayFilter` factory overrides the local response cache configuration for specific routes when global cache is activated.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `size`: maximum allowed size of the cache entries for this route before cache eviction begins (in KB, MB and GB).
 - `timeToLive`: allowed lifespan of a cache entry before expiration (use the duration suffix `s` for seconds, `m` for minutes, or `h` for hours).
+
+The following example configures a `LocalResponseCache` `GatewayFilter` factory:
 
 ```json
 [
@@ -313,7 +337,14 @@ The following list shows the configuration parameters:
 
 ### MapRequestHeader
 
-The `MapRequestHeader` GatewayFilter Factory takes the `fromHeader` and `toHeader` parameters. The `MapRequestHeader` filter creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. The following example configures a `MapRequestHeader`:
+The `MapRequestHeader` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `fromHeader`
+- `toHeader`
+ 
+This factory creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. 
+
+The following example configures a `MapRequestHeader``GatewayFilter` factory that adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header:
 
 ```json
 [
@@ -328,11 +359,13 @@ The `MapRequestHeader` GatewayFilter Factory takes the `fromHeader` and `toHeade
 ]
 ```
 
-This configuration adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header.
-
 ### PrefixPath
 
-The `PrefixPath` GatewayFilter Factory takes a single `prefix` parameter. The following example configures a `PrefixPath` GatewayFilter:
+The `PrefixPath` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `prefix` 
+
+The following example configures a `PrefixPath` `GatewayFilter` factory adds the prefix `/api` to the path of all requests, so that a request to `/catalog` is sent to `/api/catalog`:
 
 ```json
 [
@@ -347,11 +380,13 @@ The `PrefixPath` GatewayFilter Factory takes a single `prefix` parameter. The fo
 ]
 ```
 
-This configuration prefixes `/api` to the path of all matching requests. So a request to `/catalog` is sent to `/api/catalog`.
-
 ### PreserveHostHeader
 
-The `PreserveHostHeader` GatewayFilter Factory has no parameters. This filter sets a request attribute that the routing filter inspects to determine whether to send the original host header or the host header determined by the HTTP client. The following example configures a `PreserveHostHeader` GatewayFilter:
+The `PreserveHostHeader` `GatewayFilter` factory sets a request attribute that the routing filter inspects to determine whether to send the original host header or the host header determined by the HTTP client. 
+
+There are no parameters for this factory.
+
+The following example configures a `PreserveHostHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -368,7 +403,12 @@ The `PreserveHostHeader` GatewayFilter Factory has no parameters. This filter se
 
 ### RedirectTo
 
-The `RedirectTo` GatewayFilter Factory takes `status` and `url` parameters. The `status` parameter should be a 300 series redirect HTTP code, such as 301. The `url` parameter should be a valid URL. This is the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. The following listing configures a `RedirectTo` GatewayFilter:
+The `RedirectTo` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `status`: should be a 300 series redirect HTTP code, such as `301`.
+- `url`: should be a valid URL and is also the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. 
+
+The following example configures a `RedirectTo` `GatewayFilter` factory that sends a status `302` with a `Location:https://acme.org` header to perform a redirect:
 
 ```json
 [
@@ -381,16 +421,16 @@ The `RedirectTo` GatewayFilter Factory takes `status` and `url` parameters. The 
 ]
 ```
 
-This configuration sends a status `302` with a `Location:https://acme.org` header to perform a redirect.
-
 ### RemoveJsonAttributesResponseBody
 
-The `RemoveJsonAttributesResponseBody` filter removes the JSON attributes and their values from JSON response bodies.
+The `RemoveJsonAttributesResponseBody` `GatewayFilter` factory removes the JSON attributes and their values from JSON response bodies.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `attribute names`: comma-separated list of the names of attributes to remove from a JSON response.
 - `delete recursively`: (optional, boolean) configures the removal of attributes only at root level (`false`), or recursively (`true`) (default, `false`).
+
+The following example configures a `RemoveJsonAttributesResponseBody` `GatewayFilter` factory:
 
 ```json
 [
@@ -407,7 +447,11 @@ The following list shows the configuration parameters:
 
 ### RemoveRequestHeader
 
-The `RemoveRequestHeader` `GatewayFilter` factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` `GatewayFilter`:
+The `RemoveRequestHeader` `GatewayFilter` factory accepts the following configuration parameters:
+ 
+- `name`: name of the header to be removed. 
+
+The following listing configures a `RemoveRequestHeader` `GatewayFilter` factory that removes the `X-Request-Foo` header before it's sent downstream:
 
 ```json
 [
@@ -422,11 +466,13 @@ The `RemoveRequestHeader` `GatewayFilter` factory takes a `name` parameter, whic
 ]
 ```
 
-This configuration removes the `X-Request-Foo` header before it's sent downstream.
-
 ### RemoveRequestParameter
 
-The `RemoveRequestParameter` `GatewayFilter` factory takes a `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` `GatewayFilter`:
+The `RemoveRequestParameter` `GatewayFilter` factory accepts the following configuration parameters:
+ 
+- `name`: name of the query parameter to be removed. 
+
+The following example configures a `RemoveRequestParameter` `GatewayFilter` factory that removes the `red` parameter before it's sent downstream:
 
 ```json
 [
@@ -441,11 +487,13 @@ The `RemoveRequestParameter` `GatewayFilter` factory takes a `name` parameter, w
 ]
 ```
 
-This configuration removes the `red` parameter before it's sent downstream.
-
 ### RemoveResponseHeader
 
-The `RemoveResponseHeader` `GatewayFilter` factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` `GatewayFilter`:
+The `RemoveResponseHeader` `GatewayFilter` factory accepts the following configuration parameters:
+ 
+- `name`: name of the header to be removed. 
+
+The following listing configures a `RemoveResponseHeader` `GatewayFilter` factory that removes the `X-Response-Foo` header from the response before it's returned to the gateway client:
 
 ```json
 [
@@ -460,11 +508,14 @@ The `RemoveResponseHeader` `GatewayFilter` factory takes a `name` parameter, whi
 ]
 ```
 
-This configuration removes the `X-Response-Foo` header from the response before it's returned to the gateway client.
-
 ### RequestHeaderSize
 
-The `RequestHeaderSize` GatewayFilter Factory takes `maxSize` and `errorHeaderName` parameters. The `maxSize` parameter is the maximum data size allowed by the request header (including key and value). The `errorHeaderName` parameter sets the name of the response header containing an error message. By default, the name of the response header is `errorMessage`. The following listing configures a `RequestHeaderSize` GatewayFilter:
+The `RequestHeaderSize` `GatewayFilter` factory accepts the following configuration parameters:
+ 
+- `maxSize`: the maximum data size allowed by the request header (including key and value).
+- `errorHeaderName`: the name of the response header containing an error message. By default, the name of the response header is `errorMessage`.
+
+The following listing configures a `RequestHeaderSize` `GatewayFilter` factory that sends a status `431` if size of any request header is greater than 1000 Bytes:
 
 ```json
 [
@@ -479,11 +530,23 @@ The `RequestHeaderSize` GatewayFilter Factory takes `maxSize` and `errorHeaderNa
 ]
 ```
 
-This configuration sends a status 431 if size of any request header is greater than 1000 Bytes.
-
 ### RewriteLocationResponseHeader
 
-The `RewriteLocationResponseHeader` GatewayFilter Factory modifies the value of the `Location` response header, usually to get rid of backend-specific details. It takes the `stripVersionMode`, `locationHeaderName`, `hostValue`, and `protocolsRegex` parameters. The following listing configures a `RewriteLocationResponseHeader` GatewayFilter:
+The `RewriteLocationResponseHeader` `GatewayFilter` factory modifies the value of the `Location` response header, usually to get rid of backend-specific details. 
+
+This factory accepts the following configuration parameters:
+
+- `stripVersionMode`: this parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST` (default), and `ALWAYS_STRIP`.
+
+  - `NEVER_STRIP`: the version isn't stripped, even if the original request path contains no version.
+  - `AS_IN_REQUEST`: the version is stripped only if the original request path contains no version.
+  - `ALWAYS_STRIP`: the version is always stripped, even if the original request path contains version.
+
+- `hostValue`: used to replace the `host:port` portion of the response `Location` header when provided. If it isn't provided, the value of the `Host` request header is used.
+- `protocolsRegex`: must be a valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default is `http|https|ftp|ftps`. 
+- `locationHeaderName`
+
+The following listing configures a `RewriteLocationResponseHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -498,21 +561,18 @@ The `RewriteLocationResponseHeader` GatewayFilter Factory modifies the value of 
 ]
 ```
 
-For example, for a request of `POST` `api.example.com/some/object/name`, the `Location` response header value of `object-service.prod.example.net/v2/some/object/id` is rewritten as `api.example.com/some/object/id`.
-
-The `stripVersionMode` parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST` (default), and `ALWAYS_STRIP`.
-
-- `NEVER_STRIP`: The version isn't stripped, even if the original request path contains no version.
-- `AS_IN_REQUEST`: The version is stripped only if the original request path contains no version.
-- `ALWAYS_STRIP`: The version is always stripped, even if the original request path contains version.
-
-The `hostValue` parameter, if provided, is used to replace the `host:port` portion of the response `Location` header. If it isn't provided, the value of the `Host` request header is used.
-
-The `protocolsRegex` parameter must be a valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default is `http|https|ftp|ftps`.
+In this example, for a request value of `POST` `api.example.com/some/object/name`, the `Location` response header value of `object-service.prod.example.net/v2/some/object/id` is rewritten as `api.example.com/some/object/id`.
 
 ### RewritePath
 
-The `RewritePath` GatewayFilter Factory takes a path `regexp` parameter and a `replacement` parameter. This filter uses Java regular expressions for a flexible way to rewrite the request path. The following listing configures a `RewritePath` GatewayFilter:
+The `RewritePath` `GatewayFilter` factory uses Java regular expressions for a flexible way to rewrite the request path. 
+
+This factory accepts the following parameters:
+
+- `regexp`
+- `replacement` 
+
+The following listing configures a `RewritePath` `GatewayFilter` factory:
 
 ```json
 [
@@ -527,11 +587,19 @@ The `RewritePath` GatewayFilter Factory takes a path `regexp` parameter and a `r
 ]
 ```
 
-For a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
+In this example, for a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
 
 ### RewriteResponseHeader
 
-The `RewriteResponseHeader` GatewayFilter Factory takes `name`, `regexp`, and `replacement` parameters. This filter uses Java regular expressions for a flexible way to rewrite the response header value. The following example configures a `RewriteResponseHeader` GatewayFilter:
+The `RewriteResponseHeader` `GatewayFilter` factory uses Java regular expressions for a flexible way to rewrite the response header value. 
+
+This factory accepts the following configuration parameters:
+
+- `name`
+- `regexp`
+- `replacement` 
+
+The following example configures a `RewriteResponseHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -546,11 +614,17 @@ The `RewriteResponseHeader` GatewayFilter Factory takes `name`, `regexp`, and `r
 ]
 ```
 
-For a header value of `/42?user=ford&password=omg!what&flag=true`, the configuration is set to `/42?user=ford&password=***&flag=true` after making the downstream request.
+In this example, for a header value of `/42?user=ford&password=omg!what&flag=true`, the configuration is set to `/42?user=ford&password=***&flag=true` after making the downstream request.
 
 ### SetPath
 
-The `SetPath` GatewayFilter Factory takes a path `template` parameter. This filter offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments. The following example configures a `SetPath` GatewayFilter:
+The `SetPath` `GatewayFilter` factory offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments. 
+
+This factory accepts the following configuration parameters:
+
+- `template`
+
+The following example configures a `SetPath` `GatewayFilter` factory:
 
 ```json
 [
@@ -565,11 +639,18 @@ The `SetPath` GatewayFilter Factory takes a path `template` parameter. This filt
 ]
 ```
 
-For a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
+In this example, for a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request. 
 
 ### SetRequestHeader
 
-The `SetRequestHeader` GatewayFilter Factory takes `name` and `value` parameters. The following listing configures a `SetRequestHeader` GatewayFilter:
+The `SetRequestHeader` `GatewayFilter` factory replaces (rather than adding) all headers with the given name. 
+
+This factory accepts the following configuration parameters:
+
+- `name`
+- `value`
+
+The following listing configures a `SetRequestHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -584,9 +665,11 @@ The `SetRequestHeader` GatewayFilter Factory takes `name` and `value` parameters
 ]
 ```
 
-The `SetRequestHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Request-Red:1234`, it's replaced with `X-Request-Red:Blue`.
+In this example, the downstream server responded with `X-Request-Red:1234`, and it's replaced with `X-Request-Red:Blue`.
 
-`SetRequestHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `SetRequestHeader` GatewayFilter that uses a variable:
+`SetRequestHeader` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+
+The following example configures an `SetRequestHeader` `GatewayFilter` factory that uses a variable:
 
 ```json
 [
@@ -603,7 +686,14 @@ The `SetRequestHeader` replaces (rather than adding) all headers with the given 
 
 ### SetResponseHeader
 
-The `SetResponseHeader` GatewayFilter Factory takes `name` and `value` parameters. The following listing configures a `SetResponseHeader` GatewayFilter:
+The `SetResponseHeader` `GatewayFilter` factory replaces (rather than adding) all headers with the given name. 
+
+This factory accepts the following configuration parameters:
+
+- `name`
+- `value` 
+
+The following listing configures a `SetResponseHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -618,9 +708,11 @@ The `SetResponseHeader` GatewayFilter Factory takes `name` and `value` parameter
 ]
 ```
 
-The `SetResponseHeader` replaces (rather than adding) all headers with the given name. So, if the downstream server responded with `X-Response-Red:1234`, it's replaced with `X-Response-Red:Blue`.
+In this example, the downstream server responded with `X-Response-Red:1234`, and it's replaced with `X-Response-Red:Blue`.
 
-`SetResponseHeader` is aware of URI variables used to match a path or host. URI variables may be used in the value and is expanded at runtime. The following example configures an `SetResponseHeader` GatewayFilter that uses a variable:
+`SetResponseHeader` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+
+The following example configures an `SetResponseHeader` `GatewayFilter` factory that uses a variable:
 
 ```json
 [
@@ -637,7 +729,11 @@ The `SetResponseHeader` replaces (rather than adding) all headers with the given
 
 ### SetStatus
 
-The `SetStatus` GatewayFilter Factory takes the `status` parameter, which must be a valid Spring `HttpStatus`. It may be the integer value `404` or the string representation of the enumeration: `NOT_FOUND`. The following listing configures a `SetStatus` GatewayFilter:
+The `SetStatus` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `status`: must be a valid Spring `HttpStatus`. It could be the integer value `404`, or the string representation of the enumeration: `NOT_FOUND`. 
+
+The following listing configures a `SetStatus` `GatewayFilter` factory:
 
 ```json
 [
@@ -662,7 +758,11 @@ The `SetStatus` GatewayFilter Factory takes the `status` parameter, which must b
 
 ### StripPrefix
 
-The `StripPrefix` GatewayFilter Factory takes the `parts` parameter. The `parts` parameter indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the `parts` parameter is 1. The following listing configures a `StripPrefix` GatewayFilter:
+The `StripPrefix` `GatewayFilter` factory accepts the following configuration parameters:
+
+- `parts`: indicates the number of parts in the path to strip from the request before sending it downstream. The default value of the `parts` parameter is 1. 
+
+The following example configures a `StripPrefix` `GatewayFilter` factory:
 
 ```json
 [
@@ -677,11 +777,11 @@ The `StripPrefix` GatewayFilter Factory takes the `parts` parameter. The `parts`
 ]
 ```
 
-When a request is made through the gateway to `/name/blue/red`, the request made to `nameservice` appears as `nameservice/red`.
+In this example, a request is made through the gateway to `/name/blue/red`. The request made to `nameservice` appears as `nameservice/red`.
 
 ### Retry
 
-The `Retry` GatewayFilter Factory supports the following parameters:
+The `Retry` `GatewayFilter` factory accepts the following configuration parameters:
 
 - `retries`: The number of retries that should be attempted.
 - `statuses`: The HTTP status codes that should be retried, represented by using `org.springframework.http.HttpStatus`.
@@ -698,7 +798,7 @@ The following defaults are configured for the `Retry` filter, when enabled:
 - `exceptions`: IOException and TimeoutException.
 - `backoff`: disabled.
 
-The following listing configures a `Retry` GatewayFilter:
+The following example configures a `Retry` `GatewayFilter` factory:
 
 ```json
 [
@@ -715,7 +815,13 @@ The following listing configures a `Retry` GatewayFilter:
 
 ### RequestSize
 
-When the request size is greater than the permissible limit, the `RequestSize` GatewayFilter Factory can restrict a request from reaching the downstream service. The filter takes a `maxSize` parameter. The `maxSize` is a `DataSize` type, where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It's the permissible size limit of the request defined in bytes. The following listing configures a `RequestSize` GatewayFilter:
+The `RequestSize` `GatewayFilter` factory can restrict a request from reaching the downstream service when the request size is greater than the permissible limit. 
+
+This factory accepts the following configuration parameters:
+
+- `maxSize`: `maxSize` is a `DataSize` type, where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It's the permissible size limit of the request defined in bytes. 
+
+The following example configures a `RequestSize` `GatewayFilter` factory:
 
 ```json
 [
@@ -730,7 +836,9 @@ When the request size is greater than the permissible limit, the `RequestSize` G
 ]
 ```
 
-When the request is rejected due to size, the `RequestSize` GatewayFilter Factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`. The following example shows an `errorMessage`:
+In this example, when the request is rejected due to size, the `RequestSize` `GatewayFilter` factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`. 
+
+The following example shows an `errorMessage`:
 
 ```bash
 errorMessage : Request size is larger than permissible limit. Request size is 6.0 MB where permissible limit is 5.0 MB
@@ -738,7 +846,9 @@ errorMessage : Request size is larger than permissible limit. Request size is 6.
 
 ### TokenRelay
 
-The `TokenRelay` filter forwards `OAuth2` access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter:
+The `TokenRelay` `GatewayFilter` factory forwards `OAuth2` access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter.
+
+The following example configures a `TokenRelay` `GatewayFilter` factory:
 
 ```json
 [
@@ -757,11 +867,13 @@ Spring Cloud Gateway for Kubernetes also provides many custom filters in additio
 
 ### AllowedRequestCookieCount
 
-The `AllowedRequestCookieCount` filter determines if a matching request is allowed to proceed based on the number of cookies.
+The `AllowedRequestCookieCount` `GatewayFilter` factory determines if a matching request is allowed to proceed based on the number of cookies.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `amount`: number of allowed cookies.
+
+The following example configures a `AllowedRequestCookieCount` `GatewayFilter` factory:
 
 ```json
 [
@@ -778,11 +890,13 @@ The following list shows the configuration parameters:
 
 ### AllowedRequestHeadersCount
 
- The `AllowedRequestHeadersCount` filter determines if a matching request is allowed to proceed based on the number of headers.
+ The `AllowedRequestHeadersCount` `GatewayFilter` factory determines if a matching request is allowed to proceed based on the number of headers.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `amount`: number of allowed headers.
+
+The following example configures a `AllowedRequestHeadersCount` `GatewayFilter` factory:
 
 ```json
 [
@@ -799,11 +913,13 @@ The following list shows the configuration parameters:
 
 ### AllowedRequestQueryParamsCount
 
-The `AllowedRequestQueryParamsCount` filter determines if a matching request is allowed to proceed based on the number query params.
+The `AllowedRequestQueryParamsCount` `GatewayFilter` factory determines if a matching request is allowed to proceed based on the number query params.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `amount`: number of allowed parameters.
+
+The following example configures a `AllowedRequestQueryParamsCount` `GatewayFilter` factory:
 
 ```json
 [
@@ -820,7 +936,11 @@ The following list shows the configuration parameters:
 
 ### BasicAuth
 
-The `BasicAuth` filter adds a `BasicAuth` `Authorization` header to requests. There are no parameters for this filter.
+The `BasicAuth` `GatewayFilter` factory adds a `BasicAuth` `Authorization` header to requests. 
+
+There are no parameters for this factory.
+
+The following example configures a `BasicAuth` `GatewayFilter` factory:
 
 ```json
 [
@@ -837,12 +957,14 @@ The `BasicAuth` filter adds a `BasicAuth` `Authorization` header to requests. Th
 
 ### ClaimHeader
 
-The `ClaimHeader` filter copies data from a JWT claim into an HTTP header.
+The `ClaimHeader` `GatewayFilter` factory copies data from a JWT claim into an HTTP header.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `Claim name`: case sensitive name of the claim to pass.
 - `Header name`: name of the HTTP header.
+
+The following example configures a `ClaimHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -859,12 +981,14 @@ The following list shows the configuration parameters:
 
 ### ClientCertificateHeader
 
-The `ClientCertificateHeader` filter validates the `X-Forwarded-Client-Cert` header certificate.
+The `ClientCertificateHeader` `GatewayFilter` factory validates the `X-Forwarded-Client-Cert` header certificate.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `domain pattern`: `X-Forwarded-Client-Cert` value according to Kubernetes's ability to recognize client certificate's CA.
 - `certificate fingerprint`: (optional) SSL certificate's fingerprint.
+
+The following example configures a `ClientCertificateHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -881,9 +1005,9 @@ The following list shows the configuration parameters:
 
 ### Cors
 
-The `Cors` filter activates the CORS validations on a route.
+The `Cors` `GatewayFilter` factory activates the CORS validations on a route.
 
-The following list shows the configuration parameters that are organized as key-value pairs for CORS options:
+This factory accepts the following configuration parameters that are organized as key-value pairs for CORS options:
 
 - `allowedOrigins`
 - `allowedMethods`
@@ -891,6 +1015,8 @@ The following list shows the configuration parameters that are organized as key-
 - `maxAge`
 - `allowCredentials`
 - `allowedOriginPatterns`
+
+The following example configures a `Cors` `GatewayFilter` factory:
 
 ```json
 [
@@ -907,11 +1033,13 @@ The following list shows the configuration parameters that are organized as key-
 
 ### JsonToXml
 
-The `JsonToXml` filter transforms JSON response body into XML response body.
+The `JsonToXml` `GatewayFilter` factory transforms JSON response body into XML response body.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `wrapper`: root tag name for the XML response if an additional root tag is required to generate valid XML. The default root tag name is `response`.
+
+The following example configures a `JsonToXml` `GatewayFilter` factory:
 
 ```json
 [
@@ -928,14 +1056,16 @@ The following list shows the configuration parameters:
 
 ### RateLimit
 
-The `RateLimit` filter determines if a matching request is allowed to proceed based on request volume.
+The `RateLimit` `GatewayFilter` factory determines if a matching request is allowed to proceed based on request volume.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `request limit`: maximum number of requests accepted during the window.
 - `window duration`: window duration in milliseconds. Alternatively the `s`, `m` or `h` suffixes can be used to specify the duration in seconds, minutes, or hours.
 - `partition source`: (optional) location of the partition key ('claim', 'header', or 'IPs').
 - `partition key`: (optional) value used to partition request counters.
+
+The following example configures a `RateLimit` `GatewayFilter` factory:
 
 ```json
 [
@@ -950,7 +1080,7 @@ The following list shows the configuration parameters:
 ]
 ```
 
-Following are some examples of other `RateLimit` configurations:
+Examples of other `RateLimit` configurations:
 
 ```
     RateLimit=1,10s
@@ -961,13 +1091,15 @@ Following are some examples of other `RateLimit` configurations:
 
 ### RestrictRequestHeaders
 
-The `RestrictRequestHeaders` filter determines if a matching request is allowed to proceed based on the headers.
+The `RestrictRequestHeaders` `GatewayFilter` factory determines if a matching request is allowed to proceed based on the headers.
 
 If there are any HTTP headers that are not in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `headerList`: list of names of allowed headers (case insensitive).
+
+The following example configures a `RestrictRequestHeaders` `GatewayFilter` factory:
 
 ```json
 [
@@ -984,12 +1116,14 @@ The following list shows the configuration parameters:
 
 ### RewriteAllResponseHeaders
 
-The `RewriteAllResponseHeaders` filter rewrites multiple response headers at once.
+The `RewriteAllResponseHeaders` `GatewayFilter` factory rewrites multiple response headers at once.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `pattern to match`: regular expression to match against header values.
 - `replacement`: replacement value.
+
+The following example configures a `RewriteAllResponseHeaders` `GatewayFilter` factory:
 
 ```json
 [
@@ -1006,12 +1140,14 @@ The following list shows the configuration parameters:
 
 ### RewriteResponseBody
 
-The `RewriteResponseBody` filter modifies the body of a response.
+The `RewriteResponseBody` `GatewayFilter` factory modifies the body of a response.
 
-The following list shows the configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair takes the form `pattern to match:replacement`:
+This factory accepts the following configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair accepts the form `pattern to match:replacement`:
 
 - `pattern to match`: regular expression to match against text in the response body.
 - `replacement`: replacement value.
+
+The following example configures a `RewriteResponseBody` `GatewayFilter` factory:
 
 ```json
 [
@@ -1028,12 +1164,14 @@ The following list shows the configuration parameters that are organized as a co
 
 ### RewriteJsonAttributesResponseBody
 
-The `RewriteJsonAttributesResponseBody` rewrites JSON attributes using `JSONPath` notation.
+The `RewriteJsonAttributesResponseBody` `GatewayFilter` factory rewrites JSON attributes using `JSONPath` notation.
 
-The following list shows the configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair takes the form `jsonpath:replacement`:
+This factory accepts the following configuration parameters that are organized as a comma-separated list of key-value pairs, where each pair accepts the form `jsonpath:replacement`:
 
 - `jsonpath`: `JSONPath` expression to match against the response body.
 - `replacement`: replacement value.
+
+The following example configures a `RewriteJsonAttributesResponseBody` `GatewayFilter` factory:
 
 ```json
 [
@@ -1050,11 +1188,13 @@ The following list shows the configuration parameters that are organized as a co
 
 ### Roles
 
-The `Roles` filter authorizes requests that contain one of the configured roles.
+The `Roles` `GatewayFilter` factory authorizes requests that contain one of the configured roles.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `roles`: comma-separated list of authorized roles.
+
+The following example configures a `Roles` `GatewayFilter` factory:
 
 ```json
 [
@@ -1071,11 +1211,13 @@ The following list shows the configuration parameters:
 
 ### Scopes
 
-The `Scopes` filter authorizes requests that contains one of the configured `OAuth` scopes.
+The `Scopes` `GatewayFilter` factory authorizes requests that contains one of the configured `OAuth` scopes.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `scopes`: comma-separated list of authorized `OAuth` scopes.
+
+The following example configures a `Scopes` `GatewayFilter` factory:
 
 ```json
 [
@@ -1092,11 +1234,13 @@ The following list shows the configuration parameters:
 
 ### StoreIpAddress
 
-The `StoreIPAddress` filter is used for extension development only and in context of the application.
+The `StoreIPAddress` `GatewayFilter` factory is used for extension development only and in context of the application.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `attribute name`: name used to store the IP as an exchange attribute.
+
+The following example configures a `StoreIPAddress` `GatewayFilter` factory:
 
 ```json
 [
@@ -1113,7 +1257,9 @@ The following list shows the configuration parameters:
 
 ### SSO login
 
-The `SSO login` filter redirects to authenticate if there's no valid authorization token. This filter is configured as a `boolean` value in the route definition rather than an explicit filter:
+The `SSO login` `GatewayFilter` factory redirects to authenticate if there's no valid authorization token. This factory is configured as a `boolean` value in the route definition rather than an explicit filter.
+
+The following example configures a `SSO login` `GatewayFilter` factory:
 
 ```json
 [
@@ -1128,12 +1274,14 @@ The `SSO login` filter redirects to authenticate if there's no valid authorizati
 
 ### StoreHeader
 
-The `StoreHeader` filter stores a header value in the context of the application. This filter is used for extension development only.
+The `StoreHeader` `GatewayFilter` factory stores a header value in the context of the application. This filter is used for extension development only.
 
-The following list shows the configuration parameters:
+This factory accepts the following configuration parameters:
 
 - `headers`: list of headers to check (the first one found is used).
 - `attribute name`: name used to store the header value as an exchange attribute.
+
+The following example configures a `StoreHeader` `GatewayFilter` factory:
 
 ```json
 [
@@ -1150,7 +1298,11 @@ The following list shows the configuration parameters:
 
 ### XmlToJson
 
-The `XmlToJson` filter transforms XML response body into JSON response body. There are no parameters for this filter.
+The `XmlToJson` `GatewayFilter` factory transforms XML response body into JSON response body. 
+
+There are no parameters for this factory.
+
+The following example configures a `XmlToJson` `GatewayFilter` factory:
 
 ```json
 [
