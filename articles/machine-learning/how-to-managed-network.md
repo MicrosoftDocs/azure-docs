@@ -23,10 +23,6 @@ Azure Machine Learning provides support for managed virtual network (VNet) isola
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources (compute clusters and compute instances) for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
-The following diagram shows how a managed virtual network uses private endpoints to communicate with the storage, key vault, and container registry used by the workspace.
-
-:::image type="content" source="./media/how-to-managed-network/managed-virtual-network-architecture.png" alt-text="Diagram of managed virtual network isolation.":::
-
 There are two different configuration modes for outbound traffic from the managed virtual network:
 
 > [!TIP]
@@ -39,6 +35,17 @@ There are two different configuration modes for outbound traffic from the manage
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault __if they're configured as private__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
+The following diagram shows a managed virtual network configured to __allow internet outbound__:
+
+TBD: Add diagram
+
+The following diagram shows a managed virtual network configured to __allow only approved outbound__:
+
+> [!NOTE]
+> In this configuration, the storage, key vault, and container registry used by the workspace are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
+
+:::image type="content" source="./media/how-to-managed-network/managed-virtual-network-architecture.png" alt-text="Diagram of managed virtual network isolation.":::
+
 ## Supported scenarios
 
 |Scenarios|Supported|
@@ -46,6 +53,12 @@ The managed virtual network is preconfigured with [required default rules](#list
 |Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound|
 |Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)<br>&#x2022; New managed online endpoint creation<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless |
 |Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag<br>&#x2022; FQDN | 
+
+### Private endpoints
+
+Private endpoints are currently supported for the following Azure services:
+
+TBD: List of services
 
 ## Prerequisites
 

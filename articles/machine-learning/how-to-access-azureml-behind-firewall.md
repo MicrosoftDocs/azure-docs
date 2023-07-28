@@ -20,7 +20,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 Azure Machine Learning requires access to servers and services on the public internet. When implementing network isolation, you need to understand what access is required and how to enable it.
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured to use an _Azure Virtual Network_. When using a _managed virtual network_, the required inbound and outbound configuration for the workspace is automatically applied. For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 ## Common terms and information
 

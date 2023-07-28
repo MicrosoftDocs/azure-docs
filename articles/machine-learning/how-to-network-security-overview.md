@@ -24,15 +24,16 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 [!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
 :::moniker-end
 
-Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
-
 [!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 :::moniker range="azureml-api-2"
+* [Use managed networks](how-to-managed-network.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)

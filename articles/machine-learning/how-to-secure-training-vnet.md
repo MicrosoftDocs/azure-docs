@@ -18,8 +18,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [SDK v2](includes/machine-learning-sdk-v2.md)]
 
-> [!TIP]
-> Microsoft recommends using a [managed virtual network](how-to-managed-network.md) instead of the steps in this article. With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. 
+[!INCLUDE [managed network](includes/managed-vnet-note.md)]
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 

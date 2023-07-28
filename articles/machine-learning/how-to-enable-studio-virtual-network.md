@@ -16,6 +16,8 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # Use Azure Machine Learning studio in an Azure virtual network
 
+[!INCLUDE [managed network](includes/managed-vnet-note.md)]
+
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. The studio includes features like AutoML, the designer, and data labeling. 
 
 Some of the studio's features are disabled by default in a virtual network. To re-enable these features, you must enable managed identity for storage accounts you intend to use in the studio. 

@@ -17,10 +17,9 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, s
 
 [!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
-
-[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
