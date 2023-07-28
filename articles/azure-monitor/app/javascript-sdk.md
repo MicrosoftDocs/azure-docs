@@ -10,7 +10,12 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor Application Insights Real User Monitoring
 
-The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
+The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
+
+We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md): 
+
+- If you're adding a [framework extension](./javascript-framework-extensions.md), which you can [add](#optional-add-advanced-sdk-configuration) after you follow the steps to get started below, you'll have the option to add Click Analytics when you add the framework extension. 
+- If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md) after you follow the steps to get started.
 
 ## Prerequisites
 
@@ -25,10 +30,7 @@ Follow the steps in this section to instrument your application with the Applica
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
 
-> [!NOTE]
-> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
-
-### 1. Add the JavaScript code
+### Add the JavaScript code
 
 Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK:
 
@@ -39,10 +41,9 @@ Two methods are available to add the code to enable Application Insights via the
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights. 
+1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
 
-   > [!NOTE]
-   > Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+   Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -82,13 +83,11 @@ Two methods are available to add the code to enable Application Insights via the
    npm i --save @microsoft/applicationinsights-web
    ```
 
-   > [!Note]
-   > *Typings are included with this package*, so you do *not* need to install a separate typings package.
+    *Typings are included with this package*, so you do *not* need to install a separate typings package.
 
 1. Add the following JavaScript to your application's code.
 
-   > [!NOTE]
-   > Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
+   Where and also how you add this JavaScript code depends on your application code. For example, you might be able to add it exactly as it appears below or you may need to create wrappers around it.
     
    ```js
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -103,7 +102,7 @@ Two methods are available to add the code to enable Application Insights via the
 
 ---
 
-### 2. Paste the connection string in your environment
+### Paste the connection string in your environment
 
 To paste the connection string in your environment, follow these steps:
 
@@ -113,12 +112,11 @@ To paste the connection string in your environment, follow these steps:
 
       :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your connection string copied to the clipboard.
+   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string](./sdk-connection-string.md) copied to the clipboard.
 
-      > [!NOTE]
-      > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
+      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml#do-new-azure-regions-require-the-use-of-connection-strings-).
 
-### 3. (Optional) Add SDK configuration
+### (Optional) Add SDK configuration
 
 The optional [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
@@ -126,7 +124,7 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-### 4. (Optional) Add advanced SDK configuration
+### (Optional) Add advanced SDK configuration
 
 If you want to use the extra features provided by plugins for specific frameworks and optionally enable the Click Analytics plug-in, see:
 
@@ -134,10 +132,7 @@ If you want to use the extra features provided by plugins for specific framework
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
-> [!TIP]
-> We collect page views by default. But if you want to also collect clicks by default, consider adding the Click Analytics Auto-Collection plug-in. If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
-
-### 5. Confirm data is flowing
+### Confirm data is flowing
 
 1. Go to your Application Insights resource that you've enabled the SDK for. 
 1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
@@ -150,6 +145,18 @@ If you want to use the extra features provided by plugins for specific framework
    It might take a few minutes for data to show up in the portal.
 
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
+
+1. If you want to query data to confirm data is flowing:
+
+   1. Select **Logs** in the left pane. 
+
+      When you select Logs, the [Queries dialog](../logs/queries.md#queries-dialog) opens, which contains sample queries relevant to your data. 
+      
+   1. Select **Run** for the sample query you want to run.
+   
+   1. If needed, you can update the sample query or write a new query by using [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/).
+   
+      For essential KQL operators, see [Learn common KQL operators](/azure/data-explorer/kusto/query/tutorials/learn-common-operators). 
 
 ## Support
 
