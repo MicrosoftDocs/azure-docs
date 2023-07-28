@@ -35,6 +35,8 @@ You need:
 
 ## Gather sign-in details
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a role of least privilege access.
 1. Go to **Azure AD** > **Sign-ins**. 
 1. Use the filters to narrow down the results

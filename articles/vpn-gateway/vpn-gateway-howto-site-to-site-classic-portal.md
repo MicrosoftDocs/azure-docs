@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to create an IPsec connection between your on-premises network and a classic Azure virtual network over the public Internet.
 author: cherylmc
 ms.service: vpn-gateway
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: cherylmc
