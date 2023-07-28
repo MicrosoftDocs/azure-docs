@@ -725,10 +725,10 @@
                 href: functions-bindings-cache-trigger-redispubsub.md
                 displayName: Azure Cache for Redis
               - name: List Trigger
-                href: functions-bindings-cache-trigger-redislists.md
+                href: functions-bindings-cache-trigger-redislist.md
                 displayName: Azure Cache for Redis
               - name: Stream Trigger
-                href: functions-bindings-cache-trigger-redisstreams.md
+                href: functions-bindings-cache-trigger-redisstream.md
                 displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
