@@ -42,10 +42,10 @@ conceptualContent:
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Set up access permissions
-              url: ./register-application.md
+            - url: ./register-application.md
               itemType: how-to-guide
               text: Register your application
-              url: ./register-application.md
+            - url: ./register-application.md
               itemType: how-to-guide
               text: etc.
          
@@ -61,6 +61,12 @@ conceptualContent:
             - url: ./file3.md OR /file3
               itemType: how-to-guide
               text: linktext3
+            - url: ./file4.md OR /file4
+              itemType: how-to-guide
+              text: linktext4
+            - url: ./file5.md OR /file5
+              itemType: how-to-guide
+              text: linktext5
         # Card
         - title: DICOM - Wrangle medical imaging data
           links:
@@ -73,6 +79,12 @@ conceptualContent:
             - url: ./file3.md OR /file3
               itemType: how-to-guide
               text: linktext3
+            - url: ./file4.md OR /file4
+              itemType: how-to-guide
+              text: linktext4  
+            - url: ./file5.md OR /file5
+              itemType: how-to-guide
+              text: linktext5  
         # Card
         - title: MedTech - Transform medical device data 
           links:
@@ -84,7 +96,13 @@ conceptualContent:
               text: linktext2
             - url: ./file3.md OR /file3
               itemType: how-to-guide
-              text: linktext3   
+              text: linktext3  
+            - url: ./file4.md OR /file4
+              itemType: how-to-guide
+              text: linktext4  
+            - url: ./file5.md OR /file5
+              itemType: how-to-guide
+              text: linktext5     
 
         # Card
         - title: Events
@@ -98,6 +116,12 @@ conceptualContent:
             - url: ./file3.md OR /file3
               itemType: how-to-guide
               text: linktext3
+            - url: ./file4.md OR /file4
+              itemType: how-to-guide
+              text: linktext4  
+            - url: ./file5.md OR /file5
+              itemType: how-to-guide
+              text: linktext5    
           
         # Card
         - title: Azure API for FHIR
@@ -111,10 +135,16 @@ conceptualContent:
             - url: ./file3.md OR /file3
               itemType: how-to-guide
               text: linktext3
+            - url: ./file4.md OR /file4
+              itemType: how-to-guide
+              text: linktext4  
+            - url: ./file5.md OR /file5
+              itemType: how-to-guide
+              text: linktext5    
           
 additionalContent:
   sections:
-    - title: More resources 
+    - title: Tools & resources 
       items:
         # Card
         - title: Sample code
