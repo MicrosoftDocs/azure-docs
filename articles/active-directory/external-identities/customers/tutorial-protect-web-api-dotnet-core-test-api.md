@@ -1,6 +1,6 @@
 ---
 title: Test a protected web API
-description: Learn how to test a protected web API registered in the CIAM tenant
+description: Learn how to test a protected web API registered in an Azure AD for customers tenant
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -9,19 +9,25 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/10/2023
-ms.custom: developer, devx-track-dotnet
-#Customer intent: As a dev, I want to learn how to test my protected web API.
+ms.topic: tutorial
+ms.date: 07/27/2023
+
+#Customer intent: As a dev, I want to learn how to test a protected web API registered in the Azure AD for customers tenant.
 ---
 
 # Test your protected API
 
-In this article, we create a .NET daemon app that helps us test a protected web API.
+This tutorial is part of a series that helps you build and test a protected web API that is registered in an Azure Active Directory (Azure AD) for customers tenant. 
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Test a protected web API using a lightweight daemon app that calls the web API
 
 ## Prerequisites
 
-Before going through this article, ensure you have a [protected web API](how-to-protect-web-api-dotnet-core-protect-endpoints.md) to use for testing purposes.
+Before going through this article, ensure you have a [protected web API](./tutorial-protect-web-api-dotnet-core-build-app.md) to use for testing purposes.
 
 ## Register the daemon app 
 

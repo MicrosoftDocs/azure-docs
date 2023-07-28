@@ -149,14 +149,10 @@ items:
         items: 
           - name: Protect ASP.NET API
             items:
-              - name: Overview
-                href: how-to-protect-web-api-dotnet-core-overview.md
-              - name: Prepare the API
-                href: how-to-protect-web-api-dotnet-core-prepare-api.md
-              - name: Protect API endpoints
-                href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-              - name: Test the API
-                href: how-to-protect-web-api-dotnet-core-test-api.md
+              - name: Build a protected API 
+                href: tutorial-protect-web-api-dotnet-core-build-app.md
+              - name: Test protected API 
+                href: tutorial-protect-web-api-dotnet-core-test-api.md
       - name: Browserless app
         items: 
           - name: Node.js
