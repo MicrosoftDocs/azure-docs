@@ -92,7 +92,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
     
      :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
     
-  In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to allign with the [train component defination](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
+  In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to align with the [train component definition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
 
      :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
 
@@ -112,11 +112,11 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-parameter.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/component-parameter.png":::
 
-    For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
+    For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane, under **Inputs** section.
 
     You can also change the output settings (where to store the component's output) and run settings (compute target to run this component) in the right pane.
 
-    Let's promote the *max_epocs* input of the *train* component to pipeline level input. Doing so, you can assign a different value to this input every time before submitting the pipeline.
+    Now let's promote the *max_epocs* input of the *train* component to pipeline level input. Doing so, you can assign a different value to this input every time before submitting the pipeline.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/promote-ppl-input.png":::
 
@@ -140,9 +140,9 @@ In **Basics** step, you can configure the experiment, job display name, job desc
 
 In **Inputs & Outputs** step, you can configure the Inputs/Outputs that are promoted to pipeline level. In previous step, we promoted the *max_epocs* of *train* component to pipeline input, so you should be able to see and assign value to *max_epocs* here.
 
-In **Runtime settings**, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. But note if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
+In **Runtime settings**, you can configure the default datastore and default compute of the pipeline. It's the default datastore/compute for all components in the pipeline. But note if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the pipeline default value. 
 
-The **Review + Submit** step is the last step to review all settings before submit. The wizard remembers your last time's configuration if you ever submit the pipeline.
+The **Review + Submit** step is the last step to review all configurations before submit. The wizard remembers your last time's configuration if you ever submit the pipeline.
 
 After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can click this link to review the job details.
 

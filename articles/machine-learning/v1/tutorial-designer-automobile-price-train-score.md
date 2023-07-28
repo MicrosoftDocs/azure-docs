@@ -190,7 +190,7 @@ Because you want to predict price, which is a number, you can use a regression a
 
 ### Split the data
 
-Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
+Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset trains the model and the other will test how well the model performed.
 
 1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Split Data** component.
 
@@ -207,7 +207,7 @@ Splitting data is a common task in machine learning. You'll split your data into
 
 1. In the **Split Data** details pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
-    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data will be available through the right output port.
+    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data are available through the right output port.
 
 1. In the **Split Data** details pane, expand **Node info**.
 
@@ -288,7 +288,7 @@ Use the **Evaluate Model** component to evaluate how well your model scored the 
 
 In *Basics* step, you can configure the experiment, job display name, job description etc.
 
-In *Inputs & Outputs* step, you can configure the Inputs/Outputs that are promoted to pipeline level. 
+In *Inputs & Outputs* step, you can assign value to the Inputs/Outputs that are promoted to pipeline level. In this example it will be empty because we didn't promote any input/output to pipeline level.
 
 In *Runtime settings*, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. But note if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
 
