@@ -75,9 +75,7 @@ dotnet add package Microsoft.Identity.Client.Broker
     - Replace `Enter_the_Tenant_Subdomain_Here` with the Directory (tenant) subdomain. 
     - Replace `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-After creating the app settings file, we'll create another file called *AzureAdConfig.cs* that will help you read the configs from the app settings file.
-
-1. Create the *AzureAdConfig.cs* file in the root folder of the app.
+1. After creating the app settings file, we'll create another file called *AzureAdConfig.cs* that will help you read the configs from the app settings file. Create the *AzureAdConfig.cs* file in the root folder of the app.
 1. In the *AzureAdConfig.js* file, define the getters and setters for the `ClientId` and `Authority` properties. Add the following code:
 
     ```csharp
@@ -96,8 +94,8 @@ After creating the app settings file, we'll create another file called *AzureAdC
 1. Navigate to the *sign-in-dotnet-wpf.csproj* file in the root folder of the app.
 1. In this file, take the following two steps:
     
-    - Modify the *sign-in-dotnet-wpf.csproj* file to instruct your app to copy the *appsettings.json* file to the output directory when the project is compiled. Add the following piece of code to the *sign-in-dotnet-wpf.csproj* file:
-    - Set the target framework to target *windows10.0.19041.0* build to help with reading cached token from the token cache as you'll see in the token cache helper class.
+    1. Modify the *sign-in-dotnet-wpf.csproj* file to instruct your app to copy the *appsettings.json* file to the output directory when the project is compiled. Add the following piece of code to the *sign-in-dotnet-wpf.csproj* file:
+    1. Set the target framework to target *windows10.0.19041.0* build to help with reading cached token from the token cache as you'll see in the token cache helper class.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -240,7 +238,7 @@ Modify the *MainWindow.xaml* file to add the UI elements for the app. Open the *
     </StackPanel>
 ```
 
-This code adds key UI elements. The methods and objects that handles the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
+This code adds key UI elements. The methods and objects that handle the functionality of the UI elements are defined in the *MainWindow.xaml.cs* file that we create in the next step.
 
 - A button that signs in the user. `SignInButton_Click` method is called when the user selects this button. 
 - A button that signs out the user. `SignOutButton_Click`  method is called when the user selects this button. 
@@ -436,12 +434,12 @@ Run your app and sign in to test the application
 1. In your terminal, navigate to the root folder of your WPF app and run the app by running the command `dotnet run` in your terminal.
 1. After you launch the sample, you should see a window with a **Sign-In** button. Select the **Sign-In** button.
 
-    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-sign-in-screen.png" alt-text="Sign-in screen for a WPF desktop application.":::
+    :::image type="content" source="./media/tutorial-desktop-wpf-dotnet-sign-in-build-app/wpf-sign-in-screen.png" alt-text="Screenshot of sign-in screen for a WPF desktop application.":::
 
 1. On the sign-in page, enter your account email address. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. Follow through this flow to create a new account and sign in.
 1. Once you sign in, you see a screen displaying successful sign-in and basic information about your user account stored in the retrieved token.
 
-    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-succesful-sign-in.png" alt-text="Successful sign-in for desktop WPF app.":::
+    :::image type="content" source="./media/tutorial-desktop-wpf-dotnet-sign-in-build-app/wpf-successful-sign-in.png" alt-text="Screenshot of successful sign-in for desktop WPF app.":::
 
 ## See also
 

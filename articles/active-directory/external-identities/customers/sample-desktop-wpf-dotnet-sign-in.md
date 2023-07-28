@@ -88,12 +88,12 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 
 1. After you launch the sample you should see a window with a **Sign-In** button. Select the **Sign-In** button.
 
-    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-sign-in-screen.png" alt-text="Sign-in screen for a WPF desktop application.":::
+    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-sign-in-screen.png" alt-text="Screenshot of sign-in screen for a WPF desktop application.":::
 
 1. On the sign-in page, enter your account email address. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. Follow through this flow to create a new account and sign in.
 1. Once you sign in, you'll see a screen displaying successful sign-in and basic information about your user account stored in the retrieved token.
 
-    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-succesful-sign-in.png" alt-text="Successful sign-in for desktop WPF app.":::
+    :::image type="content" source="./media/sample-wpf-dotnet-sign-in/wpf-successful-sign-in.png" alt-text="Screenshot of successful sign-in for desktop WPF app.":::
 
 ### How it works
 
