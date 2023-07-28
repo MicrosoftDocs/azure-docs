@@ -311,7 +311,7 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 
 ## Responsible AI dashboard for best recommended AutoML model (preview)
 
-The Azure Machine Learning Responsible AI dashboard provides a single interface to help you implement Responsible AI in practice effectively and efficiently. RAI dashboard is only supported using tabular data and is only supported on classification and regression models. It brings together several mature Responsible AI tools in the areas of: 
+The Azure Machine Learning Responsible AI dashboard provides a single interface to help you implement Responsible AI in practice effectively and efficiently.  Responsible AI dashboard is only supported using tabular data and is only supported on classification and regression models. It brings together several mature Responsible AI tools in the areas of: 
 
 * Model performance and fairness assessment 
 * Data exploration 
