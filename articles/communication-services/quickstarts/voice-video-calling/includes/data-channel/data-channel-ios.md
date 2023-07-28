@@ -2,7 +2,7 @@
 ms.author: chengyuanlai
 title: Quickstart - Add data channel to your iOS calling app
 titleSuffix: An Azure Communication Services document
-description: In this quickstart, you'll learn how to add data channel messaging to your existing iOS calling app using Azure Communication Services.
+description: In this quickstart, you learn how to add data channel messaging to your existing iOS calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
 ms.date: 05/04/2023
@@ -16,7 +16,7 @@ ms.subservice: calling
 > Please be aware that the current Data Channel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 
 ## Overview
-The Data Channel feature API enables real-time data messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate Data Channel feature to your call and use the Data Channel APIs to send and receive data messages through a data channel.
+The Data Channel feature API enables real-time data messaging during audio and video calls. In this quickstart guide, we illustrate how to integrate Data Channel feature to your call and use the Data Channel APIs to send and receive data messages through a data channel.
 ### Prerequisites
 Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pivots=platform-ios) to set up a sample app with voice calling.
 ### Classes
