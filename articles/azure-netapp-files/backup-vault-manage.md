@@ -17,7 +17,10 @@ ms.author: anfdocs
 ---
 # Manage backup vaults for Azure NetApp Files (preview)
 
-Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
+Backup vaults store the backups for your Azure NetApp Files subscription.
+
+>[!IMPORTANT]
+>If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup.
 
 ## Create a backup vault
 
@@ -29,7 +32,7 @@ Backup vaults store the backups for your Azure NetApp Files subscription in addi
 
 ## Migrate backups to a backup vault
 
-If you have existing backups, you must migrate them to a backup vault before you can restore from a backups. 
+If you have existing backups, you must migrate them to a backup vault before you can restore from a backup. 
 
 1. Navigate to **Backups**.
 1. From the banner above the backups, select **Assign Backup Vault**.
@@ -37,7 +40,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 
   :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
 
-1. Select that volume with backups you want to migrate. You can migrate individual backups or bulk migrate all backups. 
+1. Select that volume with backups you want to migrate. You can migrate individual backups or bulk migrate all the volumes. 
 
     If there are backups from volumes that have been deleted that you want to migrate, select **Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
 
@@ -45,7 +48,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 
   :::image type="content" source="../media/azure-netapp-files/backup-vault-select.png" alt-text="Screenshot of backup vault selection." lightbox="../media/azure-netapp-files/backup-vault-select.png":::
 
-1. Navigate to to the **Backup Vault** menu to view and manage your backups.
+1. Navigate to the **Backup Vault** menu to view and manage your backups.
 
 ## Delete a backup vault
 

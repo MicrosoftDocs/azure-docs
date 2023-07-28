@@ -48,7 +48,6 @@ If you haven’t done so, enable the backup functionality for the volume before 
 1. Go to **Volumes** and select the specific volume for which you want to enable backup.
 2. Select **Configure**.
 3. In the Configure Backup page, toggle the **Enabled** setting to **On**.   
-    The Vault field is prepopulated. <!-- If you have not migrated to Backup Vault, you will need to do so before proceeding.   -->
 4. Select **OK**.   
 
 ![Screenshot that shows the Enabled setting of Configure Backups window.](../media/azure-netapp-files/backup-configure-enabled.png)

@@ -26,17 +26,17 @@ Manual backups are not affected by changes in the backup policy.
 
 ## Modify a backup policy   
 
-You can modify an existing Azure NetApp Files backup policy as needed to ensure that you have proper backup coverage for Azure NetApp Files volumes.  For example, if you need to change the number of retained backups that are protected by the service, you can modify the Azure NetApp Files backup policy for the volume to revise the number of restores to keep. 
+You can modify an existing Azure NetApp Files backup policy as needed to ensure that you have proper backup coverage for Azure NetApp Files volumes.  For example, if you need to change the number of retained backups that are protected by the service, you can modify the Azure NetApp Files backup policy for the volume to revise the number of backups to keep. 
 
 To modify the backup policy settings:   
 
-1. Navigate to **Backup Vaults**. Select the backup vault with the policies you want to modify.
+1. Navigate to **Backups**.
 
-2. Select **Backup Policies**, click the three dots (`…`) to the right of a backup policy, then click **Edit**.
+2. Select **Backup Policies** then select the three dots (`…`) to the right of a backup policy. Select **Edit**.
 
     ![Screenshot that shows context sensitive menu of Backup Policies.](../media/azure-netapp-files/backup-policies-edit.png)
 
-3. In the Modify Backup Policy window, update the number of restores you want to keep for daily, weekly, and monthly backups. Enter the backup policy name to confirm the action. Click **Save**.  
+3. In the Modify Backup Policy window, update the number of backups you want to keep for daily, weekly, and monthly backups. Enter the backup policy name to confirm the action. Click **Save**.  
 
     ![Screenshot that shows the Modify Backup Policy window.](../media/azure-netapp-files/backup-modify-policy.png)
 
@@ -49,7 +49,7 @@ A backup policy can be suspended so that it does not perform any new backup oper
 
 ### Suspend a backup policy for all volumes associated with the policy
 
-1. Navigate to **Backup Vaults**. Select the backup vault with the policies you want to suspend.
+1. Navigate to **Backups**.
 
 1. Select **Backup Policies**.
 
