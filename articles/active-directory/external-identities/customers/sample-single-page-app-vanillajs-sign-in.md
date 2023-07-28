@@ -26,7 +26,7 @@ This how-to guide uses a sample vanilla JavaScript single-page Application (SPA)
 ## Register the SPA in the Microsoft Entra admin center
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-vanilla-js.md)]
 
 ## Grant API permissions
 
