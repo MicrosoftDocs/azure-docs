@@ -69,25 +69,25 @@ landingContent:
       - linkListType: sample
         links:
           - text: JavaScript SPA sign-in
-            url: how-to-single-page-app-vanillajs-sample-sign-in.md
+            url: sample-single-page-app-vanillajs-sign-in.md
           - text: React SPA sign-in
-            url: how-to-single-page-application-react-sample.md
+            url: sample-single-page-app-react-sign-in.md
           - text: Node.js web app sign-in
-            url: how-to-web-app-node-sample-sign-in.md
+            url: sample-web-app-node-sign-in.md
           - text: Node.js web app sign in and call an API
-            url: how-to-web-app-node-sample-sign-in-call-api.md
+            url: sample-web-app-node-sign-in-call-api.md
           - text: ASP.NET web app sign-in
-            url: how-to-web-app-dotnet-sample-sign-in.md
+            url: sample-web-app-dotnet-sign-in.md
           - text: More code sample guides
             url: samples-ciam-all.md
   - title: Guides for building and integrating your app
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
           - text: Vanilla JS SPA
             url: how-to-single-page-app-vanillajs-prepare-tenant.md
           - text: React SPA
-            url: how-to-single-page-application-react-prepare-tenant.md
+            url: tutorial-single-page-app-react-sign-in-prepare-tenant.md
           - text: Node.js web app
             url: how-to-web-app-node-sign-in-overview.md
           - text: ASP.NET web app
