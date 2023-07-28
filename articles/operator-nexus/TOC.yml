@@ -106,6 +106,8 @@
           href: howto-virtual-machine-image.md
         - name: Virtual Machine console service
           href: howto-use-vm-console-service.md
+        - name: Virtual Machine placement hints
+          href: howto-virtual-machine-placement-hints.md
     - name: Observability
       expanded: false
       items:
