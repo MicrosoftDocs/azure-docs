@@ -79,8 +79,6 @@ To add a plug-in, follow the steps in this section.
 
 ### 1. Install the package
 
-When you install the package, the Microsoft Azure Monitor Application Insights JavaScript SDK is also installed.
-
 #### [React](#tab/react)
 
 ```bash
