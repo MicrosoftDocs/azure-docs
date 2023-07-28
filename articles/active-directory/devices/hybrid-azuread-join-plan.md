@@ -182,4 +182,4 @@ The following table provides details on support for these on-premises AD UPNs in
 
 ## Next steps
 
-- [Configure hybrid Azure AD join](howto-hybrid-join.md)
+- [Configure hybrid Azure AD join](how-to-hybrid-join.md)

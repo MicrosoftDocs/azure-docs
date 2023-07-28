@@ -191,8 +191,8 @@ If hybrid Azure AD join is the best option for your organization, see the follow
 
 [Review your identity infrastructure](hybrid-azuread-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
 
-* [Managed domains](howto-hybrid-join.md#managed-domains)
-* [Federated domains](howto-hybrid-join.md#federated-domains)
+* [Managed domains](how-to-hybrid-join.md#managed-domains)
+* [Federated domains](how-to-hybrid-join.md#federated-domains)
 
 If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
 

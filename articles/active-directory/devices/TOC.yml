@@ -44,9 +44,9 @@
     - name: Targeted hybrid Azure AD join deployment
       href: hybrid-azuread-join-control.md 
     - name: Configure hybrid Azure AD join
-      href: howto-hybrid-join.md
+      href: how-to-hybrid-join.md
     - name: Verifying hybrid Azure AD join
-      href: howto-hybrid-join-verify.md
+      href: how-to-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join
       expanded: false
       items:
@@ -96,7 +96,7 @@
     - name: Configure hybrid Azure AD join manually
       href: hybrid-azuread-join-manual.md
     - name: Enable older operating systems
-      href: howto-hybrid-join-downlevel.md
+      href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
   - name: Microsoft Graph APIs

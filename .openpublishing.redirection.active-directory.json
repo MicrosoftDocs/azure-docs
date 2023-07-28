@@ -1322,12 +1322,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/devices/howto-hybrid-azure-ad-join.md",
-      "redirect_url": "/azure/active-directory/devices/concept-hybrid-join",
+      "redirect_url": "/azure/active-directory/devices/howto-hybrid-join",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-join-hybrid.md",
-      "redirect_url": "/azure/active-directory/devices/howto-hybrid-join",
+      "redirect_url": "/azure/active-directory/devices/concept-hybrid-join",
       "redirect_document_id": true
     },
     {
