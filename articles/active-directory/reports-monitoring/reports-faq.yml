@@ -44,10 +44,25 @@ sections:
   - name: Activity logs
     questions:
       - question: |
-          Do I need to be a Global Administrator to see the activity logs in the Azure portal or to get data through the API?
+          Do I need to be a Global Administrator to see the activity logs in the Azure portal?
         answer: |
-          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator** for the tenant. You can also access the reporting data through the portal or through the API if you're a Global Administrator.
-         
+          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator**.
+
+      - question: |
+          What logs can I integrate with Azure Monitor?
+        answer: |
+          Sign-in and audit logs are both available for routing through Azure Monitor. B2C-related audit events are currently not included. For more information, see [Azure AD activity log integrations](concept-activity-logs-azure-monitor.md) and the [Graph API activity log overview](/graph/api/resources/azure-ad-auditlog-overview)
+
+      - question: |
+          What SIEM tools are currently supported for integrating Azure AD activity logs?
+        answer: |
+          For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+
+      - question: |
+          Can I access the data from an event hub without using an external SIEM tool?
+        answer: |
+          Yes. To access the logs from your custom application, you can use the [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
         answer: |
@@ -67,6 +82,12 @@ sections:
           How long does Azure AD store activity logs? What is the data retention?
         answer: |
           Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+
+      - question: |
+          What happens if an Administrator changes the retention period of a diagnostic setting?
+        answer: |
+          The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected. The Diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+
       - question: |
           How can I find out if a user purchased a license or enabled a trial license for my tenant? I don't see this activity in the audit logs.
         answer: |
