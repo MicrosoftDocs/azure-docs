@@ -101,5 +101,5 @@ After you verify that everything works as expected, you can automatically regist
 ## Next steps
 
 - [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
-- [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md)
+- [Configure hybrid Azure AD join](how-to-hybrid-join.md)
 - [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
