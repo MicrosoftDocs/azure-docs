@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Virtual Desktop per-user access pricing for remote app streaming - Azure
-description: An overview of Azure Virtual Desktop licensing considerations for remote app streaming.
+title: Understanding Azure Virtual Desktop per-user access pricing for RemoteApp streaming - Azure
+description: An overview of Azure Virtual Desktop licensing considerations for RemoteApp streaming.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -11,7 +11,7 @@ manager: femila
 ---
 # Understanding licensing and per-user access pricing
 
-This article explains the licensing requirements for using Azure Virtual Desktop to stream remote applications to external users. In this article, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
+This article explains the licensing requirements for using Azure Virtual Desktop to stream applications remotely to external users. In this article, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
 
 ## Internal users and external users
 

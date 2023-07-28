@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -38,41 +38,15 @@ Returns a boolean expression.
   
 The following example checks objects of various types using the function.
 
-```sql
-SELECT VALUE {
-    booleanIsBool: IS_BOOL(true),
-    numberIsBool: IS_BOOL(65),  
-    stringIsBool: IS_BOOL("AdventureWorks"),   
-    nullIsBool: IS_BOOL(null),  
-    objectIsBool: IS_BOOL({size: "small"}),   
-    arrayIsBool: IS_BOOL([25344, 82947]),  
-    arrayObjectPropertyIsBool: IS_BOOL({skus: [25344, 82947], vendors: null}.skus),
-    invalidObjectPropertyIsBool: IS_BOOL({skus: [25344, 82947], vendors: null}.size),
-    nullObjectPropertyIsBool: IS_BOOL({skus: [25344, 82947], vendors: null}.vendor)
-}
-```  
-  
-```json
-[
-  {
-    "booleanIsBool": true,
-    "numberIsBool": false,
-    "stringIsBool": false,
-    "nullIsBool": false,
-    "objectIsBool": false,
-    "arrayIsBool": false,
-    "arrayObjectPropertyIsBool": false,
-    "invalidObjectPropertyIsBool": false,
-    "nullObjectPropertyIsBool": false
-  }
-]
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-bool/query.sql" highlight="2-10":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-bool/result.json":::
 
 ## Remarks
 
-- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_NUMBER`](is-number.md)
