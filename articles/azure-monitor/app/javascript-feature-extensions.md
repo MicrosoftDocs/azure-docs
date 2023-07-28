@@ -134,7 +134,7 @@ appInsights.loadAppInsights();
 ---
 
 > [!TIP]
-> If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
+> If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#add-the-extension-to-your-code).
 
 ### (Optional) Set the authenticated user context
 
@@ -522,7 +522,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 ## Next steps
 
-- [Confirm data is flowing](./javascript-sdk.md#5-confirm-data-is-flowing).
+- [Confirm data is flowing](./javascript-sdk.md#confirm-data-is-flowing).
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.

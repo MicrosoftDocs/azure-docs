@@ -18,7 +18,7 @@ These plugins provide extra functionality and integration with the specific fram
 
 ## Prerequisites
 
-- Install the [JavaScript SDK]((./javascript-sdk.md)).
+- Install the [JavaScript SDK](./javascript-sdk.md).
 
 ### [React](#tab/react)
 
@@ -765,4 +765,4 @@ Check out the [Application Insights Angular demo](https://github.com/microsoft/a
 
 ## Next steps
 
-- [Confirm data is flowing](javascript-sdk.md#5-confirm-data-is-flowing).
+- [Confirm data is flowing](javascript-sdk.md#confirm-data-is-flowing).
