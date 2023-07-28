@@ -59,15 +59,15 @@ To enable self-service password reset, you need to enable the email one-time pas
 
 1. Select **Save**.
 
-## Enable the password reset link
+### Enable the password reset link
 
 You can hide, show or customize the self-service password reset link on the sign-in page. 
 
 1. In the search bar, type and select **Company branding**.
 1. Under **Default sign-in** select **Edit**.
 1. On the **Sign-in form** tab, scroll to the **Self-service password reset** section and select **Show self-service password reset**. 
-1. 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset. "lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
+   
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset.":::
 
 1. Select **Review + save** and **Save** on the **Review** tab. 
 
