@@ -375,7 +375,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ### Weighted Allocation Attachments
 
-In this example, the Classification Policy is configured with a weighted allocation attachment. This divides up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
+In this example, the Classification Policy is configured with a weighted allocation attachment. This policy divides up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -457,7 +457,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way of increasing the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
 
 ::: zone pivot="programming-language-csharp"
 
