@@ -43,4 +43,4 @@ The  sliding window algorithm blocks all matching traffic for the first window i
 
 ## Next step
 
-- Configure
+- [What is Azure Web Application Firewall on Azure Application Gateway?](ag-overview.md)
