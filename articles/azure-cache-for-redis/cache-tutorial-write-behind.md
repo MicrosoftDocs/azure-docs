@@ -74,6 +74,8 @@ In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispu
   - If so, update the value of that key.
   - If not, write a new row with the key and its value.
 
+To configure the trigger:
+
 1. Import the `System.Data.SqlClient` NuGet package to enable communication with the SQL database. Go to the VS Code terminal and use the following command:
 
    ```dos
