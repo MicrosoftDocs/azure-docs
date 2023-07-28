@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 07/28/2023
 ---
 
 # Azure HDInsight release notes
@@ -35,13 +35,12 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-## ![Icon showing update.](media/hdinsight-release-notes/update-icon.svg) What's new
+## ![Icon showing Whats new.](./media/hdinsight-release-notes/whats-new.svg) What's new
 * HDInsight 5.1 is now supported with ESP cluster.  
 * Upgraded version of Ranger 2.3.0 and Oozie 5.2.1 are now part of HDInsight 5.1
 * The Spark 3.3.1 (HDInsight 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works together with the Interactive Query (HDInsight 5.1) cluster. 
-  
 
-## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Coming soon
+## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. Customers need to plan for the updates before 30th September 2023.
 * Cluster permissions for secure storage  
