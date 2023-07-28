@@ -118,7 +118,7 @@ The `schedulingExecution` argument has two possible values:
 In this example, we explore the concepts of soft and hard affinities, particularly about placing virtual machines on specific racks.
 
 > [!NOTE]
-> In this and the following examples, only variations of the `--placement-hints` argument are provided. For the actual creation of the VM with placement hints, you should add these CLI commands to the CLI illustrated in the VM [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
+> In this and the following examples, only variations of the `--placement-hints` argument are provided. For the actual creation of the VM with placement hints, you should add `--placement-hints` to the CLI illustrated in the VM [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
 
 #### Strict scheduling (rack affinity)
 
