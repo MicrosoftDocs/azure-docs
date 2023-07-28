@@ -56,7 +56,11 @@ sections:
       - question: |
           My guest account has been given access to an Azure OpenAI resource, but I am unable to access that resource in the Azure OpenAI Studio. How do I enable access?
         answer: | 
-          This is expected behavior when using the default sign-in experience for the [Azure OpenAI Studio](https://oai.azure.com). To access Azure OpenAI Studio from a guest account you must first open a private browser session and then navigate to [https://oai.azure.com](https://oai.azure.com). Rather than immediately entering your guest account credentials instead select Sign-in options** > **Sign in to an organization** > Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. > Now sign-in with your guest account credentials. You should now be able to access the Azure OpenAI resource via the Studio. Alternatively if you are logged into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
+          This is expected behavior when using the default sign-in experience for the [Azure OpenAI Studio](https://oai.azure.com).
+          
+          To access Azure OpenAI Studio from a guest account you must first open a private browser session and then navigate to [https://oai.azure.com](https://oai.azure.com). Rather than immediately entering your guest account credentials instead select Sign-in options** > **Sign in to an organization** > Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. > Now sign-in with your guest account credentials. You should now be able to access the Azure OpenAI resource via the Studio.
+          
+          Alternatively if you are signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
   
   - name: Getting access to Azure OpenAI Service
     questions:
