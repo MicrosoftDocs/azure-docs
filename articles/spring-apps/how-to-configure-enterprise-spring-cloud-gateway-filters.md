@@ -198,9 +198,9 @@ This factory accepts the following configuration parameters:
 
 - `name`: circuit breaker name.
 - `fallbackUri`: reroute url (can be a local route or external handler).
-- `status codes`: (optional) colon-separated list of status codes to match, in number or in text format.
-- `failure rate`: (optional) threshold above which the circuit breaker opens (default 50%).
-- `duration`: (optional) time to wait before closing again (default 60 seconds).
+- `status codes` (optional): colon-separated list of status codes to match, in number or in text format.
+- `failure rate` (optional): threshold above which the circuit breaker opens (default 50%).
+- `duration` (optional): time to wait before closing again (default 60 seconds).
 
 The following example configures a `CircuitBreaker` `GatewayFilter` factory:
 
@@ -270,7 +270,7 @@ The following example configures a `FallbackHeaders` `GatewayFilter` factory wit
 ]
 ```
 
-You can overwrite the names of the headers in the configuration by setting the values of the following arguments (shown with their default values):
+You can overwrite the names of the headers in the configuration by setting the values of the following parameters (mentioned with their default values):
 
 - `executionExceptionTypeHeaderName` ("Execution-Exception-Type")
 - `executionExceptionMessageHeaderName` ("Execution-Exception-Message")
@@ -283,7 +283,7 @@ The `JSONToGRPCFilter` `GatewayFilter` factory converts a JSON payload to a gRPC
 
 This factory accepts the following configuration parameters:
 
-- `protoDescriptor`: Proto descriptor file.
+- `protoDescriptor`: proto descriptor file.
 
 This file can be generated using `protoc` and specifying the `--descriptor_set_out` flag:
 
@@ -296,7 +296,7 @@ protoc --proto_path=src/main/resources/proto/ \
 > [!NOTE] 
 > `streaming` isn't supported.
 
-The following configuration is an example of the `JSONToGRPCFilter` `GatewayFilter` factory using the output from `protoc`:
+The following example configures a `JSONToGRPCFilter` `GatewayFilter` factory using the output from `protoc`:
 
 ```json
 [
@@ -365,7 +365,7 @@ The `PrefixPath` `GatewayFilter` factory accepts the following configuration par
 
 - `prefix` 
 
-The following example configures a `PrefixPath` `GatewayFilter` factory adds the prefix `/api` to the path of all requests, so that a request to `/catalog` is sent to `/api/catalog`:
+The following example configures a `PrefixPath` `GatewayFilter` factory that adds the prefix `/api` to the path of all requests, so that a request to `/catalog` is sent to `/api/catalog`:
 
 ```json
 [
@@ -783,19 +783,19 @@ In this example, a request is made through the gateway to `/name/blue/red`. The 
 
 The `Retry` `GatewayFilter` factory accepts the following configuration parameters:
 
-- `retries`: The number of retries that should be attempted.
-- `statuses`: The HTTP status codes that should be retried, represented by using `org.springframework.http.HttpStatus`.
-- `methods`: The HTTP methods that should be retried, represented by using `org.springframework.http.HttpMethod`.
-- `series`: The series of status codes to be retried, represented by using `org.springframework.http.HttpStatus.Series`.
-- `exceptions`: A list of thrown exceptions that should be retried.
-- `backoff`: The configured exponential backoff for the retries. Retries are performed after a backoff interval of `firstBackoff * (factor ^ n)`, where `n` is the iteration. If `maxBackoff` is configured, the maximum backoff applied is limited to `maxBackoff`. If `basedOnPreviousValue` is true, the `backoff` is calculated by using `prevBackoff * factor`.
+- `retries`: number of retries that should be attempted.
+- `statuses`: HTTP status codes that should be retried, represented by using `org.springframework.http.HttpStatus`.
+- `methods`: HTTP methods that should be retried, represented by using `org.springframework.http.HttpMethod`.
+- `series`: series of status codes to be retried, represented by using `org.springframework.http.HttpStatus.Series`.
+- `exceptions`: list of thrown exceptions that should be retried.
+- `backoff`: configured exponential backoff for the retries. Retries are performed after a backoff interval of `firstBackoff * (factor ^ n)`, where `n` is the iteration. If `maxBackoff` is configured, the maximum backoff applied is limited to `maxBackoff`. If `basedOnPreviousValue` is true, the `backoff` is calculated by using `prevBackoff * factor`.
 
 The following defaults are configured for the `Retry` filter, when enabled:
 
-- `retries`: Three times.
+- `retries`: three times.
 - `series`: 5XX series.
 - `methods`: GET method.
-- `exceptions`: IOException and TimeoutException.
+- `exceptions`: `IOException` and `TimeoutException`.
 - `backoff`: disabled.
 
 The following example configures a `Retry` `GatewayFilter` factory:
@@ -986,7 +986,7 @@ The `ClientCertificateHeader` `GatewayFilter` factory validates the `X-Forwarded
 This factory accepts the following configuration parameters:
 
 - `domain pattern`: `X-Forwarded-Client-Cert` value according to Kubernetes's ability to recognize client certificate's CA.
-- `certificate fingerprint`: (optional) SSL certificate's fingerprint.
+- `certificate fingerprint`(optional): SSL certificate fingerprint.
 
 The following example configures a `ClientCertificateHeader` `GatewayFilter` factory:
 
@@ -1062,8 +1062,8 @@ This factory accepts the following configuration parameters:
 
 - `request limit`: maximum number of requests accepted during the window.
 - `window duration`: window duration in milliseconds. Alternatively the `s`, `m` or `h` suffixes can be used to specify the duration in seconds, minutes, or hours.
-- `partition source`: (optional) location of the partition key ('claim', 'header', or 'IPs').
-- `partition key`: (optional) value used to partition request counters.
+- `partition source` (optional): location of the partition key ('claim', 'header', or 'IPs').
+- `partition key` (optional): value used to partition request counters.
 
 The following example configures a `RateLimit` `GatewayFilter` factory:
 
