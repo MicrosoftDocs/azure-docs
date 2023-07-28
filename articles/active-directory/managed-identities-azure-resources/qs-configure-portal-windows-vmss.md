@@ -46,6 +46,8 @@ Currently, the Azure portal does not support enabling system-assigned managed id
 
 ### Enable system-assigned managed identity on an existing virtual machine scale set
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable the system-assigned managed identity on a virtual machine scale set that was originally provisioned without it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the virtual machine scale set.

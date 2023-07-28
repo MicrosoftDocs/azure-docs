@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 07/21/2023
+ms.date: 07/27/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -68,7 +68,10 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 ## Model summary table and region availability
 
 > [!IMPORTANT]
-> South Central US and East US are temporarily unavailable for creating new resources and deployments due to high demand.
+> Due to high demand:
+>
+> - South Central US is temporarily unavailable for creating new resources and deployments.
+> - East US is temporarily unavailable for new deployments of GPT-4 version 0314 models.
 
 ### GPT-4 models
 
@@ -91,8 +94,8 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South | N/A | 4,096 | Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South | N/A | 16,384 | Sep 2021 |
 
 <sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
@@ -106,7 +109,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | East US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | Canada East, East US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
 | text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 
 ### DALL-E models (Preview)

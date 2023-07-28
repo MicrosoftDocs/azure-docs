@@ -69,7 +69,7 @@ items:
     items:
     - name: Deployment errors
       href: troubleshoot-errors-deployment.md
-    - name: Error logs
+    - name: Service log errors
       href: troubleshoot-errors-logs.md
 - name: Samples
   expanded: false
@@ -77,11 +77,11 @@ items:
 - name: Concepts
   expanded: false
   items:
-  - name: The MedTech service and Azure Machine Learning Service
+  - name: MedTech service and Azure Machine Learning Service
     href: concepts-machine-learning.md
-  - name: The MedTech service and Microsoft Power BI
+  - name: MedTech service and Microsoft Power BI
     href: concepts-power-bi.md
-  - name: The MedTech service and Microsoft Teams notifications
+  - name: MedTech service and Microsoft Teams notifications
     href: concepts-teams.md
 - name: Resources
   expanded: false

@@ -134,7 +134,7 @@ For tracing information, see [Distributed tracing and correlation through Azure 
 
 ### Azure Storage queue
 
-The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
+The following example shows how to track the [Azure Storage queue](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests. It's configured by default on ASP.NET and ASP.NET Core applications. With other kinds of applications, see the [Console applications documentation](./console.md).
 

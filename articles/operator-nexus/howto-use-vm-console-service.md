@@ -6,7 +6,7 @@ ms.author: sidneyshiba
 ms.service: azure
 ms.topic: how-to
 ms.date: 06/16/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Introduction to the Virtual Machine console service
