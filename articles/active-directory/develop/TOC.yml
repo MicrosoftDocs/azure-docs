@@ -432,7 +432,6 @@
           href: quickstart-console-app-nodejs-acquire-token.md
         - name: Python
           href: quickstart-daemon-app-python-acquire-token.md
-      href: console-app-quickstart.md
     - name: Tutorials
       items:
         - name: ASP.NET
