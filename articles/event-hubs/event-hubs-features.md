@@ -3,7 +3,7 @@ title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
 ms.custom: event-tier1-build-2022
-ms.date: 08/25/2022
+ms.date: 02/09/2023
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -47,14 +47,14 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
-- The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
+- The **default** value and **shortest** possible retention period is **1 hour**. Currently, you can set the retention period in hours only in the Azure portal. Resource Manager template, PowerShell, and CLI allow this property to be set only in days. 
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all events including events that are already in the event hub. 
 
 Event Hubs retains events for a configured retention time that applies across
 all partitions. Events are automatically removed when the retention period has
-been reached. If you specify a retention period of one day, the event will
+been reached. If you specify a retention period of one day (24 hours), the event will
 become unavailable exactly 24 hours after it has been accepted. You can't
 explicitly delete events. 
 
@@ -73,7 +73,8 @@ architectural philosophy here's that historic data needs richer indexing and
 more direct access than the real-time eventing interface that Event Hubs or
 Kafka provide. Event stream engines aren't well suited to play the role of data
 lakes or long-term archives for event sourcing. 
- 
+
+
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a 
@@ -156,17 +157,12 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 > [!IMPORTANT]
 > Offsets are provided by the Event Hubs service. It's the responsibility of the consumer to checkpoint as events are processed.
 
-> [!NOTE]
-> If you are using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than those typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you need to use code to target the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
-> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 
 ### Log compaction 
 
-Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-baesd retention rather than using the coarser-grained time-based retention. 
+Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-based retention rather than using the coarser-grained time-based retention. 
 
 For more information on log compaction, see [Log compaction](log-compaction.md). 
 

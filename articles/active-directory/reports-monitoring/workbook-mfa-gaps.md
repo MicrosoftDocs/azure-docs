@@ -1,6 +1,6 @@
 ---
 
-title: Multifactor Authentication Gaps workbook in Azure AD | Microsoft Docs
+title: Multifactor Authentication Gaps workbook in Azure AD
 description: Learn how to use the MFA Gaps workbook.
 services: active-directory
 author: shlipsey3
@@ -55,7 +55,7 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
     - Select the link provided in the JSON editor, select the **Application-Insights-Workbooks** breadcrumb from the top of the page, select the **Workbooks** folder, select the **Azure Active Directory** folder, select the **MultiFactorAuthenticationGaps** folder, and open the **.workbook** file.
     ![Screenshot of the GitHub repository with the breadcrumbs and copy file button highlighted.](./media/workbook-mfa-gaps/github-repository.png)
 1. Copy the entire JSON file from the GitHub repository.
-1. Return Advanced Editor window on the Azure AD portal and paste the JSON file over the exiting text.
+1. Return Advanced Editor window on the Azure portal and paste the JSON file over the exiting text.
 1. Select the **Apply** button. The workbook will take a few moments to populate.
 1. Select the **Save As** button and provide the required information.
     - Provide a **Title**, **Subscription**, **Resource Group** (you must have the ability to save a workbook for the selected Resource Group), and **Location**.

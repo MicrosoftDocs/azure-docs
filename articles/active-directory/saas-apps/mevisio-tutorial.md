@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mevisio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mevisio'
 description: Learn how to configure single sign-on between Azure Active Directory and Mevisio.
 services: active-directory
 author: jeevansd

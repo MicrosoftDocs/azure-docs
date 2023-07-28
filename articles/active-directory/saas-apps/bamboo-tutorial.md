@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAML SSO for Bamboo by resolution GmbH | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAML SSO for Bamboo by resolution GmbH'
 description: Learn how to configure single sign-on between Azure Active Directory and SAML SSO for Bamboo by resolution GmbH.
 services: active-directory
 author: jeevansd

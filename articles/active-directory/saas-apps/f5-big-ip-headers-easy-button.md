@@ -97,7 +97,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a display name for your application. For example, `F5 BIG-IP Easy Button`.
@@ -280,13 +280,13 @@ Our backend application sits on HTTP port 80 but obviously switch to 443 if your
 
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
 
-* **Header Operation:** Insert
-* **Header Name:** upn
-* **Header Value:** %{session.saml.last.identity}
+* **Header Operation:** `Insert`
+* **Header Name:** `upn`
+* **Header Value:** `%{session.saml.last.identity}`
 
-* **Header Operation:** Insert
-* **Header Name:** employeeid
-* **Header Value:** %{session.saml.last.attr.name.employeeid}
+* **Header Operation:** `Insert`
+* **Header Name:** `employeeid`
+* **Header Value:** `%{session.saml.last.attr.name.employeeid}`
 
    ![Screenshot for SSO and HTTP headers.](./media/f5-big-ip-headers-easy-button/sso-http-headers.png)
 

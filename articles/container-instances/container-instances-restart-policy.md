@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-linux
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -66,7 +67,7 @@ az container show \
 
 Example output:
 
-```bash
+```output
 "Terminated"
 ```
 
@@ -78,7 +79,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 Output:
 
-```bash
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),

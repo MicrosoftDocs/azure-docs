@@ -171,7 +171,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 <!-- only include next line if applications run on your service and work with App Insights. --> 
 
-If you're creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you're creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 <!-- end -->
 
 The following tables list common and recommended alert rules for Application Gateway.

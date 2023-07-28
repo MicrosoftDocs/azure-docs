@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure NordPass for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure NordPass for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to NordPass.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: ad92f598-f6f6-4ee4-8de4-a488d4e07126
 ms.service: active-directory

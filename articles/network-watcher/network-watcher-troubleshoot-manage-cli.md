@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/25/2022
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Troubleshoot virtual network gateway and connections with Azure Network Watcher using Azure CLI

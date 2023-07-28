@@ -1,6 +1,6 @@
 ---
 title: Language support - Bing News Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Language and region support for the Bing News Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing News Search API supports numerous countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
@@ -71,7 +71,7 @@ For a list of country/region codes that you may specify in the `cc` query parame
 |Brazil|Portuguese|pt-BR|
 |Russia|Russian|ru-RU|  
 |Sweden|Swedish|sv-SE|  
-|Turkey|Turkish|tr-TR|  
+|Türkiye|Turkish|tr-TR|  
 
 ## Supported markets for news endpoint
 For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
@@ -155,7 +155,7 @@ The following are the country/region codes that you may specify in the `cc` quer
 |Sweden|SE|  
 |Switzerland|CH|  
 |Taiwan|TW|  
-|Turkey|TR|  
+|Türkiye|TR|  
 |United Kingdom|GB|  
 |United States|US|
 

@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Use managed identity to access Azure Resource Manager - Windows - Azure AD"
+title: "Tutorial: Use managed identity to access Azure Resource Manager - Windows"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
 manager: amycolannino
 editor: daveba
-ms.custom: subject-rbac-steps, mode-other
+ms.custom: subject-rbac-steps, mode-other, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart
@@ -40,6 +40,8 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
 ## Grant your VM access to a resource group in Resource Manager
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
 

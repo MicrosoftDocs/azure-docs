@@ -1,6 +1,6 @@
 ---
-title: Add custom approvals to self-service sign-up flows - Azure AD
-description: Add API connectors for custom approval workflows in External Identities self-service sign-up - Azure Active Directory (Azure AD)
+title: Add custom approvals to self-service sign-up flows
+description: Add API connectors for custom approval workflows in External Identities self-service sign-up
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -31,6 +31,8 @@ This article gives an example of how to integrate with an approval system. In th
 > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Register an application for your approval system
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
@@ -75,7 +77,7 @@ To create these connectors, follow the steps in [create an API connector](self-s
 
 Now you'll add the API connectors to a self-service sign-up user flow with these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select the user flow you want to enable the API connector for.

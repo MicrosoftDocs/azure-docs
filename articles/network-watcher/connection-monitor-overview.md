@@ -28,14 +28,12 @@ Connection Monitor provides unified, end-to-end connection monitoring in Azure N
 
 Here are some use cases for Connection Monitor:
 
-- Your front-end web server virtual machine (VM) or virtual machine scale set (VMSS) communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VM/or scale sets.
+- Your front-end web server virtual machine (VM) or virtual machine scale set communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VM/or scale sets.
 - You want VMs/scale sets in, for example, the East US region to ping VMs/scale sets in the Central US region, and you want to compare cross-region network latencies.
 - You have multiple on-premises office sites, one in Seattle, Washington, for example, and another in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, you want to compare the latencies between Seattle and Ashburn.
 - Your hybrid application needs connectivity to an Azure storage account endpoint. Your on-premises site and your Azure application connect to the same endpoint. You want to compare the latencies of the on-premises site with the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs/virtual machine scale sets that host your cloud application.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or Non-Azure multi-tier application. 
-
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
 
 Here are some benefits of Connection Monitor:
 
@@ -69,11 +67,11 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 To make Connection Monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure Virtual Machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
-You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm) or when you [create a VM scale set](./connection-monitor-virtual-machine-scale-set.md#create-a-virtual-machine-scale-set). Follow similar steps for enabling the  You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+You can install the Network Watcher extension when you create a virtual machine or a scale set. You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
 
-If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and VM scale sets.
+If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and scale sets.
 
  > [!Note]
  > In case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. Incase the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
@@ -119,8 +117,6 @@ To enable the Network Performance Monitor solution for on-premises machines, do 
 1. Select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
    After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
-
-   :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the Network Performance Monitor solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
@@ -200,7 +196,7 @@ Connection monitors have the following scale limits:
 
 Monitoring coverage for Azure and Non Azure Resources: 
 
-Connection Monitor now provides 5 different coverage levels for monitoring compound resources i.e. VNets, SubNets, and VM Scale Sets. The coverage level is defined as the % of instances of a compound resource actually included in monitoring those resources as sources or destinations. 
+Connection Monitor now provides 5 different coverage levels for monitoring compound resources i.e. VNets, SubNets, and virtual machine scale sets. The coverage level is defined as the % of instances of a compound resource actually included in monitoring those resources as sources or destinations. 
 Users can manually select a coverage level from Low, Below Average, Average, Above Average, and Full to define an approximate % of instances to be included in monitoring the particular resource as an endpoint
 
 ## Analyze monitoring data and set alerts

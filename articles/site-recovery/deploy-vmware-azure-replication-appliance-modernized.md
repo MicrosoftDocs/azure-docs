@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 03/27/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -35,7 +35,7 @@ Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 **Component** | **Requirement**
 --- | ---
-Operating system | Windows Server 2016
+Operating system | Windows Server 2019
 Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
@@ -59,7 +59,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | **URL**                  | **Details**                             |
   | ------------------------- | -------------------------------------------|
   | portal.azure.com          | Navigate to the Azure portal.              |
-  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  | `*.login.windows.net `<br>`*.graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
@@ -69,6 +69,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
   |`*.blob.core.windows.net `|Upload data to Azure storage, which is used to create target disks. |
+  | `*.prod.migration.windowsazure.com `| To discover your on-premises estate.  
 
 #### Allow URLs for government clouds
 
@@ -231,7 +232,7 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
   **Use the following steps to register the appliance**:
 
-1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 

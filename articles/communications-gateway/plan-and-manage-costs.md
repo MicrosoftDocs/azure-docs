@@ -29,8 +29,16 @@ Azure Communications Gateway runs on Azure infrastructure that accrues costs whe
 
 When you deploy or use Azure Communications Gateway, you'll be charged for your use of the voice features of the product. The charges are based on the number of users assigned to the platform by a series of SBC User meters. The meters include:
 
-- A "service availability" meter that is charged hourly and includes the use of 999 users for testing and early adoption.
-- A per-user meter that charges based on the number of users that are assigned to the deployment. This per-user fee is calculated from the maximum number of users during your billing cycle, excluding the initial 999 users included in the service availability fee.
+- A "service availability" meter that is charged hourly and includes the use of 1000 users for testing and early adoption.
+- A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. The per-user fee is based on the maximum number of users during your billing cycle, excluding the 1000 users included in the service availability fee.
+
+For example, if you have 28,000 users assigned to the deployment each month you'll pay:
+* The service availability fee for each hour in the month
+* 24,000 users in the 1001-25000 tier
+* 3000 users in the 25001-100000 tier
+
+> [!TIP]
+> If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
 
 If you choose to deploy the API Bridge (for API mediation or the API Bridge Number Management Portal), you'll also be charged for your API Bridge usage. Fees for API Bridge work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the API Bridge is always the same as the number of users charged on the SBC User meters.
 
@@ -96,6 +104,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ## Next steps
 
+- View [Azure Communications Gateway pricing](https://azure.microsoft.com/pricing/details/communications-gateway/).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

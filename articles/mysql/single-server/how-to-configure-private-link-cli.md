@@ -67,7 +67,7 @@ az vm create \
   --image Win2019Datacenter
 ```
 
-> [!Note]
+> [!NOTE]
 > The public IP address of the VM. You use this address to connect to the VM from the internet in the next step.
 
 ## Create an Azure Database for MySQL server

@@ -18,7 +18,7 @@ Practically, that means your solution will maintain multiple Event Hubs, often
 in different regions and Event Hubs namespaces, and then replicate events between
 them. You might also exchange events with sources and targets like [Azure
 Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure
-IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache
+IoT Hub](../iot/iot-introduction.md), or [Apache
 Kafka](https://kafka.apache.org). 
 
 Maintaining multiple active Event Hubs in different regions also allows clients

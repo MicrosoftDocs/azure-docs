@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article walks you though assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 05/12/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -32,7 +32,7 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 | **Scope** | **Defined at** | **Required access to view data** | **Prerequisite EA setting** | **Consolidates data to** |
 | --- | --- | --- | --- | --- |
-| Billing account¹ | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
+| Billing account¹ | [https://ea.azure.com](https://ea.azure.com/) | • Enterprise Admin<br> • Enrollment reader (Enterprise admin read-only) | None | All subscriptions from the enterprise agreement |
 | Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
 | Enrollment account² | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
 | Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
@@ -61,7 +61,7 @@ The department scope requires the **Department admins can view charges** (DA vie
 
 To enable an option in the Azure portal:
 
-1. Sign in to the Azure portal at https://portal.azure.com with an enterprise administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an enterprise administrator account.
 1. Select the **Cost Management + Billing** menu item.
 1. Select **Billing scopes** to view a list of available billing scopes and billing accounts.
 1. Select your **Billing Account** from the list of available billing accounts.

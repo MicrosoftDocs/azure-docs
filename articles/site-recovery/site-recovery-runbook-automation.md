@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 08/10/2022
+ms.date: 05/26/2023
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -17,7 +17,7 @@ This article describes how to integrate Azure Automation runbooks, to extend [Az
 
 You can use recovery plans when you fail over on-premises machines, or Azure VMs. Recovery plans help you to define a systematic recovery process that defines how machines fail over, and how they start and recover after failover. 
 
-Recovery large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
+Recovery of large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
 
 - [Learn more](recovery-plan-overview.md) about recovery plans.
 - [Learn more](../automation/automation-runbook-types.md) about Azure Automation runbooks.
@@ -194,7 +194,7 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 

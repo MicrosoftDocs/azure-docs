@@ -4,7 +4,7 @@ description: This article provides an overview of Azure availability zones and r
 keywords: automation availability zones.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/29/2022
+ms.date: 04/10/2023
 ms.topic: conceptual
 ms.custom: references_regions 
 ---
@@ -33,22 +33,30 @@ In the event when a zone is down, there's no action required by you to recover f
 See [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
-- China North 3
-- Qatar Central
-- West US 2
-- East US 2
-- East US
-- North Europe
-- West Europe
-- France Central
-- Japan East
-- UK South
-- Southeast Asia
 - Australia East
-- Central US
 - Brazil South
+- Canada Central
+- Central US
+- China North 3
+- East Asia
+- East US
+- East US 2
+- France Central
 - Germany West Central
+- Japan East
+- Korea Central
+- North Europe
+- Norway East
+- Qatar Central
+- South Africa North
+- South Central US
+- South East Asia
+- Sweden Central
+- UK South
+- West Europe
+- West US 2
 - West US 3
+
 
 ## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:

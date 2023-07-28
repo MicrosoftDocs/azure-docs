@@ -8,7 +8,7 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 
 # Use Azure VM Image Builder for Linux VMs to access an existing Azure virtual network

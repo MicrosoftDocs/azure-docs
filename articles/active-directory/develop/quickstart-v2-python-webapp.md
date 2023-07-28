@@ -6,7 +6,7 @@ author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/24/2023
 ROBOTS: NOINDEX
@@ -96,7 +96,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > import msal
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

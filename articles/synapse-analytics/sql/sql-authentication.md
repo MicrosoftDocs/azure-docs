@@ -36,7 +36,7 @@ There are two administrative accounts (**SQL admin username** and **SQL Active D
 
   One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL. 
 
-   - The Azure Active Directory admin account controls access to dedicated and serverless SQL pools, while Synapse RBAC roles can be used to additionally control access to serverless pools, for example, with the **Synapse Administrator** and **Synapse SQL Administrator** role. 
+   - The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles can be used to control access to serverless pools, for example, with the **Synapse Administrator** and **Synapse SQL Administrator** role. 
 
 The **SQL admin username** and **SQL Active Directory admin** accounts have the following characteristics:
 
@@ -49,7 +49,7 @@ The **SQL admin username** and **SQL Active Directory admin** accounts have the 
 - Can view the `sys.sql_logins` system table.
 
 >[!Note]
->If a user is configured as an Active Directory admin and Synapse Administrator, and then removed from the Active Directory admin role, then the user will lose access to the dedicated and serverless SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to SQL pools.
+>If a user is configured as an Active Directory admin and Synapse Administrator, and then removed from the Active Directory admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## [Serverless SQL pool](#tab/serverless)
 

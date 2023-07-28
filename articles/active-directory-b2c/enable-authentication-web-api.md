@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -262,7 +262,7 @@ Add two endpoints to your web API:
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *PublicController.cs* file, and then add to it the following code snippet:
+Under the */Controllers* folder, add a *PublicController.cs* file, and then add it to the following code snippet:
 
 ```csharp
 using System;
@@ -307,7 +307,7 @@ app.get('/public', (req, res) => res.send( {'date': new Date() } ));
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *HelloController.cs* file, and then add to it the following code:
+Under the */Controllers* folder, add a *HelloController.cs* file, and then add it to the following code:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
@@ -438,7 +438,7 @@ In the *appsettings.json* file, update the following properties:
 
 # [Node.js](#tab/nodejsgeneric)
 
-Under the project root folder, create a *config.json* file, and then add to it the following JSON snippet:  
+Under the project root folder, create a *config.json* file, and then add it to the following JSON snippet:  
 
 ```json
 {

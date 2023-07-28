@@ -79,7 +79,7 @@ As a developer you can share these steps with your tenant administrator to obtai
    [ ![Screenshot of the portal section used to choose issuers.](./media/partner-vu/select-issuers.png)](./media/partner-vu/select-issuers.png#lightbox)
 
 5. Check the **VUIdentityCard** credential with the attributes
-   such as firstname, lastname, number, country, gender, birth-date, and nationality or any other credential type.
+   such as firstname, lastname, number, country/region, gender, birth-date, and nationality or any other credential type.
    >[!NOTE]
    >Number attribute refers to National ID. For example, DNI-National Identification Number in Argentina.
 

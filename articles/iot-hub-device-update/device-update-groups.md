@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub device groups | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub device groups
 description: Understand how device groups are used.
 author: aysancag
 ms.author: aysancag
 ms.date: 2/09/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

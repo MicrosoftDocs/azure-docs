@@ -1,21 +1,17 @@
 ---
 title: Issues using VM extensions in Python 3-enabled Linux Azure Virtual Machines systems 
 description: Learn about using VM extensions in Python 3-enabled Linux systems
-services: virtual-machines
-documentationcenter: ''
 author: v-miegge
 ms.author: jparrel
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue,azure-resource-manager
+ms.custom: devx-track-python
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
-ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
+ms.date: 03/15/2023
 ---
 
 # Issues using VM extensions in Python 3-enabled Linux Azure Virtual Machines systems
@@ -46,11 +42,11 @@ Consider these general recommendations before deploying extensions in the known-
 
    - For example, for **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
 
-1. This recommendation is for Azure customers and is not supported in Azure Stack:
+1. This recommendation is for Azure customers and isn't supported in Azure Stack:
 
-   - If you’ve already deployed an instance that exhibits this problem, use the Run command functionality in the VM blade to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
+   - If you’ve already deployed an instance that exhibits this problem, use the Run command functionality in the VM blade to run the commands mentioned above. The Run command extension itself isn't affected by the transition to Python 3.8.
 
-1. If you are deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
+1. If you're deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
 
    For example, for Python 2.7:
 

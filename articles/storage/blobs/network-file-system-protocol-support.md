@@ -4,10 +4,9 @@ titleSuffix: Azure Storage
 description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 
-ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 02/14/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -80,7 +79,7 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
   This can be done by using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or an [ExpressRoute gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) along with [Gateway transit](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
 
 > [!IMPORTANT]
-> If you're connecting from an on-premises network, make sure that your client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports.
+> The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports. 
 
 <a id="azure-storage-features-not-yet-supported"></a>
 

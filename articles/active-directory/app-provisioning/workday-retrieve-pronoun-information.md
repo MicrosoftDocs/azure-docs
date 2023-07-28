@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/05/2022
+ms.date: 05/12/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
@@ -26,15 +26,12 @@ Workday introduced the ability for workers to [display pronoun information](http
 >Links to certain Workday community notes and documents in this article require Workday community account credentials. Please check with your Workday administrator or partner to get the required access.
 
 ## Enabling pronoun data in Workday
-This section describes steps required to enable pronoun data in Workday. We recommend engaging your Workday administrator to complete the steps listed below. 
-1. Ensure that pronoun display and sharing preferences are enabled as per Workday guidelines. Refer Workday documents: 
-   
-   [Steps: Set Up Gender Pronouns to Display on a Worker Profile * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/7gZPvVfbRhLiPissprv6lQ)
-   
-   [Steps: Set Up Public Profile Preferences * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/FuENV1VTRTHWo_h93KIjJA)
-
+This section describes the steps required to enable pronoun data in Workday. We recommend engaging your Workday administrator to complete the steps listed. 
+1. Ensure that pronoun display and sharing preferences are enabled as per Workday guidelines. Refer to the Workday documents:
+   - [Steps: Set Up Gender Pronouns to Display on a Worker Profile * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/7gZPvVfbRhLiPissprv6lQ)
+   - [Steps: Set Up Public Profile Preferences * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/FuENV1VTRTHWo_h93KIjJA)
 1. Use Workday **Maintain Pronouns** task to define preferred pronoun data (HE/HIM, SHE/HER, and THEY/THEM) in your Workday tenant.
-1. Use Workday **Maintain Localization Settings task -> Personal Information** area to activate pronoun data for different countries. 
+1. Use Workday **Maintain Localization Settings task -> Personal Information** area to activate pronoun data for different countries/regions. 
 1. Select the Workday Integration System Security Group used with your Azure AD integration. Update the [domain permissions for the security group](../saas-apps/workday-inbound-tutorial.md#configuring-domain-security-policy-permissions), so it has GET access for the Workday domain **Reports: Public Profile**.
     >[!div class="mx-imgBorder"] 
     >![Screenshot of permissions to setup in Workday.](./media/workday-pronoun-data/workday-pronoun-permissions.png)
@@ -44,13 +41,13 @@ This section describes steps required to enable pronoun data in Workday. We reco
     >[!div class="mx-imgBorder"] 
     >![Screenshot of enabling pronoun display option.](./media/workday-pronoun-data/enable-pronoun-display-preference.png)
 
-1. Use Workday Studio or Postman to invoke [Get_Workers API version 38.1](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v38.1/Get_Workers.html) for the test user using the Workday Azure AD integration system user. In the SOAP request header specify the option Include_Reference_Descriptors_In_Response. 
+1. Use Workday Studio or Postman to invoke [Get_Workers API version 38.1](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v38.1/Get_Workers.html) for the test user using the Workday Azure AD integration system user. In the SOAP request header, specify the option Include_Reference_Descriptors_In_Response. 
     ```
       <bsvc:Workday_Common_Header>
          <bsvc:Include_Reference_Descriptors_In_Response>true</bsvc:Include_Reference_Descriptors_In_Response>
       </bsvc:Workday_Common_Header> 
     ```
-1. In the Get_Workers response, you will now see pronoun information. 
+1. In the Get_Workers response, view the pronoun information. 
 
     >[!div class="mx-imgBorder"] 
     >![Screenshot of Workday Get Workers API response.](./media/workday-pronoun-data/get-workers-response-with-pronoun.png)
@@ -62,11 +59,11 @@ Once you confirm that pronoun data is available in the *Get_Workers* response, g
  
 ## Updating Azure AD provisioning app to retrieve pronouns
 
-To retrieve pronouns from Workday, you'll need to update your Azure AD provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
+To retrieve pronouns from Workday, update your Azure AD provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
 
-1. Sign-in to Azure portal as administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Open your *Workday to AD User provisioning* app OR *Workday to Azure AD User provisioning* app. 
-1. In the **Admin Credentials** section, update the **Tenant URL** to include the Workday Web Service version v38.1 as shown below.
+1. In the **Admin Credentials** section, update the **Tenant URL** to include the Workday Web Service version v38.1 as shown.
 
      >[!div class="mx-imgBorder"] 
      >![Screenshot of Azure portal provisioning app with Workday version.](./media/workday-pronoun-data/update-workday-version.png)
@@ -79,11 +76,11 @@ To retrieve pronouns from Workday, you'll need to update your Azure AD provision
 
 1. Save your changes. 
 1. You can now add a new attribute mapping to flow the Workday attribute **PreferredPronoun** to any attribute in AD/Azure AD.
-1. If you want to incorporate pronoun information as part of display name, you can update the attribute mapping for displayName attribute to use the below expression. 
+1. If you want to incorporate pronoun information as part of display name, you can update the attribute mapping for displayName attribute to use the expression. 
 
      `Switch([PreferredPronoun], Join("", [PreferredNameData], " (", [PreferredPronoun], ")"), "", [PreferredNameData])`
 
-1. If worker *Aaron Hall* has set his pronoun information in Workday as `HE/HIM`, then the above expression will set the display name in Azure AD as: *Aaron Hall (HE/HIM)*
+1. If worker *Aaron Hall* has set his pronoun information in Workday as `HE/HIM`, the above expression sets the display name in Azure AD as: *Aaron Hall (HE/HIM)*
 1. Save your changes. 
 1. Test the configuration for one user with provisioning on demand. 
  

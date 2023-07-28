@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 03/21/2023
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -333,13 +333,11 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2022-04-01
     ```
 
-## View elevate access logs
+## View elevate access log entries in the Directory Activity logs
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Azure AD, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the directory activity logs. This section describes different ways that you can view the elevate access logs.
+When access is elevated, an entry is added to the logs. As a Global Administrator in Azure AD, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
 
-### View elevate access logs using the Azure portal
-
-1. Follow the steps earlier in this article to elevate your access.
+### View elevate access log entries using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
@@ -353,11 +351,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
     ![Screenshot showing directory activity logs in Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
 
-1. Follow the steps earlier in this article to remove elevated access.
-
-### View elevate access logs using Azure CLI
-
-1. Follow the steps earlier in this article to elevate your access.
+### View elevate access log entries using Azure CLI
 
 1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
@@ -390,17 +384,13 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
       },
     ```
 
-1. Follow the steps earlier in this article to remove elevated access.
+### Delegate access to a group to view elevate access log entries using Azure CLI
 
-### Delegate access to a group to view elevate access logs using Azure CLI
-
-If you want to be able to periodically get the elevate access logs, you can delegate access to a group and then use Azure CLI.
+If you want to be able to periodically get the elevate access log entries, you can delegate access to a group and then use Azure CLI.
 
 1. Open **Azure Active Directory** > **Groups**.
 
 1. Create a new security group and note the group object ID.
-
-1. Follow the steps earlier in this article to elevate your access.
 
 1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
@@ -412,9 +402,7 @@ If you want to be able to periodically get the elevate access logs, you can dele
 
 1. Add a user who will read logs to the previously created group.
 
-1. Follow the steps earlier in this article to remove elevated access.
-
-A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az-rest) command to view elevate access logs.
+A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az-rest) command to view elevate access log entries.
 
 ```azurecli
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt

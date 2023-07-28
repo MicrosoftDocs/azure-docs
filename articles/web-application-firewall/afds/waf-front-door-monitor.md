@@ -36,7 +36,7 @@ Azure Front Door's WAF provides detailed reporting on each request, and each thr
 
 Logs aren't enabled by default. You need to explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
 
-![Screenshot of the Azure portal showing how to enable the WAF logs.](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-diagnostic-setting.png" alt-text="Screenshot of the Azure portal showing how to enable the WAF logs." lightbox="../media/waf-frontdoor-monitor/waf-diagnostic-setting.png":::
 
 If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs.  For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md). 
 
@@ -46,13 +46,13 @@ Front Door provides two types of logs: access logs and WAF logs.
 
 ::: zone pivot="front-door-standard-premium"
 
-The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md#access-log).
+The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md?pivot=front-door-standard-premium#access-log).
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md).
+The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md?pivot=front-door-classic#diagnostic-logging).
 
 ::: zone-end
 

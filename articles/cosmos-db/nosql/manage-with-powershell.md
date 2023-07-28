@@ -269,7 +269,7 @@ New-AzCosmosDBAccountKey `
 
 ### <a id="enable-automatic-failover"></a> Enable service-managed failover
 
-The following command sets an Azure Cosmos DB account to fail over automatically to its secondary region should the primary region become unavailable.
+The following command sets an Azure Cosmos DB account to perform a service-managed fail over to its secondary region should the primary region become unavailable.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"

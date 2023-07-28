@@ -1,16 +1,11 @@
 ---
-title: Using Storage Explorer with Azure Files | Microsoft Docs
+title: Using Storage Explorer with Azure Files
 description: Learn how learn how to use Storage Explorer to work with file shares and files.
 services: storage
-documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: ''
-
 ms.assetid:
-ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa

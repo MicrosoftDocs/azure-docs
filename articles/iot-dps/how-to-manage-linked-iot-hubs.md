@@ -7,7 +7,7 @@ ms.date: 01/18/2023
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # How to link and manage IoT hubs

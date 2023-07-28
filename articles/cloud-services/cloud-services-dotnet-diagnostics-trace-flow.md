@@ -3,11 +3,11 @@ title: Trace the flow in Cloud Services (classic) Application with Azure Diagnos
 description: Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Trace the flow of a Cloud Services (classic) application with Azure Diagnostics

@@ -9,7 +9,6 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/30/2022
-ms.subservice: blobs
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
@@ -72,7 +71,7 @@ async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container using a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object:
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object:
 
 - BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
 

@@ -7,6 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: build-2023
 ms.topic: how-to
 
 ms.date: 01/17/2023
@@ -33,7 +34,7 @@ You can create an API endpoint using one of our [samples](api-connector-samples.
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors**, and then select **New API connector**.
 
@@ -51,7 +52,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 Follow these steps to add an API connector to a sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **User flows**, and then select the user flow you want to add the API connector to.
 1. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:

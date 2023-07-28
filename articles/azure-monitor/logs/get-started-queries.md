@@ -2,8 +2,8 @@
 title: Get started with log queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for getting started writing log queries in Azure Monitor.
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 10/20/2021
 
 ---
@@ -15,7 +15,7 @@ ms.date: 10/20/2021
 >
 > If you already know how to query in Kusto Query Language (KQL) but need to quickly create useful queries based on resource types, see the saved example queries pane in [Use queries in Azure Monitor Log Analytics](../logs/queries.md).
 
-In this tutorial, you'll learn to write log queries in Azure Monitor. The article shows you how to:
+In this tutorial, you learn to write log queries in Azure Monitor. The article shows you how to:
 
 - Understand query structure.
 - Sort query results.
@@ -32,6 +32,8 @@ For more information about log queries in Azure Monitor, see [Overview of log qu
 Here's a video version of this tutorial:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Write a new query
 
@@ -55,7 +57,7 @@ The preceding query returns 10 results from the `SecurityEvent` table, in no spe
 * The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
 * Following the pipe is the `take` command, which returns a specific number of arbitrary records from the table.
 
-We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 10,000 results.
+We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 30,000 results.
 
 ### Search queries
 
@@ -66,7 +68,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
+This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records are returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search goes over *all* tables. The process would then take longer and be less efficient.
 
 > [!IMPORTANT]
 > Search queries are ordinarily slower than table-based queries because they have to process more data.
@@ -79,7 +81,7 @@ SecurityEvent
 | sort by TimeGenerated desc
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 10,000 records. This approach isn't optimal.
+The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal.
 
 The best way to get only the latest 10 records is to use `top`, which sorts the entire table on the server side and then returns the top records:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with IMAGE WORKS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with IMAGE WORKS'
 description: Learn how to configure single sign-on between Azure Active Directory and IMAGE WORKS.
 services: active-directory
 author: jeevansd

@@ -4,9 +4,9 @@ description: In this article, you deploy a model from Azure Machine Learning as 
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/09/2021
-
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis

@@ -18,7 +18,10 @@ Some customers prefer not to expose a public IP address directly to the Internet
 Azure Firewall provides automatic SNAT for all outbound traffic to public IP addresses. Azure Firewall doesn’t SNAT when the destination IP address is a private IP address range per IANA RFC 1918. This logic works perfectly when you egress directly to the Internet. However, with forced tunneling enabled, Internet-bound traffic is SNATed to one of the firewall private IP addresses in the AzureFirewallSubnet. This hides the source address from your on-premises firewall. You can configure Azure Firewall to not SNAT regardless of the destination IP address by adding *0.0.0.0/0* as your private IP address range. With this configuration, Azure Firewall can never egress directly to the Internet. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 > [!IMPORTANT]
-> If you deploy a Secured Virtual Hub in forced tunnel mode, advertising the default route over Express Route or VPN Gateway is not currently supported. A fix is being investigated.
+> If you deploy Azure Firewall inside of a Virtual WAN Hub (Secured Virtual Hub), advertising the default route over Express Route or VPN Gateway is not currently supported. A fix is being investigated.
+
+> [!IMPORTANT]
+> DNAT isn't supported with Forced Tunneling enabled. Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.
 
 ## Forced tunneling configuration
 

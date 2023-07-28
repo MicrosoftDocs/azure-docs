@@ -46,7 +46,7 @@ Data-in Replication is only supported in General Purpose and Memory Optimized pr
 
 The private link for Azure database for MySQL support only inbound connections. As data-in replication requires outbound connection from service private link is not supported for the data-in traffic.
 
->[!Note]
+>[!NOTE]
 >GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
 
 ### Requirements

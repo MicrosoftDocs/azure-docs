@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 
-ms.date: 12/19/2022
+ms.date: 04/16/2023
 ms.author: cwerner
 
 ms.reviewer: jmprieur
@@ -30,7 +30,10 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 ## Register and download your quickstart application
 
 ### Step 1: Register your application
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -49,10 +52,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 ### Step 2: Download the ASP.NET Core project
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
-
-> [!Note]
-> The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
-This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
 
 ### Step 3: Configure your ASP.NET Core project
 
@@ -74,27 +73,8 @@ This quickstart will be deprecated in the near future and will be updated to use
     - Replace `Enter_the_Client_Secret_Here` with the **Client secret** that was created and recorded in an earlier step.
 
 For this quickstart, don't change any other values in the *appsettings.json* file.
-
-### Step 4: Update the sample code to ASP.NET Core 6.0
-
-To update this code sample to target ASP.NET Core 6.0, follow these steps:
-
-1. Open WebApp-OpenIDConnect-DotNet.csproj
-1. Remove the following line:
-
-    ```xml
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
-
-1. Add the following line in its place:
-
-   ```xml
-   <TargetFramework>netcoreapp6.0</TargetFramework>
-   ```
-
-This step will ensure that the sample is targeting the .NET Core 6.0 framework.
  
-### Step 5: Build and run the application
+### Step 4: Build and run the application
 
 Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the F5 key. 
 
@@ -185,14 +165,14 @@ The controller or its methods can be protected by applying the `[Authorize]` att
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
-    var user = await _graphServiceClient.Me.Request().GetAsync();
+    var user = await _graphServiceClient.Me.GetAsync();
     ViewData["ApiResult"] = user.DisplayName;
 
     return View();
 }
 ```
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

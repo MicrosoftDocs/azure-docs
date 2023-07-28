@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 03/22/2021
+ms.date: 02/13/2023
 ms.author: genli
 ---
 

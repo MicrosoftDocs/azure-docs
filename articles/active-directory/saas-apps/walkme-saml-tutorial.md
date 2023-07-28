@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WalkMe SAML2.0 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WalkMe SAML2.0'
 description: Learn how to configure single sign-on between Azure Active Directory and WalkMe SAML2.0.
 services: active-directory
 author: jeevansd

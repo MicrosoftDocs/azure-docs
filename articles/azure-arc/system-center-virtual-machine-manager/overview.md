@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager (preview)
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager (preview).
-ms.date: 01/27/2023
+ms.date: 05/19/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -19,7 +19,7 @@ Azure Arc-enabled System Center Virtual Machine Manager allows you to manage you
 
 Arc-enabled System Center VMM allows you to:
 
--	Perform various VM lifecycle operations such as start, stop, pause, delete VMs on VMM managed VMs directly from Azure.
+-	Perform various VM lifecycle operations such as start, stop, pause, and delete VMs on VMM managed VMs directly from Azure.
 -	Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
 -	Browse your VMM resources (VMs, templates, VM networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments.
 -	Discover and onboard existing SCVMM managed VMs to Azure.
@@ -69,6 +69,10 @@ In addition, SCVMM requires the following exception:
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
+
+## Data Residency
+
+Azure Arc-enabled SCVMM doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 

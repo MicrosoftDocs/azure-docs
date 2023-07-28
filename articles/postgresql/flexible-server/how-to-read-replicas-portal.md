@@ -9,12 +9,9 @@ author: AwdotiaRomanowna
 ms.date: 10/14/2022
 ---
 
-# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal Preview
+# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-> [!NOTE]
-> Read replicas for PostgreSQL Flexible Server is currently in preview.
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
@@ -145,8 +142,6 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="  screenshot of the Metrics blade showing Read Replica Lag metric.":::
     
-   :::image-end:::
-
 3. For your **Aggregation**, select **Max**.
 
 ## Next steps

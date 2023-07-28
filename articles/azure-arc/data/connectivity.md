@@ -7,12 +7,13 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/30/2022
+ms.date: 07/19/2023
 ms.topic: conceptual
 ---
 
 # Connectivity modes and requirements
 
+This article describes the connectivity modes available for Azure Arc-enabled data services, and their respective requirements.
 
 ## Connectivity modes
 
@@ -51,7 +52,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure blob storage for long-term, off-site retention.|
 |**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
 |**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use Kubernetes authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
-|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC. **Pending availability in directly connected mode**|
+|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC.|
 
 ## Connectivity requirements
 

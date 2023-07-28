@@ -1,5 +1,5 @@
 ---
-title: 'Injecting routes to Azure VMware Solution'
+title: Injecting routes to Azure VMware Solution
 description: Learn about how to advertise routes to Azure VMware Solution with Azure Route Server.
 services: route-server
 author: halkazwini
@@ -7,6 +7,7 @@ ms.service: route-server
 ms.topic: conceptual
 ms.date: 12/22/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
 # Injecting routes to Azure VMware Solution with Azure Route Server

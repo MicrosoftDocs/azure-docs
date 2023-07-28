@@ -80,7 +80,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 ## Other considerations
 
 - Multiple Azure AD principals (a user, group, service principal or managed identity) can be configured as Azure AD Administrator for an Azure Database for PostgreSQL server at any time.
-- Azure AD groups must be a mail enabled security group for authentication to work.
 - Only an Azure AD administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 -  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
@@ -88,12 +87,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
 
 - Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role.
-
-## Limitations
-
-- PG bouncer is currently not supported, and we are planning to release this very soon..
-
-- GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
 
 
 ## Next steps

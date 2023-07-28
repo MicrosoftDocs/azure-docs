@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Vidyard | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Vidyard'
 description: Learn how to configure single sign-on between Azure Active Directory and Vidyard.
 services: active-directory
 author: jeevansd

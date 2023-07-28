@@ -7,6 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.topic: conceptual
 ms.date: 01/04/2023
 ---
@@ -42,7 +43,7 @@ Code samples from the Cognitive Search team are located in [**Azure-Samples/azur
 
 | Samples | Article | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart) | Source code for the Java portion of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). |
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

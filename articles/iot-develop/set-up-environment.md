@@ -125,7 +125,7 @@ The first time you run the tool, you're prompted for the IoT hub connection stri
 
 Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
 
-To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
+To learn more, see [Install and use Azure IoT explorer](../iot/howto-use-iot-explorer.md).
 
 ## Clean up resources
 

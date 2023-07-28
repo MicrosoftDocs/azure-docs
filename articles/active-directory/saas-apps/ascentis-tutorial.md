@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ascentis | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ascentis'
 description: Learn how to configure single sign-on between Azure Active Directory and Ascentis.
 services: active-directory
 author: jeevansd

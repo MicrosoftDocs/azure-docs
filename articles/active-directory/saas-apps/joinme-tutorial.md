@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with join.me | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with join.me'
 description: Learn how to configure single sign-on between Azure Active Directory and join.me.
 services: active-directory
 author: jeevansd

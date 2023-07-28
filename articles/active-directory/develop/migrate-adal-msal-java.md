@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/04/2019
 ms.author: dmwendia
 ms.reviewer: nacanuma, twhitney
-ms.custom: aaddev, devx-track-java, has-adal-ref
+ms.custom: aaddev, devx-track-java, has-adal-ref, devx-track-extended-java
 #Customer intent: As a Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 

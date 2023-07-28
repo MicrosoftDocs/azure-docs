@@ -1,13 +1,13 @@
 ---
-title: Diagnose and troubleshoot provisioning errors with Azure IoT Hub DPS
+title: Diagnose and troubleshoot provisioning errors with DPS 
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
-ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
-ms.date: 05/25/2022
+
 ms.author: kgremban
-#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are not being provisioned and troubleshoot and resolve those issues right away.
+ms.service: iot-dps
+ms.topic: troubleshooting
+ms.date: 05/25/2022
 ---
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
@@ -78,9 +78,9 @@ Use this table to understand and resolve common errors.
 
 * For a 429 error, follow the retry pattern of IoT Hub that has exponential backoff with a random jitter. You can follow the retry-after header provided by the SDK.
 
-* For 500-series server errors, retry your [connection](/azure/iot-dps/concepts-deploy-at-scale#iot-hub-connectivity-considerations) using cached credentials or a [Device Registration Status Lookup API](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup#deviceregistrationresult) call.
+* For 500-series server errors, retry your [connection](./concepts-deploy-at-scale.md#iot-hub-connectivity-considerations) using cached credentials or a [Device Registration Status Lookup API](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup#deviceregistrationresult) call.
 
-For related best practices, such as retrying operations, see [Best practices for large-scale IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale).
+For related best practices, such as retrying operations, see [Best practices for large-scale IoT device deployments](./concepts-deploy-at-scale.md).
 
 ## Next Steps
 

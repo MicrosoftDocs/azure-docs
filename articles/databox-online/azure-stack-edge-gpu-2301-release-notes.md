@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/03/2023
+ms.date: 05/15/2023
 ms.author: alkohli
 ---
 
@@ -36,6 +36,7 @@ You can update to the latest version using the following update paths:
 
 The 2301 release has the following new features and enhancements:
 
+- **MSRC fixes** - Critical security fixes for MSRC issues listed in [CVE-2023-21703](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21703).
 - Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
 - Beginning this release, you can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
 
@@ -56,6 +57,7 @@ The 2301 release has the following new features and enhancements:
 |**2.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
 |**3.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
 |**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
+|**5.**|VM guest log collection on Azure Stack Edge |In this release, VM guest log collection via the local UI has been disabled. |Contact a support engineer to collect VM guest logs from a support session. For detailed steps, see [Collect VM guest logs on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).  |
 
 ## Known issues from previous releases
 

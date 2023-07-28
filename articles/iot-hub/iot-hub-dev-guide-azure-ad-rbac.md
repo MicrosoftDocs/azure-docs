@@ -2,11 +2,10 @@
 title: Control access to IoT Hub by using Azure Active Directory 
 description: This article describes how to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
 author: kgremban
-manager: briz
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/18/2023
 ms.custom: ['Role: Cloud Development', devx-track-azurecli]
 ---
@@ -134,9 +133,9 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 ## SDK samples
 
 - [.NET Microsoft.Azure.Devices SDK sample](https://aka.ms/iothubaadcsharpsample)
-- [Java SDK sample](https://aka.ms/iothubaadjavasample)
+- [Java SDK sample](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/role-based-authorization-sample)
 
 ## Next steps
 
-- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md).
+- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md).
 - For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).

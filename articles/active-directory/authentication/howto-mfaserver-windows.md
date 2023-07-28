@@ -1,5 +1,5 @@
 ---
-title: Windows authentication and Azure MFA Server - Azure Active Directory
+title: Windows authentication and Azure MFA Server
 description: Deploying Windows Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication

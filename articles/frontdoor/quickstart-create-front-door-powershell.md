@@ -2,7 +2,6 @@
 title: 'Quickstart: Set up high availability with Azure Front Door - Azure PowerShell'
 description: This quickstart will show you how to use Azure Front Door to create a high availability and high-performance global web application using Azure PowerShell.
 services: front-door
-documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
@@ -10,7 +9,6 @@ ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

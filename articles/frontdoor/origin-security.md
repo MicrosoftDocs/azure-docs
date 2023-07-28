@@ -1,5 +1,6 @@
 ---
-title: Secure traffic to origins - Azure Front Door
+title: Secure traffic to origins
+titleSuffix: Azure Front Door
 description: This article explains how to restrict traffic to your origins to ensure it's been processed by Azure Front Door.
 services: front-door
 author: johndowns

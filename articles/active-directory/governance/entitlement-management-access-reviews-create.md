@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 ## Prerequisites
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).

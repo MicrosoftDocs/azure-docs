@@ -2,7 +2,8 @@
 title: Azure Workbooks link actions 
 description: This article explains how to use link actions in Azure Workbooks.
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/21/2023
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr
 ---

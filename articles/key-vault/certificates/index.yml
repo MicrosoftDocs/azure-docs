@@ -9,7 +9,7 @@ metadata:
   services: key-vault
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 01/04/2023

@@ -15,6 +15,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 You can download the PostgreSQL server error logs by using the command-line interface (Azure CLI). However, access to transaction logs isn't supported.
 
 ## Prerequisites

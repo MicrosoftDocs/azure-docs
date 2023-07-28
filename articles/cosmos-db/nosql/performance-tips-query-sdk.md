@@ -5,10 +5,10 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp, java
-ms.custom: devx-track-dotnet, devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 
@@ -162,7 +162,7 @@ Following are implications of how the parallel queries would behave for differen
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large.
 
 > [!NOTE] 
 > The `MaxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page. 
@@ -248,7 +248,7 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 ### Use Query Plan caching
 
-The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](query/parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for Java SDK version 4.20.0 and above** and **for Spring Datan Azure Cosmos DB SDK version 3.13.0 and above**.
+The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](query/parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for Java SDK version 4.20.0 and above** and **for Spring Data Azure Cosmos DB SDK version 3.13.0 and above**.
 
 ### Use parametrized single partition queries
 

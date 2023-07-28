@@ -7,8 +7,9 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/17/2023
 ms.author: allensu
-ms.custom: fasttrack-edit, references_regions, FY23 content-maintenance
+ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance
 ---
+
 # What is Azure Private Link? 
 
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](private-endpoint-overview.md) in your virtual network.

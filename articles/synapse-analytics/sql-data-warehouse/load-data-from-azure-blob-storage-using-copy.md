@@ -23,7 +23,7 @@ This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact
 > * Use the COPY T-SQL statement to load data into your data warehouse
 > * View the progress of data as it is loading
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Before you begin
 

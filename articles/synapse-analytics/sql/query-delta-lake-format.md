@@ -5,7 +5,7 @@ services: synapse analytics
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/06/2022
+ms.date: 02/15/2023
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sngun, wiassaf
@@ -24,7 +24,7 @@ A serverless SQL pool can read Delta Lake files that are created using Apache Sp
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports on Delta Lake files created by data engineers. 
 
 > [!IMPORTANT]
-> Querying Delta Lake format using the serverless SQL pool is **Generally available** functionality. However, querying Spark Delta tables is still in public preview and not production ready. There are known issues that might happen if you query Delta tables created using the Spark pools. See the known issues in the [self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+> Querying Delta Lake format using the serverless SQL pool is **Generally available** functionality. However, querying Spark Delta tables is still in public preview and not production ready. There are known issues that might happen if you query Delta tables created using the Spark pools. See the known issues in [Serverless SQL pool self-help](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Quickstart example
 
@@ -62,13 +62,14 @@ To improve the performance of your queries, consider specifying explicit types i
 > The serverless Synapse SQL pool uses schema inference to automatically determine columns and their types. The rules for schema inference are the same used for Parquet files.
 > For Delta Lake type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet). 
 
-Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.
 > A mismatch between the text encoding in the Delta Lake file and the collation may cause unexpected conversion errors.
 > You can easily change the default collation of the current database using the following T-SQL statement:
->   `alter database current collate Latin1_General_100_BIN2_UTF8`
+> `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
+> For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 
 ### Data source usage
 
@@ -132,7 +133,9 @@ With the explicit specification of the result set schema, you can minimize the t
 
 
 ### Query partitioned data
+
 The data set provided in this sample is divided (partitioned) into separate subfolders.
+
 Unlike [Parquet](query-parquet-files.md), you don't need to target specific partitions using the `FILEPATH` function. The `OPENROWSET` will identify partitioning
 columns in your Delta Lake folder structure and enable you to directly query data using these columns. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 

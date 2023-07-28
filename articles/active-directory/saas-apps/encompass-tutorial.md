@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Encompass | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Encompass'
 description: Learn how to configure single sign-on between Azure Active Directory and Encompass.
 services: active-directory
 author: jeevansd

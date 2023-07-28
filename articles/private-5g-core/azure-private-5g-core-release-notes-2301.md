@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2301 release notes 
 description: Discover what's new in the Azure Private 5G Core 2301 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 01/31/2023
@@ -14,11 +14,9 @@ The following release notes identify the new features, critical open issues, and
 
 This article applies to the AP5GC 2301 release (PMN-2301-0). This release is compatible with the ASE Pro GPU running the ASE 2210 and ASE 2301 releases, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
-## Support
+## Support lifetime
 
-The default support lifetime for a Packet Core version is roughly two calendar months from release. 
-
-The support lifetime for version 2301 will end on March 31, 2023. Please be prepared to plan your packet core upgrade to a future version before 2301 goes out of support on this date. 
+Packet core versions are supported until two subsequent versions have been released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ## What's new
 
@@ -42,12 +40,13 @@ The following table provides a summary of issues fixed in this release.
 
 The following table provides a summary of known issues carried over from the previous releases. 
 
-  |No.  |Feature  | Issue |
-  |-----|-----|-----|
-  | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
-  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
-  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
-  | 4 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
+  |No.  |Feature  | Issue | Workaround/comments |
+  |-----|-----|-----|-----|
+  | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers. | Not applicable. |
+  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled. | Not applicable. |
+  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported). | Not applicable. |
+  | 4 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped. | Not applicable. | 
+  | 5 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
 
 ## Next steps
 

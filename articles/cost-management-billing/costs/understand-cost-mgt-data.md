@@ -114,26 +114,14 @@ Cost Management receives tags as part of each usage record submitted by the indi
 - Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
-- Managing tags requires contributor access to each resource.
+- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) RBAC role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
 
 - Was the tag applied directly to the resource?
 - Was the tag applied more than 24 hours ago?
-- Does the resource type support tags? The following resource types don't support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
-    - Azure Active Directory B2C Directories
-    - Azure Bastion
-    - Azure Firewalls
-    - Azure NetApp Files
-    - Data Factory
-    - Databricks
-    - Load balancers
-    - Machine Learning workspace Compute instances
-    - Network Watcher
-    - Notification Hubs
-    - Service Bus
-    - Time Series Insights
+- Does the resource type support tags? Some resource types don't support tags in usage data. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
     
 Here are a few tips for working with tags:
 

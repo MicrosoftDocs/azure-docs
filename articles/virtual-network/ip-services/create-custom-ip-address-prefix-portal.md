@@ -8,8 +8,8 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
-
 ---
+
 # Create a custom IPv4 address prefix using the Azure portal
 
 A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
@@ -61,6 +61,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 > [!NOTE]
 > It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
 
 ### Certificate readiness
 
@@ -139,7 +142,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. Select **+ Create**.
 
-4. In **Create a custom IP prefix**, enter or select the following information in the **Basics** tab:
+4. In **Create a custom IP prefix**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -149,10 +152,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | **Instance details** |   |
     | Name | Enter **myCustomIPPrefix**. |
     | Region | Select **West US 2**. |
-    | Availability Zones | Select **Zone-redundant**. |
+    | IP Version | Select IPv4. |
     | IPv4 Prefix (CIDR) | Enter **1.2.3.0/24**. |
     | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
-    | Signed message | Paste in the output of **$byoipauthsigned** from the earlier section. |
+    | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
+    | Availability Zones | Select **Zone-redundant**. |
 
     :::image type="content" source="./media/create-custom-ip-address-prefix-portal/create-custom-ip-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
 
@@ -204,11 +208,12 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
 1. In the search box at the top of the portal, enter **Custom IP** and select **Custom IP Prefixes**.
-1. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
 
-1. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+2. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
 
-1. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
+3.  In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+
+4. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 

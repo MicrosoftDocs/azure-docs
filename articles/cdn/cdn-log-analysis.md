@@ -8,7 +8,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 02/27/2023
 ms.author: duau
 ---
 
@@ -41,7 +41,7 @@ Core analytics is available for CDN endpoints for all pricing tiers. Azure diagn
 
 **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profiles provide custom reports. You can view custom reports in the Verizon supplemental portal. Verizon custom reports are accessible via the **Manage** option from the Azure portal. 
 
-The custom reports display the number of hits or data transferred for each edge CNAME. Data is grouped by HTTP response code or cache status over period of time. For more information, see [Custom Reports from Verizon](cdn-verizon-custom-reports.md).
+The custom reports display the number of hits or data transferred for each edge CNAME. Data gets grouped by HTTP response code or cache status over period of time. For more information, see [Custom Reports from Verizon](cdn-verizon-custom-reports.md).
 
 ## Azure CDN Premium from Verizon reports
 

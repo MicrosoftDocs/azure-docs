@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/29/2022
+ms.date: 04/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse, ignite-2022
 ---
@@ -21,9 +21,36 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Symptoms**: When you copy data into Azure Cosmos DB with a default write batch size, you receive the following error: `Request size is too large.`
 
-- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large. You can tune the write batch size.
+- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large.
 
-- **Resolution**: In the copy activity sink, reduce the *write batch size* value (the default value is 10000).
+- **Resolution**: <br>
+You can tune the write batch size. In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br>
+If reducing the *write batch size* value to 1 still doesn't work, change your Azure Cosmos DB SQL API from V2 to V3. To complete this configuration, you have two options:
+
+     - **Option 1**: Change your authentication type to service principal or system-assigned managed identity or user-assigned managed identity.
+     - **Option 2**: If you still want to use account key authentication, follow these steps:
+         1. Create an Azure Cosmos DB for NoSQL linked service.
+         2. Update the linked service with the following template. 
+         
+            ```json
+            {
+              "name": "<CosmosDbV3>",
+              "type": "Microsoft.DataFactory/factories/linkedservices",
+              "properties": {
+                "annotations": [],
+                "type": "CosmosDb",
+                "typeProperties": {
+                  "useV3": true,
+                  "accountEndpoint": "<account endpoint>",
+                  "database": "<database name>",
+                  "accountKey": {
+                    "type": "SecureString",
+                    "value": "<account key>"
+                  }
+                }
+              }
+            }
+            ```
 
 ## Error message: Unique index constraint violation
 
@@ -102,7 +129,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

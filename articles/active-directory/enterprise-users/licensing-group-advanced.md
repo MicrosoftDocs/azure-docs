@@ -1,5 +1,5 @@
 ---
-title: Group-based licensing additional scenarios - Azure AD | Microsoft Docs
+title: Group-based licensing additional scenarios
 description: More scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -22,6 +22,8 @@ ms.collection: M365-identity-device-management
 Use the following information and examples to gain a more advanced understanding of group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Usage location
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Some Microsoft services aren't available in all locations. For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
 

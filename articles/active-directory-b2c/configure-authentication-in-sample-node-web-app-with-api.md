@@ -8,8 +8,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 03/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Front Door manager - Azure Front Door'
+title: Azure Front Door manager
 description: This article is about concepts of the Front Door manager. You'll learn about routes and security policies in an endpoint.
 services: frontdoor
 author: duongau
@@ -33,14 +33,8 @@ A security policy is an association of one or more domains with a Web Applicatio
 
 > [!TIP]
 > * If you see one of your domains is unhealthy, you can select the domain to take you to the domains page. From there you can take appropriate actions to troubleshoot the unhealthy domain.
-> * If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-tier-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
+> * If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
 >
-
-## Front Door manager (classic)
-
-In Azure Front Door (classic), the Front Door manager is called Front Door designer. In Azure Front Door (classic), only one endpoint is supported for each Front Door profile.
-
-:::image type="content" source="./media/manager/designer.png" alt-text="Screen shot of the Azure Front Door (classic) designer page." lightbox="./media/manager/designer-expanded.png":::
 
 ## Next steps
 

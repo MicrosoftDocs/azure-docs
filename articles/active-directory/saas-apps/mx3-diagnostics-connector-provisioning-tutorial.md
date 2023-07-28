@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure MX3 Diagnostics Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure MX3 Diagnostics Connector for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MX3 Diagnostics Connector.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 6d54ea28-0208-45bc-8e29-c6cf9a912f00
 ms.service: active-directory

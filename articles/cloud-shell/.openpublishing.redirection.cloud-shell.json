@@ -1,8 +1,13 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
+            "redirect_url": "/azure/cloud-shell/quickstart",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
-            "redirect_url": "/azure/cloud-shell/quickstart-powershell",
+            "redirect_url": "/azure/cloud-shell/quickstart",
             "redirect_document_id": false
         },
         {

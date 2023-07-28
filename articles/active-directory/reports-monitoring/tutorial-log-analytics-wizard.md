@@ -1,5 +1,5 @@
 ---
-title: Configure a log analytics workspace in Azure AD | Microsoft Docs
+title: Configure a log analytics workspace in Azure AD
 description: Learn how to configure log analytics.
 
 services: active-directory
@@ -53,6 +53,8 @@ Familiarize yourself with these articles:
 
 
 ## Configure a workspace 
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure outlines how to configure a log analytics workspace for your audit and sign-in logs.
 Configuring a log analytics workspace consists of two main steps:
@@ -195,15 +197,11 @@ Create a new column by combining the values to two other columns:
 
 `SigninLogs | limit 10 | extend RiskUser = strcat(RiskDetail, "-", Identity) | project RiskUser, ClientAppUsed`
 
-
-
-
-## Create an alert rule  
+## Create an alert rule
 
 This procedure shows how to send alerts when the breakglass account is used.
 
 **To create an alert rule:**
-
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
@@ -343,7 +341,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 
 
-## Add a query to a workbook template  
+## Add a query to a workbook template
 
 This procedure shows how to add a query to an existing workbook template. The example is based on a query that shows the distribution of conditional access success to failures.
 

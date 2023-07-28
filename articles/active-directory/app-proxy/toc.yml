@@ -95,6 +95,8 @@
       href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
+    - name: Publish complex distributed application using application segments
+      href: application-proxy-configure-complex-application.md
     - name: Configure custom domain
       href: application-proxy-configure-custom-domain.md
     - name: Translate inline links

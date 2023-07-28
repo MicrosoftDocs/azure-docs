@@ -58,7 +58,7 @@ If CommitAsync is not called (usually due to an exception being thrown), then th
 ## Volatile Reliable Collections 
 In some workloads, like a replicated cache for example, occasional data loss can be tolerated. Avoiding persistence of the data to disk can allow for better latencies and throughputs when writing to Reliable Dictionaries. The tradeoff for a lack of persistence is that if quorum loss occurs, full data loss will occur. Since quorum loss is a rare occurrence, the increased performance may be worth the rare possibility of data loss for those workloads.
 
-Currently, volatile support is only available for Reliable Dictionaries and Reliable Queues, and not ReliableConcurrentQueues. Please see the list of [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) to inform your decision on whether to use volatile collections.
+Currently, volatile support is only available for Reliable Dictionaries and Reliable Queues, and not ReliableConcurrentQueues. Please see the list of [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#additional-guidelines-for-volatile-reliable-collections) to inform your decision on whether to use volatile collections.
 
 To enable volatile support in your service, set the ```HasPersistedState``` flag in service type declaration to ```false```, like so:
 ```xml

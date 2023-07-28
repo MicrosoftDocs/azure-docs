@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Imagineer WebVision | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Imagineer WebVision'
 description: Learn how to configure single sign-on between Azure Active Directory and Imagineer WebVision.
 services: active-directory
 author: jeevansd

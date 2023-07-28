@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Exceed.ai | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Exceed.ai'
 description: Learn how to configure single sign-on between Azure Active Directory and Exceed.ai.
 services: active-directory
 author: jeevansd

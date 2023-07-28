@@ -11,6 +11,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 10/03/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Network traffic flow when using a secured workspace
@@ -55,7 +56,7 @@ This article assumes the following configuration:
 | [Use AutoML, designer, dataset, and datastore from studio](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | NA | NA | <ul><li>Workspace service principal configuration</li><li>Allow access from trusted Azure services</li></ul>For more information, see [How to secure a workspace in  a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). | 
 | [Use compute instance and compute cluster](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>Azure Machine Learning service on port 44224</li><li>Azure Batch Management service on ports 29876-29877</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning service</li><li>Azure Storage Account</li><li>Azure Key Vault</li></ul> | If you use a firewall, create user-defined routes. For more information, see [Configure inbound and outbound traffic](how-to-access-azureml-behind-firewall.md). | 
 | [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to secure Kubernetes inference](how-to-secure-kubernetes-inferencing-environment.md). | | 
-| [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | NA | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
+| [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-machine-learning) | NA | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
 > [!IMPORTANT]
 > Azure Machine Learning uses multiple storage accounts. Each stores different data, and has a different purpose:
@@ -93,7 +94,7 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can’t directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can't directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
@@ -130,11 +131,8 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+:::moniker range="azureml-api-2"
 ## Scenario: Use online endpoints
-
-Securing an online endpoint with a private endpoint is a preview feature.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 __Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
 
@@ -153,7 +151,7 @@ Visibility of the endpoint is also governed by the `public_network_access` flag 
 | secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
 | public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
-
+:::moniker-end
 ## Scenario: Use Azure Kubernetes Service
 
 For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to secure inference](how-to-secure-inferencing-vnet.md).
@@ -163,7 +161,7 @@ For information on the outbound configuration required for Azure Kubernetes Serv
 
 If your model requires extra inbound or outbound connectivity, such as to an external data source, use a network security group or your firewall to allow the traffic.
 
-## Scenario: Use Docker images managed by Azure ML
+## Scenario: Use Docker images managed by Azure Machine Learning
 
 Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They're also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
 
@@ -175,6 +173,6 @@ If you provide your own docker images, such as on an Azure Container Registry th
 :::image type="content" source="./media/concept-secure-network-traffic-flow/azure-machine-learning-docker-images.png" alt-text="Diagram of traffic flow when using provided Docker images":::
 ## Next steps
 
-Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure ML in a virtual network by reading the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
+Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure Machine Learning in a virtual network by reading the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 
 For information on best practices, see the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article.

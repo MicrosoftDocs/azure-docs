@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
@@ -66,7 +65,7 @@ async function createContainer(blobServiceClient, containerName){
 
 A root container, with the specific name `$root`, enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob _without using a container name in the URI_:
 
-`https://myaccount.blob.core.windowsJavaScript/default.html`
+`https://myaccount.blob.core.windows.net/default.html`
 
 The root container must be explicitly created or deleted. It isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
 

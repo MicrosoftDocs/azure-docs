@@ -34,7 +34,7 @@ Both Logic Apps and connectors can't directly consume large messages,
 which must be chunked. For the Logic Apps message size limit, 
 see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md).
 For each connector's message size limit, see the 
-[connector's specific technical details](../connectors/apis-list.md).
+[connector's reference documentation](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ### Chunked message handling for Logic Apps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with InsideView | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with InsideView'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and InsideView.
 services: active-directory
 author: jeevansd

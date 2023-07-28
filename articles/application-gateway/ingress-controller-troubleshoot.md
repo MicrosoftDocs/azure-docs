@@ -4,18 +4,21 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-linux
 ms.topic: troubleshooting
-ms.date: 06/09/2022
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
 # Troubleshoot common questions or issues with Ingress Controller
 
 [Azure Cloud Shell](https://shell.azure.com/) is the most convenient way to troubleshoot any problems with your AKS
-and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by clicking the link:
+and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by selecting the link:
 
 [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
 
 ## Test with a simple Kubernetes app
 
@@ -133,7 +136,7 @@ The following conditions must be in place for AGIC to function as expected:
   1. AKS must have one or more healthy **pods**.
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get pods -o wide --show-labels`
      If you have a Pod with an `apsnetapp`, your output may look like this:
-     ```bash
+     ```output
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
 
      NAME                   READY   STATUS    RESTARTS   AGE   IP          NODE                       NOMINATED NODE   READINESS GATES   LABELS
@@ -142,7 +145,7 @@ The following conditions must be in place for AGIC to function as expected:
 
   2. One or more **services**, referencing the pods above via matching `selector` labels.
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get services -o wide`
-     ```bash
+     ```output
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
      NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR        LABELS
@@ -151,7 +154,7 @@ The following conditions must be in place for AGIC to function as expected:
 
   3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the service above
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get ingress -o wide --show-labels`
-     ```bash
+     ```output
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
      NAME        HOSTS   ADDRESS   PORTS   AGE   LABELS
@@ -159,7 +162,7 @@ The following conditions must be in place for AGIC to function as expected:
      ```
 
   4. View annotations of the ingress above: `kubectl get ingress aspnetapp -o yaml` (substitute `aspnetapp` with the name of your ingress)
-     ```bash
+     ```output
      delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
 
      apiVersion: extensions/v1beta1

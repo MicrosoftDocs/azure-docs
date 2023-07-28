@@ -8,7 +8,7 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.author: victorh
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using Bicep

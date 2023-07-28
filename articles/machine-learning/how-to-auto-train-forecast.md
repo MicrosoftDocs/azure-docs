@@ -9,18 +9,15 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022, build-2023, devx-track-python
 ms.date: 01/27/2023
 show_latex: true
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-auto-train-forecast-v1.md)
-> * [v2 (current version)](how-to-auto-train-forecast.md)
 
 In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
 
@@ -65,7 +62,7 @@ transformations:
         encoding: ascii
 ```
 
-You can now define an input data object, which is required to start a training job, using the AzureML Python SDK as follows: 
+You can now define an input data object, which is required to start a training job, using the Azure Machine Learning Python SDK as follows: 
 
 ```python
 from azure.ai.ml.constants import AssetTypes
@@ -82,9 +79,10 @@ You can specify [validation data](concept-automated-ml.md#training-validation-an
 Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Compute to run experiment
-AutoML uses AzureML Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
+AutoML uses Azure Machine Learning Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
+
 
 ## Configure experiment
 
@@ -167,16 +165,16 @@ Now, the job searches over all model classes _except_ Prophet. For a list of for
 
 #### Enable deep learning
 
-AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
+AutoML ships with a custom deep neural network (DNN) model called `TCNForecaster`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history. For more details, see our [TCNForecaster article](./concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster). 
 
-:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
+:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's TCNForecaster.":::
 
-The ForecastTCN often achieves higher accuracy than standard time series models when there are thousands or more observations in the training history. However, it also takes longer to train and sweep over ForecastTCN models due to their higher capacity.
+The TCNForecaster often achieves higher accuracy than standard time series models when there are thousands or more observations in the training history. However, it also takes longer to train and sweep over TCNForecaster models due to their higher capacity.
 
-You can enable the ForecastTCN in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
+You can enable the TCNForecaster in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
 
 ```python
-# Include ForecastTCN models in the model search
+# Include TCNForecaster models in the model search
 forecasting_job.set_training(
     enable_dnn_training=True
 )
@@ -185,7 +183,7 @@ forecasting_job.set_training(
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 > [!NOTE]
-> * When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
+> * When you enable DNN for experiments created with the SDK, [best model explanations](./v1/how-to-machine-learning-interpretability-automl.md) are disabled.
 > * DNN support for forecasting in Automated Machine Learning is not supported for runs initiated in Databricks.
 > * GPU compute types are recommended when DNN training is enabled 
 
@@ -444,10 +442,10 @@ Repeat the necessary steps to load this future data to a data frame and then run
 
 ## Forecasting at scale
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
-> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is forthcoming.
+> Many models and hierarchical time series are currently only supported in Azure Machine Learning v1. Support for Azure Machine Learning v2 is forthcoming.
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 
@@ -552,7 +550,6 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 ## Next steps
 
 * Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
-* Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
+* Learn about [Interpretability: model explanations in automated machine learning (preview)](./v1/how-to-machine-learning-interpretability-automl.md).
 * Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md).
 * Learn how to [configure AutoML for various forecasting scenarios](./how-to-automl-forecasting-faq.md#what-modeling-configuration-should-i-use).
-

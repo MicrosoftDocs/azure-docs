@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Migrate a classic reserved IP address to a public IP address

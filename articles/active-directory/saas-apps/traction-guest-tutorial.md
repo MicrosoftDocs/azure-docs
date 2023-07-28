@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Traction Guest | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Traction Guest'
 description: Learn how to configure single sign-on between Azure Active Directory and Traction Guest.
 services: active-directory
 author: jeevansd

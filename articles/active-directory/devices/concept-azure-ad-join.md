@@ -42,7 +42,7 @@ Any organization can deploy Azure AD joined devices no matter the size or indust
 
 Azure AD joined devices are signed in to using an organizational Azure AD account. Access to resources can be controlled based on Azure AD account and [Conditional Access policies](../conditional-access/howto-conditional-access-policy-compliant-device.md) applied to the device.
 
-Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Endpoint Configuration Manager. These tools provide a means to enforce organization-required configurations like: 
+Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Configuration Manager. These tools provide a means to enforce organization-required configurations like: 
 
 - Requiring storage to be encrypted
 - Password complexity

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ungerboeck Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ungerboeck Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Ungerboeck Software.
 services: active-directory
 author: jeevansd

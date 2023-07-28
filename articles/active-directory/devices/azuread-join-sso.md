@@ -1,12 +1,12 @@
 ---
-title: How SSO to on-premises resources works on Azure AD joined devices | Microsoft Docs
-description: Learn how to extend the SSO experience by configuring hybrid Azure Active Directory joined devices.
+title: How SSO to on-premises resources works on Azure AD joined devices
+description: Extend the SSO experience by configuring hybrid Azure Active Directory joined devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 02/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 
-It's probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has on-premises Active Directory Domain Services (AD DS), you can also get SSO experience on Azure AD joined devices to resources and applications that rely on on-premises AD. 
+Azure Active Directory (Azure AD) joined devices give users a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has on-premises Active Directory Domain Services (AD DS), users can also SSO to resources and applications that rely on on-premises Active Directory Domain Services. 
 
 This article explains how this works.
 
@@ -25,7 +25,7 @@ This article explains how this works.
 
 - An [Azure AD joined device](concept-azure-ad-join.md).
 - On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
-- Azure AD Connect: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+- Azure AD Connect or Azure AD Connect cloud sync: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 ## How it works 
 
@@ -33,7 +33,7 @@ With an Azure AD joined device, your users already have an SSO experience to the
 
 Azure AD joined devices have no knowledge about your on-premises AD DS environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
-If you have a hybrid environment, with both Azure AD and on-premises AD DS, it's likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+Azure AD Connect or Azure AD Connect cloud sync synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
@@ -42,15 +42,17 @@ If you have a hybrid environment, with both Azure AD and on-premises AD DS, it's
 > Additional configuration is required when passwordless authentication to Azure AD joined devices is used.
 >
 > For FIDO2 security key based passwordless authentication and Windows Hello for Business Hybrid Cloud Trust, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md).
+>
+> For Windows Hello for Business Cloud Kerberos Trust, see [Configure and provision Windows Hello for Business - cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust-provision).
 > 
 > For Windows Hello for Business Hybrid Key Trust, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base).
 > 
 > For Windows Hello for Business Hybrid Certificate Trust, see [Using Certificates for AADJ On-premises Single-sign On](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-cert). 
 
-During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
+During an access attempt to an on-premises resource requesting Kerberos or NTLM, the device:
 
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
-1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication pop-up requesting credentials for the target resource.
+1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails, Credential Manager entries are tried, or the user may receive an authentication pop-up requesting credentials for the target resource. This failure can be related to a delay caused by a DCLocator timeout.
 
 All apps that are configured for **Windows-Integrated authentication** seamlessly get SSO when a user tries to access them.
 

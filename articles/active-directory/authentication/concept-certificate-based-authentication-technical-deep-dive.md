@@ -1,5 +1,5 @@
 ---
-title: Azure AD certificate-based authentication technical deep dive - Azure Active Directory
+title: Azure AD certificate-based authentication technical deep dive
 description: Learn how Azure AD certificate-based authentication works
 
 services: active-directory
@@ -72,12 +72,41 @@ Now we'll walk through each step:
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
+## Certificate-based authentication is MFA capable
+
+Azure AD CBA is an MFA (Multi factor authentication) capable method, that is Azure AD CBA can be either Single (SF) or Multi-factor (MF) depending on the tenant configuration. Enabling CBA for a user indicates the user is potentially capable of MFA. This means a user may need additional configuration to get MFA and proof up to register other authentication methods when the user is in scope for CBA.
+
+If CBA enabled user only has a Single Factor (SF) certificate and need MFA
+   1. Use Password + SF certificate.
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user has not yet been issued a certificate and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+
+If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
+   1. Issue Temporary Access Pass (TAP)
+   1. User Register another MFA method (when user can use MF cert)
+   1. Use Password + MF cert (when user can use MF cert)
+   1. Admin adds Phone Number to user account and allows Voice/SMS method for user
+
+
 ## MFA with Single-factor certificate-based authentication
 
-Azure AD CBA supports second factors to meet MFA requirements with single-factor certificates. Users can use either passwordless sign-in or FIDO2 security keys as second factors when the first factor is single-factor CBA. Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
+Some of the supported combinations are
+
+1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
+1. CBA (first factor) + FIDO2 security keys (second factor) 
+1. Password (first factor) + CBA (second factor) 
+
+Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
 
 >[!IMPORTANT]
->A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. Make sure users who do not have a valid certificate are not part of CBA auth method scope. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
 
 **Steps to set up passwordless phone signin(PSI) with CBA**
 
@@ -88,7 +117,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
-   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA.
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", the user can use either push or passwordless. If passwordless is preferred over push but still wants to allow push, admin can still choose "Any" but configure system preferred MFA or configure authentication strengths. 
 
 1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
@@ -234,7 +263,7 @@ The following steps are a typical flow of the CRL check:
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
->Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 5 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
+>Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 10 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
 If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration.
  
 
@@ -266,7 +295,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
@@ -293,7 +322,7 @@ For the next test scenario, configure the authentication policy where the **poli
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
-1. Sign in to the Azure portal using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Sign in to the [Azure portal](https://portal.azure.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign-ins**.
 
    You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
@@ -364,4 +393,3 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

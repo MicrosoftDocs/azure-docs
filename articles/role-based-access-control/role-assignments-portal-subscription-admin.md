@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 05/10/2023
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -56,11 +56,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 The [Owner](built-in-roles.md#owner) role grant full access to manage all resources, including the ability to assign roles in Azure RBAC. You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner.
 
-1. On the **Roles** tab, select the **Owner** role.
+1. On the **Role** tab, select the **Privileged administrator roles** tab.
 
-    You can search for a role by name or by description. You can also filter roles by type and category.
+   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 
-   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
+1. Select the **Owner** role.
 
 1. Click **Next**.
 

@@ -4,7 +4,7 @@ description: Learn how to set up an alert for new recommendations from Azure Adv
 author: orspod
 ms.topic: quickstart
 ms.author: orspodek
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 04/26/2022
 ---
 
@@ -35,7 +35,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Review the Bicep file
 

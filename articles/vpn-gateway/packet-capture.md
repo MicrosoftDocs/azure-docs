@@ -7,7 +7,6 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/31/2022
 ms.author: cherylmc
-ms.custom: devx-track-azurepowershell
 ---
 
 # Configure packet capture for VPN gateways
@@ -390,6 +389,7 @@ For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConn
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 - Packet captures aren't supported on policy-based gateways.
+- The maximum filesize of packet capture data files is 500MB.
 - If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 - If you are configuring a User Delegated SAS, make sure the user account is granted proper RBAC permissions on the storage account such as Storage Blob Data Owner.
 

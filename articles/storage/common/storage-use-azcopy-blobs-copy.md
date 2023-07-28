@@ -2,11 +2,11 @@
 title: Copy blobs between Azure storage accounts with AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you copy blobs between storage accounts.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/08/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -31,7 +31,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 Apply the following guidelines to your AzCopy commands.
 
-- Source and destination accounts must belong to the same Azure AD tenant.
+- If you're using Azure AD authorization for both source and destination, then both accounts must belong to the same Azure AD tenant.
 
 - Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 

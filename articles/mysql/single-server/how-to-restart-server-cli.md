@@ -32,7 +32,7 @@ To complete this how-to guide:
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
->[!Note]
+>[!NOTE]
 >If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 ## Restart the server

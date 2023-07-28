@@ -8,8 +8,8 @@ manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 05/10/2021
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 02/27/2023
 ms.author: duau
 ---
 
@@ -19,7 +19,7 @@ Get started with Azure Content Delivery Network (CDN) by using an Azure Resource
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -118,7 +118,7 @@ In this quickstart, you created a:
 * CDN Profile
 * Endpoint
 
-To learn more about Azure CDN and Azure Resource Manager, continue to the articles below.
+To learn more about Azure CDN and Azure Resource Manager, continue to the next article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

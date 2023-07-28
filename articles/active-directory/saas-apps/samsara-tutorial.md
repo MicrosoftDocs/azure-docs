@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Samsara | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Samsara'
 description: Learn how to configure single sign-on between Azure Active Directory and Samsara.
 services: active-directory
 author: jeevansd

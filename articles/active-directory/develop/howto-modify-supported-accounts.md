@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/02/2022
+ms.date: 02/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, sureshja
@@ -27,6 +27,8 @@ In the following sections, you learn how to modify your app's registration in th
 * An [application registered in your Azure AD tenant](quickstart-register-app.md)
 
 ## Change the application registration to support different accounts
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To specify a different setting for the account types supported by an existing app registration:
 

@@ -1,10 +1,10 @@
 ---
 title: Create and manage Grafana API keys in Azure Managed Grafana
 description: Learn how to generate and manage Grafana API keys, and start making API calls for Azure Managed Grafana.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: managed-grafana
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ms.topic: how-to 
 ms.date: 11/17/2022
 ---

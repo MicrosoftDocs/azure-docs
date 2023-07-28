@@ -1,6 +1,6 @@
 ---
 title: "Sending queries to the Bing News Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing News Search API enables you to search the web for relevant news items. Use this article to learn more about sending search queries to the API.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Sending queries to the Bing News Search API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing News Search API enables you to search the web for relevant news items. Use this article to learn more about sending search queries to the API.
 

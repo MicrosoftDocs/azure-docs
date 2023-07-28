@@ -8,7 +8,6 @@ ms.date: 09/01/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
-ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
@@ -133,7 +132,7 @@ In the Azure portal, invoke the method with the method name `GetModuleLogs` and 
     }
 ```
 
-![Invoke direct method 'GetModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png" alt-text="Screenshot of how to invoke direct method GetModuleLogs in the Azure portal.":::
 
 You can also pipe the CLI output to Linux utilities, like [gzip](https://en.wikipedia.org/wiki/Gzip), to process a compressed response. For example:
 
@@ -272,7 +271,7 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
     }
 ```
 
-![Invoke direct method 'UploadModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-module-logs.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-upload-module-logs.png" alt-text="Screenshot of how to invoke direct method UploadModuleLogs in the Azure portal.":::
 
 ## Upload support bundle diagnostics
 
@@ -347,7 +346,7 @@ In the Azure portal, invoke the method with the method name `UploadSupportBundle
     }
 ```
 
-![Invoke direct method 'UploadSupportBundle' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-support-bundle.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-upload-support-bundle.png" alt-text="Screenshot showing how to invoke direct method UploadSupportBundle in the Azure portal.":::
 
 ## Get upload request status
 
@@ -399,7 +398,7 @@ In the Azure portal, invoke the method with the method name `GetTaskStatus` and 
     }
 ```
 
-![Invoke direct method 'GetTaskStatus' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png" alt-text="Screenshot showing how to invoke direct method GetTaskStatus in Azure portal .":::
 
 ## Next steps
 

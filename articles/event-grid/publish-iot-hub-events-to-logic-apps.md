@@ -28,7 +28,7 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the upper right of the page, select the Cloud Shell button.
 
@@ -175,7 +175,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 1. Select **Events**.
 
-   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
+   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/select-events.png)
 
 1. Select **Event subscription**. 
 

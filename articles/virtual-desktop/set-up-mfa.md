@@ -99,7 +99,7 @@ To optionally configure the time period before a user is asked to sign-in again:
 
 ## Azure AD joined session host VMs
 
-For connections to succeed, you must [disable the legacy per-user multi-factor authentication sign-in method](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
+For connections to succeed, you must [disable the legacy per-user multi-factor authentication sign-in method](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#enforce-conditional-access-policies) from your Conditional Access policy.
 
 ## Next steps
 

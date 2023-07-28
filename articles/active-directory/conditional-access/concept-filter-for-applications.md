@@ -1,14 +1,14 @@
 ---
-title: Filter for applications in Conditional Access policy (Preview) - Azure Active Directory
+title: Filter for applications in Conditional Access policy (Preview)
 description: Use filter for applications in Conditional Access to manage conditions.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, oanae
 
 ms.custom: subject-rbac-steps
@@ -23,7 +23,7 @@ Application filters are a new feature for Conditional Access that allows organiz
  
 In this document, you create a custom attribute set, assign a custom security attribute to your application, and create a Conditional Access policy to secure the application. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Filter for applications is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Assign roles
@@ -57,7 +57,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
 :::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
 
 > [!NOTE] 
-> Conditional Access filters for devices only works with custom security attributes of type "string".
+> Conditional Access filters for devices only works with custom security attributes of type "string". Custom Security Attributes support creation of Boolean data type but Conditional Access Policy only supports "string".
 
 ## Create a Conditional Access policy
 
@@ -71,7 +71,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions**, select the following options:
+1. Under **Target resources**, select the following options:
    1. Select what this policy applies to **Cloud apps**.
    1. Include **Select apps**.
    1. Select **Edit filter**.
@@ -80,11 +80,11 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    1. Set **Operator** to **Contains**.
    1. Set **Value** to **requireMFA**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Configure custom attributes
 
@@ -122,8 +122,8 @@ Sign in as a user who the policy would apply to and test to see that MFA is requ
 
 ## Next steps
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+[Determine effect using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

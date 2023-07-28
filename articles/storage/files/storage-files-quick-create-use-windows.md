@@ -2,11 +2,10 @@
 title: Tutorial - Create an SMB Azure file share and connect it to a Windows virtual machine using the Azure portal
 description: This tutorial covers how to create an SMB Azure file share using the Azure portal, connect it to a Windows VM, upload a file to the file share, create a snapshot, and restore the share from the snapshot.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 10/24/2022
 ms.author: kendownie
-ms.subservice: files
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
 ---
@@ -53,7 +52,8 @@ Next, create an SMB Azure file share.
 
     ![Screenshot, + file share selected to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this.
+1. Name the new file share *qsfileshare* and leave **Transaction optimized** selected for **Tier**.
+1. Select **Review + create** and then **Create** to create the file share.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
 

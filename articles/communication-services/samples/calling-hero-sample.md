@@ -6,12 +6,12 @@ author: ddematheu2
 manager: chpalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: RinaRish
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Get started with the calling hero sample
@@ -26,4 +26,8 @@ zone_pivot_groups: acs-web-ios-android
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Windows Calling Hero Sample](./includes/windows-calling-hero.md)]
 ::: zone-end

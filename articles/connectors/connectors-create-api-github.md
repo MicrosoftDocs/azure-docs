@@ -14,8 +14,14 @@ tags: connectors
 GitHub is a web-based Git repository hosting service that offers all of the distributed 
 revision control and source code management (SCM) functionality in Git plus other features.
 
-To get started with the GitHub connector, 
-[create a logic app first](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## Prerequisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a Consumption or Standard logic app with a blank workflow. To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
+
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Create a connection to GitHub
 
@@ -38,4 +44,6 @@ For technical details about triggers, actions, and limits, which are described b
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/22/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Deliver a proof of concept for Azure DevTest Labs enterprise deployment
@@ -50,6 +51,13 @@ Learn about Azure and DevTest Labs by using the following resources:
 - Alternatively, you can use a [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions) for the pilot deployment, and take advantage of free Azure credits.
 
 - You can also create and use a [free Azure account](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ) for the pilot.
+ 
+-  To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
+    - [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).
+    - If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p).
+     
+    For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+          
 
 ### Enroll all users in Azure AD
 

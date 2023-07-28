@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SimpleNexus'
 description: Learn how to configure single sign-on between Azure Active Directory and SimpleNexus.
 services: active-directory
 author: jeevansd

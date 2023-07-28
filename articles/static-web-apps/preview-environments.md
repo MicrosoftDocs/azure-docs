@@ -31,6 +31,9 @@ The following deployment types are available in Azure Static Web Apps.
 
 - [**Named environment**](named-environments.md): You can configure your pipeline to deploy all changes to a named environment. This preview deployment is published at a stable URL that includes the environment name. For example, if the deployment environment is named `release`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-release.<LOCATION>.azurestaticapps.net`. 
 
+> [!NOTE]
+> Valid characters for environment names are `0-9`,`a-z`, and `A-Z`. The maximum character string limit allowed is 16. 
+
 ## Next Steps
 
 > [!div class="nextstepaction"]

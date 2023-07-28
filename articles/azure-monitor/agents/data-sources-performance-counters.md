@@ -2,8 +2,8 @@
 title: Collect Windows and Linux performance data sources with the Log Analytics agent in Azure Monitor
 description: Learn how to configure collection of performance counters for Windows and Linux agents, how they're stored in the workspace, and how to analyze them.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 06/28/2022
 
 ---
@@ -16,7 +16,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 ![Screenshot that shows performance counters.](media/data-sources-performance-counters/overview.png)
 
 ## Configure performance counters
-Configure performance counters from the [Agents configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
+Configure performance counters from the [Legacy agents management menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
 
 When you first configure Windows or Linux performance counters for a new workspace, you're given the option to quickly create several common counters. They're listed with a checkbox next to each. Ensure that any counters you want to initially create are selected and then select **Add the selected performance counters**.
 

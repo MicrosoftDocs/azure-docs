@@ -1,5 +1,5 @@
 ---	
-title: Azure Function Rule concepts for Azure Communication Services
+title: How to customize how workers are ranked for the best worker distribution mode
 titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to customize how workers are ranked for the best worker mode
 author: rsarkar
@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # How to customize how workers are ranked for the best worker distribution mode
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 The `best-worker` distribution mode selects the workers that are best able to handle the job first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. The following example shows how to customize this logic with your own Azure Function.
 
@@ -39,7 +39,7 @@ We want to distribute offers among their workers associated with a queue. The wo
     - ["English"] >= 7
     - ["ChatSupport"] = true
     - ["XboxSupport"] = true
-- Job currently is in a state of '**Queued**'; enqueued in *Xbox Hardware Support Queue* waiting to be matched to a worker.
+- Job currently is in a state of '**Queued**'; enqueued in _Xbox Hardware Support Queue_ waiting to be matched to a worker.
 - Multiple workers become available simultaneously.
   - **Worker 1** has been created with the following **labels**
     - ["HighPrioritySupport"] = true
@@ -73,14 +73,14 @@ We would like the following behavior when scoring workers to select which worker
 The decision flow (as shown above) is as follows:
 
 - If a job is **NOT HighPriority**:
-  - Workers with label: **["Support_XBOX"] = true**; get a score of *100*
-  - Otherwise, get a score of *1*
+  - Workers with label: **["Support_XBOX"] = true**; get a score of _100_
+  - Otherwise, get a score of _1_
 
 - If a job is **HighPriority**:
-  - Workers with label: **["HighPrioritySupport"] = false**; get a score of *1*
+  - Workers with label: **["HighPrioritySupport"] = false**; get a score of _1_
   - Otherwise, if **["HighPrioritySupport"] = true**:
-    - Does Worker specialize in console type -> Does worker have label: **["Support_<**jobLabels.ConsoleType**>"] = true**? If true, worker gets score of *200*
-    - Otherwise, get a score of *100*
+    - Does Worker specialize in console type -> Does worker have label: **["Support_<**jobLabels.ConsoleType**>"] = true**? If true, worker gets score of _200_
+    - Otherwise, get a score of _100_
 
 ## Creating an Azure function
 
@@ -106,19 +106,19 @@ Sample input for **Worker 1**
       "key": "English",
       "operator": "GreaterThanEqual",
       "value": 7,
-      "ttl": null
+      "expiresAfterSeconds": null
     },
     {
       "key": "ChatSupport",
       "operator": "Equal",
       "value": true,
-      "ttl": null
+      "expiresAfterSeconds": null
     },
     {
       "key": "XboxSupport",
       "operator": "Equal",
       "value": true,
-      "ttl": null
+      "expiresAfterSeconds": null
     }
   ],
   "worker": {
@@ -195,105 +195,97 @@ With the aforementioned implementation, for the given job we'll get the followin
 Now that the Azure function app is ready, let us create an instance of **BestWorkerDistribution** mode using Router SDK.
 
 ```csharp
-    // ----- initialize router client
-    // Setup Distribution Policy
-    var bestWorkerDistributionMode = new BestWorkerMode(
-        scoringRule: new AzureFunctionRule(
-            functionAppUrl: "<insert function url>");
+var administrationClient = new JobRouterAdministrationClient("<YOUR_ACS_CONNECTION_STRING>");
 
-    var distributionPolicy = await client.SetDistributionPolicyAsync(
-        id: "BestWorkerDistributionMode",
-        mode: bestWorkerDistributionMode,
-        name: "XBox hardware support distribution",
-        offerTTL: TimeSpan.FromMinutes(5));
+// Setup Distribution Policy
+var distributionPolicy = await administrationClient.CreateDistributionPolicyAsync(
+    new CreateDistributionPolicyOptions(
+        distributionPolicyId: "BestWorkerDistributionMode",
+        offerExpiresAfter: TimeSpan.FromMinutes(5),
+        mode: new BestWorkerMode(scoringRule: new FunctionRouterRule(new Uri("<insert function url>")))
+    ) { Name = "XBox hardware support distribution" });
 
-    // Setup Queue
-    var queue = await client.SetQueueAsync(
-        id: "XBox_Hardware_Support_Q",
-        distributionPolicyId: distributionPolicy.Value.Id,
-        name: "XBox Hardware Support Queue");
+// Setup Queue
+var queue = await administrationClient.CreateQueueAsync(
+    new CreateQueueOptions(
+        queueId: "XBox_Hardware_Support_Q",
+        distributionPolicyId: distributionPolicy.Value.Id
+    ) { Name = "XBox Hardware Support Queue" });
 
-    // Setup Channel
-    var channel = await client.SetChannelAsync("Xbox_Chat_Channel");
-
-    // Create workers
-
-    var worker1Labels = new LabelCollection()
+// Create workers
+var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_1", totalCapacity: 100)
     {
-        ["HighPrioritySupport"] = true,
-        ["HardwareSupport"] = true,
-        ["Support_XBOX_SERIES_X"] = true,
-        ["English"] = 10,
-        ["ChatSupport"] = true,
-        ["XboxSupport"] = true
-    };
-    var worker1 = await client.RegisterWorkerAsync(
-        id: "Worker_1",
-        totalCapacity: 100,
-        queueIds: new[] {queue.Value.Id},
-        labels: worker1Labels,
-        channelConfigurations: new[] {new ChannelConfiguration(channel.Value.Id, 10)});
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
+        {
+            ["English"] = new LabelValue(10),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
+        }
+    });
 
-    var worker2Labels = new LabelCollection()
+var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_2", totalCapacity: 100)
     {
-        ["HighPrioritySupport"] = true,
-        ["HardwareSupport"] = true,
-        ["Support_XBOX_SERIES_X"] = true,
-        ["Support_XBOX_SERIES_S"] = true,
-        ["English"] = 8,
-        ["ChatSupport"] = true,
-        ["XboxSupport"] = true
-    };
-    var worker2 = await client.RegisterWorkerAsync(
-        id: "Worker_2",
-        totalCapacity: 100,
-        queueIds: new[] { queue.Value.Id },
-        labels: worker2Labels,
-        channelConfigurations: new[] { new ChannelConfiguration(channel.Value.Id, 10) });
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
+        {
+            ["English"] = new LabelValue(8),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
+        }
+    });
 
-    var worker3Labels = new LabelCollection()
+var worker3 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_3", totalCapacity: 100)
     {
-        ["HighPrioritySupport"] = false,
-        ["HardwareSupport"] = true,
-        ["Support_XBOX"] = true,
-        ["English"] = 7,
-        ["ChatSupport"] = true,
-        ["XboxSupport"] = true
-    };
-    var worker3 = await client.RegisterWorkerAsync(
-        id: "Worker_3",
-        totalCapacity: 100,
-        queueIds: new[] { queue.Value.Id },
-        labels: worker3Labels,
-        channelConfigurations: new[] { new ChannelConfiguration(channel.Value.Id, 10) });
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
+        {
+            ["English"] = new LabelValue(7),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
+        }
+    });
 
-    // Create Job
-    var jobLabels = new LabelCollection()
+// Create Job
+var job = await client.CreateJobAsync(
+    new CreateJobOptions(jobId: "job1", channelId: "Xbox_Chat_Channel", queueId: queue.Value.Id)
     {
-        ["CommunicationType"] = "Chat",
-        ["IssueType"] = "XboxSupport",
-        ["Language"] = "en",
-        ["HighPriority"] = true,
-        ["SubIssueType"] = "ConsoleMalfunction",
-        ["ConsoleType"] = "XBOX_SERIES_X",
-        ["Model"] = "XBOX_SERIES_X_1TB"
-    };
-    var workerSelectors = new List<LabelSelector>()
-    {
-        new LabelSelector("English", LabelOperator.GreaterThanEqual, 7),
-        new LabelSelector("ChatSupport", LabelOperator.Equal, true),
-        new LabelSelector("XboxSupport", LabelOperator.Equal, true)
-    };
-    var job = await client.CreateJobAsync(
-        channelId: channel.Value.Id,
-        queueId: queue.Value.Id,
-        priority: 100,
-        channelReference: "ChatChannel",
-        labels: jobLabels,
-        workerSelectors: workerSelectors);
+        Priority = 100,
+        ChannelReference = "ChatChannel",
+        RequestedWorkerSelectors =
+        {
+            new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7)),
+            new RouterWorkerSelector(key: "ChatSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
+            new RouterWorkerSelector(key: "XboxSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true))
+        },
+        Labels =
+        {
+            ["CommunicationType"] = new LabelValue("Chat"),
+            ["IssueType"] = new LabelValue("XboxSupport"),
+            ["Language"] = new LabelValue("en"),
+            ["HighPriority"] = new LabelValue(true),
+            ["SubIssueType"] = new LabelValue("ConsoleMalfunction"),
+            ["ConsoleType"] = new LabelValue("XBOX_SERIES_X"),
+            ["Model"] = new LabelValue("XBOX_SERIES_X_1TB")
+        }
+    });
 
-    var getJob = await client.GetJobAsync(job.Value.Id);
-    Console.WriteLine(getJob.Value.Assignments.Select(assignment => assignment.Value.WorkerId).First());
+// Wait a few seconds and see which worker was matched
+await Task.Delay(TimeSpan.FromSeconds(5));
+var getJob = await client.GetJobAsync(job.Value.Id);
+Console.WriteLine(getJob.Value.Assignments.Select(assignment => assignment.Value.WorkerId).First());
 ```
 
 Output

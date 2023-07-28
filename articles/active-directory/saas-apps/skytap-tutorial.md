@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Single Sign-on for Skytap | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Single Sign-on for Skytap'
 description: Learn how to configure single sign-on between Azure Active Directory and Single Sign-on for Skytap.
 services: active-directory
 author: jeevansd

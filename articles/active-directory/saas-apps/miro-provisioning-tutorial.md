@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Miro.
 services: active-directory
 author: twimmers

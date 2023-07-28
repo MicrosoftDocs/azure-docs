@@ -27,7 +27,7 @@ With the built-in **HTTP + Swagger** operation and [Azure Logic Apps](../logic-a
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this topic use the [Cognitive Services Face API](../cognitive-services/face/overview.md), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
+  The examples in this topic uses [Azure AI Face](../ai-services/computer-vision/overview-identity.md), which requires an [Azure AI services resource key and region](../ai-services/multi-service-resource.md?pivots=azportal).
 
   > [!NOTE]
   > To reference a Swagger file that's unhosted or that doesn't meet the security and cross-origin requirements, 
@@ -35,8 +35,6 @@ With the built-in **HTTP + Swagger** operation and [Azure Logic Apps](../logic-a
   > CORS on that storage account so that you can reference the file.
 
 * The logic app workflow from where you want to call the target endpoint. To start with the **HTTP + Swagger** trigger, create a blank logic app workflow. To use the **HTTP + Swagger** action, start your workflow with any trigger that you want. This example uses the **HTTP + Swagger** trigger as the first step. 
-
-  If you're new to logic app workflows, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add an HTTP + Swagger trigger
 
@@ -50,7 +48,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. In the **SWAGGER ENDPOINT URL** box, enter the URL for the Swagger file that you want, and select **Next**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
+   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
@@ -90,7 +88,7 @@ This built-in action sends an HTTP request to the URL for the Swagger file that 
 
 1. In the **SWAGGER ENDPOINT URL** box, enter the URL for the Swagger file that you want, and select **Next**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific action:
+   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific action:
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
@@ -165,4 +163,5 @@ This section provides more information about the outputs from an **HTTP + Swagge
 
 ## Next steps
 
-* Learn about other [connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

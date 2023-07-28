@@ -58,7 +58,7 @@ The following key services are available in Azure public MEC:
 - Azure Kubernetes for Edge
 - Azure Bastion (must be deployed in a virtual network in the parent Azure region)
 - Azure managed disks (Azure public MEC supports Standard SSD)
-- Azure IoT Edge
+- Azure IoT Edge - preview
 - Azure Site Recovery (ASR) - preview
 
 The following diagram shows how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
@@ -69,7 +69,7 @@ The following diagram shows how services are deployed at the Azure public MEC lo
 
 Azure public MEC solutions are available in partnership with mobile network operators. The current operator partnerships are as follows:
 
-- AT&T: Atlanta, Dallas
+- AT&T: Atlanta, Dallas, Detroit
 
 ## Next steps
 

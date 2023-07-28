@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 01/07/2021
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Understand how users are assigned to apps

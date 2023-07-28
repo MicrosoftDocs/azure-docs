@@ -1,9 +1,9 @@
 ---
 title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 12/01/2022
+ms.custom: devx-track-azurecli
+ms.date: 03/10/2023
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -24,6 +24,7 @@ Using Azure Dedicated Hosts for nodes with your AKS cluster has the following be
 
 The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
 
+* Accelerated Networking
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It isn't supported to update agent pool from host group A to host group B.
 * Using ADH across subscriptions.
@@ -40,9 +41,9 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 > First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
 > Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
 
-[Determine how many hosts you would need based on the expected VM Utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-host-general-purpose-skus).
+[Determine how many hosts you would need based on the expected VM Utilization][determine-host-based-on-vm-utilization].
 
-Evaluate [host utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
+Evaluate [host utilization][host-utilization-evaluate] to determine the number of allocatable VMs by size before you deploy.
 
 ```azurecli-interactive
 az vm host get-instance-view -g myDHResourceGroup --host-group MyHostGroup --name MyHost
@@ -63,7 +64,7 @@ You can also decide to use both availability zones and fault domains.
 
 Now create a dedicated host in the host group. In addition to a name for the host, you're required to provide the SKU for the host. Host SKU captures the supported VM series and the hardware generation for your dedicated host.
 
-For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
+For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing][azure-dedicated-host-pricing].
 
 Use az vm host create to create a host. If you set a fault domain count for your host group, you'll be asked to specify the fault domain for your host.
 
@@ -139,6 +140,7 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[azure-dedicated-host-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
@@ -146,3 +148,5 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [azure-cli-install]: /cli/azure/install-azure-cli
 [dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create
+[determine-host-based-on-vm-utilization]: ../virtual-machines/dedicated-host-general-purpose-skus.md
+[host-utilization-evaluate]: ../virtual-machines/dedicated-hosts-how-to.md#check-the-status-of-the-host

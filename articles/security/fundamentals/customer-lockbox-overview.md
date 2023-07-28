@@ -28,7 +28,7 @@ The following services are generally available for Customer Lockbox:
 - Azure API Management
 - Azure App Service
 - Azure Cognitive Search
-- Azure Cognitive Services
+- Azure AI services
 - Azure Container Registry
 - Azure Data Box
 - Azure Data Explorer
@@ -53,7 +53,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Synapse Analytics
 - Azure Unified Vision Service
 - Microsoft Azure Attestation
-- Microsoft Energy Data Services 
+- Azure Data Manager for Energy Preview
 - OpenAI
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 

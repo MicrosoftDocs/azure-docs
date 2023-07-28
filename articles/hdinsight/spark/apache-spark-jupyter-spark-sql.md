@@ -4,7 +4,7 @@ description: This quickstart shows how to use Resource Manager template to creat
 ms.date: 08/21/2022
 ms.topic: quickstart
 ms.service: hdinsight
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 

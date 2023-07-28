@@ -107,7 +107,7 @@ Generation 2 VMs support the following Marketplace images:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP3, SP2
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 21.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
+* Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
 * RHEL 8.5, 8.4, 8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.4, 8.3, 8.2, 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 8.4 LVM, 8.3 LVM, 8.2 LVM, 8.1, 7.9 LVM, 7.9, 7.8, 7.7
@@ -167,7 +167,7 @@ In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketp
 
 Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Virtual Machines**
 3. Under **Services**, select **Virtual machines**.
 4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.

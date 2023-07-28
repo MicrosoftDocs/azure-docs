@@ -6,8 +6,9 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 03/02/2023
 ms.author: ankitadutta  
+ms.custom: engagement-fy23
 
 ---
 # Deprecation of the Site Recovery data encryption feature

@@ -10,7 +10,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/30/2022
 
-ms.subservice: blobs
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
@@ -47,11 +46,11 @@ const listOptions = {
     includeCopy: false,                 // include metadata from previous copies
     includeDeleted: false,              // include deleted blobs 
     includeDeletedWithVersions: false,  // include deleted blobs with versions
-    includeLegalHost: false,            // include legal host id  
+    includeLegalHold: false,            // include legal hold
     includeMetadata: true,              // include custom metadata
     includeSnapshots: true,             // include snapshots
     includeTags: true,                  // include indexable tags
-    includeUncommittedBlobs: false,     // include uncommitted blobs
+    includeUncommitedBlobs: false,      // include uncommitted blobs
     includeVersions: false,             // include all blob version
     prefix: ''                          // filter by blob name prefix
 };

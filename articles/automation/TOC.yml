@@ -86,20 +86,18 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
-            - name: Migrate Run As account to managed identity
-              href: migrate-run-as-accounts-managed-identity.md  
             - name: Troubleshoot managed identity
-              href: troubleshoot/managed-identity.md
-            - name: FAQ on Migration to managed identity
-              href: automation-managed-identity-faq.md 
+              href: troubleshoot/managed-identity.md 
         - name: Run As account
           items:
-            - name: Create Run As account
-              href: create-run-as-account.md
             - name: Delete Run As account
               href: delete-run-as-account.md
             - name: Manage Run As account
               href: manage-runas-account.md
+            - name: Migrate Run As account to managed identity
+              href: migrate-run-as-accounts-managed-identity.md
+            - name: FAQ on Migration to managed identity
+              href: automation-managed-identity-faq.md
         - name: Use Automation extension for Visual Studio Code
           href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
@@ -385,7 +383,7 @@
         - name: Integrate with Event Grid and Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automate start/stop of Azure-SSIS IR
-          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-an-azure-automation-runbook-that-starts-and-stops-an-azure-ssis-ir
 - name: Reference
   items:
   - name: Azure CLI

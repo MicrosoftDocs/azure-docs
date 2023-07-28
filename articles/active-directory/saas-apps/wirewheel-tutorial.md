@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WireWheel | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WireWheel'
 description: Learn how to configure single sign-on between Azure Active Directory and WireWheel.
 services: active-directory
 author: jeevansd

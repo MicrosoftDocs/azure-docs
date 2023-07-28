@@ -1,18 +1,18 @@
 ---
 title: Custom metrics in Azure Monitor (preview)
 description: Learn about custom metrics in Azure Monitor and how they're modeled.
-author: rboucher
-ms.author: robb
-services: azure-monitor
+author: EdB-MSFT
+ms.service: azure-monitor
+ms-author: edbaynash
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.reviewer: priyamishra
 ---
 # Custom metrics in Azure Monitor (preview)
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](./metrics-supported.md). However, they're limited.
+As you deploy resources and applications in Azure, start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](./metrics-supported.md). 
 
-You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These *custom* metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system. They can then be submitted directly to Azure Monitor. After custom metrics are published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard Azure metrics.
+Collect custom performance indicators or business-specific metrics to provide deeper insights. These *custom* metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system. They can then be submitted directly to Azure Monitor. Once custom metrics are published to Azure Monitor, you can browse, query, and alert on them for your Azure resources and applications along side the standard Azure metrics.
 
 Azure Monitor custom metrics are currently in public preview.
 
@@ -22,13 +22,13 @@ Custom metrics can be sent to Azure Monitor via several methods:
 
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor.
 - Install the Azure Monitor agent (preview) on your [Windows or Linux Azure VM](../agents/azure-monitor-agent-overview.md). Use a [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) to send performance counters to Azure Monitor metrics.
-- Install the Azure Diagnostics extension on your [Azure VM](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](../essentials/collect-custom-metrics-guestos-vm-classic.md), or [classic cloud service](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md). Then send performance counters to Azure Monitor.
+- Install the Azure Diagnostics extension on your [Azure VM](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), [Virtual Machine Scale Set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](../essentials/collect-custom-metrics-guestos-vm-classic.md), or [classic cloud service](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md). Then send performance counters to Azure Monitor.
 - Install the [InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## Pricing model and retention
 
-For details on when billing will be enabled for custom metrics and metrics queries, check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). In summary, there's no cost to ingest standard metrics (platform metrics) into an Azure Monitor metrics store, but custom metrics will incur costs when they enter general availability. Queries to the metrics API do incur costs.
+For details on when billing is enabled for custom metrics and metrics queries, check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). In summary, there's no cost to ingest standard metrics (platform metrics) into an Azure Monitor metrics store, but custom metrics incur costs when they enter general availability. Queries to the metrics API do incur costs.
 
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
@@ -53,7 +53,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 
 ### Subject
 
-The subject property captures which Azure resource ID the custom metric is reported for. This information will be encoded in the URL of the API call. Each API can submit metric values for only a single Azure resource.
+The subject property captures which Azure resource ID the custom metric is reported for. This information is encoded in the URL of the API call. Each API can submit metric values for only a single Azure resource.
 
 > [!NOTE]
 > You can't emit custom metrics against the resource ID of a resource group or subscription.
@@ -101,7 +101,7 @@ Although dimensions are optional, if a metric post defines dimension keys, corre
 
 Azure Monitor stores all metrics at 1-minute granularity intervals. During a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or a metric might need to be measured for many discrete events, such as sign-in transaction latencies.
 
-To limit the number of raw values that you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
+To limit the number of raw values that you have to emit and pay for in Azure Monitor, locally pre-aggregate and emit the aggregated values:
 
 * **Min**: The minimum observed value from all the samples and measurements during the minute.
 * **Max**: The maximum observed value from all the samples and measurements during the minute.
@@ -176,10 +176,10 @@ In the following example, you create a custom metric called **Memory Bytes in Us
 
 ## Custom metric definitions
 
-There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So, the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource that the metric is emitted against via the metric definitions.
+Each metric data point published contains a namespace, name, and dimension information. The first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This new metric definition is then discoverable on any resource that the metric is emitted from via the metric definitions. There's no need to predefine a custom metric in Azure Monitor before it's emitted.
 
 > [!NOTE]
-> Azure Monitor doesn't yet support defining **Units** for a custom metric.
+> Azure Monitor doesn't support defining **Units** for a custom metric.
 
 ## Using custom metrics
 
@@ -221,9 +221,10 @@ Azure Monitor imposes the following usage limits on custom metrics:
 
 |Category|Limit|
 |---|---|
-|Total active time series in a subscription across all regions you've deployed to|50,000|
+|Total active time series in a subscription per region|50,000|
 |Dimension keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
+|The combined length of all custom metric names, using utf-8 encoding|64 KB| 
 
 An active time series is defined as any unique combination of metric, dimension key, or dimension value that has had metric values published in the past 12 hours.
 
@@ -245,6 +246,13 @@ Follow the steps below to see your current total active time series metrics, and
 1. Under **Refine scope**, choose **Custom Metric Usage** and the desired location.
 1. Select the **Apply** button.
 1. Choose either **Active Time Series**, **Active Time Series Limit**, or **Throttled Time Series**.
+
+There is a limit of 64 KB on the combined length of all custom metrics names, assuming utf-8 or 1 byte per character. If the 64-KB limit is exceeded, metadata for additional metrics won't be available. The metric names for additional custom metrics won't appear in the Azure portal in selection fields, and won't be returned by the API in requests for metric definitions. The metric data is still available and can be queried.
+
+When the limit has been exceeded, reduce the number of metrics you're sending or shorten the length of their names. It then takes up to two days for the new metrics' names to appear. 
+
+To avoid reaching the limit, don't include variable or dimensional aspects in your metric names.
+For example, the metrics for server CPU usage,`CPU_server_12345678-319d-4a50-b27e-1234567890ab` and `CPU_server_abcdef01-319d-4a50-b27e-abcdef012345` should be defined as metric `CPU` and with a `Server` dimension.
 
 ## Design limitations and considerations
 
@@ -272,7 +280,7 @@ But if high cardinality is essential for your scenario, the aggregated metrics a
 Use custom metrics from various services:
 
  - [Virtual machine](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
- - [Virtual machine scale set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md)
+ - [Virtual Machine Scale Set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure virtual machine (classic)](../essentials/collect-custom-metrics-guestos-vm-classic.md)
  - [Linux virtual machine using the Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)

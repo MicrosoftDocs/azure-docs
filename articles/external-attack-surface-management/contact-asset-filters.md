@@ -4,7 +4,7 @@ titleSuffix: Defender EASM contact asset filters
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for contact assets specifically, including operators and applicable field values.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
 ---
@@ -16,7 +16,7 @@ These filters specifically apply to contact assets. Use these filters when searc
 
 ## Free form filters  
 
-The following filters require that the user manually enters the value with which they want to search.  This list is organized by the number of applicable operators for each filter, then alphabetically. Note that many of these values are case-sensitive.
+The following filters require that the user manually enters the value with which they want to search.  This list is organized by the number of applicable operators for each filter, then alphabetically. Many of these values are case-sensitive.
 
 |       Filter name  |     Description                                 |     Value format    |     Applicable operators                                                                                                                                                                                                                              |
 |--------------------|-------------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

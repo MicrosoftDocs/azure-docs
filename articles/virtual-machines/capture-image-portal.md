@@ -15,7 +15,12 @@ ms.custom: portal
 
 An image can be created from a VM and then used to create multiple VMs.
 
-For images stored in an Azure Compute Gallery (formerly known as Shared Image Gallery), you can use VMs that already have accounts created on them (specialized) or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a VM, see [Generalized a Windows VM](generalize.md). For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+For images stored in an Azure Compute Gallery (formerly known as Shared Image Gallery), you can use VMs that already have accounts created on them (specialized) or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a VM, see [Generalized a VM](generalize.md). For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+
+> [!IMPORTANT]
+> Once you mark a VM as `generalized` in Azure, you cannot restart the VM. Legacy **managed images** are automatically marked as generalized.
+> > When capturing an image of a virtual machine in Azure, the virtual machine will be temporarily stopped to ensure data consistency and prevent any potential issues during the image creation. This is because capturing an image requires a point-in-time snapshot of the virtual machine's disk.
+> To avoid disruptions in a production environment, it's recommended you schedule the image capture process during a maintenance window or a time when the temporary downtime won't impacting critical services.
 
 
 ## Capture a VM in the portal 
@@ -38,7 +43,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 1. For **Gallery details**, select the gallery or create a new gallery by selecting **Create new**.
 
-1. In **Operating system state** select generalized or specialized. For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+1. In **Operating system state** select generalized or specialized. For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images). 
  
 1. Select an image definition or select **create new** and provide a name and information for a new [Image definition](shared-image-galleries.md#image-definitions).
 
@@ -58,4 +63,4 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 ## Next steps
 
-- [Azure Compute Galleries overview](shared-image-galleries.md)	
+- [Azure Compute Galleries overview](shared-image-galleries.md)

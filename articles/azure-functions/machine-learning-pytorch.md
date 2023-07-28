@@ -4,8 +4,7 @@ description: Use a pre-trained ResNet 18 deep neural network from PyTorch with A
 
 ms.topic: tutorial
 ms.date: 01/05/2023
-ms.custom: devx-track-python, devx-track-azurepowershell, py-fresh-zinc
-
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Deploy a pre-trained image classification model to Azure Functions with PyTorch
@@ -110,7 +109,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name classify --template "HTTP trigger"
     ```
 
-    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Examine the file contents](./create-first-function-cli-python.md#optional-examine-the-file-contents) in the Python quickstart.
+    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Programming model](./functions-reference-python.md?pivots=python-mode-configuration#programming-model) in the Python developer guide.
 
 
 ## Run the function locally
