@@ -33,7 +33,7 @@ namespace, unless this is explicitly changed to one or more different
 namespaces in the Helm configuration (see the following section).
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Enable multiple namespace support
 To enable multiple namespace support:
