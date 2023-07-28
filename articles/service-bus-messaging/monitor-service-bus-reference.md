@@ -115,7 +115,7 @@ Operational log entries include elements listed in the following table:
 | `Status` | Operation status | Yes | Yes|
 | `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
-|  `Type 	`| Type of logs emitted | Yes | Yes|
+|  `Type 	`| Type of logs emitted | No | Yes|
 | `Category`| Category of logs  emitted.| Yes | No|
 
 Here's an example of an operational log JSON string:
@@ -193,7 +193,7 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
 | `Category` | ServiceBusVNetConnectionEvent | Yes | No
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
-|  `Type`  | AZMSVNetConnectionEvents| Yes | Yes
+|  `Type`  | Type of Logs Emitted | No | Yes
 
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
