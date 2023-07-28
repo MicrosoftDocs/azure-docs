@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your own Node.js web application  - prepare your app
-description: Learn about how to prepare an app that signs in users.
+title: 'Tutorial: Prepare a Node.js web application for authentication'
+description: Learn how to create a Node web app project, then prepare it for authentication
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -9,23 +9,44 @@ ms.author: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/22/2023
+ms.topic: tutorial
+ms.date: 07/27/2023
 ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application  - prepare your app
+# Tutorial: Prepare a Node.js web application for authentication
 
-In this article, you create a Node.js(Express) project and organize all the folders and files you require. You add authentication to the application you build here. This Node.js(Express) web application's views use [Handlebars](https://handlebarsjs.com).
+In [Tutorial: Prepare your customer tenant to sign in users in a Node.js web app](tutorial-web-app-node-sign-in-prepare-tenant.md) tutorial, you prepared your customer tenant to sign in users. In this tutorial, you create a Node.js(Express) project and organize all the folders and files you require. You enable sign-in to the application you prepare here. This Node.js(Express) web application's views use [Handlebars](https://handlebarsjs.com).
+
+In this tutorial you'll;
+
+> [!div class="checklist"]
+>
+> - Create a Node.js project
+> - Install dependencies
+> - Add app views and UI components
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org).
+
+- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+
+- You've completed the steps in [Tutorial: Prepare your customer tenant to sign in users in a Node.js web app](tutorial-web-app-node-sign-in-prepare-tenant.md).
 
 ## Create the Node.js project
 
-Create a folder to host your node application, such as `ciam-sign-in-node-express-web-app`:
+1. In a location of choice in your computer, create a folder to host your node application, such as *ciam-sign-in-node-express-web-app*.
 
-1. In your terminal, change directory into your Node web app folder, such as `cd ciam-sign-in-node-express-web-app`, then run `npm init -y`. This command creates a default package.json file for your Node.js project. This command creates a default `package.json` file for your Node.js project.
+1. In your terminal, change directory into your Node web app folder, such as `cd ciam-sign-in-node-express-web-app`, then run the following command to create a new Node.js project:
 
-1. Create more folders and files to achieve the following project structure:
+    ```powershell
+    npm init -y
+    ```    
+    The `init -y` command creates a default *package.json* file for your Node.js project. 
+
+1. Create additional folders and files to achieve the following project structure:
 
     ```
         ciam-sign-in-node-express-web-app/
@@ -53,10 +74,10 @@ Create a folder to host your node application, such as `ciam-sign-in-node-expres
 
 ## Install app dependencies
 
-In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan` and `@azure/msal-node` packages by running the following commands:
+To install required identity and Node.js related npm packages, run the following command in your terminal
 
-```console
-    npm install express dotenv hbs express-session axios cookie-parser http-errors morgan @azure/msal-node   
+```powershell
+npm install express dotenv hbs express-session axios cookie-parser http-errors morgan @azure/msal-node   
 ```
 
 ## Build app UI components
@@ -116,7 +137,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
                 <link rel='stylesheet' href='/stylesheets/style.css' />
             </head>            
             <body>
-                {{{body}}}
+                {{{content}}}
             </body>        
         </html>
     ```
@@ -138,7 +159,5 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
 
 ## Next steps
 
-Next, learn how to sign user in and sign of your web app:
-
 > [!div class="nextstepaction"]
-> [Add sign in and sign out >](how-to-web-app-node-sign-in-sign-in-out.md)
+> [Add sign in and sign out >](tutorial-web-app-node-sign-in-sign-out.md)
