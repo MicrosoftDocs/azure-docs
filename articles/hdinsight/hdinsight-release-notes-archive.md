@@ -454,7 +454,7 @@ HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, th
 
 ## Release date: 06/03/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 ### Release highlights
 
@@ -555,7 +555,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 
 ## Release date: 03/10/2022
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are: 
 - 	HDInsight 4.0: Ubuntu 18.04.5 
@@ -620,7 +620,7 @@ Starting from March 01, 2022, HDInsight will only support manual scale for HBase
 
 ## Release date: 12/27/2021
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
@@ -633,7 +633,7 @@ HDInsight 4.0 image has been updated to mitigate Log4j vulnerability as describe
 
 ## Release date: 07/27/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -740,7 +740,7 @@ No other action is needed from you. The price correction will only apply for usa
 
 ## Release date: 06/02/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
@@ -846,7 +846,7 @@ You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 
 
 ## Release date: 02/05/2021
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Dav4-series support
@@ -886,7 +886,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/18/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Auto key rotation for customer managed key encryption at rest
@@ -914,7 +914,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 11/09/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight Identity Broker (HIB) is now GA
@@ -959,7 +959,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 10/08/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### HDInsight private clusters with no public IP and Private link (Preview)
@@ -989,7 +989,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 09/28/2020
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Autoscale for Interactive Query with HDInsight 4.0 is now generally available
@@ -1030,7 +1030,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 08/09/2020
 
-This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for SparkCruise
@@ -1084,7 +1084,7 @@ An issue has been fixed in the Azure portal, where users were experiencing an er
 
 ## Release date: 07/13/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Support for Customer Lockbox for Microsoft Azure
@@ -1125,7 +1125,7 @@ No component version change for this release. You can find the current component
 
 ## Release date: 06/11/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### Moving to Azure virtual machine scale sets
@@ -1188,7 +1188,7 @@ There's an issue for Hive Warehouse Connector in this release. The fix will be i
 
 ## Release date: 01/09/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see following changes, wait for the release being live in your region in several days.
 
 ### New features
 #### TLS 1.2 enforcement
