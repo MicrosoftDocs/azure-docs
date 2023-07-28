@@ -2,8 +2,8 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 05/24/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 07/26/2023
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -68,6 +68,14 @@ To get the OIDC Issuer URL and save it to an environmental variable, run the fol
 ```bash
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
+
+The variable should contain the Issuer URL similar to the following example:
+
+```output
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+```
+
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
 
 ## Create a managed identity
 

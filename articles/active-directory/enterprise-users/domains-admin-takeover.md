@@ -54,6 +54,8 @@ When you complete the preceding steps, you are now the global administrator of t
 
 ### Adding the domain name to a managed organization in Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Open the [Microsoft 365 admin center](https://admin.microsoft.com).
 2. Select **Users** tab, and create a new user account with a name like *user\@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has Global Administrator privileges for the Azure AD organization.

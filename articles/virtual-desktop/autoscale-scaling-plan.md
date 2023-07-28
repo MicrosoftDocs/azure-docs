@@ -61,7 +61,7 @@ To use scaling plans, make sure you follow these guidelines:
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
-Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
+Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
 To assign the *Desktop Virtualization Power On Off Contributor* role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
 
@@ -114,7 +114,7 @@ To assign the *Desktop Virtualization Power On Off Contributor* role with the Az
 
 Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
@@ -266,7 +266,7 @@ Once you're done, go to the **Review + create** tab and select **Create** to dep
 
 To edit an existing scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 

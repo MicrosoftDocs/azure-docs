@@ -30,7 +30,9 @@ To use this feature, you need:
 
 ## Archive logs to an Azure storage account
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.date: 05/23/2023
 ---
 
@@ -20,11 +20,9 @@ This article is updated quarterly, so revisit it regularly. You can also visit [
 
 ## June 2023
 
-The following updates offer two new plans:
+The following update announces a new plan:
 
-- **Azure Spring Apps consumption plan**: This plan provides a new way to pay for Azure Spring Apps. With super-efficient pricing and serverless capabilities, you can deploy apps that scale based on usage, paying only for resources consumed. For more information, see [Start from zero and scale to zero – Azure Spring Apps consumption plan](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/start-from-zero-and-scale-to-zero-azure-spring-apps-consumption/ba-p/3774825).
-
-- **Azure Spring Apps Consumption and Dedicated plans**: The Standard Dedicated plan provides a fully managed, dedicated environment for running Spring applications on Azure. This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
+- **Azure Spring Apps Consumption and Dedicated plan**: This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
 
 The following update is now available in all plans:
 

@@ -18,7 +18,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **+ Create** then **Azure Virtual Machine**.
+1. Select **+ Create** then **Azure virtual machine**.
    
 1. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
@@ -30,7 +30,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Instance details** |  |
     | Virtual machine name | Enter **vm-1**. |
     | Region | Select **East US 2**. |
-    | Availability options | Select **No infrastructure redundancy required**. |
+    | Availability options | Select **Zone 1**. |
     | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |

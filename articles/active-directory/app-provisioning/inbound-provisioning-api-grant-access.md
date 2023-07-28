@@ -43,7 +43,8 @@ This configuration registers an app in Azure AD that represents the external API
 1. Search and select permission **AuditLog.Read.All** and **SynchronizationData-User.Upload**.
 1. Click on **Grant admin consent** on the next screen to complete the permission assignment. Click Yes on the confirmation dialog. Your app should have the following permission sets.
       [![Screenshot of app permissions.](media/inbound-provisioning-api-grant-access/api-client-permissions.png)](media/inbound-provisioning-api-grant-access/api-client-permissions.png#lightbox)  
-1. You're now ready to use the service principal with your API client. 
+1. You're now ready to use the service principal with your API client.
+1. For production workloads, we recommend using [client certificate-based authentication](../develop/howto-authenticate-service-principal-powershell.md) with the service principal or managed identities. 
 
 ## Configure a managed identity
 
@@ -82,6 +83,8 @@ This section describes how you can assign the necessary permissions to a managed
 
 
 ## Next steps
-- [Invoke inbound provisioning API using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using Postman](inbound-provisioning-api-postman.md)
+- [Quick start using Postman](inbound-provisioning-api-graph-explorer.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
 
