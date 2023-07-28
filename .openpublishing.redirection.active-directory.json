@@ -1601,6 +1601,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-overview.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sign-in-sign-in-out.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-node-sign-in-prepare-tenant",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-overview.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
       "redirect_document_id": true
