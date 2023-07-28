@@ -69,6 +69,8 @@ items:
               href: how-to-desktop-app-electron-sample-sign-in.md
             - name: .NET MAUI - sign in users
               href: how-to-desktop-app-maui-sample-sign-in.md
+            - name: .NET WPF - sign in users
+              href: sample-desktop-wpf-dotnet-sign-in.md
         - name: Mobile app
           items:
             - name: Android (.NET MAUI) - sign in users
@@ -198,6 +200,13 @@ items:
                 href: tutorial-desktop-app-maui-sign-in-prepare-app.md
               - name: Sign in and sign out
                 href: tutorial-desktop-app-maui-sign-in-sign-out.md
+          - name: .NET WPF
+            items:
+              - name: Prepare tenant
+                href: tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in and sign out
+                href: tutorial-desktop-wpf-dotnet-sign-in-build-app.md
+                displayName: Windows Presentation Form
       - name: Mobile
         items: 
         - name: .NET MAUI
