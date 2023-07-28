@@ -37,7 +37,7 @@ There are two different configuration modes for outbound traffic from the manage
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
 | Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you will need to prepare all required machine learning artifacts in your private locations. |
 
-The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
+The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault __if they're configured as private__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
 ## Supported scenarios
 
@@ -90,7 +90,8 @@ Before following the steps in this article, make sure you have the following pre
         ManagedNetwork,
         IsolationMode,
         ServiceTagDestination,
-        PrivateEndpointDestination
+        PrivateEndpointDestination,
+        FqdnDestination
     )
     from azure.identity import DefaultAzureCredential
 
@@ -305,10 +306,11 @@ managed_network:
   isolation_mode: allow_only_approved_outbound
 ```
 
-You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `service_tag`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory:
+You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `service_tag` or `fqdn`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN to `pypi.org`:
 
-> [!TIP]
-> Adding an outbound for a service tag is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
+> [!IMPORTANT]
+> * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
+> * If you add outbound rules, Microsoft can't guarantee data exfiltration.
 
 ```yaml
 managed_network:
@@ -320,6 +322,9 @@ managed_network:
       protocol: TCP
       service_tag: DataFactory
     type: service_tag
+  - name: add-fqdnrule
+    destination: 'pypi.org'
+    type: fqdn
   - name: added-perule
     destination:
       service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
@@ -380,6 +385,9 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
           protocol: TCP
           service_tag: DataFactory
         type: service_tag
+      - name: add-fqdnrule
+        destination: 'pypi.org'
+        type: fqdn
       - name: added-perule
         destination:
           service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
@@ -390,7 +398,13 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 # [Python SDK](#tab/python)
 
-To configure a managed VNet that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
+To configure a managed VNet that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_, use the following classes:
+
+| Destination | Class |
+| ----------- | ----- |
+| __Azure service that the workspace relies on__ | `PrivateEndpointDestination` |
+| __Azure service tag__ | `ServiceTagDestination` |
+| __Fully qualified domain name (FQDN)__ | `FqdnDestination` |
 
 * __Create a new workspace__:
 
@@ -402,8 +416,9 @@ To configure a managed VNet that allows only approved outbound communications, u
     * `myrule` - Adds a private endpoint for an Azure Blob store.
     * `datafactory` - Adds a service tag rule to communicate with Azure Data Factory.
 
-    > [!TIP]
-    > Adding an outbound for a service tag is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+    > [!IMPORTANT]
+    > * Adding an outbound for a service tag is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+    > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
 
     ```python
     # Basic managed virtual network configuration
@@ -443,6 +458,14 @@ To configure a managed VNet that allows only approved outbound communications, u
             service_tag=service_tag, 
             protocol=protocol, 
             port_ranges=port_ranges
+        )
+    )
+
+    # Example FQDN rule
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(
+            name="fqdnrule", 
+            destination="pypi.org"
         )
     )
 
@@ -498,6 +521,14 @@ To configure a managed VNet that allows only approved outbound communications, u
             service_tag=service_tag, 
             protocol=protocol, 
             port_ranges=port_ranges
+        )
+    )
+
+    # Example FQDN rule
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(
+            name="fqdnrule", 
+            destination="pypi.org"
         )
     )
 
@@ -721,14 +752,14 @@ __Inbound__ service tag rules:
 
 ## List of recommended outbound rules
 
-Currently we don't have any recommended outbound rules.
+[!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
 ## Limitations
 
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed network will be deleted and cleaned up when the workspace is deleted. 
-* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, we cannot guarantee that you are protected from data exfiltration.
+* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, Microsoft can't guarantee that you are protected from data exfiltration.
 
 ## Next steps
 
