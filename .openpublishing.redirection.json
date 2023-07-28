@@ -23859,11 +23859,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
             "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
             "redirect_document_id": false
