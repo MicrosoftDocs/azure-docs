@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the REST API and Java - Bing Video Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Java.
 services: cognitive-services
 author: aahill
