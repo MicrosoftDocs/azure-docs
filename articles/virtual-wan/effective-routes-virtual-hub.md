@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 07/28/2023
 ms.author: cherylmc
 ---
 
@@ -16,7 +16,7 @@ You can view all routes of your Virtual WAN hub in the Azure portal. This articl
 
 ## <a name="routing"></a>Select connections or route tables
 
-1. Navigate to your virtual hub, then select **Routing**. On the Routing page, select **Effective Routes**.
+1. Navigate to your virtual hub. In the left pane, select **Effective Routes**.
 1. From the dropdown, you can select **Route Table**. If you don't see a Route Table option, this means that you don't have a custom or default route table set up in this virtual hub.
 
 ## <a name="output"></a>View output
