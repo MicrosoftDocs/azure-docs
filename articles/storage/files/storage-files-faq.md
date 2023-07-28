@@ -107,7 +107,7 @@ ms.topic: conceptual
    
 ### Identity-based authentication
 * <a id="ad-support-devices"></a>
-**Does Azure Active Directory  Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+**Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
     No, this scenario isn't supported.
 
