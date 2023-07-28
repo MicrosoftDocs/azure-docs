@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure hybrid Azure Active Directory join manually
 
-If using Azure AD Connect is an option for you, see the guidance in [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md). Using the automation in Azure AD Connect, will significantly simplify the configuration of hybrid Azure AD join.
+If using Azure AD Connect is an option for you, see the guidance in [Configure hybrid Azure AD join](howto-hybrid-join.md). Using the automation in Azure AD Connect, will significantly simplify the configuration of hybrid Azure AD join.
 
 This article covers the manual configuration of requirements for hybrid Azure AD join including steps for managed and federated domains.
 

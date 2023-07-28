@@ -17,7 +17,7 @@
   - name: Azure AD joined devices 
     href: concept-azure-ad-join.md
   - name: Hybrid Azure AD joined devices
-    href: concept-azure-ad-join-hybrid.md
+    href: concept-hybrid-join.md
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
@@ -44,7 +44,7 @@
     - name: Targeted hybrid Azure AD join deployment
       href: hybrid-azuread-join-control.md 
     - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
+      href: howto-hybrid-join.md
     - name: Verifying hybrid Azure AD join
       href: howto-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join

@@ -38,7 +38,7 @@ landingContent:
           - text: Azure AD joined devices
             url: concept-azure-ad-join.md
           - text: Hybrid Azure AD joined devices
-            url: concept-azure-ad-join-hybrid.md
+            url: concept-hybrid-join.md
           - text: SSO to on-premises resources
             url: device-sso-to-on-premises-resources.md
           - text: Primary Refresh Tokens

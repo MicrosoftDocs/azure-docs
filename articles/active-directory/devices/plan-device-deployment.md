@@ -29,7 +29,7 @@ There are multiple methods to integrate your devices into Azure AD, they can wor
 
 * You can [register devices](concept-azure-ad-register.md) with Azure AD.
 * [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only).
-* [Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) devices to your on-premises Active Directory domain and Azure AD. 
+* [Hybrid Azure AD join](concept-hybrid-join.md) devices to your on-premises Active Directory domain and Azure AD. 
 
 ## Learn
 
@@ -184,15 +184,15 @@ Most organizations already have domain joined devices and manage them via Group 
 
 If hybrid Azure AD join is the best option for your organization, see the following resources:
 
-* This overview of [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md).
+* This overview of [hybrid Azure AD joined devices](concept-hybrid-join.md).
 * Familiarize yourself with the [hybrid Azure AD join implementation](hybrid-azuread-join-plan.md) plan.
 
 ### Provisioning hybrid Azure AD join to your devices
 
 [Review your identity infrastructure](hybrid-azuread-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
 
-* [Managed domains](howto-hybrid-azure-ad-join.md#managed-domains)
-* [Federated domains](howto-hybrid-azure-ad-join.md#federated-domains)
+* [Managed domains](howto-hybrid-join.md#managed-domains)
+* [Federated domains](howto-hybrid-join.md#federated-domains)
 
 If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
 
