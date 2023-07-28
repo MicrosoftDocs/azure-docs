@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 07/21/2023
+ms.date: 07/27/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -18,7 +18,7 @@ ms.author: jasteppe
 
 The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR resources are persisted into a FHIR service, which is also included in the template.
 
-:::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
+:::image type="content" source="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png":::
 
 > [!TIP]
 > To learn how the MedTech service transforms and persists device data into the FHIR service as FHIR resources, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
@@ -75,9 +75,9 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Location**: A supported Azure region for Azure Health Data Services (the value can be the same as or different from the region your resource group is in). For a list of Azure regions where Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principle Id** (optional): An Azure Active Directory (Azure AD) user object ID to provide FHIR service read/write permissions.
+   - **Fhir Contributor Principal Id** (optional): An Azure Active Directory (Azure AD) user object ID to provide FHIR service read/write permissions.
 
-     You can use this account to give access to the FHIR service to view the FHIR Observations that are generated in this tutorial. We recommend that you use your own Azure AD user object ID so you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principle Id** option, clear the text box.
+     You can use this account to give access to the FHIR service to view the FHIR Observations that are generated in this tutorial. We recommend that you use your own Azure AD user object ID so you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principal Id** option, clear the text box.
 
      To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
@@ -174,7 +174,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    > [!NOTE]
    > In this device-to-cloud (D2C) example, *cloud* is the IoT hub in the Azure IoT Hub that receives the device message. Azure IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, select **Send C2D Message to Device Cloud**.
 
-   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-d2c-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-messages-through-iot-hub\select-d2c-message.png":::
 
 7. In **Send D2C Messages**, select or enter the following values:
 
@@ -193,6 +193,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
      ```json
      {
+         "PatientId": "patient1",
          "HeartRate": 78,
          "RespiratoryRate": 12,
          "HeartRateVariability": 30,
@@ -206,18 +207,18 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
-   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-d2c-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-d2c-message-options.png":::
 
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
+   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **SystemProperties**: `iothub-connection-device-id` and **Properties**: `iothub-creation-time-utc`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
    >
    > You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
    >
    > Example:
    >
-   > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png":::
+   > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-message.png":::
    >
    > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab). 
 

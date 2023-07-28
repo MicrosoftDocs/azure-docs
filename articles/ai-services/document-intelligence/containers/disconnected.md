@@ -1,7 +1,7 @@
 ---
 title: Use Document Intelligence containers in disconnected environments
 titleSuffix: Azure AI services
-description: Learn how to run Azure AI services Docker containers disconnected from the internet.
+description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 author: laujan
