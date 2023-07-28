@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 07/20/2023
 ---
 
-# Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
+# Protect your servers with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
 
 With Microsoft Defender for Servers, you gain access to and can deploy [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) to your server resources. Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. The main features include:
 
