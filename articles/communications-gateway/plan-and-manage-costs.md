@@ -40,7 +40,7 @@ For example, if you have 28,000 users assigned to the deployment each month you'
 > [!TIP]
 > If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
 
-If you choose to deploy the API Bridge (for API mediation or the API Bridge Number Management Portal), you'll also be charged for your API Bridge usage. Fees for API Bridge work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the API Bridge is always the same as the number of users charged on the SBC User meters.
+If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the SBC User meters.
 
 > [!NOTE]
 > A user is any telephone number that meets all the following criteria.
