@@ -38,21 +38,21 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
   > [!NOTE]
   > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You cannot enable VMware Spring Cloud Gateway after provisioning.
 
-- Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
 
 ## Filters
 
-Filters are used in the Spring Cloud Gateway configuration to act on the incoming request, or as an outgoing response to a route configuration.
+You use filters in your Spring Cloud Gateway configuration to act on the incoming request or outgoing response to a route configuration.
 
-For example, a filter could be used in adding an HTTP header, or when denying access based on an authorization token.
+For example, you can use a filter to add an HTTP header or to deny access based on an authorization token.
 
-## Use Open Source Filters
+## Use open source filters
 
-Spring Cloud Gateway OSS includes several `GatewayFilter` Factories used to create filters for routes.
+Spring Cloud Gateway OSS includes several `GatewayFilter` factories used to create filters for routes.
 
 ### AddRequestHeader
 
-The `AddRequestHeader` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddRequestHeader` GatewayFilter:
+The `AddRequestHeader` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddRequestHeader` `GatewayFilter`:
 
 ```json
 [
@@ -67,9 +67,9 @@ The `AddRequestHeader` GatewayFilter Factory takes `name` and `value` parameters
 ]
 ```
 
-This listing adds `X-Request-red:blue` header to the downstream request’s headers for all matching requests.
+The following example adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests.
 
-`AddRequestHeader` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddRequestHeader` GatewayFilter that uses a variable:
+`AddRequestHeader` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddRequestHeader` `GatewayFilter` that uses a variable:
 
 ```json
 [
@@ -86,7 +86,7 @@ This listing adds `X-Request-red:blue` header to the downstream request’s head
 
 ### AddRequestHeadersIfNotPresent
 
-The `AddRequestHeadersIfNotPresent` filter adds headers if it isn't present in the original request.
+The `AddRequestHeadersIfNotPresent` filter adds headers if they aren't present in the original request.
 
 The following list shows the configuration parameters:
 
@@ -107,7 +107,7 @@ The following list shows the configuration parameters:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddRequestParameter` GatewayFilter:
+The `AddRequestParameter` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddRequestParameter` `GatewayFilter`:
 
 ```json
 [
@@ -122,9 +122,9 @@ The `AddRequestParameter` GatewayFilter Factory takes `name` and `value` paramet
 ]
 ```
 
-This configuration adds `red=blue` parameter to the downstream request’s query string for all matching requests.
+This configuration adds a `red=blue` parameter to the downstream request’s query string for all matching requests.
 
-`AddRequestParameter` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddRequestParameter` GatewayFilter that uses a variable:
+`AddRequestParameter` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddRequestParameter` `GatewayFilter` that uses a variable:
 
 ```json
 [
@@ -141,7 +141,7 @@ This configuration adds `red=blue` parameter to the downstream request’s query
 
 ### AddResponseHeader
 
-The `AddResponseHeader` GatewayFilter Factory takes `name` and `value` parameters. The following example configures an `AddResponseHeader` GatewayFilter:
+The `AddResponseHeader` `GatewayFilter` factory takes `name` and `value` parameters. The following example configures an `AddResponseHeader` `GatewayFilter`:
 
 ```json
 [
@@ -156,9 +156,9 @@ The `AddResponseHeader` GatewayFilter Factory takes `name` and `value` parameter
 ]
 ```
 
-This configuration adds `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests.
+This configuration adds a `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests.
 
-`AddResponseHeader` is aware of the URI variables used to match a path or host. URI variables may be used in the value and are expanded at runtime. The following example configures an `AddResponseHeader` GatewayFilter that uses a variable:
+`AddResponseHeader` has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. The following example configures an `AddResponseHeader` `GatewayFilter` that uses a variable:
 
 ```json
 [
@@ -407,7 +407,7 @@ The following list shows the configuration parameters:
 
 ### RemoveRequestHeader
 
-The `RemoveRequestHeader` GatewayFilter Factory takes `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` GatewayFilter:
+The `RemoveRequestHeader` `GatewayFilter` factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveRequestHeader` `GatewayFilter`:
 
 ```json
 [
@@ -426,7 +426,7 @@ This configuration removes the `X-Request-Foo` header before it's sent downstrea
 
 ### RemoveRequestParameter
 
-The `RemoveRequestParameter` GatewayFilter Factory takes `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` GatewayFilter:
+The `RemoveRequestParameter` `GatewayFilter` factory takes a `name` parameter, which is the name of the query parameter to be removed. The following example configures a `RemoveRequestParameter` `GatewayFilter`:
 
 ```json
 [
@@ -445,7 +445,7 @@ This configuration removes the `red` parameter before it's sent downstream.
 
 ### RemoveResponseHeader
 
-The `RemoveResponseHeader` GatewayFilter factory takes `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` GatewayFilter:
+The `RemoveResponseHeader` `GatewayFilter` factory takes a `name` parameter, which is the name of the header to be removed. The following listing configures a `RemoveResponseHeader` `GatewayFilter`:
 
 ```json
 [
