@@ -55,7 +55,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
    - **Resource group**: Select an existing resource group, or create a new resource group for the Azure Front Door and WAF resources.
    - **Name**: Enter the name of your Azure Front Door profile.
    - **Tier**: Select **Standard** or **Premium**. For this scenario, both tiers support rate limiting.
-   - **Endpoint name**: Azure Front Door endpoints must have globally unique names, so provide a unique name for your endpoint.
+   - **Endpoint name**: Provide a unique name for your endpoint because Azure Front Door endpoints must have globally unique names.
    - **Origin type** and **Origin host name**: Select the origin application that you want to protect with your rate-limit rule.
 
 1. Next to **WAF policy**, select **Create new**.
@@ -81,18 +81,18 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 1. Enter the information required to create a rate-limit rule:
 
    - **Custom rule name**: Enter the name of the custom rule, such as **rateLimitRule**.
-   - **Rule type**: Rate limit
+   - **Rule type**: Select **Rate limit**.
    - **Priority**: Enter the priority of the rule, such as **1**.
-   - **Rate limit duration**: 1 minute
-   - **Rate limit threshold (requests)**: 1000
+   - **Rate limit duration**: Select **1 minute**.
+   - **Rate limit threshold (requests)**: Enter **1000**.
 
 1. In **Conditions**, enter the information required to specify a match condition to identify requests where the URL contains the string `*/promo*`:
 
-   - **Match type**: String
-   - **Match variable**: RequestUri
-   - **Operation**: Is
-   - **Operator**: Contains
-   - **Match values**: */promo*
+   - **Match type**: Select **String**.
+   - **Match variable**: Enter **RequestUri**.
+   - **Operation**: Select **is**.
+   - **Operator**: Select **Contains**.
+   - **Match values**: Enter **/promo**.
 
 1. For **Action**, select **Log** or **Block**.
 
@@ -111,7 +111,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF doesn't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
 
-It's a good practice to [tune your WAF](waf-front-door-tuning.md) before you use prevention mode. Tuning helps to avoid false positive detections and your WAF blocking legitimate requests.
+[Tune your WAF](waf-front-door-tuning.md) before you use prevention mode. Tuning helps to avoid false positive detections. It also helps to prevent your WAF from blocking legitimate requests.
 
 Here you reconfigure the WAF to use prevention mode.
 
@@ -135,7 +135,7 @@ Before you begin to set up a rate-limit policy, set up your PowerShell environme
 
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources.
 
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Here you sign in with your Azure credentials and install the Azure PowerShell module for Azure Front Door Standard/Premium.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Here you sign in with your Azure credentials and install the Azure PowerShell module for Azure Front Door Standard or Premium.
 
 #### Connect to Azure with an interactive dialog for sign-in
 
@@ -147,7 +147,7 @@ Connect-AzAccount
 
 #### Install PowerShellGet
 
-Ensure that the current version of PowerShellGet is installed. Run the following command:
+Ensure that the current version of `PowerShellGet` is installed. Run the following command:
 
 ```azurepowershell
 Install-Module PowerShellGet -Force -AllowClobber
@@ -157,14 +157,14 @@ Then, restart PowerShell to ensure that you use the latest version.
 
 #### Install the Azure Front Door PowerShell modules
 
-Install the `Az.FrontDoor` and `Az.Cdn` PowerShell modules to work with Azure Front Door Standard/Premium from PowerShell:
+Install the `Az.FrontDoor` and `Az.Cdn` PowerShell modules to work with Azure Front Door Standard or Premium from PowerShell.
 
 ```azurepowershell
 Install-Module -Name Az.FrontDoor
 Install-Module -Name Az.Cdn
 ```
 
-You use the `Az.Cdn` module to work with Azure Front Door Standard/Premium resources. You use the `Az.FrontDoor` module to work with WAF resources.
+You use the `Az.Cdn` module to work with Azure Front Door Standard or Premium resources. Use the `Az.FrontDoor` module to work with WAF resources.
 
 ### Create a resource group
 
@@ -283,7 +283,7 @@ Before you begin to set up a rate-limit policy, set up your Azure CLI environmen
 
 The Azure CLI provides a set of commands that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources.
 
-You can install the [Azure CLI](/cli/azure/install-azure-cli) on your local machine and use it in any shell session. Here you sign in with your Azure credentials and install the Azure CLI extension for Azure Front Door Standard/Premium.
+You can install the [Azure CLI](/cli/azure/install-azure-cli) on your local machine and use it in any shell session. Here you sign in with your Azure credentials and install the Azure CLI extension for Azure Front Door Standard or Premium.
 
 #### Connect to Azure with an interactive dialog for sign-in
 
@@ -301,7 +301,7 @@ Install the `front-door` extension to work with the Azure Front Door WAF from th
 az extension add --name front-door
 ```
 
-You use the `az afd` commands to work with Azure Front Door Standard/Premium resources. You use the `az network front-door waf-policy` commands to work with WAF resources.
+You use the `az afd` commands to work with Azure Front Door Standard or Premium resources. Use the `az network front-door waf-policy` commands to work with WAF resources.
 
 ### Create a resource group
 
@@ -362,7 +362,7 @@ az network front-door waf-policy create \
 
 Use the [az network front-door waf-policy rule create](/cli/azure/network/front-door/waf-policy/rule#az-network-front-door-waf-policy-rule-create) command to create a custom rate-limit rule. The following example sets the limit to 1,000 requests per minute.
 
-Rate limit rules must contain a match condition, which you create in the next step. In this command, you include the `--defer` argument, which tells the Azure CLI not to submit the rule to Azure yet.
+Rate-limit rules must contain a match condition, which you create in the next step. In this command, you include the `--defer` argument, which tells the Azure CLI not to submit the rule to Azure yet.
 
 ```azurecli
 az network front-door waf-policy rule create \
@@ -432,7 +432,7 @@ The preceding code looks up the Azure resource identifiers for the WAF policy an
 
 ## Quickstart
 
-To create an Azure Front Door profile with a rate-limit rule by using Bicep, see the [Azure Front Door Standard/Premium with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) Bicep quickstart.
+To create an Azure Front Door profile with a rate-limit rule by using Bicep, see the [Azure Front Door Standard or Premium with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) Bicep quickstart.
 
 ::: zone-end
 
