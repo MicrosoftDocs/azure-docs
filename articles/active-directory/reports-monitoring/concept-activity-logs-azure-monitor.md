@@ -102,7 +102,7 @@ To get an idea of how much a log integration could cost for your organization, y
 
 To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. If possible, create a new resource group for the logs and endpoint you want to try out. Having a devoted resource group makes it easy to view the cost analysis and then delete it when you're done.
 
-With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](../../cost-management-billing/costs/quick-acm-cost-analysis.md) should help you get started. The figures in the following screenshot are used for example purposes and not intended to reflect actual amounts.
+With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](../../cost-management-billing/costs/quick-acm-cost-analysis.md) should help you get started. The figures in the following screenshot are used for example purposes and are not intended to reflect actual amounts.
 
 ![Screenshot of a cost analysis breakdown as a pie chart.](media/concept-activity-logs-azure-monitor/cost-analysis-breakdown.png)
 
@@ -117,7 +117,7 @@ From the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculat
 - [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
 
-Once you have an estimate for the GB/day that will be sent to an endpoint, enter that value in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The figures in the following screenshot are used for example purposes and not intended to reflect actual prices.
+Once you have an estimate for the GB/day that will be sent to an endpoint, enter that value in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The figures in the following screenshot are used for example purposes and are not intended to reflect actual prices.
 
 ![Screenshot of the Azure pricing calculator, with 8 GB/Day used as an example.](media/concept-activity-logs-azure-monitor/azure-pricing-calculator-values.png)
 
