@@ -2,8 +2,8 @@
 title: Configure private endpoint in Azure Static Web Apps
 description: Learn to configure private endpoint access for Azure Static Web Apps
 services: static-web-apps
-author: burkeholland
-ms.author: buhollan
+author: craigshoemaker
+ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 7/28/2021

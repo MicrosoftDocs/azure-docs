@@ -4,7 +4,7 @@
   items:
   - name: What is Azure DDoS Protection?
     href: ddos-protection-overview.md
-  - name: SKU comparison
+  - name: Tier comparison
     href: ddos-protection-sku-comparison.md
 - name: Quickstarts
   expanded: true
@@ -47,6 +47,8 @@
   items:
   - name: Azure DDoS Protection features
     href: ddos-protection-features.md
+  - name: Price comparison
+    href: ddos-pricing-guide.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
   - name: Monitoring Azure DDoS Protection 
