@@ -5,15 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 07/28/2023
 ms.author: cshoe
 ---
 
 # Get started with Azure Container Apps
 
-Azure Container Apps provides a fully managed experience for using containers on Azure. With Azure Container Apps, you can deploy a single containerized application all the way up to full microservices systems.
-
-Container Apps takes care of the server infrastructure while you focus on writing and maintaining your applications.
+Azure Container Apps provides a fully managed experience for using containers on Azure. With Azure Container Apps, you can deploy a single containerized application all the way up to full microservice-based systems. Container Apps takes care of the server infrastructure while you focus on writing and maintaining your applications.
 
 To begin, select the following area that best describes your needs.
 
@@ -21,7 +19,7 @@ To begin, select the following area that best describes your needs.
 
 Containers are all about simplicity, portability, and efficiency.
 
-Start here if you have yet to build your first container, but are curious how they can serve your development ecosystem.
+Start here if you have yet to build your first container, but are curious how they can serve your development needs.
 
 > [!div class="nextstepaction"]
 > [Learn more about containers](start-containers.md)
@@ -30,9 +28,9 @@ Start here if you have yet to build your first container, but are curious how th
 
 Running containers in production involves an array of concerns.
 
-Container Apps provides automatic scaling, reduces operational complexities, allows you to focus on your application rather than infrastructure.
+Container Apps provides automatic scaling, reduces operational complexities, and allows you to focus on your application rather than infrastructure.
 
-Start here if you're most interested in the management, scalability, and pay-per-use features cloud computing as you use containers.
+Start here if you're interested in management, scalability, and pay-per-use features cloud computing as you use containers.
 
 > [!div class="nextstepaction"]
 > [Learn more about serverless containers](start-serverless-containers.md)

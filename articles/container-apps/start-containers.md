@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 07/28/2023
 ms.author: cshoe
 ---
 
@@ -19,15 +19,13 @@ As you build, develop, and deploy applications, you quickly need to answer quest
 
 In the past, we've turned to virtual machines to solve these problems.
 
-Virtual machines emulate different environments. These virtual contexts provide an isolated and consistent place to run applications. Virtual machines work, but come with some significant drawbacks. Unfortunately, can be expensive, at times slow, and are prohibitively large.
+Virtual machines emulate full computing environments. These virtual contexts provide an isolated and consistent place to run applications. Unfortunately, virtual machines can be expensive, at times slow, and are prohibitively large.
 
 Containers solve the same problems, but are fundamentally different.
 
-Instead of creating a virtual representation of an entire computer, a container emulates all the necessary layers of computing on top of any computer. From code to configuration, from system tools to the operating system, a container packages every dependency needed to run your application. Fortunately with containers, they're cheap, fast, and easy to move around the network.
+Instead of creating a virtual representation of an entire system, a container creates an isolated environment for you application that can run on any machine. From code to configuration, from system tools to the operating system, a container packages every dependency required by your application. Fortunately, containers are cheap, fast, and easy to move around the network.
 
 Containers are tailor-made for the entire software development lifecycle.
-
-You create apps in your development environment with a container, and then run the same container on another machine, like a server. Containers makes your apps portable to various locations without worrying about hardware and operating system differences between environments. All you have to do is make sure the configuration settings reflect the right environment.
 
 ## Where to go next
 

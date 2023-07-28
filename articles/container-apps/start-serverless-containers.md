@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 07/28/2023
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ When you use serverless containers, your concerns remain on the needs of your ap
 
 Container Apps makes it easy to manage:
 
-1. **Changes**: As your containers change and evolve, you need a way to keep track of the changes. Container Apps catalogs changes as revisions to your containers. If you're experiencing a problem with a container, you can easily roll back to an older version.
+1. **Changes**: As your containers change and evolve, you need a way to keep track of the changes. Container Apps catalogs changes as [revisions](revisions.md) to your containers. If you're experiencing a problem with a container, you can easily roll back to an older version.
 
 1. **Demand levels**: Requests for your applications ebb and flow. Container Apps keeps your systems running even at high levels of demand. Container Apps meets the demand for your app at any level by [automatically creating new copies](scale-app.md) (called replicas) of your container. As demand falls, the runtime removes unneeded replicas on your behalf.
 
