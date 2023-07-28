@@ -71,7 +71,7 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 ### <a name="dns"></a>Azure DNS
 
-[Azure DNS](../../dns) provides DNS hosting and resolution using the Microsoft Azure infrastructure. Azure DNS consists of three services:
+[Azure DNS](../../dns/index) provides DNS hosting and resolution using the Microsoft Azure infrastructure. Azure DNS consists of three services:
 - [Azure Public DNS](../../dns/dns-overview.md) is a hosting service for DNS domains. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 - [Azure Private DNS](../../dns/private-dns-overview.md) is a DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. 
 - [Azure DNS Private Resolver](../../dns/dns-private-resolver-overview.md) is a service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers.
