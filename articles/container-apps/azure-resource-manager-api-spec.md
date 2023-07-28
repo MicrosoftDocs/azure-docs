@@ -21,7 +21,7 @@ The latest management API versions for Azure Container Apps are:
 - [`2022-10-01`](/rest/api/containerapps/stable/container-apps) (stable)
 - [`2023-04-01-preview`](/rest/api/containerapps/preview/container-apps) (preview)
 
-To learn more about teh differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
 ### Updating API versions
 
