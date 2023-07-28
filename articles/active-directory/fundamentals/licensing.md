@@ -17,7 +17,7 @@ ms.author: barclayn
 
 # Microsoft Entra ID licensing fundamentals
 
-This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article is not intended for end users.
+This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article is not intended for end users. For detailed licensing information, review [Microsoft Entra Plans & Pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
 
 ## Access reviews
 
