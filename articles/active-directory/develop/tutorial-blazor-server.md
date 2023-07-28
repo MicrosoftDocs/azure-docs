@@ -65,7 +65,7 @@ For more information on user secrets storage, see [safe storage of app secrets d
 
 ## Use the Microsoft Identity App Sync Tool
 
-Run the following command to register your app in your tenant and update the .NET configuration of your application. Provide the username/upn belonging to your Azure Account (for instance, username@domain.com) and the tenant ID or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from Single Sign On (SSO).
+Run the following command to register your app in your tenant and update the .NET configuration of your application. Provide the username/upn belonging to your Azure Account (for instance, `username@domain.com`) and the tenant ID or domain name of the Azure Active Directory associated with your Azure Account. If you use an account that is signed in in either Visual Studio, Azure CLI, or Azure PowerShell, you'll benefit from single sign-on (SSO).
 
 ```dotnetcli
 msidentity-app-sync --username <username/upn> --tenant-id <tenantID>
