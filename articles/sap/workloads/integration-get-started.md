@@ -203,7 +203,7 @@ Also see the following SAP resources:
 
 Protect your data, apps, and infrastructure against rapidly evolving cyber threats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
 
-Use Microsoft Defender to secure your endpoints surrounding the SAP system. Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
+Use [Microsoft Defender for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) and [Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) to secure your endpoints surrounding the SAP system. Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
 
 #### Microsoft Defender for Endpoint (MDE)
 
@@ -218,6 +218,9 @@ Also see the following SAP resources:
 
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
+
+> [!Note]
+> For EDR exclusions or tuning real-time scans contact Microsoft support.
 
 > [!Note]
 > Certification for the SAP Virus Scan Interface (NW-VSI) doesn't apply to MDE, because it operates outside of the SAP system. It complements Microsoft Sentinel for SAP, which interacts with the SAP system directly. See more details and the SAP certification note for Sentinel below.
