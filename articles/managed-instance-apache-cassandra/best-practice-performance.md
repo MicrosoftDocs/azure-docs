@@ -224,6 +224,19 @@ You might encounter this warning in the [CassandraLogs](monitor-clusters.md#crea
 
 This indicates a problem in the data model. Here is a [stack overflow article](https://stackoverflow.com/questions/74024443/how-do-i-analyse-and-solve-writing-large-partition-warnings-in-cassandra) that goes into more detail. This can cause severe performance issues and needs to be addressed.
 
+## Specialized optimizations
+### Compression 
+Cassandra alows the selection of an appropriate compression algortihm when a table is created (see [Compression](https://cassandra.apache.org/doc/latest/cassandra/operating/compression.html) The default is LZ4 which is excellent
+for throughput and CPU but consumes more space on disk. Using Zstd (Cassandra 4.0 and up) saves about ~12% space with 
+minimal CPU overhead.
+
+### Optimizing memtable heap space
+Our default is to use 1/4 of the JVM heap for [memtable_heap_space](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#memtable_heap_space)
+in the cassandra.yaml. For write oriented application and/or on SKUs with small memory
+this can lead to frequent flushing and fragmented sstables thus requiring more compaction.
+In such cases increasing it to at least 4048 might be beneficial but requires careful beanchmarking
+to make sure other operations (e.g. reads) are not effected.
+
 ## Next steps
 
 In this article, we laid out some best practices for optimal performance. You can now start working with the cluster:
