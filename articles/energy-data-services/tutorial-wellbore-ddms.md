@@ -56,7 +56,7 @@ Next, set up Postman:
 
    To import the files:
 
-   1. Click Import in Postman
+   1. Select **Import** in Postman.
 
       :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-button.png" alt-text="Screenshot that shows the import button in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
 
