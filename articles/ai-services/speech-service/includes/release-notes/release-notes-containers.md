@@ -13,7 +13,7 @@ Add support for the latest model versions:
 - Speech to text 4.1.0
 - Neural text to speech 2.15.0
 
-Fix the issue of running speech-to-text container via `docker` mount options with local custom model files.
+Fix the issue of running speech to text container via `docker` mount options with local custom model files.
 
 Fix the issue that in some cases `RECOGNIZING` event does not show up in response through speech SDK.
 
