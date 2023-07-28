@@ -221,11 +221,13 @@ Also see the following SAP resources:
 
 > [!Note]
 > Certification for the SAP Virus Scan Interface (NW-VSI) doesn't apply to MDE, because it operates outside of the SAP system. It complements Microsoft Sentinel for SAP, which interacts with the SAP system directly. See more details and the SAP certification note for Sentinel below.
+
+> [!Tip]
 > MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name. 
 
 #### Microsoft Sentinel for SAP
 
-For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with **Microsoft Sentinel for SAP**, see the following Microsoft resources:
+For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
 - [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
