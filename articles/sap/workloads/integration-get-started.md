@@ -201,13 +201,15 @@ Also see the following SAP resources:
 
 ### Microsoft Security for SAP
 
-Protect your data, apps, and infrastructure against rapidly evolving cyberthreats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
+Protect your data, apps, and infrastructure against rapidly evolving cyber threats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
 
-Use Microsoft Defender to secure your endpoints surrounding the SAP system. Use Microsoft Sentinel to protect your SAP system from within using signals from the SAP Audit Log among others.
+Use Microsoft Defender to secure your endpoints surrounding the SAP system. Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
 
 #### Microsoft Defender for Endpoint (MDE)
 
-For more information about using Microsoft Defender for Endpoint for SAP applications regarding Next-generation protection (AntiVirus) and Endpoint Detection and Response (EDR) see the following Microsoft resources:
+See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares).
+
+For more information about using Microsoft Defender for Endpoint for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
@@ -218,7 +220,8 @@ Also see the following SAP resources:
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
 > [!Note]
-> MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
+> Certification for the SAP Virus Scan Interface (NW-VSI) doesn't apply to MDE, because it operates outside of the SAP system. It complements Microsoft Sentinel for SAP, which interacts with the SAP system directly. See more details and the SAP certification note for Sentinel below.
+> MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name. 
 
 #### Microsoft Sentinel for SAP
 
