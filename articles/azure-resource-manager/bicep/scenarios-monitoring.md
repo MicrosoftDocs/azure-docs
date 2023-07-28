@@ -1,11 +1,9 @@
 ---
 title: Create monitoring resources by using Bicep
 description: Describes how to create monitoring resources by using Bicep.
-author: willvelida
-ms.author: willvelida
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/01/2022
+ms.date: 07/28/2023
 ---
 
 # Create monitoring resources by using Bicep
