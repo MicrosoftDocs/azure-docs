@@ -43,7 +43,7 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   1. In the **Subscription | Preview features** page, under **Settings**, select **Preview features**.
   1. Search and select **Dynamic Scope (preview)**.
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
-     If a preview feature doesn't require any approval, the registration state  **Registered** else, it is **Pending**. To request approval, submit an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). After the approval, the preview feature's state changes to **Registered**.
+     If a preview feature doesn't require any approval, the registration state  **Registered** else, it is **Pending**. To request approval, submit an [Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). After the approval, the preview feature's state changes to **Registered**.
      
 
 #### [Arc-enabled VMs](#tab/arcvms)
