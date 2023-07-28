@@ -56,7 +56,7 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### 1. Add the code
+### Add the code
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
@@ -136,7 +136,7 @@ appInsights.loadAppInsights();
 > [!TIP]
 > If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
 
-### 2. (Optional) Set the authenticated user context
+### (Optional) Set the authenticated user context
 
 If you want to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). 
 

@@ -30,7 +30,7 @@ Follow the steps in this section to instrument your application with the Applica
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
 
-### 1. Add the JavaScript code
+### Add the JavaScript code
 
 Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK:
 
@@ -102,7 +102,7 @@ Two methods are available to add the code to enable Application Insights via the
 
 ---
 
-### 2. Paste the connection string in your environment
+### Paste the connection string in your environment
 
 To paste the connection string in your environment, follow these steps:
 
@@ -116,7 +116,7 @@ To paste the connection string in your environment, follow these steps:
 
       The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml#do-new-azure-regions-require-the-use-of-connection-strings-).
 
-### 3. (Optional) Add SDK configuration
+### (Optional) Add SDK configuration
 
 The optional [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
@@ -124,7 +124,7 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-### 4. (Optional) Add advanced SDK configuration
+### (Optional) Add advanced SDK configuration
 
 If you want to use the extra features provided by plugins for specific frameworks and optionally enable the Click Analytics plug-in, see:
 
@@ -132,7 +132,7 @@ If you want to use the extra features provided by plugins for specific framework
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
-### 5. Confirm data is flowing
+### Confirm data is flowing
 
 1. Go to your Application Insights resource that you've enabled the SDK for. 
 1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.

@@ -77,7 +77,7 @@ The Angular plugin for the Application Insights JavaScript SDK enables:
 
 To add a plug-in, follow the steps in this section.
 
-### 1. Install the package
+### Install the package
 
 #### [React](#tab/react)
 
@@ -123,7 +123,7 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ---
 
-### 2. Add the extension to your code
+### Add the extension to your code
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -308,7 +308,7 @@ export class AppComponent {
 
 ---
 
-### 3. (Optional) Add the Click Analytics plug-in
+### (Optional) Add the Click Analytics plug-in
    
 If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md):
  
