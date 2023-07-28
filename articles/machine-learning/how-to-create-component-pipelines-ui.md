@@ -92,7 +92,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
     
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
     
-  In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = File(url_file) then follow the wizard to register the data. 
+  In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to allign with the [train component defination](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
 
