@@ -24,7 +24,7 @@ During app registration, you specify the redirect URI. The redirect URI is the e
 
 Azure AD for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
-In this article, you’ll learn how to register an application in your customer tenant.
+In this article, you learn how to register an application in your customer tenant.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The following steps show you how to register your SPA in the Microsoft Entra adm
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
@@ -75,7 +75,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 ### Grant API permissions (optional):
 
-If your SPA needs to call an API, you must grant your SPA API permissions so it can to call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call. 
+If your SPA needs to call an API, you must grant your SPA API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call. 
 
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
@@ -109,7 +109,7 @@ The following steps show you how to register your web app in the Microsoft Entra
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
@@ -131,7 +131,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 ### Grant API permissions (optional)
 
-If your web app needs to call an API, you must grant your web app API permissions so it can to call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
+If your web app needs to call an API, you must grant your web app API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
 
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
@@ -179,7 +179,7 @@ The following steps show you how to register your app in the Microsoft Entra adm
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
@@ -194,7 +194,7 @@ The following steps show you how to register your app in the Microsoft Entra adm
 
 ### Grant API permissions (optional)
 
-If your mobile app needs to call an API, you must grant your mobile app API permissions so it can to call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
+If your mobile app needs to call an API, you must grant your mobile app API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps

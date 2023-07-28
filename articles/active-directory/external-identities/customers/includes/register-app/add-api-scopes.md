@@ -16,7 +16,7 @@ An API needs to publish a minimum of one scope, also called [Delegated Permissio
 
 1. Under **Scopes defined by this API**, select **Add a scope**.
 
-1. Enter the following values that defines a read access to the API, then select **Add scope** to save your changes:
+1. Enter the following values that define a read access to the API, then select **Add scope** to save your changes:
     
 
     | Property | Value |
@@ -27,7 +27,7 @@ An API needs to publish a minimum of one scope, also called [Delegated Permissio
     | Admin consent description | *Allow the app to read the user's ToDo list using the 'TodoListApi'*. |
     | State | **Enabled** |
     
-1. Select **Add a scope** again, and enter the following values for the second scope that defines a read and write access to the API. Select **Add scope** to save your changes:
+1. Select **Add a scope** again, and enter the following values that define a read and write access scope to the API. Select **Add scope** to save your changes:
     
     | Property | Value |
     |----------|-------|
