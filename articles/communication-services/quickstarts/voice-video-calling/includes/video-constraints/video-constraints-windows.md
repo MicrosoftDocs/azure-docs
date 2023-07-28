@@ -91,8 +91,8 @@ Since the options are used to start/join a call, the constraints can then be app
     await callAgent.JoinAsync(locator, joinCallOptions);
 ```
 
-#### Apply video constraints during a call
-Instead of setting the video constraints before starting a call, you can also dynamically adjust the video constraints during a call. You need to call `ApplyVideoConstraints` on your `Call` type class and provide the constraints.
+#### Set video constraints during a call
+Instead of setting the video constraints before starting a call, you can also dynamically adjust the video constraints during a call. You need to call `SetVideoConstraints` on your `Call` type class and provide the constraints.
 ```csharp
 
     OutgoingVideoConstraints outgoingVideoConstraints = new OutgoingVideoConstraints()
@@ -112,10 +112,10 @@ Instead of setting the video constraints before starting a call, you can also dy
     constraints.OutgoingVideoConstraints = outgoingVideoConstraints;
     constraints.IncomingVideoConstraints = incomingVideoConstraints;
     
-    call.ApplyVideoConstraints(constraints);
+    call.SetVideoConstraints(constraints);
 ```
 
-To reset/remove the video constraints you previously set, you have to follow the above pattern and provide `0` as a constraint value. Providing `null` values for either `IncomingVideoConstraints` or `OutgoingVideoConstraints` won't reset/remove the constraints but simply be ignored. 
+To reset/remove the video constraints you previously set, you have to follow the above pattern and provide `0` as a constraint value. Providing `null` values for either `IncomingVideoConstraints` or `OutgoingVideoConstraints` won't reset/remove the constraints and the constraints with a `null` value will be ignored. 
 
 
 ### Limitations
