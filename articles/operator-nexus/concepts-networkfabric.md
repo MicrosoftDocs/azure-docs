@@ -23,6 +23,8 @@ Operator Nexus enables you to -
 * Tap or mirror desired network data with Network Packet Broker.
 * Get highly available and robust control plane for your network infrastructure.
 
+:::image type="content" source="media/networking-concepts-1.png" alt-text="Screenshot of Resource Types.":::
+
 Key capabilities offered in Azure Operator Nexus Network Fabric -
 
 * **Bootstrapping and lifecycle management** - Automated bootstrapping & provisioning of network fabric resources based on network function use-cases. It provides various controls to manage network devices in operator premises via Azure APIs.
@@ -41,8 +43,8 @@ Key benefits of Azure Operator Nexus Network Fabric -
 
 * **Consistency and Reliability** - Automation eliminates human errors, leading to consistent and reliable network configurations and operations. 
 
-**Security** - Automated policy enforcement helps maintain consistent security measures across the network fabric.
+* **Security** - Automated policy enforcement helps maintain consistent security measures across the network fabric.
 
-**Reduced OPEX** - Automation reduces operational expenses by reducing manual efforts and simplifying management.
+* **Reduced OPEX** - Automation reduces operational expenses by reducing manual efforts and simplifying management.
 
-**Flexibility and Adaptability** - Automation enables the fabric to adapt to dynamic workloads and changing network requirements efficiently.
+* **Flexibility and Adaptability** - Automation enables the fabric to adapt to dynamic workloads and changing network requirements efficiently.
