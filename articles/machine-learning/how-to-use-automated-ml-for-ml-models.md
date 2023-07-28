@@ -277,7 +277,7 @@ To generate a Responsible AI dashboard for a particular model,
 
 1. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the **View Responsible AI dashboard** link: 
 
- ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
+  ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
 
 The Responsible AI dashboard appears for that model as shown in this image:
 
@@ -292,7 +292,7 @@ In the dashboard, you'll find four components activated for your Automated ML’
 | [Model Explanations](how-to-machine-learning-interpretability.md) | Use the model explanation component to generate human-understandable descriptions of the predictions of a machine learning model by looking at: <br> Global explanations: For example, what features affect the overall behavior of a loan allocation model? <br> Local explanations: For example, why was a customer's loan application approved or rejected? | [Model Explainability Charts](how-to-responsible-ai-dashboard.md#feature-importances-model-explanations) |
 | [Data Analysis](concept-data-analysis.md) | Use data analysis when you need to: <br> Explore your dataset statistics by selecting different filters to slice your data into different dimensions (also known as cohorts). <br> Understand the distribution of your dataset across different cohorts and feature groups. <br> Determine whether your findings related to fairness, error analysis, and causality (derived from other dashboard components) are a result of your dataset's distribution. <br> Decide in which areas to collect more data to mitigate errors that come from representation issues, label noise, feature noise, label bias, and similar factors. | [Data Explorer Charts](how-to-responsible-ai-dashboard.md#data-analysis) |
 
-1. You can further create cohorts (subgroups of data points that share specified characteristics) to focus your analysis of each component on different cohorts. The name of the cohort that's currently applied to the dashboard is always shown at the top left of your dashboard. The default view in your dashboard is your whole dataset, titled All data (default). Learn more about the [global control of your dashboard here.](how-to-responsible-ai-dashboard.md#global-controls)
+1. You can further create cohorts (subgroups of data points that share specified characteristics) to focus your analysis of each component on different cohorts. The name of the cohort that's currently applied to the dashboard is always shown at the top left of your dashboard. The default view in your dashboard is your whole dataset, titled "All data" (by default). Learn more about the [global control of your dashboard here.](how-to-responsible-ai-dashboard.md#global-controls)
 
 
 ## Edit and submit jobs (preview)
