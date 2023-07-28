@@ -163,7 +163,7 @@ To attach a system-assigned managed identity to your dev center:
 
 ### Assign roles for the dev center managed identity
 
-Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). You must also give the managed identity access to the key vault secret that stores your GitHub PAT. 
+The managed identity that represents your dev center requires access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types), and to the key vault secret that stores your GitHub PAT. 
 
 1.	Navigate to your dev center.
 1.  On the left menu under Settings, select **Identity**.
