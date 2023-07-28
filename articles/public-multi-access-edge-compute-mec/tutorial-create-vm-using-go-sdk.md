@@ -33,11 +33,15 @@ In this tutorial, you learn how to:
 
 You could download and install the latest version of Go from [here](https://go.dev/doc/install). It will replace the existing Go on your machine. If you want to install multiple Go versions on the same machine, you could refer this [doc](https://go.dev/doc/manage-install).
 
-### Using Azure CLI to Sign In
+### Authentication
+
+You need to get authentication before you using any Azure service. You could either use Azure CLI to sign in or set authentication environment variables.
+
+#### Using Azure CLI to Sign In
 
 You could easily use `az login` in command line to sign in to Azure via your default browser. Detail instructions can be found in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-### Setting Environment Variables
+#### Setting Environment Variables
 
 You will need the following values to authenticate to Azure
 
@@ -144,7 +148,7 @@ func main() {
 	// Step 1: Provision a resource group
 	_, err = resourcesClientFactory.NewResourceGroupsClient().CreateOrUpdate(
 		context.Background(),
-		"resourceGroupName",
+		"<resourceGroupName>",
 		armresources.ResourceGroup{
 			Location: to.Ptr("westus"),
 		},
@@ -157,10 +161,14 @@ func main() {
 	// Step 2: Provision a virtual network
 	virtualNetworksClientCreateOrUpdateResponsePoller, err := networkClientFactory.NewVirtualNetworksClient().BeginCreateOrUpdate(
 		context.Background(),
-		"resourceGroupName",
-		"virtualNetworkName",
+		"<resourceGroupName>",
+		"<virtualNetworkName>",
 		armnetwork.VirtualNetwork{
 			Location: to.Ptr("westus"),
+			ExtendedLocation: &armnetwork.ExtendedLocation{
+				Name: to.Ptr("<edgezoneid>"),
+				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
+			},
 			Properties: &armnetwork.VirtualNetworkPropertiesFormat{
 				AddressSpace: &armnetwork.AddressSpace{
 					AddressPrefixes: []*string{
@@ -194,10 +202,10 @@ func main() {
 		"<resourceGroupName>",
 		"<publicIPName>",
 		armnetwork.PublicIPAddress{
-			Name:     to.Ptr("publicIPName"),
+			Name:     to.Ptr("<publicIPName>"),
 			Location: to.Ptr("westus"),
 			ExtendedLocation: &armnetwork.ExtendedLocation{
-				Name: to.Ptr("microsoftlosangeles1"),
+				Name: to.Ptr("<edgezoneid>"),
 				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
 			},
 			SKU: &armnetwork.PublicIPAddressSKU{
@@ -220,15 +228,19 @@ func main() {
 	// Step 4: Provision the network interface client
 	interfacesClientCreateOrUpdateResponsePoller, err := networkClientFactory.NewInterfacesClient().BeginCreateOrUpdate(
 		context.Background(),
-		"resourceGroupName",
-		"networkInterfaceName",
+		"<resourceGroupName>",
+		"<networkInterfaceName>",
 		armnetwork.Interface{
 			Location: to.Ptr("westus"),
+			ExtendedLocation: &armnetwork.ExtendedLocation{
+				Name: to.Ptr("<edgezoneid>"),
+				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
+			},
 			Properties: &armnetwork.InterfacePropertiesFormat{
 				EnableAcceleratedNetworking: to.Ptr(true),
 				IPConfigurations: []*armnetwork.InterfaceIPConfiguration{
 					{
-						Name: to.Ptr("ipconfig1"),
+						Name: to.Ptr("<ipConfigurationName>"),
 						Properties: &armnetwork.InterfaceIPConfigurationPropertiesFormat{
 							Subnet: &armnetwork.Subnet{
 								ID: to.Ptr(subnetID),
@@ -254,8 +266,8 @@ func main() {
 	// Step 5: Provision the virtual machine
 	virtualMachinesClientCreateOrUpdateResponsePoller, err := computeClientFactory.NewVirtualMachinesClient().BeginCreateOrUpdate(
 		context.Background(),
-		"resourceGroupName",
-		"vmName",
+		"<resourceGroupName>",
+		"<vmName>",
 		armcompute.VirtualMachine{
 			Location: to.Ptr("westus"),
 			ExtendedLocation: &armcompute.ExtendedLocation{
@@ -265,9 +277,9 @@ func main() {
 			Properties: &armcompute.VirtualMachineProperties{
 				StorageProfile: &armcompute.StorageProfile{
 					ImageReference: &armcompute.ImageReference{
-						Publisher: to.Ptr("<PublisherName>"),
-						Offer:     to.Ptr("<Offer>"),
-						SKU:       to.Ptr("<SKU>"),
+						Publisher: to.Ptr("<publisher>"),
+						Offer:     to.Ptr("<offer>"),
+						SKU:       to.Ptr("<sku>"),
 						Version:   to.Ptr("<version>"),
 					},
 				},
@@ -275,9 +287,9 @@ func main() {
 					VMSize: to.Ptr(armcompute.VirtualMachineSizeTypesStandardD2SV3),
 				},
 				OSProfile: &armcompute.OSProfile{
-					ComputerName:  to.Ptr("<vmname>"),
-					AdminUsername: to.Ptr("<username>"),
-					AdminPassword: to.Ptr("password"),
+					ComputerName:  to.Ptr("<computerName>"),
+					AdminUsername: to.Ptr("<adminUsername>"),
+					AdminPassword: to.Ptr("<adminPassword>"),
 				},
 				NetworkProfile: &armcompute.NetworkProfile{
 					NetworkInterfaces: []*armcompute.NetworkInterfaceReference{
