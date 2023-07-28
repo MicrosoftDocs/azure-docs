@@ -18,18 +18,18 @@ These plugins provide extra functionality and integration with the specific fram
 
 ## Prerequisites
 
+- Install the [JavaScript SDK]((./javascript-sdk.md)).
+
 ### [React](#tab/react)
 
-- If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
+None.
 
 ### [React Native](#tab/reactnative)
 
 - You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
-- If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
 
 ### [Angular](#tab/angular)
 
-- If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
 - The Angular plugin is NOT ECMAScript 3 (ES3) compatible.
 - When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
 
