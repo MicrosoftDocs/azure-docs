@@ -13,7 +13,7 @@ ms.date: 07/26/2023
 
 # RedisListTrigger Azure Function (preview)
 
-The `RedisListsTrigger` pops new elements from a list and surfaces those entries to the function.
+The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 
 ## Scope of availability for functions triggers
 
@@ -235,7 +235,7 @@ See the Example section for complete examples.
 
 ## Usage
 
-The `RedisListsTrigger` pops new elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
+The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
 ### Output
 <!-- This isn't in the template. I understand what it is but we need to ask Glenn where this goes.  -->

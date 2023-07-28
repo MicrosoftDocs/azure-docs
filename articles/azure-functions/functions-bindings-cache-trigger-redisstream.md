@@ -13,7 +13,7 @@ ms.date: 07/26/2023
 
 # RedisStreamTrigger Azure Function (preview)
 
-The `RedisStreamsTrigger` reads new entries from a stream and surfaces those elements to the function.
+The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
 | Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
 |---------|:-----:|:-----------------:|:----------------------------:|
