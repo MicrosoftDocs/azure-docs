@@ -364,13 +364,15 @@ You define a data factory in the Resource Manager template as shown in the follo
 
 ```json
 "resources": [
-{
+  {
     "name": "[variables('dataFactoryName')]",
     "apiVersion": "2015-10-01",
     "type": "Microsoft.DataFactory/factories",
     "location": "West US"
-}
+  }
+]
 ```
+
 The dataFactoryName is defined as:
 
 ```json
