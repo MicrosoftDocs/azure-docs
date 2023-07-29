@@ -241,7 +241,7 @@ Follow these steps to add a location tag to your device's twin:
 1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
 
     ```json
-    		, "tags": {"location": "Plant 43"}
+      , "tags": {"location": "Plant 43"}
     ```
 
     :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal.":::
