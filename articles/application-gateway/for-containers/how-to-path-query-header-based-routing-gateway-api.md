@@ -249,32 +249,34 @@ fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addres
 
 By using the curl command, we can validate three different scenarios:
 
-1. Path based routing: Client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service
+### Path based routing
+In this scenario, the client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service.
 
 Run the following command:
 ```bash
-curl https://$fqdn/bar
+curl http://$fqdn/bar
 ```
 
 Notice the container serving the request is backend-v2.
 
-2. Querystring + header + path routing: Client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
+### Querystring + header + path routing
+In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
 
 Run the following command:
 ```bash
-curl https://$fqdn/some/thing?great=example -H "magic: foo"
+curl http://$fqdn/some/thing?great=example -H "magic: foo"
 ```
 
 Notice the container serving the request is backend-v2.
 
-3. If neither of the first two scenarios are satisfied, Application Gateway for Containers will route all other requests to the backend-v1 service.
+### Default route
+If neither of the first two scenarios are satisfied, Application Gateway for Containers will route all other requests to the backend-v1 service.
 
 Run the following command:
 ```bash
-curl https://$fqdn/
+curl http://$fqdn/
 ```
 
 Notice the container serving the request is backend-v1.
-
 
 Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to the application via Gateway API on Application Gateway for Containers.
