@@ -220,7 +220,7 @@ df.show()
 ``` 
 
 > [!NOTE]  
-> When you mount the storage using linked service, you should always explicitly set spark linked service configuration before using synfs schema to access the data. Please refer to this link for details: [ADLS Gen2 storage with linked services](./apache-spark-secure-credentials-with-tokenlibrary#adls-gen2-storage-without-linked-services)
+> When you mount the storage using linked service, you should always explicitly set spark linked service configuration before using synfs schema to access the data. Please refer to this link for details: [ADLS Gen2 storage with linked services](./apache-spark-secure-credentials-with-tokenlibrary.md#adls-gen2-storage-without-linked-services)
 
 ### Read a file from a mounted Blob Storage account 
 
