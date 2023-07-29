@@ -107,7 +107,7 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 1. Comment out the following line near the top of the file as shown:
 
     ```c
-    // #define ENABLE_DPS 
+    // #define ENABLE_DPS
     ```
 
 1. Uncomment the following two lines near the end of the file as shown:
@@ -143,11 +143,11 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 > For more information about setting up and getting started with the Renesas RX65N, see [Renesas RX65N Cloud Kit Quick Start](https://www.renesas.com/document/man/quick-start-guide-renesas-rx65n-cloud-kit).
 
 1. Complete the following steps using the following image as a reference.
-    
+
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/renesas-rx65n.jpg" alt-text="Photo of the Renesas RX65N board that shows the reset, USB, and E1/E2Lite.":::
 
 1. Remove the **EJ2** link from the board to enable the E2 Lite debugger. The link is located underneath the **USER SW** button.
-    > [!WARNING] 
+    > [!WARNING]
     > Failure to remove this link will result in being unable to flash the device.
 
 1. Connect the **WiFi module** to the **Cloud Option Board**
@@ -178,14 +178,14 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication.":::
 
-6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.  
+6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.
     > [!IMPORTANT]
-    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower. 
+    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower.
 
 
 6. Select the *Operation* tab, then select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
 
-7. Press *Start* to begin flashing. This process takes less than a minute. 
+7. Press *Start* to begin flashing. This process takes less than a minute.
 
 ### Confirm device connection details
 
@@ -207,45 +207,45 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-    
-    
+
+
     Initializing WiFi
-    	MAC address: ****************
-    	Firmware version 0.14
+        MAC address: ****************
+        Firmware version 0.14
     SUCCESS: WiFi initialized
-    
+
     Connecting WiFi
-    	Connecting to SSID '*********'
-    	Attempt 1...
+        Connecting to SSID '*********'
+        Attempt 1...
     SUCCESS: WiFi connected
-    
+
     Initializing DHCP
-    	IP address: 192.168.0.31
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        IP address: 192.168.0.31
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address: 192.168.0.1
+        DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP server 1.pool.ntp.org
-    	SNTP time update: May 19, 2023 20:40:56.472 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP server 1.pool.ntp.org
+        SNTP time update: May 19, 2023 20:40:56.472 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: ******.azure-devices.net
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
+        Hub hostname: ******.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
     SUCCESS: Connected to IoT Hub
-    
+
     Receive properties: {"desired":{"$version":1},"reported":{"$version":1}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
-    
+
     Starting Main loop
     Telemetry message sent: {"humidity":0,"temperature":0,"pressure":0,"gasResistance":0}.
     Telemetry message sent: {"accelerometerX":-632,"accelerometerY":62,"accelerometerZ":8283}.
@@ -257,7 +257,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Renesas RX65N. These capabilities rely on the device model published for the Renesas RX65N in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Renesas RX65N. These capabilities rely on the device model published for the Renesas RX65N in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -284,7 +284,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -292,7 +292,7 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
@@ -382,7 +382,7 @@ To use Azure CLI to call a method:
     {
         "payload": {},
         "status": 200
-    }    
+    }
     ```
 
 1. Check your device to confirm the LED state.
@@ -391,8 +391,8 @@ To use Azure CLI to call a method:
 
     ```output
     Received command: setLedState
-    	Payload: true
-    	LED is turned ON
+        Payload: true
+        LED is turned ON
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=23{"ledState":true}
     ```
 
@@ -408,7 +408,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Renesas RX65N device. You connected the Renesas RX65N to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
