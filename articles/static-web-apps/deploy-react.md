@@ -30,9 +30,9 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 1. Name your repository **my-first-static-web-app**
 
-Select **Create repository from template**.
+1. Select **Create repository from template**.
 
-:::image type="content" source="media/getting-started/create-template.png" alt-text="Create repository from template":::
+    :::image type="content" source="media/getting-started/create-template.png" alt-text="Screenshot of create repository from template button.":::
 
 ::: zone-end
 
