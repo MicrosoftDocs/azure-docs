@@ -10,6 +10,8 @@ ms.author: geguirgu
 # MQTT features support in Azure Event Grid
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 MQTT v5 has introduced many improvements over MQTT v3.1.1 to deliver a more seamless, transparent, and efficient communication. It added:
 - Better error reporting.
 - More transparent communication  clients through features like user properties and content type.
@@ -72,6 +74,7 @@ For more information, see [How to establish multiple sessions for a single clien
 - If a client tries to take over another client's active session by presenting its session name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected.
 - If a client resource is deleted without ending its session, other clients can't to use its session name until the session expires. For example, If client B creates a session with session name 123 then client B deleted, client A can't connect to session 123 until it expires.
 
+
 ## MQTT features
 Event Grid supports the following MQTT features:
 
@@ -94,7 +97,8 @@ You can configure the maximum session expiry interval allowed for all your clien
 Event Grid maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with Event Grid again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
 
 ### User properties 
-Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile based on your needs. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
+Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
+
 ### Request-response pattern
 MQTTv5 introduced fields in the MQTT PUBLISH packet header that provide context for the response message in the request-response pattern. These fields include a response topic and a correlation ID that the responder can use in the response without prior configuration. The response information enables more efficient communication for the standard request-response pattern that is used in command-and-control scenarios.
 
@@ -102,6 +106,7 @@ MQTTv5 introduced fields in the MQTT PUBLISH packet header that provide context 
 
 ### Message expiry interval:
 In MQTT v5, message expiry interval allows messages to have a configurable lifespan. The message expiry interval is defined as the time interval between the time a message is published to Event Grid and the time when the Event Grid needs to discard the message if it hasn't been delivered. This feature is useful in scenarios where messages are only valid for a certain amount of time, such as time-sensitive commands, real-time data streaming, or security alerts. By setting a message expiry interval, Event Grid can automatically remove outdated messages, ensuring that only relevant information is available to subscribers. If a message's expiry interval is set to zero, it means the message should never expire.
+
 ### Topic aliases:
 In MQTT v5, topic aliases allow a client to use a shorter alias in place of the full topic name in the published message. Event Grid maintains a mapping between the topic alias and the actual topic name. This feature can save network bandwidth and reduce the size of the message header, particularly for topics with long names. It's useful in scenarios where the same topic is repeatedly published in multiple messages, such as in sensor networks. Event Grid supports up to 10 topic aliases. A client can use a Topic Alias field in the PUBLISH packet to replace the full topic name with the corresponding alias.
 
@@ -109,6 +114,7 @@ In MQTT v5, topic aliases allow a client to use a shorter alias in place of the 
 
 ### Flow control
 In MQTT v5, flow control refers to the mechanism for managing the rate and size of messages that a client can handle. Flow control can be configured by setting the Maximum Packet Size and Receive Maximum parameters in the CONNECT packet. The Receive Maximum parameter allows the client to limit the number of messages sent by the broker to the number of messages that the client is able to handle. The Maximum Packet Size parameter defines the maximum size of packets that the client can receive. Event Grid has a message size limit of 512 KiB. This feature ensures reliability and stability of the communication for constrained devices with limited processing speed or storage capabilities.
+
 ### Negative acknowledgments and server-initiated disconnect packet
 For MQTT v5, Event Grid is able to send negative acknowledgments (NACKs) and server-initiated disconnect packets that provide the client with more information about failures for  message delivery or connection. These features help the client diagnose the reason behind a failure and take appropriate mitigating actions. Event Grid uses the reason codes that are defined in the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 

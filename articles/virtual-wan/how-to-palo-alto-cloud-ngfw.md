@@ -37,9 +37,6 @@ The following section describes the common security use cases for Palo Alto Netw
 
 ### Private (on-premises and virtual network) traffic 
 
->[!NOTE] 
-> Traffic between connections to Virtual Hubs in **different** Azure regions will be dropped. Support for inter-region traffic flows is coming soon and are delineated with dotted lines.
- 
 #### East-west traffic inspection
 
 Virtual WAN routes traffic from  Virtual Networks to Virtual Network or from  on-premises (Site-to-site VPN, ExpressRoute, Point-to-site VPN) to on-premises to Cloud NGFW deployed in the hub for inspection.
@@ -82,7 +79,7 @@ To create a new virtual WAN, use the steps in the following article:
 
 ## Known limitations
 
-* Palo Alto Networks Cloud NGFW is only available in the following Azure regions: Central US, East US, East US 2, West Europe and Australia East. Other Azure regions are on the roadmap.
+* Palo Alto Networks Cloud NGFW is only available in the following Azure regions: Central US, East US, East US 2, West US, West Europe, Australia East, Australia Southeast, UK South, UK West, Canada Central and East Asia. Other Azure regions are on the roadmap.
 * Palo Alto Networks Cloud NGFW can only be deployed in new Virtual WAN hubs deployed with Azure resource tag **"hubSaaSPreview : true"**. Using existing Virtual Hubs with Palo Alto Networks Cloud NGFW is on the roadmap.
 * Palo Alto Networks Cloud NGFW can't be deployed with Network Virtual Appliances in the Virtual WAN hub. 
 * For routing between Virtual WAN and Palo Alto Networks Cloud NGFW to work properly, your entire network (on-premises and Virtual Networks) must be within RFC-1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12). For example, you may not use a subnet such as 40.0.0.0/24 within your Virtual Network or on-premises. Traffic to 40.0.0.0/24 may not be routed properly.  
@@ -90,10 +87,12 @@ To create a new virtual WAN, use the steps in the following article:
 
 ## Register resource provider
 
-To you Palo Alto Networks Cloud NGFW, you must register the **PaloAltoNetworks.Cloudngfw** resource provider to your subscription with an API version that is at minimum **2022-08-29-preview**.
+To use Palo Alto Networks Cloud NGFW, you must register the **PaloAltoNetworks.Cloudngfw** resource provider to your subscription with an API version that is at minimum **2022-08-29-preview**.
 
 For more information on how to register a Resource Provider to an Azure subscription, see [Azure resource providers and types documentation](../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## Deploy virtual hub
+
 The following steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW.
 
 1. Navigate to your Virtual WAN resource.

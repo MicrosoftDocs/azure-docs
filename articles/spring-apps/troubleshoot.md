@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Troubleshoot common Azure Spring Apps issues
@@ -14,15 +14,17 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article provides instructions for troubleshooting Azure Spring Apps development issues. For more information, see [Azure Spring Apps FAQ](./faq.md).
 
 ## Availability, performance, and application issues
 
-### My application can't start (for example, the endpoint can't be connected, or it returns a 502 after a few retries)
+### My application can't start
 
-Export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+When your application can't start, you may find that its endpoint can't be connected or it returns a 502 after a few retries.
+
+For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 The following error message might appear in your logs: `org.springframework.context.ApplicationContextException: Unable to start web server`
 
@@ -103,7 +105,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For enterprise tier, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
+* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For Enterpriseplan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
@@ -232,17 +234,17 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the free tier doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
-## Enterprise tier
+## Enterprise plan
 
 ### Error 112039: Failed to purchase on Azure Marketplace
 
-Creating an Azure Spring Apps Enterprise tier instance fails with error code "112039". For more information, check the detailed error message in the following list:
+Creating an Azure Spring Apps Enterprise plan instance fails with error code "112039". For more information, check the detailed error message in the following list:
 
-* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Apps Enterprise tier purchase a SaaS offer from VMware.
+* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."**: Azure Spring Apps Enterprise plan purchase a SaaS offer from VMware.
 
-  You must register the Microsoft.SaaS resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+  You must register the `Microsoft.SaaS` resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 * **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address isn't in the supported location.
 
@@ -268,19 +270,19 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
 
 ### No plans are available for market '\<Location>'
 
-When you visit the SaaS offer [Azure Spring Apps Enterprise Tier](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
 
 ![No plans available error image](./media/troubleshoot/no-enterprise-plans-available.png)
 
-Azure Spring Apps Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
+The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Apps Enterprise Tier](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 
-### I need VMware Spring Runtime Support (Enterprise tier only)
+### I need VMware Spring Runtime Support (Enterprise plan only)
 
-Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). For more information on registering and using this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open a support ticket with Microsoft.
+The Enterprise plan has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). For more information on registering and using this support service, see the Support section in the [Enterprise FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open a support ticket with Microsoft.
 
 ## Next steps
 

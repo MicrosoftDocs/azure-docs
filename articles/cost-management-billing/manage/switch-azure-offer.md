@@ -88,7 +88,7 @@ You might not see the **Switch Offer** option if:
   * To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * You're still in your first billing period; you must wait for your first billing period to end before you can switch offers.
 
-### Why do I see "There are no offers available in your region or country at this time"?
+### Why do I see "There are no offers available in your country/region at this time"?
 
 * You might not be eligible for any offer switches. Check the [list of available offers you can switch to](#whats-supported) and make sure that you've activated the right benefits with Visual Studio or Bizspark.
 * Some offers may not be available in all countries/regions.

@@ -6,6 +6,7 @@ ms.author: yuchungchen
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -149,7 +150,7 @@ map.layers.add(layer, "transit")
 
 ::: zone-end
 
-The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map](https://viewer.nationalmap.gov/services/) on top of a map, below the roads and labels.
+The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below the roads and labels.
 
 ![Android map displaying WMTS tile layer](media/how-to-add-tile-layer-android-map/android-tile-layer-wmts.jpg)
 

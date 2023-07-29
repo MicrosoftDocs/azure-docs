@@ -14,6 +14,8 @@ Client Life Cycle events allow applications to react to events about the client 
 - React with a mitigation action for client disconnections. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
 - Track the namespace that your clients are attached to during automated failovers.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Event types
 
 The Event Grid namespace publishes the following event types:

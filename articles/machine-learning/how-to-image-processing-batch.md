@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to deploy a model in batch endpoints that process images
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: devplatv2, devx-track-azurecli
 
 # Image processing with batch model deployments
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Batch model deployments can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
@@ -39,7 +39,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 
 ## Image classification with batch deployments
@@ -187,7 +187,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml":::
   
@@ -361,10 +361,10 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
     | file                        | class | probabilities | label        |
     |-----------------------------|-------|---------------| -------------|
-    | n02088094_Afghan_hound.JPEG | 161   | 0.994745	    | Afghan hound |
-    | n02088238_basset            | 162	| 0.999397      | basset       |
+    | n02088094_Afghan_hound.JPEG | 161   | 0.994745      | Afghan hound |
+    | n02088238_basset            | 162   | 0.999397      | basset       |
     | n02088364_beagle.JPEG       | 165   | 0.366914      | bluetick     |
-    | n02088466_bloodhound.JPEG   | 164   | 0.926464	    | bloodhound   |
+    | n02088466_bloodhound.JPEG   | 164   | 0.926464      | bloodhound   |
     | ...                         | ...   | ...           | ...          |
     
 
@@ -381,7 +381,7 @@ On those cases, we may want to perform inference on the entire batch of data. Th
 
     __code/score-by-batch/batch_driver.py__
     
-    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-file/batch_driver.py" :::
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-batch/batch_driver.py" :::
 
     > [!TIP]
     > * Notice that this script is constructing a tensor dataset from the mini-batch sent by the batch deployment. This dataset is preprocessed to obtain the expected tensors for the model using the `map` operation with the function `decode_img`.
@@ -392,7 +392,7 @@ On those cases, we may want to perform inference on the entire batch of data. Th
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-batch.yml":::
   

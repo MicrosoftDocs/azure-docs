@@ -55,6 +55,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 
 The following documents may be interesting to you:
 
+- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - Get a [short code](../../quickstarts/sms/apply-for-short-code.md)

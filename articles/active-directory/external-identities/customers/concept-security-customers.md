@@ -43,12 +43,6 @@ Azure AD [Identity Protection](../../identity-protection/overview-identity-prote
 
 Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. For details, see [Investigate risk with Identity Protection in Azure AD for customers](how-to-identity-protection-customers.md).
 
-## Identity governance
-
-Identity Governance in a customer tenant enables you to mitigate access risk by protecting, monitoring, and auditing access to your critical assets. It includes identity access lifecycle capabilities that help you manage access over time as needs change. Identity Governance also helps you scale efficiently to be able to develop and enforce access policy and controls on an ongoing basis.
-
-Start using Identity Governance in the [Microsoft Entra admin center](https://entra.microsoft.com) by selecting the **Identity Governance** tile. On the Identity Governance page, find information for getting started with capabilities such as Entitlement Management, access reviews, and Privileged Identity Management.
-
 ## Next steps
 
 - [Planning for customer identity and access management](concept-planning-your-solution.md)

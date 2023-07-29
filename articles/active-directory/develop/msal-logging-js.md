@@ -12,11 +12,11 @@ ms.workload: identity
 ms.date: 12/21/2021
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 # Logging in MSAL.js
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Configure logging in MSAL.js
 

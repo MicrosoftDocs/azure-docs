@@ -33,9 +33,11 @@ To create collections on the My Apps portal, you need:
 
 ## Create a collection
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as an admin with an Azure AD Premium P1 or P2 license.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an admin with an Azure AD Premium P1 or P2 license.
 
 2. Go to **Azure Active Directory** > **Enterprise Applications**.
 

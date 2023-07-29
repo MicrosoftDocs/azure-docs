@@ -21,9 +21,9 @@ In this article, you can learn to secure header and LDAP-based applications usin
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication
   * See also, [What is Conditional Access?](../conditional-access/overview.md) to learn about how it helps enforce organizational policies
 * Full single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com)
 
-To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md).
+To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
 ## Scenario description
 
@@ -80,6 +80,8 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 >Replace example strings or values in this guide with those for your environment.
 
 ## Register Easy Button
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
@@ -366,6 +368,6 @@ If there's no error page, then the issue is probably related to the back-end req
 
 Use the following command from the BIG-IP bash shell to validate the APM service account for LDAP queries. Confirm authentication and query of a user object.
 
- ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+ ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
 
 For more information, see the F5 article [K11072: Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). You can use a BIG-IP reference table to help diagnose LDAP-related issues in AskF5 document, [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).

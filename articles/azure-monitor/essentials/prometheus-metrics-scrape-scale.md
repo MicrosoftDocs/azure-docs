@@ -1,5 +1,5 @@
 ---
-title: Scrape Prometheus metrics at scale in Azure Monitor (preview)
+title: Scrape Prometheus metrics at scale in Azure Monitor
 description: Guidance on performance that can be expected when collection metrics at high scale for Azure Monitor managed service for Prometheus.
 ms.topic: conceptual
 ms.custom: ignite-2022
@@ -7,7 +7,7 @@ ms.date: 09/28/2022
 ms.reviewer: viviandiec
 ---
 
-# Scrape Prometheus metrics at scale in Azure Monitor (preview)
+# Scrape Prometheus metrics at scale in Azure Monitor
 This article provides guidance on performance that can be expected when collection metrics at high scale for [Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md). 
 
 
@@ -38,7 +38,7 @@ For more custom metrics, the single pod behaves the same as the replica pod depe
 
 ## Schedule ama-metrics replica pod on a node pool with more resources 
 
-A large volume of metrics per pod requires a large enough node to be able to handle the CPU and memory usage required. If the *ama-metrics* replica pod doesn't get scheduled on a node that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff. In order to overcome this issue, if you have a node on your cluster that has higher resources (preferably in the system node pool) and want to get the replica scheduled on that node, you can add the label `azuremonitor/metrics.replica.preferred=true` on the node and the replica pod will get scheduled on this node.  
+A large volume of metrics per pod requires a large enough node to be able to handle the CPU and memory usage required. If the *ama-metrics* replica pod doesn't get scheduled on a node or nodepool that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff. In order to overcome this issue, if you have a node or nodepool on your cluster that has higher resources (in [system node pool](../../aks/use-system-pools.md#system-and-user-node-pools)) and want to get the replica scheduled on that node, you can add the label `azuremonitor/metrics.replica.preferred=true` on the node and the replica pod will get scheduled on this node. Also you can create additional system pool(s), if needed, with larger nodes and can add the same label to their node(s) or nodepool. It's also better to add labels to [nodepool](../../aks/use-labels.md#updating-labels-on-existing-node-pools) rather than nodes so newer nodes in the same pool can also be used for scheduling when this label is applicable to all nodes in the pool.
 
   ```
   kubectl label nodes <node-name> azuremonitor/metrics.replica.preferred="true"

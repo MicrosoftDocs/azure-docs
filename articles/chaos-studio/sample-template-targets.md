@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager template samples for targets and capabilities in Azure Chaos Studio
-description: Sample Azure Resource Manager templates to onboard resources to Azure Chaos Studio using targets and capabilities
+title: ARM template samples for targets and capabilities in Chaos Studio
+description: Sample ARM templates to add resources to Azure Chaos Studio Preview by using targets and capabilities.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample
@@ -10,12 +10,12 @@ ms.service: chaos-studio
 ms.custom: devx-track-arm-template
 ---
 
-# Resource Manager template samples for targets and capabilities in Azure Chaos Studio
-This article includes sample [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) to create [targets and capabilities](chaos-studio-targets-capabilities.md) in order to onboard a resource to Azure Chaos Studio. Each sample includes a template file and a parameters file with sample values to provide to the template.
+# ARM template samples for targets and capabilities in Azure Chaos Studio Preview
+This article includes sample [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/syntax.md) to create [targets and capabilities](chaos-studio-targets-capabilities.md) to add a resource to Azure Chaos Studio Preview. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-## Onboard service-direct target and capabilities (single capability)
+## Add service-direct target and capabilities (single capability)
 
-In this sample, we onboard an Azure Cosmos DB instance using [targets and capabilities](chaos-studio-targets-capabilities.md). The template can be modified for any service-direct target and capabilities by referencing the [fault library](chaos-studio-fault-library.md).
+In this sample, we add an Azure Cosmos DB instance by using [targets and capabilities](chaos-studio-targets-capabilities.md). To modify the template for any service-direct target and capabilities, see the [fault library](chaos-studio-fault-library.md).
 
 ### Template file
 
@@ -85,9 +85,9 @@ In this sample, we onboard an Azure Cosmos DB instance using [targets and capabi
 }
 ```
 
-## Onboard service-direct target and capabilities (multiple capabilities)
+## Add service-direct target and capabilities (multiple capabilities)
 
-In this sample, we onboard an Azure Kubernetes Service cluster using [targets and capabilities](chaos-studio-targets-capabilities.md).
+In this sample, we add an Azure Kubernetes Service cluster by using [targets and capabilities](chaos-studio-targets-capabilities.md).
 
 ### Template file
 
@@ -229,5 +229,5 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
 
 ## Next steps
 
-* [Learn more about Chaos Studio](chaos-studio-overview.md).
-* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md).
+* [Learn more about Chaos Studio](chaos-studio-overview.md)
+* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md)

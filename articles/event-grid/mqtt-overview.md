@@ -1,5 +1,5 @@
 ---
-title: 'Overview of the MQTT Support in Azure Event Grid'
+title: 'Overview of MQTT Support in Azure Event Grid (preview)'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 05/23/2023
@@ -8,7 +8,12 @@ ms.author: geguirgu
 ---
 # Overview of the MQTT Support in Azure Event Grid (Preview)
 
-Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
+Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. 
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
+Event Grid’s MQTT support enables you to accomplish the following scenarios:
+
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 - Broadcast alerts to a fleet of clients using the one-to-many messaging pattern. This pattern enables the application to publish only one message that the service replicates for every interested client.
@@ -20,8 +25,7 @@ The MQTT support in Event Grid is ideal for the implementation of automotive and
 
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
-> [!NOTE]
-> This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Key concepts:
 The following are a list of key concepts involved in MQTT messaging on Event Grid.

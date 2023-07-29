@@ -30,21 +30,23 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT Clients                                 | 10,000 per TU                                                                     |
+| MQTT clients                                 | 10,000 per TU                                                                     |
 | MQTT inbound publish requests                | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
 | MQTT outbound publish requests               | Up to 1,000 messages per second or 1 MB per second per TU                         |
 | Clients                                      | 10,000 clients per TU                                                             |
 | CA certificates                              | 2                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |
-| Topic templates                              | 10                                                                                |
+| Topic templates                              | 10 per topic space                                                                                |
 | Permission bindings                          | 100                                                                               |
 | Max message size                             | 512 KB                                                                            |
 | Topic size                                   | 256 B                                                                             |
-| Topic alias                                  | 10 topic aliases                                                                  |
+| Topic alias                                  | 10 per connection                                                                  |
 | New connect requests                         | 200 requests per second per TU                                                    |
 | Subscribe and unsubscribe operations         | 200 requests per second per TU                                                    |
-| Total number of subscriptions per connection | 50                                                                                |
+| Total number of subscriptions per MQTT client session | 50                                                                                |
+| Maximum number of topic filters per MQTT SUBSCRIBE packet                             | 10                                                                                |
+| Maximum number of segments per topic filter                             | 8                                                                               |
 | Maximum number of concurrent connections allowed per namespace | 10,000 per TU                                                   |
 
 ## Events limits in namespace

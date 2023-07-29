@@ -6,8 +6,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 07/15/2022
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup

@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn Learn how to use client certificate instead of secrets for authentication in my Node.js web app
 ---
 
@@ -32,7 +31,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 - [OpenSSL](https://wiki.openssl.org/index.php/Binaries) or you can easily install [OpenSSL](https://community.chocolatey.org/packages/openssl) in Windows via [Chocolatey](https://chocolatey.org/). 
 
@@ -169,7 +168,7 @@ Once you associate your app registration with the certificate, you need to updat
     });
     //...
     ```
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Use a self-signed certificate directly from Azure Key Vault
 
@@ -262,7 +261,7 @@ You can use your existing certificate directly from Azure Key Vault:
     }
     ``` 
 
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Next steps
 

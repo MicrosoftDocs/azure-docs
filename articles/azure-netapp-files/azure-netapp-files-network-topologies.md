@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 07/24/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -42,6 +42,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Australia Southeast
 *   Brazil South
 *   Canada Central
+*   Central India
 *   Central US
 *   East Asia
 *   East US
@@ -63,6 +64,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Southeast Asia
 *   Sweden Central
 *   Switzerland North
+*   Switzerland West
 *   UAE Central
 *   UAE North
 *   UK South
@@ -73,22 +75,40 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 <a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
-*  Australia Central
-*  Australia Central 2
-*  Australia East
-*  Brazil South
-*  Canada Central
-*  East Asia
-*  Germany North
-*  Japan West
-*  Korea Central
-*  North Central US
-*  Norway East
-*  South Africa North
-*  South India
-*  Sweden Central
-*  UAE Central
-*  UAE North
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast 
+* Brazil South
+* Canada Central
+* Central India
+* East Asia
+* East US 
+* East US 2 
+* France Central 
+* Germany North
+* Germany West Central 
+* Japan East 
+* Japan West
+* Korea Central
+* North Central US
+* North Europe 
+* Norway East
+* Norway West 
+* Qatar Central 
+* South Africa North
+* South India
+* Southeast Asia 
+* Sweden Central
+* Switzerland North 
+* Switzerland West 
+* UAE Central
+* UAE North 
+* West Europe 
+* West US 
+* West US 2  
+* West US 3 
+
 
 ## Considerations
 
@@ -109,13 +129,9 @@ The following table describes what’s supported for each network features confi
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
+|    Traffic routed via NVA from peered VNet | Yes    | No |
 
 \* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
-
-> [!IMPORTANT]
-> Conversion between Basic and Standard networking features in either direction is not currently supported. 
->
-> Additionally, you can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
 ### Supported network topologies
 
@@ -171,6 +187,9 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 
 > [!NOTE]
 > To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+
+>[!NOTE]
+>If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
 
 ## Azure native environments
 

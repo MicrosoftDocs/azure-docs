@@ -42,7 +42,7 @@ The following sections show what sizes are in the same size series group when yo
 
 CSV below has the instance size flexibility groups, ArmSkuName and the ratios.  
 
-[Instance size flexibility ratios](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
+[Instance size flexibility ratios](https://aka.ms/isf)
 
 Azure keeps link and schema updated so that you can use the file programmatically.
 

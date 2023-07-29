@@ -24,9 +24,10 @@ Re-enabling proxies requires you to set a flag in the `AzureWebJobsFeatureFlags`
 
 + If this setting already exists, add `,EnableProxies` to the end of the existing value.
 
-[`AzureWebJobsFeatureFlags`](functions-app-settings.md#azurewebjobsfeatureflags) is a comma-delimited array of flags used to enable preview and other temporary features. 
+[`AzureWebJobsFeatureFlags`](functions-app-settings.md#azurewebjobsfeatureflags) is a comma-delimited array of flags used to enable preview and other temporary features. To learn more about how to create and modify application settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-To learn more about how to create and modify application settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+>[!NOTE]
+>Even when re-enabled using the `EnableProxies` flag, you can't work with proxies in the Azure portal. Instead, you must work directly with the *proxies.json* file for your function app. For more information, see [Advanced configuration](#advanced-configuration).
 
 ## <a name="create"></a>Create a proxy
 

@@ -27,7 +27,7 @@ Learn to secure Oracle E-Business Suite (EBS) using Azure Active Directory (Azur
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -93,13 +93,15 @@ This tutorial uses the Guided Configuration v16.1 Easy Button template. With the
 
 ## Register the Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. In the left navigation pane, select the **Azure Active Directory** service.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
@@ -411,7 +413,7 @@ Learn more:
 
 Use the following bash shell command to validate the APM service account for LDAP queries. The command authenticates and queries user objects.
 
-```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
 
 Learn more:
 

@@ -2,15 +2,16 @@
 title: Trusted Authentication Service Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of trusted authentication services hero sample using Azure Communication Services.
-author: ddematheu2
+author: RinaRish
 manager: chpalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 

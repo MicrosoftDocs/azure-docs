@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with Node.js - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Node.js, and receive a JSON response
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: seodec2018, devx-track-js, mode-api
 
 # Quickstart: Search the web using the Bing Web Search REST API and Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
@@ -56,7 +56,7 @@ if (!SUBSCRIPTION_KEY) {
 
 This function makes a secure GET request and saves the search query as a query parameter in the path. 
 
-1. For the `hostname` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  
+1. For the `hostname` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  
 
 2. Use `encodeURIComponent` to escape invalid characters. The subscription key is passed in a header. 
 
@@ -92,7 +92,7 @@ function bingWebSearch(query) {
 
 ## Get the query
 
-Let's look at the program's arguments to find the query. The first argument is the path to the node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Cognitive Services" is used.
+Let's look at the program's arguments to find the query. The first argument is the path to the node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Azure AI services" is used.
 
 ```javascript
 const query = process.argv[2] || 'Microsoft Cognitive Services'

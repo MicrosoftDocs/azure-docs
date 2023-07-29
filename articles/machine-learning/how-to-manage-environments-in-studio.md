@@ -10,7 +10,7 @@ ms.author:  osiotugo
 ms.reviewer: larryfr
 ms.date: 01/30/2023
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # Manage software environments in Azure Machine Learning studio

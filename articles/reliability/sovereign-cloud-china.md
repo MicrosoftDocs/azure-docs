@@ -21,13 +21,13 @@ Microsoft's goal for Azure in China is to match service availability in Azure. F
 
 ### AI + machine learning
 
-This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services.
+This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Azure AI services.
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 |Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
-| Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=china).|
+| Azure AI Speech| See [Azure AI services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
+| Azure AI Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md?tabs=china).|
 
 ### Azure AD External Identities
 
@@ -77,6 +77,21 @@ This section outlines variations and considerations when using Azure Container A
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration is not supported in Azure China |
 
+### Azure China Commercial Marketplace
+ 
+To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
+#### Azure Retail Rates API for China
+
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure in China and isn't available in Azure Global.
+
+#### Markup - China
+
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China and isn't available in Azure Global.
+
 ## Azure in China Account Sign in
 
 The table below lists ways to connect to your Azure account in Azure Global vs. Azure in China.
@@ -120,7 +135,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Active Directory (Azure AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
 | Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
-| Azure Cognitive Services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
+| Azure AI services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
@@ -274,4 +289,3 @@ One service administrator role is created per Azure account, and is authorized t
 ### Create a co-administrator
 
 Account administrators can create up to 199 co-administrator roles per subscription. This role has the same access privileges as the service administrator, but can't change the association of subscriptions to Azure directories.
-

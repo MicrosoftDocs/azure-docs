@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 02/10/2022
+ms.date: 06/26/2023
 ---
 
 # Monitor Azure Service Bus

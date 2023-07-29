@@ -24,11 +24,11 @@ Integrate BIG-IP with Azure AD for many benefits:
   * See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)  
   * See, [What is Conditional Access?](../conditional-access/overview.md)
 * Single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from the [Azure portal](https://portal.azure.com)
 
 Learn more: 
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -88,13 +88,15 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 
 ## Register the Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 The following instructions help you create a tenant app registration to authorize Easy Button access to Graph. With these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**.

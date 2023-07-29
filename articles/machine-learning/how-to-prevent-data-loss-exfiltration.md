@@ -126,7 +126,7 @@ __Allow__ outbound traffic to the following __service tags__. Replace `<region>`
 __Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `*.<region>.batch.azure.com`
-* `*.<region>.service.batch.com`
+* `*.<region>.service.batch.azure.com`
 
 > [!WARNING]
 > If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts over __TCP port 443__:

@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events
 
@@ -50,6 +50,8 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 > If per-user MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. The administrator must move the user directly to *Enforced*.
 
 ## View the status for a user
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To view and manage user states, complete the following steps to access the Azure portal page:
 

@@ -4,7 +4,7 @@ description: Learn how to scale an application with Azure Spring Apps in the Azu
 ms.service: spring-apps
 ms.topic: how-to
 ms.author: karler
-author: karlerickson
+author: KarlErickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article demonstrates how to scale a Spring application using Azure Spring Apps in the Azure portal.
 
@@ -50,7 +50,7 @@ As you modify the scaling attributes, keep the following notes in mind:
 
 * **Memory**: The maximum amount of memory per application instance is 8 GB. The total amount of memory for an application is the value set here multiplied by the number of application instances.
 
-* **instance count**: In the Standard tier, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
+* **instance count**: In the Standard plan, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
 
 Be sure to select **Save** to apply your scaling settings.
 
@@ -58,9 +58,9 @@ Be sure to select **Save** to apply your scaling settings.
 
 After a few seconds, the scaling changes you make are reflected on the **Overview** page of the app. Select **App instance** in the navigation pane for details about the instance of the app.
 
-## Upgrade to the Standard tier
+## Upgrade to the Standard plan
 
-If you're on the Basic tier and constrained by current limits, you can upgrade to the Standard tier. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier](/azure/spring-apps/how-to-migrate-standard-tier-to-enterprise-tier).
+If you're on the Basic plan and constrained by current limits, you can upgrade to the Standard plan. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](how-to-migrate-standard-tier-to-enterprise-tier.md).
 
 ## Next steps
 

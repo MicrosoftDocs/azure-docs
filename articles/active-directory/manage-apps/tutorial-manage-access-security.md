@@ -34,9 +34,11 @@ Using the information in this tutorial, an administrator learns how to:
 
 ## Grant tenant wide admin consent
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](consent-and-permissions-overview.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 2. Search for and select **Azure Active Directory**.
 3. Select **Enterprise applications**.
 4. Select the application to which you want to grant tenant-wide admin consent.
@@ -81,7 +83,7 @@ In this tutorial, the administrator can find the basic steps to configure the ap
 ### Test multi-factor authentication
 
 1. Open a new browser window in InPrivate or incognito mode and browse to the URL of the application.
-1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign into the Azure portal.
+1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign in to the Azure portal.
 1. Close the browser window.
 
 ## Create a terms of use statement

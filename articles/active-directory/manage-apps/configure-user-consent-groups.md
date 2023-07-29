@@ -30,6 +30,8 @@ To complete the tasks in this guide, you need the following:
 
 ## Manage group owner consent to apps
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can configure which users are allowed to consent to apps accessing their groups' or teams' data, or you can disable this for all users.
 
 # [Portal](#tab/azure-portal)

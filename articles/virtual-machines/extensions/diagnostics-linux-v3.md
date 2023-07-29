@@ -8,9 +8,8 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 12/13/2018  
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
-
 ---
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
 
@@ -49,22 +48,6 @@ These installation instructions and a [downloadable sample configuration](https:
 * Enable the Azure portal experience for charting and alerting on VM metrics.
 
 The downloadable configuration is just an example. Modify it to suit your needs.
-
-### Supported Linux distributions
-
-LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
-
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
-
-Supported distributions and versions:
-
-- Ubuntu 20.04, 18.04, 16.04, 14.04
-- CentOS 7, 6.5+
-- Oracle Linux 7, 6.4+
-- OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12
-- Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7, 6.7+
 
 ### Prerequisites
 

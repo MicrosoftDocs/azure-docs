@@ -13,6 +13,12 @@ ms.author: vikancha
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+
+> [!IMPORTANT]
+> NCv2 series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NCv2 retirement information](ncv2-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [GPU compute migration guide](n-series-migration.md).
+>
+> This retirement announcement doesn't apply to NCv3, NCasT4v3 and NC A100 v4 series VMs.  
+
 NCv2-series VMs are powered by NVIDIA Tesla P100 GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. In addition to the GPUs, the NCv2-series VMs are also powered by Intel Xeon E5-2690 v4 (Broadwell) CPUs.
 
 The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
@@ -38,7 +44,7 @@ Nvidia NVLink Interconnect: Not Supported <br>
 | Standard_NC24s_v2   | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
 | Standard_NC24rs_v2* | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
 
-1 GPU = one P100 card.
+One GPU = one P100 card.
 
 *RDMA capable
 
@@ -63,7 +69,7 @@ If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver s
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 

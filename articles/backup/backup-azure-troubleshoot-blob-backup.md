@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 04/13/2023
 ms.service: backup
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Blob backup
@@ -142,7 +142,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: Incorrect containers selected for operation.
 
-**Recommendation**: Select valid list of containers and trigger the operation.
+**Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend to re-trigger the operation after modifying the protected container list using the edit backup instance option.
 
 ### UserErrorCrossTenantOrsPolicyDisabled
 

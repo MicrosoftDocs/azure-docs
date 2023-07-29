@@ -3,11 +3,10 @@ title: Azure Monitor workbook dropdown parameters
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks containing dropdown parameters.
 services: azure-monitor
 manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Workbook dropdown parameters
