@@ -143,12 +143,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Insert initial watermark values for both source tables into the watermark table.
 
    ```sql
-
     INSERT INTO watermarktable
     VALUES
     ('customer_table','1/1/2010 12:00:00 AM'),
     ('project_table','1/1/2010 12:00:00 AM');
-
    ```
 
 ### Create a stored procedure in the Azure SQL Database
@@ -443,7 +441,7 @@ In this step, you create datasets to represent the data source, the data destina
 
    Here is the sample output of the cmdlet:
 
-   ```json
+   ```output
    DatasetName       : SourceDataset
    ResourceGroupName : <ResourceGroupName>
    DataFactoryName   : <DataFactoryName>
@@ -490,7 +488,7 @@ In this step, you create datasets to represent the data source, the data destina
 
     Here is the sample output of the cmdlet:
 
-   ```json
+   ```output
    DatasetName       : SinkDataset
    ResourceGroupName : <ResourceGroupName>
    DataFactoryName   : <DataFactoryName>
@@ -528,7 +526,7 @@ In this step, you create a dataset for storing a high watermark value.
 
    Here is the sample output of the cmdlet:
 
-   ```json
+   ```output
    DatasetName       : WatermarkDataset
    ResourceGroupName : <ResourceGroupName>
    DataFactoryName   : <DataFactoryName>
@@ -775,7 +773,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
    Here is the sample output:
 
-   ```console
+   ```output
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -839,12 +837,13 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the data was copied from source tables to destination tables:
 
 **Query**
+
 ```sql
 select * from customer_table
 ```
 
 **Output**
-```
+```output
 ===========================================
 PersonID    Name    LastModifytime
 ===========================================
@@ -863,7 +862,7 @@ select * from project_table
 
 **Output**
 
-```
+```output
 ===================================
 Project        Creationtime
 ===================================
@@ -880,7 +879,7 @@ select * from watermarktable
 
 **Output**
 
-```
+```output
 ======================================
 TableName        WatermarkValue
 ======================================
@@ -923,12 +922,14 @@ VALUES
 In SQL Server Management Studio, run the following queries against the target database to verify that the updated/new data was copied from source tables to destination tables.
 
 **Query**
+
 ```sql
 select * from customer_table
 ```
 
 **Output**
-```
+
+```output
 ===========================================
 PersonID    Name    LastModifytime
 ===========================================
@@ -949,7 +950,7 @@ select * from project_table
 
 **Output**
 
-```
+```output
 ===================================
 Project        Creationtime
 ===================================
@@ -969,7 +970,7 @@ select * from watermarktable
 
 **Output**
 
-```
+```output
 ======================================
 TableName        WatermarkValue
 ======================================
