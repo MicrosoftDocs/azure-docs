@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 07/29/2023
 ms.author: greglin
 ---
 
