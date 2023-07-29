@@ -44,9 +44,9 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
 
-    **Example Import Manifest**
-    ```json
-    {
+   **Example Import Manifest**
+   ```json
+   {
       "manifestVersion": "4",
       "updateId": {
         "provider": "Contoso",
@@ -83,11 +83,11 @@ For the GA release, the Device Update agent can be updated manually or using the
       },
       "createdDateTime": "2022-08-20T18:32:01.8404544Z"
     }
-      ```
+    ```
 
     **Example APT manifest**
 
-      ```json
+    ```json
       {
         "name": "Sample DU agent upgrade update",
         "version": "1.0.0",
@@ -97,13 +97,12 @@ For the GA release, the Device Update agent can be updated manually or using the
         }
         ]
     }
-     ```
+    ```
 
 > [!NOTE] 
 > It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
 
-
-3. Deploy the update
+3. Deploy the update.
 
 4. Once the update is successfully deployed, the device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**. 
  
@@ -113,8 +112,8 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 - Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
 
-
 ## Next steps
+
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
 
 You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
