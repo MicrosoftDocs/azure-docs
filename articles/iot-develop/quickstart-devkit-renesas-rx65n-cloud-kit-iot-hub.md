@@ -27,7 +27,7 @@ You complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Windows 10 or Windows 11
+* A PC running Windows 10 or Windows 11.
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
@@ -77,10 +77,10 @@ To install the tools:
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following commands to confirm that CMake version 3.14 or later is installed. Make certain that the RX compiler path is set up correctly.
 
-    ```shell
-    cmake --version
-    rx-elf-gcc --version
-    ```
+   ```shell
+   cmake --version
+   rx-elf-gcc --version
+   ```
 To install the remaining tools:
 
 * Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for Windows. The Renesas Flash Programmer development environment includes drivers and tools needed to flash the Renesas RX65N.
@@ -106,16 +106,16 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
 1. Comment out the following line near the top of the file as shown:
 
-    ```c
-    // #define ENABLE_DPS
-    ```
+   ```c
+   // #define ENABLE_DPS
+   ```
 
 1. Uncomment the following two lines near the end of the file as shown:
 
-    ```c
-    #define IOT_HUB_HOSTNAME  ""
-    #define IOT_HUB_DEVICE_ID ""
-    ```
+   ```c
+   #define IOT_HUB_HOSTNAME  ""
+   #define IOT_HUB_DEVICE_ID ""
+   ```
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -205,7 +205,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Press the **Reset** button on the device.
 1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
-    ```output
+   ```output
     Starting Azure thread
 
 
@@ -251,7 +251,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Telemetry message sent: {"accelerometerX":-632,"accelerometerY":62,"accelerometerZ":8283}.
     Telemetry message sent: {"gyroscopeX":2,"gyroscopeY":0,"gyroscopeZ":8}.
     Telemetry message sent: {"illuminance":107.17}.
-    ```
+   ```
 
 Keep Termite open to monitor device output in the following steps.
 
