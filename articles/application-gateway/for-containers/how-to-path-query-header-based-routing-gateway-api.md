@@ -156,10 +156,10 @@ status:
 
 Once the gateway has been created, create an HTTPRoute.
 
-In this example, the following behavior will be observed:
+In this example, the following behavior is observed:
 1. Path based routing: Client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service
 2. Querystring + header + path routing: Client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
-3. If neither of the first two scenarios are satisfied, Application Gateway for Containers will route the request to backend-v1 service.
+3. If neither of the first two scenarios are satisfied, Application Gateway for Containers routes the request to backend-v1 service.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -247,7 +247,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-By using the curl utility, we can validate 3 different behaviors:
+By using the curl command, we can validate three different scenarios:
 
 1. Path based routing: Client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service
 
