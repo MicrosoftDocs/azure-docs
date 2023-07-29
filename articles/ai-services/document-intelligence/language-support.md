@@ -19,7 +19,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->
 
-## Language detection and extraction support
+##### Language detection and extraction support
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by model and feature.
 
