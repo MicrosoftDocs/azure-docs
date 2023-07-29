@@ -158,7 +158,7 @@ Once the gateway has been created, create an HTTPRoute.
 
 In this example, the following behavior is observed:
 1. Path based routing: Client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service
-2. Querystring + header + path routing: Client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
+2. Query string + header + path routing: Client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
 3. If neither of the first two scenarios are satisfied, Application Gateway for Containers routes the request to backend-v1 service.
 
 ```bash
@@ -259,7 +259,7 @@ curl http://$fqdn/bar
 
 Notice the container serving the request is backend-v2.
 
-### Querystring + header + path routing
+### Query string + header + path routing
 In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
 
 Run the following command:
