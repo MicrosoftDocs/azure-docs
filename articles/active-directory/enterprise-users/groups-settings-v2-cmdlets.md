@@ -270,7 +270,7 @@ To disable group creation for non-admin users:
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-   ```powershell 
+   ```powershell
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```
   

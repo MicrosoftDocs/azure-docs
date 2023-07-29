@@ -82,8 +82,8 @@ The PowerShell sample script published in the [Microsoft Entra ID inbound provis
      - Test-ScriptCommands.ps1 (sample usage commands)
      - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
      - `Sample1` (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
-1. Download and install the latest version of PowerShell. 
-1. Run the command to enable execution of remote signed scripts: 
+1. Download and install the latest version of PowerShell.
+1. Run the command to enable execution of remote signed scripts:
     ```powershell
     set-executionpolicy remotesigned
     ```
