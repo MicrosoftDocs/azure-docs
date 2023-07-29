@@ -1,6 +1,6 @@
 ---
-title: Path, query, and header based routing with Application Gateway for Containers - Gateway API (preview)
-description: Learn how to configure Application Gateway for Containers with support with path, query, and header based routing.
+title: Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
+description: Learn how to configure Application Gateway for Containers with support with path, header, and query string routing.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -10,7 +10,7 @@ ms.date: 07/28/2023
 ms.author: greglin
 ---
 
-# Path, query, and header based routing with Application Gateway for Containers - Gateway API (preview)
+# Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
