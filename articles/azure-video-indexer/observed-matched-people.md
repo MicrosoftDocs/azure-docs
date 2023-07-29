@@ -47,145 +47,146 @@ To see  the insights in a JSON file, do the following:
      
     ```json
     "observedPeople": [
-        {
-	"id": 1,
-	"thumbnailId": "4addcebf-6c51-42cd-b8e0-aedefc9d8f6b",
-	"clothing": [
-		{
-			"id": 1,
-			"type": "sleeve",
-			"properties": {
-				"length": "long"
-			}
-		},
-		{
-			"id": 2,
-			"type": "pants",
-			"properties": {
-				"length": "long"
-			}
-		}
-	],
-	"instances": [
-		{
-			"adjustedStart": "0:00:00.0667333",
-			"adjustedEnd": "0:00:12.012",
-			"start": "0:00:00.0667333",
-			"end": "0:00:12.012"
-		}
+      {
+        "id": 1,
+        "thumbnailId": "4addcebf-6c51-42cd-b8e0-aedefc9d8f6b",
+        "clothing": [
+          {
+            "id": 1,
+            "type": "sleeve",
+            "properties": {
+              "length": "long"
+            }
+          },
+          {
+            "id": 2,
+            "type": "pants",
+            "properties": {
+              "length": "long"
+            }
+          }
+        ],
+        "instances": [
+          {
+            "adjustedStart": "0:00:00.0667333",
+            "adjustedEnd": "0:00:12.012",
+            "start": "0:00:00.0667333",
+            "end": "0:00:12.012"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "thumbnailId": "858903a7-254a-438e-92fd-69f8bdb2ac88",
+        "clothing": [
+          {
+              "id": 1,
+              "type": "sleeve",
+              "properties": {
+                  "length": "short"
+              }
+          }
+        ],
+        "instances": [
+          {
+              "adjustedStart": "0:00:23.2565666",
+              "adjustedEnd": "0:00:25.4921333",
+              "start": "0:00:23.2565666",
+              "end": "0:00:25.4921333"
+          },
+          {
+              "adjustedStart": "0:00:25.8925333",
+              "adjustedEnd": "0:00:25.9926333",
+              "start": "0:00:25.8925333",
+              "end": "0:00:25.9926333"
+          },
+          {
+              "adjustedStart": "0:00:26.3930333",
+              "adjustedEnd": "0:00:28.5618666",
+              "start": "0:00:26.3930333",
+              "end": "0:00:28.5618666"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "thumbnailId": "1406252d-e7f5-43dc-852d-853f652b39b6",
+        "clothing": [
+          {
+            "id": 1,
+            "type": "sleeve",
+            "properties": {
+                "length": "short"
+            }
+          },
+          {
+            "id": 2,
+            "type": "pants",
+            "properties": {
+                "length": "long"
+            }
+          },
+          {
+            "id": 3,
+            "type": "skirtAndDress"
+          }
+        ],
+        "instances": [
+          {
+            "adjustedStart": "0:00:31.9652666",
+            "adjustedEnd": "0:00:34.4010333",
+            "start": "0:00:31.9652666",
+            "end": "0:00:34.4010333"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "thumbnailId": "d09ad62e-e0a4-42e5-8ca9-9a640c686596",
+        "clothing": [
+          {
+            "id": 1,
+            "type": "sleeve",
+            "properties": {
+                "length": "short"
+            }
+          },
+          {
+            "id": 2,
+            "type": "pants",
+            "properties": {
+                "length": "short"
+            }
+          }
+        ],
+        "matchingFace": {
+          "id": 1310,
+          "confidence": 0.3819
+        },
+        "instances": [
+          {
+              "adjustedStart": "0:00:34.8681666",
+              "adjustedEnd": "0:00:36.0026333",
+              "start": "0:00:34.8681666",
+              "end": "0:00:36.0026333"
+          },
+          {
+              "adjustedStart": "0:00:36.6699666",
+              "adjustedEnd": "0:00:36.7367",
+              "start": "0:00:36.6699666",
+              "end": "0:00:36.7367"
+          },
+          {
+              "adjustedStart": "0:00:37.2038333",
+              "adjustedEnd": "0:00:39.6729666",
+              "start": "0:00:37.2038333",
+              "end": "0:00:39.6729666"
+          }
+        ]
+      }
 	]
-    },
-    {
-	"id": 2,
-	"thumbnailId": "858903a7-254a-438e-92fd-69f8bdb2ac88",
-	"clothing": [
-		{
-			"id": 1,
-			"type": "sleeve",
-			"properties": {
-				"length": "short"
-			}
-		}
-	],
-	"instances": [
-		{
-			"adjustedStart": "0:00:23.2565666",
-			"adjustedEnd": "0:00:25.4921333",
-			"start": "0:00:23.2565666",
-			"end": "0:00:25.4921333"
-		},
-		{
-			"adjustedStart": "0:00:25.8925333",
-			"adjustedEnd": "0:00:25.9926333",
-			"start": "0:00:25.8925333",
-			"end": "0:00:25.9926333"
-		},
-		{
-			"adjustedStart": "0:00:26.3930333",
-			"adjustedEnd": "0:00:28.5618666",
-			"start": "0:00:26.3930333",
-			"end": "0:00:28.5618666"
-		}
-	]
-    },
-    {
-	"id": 3,
-	"thumbnailId": "1406252d-e7f5-43dc-852d-853f652b39b6",
-	"clothing": [
-		{
-			"id": 1,
-			"type": "sleeve",
-			"properties": {
-				"length": "short"
-			}
-		},
-		{
-			"id": 2,
-			"type": "pants",
-			"properties": {
-				"length": "long"
-			}
-		},
-		{
-			"id": 3,
-			"type": "skirtAndDress"
-		}
-	],
-	"instances": [
-		{
-			"adjustedStart": "0:00:31.9652666",
-			"adjustedEnd": "0:00:34.4010333",
-			"start": "0:00:31.9652666",
-			"end": "0:00:34.4010333"
-		}
-	]
-    },
-    {
-	"id": 4,
-	"thumbnailId": "d09ad62e-e0a4-42e5-8ca9-9a640c686596",
-	"clothing": [
-		{
-			"id": 1,
-			"type": "sleeve",
-			"properties": {
-				"length": "short"
-			}
-		},
-		{
-			"id": 2,
-			"type": "pants",
-			"properties": {
-				"length": "short"
-			}
-		}
-	],
-	"matchingFace": {
-		"id": 1310,
-		"confidence": 0.3819
-	},
-	"instances": [
-		{
-			"adjustedStart": "0:00:34.8681666",
-			"adjustedEnd": "0:00:36.0026333",
-			"start": "0:00:34.8681666",
-			"end": "0:00:36.0026333"
-		},
-		{
-			"adjustedStart": "0:00:36.6699666",
-			"adjustedEnd": "0:00:36.7367",
-			"start": "0:00:36.6699666",
-			"end": "0:00:36.7367"
-		},
-		{
-			"adjustedStart": "0:00:37.2038333",
-			"adjustedEnd": "0:00:39.6729666",
-			"start": "0:00:37.2038333",
-			"end": "0:00:39.6729666"
-		}
-	]
-	},    
-	```
-    
+    ```
+
 To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## Observed people tracking and matched faces components  
@@ -194,11 +195,11 @@ During the observed people tracking and matched faces procedure, images in a med
 
 |Component|Definition|
 |---|---|
-|Source file |	The user uploads the source file for indexing.   |
-|Detection |	The media file is tracked to detect observed people and their clothing. For example, shirt with long sleeves, dress or long pants. Note that to be detected, the full upper body of the person must appear in the media.|
-|Local grouping	|The identified observed faces are filtered into local groups. If a person is detected more than once, additional observed faces instances are created for this person. |
-|Matching and Classification	|The observed people instances are matched to faces. If there is a known celebrity, the observed person will be given their name. Any number of observed people instances can be matched to the same face.  |
-|Confidence value|	The estimated confidence level of each observed person is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
+|Source file |    The user uploads the source file for indexing.   |
+|Detection |    The media file is tracked to detect observed people and their clothing. For example, shirt with long sleeves, dress or long pants. Note that to be detected, the full upper body of the person must appear in the media.|
+|Local grouping    |The identified observed faces are filtered into local groups. If a person is detected more than once, additional observed faces instances are created for this person. |
+|Matching and Classification    |The observed people instances are matched to faces. If there is a known celebrity, the observed person will be given their name. Any number of observed people instances can be matched to the same face.  |
+|Confidence value|    The estimated confidence level of each observed person is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
