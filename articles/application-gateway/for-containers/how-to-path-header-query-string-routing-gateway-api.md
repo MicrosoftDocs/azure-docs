@@ -6,13 +6,13 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 07/31/2023
 ms.author: greglin
 ---
 
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
 
-This document helps set up an example application that uses the following resources from Gateway API:
+This document helps set up an example application that uses resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
 - [HttpRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Using `matches` to route based on path, header, and query string.
@@ -154,12 +154,12 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute.
+Once the gateway has been created, create an HTTPRoute to define two different matches and a default service to route traffic to.
 
-In this example, the following behavior is observed:
-1. Path based routing: Client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service
-2. Query string + header + path routing: Client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
-3. If neither of the first two scenarios are satisfied, Application Gateway for Containers routes the request to backend-v1 service.
+The way the following rules read are as follows:
+1) If the path is /bar, traffic is routed to backend-v2 service on port 8080 OR
+2) If the request contains an HTTP header with the name magic and the value foo, the URL contains a query string defining the name great with a value of example, AND the path is /some/thing, the request will be sent to backend-v2 on port 8080.
+3) Else all other requests will be routed to backend-v1 service on port 8080.
 
 ```bash
 kubectl apply -f - <<EOF
