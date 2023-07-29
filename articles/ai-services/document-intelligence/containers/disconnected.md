@@ -15,10 +15,17 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Containers in disconnected environments
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker-end
 
-<!-- markdownlint-disable MD036 -->
-<!-- markdownlint-disable MD001 -->
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+::: moniker-end
+
+## What are disconnected containers? 
+
+[Azure AI containers](../../cognitive-services-container-support.md) gives you the flexibility to run some Document Intelligence services locally in containers. Connected containers run locallin in your environment and send usage information to the cloud for billing. Disconnected containers are intended for scenarios where no connectivity with the cloud is needed for the containers to run. 
 
 Azure AI Document Intelligence containers allow you to use Document Intelligence APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Document Intelligence features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
@@ -34,6 +41,15 @@ Before attempting to run a Docker container in an offline environment, make sure
 ## Request access to use containers in disconnected environments
 
 Before you can use Document Intelligence containers in disconnected environments, you must first fill out and [submit a request form](../../../ai-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+
+## Provision a new resource in the Azure portal
+
+Start by provisioning a new resource in the portal. 
+
+* Ensure you select the `Commitment tier disconnected containers DC0` option for Pricing tier
+* Select the appropriate pricing tier from at least one of custom, read or prebuilt commitment tiers
+
+  :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot: Azure portal configure disconnected tiers.":::
 
 ## Gather required parameters
 
@@ -54,11 +70,24 @@ Both the endpoint URL and API key are needed when you first run the container to
 
 Download the Docker container that has been approved to run in a disconnected environment. For example:
 
+::: moniker range="doc-intel-3.0.0"
+
+|Docker pull command | Value |Format|
+|----------|-------|------|
+|&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0: latest |
+
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+
+
 |Docker pull command | Value |Format|
 |----------|-------|------|
 |&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice: latest |
 |||
 |&bullet; **`docker pull [image]:[version]`** | A specific container image |dockers pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt:2.1-preview |
+
+::: moniker-end
 
   **Example Docker pull command**
 
@@ -66,7 +95,11 @@ Download the Docker container that has been approved to run in a disconnected en
 docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest
 ```
 
+
+
 ## Configure the container to be run in a disconnected environment
+
+Disconnected container images are the same as connected containers. The key difference being that the disconnected containers require a license file. This license file is downloaded by starting the container in a connected mode with the downloadLicense paramter set to true.
 
 Now that you've downloaded your container, you need to execute the `docker run` command with the following parameter:
 
@@ -105,6 +138,10 @@ DownloadLicense=True \
 
 Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
 ```
+In the following command replace the placehoders for the folder path, billing endpoint and api key to download a licencse file for the layout container.
+
+```docker run -v {folder path}:/license --env Mounts:License=/license --env DownloadLicense=True --env Eula=accept --env Billing={billing endpoint} --env ApiKey={api key} mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest```
+
 
 After you've configured the container, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
 
@@ -145,6 +182,95 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
+
+::: moniker range="doc-intel-3.0.0"
+
+Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an additional license parameter. Here is a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH envirnment variable with a value set to the folder containing the downloaed license file.
+
+```yml
+version: '3.3'
+services:
+ nginx:
+  image: nginx:alpine
+  container_name: reverseproxy
+  volumes:
+    - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
+  ports:
+    - "5000:5000"
+ layout:
+  container_name: azure-cognitive-service-layout
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
+  environment:
+    eula: accept
+    apikey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Logging:Console:LogLevel:Default: Information
+    SharedRootFolder: /shared
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+    Mounts:License: /license
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+    - type: bind
+      source: ${LAYOUT_LICENSE_MOUNT_PATH}
+      target: /license
+  expose:
+    - "5000"
+
+ custom-template:
+  container_name: azure-cognitive-service-custom-template
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-template-3.0:latest
+  restart: always
+  depends_on:
+    - layout
+  environment:
+    AzureCognitiveServiceLayoutHost: http://azure-cognitive-service-layout:5000
+    eula: accept
+    apikey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Logging:Console:LogLevel:Default: Information
+    SharedRootFolder: /shared
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+    Mounts:License: /license
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+    - type: bind
+      source: ${CUSTOM_LICENSE_MOUNT_PATH}
+      target: /license
+  expose:
+    - "5000"
+
+ studio:
+  container_name: form-recognizer-studio
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:3.0
+  environment:
+    ONPREM_LOCALFILE_BASEPATH: /onprem_folder
+    STORAGE_DATABASE_CONNECTION_STRING: /onprem_db/Application.db
+  volumes:
+    - type: bind
+      source: ${FILE_MOUNT_PATH} # path to your local folder
+      target: /onprem_folder
+    - type: bind
+      source: ${DB_MOUNT_PATH} # path to your local folder
+      target: /onprem_db
+  ports:
+    - "5001:5001"
+  user: "1000:1000" # echo $(id -u):$(id -g)
+
+
+ ```
+::: moniker-end
 
 ## Other parameters and commands
 

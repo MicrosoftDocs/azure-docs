@@ -214,6 +214,9 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
+    - name: Custom model lifecycle
+      displayName: custom, model, expiration, train, build
+      href:  concept-custom-lifecycle.md
 - name: Tutorials
   items:
   - name: Use Document Intelligence with Azure Logic Apps

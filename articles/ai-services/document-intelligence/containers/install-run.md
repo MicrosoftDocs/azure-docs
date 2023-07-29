@@ -31,7 +31,7 @@ Azure AI Document Intelligence is an Azure AI service that lets you build automa
 ::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
-* **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
+* **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
 * **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
 
@@ -124,11 +124,12 @@ Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | Not required |
 | **Layout** | Not required|
-| **General Document** | **Lay&#8203;out** |
-| **Invoice** | **Lay&#8203;out**|
-| **Receipt** | **Read** |
+| **Business Card** | **Read**|
+| **General Document** | **Layout** |
+| **Invoice** | **Layout**|
+| **Receipt** | **Read** or **Layout** |
 | **ID Document** | **Read**|
-| **Custom Template** | **Lay&#8203;out** |
+| **Custom Template** | **Layout** |
 
 :::moniker-end
 
@@ -146,6 +147,7 @@ Feature container | Supporting container(s) |
 |-----------|---------|-------------|
 | `Read` | `8` cores, 10-GB memory | `8` cores, 24-GB memory|
 | `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| `Business Card` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
 | `General Document` | `8` cores, 12-GB memory | `8` cores, 24-GB memory|
 | `ID Document` | `8` cores, 8-GB memory | `8` cores, 24-GB memory |
 | `Invoice` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
