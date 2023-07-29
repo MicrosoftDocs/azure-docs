@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.1.0'
 ---
 
 
@@ -19,13 +19,13 @@ monikerRange: 'doc-intel-3.0.0'
 
 # Document Intelligence add-on capabilities (preview)
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+[!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
 
 > [!NOTE]
 >
-> Add-on capabilities for Document Intelligence Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
+> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models for the `2023-07-31` (GA)release.
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-02-28-preview`:
+Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-07-31` (GA) release:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 

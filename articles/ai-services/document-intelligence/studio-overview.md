@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 <!-- markdownlint-disable MD033 -->
 # What is Document Intelligence Studio?
 
-**This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
 Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. The studio provides a platform for you to experiment with the different Document Intelligence models and sample their returned data in an interactive manner without the need to write code.
 

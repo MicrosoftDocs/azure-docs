@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.author: bemabonsu
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 # Create a Document Intelligence Logic Apps workflow
 
-:::moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+:::moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 :::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 > [!IMPORTANT]
 >
@@ -162,7 +162,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the When a file is created window.":::
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 

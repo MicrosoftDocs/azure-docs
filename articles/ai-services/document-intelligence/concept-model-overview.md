@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -19,8 +19,8 @@ monikerRange: '<=doc-intel-3.0.0'
 
 # Document processing models
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -33,7 +33,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ## Model overview
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 | **Model**   | **Description**   |
 | --- | --- |
@@ -374,7 +374,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
