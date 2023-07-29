@@ -15,7 +15,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
 - On the left navigation bar, select on the **WhatsApp** channel under the **Channels** header. To add a new WhatsApp Business Account, select on the **Connect** button.
 
-    :::image type="content" source="../../media/register-whatsapp-account/channelsblade.png" alt-text="Screenshot that shows Azure portal viewing the Communication Services Channels Blade.":::
+    :::image type="content" source="../../media/register-whatsapp-account/channelsblade.png" alt-text="Screenshot that shows Azure portal viewing the Communication Services Channels on the left panel.":::
 
 - Select WhatsApp as the channel and select the **Connect** button.
 
@@ -27,7 +27,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
 - Select the **Next** button to continue.
 
-- You will select the phone number, which you plan to use on the next screen. You can use an Azure Communication Services phone number, which is enabled to receive SMS text messages, or you can bring your own phone number.
+- You'll select the phone number, which you plan to use on the next screen. You can use an Azure Communication Services phone number, which is enabled to receive SMS text messages, or you can bring your own phone number.
 
     :::image type="content" source="../../media/register-whatsapp-account/phonenumber-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
 
@@ -49,7 +49,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
     :::image type="content" source="../../media/register-whatsapp-account/registering-whatsapp-account.png" alt-text="Screenshot that shows Getting started with registering WhatsApp Business account with Azure.":::
 
-- Select the **Get Started** button. The next screen summarizes the permissions you will be granting Azure Communication Services to manage your WhatsApp Business Account.
+- Select the **Get Started** button. The next screen summarizes the permissions you'll be granting Azure Communication Services to manage your WhatsApp Business Account.
 
     :::image type="content" source="../../media/register-whatsapp-account/permissions-to-azure.png" alt-text="Screenshot that shows Azure permissions for your WhatsApp Business account.":::
 

@@ -17,8 +17,8 @@ Azure Communication Services emits the following Advanced Messaging event types:
 
 | Event type                                                  | Description                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Microsoft.Communication.AdvancedMessageReceived                      | Published when a WhatsApp message is received by the Communication Service. |
-| Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated             |    Published when the WhatsApp sents status of message notification as sent/read/failed.  |
+| Microsoft.Communication.AdvancedMessageReceived                      | Published when Communication Service receives a WhatsApp message. |
+| Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated             |    Published when the WhatsApp sends status of message notification as sent/read/failed.  |
 
 ## Event responses
 

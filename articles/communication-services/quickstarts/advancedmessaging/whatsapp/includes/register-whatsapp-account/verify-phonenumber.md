@@ -21,4 +21,4 @@ On the next steps, you need to add a phone umber to your WhatsApp for Business a
     
     :::image type="content" source="../../media/register-whatsapp-account/verify-phonenumber.png" alt-text="Screenshot that shows Verifying your phone number.":::
     
-- After providing the verification code, select on the **Next** button. This step will complete the process of phonenumber verification.
+- After providing the verification code, select on the **Next** button. This step completes the process of phone number verification.
