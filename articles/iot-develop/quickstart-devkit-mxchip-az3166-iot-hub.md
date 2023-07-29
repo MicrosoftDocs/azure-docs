@@ -74,9 +74,9 @@ To install the tools:
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
-    ```shell
-    cmake --version
-    ```
+   ```shell
+   cmake --version
+   ```
 
 [!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
@@ -92,9 +92,9 @@ To connect the MXCHIP DevKit to Azure, you modify a configuration file for Wi-Fi
 
 1. Comment out the following line near the top of the file as shown:
 
-    ```c
-    // #define ENABLE_DPS
-    ```
+   ```c
+   // #define ENABLE_DPS
+   ```
 
 1. Set the Wi-Fi constants to the following values from your local environment.
 
@@ -157,7 +157,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
 1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
-    ```output
+   ```output
     Starting Azure thread
 
 
@@ -201,7 +201,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Telemetry message sent: {"magnetometerX":177,"magnetometerY":-36,"magnetometerZ":-346.5}.
     Telemetry message sent: {"accelerometerX":-22.5,"accelerometerY":0.54,"accelerometerZ":1049.01}.
     Telemetry message sent: {"gyroscopeX":0,"gyroscopeY":0,"gyroscopeZ":0}.
-    ```
+   ```
 
 Keep Termite open to monitor device output in the following steps.
 
@@ -243,9 +243,9 @@ To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
-    ```azurecli
-    az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
+   ```
 
 1. Inspect the properties for your device in the console output.
 
@@ -274,13 +274,13 @@ To use Azure CLI to view device telemetry:
 
 1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
-    ```azurecli
+   ```azurecli
     az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```
 
 1. View the JSON output in the console.
 
-    ```json
+   ```json
     {
         "event": {
             "origin": "mydevice",
@@ -290,10 +290,9 @@ To use Azure CLI to view device telemetry:
             "payload": "{\"humidity\":41.21,\"temperature\":31.37,\"pressure\":1005.18}"
         }
     }
-    ```
+   ```
 
 1. Select CTRL+C to end monitoring.
-
 
 ## Call a direct method on the device
 
@@ -314,29 +313,29 @@ To use Azure CLI to call a method:
 
 1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
-    ```azurecli
-    az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
+   ```
 
-    The CLI console shows the status of your method call on the device, where `204` indicates success.
+   The CLI console shows the status of your method call on the device, where `204` indicates success.
 
-    ```json
-    {
-        "payload": {},
-        "status": 200
-    }
-    ```
+   ```json
+   {
+     "payload": {},
+     "status": 200
+   }
+   ```
 
 1. Check your device to confirm the LED state.
 
 1. View the Termite terminal to confirm the output messages:
 
-    ```output
+   ```output
     Receive direct method: setLedState
         Payload: true
     LED is turned ON
     Device twin property sent: {"ledState":true}
-    ```
+   ```
 
 ## Troubleshoot and debug
 
