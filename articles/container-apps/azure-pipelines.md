@@ -56,7 +56,6 @@ steps:
   - task: AzureContainerApps@1
     inputs:
       azureSubscription: 'my-subscription-service-connection'
-      imageToDeploy : 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
       containerAppName: 'my-container-app'
       resourceGroup: 'my-container-app-rg'
       imageToDeploy: 'myregistry.azurecr.io/my-container-app:$(Build.BuildId)'
