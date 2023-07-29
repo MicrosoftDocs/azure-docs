@@ -19,11 +19,11 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->
 
-## Language detection and extraction support
+##### Language detection and extraction support
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by model and feature.
 
-## Document Analysis models
+## Document Analysis models and containers
 
 |Model | Description |
 | --- | --- |
@@ -31,7 +31,7 @@ Azure AI Document Intelligence models support many languages. Our language suppo
 |:::image type="icon" source="media/overview/icon-layout.png" link="concept-layout.md#supported-languages-and-locales"::: [**Layout**](concept-layout.md#supported-languages-and-locales)| Extract text and document structure.|
 | :::image type="icon" source="media/overview/icon-general-document.png" link="concept-general-document.md#supported-languages-and-locales"::: [**General document**](concept-general-document.md#supported-languages-and-locales) |  Extract text, structure, and key-value pairs.
 
-## Prebuilt models
+## Prebuilt models and containers
 
 Model | Description |
 | --- | --- |
@@ -42,7 +42,7 @@ Model | Description |
 |:::image type="icon" source="media/overview/icon-receipt.png" link="concept-receipt.md#supported-languages-and-locales"::: [**Receipt**](concept-receipt.md#supported-languages-and-locales)| Extract sales transaction details.|
 |:::image type="icon" source="media/overview/icon-w2.png" link="concept-w2.md#supported-languages-and-locales":::  [**W-2 form**](concept-w2.md#supported-languages-and-locales)| Extract taxable compensation details.|
 
-## Custom models
+## Custom models and containers
 
  Model | Description |
 | --- | --- |
