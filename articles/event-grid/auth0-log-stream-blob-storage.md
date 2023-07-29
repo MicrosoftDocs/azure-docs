@@ -15,15 +15,15 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 
 ## Create an Azure function
 1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md?pivots=nodejs-model-v3).
-    1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart.
-    1. Continue to follow the steps, but use the following **index.js** and **function.json** files.
+   1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart.
+   1. Continue to follow the steps, but use the following **index.js** and **function.json** files.
 
-        > [!IMPORTANT]
-        > Update the **package.json** to include `@azure/storage-blob` as a dependency.
+      > [!IMPORTANT]
+      > Update the **package.json** to include `@azure/storage-blob` as a dependency.
 
-        **function.json**
+      **function.json**
 
-        ```json
+      ```json
         {
           "bindings": [{
               "type": "eventGridTrigger",
@@ -41,11 +41,11 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
             }
           ]
         }
-        ```
+      ```
 
-        **index.js**
+      **index.js**
 
-        ```javascript
+      ```javascript
         // Event Grid always sends an array of data and may send more
         // than one event in the array. The runtime invokes this function
         // once for each array element, so we are always dealing with one.
@@ -56,7 +56,8 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 
             context.bindings.outputBlob = JSON.stringify(eventGridEvent);
         };
-        ```
+      ```
+
 1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
