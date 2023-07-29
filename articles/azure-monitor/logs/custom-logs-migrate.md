@@ -31,6 +31,10 @@ The migration procedure described in this article assumes you have:
 - [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
 - [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 
+## Permissions required
+
+- To migrate existing custom tables or create new tables, you need `Microsoft.OperationalInsights/workspaces/tables/migrate/action`permissions on the workspace, as provided by the 
+
 ## Create new resources required for the Log ingestion API
 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
