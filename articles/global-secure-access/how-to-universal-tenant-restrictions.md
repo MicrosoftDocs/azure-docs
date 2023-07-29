@@ -1,11 +1,11 @@
 ---
 title: Global Secure Access (preview) and universal tenant restrictions
-description: What are universal tenant restrictions
+description: Learn about how Global Secure Access (preview) secures access to your corporate network by restricting access to external tenants.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

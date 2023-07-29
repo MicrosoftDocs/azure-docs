@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 07/20/2023
+ms.date: 07/27/2023
 recommendations: false
 keywords:  
 ---
@@ -24,6 +24,10 @@ keywords:
 ### Embedding input array increase
 
 - Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
+
+### New Regions
+
+- Azure OpenAI is now also available in the Canada East, East US 2, Japan East, and North Central US regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
 
 ## June 2023
 

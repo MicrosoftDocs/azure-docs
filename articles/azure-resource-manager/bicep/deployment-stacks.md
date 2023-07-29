@@ -2,6 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ms.date: 07/20/2023
 ---
 
