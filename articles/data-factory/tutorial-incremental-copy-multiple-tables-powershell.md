@@ -73,7 +73,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
 
-    ```sql
+   ```sql
     create table customer_table
     (
         PersonID int,
@@ -102,7 +102,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ('project1','1/1/2015 0:00:00 AM'),
     ('project2','2/2/2016 1:23:00 AM'),
     ('project3','3/4/2017 5:16:00 AM');
-    ```
+   ```
 
 ### Create destination tables in your Azure SQL Database
 
@@ -112,7 +112,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
 
-    ```sql
+   ```sql
     create table customer_table
     (
         PersonID int,
@@ -125,30 +125,31 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Project varchar(255),
         Creationtime datetime
     );
-    ```
+   ```
 
 ### Create another table in Azure SQL Database to store the high watermark value
 
 1. Run the following SQL command against your database to create a table named `watermarktable` to store the watermark value:
 
-    ```sql
+   ```sql
     create table watermarktable
     (
 
         TableName varchar(255),
         WatermarkValue datetime,
     );
-    ```
+   ```
+
 2. Insert initial watermark values for both source tables into the watermark table.
 
-    ```sql
+   ```sql
 
     INSERT INTO watermarktable
     VALUES
     ('customer_table','1/1/2010 12:00:00 AM'),
     ('project_table','1/1/2010 12:00:00 AM');
 
-    ```
+   ```
 
 ### Create a stored procedure in the Azure SQL Database
 
@@ -233,47 +234,50 @@ Install the latest Azure PowerShell modules by following the instructions in [In
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`.
 
-    ```powershell
-    $resourceGroupName = "ADFTutorialResourceGroup";
-    ```
+   ```powershell
+   $resourceGroupName = "ADFTutorialResourceGroup";
+   ```
 
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
 2. Define a variable for the location of the data factory.
 
-    ```powershell
-    $location = "East US"
-    ```
+   ```powershell
+   $location = "East US"
+   ```
+
 3. To create the Azure resource group, run the following command:
 
-    ```powershell
-    New-AzResourceGroup $resourceGroupName $location
-    ```
-    If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
+   ```powershell
+   New-AzResourceGroup $resourceGroupName $location
+   ```
+
+   If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
 4. Define a variable for the data factory name.
 
-    > [!IMPORTANT]
+   > [!IMPORTANT]
     >  Update the data factory name to make it globally unique. An example is ADFIncMultiCopyTutorialFactorySP1127.
 
-    ```powershell
-    $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
-    ```
+   ```powershell
+   $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
+   ```
+
 5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet:
 
-    ```powershell
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
-    ```
+   ```powershell
+   Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
+   ```
 
 Note the following points:
 
 * The name of the data factory must be globally unique. If you receive the following error, change the name and try again:
 
-    ```powershell
-    Set-AzDataFactoryV2 : HTTP Status Code: Conflict
-    Error Code: DataFactoryNameInUse
-    Error Message: The specified resource name 'ADFIncMultiCopyTutorialFactory' is already in use. Resource names must be globally unique.
-    ```
+   ```powershell
+   Set-AzDataFactoryV2 : HTTP Status Code: Conflict
+   Error Code: DataFactoryNameInUse
+   Error Message: The specified resource name 'ADFIncMultiCopyTutorialFactory' is already in use. Resource names must be globally unique.
+   ```
 
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
 
@@ -291,12 +295,12 @@ In this step, you link your SQL Server database to the data factory.
 
 1. Create a JSON file named **SqlServerLinkedService.json** in the C:\ADFTutorials\IncCopyMultiTableTutorial folder (create the local folders if they don't already exist) with the following content. Select the right section based on the authentication you use to connect to SQL Server.
 
-    > [!IMPORTANT]
-    > Select the right section based on the authentication you use to connect to SQL Server.
+   > [!IMPORTANT]
+   > Select the right section based on the authentication you use to connect to SQL Server.
 
-    If you use SQL authentication, copy the following JSON definition:
+   If you use SQL authentication, copy the following JSON definition:
 
-    ```json
+   ```json
     {
         "name":"SqlServerLinkedService",
         "properties":{
@@ -314,9 +318,10 @@ In this step, you link your SQL Server database to the data factory.
         }
     }
    ```
+
     If you use Windows authentication, copy the following JSON definition:
 
-    ```json
+   ```json
     {
         "name":"SqlServerLinkedService",
         "properties":{
@@ -338,7 +343,8 @@ In this step, you link your SQL Server database to the data factory.
             }
         }
     }
-    ```
+   ```
+
     > [!IMPORTANT]
     > - Select the right section based on the authentication you use to connect to SQL Server.
     > - Replace &lt;integration runtime name> with the name of your integration runtime.
@@ -347,30 +353,30 @@ In this step, you link your SQL Server database to the data factory.
 
 2. In PowerShell, run the following cmdlet to switch to the C:\ADFTutorials\IncCopyMultiTableTutorial folder.
 
-    ```powershell
-    Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
-    ```
+   ```powershell
+   Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
+   ```
 
 3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureStorageLinkedService. In the following example, you pass values for the *ResourceGroupName* and *DataFactoryName* parameters:
 
-    ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+   ```
 
-    Here is the sample output:
+   Here is the sample output:
 
-    ```console
-    LinkedServiceName : SqlServerLinkedService
-    ResourceGroupName : <ResourceGroupName>
-    DataFactoryName   : <DataFactoryName>
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
-    ```
+   ```console
+   LinkedServiceName : SqlServerLinkedService
+   ResourceGroupName : <ResourceGroupName>
+   DataFactoryName   : <DataFactoryName>
+   Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
+   ```
 
 ### Create the SQL Database linked service
 
 1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt;, and &lt;password&gt; with the name of your SQL Server database, name of your database, user name, and password before you save the file.
 
-    ```json
+   ```json
     {
         "name":"AzureSQLDatabaseLinkedService",
         "properties":{
@@ -383,21 +389,22 @@ In this step, you link your SQL Server database to the data factory.
             }
         }
     }
-    ```
+   ```
+
 2. In PowerShell, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService.
 
-    ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+   ```
 
-    Here is the sample output:
+   Here is the sample output:
 
-    ```console
-    LinkedServiceName : AzureSQLDatabaseLinkedService
-    ResourceGroupName : <ResourceGroupName>
-    DataFactoryName   : <DataFactoryName>
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
-    ```
+   ```console
+   LinkedServiceName : AzureSQLDatabaseLinkedService
+   ResourceGroupName : <ResourceGroupName>
+   DataFactoryName   : <DataFactoryName>
+   Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
+   ```
 
 ## Create datasets
 
@@ -407,8 +414,8 @@ In this step, you create datasets to represent the data source, the data destina
 
 1. Create a JSON file named **SourceDataset.json** in the same folder with the following content:
 
-    ```json
-    {
+   ```json
+   {
         "name":"SourceDataset",
         "properties":{
             "linkedServiceName":{
@@ -423,33 +430,32 @@ In this step, you create datasets to represent the data source, the data destina
 
             ]
         }
-    }
+   }
+   ```
 
-    ```
-
-    The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
+   The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
 
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset SourceDataset.
 
-    ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+   ```
 
-    Here is the sample output of the cmdlet:
+   Here is the sample output of the cmdlet:
 
-    ```json
-    DatasetName       : SourceDataset
-    ResourceGroupName : <ResourceGroupName>
-    DataFactoryName   : <DataFactoryName>
-    Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
-    ```
+   ```json
+   DatasetName       : SourceDataset
+   ResourceGroupName : <ResourceGroupName>
+   DataFactoryName   : <DataFactoryName>
+   Structure         :
+   Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
+   ```
 
 ### Create a sink dataset
 
 1. Create a JSON file named **SinkDataset.json** in the same folder with the following content. The tableName element is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
 
-    ```json
+   ```json
     {
         "name":"SinkDataset",
         "properties":{
@@ -474,23 +480,23 @@ In this step, you create datasets to represent the data source, the data destina
             }
         }
     }
-    ```
+   ```
 
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
 
-    ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+   ```
 
     Here is the sample output of the cmdlet:
 
-    ```json
-    DatasetName       : SinkDataset
-    ResourceGroupName : <ResourceGroupName>
-    DataFactoryName   : <DataFactoryName>
-    Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
-    ```
+   ```json
+   DatasetName       : SinkDataset
+   ResourceGroupName : <ResourceGroupName>
+   DataFactoryName   : <DataFactoryName>
+   Structure         :
+   Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
+   ```
 
 ### Create a dataset for a watermark
 
@@ -498,7 +504,7 @@ In this step, you create a dataset for storing a high watermark value.
 
 1. Create a JSON file named **WatermarkDataset.json** in the same folder with the following content:
 
-    ```json
+   ```json
     {
         "name": " WatermarkDataset ",
         "properties": {
@@ -512,22 +518,23 @@ In this step, you create a dataset for storing a high watermark value.
             }
         }
     }
-    ```
+   ```
+
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset WatermarkDataset.
 
-    ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
-    ```
+   ```powershell
+   Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+   ```
 
-    Here is the sample output of the cmdlet:
+   Here is the sample output of the cmdlet:
 
-    ```json
-    DatasetName       : WatermarkDataset
-    ResourceGroupName : <ResourceGroupName>
-    DataFactoryName   : <DataFactoryName>
-    Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
-    ```
+   ```json
+   DatasetName       : WatermarkDataset
+   ResourceGroupName : <ResourceGroupName>
+   DataFactoryName   : <DataFactoryName>
+   Structure         :
+   Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
+   ```
 
 ## Create a pipeline
 
@@ -545,7 +552,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 1. Create a JSON file named **IncrementalCopyPipeline.json** in the same folder with the following content:
 
-    ```json
+   ```json
     {
         "name":"IncrementalCopyPipeline",
         "properties":{
@@ -758,7 +765,8 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
             ]
         }
     }
-    ```
+   ```
+
 2. Run the **Set-AzDataFactoryV2Pipeline** cmdlet to create the pipeline IncrementalCopyPipeline.
 
    ```powershell
@@ -779,7 +787,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 1. Create a parameter file named **Parameters.json** in the same folder with the following content:
 
-    ```json
+   ```json
     {
         "tableList":
         [
@@ -797,12 +805,13 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
             }
         ]
     }
-    ```
+   ```
+
 2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
-    ```
+   ```powershell
+   $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+   ```
 
 ## Monitor the pipeline
 
@@ -899,9 +908,10 @@ VALUES
 
 1. Now, rerun the pipeline by executing the following PowerShell command:
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
-    ```
+   ```powershell
+   $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+   ```
+
 2. Monitor the pipeline runs by following the instructions in the [Monitor the pipeline](#monitor-the-pipeline) section. When the pipeline status is **In Progress**, you see another action link under **Actions** to cancel the pipeline run.
 
 3. Select **Refresh** to refresh the list until the pipeline run succeeds.
