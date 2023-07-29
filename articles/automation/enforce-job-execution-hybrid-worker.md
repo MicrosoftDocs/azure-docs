@@ -34,7 +34,7 @@ Here we compose the policy rule and then assign it to either a management group 
 
 1. Use the following JSON snippet to create a JSON file with the name AuditAutomationHRWJobExecution.json.
 
-    ```json
+   ```json
     {
       "properties": {
         "displayName": "Enforce job execution on Automation Hybrid Runbook Worker",
@@ -101,95 +101,83 @@ Here we compose the policy rule and then assign it to either a management group 
         }
       }
     }
-    ```
+   ```
 
 2. Run the following Azure PowerShell or Azure CLI command to create a policy definition using the AuditAutomationHRWJobExecution.json file.
 
-    # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-    ```azurecli
+   ```azurecli
     az policy definition create --name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' --display-name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers' --description 'This policy enforces job execution on Automation account user Hybrid Runbook Workers.' --rules 'AuditAutomationHRWJobExecution.json' --mode All
-    ```
+   ```
 
-    The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+   The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
 
-    When called without location parameters, `az policy definition create` defaults to saving the policy definition in the selected subscription of the sessions context. To save the definition to a different location, use the following parameters:
+   When called without location parameters, `az policy definition create` defaults to saving the policy definition in the selected subscription of the sessions context. To save the definition to a different location, use the following parameters:
 
-    * **subscription** - Save to a different subscription. Requires a *GUID* value for the subscription ID or a *string* value for the subscription name.
-    * **management-group** - Save to a management group. Requires a *string* value.
+   * **subscription** - Save to a different subscription. Requires a *GUID* value for the subscription ID or a *string* value for the subscription name.
+   * **management-group** - Save to a management group. Requires a *string* value.
 
-    # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-    ```azurepowershell
-    New-AzPolicyDefinition -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' -DisplayName 'Audit Enforce Jobs on Automation Hybrid Runbook Workers' -Policy 'AuditAutomationHRWJobExecution.json'
-    ```
+   ```azurepowershell
+   New-AzPolicyDefinition -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' -DisplayName 'Audit Enforce Jobs on Automation Hybrid Runbook Workers' -Policy 'AuditAutomationHRWJobExecution.json'
+   ```
 
-    The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
+   The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-    When called without location parameters, `New-AzPolicyDefinition` defaults to saving the policy definition in the selected subscription of the sessions context. To save the definition to a different location, use the following parameters:
+   When called without location parameters, `New-AzPolicyDefinition` defaults to saving the policy definition in the selected subscription of the sessions context. To save the definition to a different location, use the following parameters:
 
-    * **SubscriptionId** - Save to a different subscription. Requires a *GUID* value.
-    * **ManagementGroupName** - Save to a management group. Requires a *string* value.
+   * **SubscriptionId** - Save to a different subscription. Requires a *GUID* value.
+   * **ManagementGroupName** - Save to a management group. Requires a *string* value.
 
-    ---
+   ---
 
 3. After you create your policy definition, you can create a policy assignment by running the following commands:
 
-    # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-    ```azurecli
-    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
-    ```
+   ```azurecli
+   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
+   ```
 
-    The **scope** parameter on `az policy assignment create` works with management group,
-    subscription, resource group, or a single resource. The parameter uses a full resource path. The
-    pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`,
-    and `{mgName}` with your resource name, resource group name, subscription ID, and management
-    group name, respectively. `{rType}` would be replaced with the **resource type** of the resource,
-    such as `Microsoft.Compute/virtualMachines` for a VM.
+   The **scope** parameter on `az policy assignment create` works with management group, subscription, resource group, or a single resource. The parameter uses a full resource path. The pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your resource name, resource group name, subscription ID, and management group name, respectively. `{rType}` would be replaced with the **resource type** of the resource, such as `Microsoft.Compute/virtualMachines` for a VM.
 
-    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-    - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`
-    - Subscription - `/subscriptions/{subID}`
-    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subID}`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-    You can get the Azure Policy Definition ID by using PowerShell with the following command:
+   You can get the Azure Policy Definition ID by using PowerShell with the following command:
 
-    ```azurecli
-    az policy definition show --name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers'
-    ```
+   ```azurecli
+   az policy definition show --name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers'
+   ```
 
-    The policy definition ID for the policy definition that you created should resemble the following
-    example:
+   The policy definition ID for the policy definition that you created should resemble the following example:
 
-    ```output
-    "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Enforce Jobs on Automation Hybrid Runbook Workers"
-    ```
+   ```output
+   "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Enforce Jobs on Automation Hybrid Runbook Workers"
+   ```
 
-    # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-    ```azurepowershell
-    $rgName = Get-AzResourceGroup -Name 'ContosoRG'
-    $Policy = Get-AzPolicyDefinition -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers'
-    New-AzPolicyAssignment -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' -PolicyDefinition $Policy -Scope $rg.ResourceId
-    ```
+   ```azurepowershell
+   $rgName = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers'
+   New-AzPolicyAssignment -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   ```
 
-    Replace _ContosoRG_ with the name of your intended resource group.
+   Replace _ContosoRG_ with the name of your intended resource group.
 
-    The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription,
-    resource group, or a single resource. The parameter uses a full resource path, which the
-    **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each
-    container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your
-    resource name, resource group name, subscription ID, and management group name, respectively.
-    `{rType}` would be replaced with the **resource type** of the resource, such as
-    `Microsoft.Compute/virtualMachines` for a VM.
+   The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription, resource group, or a single resource. The parameter uses a full resource path, which the **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your resource name, resource group name, subscription ID, and management group name, respectively. `{rType}` would be replaced with the **resource type** of the resource, such as `Microsoft.Compute/virtualMachines` for a VM.
 
-    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
-    - Subscription - `/subscriptions/{subId}`
-    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subId}`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-    ---
+   ---
 
 4. Sign in to the [Azure portal](https://portal.azure.com).
 5. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching for and selecting **Policy**.
