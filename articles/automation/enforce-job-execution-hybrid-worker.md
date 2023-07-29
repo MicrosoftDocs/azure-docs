@@ -12,9 +12,9 @@ ms.topic: conceptual
 > [!IMPORTANT]
 >  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
-Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group when initiating from the Azure portal, with the Azure PowerShell, or REST API. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook in the Azure sandbox. 
+Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group when initiating from the Azure portal, with the Azure PowerShell, or REST API. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook in the Azure sandbox.
 
-Anyone in your organization who is a member of the [Automation Job Operator](automation-role-based-access-control.md#automation-job-operator) or higher can create runbook jobs. To manage runbook execution targeting a Hybrid Runbook Worker group in your Automation account, you can use [Azure Policy](../governance/policy/overview.md). This helps to enforce organizational standards and ensure your automation jobs are controlled and managed by those designated, and anyone cannot execute a runbook on an Azure sandbox, only on Hybrid Runbook workers. 
+Anyone in your organization who is a member of the [Automation Job Operator](automation-role-based-access-control.md#automation-job-operator) or higher can create runbook jobs. To manage runbook execution targeting a Hybrid Runbook Worker group in your Automation account, you can use [Azure Policy](../governance/policy/overview.md). This helps to enforce organizational standards and ensure your automation jobs are controlled and managed by those designated, and anyone cannot execute a runbook on an Azure sandbox, only on Hybrid Runbook workers.
 
 A custom Azure Policy definition is included in this article to help you control these activities using the following Automation REST API operations. Specifically:
 
@@ -36,25 +36,25 @@ Here we compose the policy rule and then assign it to either a management group 
 
     ```json
     {
-    	"properties": {
-    		"displayName": "Enforce job execution on Automation Hybrid Runbook Worker",
-    		"description": "Enforce job execution on Hybrid Runbook Workers in your Automation account.",
-    		"mode": "all",
-    		"parameters": {
-    			"effectType": {
-    				"type": "string",
-    				"defaultValue": "Deny",
-    				"allowedValues": [
-    				   "Deny",
-    				   "Disabled"
-    				],
-    				"metadata": {
-    					"displayName": "Effect",
-    					"description": "Enable or disable execution of the policy"
-    				}
-    			}
-    		},
-    		"policyRule": {
+      "properties": {
+        "displayName": "Enforce job execution on Automation Hybrid Runbook Worker",
+        "description": "Enforce job execution on Hybrid Runbook Workers in your Automation account.",
+        "mode": "all",
+        "parameters": {
+          "effectType": {
+            "type": "string",
+            "defaultValue": "Deny",
+            "allowedValues": [
+               "Deny",
+               "Disabled"
+            ],
+            "metadata": {
+              "displayName": "Effect",
+              "description": "Enable or disable execution of the policy"
+            }
+          }
+        },
+        "policyRule": {
           "if": {
             "anyOf": [
               {
@@ -154,14 +154,14 @@ Here we compose the policy rule and then assign it to either a management group 
     - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
     You can get the Azure Policy Definition ID by using PowerShell with the following command:
-    
+
     ```azurecli
     az policy definition show --name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers'
     ```
-    
+
     The policy definition ID for the policy definition that you created should resemble the following
     example:
-    
+
     ```output
     "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Enforce Jobs on Automation Hybrid Runbook Workers"
     ```
