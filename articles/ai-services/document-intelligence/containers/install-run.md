@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,7 +18,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
@@ -28,7 +28,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
@@ -119,7 +119,7 @@ The following table lists the supporting container(s) for each Document Intellig
 | **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | Not required |
@@ -138,7 +138,7 @@ Feature container | Supporting container(s) |
 >
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 ##### Document Intelligence containers
 
@@ -203,7 +203,7 @@ The following host machine requirements are applicable to **train and analyze** 
 > [!IMPORTANT]
 > The keys are used to access your Document Intelligence resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 ### [Read](#tab/read)
 
@@ -704,7 +704,7 @@ $b64String = [System.Convert]::ToBase64String($bytes, [System.Base64FormattingOp
 Use the build model API to post the request.
 
 ```http
-POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-08-31
+POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2023-07-31
 
 {
     "modelId": "mymodel",
@@ -1202,7 +1202,7 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]

@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence custom classification model
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+[!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
 
 > [!IMPORTANT]
 >
@@ -57,12 +57,12 @@ Custom classification models require a minimum of five samples per class to trai
 
 ## Training a model
 
-Custom classification models are only available in the [v3.0 API](v3-migration-guide.md) starting with API version ```2023-02-28-preview```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are available with the [v3.1 and v3.0 APIs](v3-migration-guide.md) starting with API version ```2023-07-31```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
 When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
 
 ```rest
-https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-02-28-preview
+https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-31
 
 {
   "classifierId": "demo2.1",
