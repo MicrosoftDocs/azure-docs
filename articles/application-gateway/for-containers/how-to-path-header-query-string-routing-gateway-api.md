@@ -15,7 +15,7 @@ ms.author: greglin
 This document helps set up an example application that uses resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
-- [HttpRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Using `matches` to route based on path, header, and query string.
+- [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Using `matches` to route based on path, header, and query string.
 
 ## Prerequisites
 
@@ -171,7 +171,7 @@ metadata:
 spec:
   parentRefs:
   - name: gateway-01
-    namespace: default
+    namespace: test-infra
   rules:
   - matches:
     - path:
