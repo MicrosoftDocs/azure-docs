@@ -78,7 +78,7 @@ The `schedulingExecution` argument is used in placement hints to specify whether
 The `schedulingExecution` argument has two possible values: `Hard` or `Soft`.
 
 * Hard: When the schedulingExecution is set to Hard, the placement hint is considered a strict requirement during scheduling. As a result, the scheduler only places the virtual machine on the specified resource specified in the placement hint. If there's no resource available that satisfies the hard requirement, the scheduling of the virtual machine fails.
-* `Soft`: When the schedulingExecution is set to Soft, the placement hint is considered a preference during scheduling. As a result, the scheduler tries to place the virtual machine on the specified resource specified in the placement hint, but if it isn't possible, the scheduler can place the virtual machine on a different resource.
+* Soft: When the schedulingExecution is set to Soft, the placement hint is considered a preference during scheduling. As a result, the scheduler tries to place the virtual machine on the specified resource specified in the placement hint, but if it isn't possible, the scheduler can place the virtual machine on a different resource.
 
 ## Rack affinity and anti-affinity placement hints example
 
