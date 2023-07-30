@@ -24,7 +24,9 @@ Review the requirements on this page before setting up [agentless containers pos
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts         |
 | Permissions | You need to have access as a:<br><br> - Subscription Owner, **or** <br> - User Access Admin and Security Admin permissions for the Azure subscription used for onboarding |
 
-## [!INCLUDE [Registries and images support powered by MDVM](./includes/registries-images-mdvm.md)]
+## Registries and images - powered by MDVM
+
+[!INCLUDE [Registries and images support powered by MDVM](./includes/registries-images-mdvm.md)]
 
 ## Prerequisites
 
