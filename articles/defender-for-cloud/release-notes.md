@@ -37,7 +37,7 @@ Updates in July include:
 
 **July 30, 2023**
 
-The new agentless container posture capabilities is now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+Agentless container posture capabilities is now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
 
 Learn more about [agentless container posture in Defender CSPM](concept-agentless-containers.md).
 
