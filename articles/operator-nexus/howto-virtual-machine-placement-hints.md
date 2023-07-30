@@ -63,7 +63,7 @@ The `scope` argument is used in placement hints to specify the scope of the virt
 
 The scope argument has two possible values: `Machine` or `Rack`.
 
-* `Machine`: If the scope is set to Machine, the placement hint applies to the specific virtual machine instance. For example, if the placement hint specifies that the VM should be placed on the same machine as another existing VM, the scope would be set to `Machine`.
+* Machine: If the scope is set to Machine, the placement hint applies to the specific virtual machine instance. For example, if the placement hint specifies that the VM should be placed on the same machine as another existing VM, the scope would be set to Machine.
 * `Rack`: If the scope is set to Rack, the placement hint applies to all the virtual machines running on a specific rack. For example, if the placement hint specifies that the VM should be placed on a rack that already has other VMs running, the scope would be set to `Rack`.
 
 In general, the scope argument helps placement engine in determining the correct level of granularity to apply the placement hint. If the scope is set incorrectly, the VM may not be scheduled to the desired resource, and the scheduling may fail.
