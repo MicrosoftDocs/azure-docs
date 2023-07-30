@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Working with placement hints in Operator Nexus virtual machine
 
-In this article, you learn how to use the virtual machine placement hints to guide the placement of virtual machines within the Operator Nexus environment. The placement hints can be used to create affinity or anti-affinity between virtual machines, bare-metal machines, or racks based on the `resourceId`. By using the correct placement hints, you can ensure that virtual machines are scheduled in the desired way within Operator Nexus cluster.
+In this article, you learn how to use the virtual machine placement hints to guide the placement of virtual machines within the Operator Nexus environment. The placement hints can be used to create affinity or anti-affinity between virtual machines, bare-metal machines, or racks. By using the correct placement hints, you can ensure that virtual machines are scheduled in the desired way within Operator Nexus cluster.
 
 Affinity rules allow you to specify that certain virtual machines should be hosted on the same physical machine or rack. On the other hand, anti-affinity rules ensure that certain VMs are hosted on different physical machines or racks, increasing the overall resilience of your application.
 
