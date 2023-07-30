@@ -72,7 +72,7 @@ For more information, see [How to establish multiple sessions for a single clien
 #### Handling sessions:
 
 - If a client tries to take over another client's active session by presenting its session name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected.
-- If a client resource is deleted without ending its session, other clients can't to use its session name until the session expires. For example, If client B creates a session with session name 123 then client B deleted, client A can't connect to session 123 until it expires.
+- If a client resource is deleted without ending its session, other clients can't use its session name until the session expires. For example, If client B creates a session with session name 123 then client B deleted, client A can't connect to session 123 until it expires.
 
 
 ## MQTT features
