@@ -3,16 +3,16 @@ title: How-to enable Agentless Container posture in Microsoft Defender CSPM
 description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 07/02/2023
 ---
 
-# Onboard Agentless Container posture in Defender CSPM
+# Onboard agentless container posture in Defender CSPM
 
-Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities). 
+Onboarding agentless container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities). 
 
-Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's SDLC and runtime.
+Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's software development lifecycle.
 
-**To onboard Agentless Container posture in Defender CSPM:**
+**To onboard agentless container posture in Defender CSPM:**
 
 1. Before starting, verify that the subscription is [onboarded to Defender CSPM](enable-enhanced-security.md).
 
@@ -30,7 +30,7 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
-## What are the extensions for Agentless Container Posture management?
+## What are the extensions for agentless container posture management?
 
 There are two extensions that provide agentless CSPM functionality:
 
@@ -97,6 +97,7 @@ You can customize your vulnerability assessment experience by exempting manageme
 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
 - Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [view and remediate vulnerabilities for images running on your AKS clusters](view-and-remediate-vulnerabilities-for-images-running-on-aks.md).
 - Learn how to [Test the Attack Path and Security Explorer using a vulnerable container image](how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md)
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
