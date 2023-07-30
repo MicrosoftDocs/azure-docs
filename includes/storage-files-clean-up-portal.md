@@ -3,7 +3,7 @@
  description: Clean up after Azure Files quickstarts and tutorials.
  services: storage
  author: wmgries
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
  ms.date: 07/18/2022
  ms.author: wgries
