@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to remediate anonymous public read access to blob data for both Azure Resource Manager and classic storage accounts.
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: tamram

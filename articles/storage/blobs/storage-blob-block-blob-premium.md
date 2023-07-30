@@ -6,7 +6,7 @@ author: tamram
 
 ms.author: tamram
 ms.date: 10/14/2021
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 
 ---

@@ -5,7 +5,7 @@ description: To require clients to use Azure AD to authorize requests, you can d
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: tamram

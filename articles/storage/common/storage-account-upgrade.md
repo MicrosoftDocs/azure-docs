@@ -5,7 +5,7 @@ description: Upgrade to general-purpose v2 storage accounts using the Azure port
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
