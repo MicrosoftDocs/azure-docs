@@ -71,7 +71,7 @@ The following considerations apply to Core Tools versions:
 
 The recommended way to install Core Tools depends on the operating system of your local development computer.
 
-# [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#windows).
 
@@ -84,7 +84,7 @@ If you previously used Windows installer (MSI) to install Core Tools on Windows,
 
 If you need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
 
-# [macOS](#tab/macos)
+### [macOS](#tab/macos)
 
 [!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 
@@ -100,7 +100,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
     # if upgrading on a machine that has 2.x or 3.x installed:
     brew link --overwrite azure-functions-core-tools@4
     ```
-# [Linux](#tab/linux)
+### [Linux](#tab/linux)
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#linux).
 
@@ -248,7 +248,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a
 
 Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
 
-# [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 1. From the [Azure portal], search for and select **Storage accounts**. 
 
@@ -258,7 +258,7 @@ Even when using the [Azurite storage emulator](functions-develop-local.md#local-
 
     ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-# [Core Tools](#tab/azurecli)
+#### [Core Tools](#tab/azurecli)
 
 From the project root, use one of the following commands to download the connection string from Azure:
 
@@ -276,7 +276,7 @@ From the project root, use one of the following commands to download the connect
 
     When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) commands.
 
-# [Storage Explorer](#tab/storageexplorer)
+#### [Storage Explorer](#tab/storageexplorer)
 
 1. Run [Azure Storage Explorer](https://storageexplorer.com/). 
 
@@ -329,11 +329,11 @@ func start
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript" 
 The way you start the host depends on your runtime version:
-# [v4.x](#tab/v2)
+### [v4.x](#tab/v2)
 ```
 func start
 ```
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 ```
 func host start
 ```
@@ -398,11 +398,11 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 
 The following example is the same function called from a POST request passing _name_ in the request body:
 
-# [Bash](#tab/bash)
+##### [Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
-# [Cmd](#tab/cmd)
+##### [Cmd](#tab/cmd)
 ```cmd
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
 ```
@@ -439,11 +439,11 @@ To pass test data to the administrator endpoint of a function, you must supply t
 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
 
-# [Bash](#tab/bash)
+##### [Bash](#tab/bash)
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
-# [Cmd](#tab/cmd)
+##### [Cmd](#tab/cmd)
 ```bash
 curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
 ```
@@ -456,61 +456,76 @@ The Azure Functions Core Tools supports two types of deployment:
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
+| Azure Container Apps | `func azurecontainerapps deploy` | Deploys a containerized function app to an existing Container Apps environment. |
 | Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
-### Before you publish 
+### Authenticating with Azure
 
->[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools.  
+You must have either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools. By defaultm, Core Tools uses these tools to authenticate with your Azure account. 
 
-A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.  
-
-You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you can  deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
-
-To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). 
-
->[!IMPORTANT]
-> When you create a function app in the Azure portal, it uses version 4.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
-> You can't change the runtime version for a function app that has existing functions.
-
+If you don't have these tools installed, you need to instead [get a valid access token](/cli/azure/account#az-account-get-access-token) to use during deployment. You can present an access token using the `--access-token` option in the deployment commands.  
 
 ### <a name="project-file-deployment"></a>Deploy project files
 
-To publish your local code to a function app in Azure, use the `publish` command:
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish` command](./functions-core-tools-reference.md#func-azure-functionapp-publish), as in the following example:
 
 ```
 func azure functionapp publish <FunctionAppName>
 ```
 
+This command publishes project files from the current directory to the `<FunctionAppName>` as a .zip deployment package. If the project requires conpilation, it is done remotely during deployment. 
+::: zone-end
+::: zone pivot="programming-language-java"
+Java uses Maven to publish your local project to Azure instead of Core Tools. Use the following Maven command to publish your project to Azure: 
+
+```
+mvn azure-functions:deploy
+```
+
+When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](create-first-function-cli-java.md#deploy-the-function-project-to-azure).
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"  
 The following considerations apply to this kind of deployment:
 
-+ Publishing overwrites existing files in the function app.
++ Publishing overwrites existing files in the remote function app deployment.
 
-+ Use the [`--publish-local-settings` option][func azure functionapp publish] to automatically create app settings in your function app based on values in the local.settings.json file.  
++ You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create). Core Tools deploys your project code to this function app resource. To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). You can also [create these resources in the Azure portal](./functions-create-function-app-portal.md#create-a-function-app). You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
+
++ A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder. 
+
++ By default, your project is deployed so that it [runs from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish]. 
 
 + A [remote build](functions-deployment-technologies.md#remote-build) is performed on compiled projects. This can be controlled by using the [`--no-build` option][func azure functionapp publish].  
 
-+ Your project is deployed such that it [runs from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish].
++ Use the [`--publish-local-settings` option][func azure functionapp publish] to automatically create app settings in your function app based on values in the local.settings.json file.  
 
 + To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-publish). 
+::: zone-end
 
-+ Java uses Maven to publish your local project to Azure. Instead, use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
+### Azure Container Apps deployment 
 
-+ You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
+Functions lets you deploy a [containerized function app](functions-create-container-registry.md) to an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). Use the following [`func azurecontainerapps deploy` command](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) to deploy an existing container image to a Container Apps environment:
+
+```command
+func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> [--registry-password] [--registry-server] [--registry-username]
+
+```
+
+When deploying to an Azure Container Apps environment, the environment and storage account must already exist. You don't need to create a separate function app resource.  The storage account connection string you provide is used by the deployed function app. 
+
+> [!IMPORTANT]
+> Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems.
 
 ### Kubernetes cluster
 
-Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md).
-
-Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. 
-
-The following command uses the Dockerfile to generate a container and deploy it to a Kubernetes cluster. 
+Core Tools can also be used to deploy a [containerized function app](functions-create-container-registry.md) to a Kubernetes cluster that you manage. The following [`func kubernetes deploy`](./functions-core-tools-reference.md#func-kubernetes-deploy) command uses the Dockerfile to generate a container in the specified registry and deploy it to the default Kubernetes cluster. 
 
 ```command
 func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME> 
 ```
 
-To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
+Azure Functions on Kubernetes using KEDA is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community. To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
 
 ## Install extensions
 

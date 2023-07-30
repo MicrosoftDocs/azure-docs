@@ -145,18 +145,17 @@ The following steps create and deploy an existing containerized function app fro
     | **Function App name** | Unique name<sup>*</sup> | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app from a registry. To create a function app in registry, see [Create a function app in a local container](functions-create-container-registry.md). |
     |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
-::: zone-end
-:::zone pivot="azure-functions"
-   <sup>*</sup> App name must be globally unique across Azure Functions. 
+::: zone-end  
+:::zone pivot="azure-functions"  
 
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
 
    :::image type="content" source="media/functions-how-to-custom-container/function-app-create-container-functions-premium.png" alt-text="Screenshot of the Basics tab in the Azure portal when creating a function app for hosting a container in a Functions Premium plan.":::
    
     This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).  
-::: zone-end  
+::: zone-end   
 :::zone pivot="container-apps"    
-   <sup>*</sup> App name must be unique within the Azure Container Apps environment. 
+    <sup>*</sup>App name must be unique within the Azure Container Apps environment. 
 
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. 
 
