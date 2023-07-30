@@ -37,7 +37,7 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 ### General Availability: Azure Active Directory (Azure AD) is being renamed.
 
 **Type:** Changed feature       
-**Service category:**                            
+**Service category:**  N/A                          
 **Product capability:** End User Experiences                
 
 **No action is required from you, but you may need to update some of your own documentation.**
@@ -98,7 +98,12 @@ Microsoft Entra ID Governance includes the ability for a customer to configure a
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-Custom Extensions in Entitlement Management are now general available. For more information, see:  [Microsoft Entra ID Governance Entitlement Management New Generally Available Capabilities](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-entitlement-management-new/ba-p/2466929)
+Custom extensions in Entitlement Management are now generally available, and allow you to extend the access lifecycle with your organization-specific processes and business logic when access is requested or about to expire. With custom extensions you can create tickets for manual access provisioning in disconnected systems, send custom notifications to additional stakeholders, or automate additional access-related configuration in your business applications such as assigning the correct sales region in Salesforce. You can also leverage custom extensions to embed external governance, risk, and compliance (GRC) checks in the access request.
+
+For more information, see:
+
+- [Microsoft Entra ID Governance Entitlement Management New Generally Available Capabilities](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-entitlement-management-new/ba-p/2466929)
+- [Trigger Logic Apps with custom extensions in entitlement management](../governance/entitlement-management-logic-apps-integration.md)
 
 ---
 
