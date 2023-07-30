@@ -14,7 +14,7 @@ monikerRange: 'doc-intel-3.1.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence tax document models
+# Document Intelligence tax document model
 
 [!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
 
