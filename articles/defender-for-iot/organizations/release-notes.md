@@ -123,7 +123,7 @@ This version includes:
 
 **Supported until**: 03/2024
 
-- [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-and-run-the-script)
+- [Enrich Windows workstation and server data with a local script (Public preview)](detect-windows-endpoints-script.md)
 - [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
 

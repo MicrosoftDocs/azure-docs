@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 07/30/2023
 ms.reviewer: aul
 ---
 
@@ -200,7 +200,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
             ]
             }
         }
-    ````
+    ```
 
 In this JSON, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you have no existing Grafana integrations, don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
 
@@ -289,7 +289,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
             ]
             }
         }
-    ````
+    ```
 
 In this JSON, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. They're added here to the ARM template. If you have no existing Grafana integrations, don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
 
@@ -379,7 +379,7 @@ Deploy the template with the parameter file by using any valid method for deploy
 
 ### Limitations during enablement/deployment
 
-- Ensure that you update the `kube-state metrics` annotations and labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature might not as expected.
+- Ensure that you update the `kube-state metrics` annotations and labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature might not run as expected.
 - A data collection rule and data collection endpoint are created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. Currently, these names can't be modified.
 - You must get the existing Azure Monitor workspace integrations for a Grafana instance and update the ARM template with it. Otherwise, the ARM deployment gets over-written, which removes existing integrations.
 ---
@@ -506,11 +506,8 @@ The following table lists the firewall configuration required for Azure monitor 
 | `*.handler.control.monitor.azure.us` | For querying data collection rules  | 443 |
 
 ## Uninstall the metrics add-on
-Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection rule (DCR), DCRA and recording rules groups created as part of onboarding. . This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
-```azurecli
-az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
-```
+To uninstall the metrics add-on, see [Disable Prometheus metrics collection on an AKS cluster.](./prometheus-metrics-disable.md) 
 
 ## Supported regions
 
