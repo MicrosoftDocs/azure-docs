@@ -30,7 +30,7 @@ In this document we go over the three steps used in configuring import settings 
 
 ## Step 1: Enable managed identity on the FHIR service
 
-The first step is to enable system wide managed identity on the service. This will be used to grant FHIR service an access to the storage account. 
+The first step is to enable system wide managed identity on the service. This will be used to grant FHIR service access to the storage account. 
 For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Follow the steps to enable managed identity on FHIR service
@@ -95,7 +95,7 @@ Do following changes to JSON:
 After you've completed this final step, you're ready to perform **Incremental mode** import using $import.
 
 
-Note : You can also use the **Deploy to Azure** button to open custom Resource Manager template that updates the configuration for $import.
+Note that you can also use the **Deploy to Azure** button to open custom Resource Manager template that updates the configuration for $import.
 
  [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
 
