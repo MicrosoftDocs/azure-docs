@@ -2,7 +2,7 @@
 title: Blob Storage feature support in Azure storage accounts
 description: Determine the level of support for each storage account feature given storage account type, and the settings that are enabled on the account.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.author: normesta

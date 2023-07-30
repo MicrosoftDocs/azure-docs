@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 07/21/2022
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell
