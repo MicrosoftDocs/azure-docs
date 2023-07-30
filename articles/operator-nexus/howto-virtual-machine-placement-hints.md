@@ -61,7 +61,7 @@ The resourceId argument is typically used to create affinity or anti-affinity ru
 
 The `scope` argument is used in placement hints to specify the scope of the virtual machine affinity or anti-affinity placement hint. The scope argument is only applicable when the placement hint targets virtual machines, not non-VM resources like racks or bare-metal machines.
 
-The scope argument has two possible values: Machine or Rack.
+The scope argument has two possible values: `Machine` or `Rack`.
 
 * `Machine`: If the scope is set to Machine, the placement hint applies to the specific virtual machine instance. For example, if the placement hint specifies that the VM should be placed on the same machine as another existing VM, the scope would be set to `Machine`.
 * `Rack`: If the scope is set to Rack, the placement hint applies to all the virtual machines running on a specific rack. For example, if the placement hint specifies that the VM should be placed on a rack that already has other VMs running, the scope would be set to `Rack`.
