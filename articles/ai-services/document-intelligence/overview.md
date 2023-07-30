@@ -75,7 +75,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [🆕 **Insurance card**](#w-2) | Extract health insurance details.
+    [**Insurance card**](#w-2) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
@@ -88,6 +88,22 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
+    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
+   :::column-end:::
+:::column span="":::
    :::column-end:::
 :::row-end:::
 
@@ -128,27 +144,6 @@ Custom models are trained using your labeled datasets to extract distinct data f
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
     [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
-   :::column-end:::
-:::row-end:::
-
-### Gated preview models
-
-Document Intelligence Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. Complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
-
-:::row:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
-   :::column-end:::
-:::column span="":::
    :::column-end:::
 :::row-end:::
 
