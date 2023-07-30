@@ -108,7 +108,7 @@ For more information, see [Sensor setting reference](configure-sensor-settings-p
 |Service area  |Updates  |
 |---------|---------|
 | **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Enrich Windows workstation and server data with a local script (Public preview)](#enrich-windows-workstation-and-server-data-with-a-local-script-public-preview)) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Enrich Windows workstation and server data with a local script (Public preview)](#enrich-windows-workstation-and-server-data-with-a-local-script-public-preview) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### End-to-end deployment guides
 
