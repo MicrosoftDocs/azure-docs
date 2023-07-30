@@ -91,7 +91,7 @@ You can configure the maximum session expiry interval allowed for all your clien
 - Under **Configuration**, change the value for the **Maximum session expiry interval in hours** to the desired limit.
 - Select **Apply**.
 
-:::image type="content" source="mqtt-maximum-session-expiry-configuration.png" alt-text="screenshot for the maximum session expiry interval configuration." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-maximum-session-expiry-configuration.png" alt-text="screenshot for the maximum session expiry interval configuration." border="false":::
 
 ## Session overflow
 Event Grid maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with Event Grid again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
