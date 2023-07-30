@@ -69,7 +69,7 @@ The scope argument has two possible values: `Machine` or `Rack`.
 In general, the scope argument helps placement engine in determining the correct level of granularity to apply the placement hint. If the scope is set incorrectly, the VM may not be scheduled to the desired resource, and the scheduling may fail.
 
 > [!IMPORTANT]
-> When the target of placement hints are non-VM resources such as racks or bare-metal machines, the `scope` argument doesn't have an impact on the placement hint. However, even though it doesn't influence the placement, this argument cannot be left blank. It's required to provide a value for `scope`, despite its effect being null when dealing with non-VM resources.
+> When the target of placement hints are non-VM resources such as racks or bare-metal machines, the scope argument doesn't have an impact on the placement hint. However, even though it doesn't influence the placement, this argument cannot be left blank. It's required to provide a value for scope, despite its effect being null when dealing with non-VM resources.
 
 ### Scheduling execution
 
