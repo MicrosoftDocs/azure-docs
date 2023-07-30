@@ -309,7 +309,7 @@ In this example, when you set the scope to `Machine`, it prevents VMs from being
 
 #### Prevent virtual machines from being placed in a same rack (VM anti-affinity)
 
-In this example, setting the scope to `Rack` ensures VMs aren't placed within the same rack. This configuration helps enhancing fault tolerance by ensuring a failure of a single rack doesn't affect peer VMs.
+In this example, setting the scope to `Rack` ensures VMs aren't placed within the same rack. This configuration helps enhancing fault tolerance by ensuring a failure of a single rack doesn't affect the workload.
 
 ```bash
 --placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/virtualMachines/<vm-2>","schedulingExecution":"Hard","scope":"Machine"}]'
