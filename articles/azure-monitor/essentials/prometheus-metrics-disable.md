@@ -19,7 +19,7 @@ The `az aks update --disable-azure-monitor-metrics` command:
 + Deletes the recording rules created for that cluster.  
 + Deletes the data collection endpoint (DCE).  
 + Deletes the data collection rule (DCR).
-+ Deletels the DCRA and recording rules groups created as part of onboarding.
++ Deletes the DCRA and recording rules groups created as part of onboarding.
 
 > [!NOTE]
 > This action doesn't remove any existing data stored in your Azure Monitor workspace.
