@@ -200,7 +200,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
             ]
             }
         }
-    ````
+    ```
 
 In this JSON, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you have no existing Grafana integrations, don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
 
@@ -289,7 +289,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
             ]
             }
         }
-    ````
+    ```
 
 In this JSON, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. They're added here to the ARM template. If you have no existing Grafana integrations, don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
 
