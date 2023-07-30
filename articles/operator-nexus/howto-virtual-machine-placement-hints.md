@@ -153,7 +153,7 @@ This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingE
 
 #### Preferred scheduling (rack anti-affinity)
 
-This placement hint uses the `AntiAffinity` hintType with the intention of avoiding a specific rack for the virtual machine's placement. However, it's important to note that despite this preference, the VM could still be placed on this undesired rack if other racks don't have enough capacity. This placement happens because the `schedulingExecution` is set to `Soft`, which allows for the VM to be accommodated on the initially avoided rack if other options aren't feasible.
+This placement hint uses the `AntiAffinity` hintType with the intention of avoiding a specific rack for the virtual machine's placement. However, it's important to note that despite this preference, the VM could still be placed on this undesired rack if other racks don't have enough capacity. This placement happens because the schedulingExecution is set to `Soft`, which allows for the VM to be accommodated on the initially avoided rack if other options aren't feasible.
 
 ```bash
 --placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/racks/<compute-rack-2>","schedulingExecution":"Soft","scope":"Rack"}]'
