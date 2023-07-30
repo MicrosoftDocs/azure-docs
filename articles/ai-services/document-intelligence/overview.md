@@ -333,7 +333,7 @@ You can use Document Intelligence to automate document processing in application
 > [Return to custom model types](#custom-models)
 
 
-### US tax 1098 form (preview)
+### US tax 1098 form
 
 :::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
 
@@ -344,7 +344,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-### US tax 1098-E form (preview)
+### US tax 1098-E form
 
 :::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the Document Intelligence Studio.":::
 
@@ -355,7 +355,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-### US tax 1098-T form (preview)
+### US tax 1098-T form
 
 :::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the Document Intelligence Studio.":::
 

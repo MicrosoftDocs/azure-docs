@@ -99,7 +99,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 | --- | :---: |:---:| :---: | :---: | :---: |
 |General document  | ✓  |  ✓ | ✓  | ✓  | ✓* |
 
-✓* - Only available in the 2023-02-28-preview API version.
+✓* - Only available in the ``2023-07-31`` (v3.1 GA) API version.
 
 ## Supported languages and locales
 

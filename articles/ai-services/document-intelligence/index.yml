@@ -35,7 +35,7 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-           - text: 🆕 SDK overview (preview)
+           - text: 🆕 SDK overview
              url: sdk-preview.md
            - text: SDK overview (GA)
              url: sdk-overview.md
@@ -55,9 +55,9 @@ landingContent:
                url: concept-layout.md
          - linkListType: concept
            links:
-             - text: 🆕 Query field extraction (preview)
+             - text: 🆕 Query field extraction
                url:  concept-query-fields.md
-             - text: 🆕 Add-on capabilities (preview)
+             - text: 🆕 Add-on capabilities
                url:  concept-add-on-capabilities.md
              - text: 🆕 Health insurance card model
                url:  concept-insurance-card.md

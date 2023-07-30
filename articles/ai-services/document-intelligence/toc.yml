@@ -22,7 +22,7 @@ items:
         href: sdk-overview.md
       - name: Changelog and release history
         displayName: latest, update, beta, package, preview, version
-        href: changelog-release-history.md  
+        href: changelog-release-history.md
   - name: Language support
     displayName: locale, handwritten, handwriting, text, detect, detection
     href: language-support.md
@@ -71,12 +71,12 @@ items:
     - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
-    - name: 🆕 Build a custom classification model (preview)
+    - name: 🆕 Build a custom classification model
       displayName: custom, classifier, splitter
       href: how-to-guides/build-a-custom-classifier.md
     - name: Project sharing with custom models
       displayName: project, share, sharing
-      href: how-to-guides/project-share-custom-models.md  
+      href: how-to-guides/project-share-custom-models.md
     - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
@@ -167,10 +167,16 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: 🆕 Query field extraction (preview)
+  - name: 🆕 Contract model
+    displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
+    href: concept-contract.md
+  - name: 🆕 Tax document model
+    displayName: tax, forms, 1098, 1098-E, 1098-T, W-2
+    href: concept-tax-document.md
+  - name: 🆕 Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
-  - name: 🆕 Add-on capabilities (preview)
+  - name: 🆕 Add-on capabilities
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
     href: concept-add-on-capabilities.md
   - name: 🆕 Health insurance card model
@@ -196,13 +202,16 @@ items:
     - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
+    - name: 🆕 Custom model lifecycle
+      displayName: custom, train, modelId, model ID
+      href: concept-custom-lifecycle.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-template.md
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: 🆕 Custom classification model (preview)
+    - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
     - name: Custom labels

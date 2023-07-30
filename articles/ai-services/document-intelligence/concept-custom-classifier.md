@@ -20,10 +20,10 @@ monikerRange: 'doc-intel-3.1.0'
 
 > [!IMPORTANT]
 >
-> Custom classification model is now generally available! 
+> Custom classification model is now generally available!
 >
 
-Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform a pagewise classification of an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Model capabilities
 
@@ -135,7 +135,7 @@ File list `car-maint.jsonl` contains the following files.
 
 ## Model response
 
-Analyze an input file with the document classifer model 
+Analyze an input file with the document classification model
 
 ```rest
 https://{service-endpoint}/formrecognizer/documentClassifiers/{classifier}:analyze?api-version=2023-07-31

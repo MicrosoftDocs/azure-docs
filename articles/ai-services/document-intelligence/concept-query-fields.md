@@ -14,14 +14,9 @@ monikerRange: '>=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence query field extraction (preview)
+# Document Intelligence query field extraction
 
 [!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
-
-> [!IMPORTANT]
->
-> * The Document Intelligence Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
-> * Complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
 Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 

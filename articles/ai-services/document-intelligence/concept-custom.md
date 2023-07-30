@@ -51,7 +51,7 @@ The custom template or custom form model relies on a consistent visual template 
 
 Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
 
-If the language of your documents and extraction scenarios are supported by custom neural models, it is recommended that you use custom neural models over temaplte models for higher accuracy.
+If the language of your documents and extraction scenarios supports custom neural models, it's recommended that you use custom neural models over template models for higher accuracy.
 
 > [!TIP]
 >
@@ -91,7 +91,7 @@ The following table compares custom template and custom neural features:
 
 ### Custom classification model
 
- Document classification is a new scenario supported by Document Intelligence with the ```2023-02-28-preview``` API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Document Intelligence with the ```2023-07-31``` (v3.1 GA) API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 

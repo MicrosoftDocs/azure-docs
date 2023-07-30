@@ -753,7 +753,7 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
-### Annotations (available in *2023-02-28-preview* only)
+### Annotations (available only in ``2023-07-31`` (v3.1 GA) API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
 

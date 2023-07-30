@@ -23,9 +23,9 @@ monikerRange: '<=doc-intel-3.1.0'
 [!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## What are disconnected containers? 
+## What are disconnected containers?
 
-[Azure AI containers](../../cognitive-services-container-support.md) gives you the flexibility to run some Document Intelligence services locally in containers. Connected containers run locallin in your environment and send usage information to the cloud for billing. Disconnected containers are intended for scenarios where no connectivity with the cloud is needed for the containers to run. 
+[Azure AI containers](../../cognitive-services-container-support.md) gives you the flexibility to run some Document Intelligence services locally in containers. Connected containers run locally in your environment and send usage information to the cloud for billing. Disconnected containers are intended for scenarios where no connectivity with the cloud is needed for the containers to run.
 
 Azure AI Document Intelligence containers allow you to use Document Intelligence APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Document Intelligence features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
@@ -42,14 +42,14 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 Before you can use Document Intelligence containers in disconnected environments, you must first fill out and [submit a request form](../../../ai-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 
-## Provision a new resource in the Azure portal
+## Create a new resource in the Azure portal
 
-Start by provisioning a new resource in the portal. 
+Start by provisioning a new resource in the portal.
 
 * Ensure you select the `Commitment tier disconnected containers DC0` option for Pricing tier
 * Select the appropriate pricing tier from at least one of custom, read or prebuilt commitment tiers
 
-  :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot: Azure portal configure disconnected tiers.":::
+  :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot: disconnected tier configuration in the Azure portal.":::
 
 ## Gather required parameters
 
@@ -99,7 +99,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 ## Configure the container to be run in a disconnected environment
 
-Disconnected container images are the same as connected containers. The key difference being that the disconnected containers require a license file. This license file is downloaded by starting the container in a connected mode with the downloadLicense paramter set to true.
+Disconnected container images are the same as connected containers. The key difference being that the disconnected containers require a license file. This license file is downloaded by starting the container in a connected mode with the downloadLicense parameter set to true.
 
 Now that you've downloaded your container, you need to execute the `docker run` command with the following parameter:
 
@@ -123,7 +123,7 @@ The following example shows the formatting for the `docker run` command to use w
 ```docker
 
 docker run --rm -it -p 5000:5000 \
- 
+
 -v {LICENSE_MOUNT} \
 
 {IMAGE} \
@@ -136,9 +136,10 @@ apikey={API_KEY} \
 
 DownloadLicense=True \
 
-Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 ```
-In the following command replace the placehoders for the folder path, billing endpoint and api key to download a licencse file for the layout container.
+
+In the following command, replace the placeholders for the folder path, billing endpoint, and api key to download a license file for the layout container.
 
 ```docker run -v {folder path}:/license --env Mounts:License=/license --env DownloadLicense=True --env Eula=accept --env Billing={billing endpoint} --env ApiKey={api key} mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest```
 
@@ -168,7 +169,7 @@ Placeholder | Value | Format or example |
   **Example `docker run` command**
 
 ```docker
-docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
 -v {LICENSE_MOUNT} \
 
@@ -185,7 +186,7 @@ Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 
 ::: moniker range="doc-intel-3.0.0"
 
-Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an additional license parameter. Here is a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH envirnment variable with a value set to the folder containing the downloaed license file.
+Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an added license parameter. Here's a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH environment variable with a value set to the folder containing the downloaded license file.
 
 ```yml
 version: '3.3'
