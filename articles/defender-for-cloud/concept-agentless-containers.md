@@ -19,11 +19,10 @@ For support and prerequisites for agentless containers posture, see [Support and
 
 Agentless Container Posture provides the following capabilities:
 
-- Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
-- Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios.
-- Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 - [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
-- [Agentless container registry vulnerability assessment](agentless-container-registry-vulnerability-assessment.md), using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
+- [Container registry vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) provides vulnerability assessment for all container images, with near real-time scan of new images and daily refresh of results for maximum visibility to current and emerging vulnerabilities, enriched with exploitability insights, and added to Defender CSPM security graph for contextual risk assessment and calculation of attack paths.
+- Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
+- Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios, including viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 
 All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan.
 
@@ -52,7 +51,7 @@ When you enable the Agentless discovery for Kubernetes extension, the following 
 
     Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
 
-- **Discover**: Using the system assigned identity, MDC performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
+- **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
 
 - **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 

@@ -11,17 +11,17 @@ ms.date: 07/11/2023
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
-To provide findings for the recommendation, Defender CSPM uses [agentless container registry vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) or the [Defender agent](tutorial-enable-containers-azure.md#deploy-the-defender-profile-in-azure) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [container vulnerability assessment powered by MDVM](agentless-container-registry-vulnerability-assessment.md). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps.
+To provide findings for the recommendation, Defender CSPM uses [agentless container registry vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) or the [Defender Container agent](tutorial-enable-containers-azure.md#deploy-the-defender-profile-in-azure) to create a full inventory of your Kubernetes clusters and their workloads and correlates that inventory with the vulnerability reports created for your registry images. The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and remediation steps.
 
 Defender for Cloud presents the findings and related information as recommendations, including related information such as remediation steps and relevant CVEs. You can view the identified vulnerabilities for one or more subscriptions, or for a specific resource.
 
-The resources are grouped into tabs:  
+Within each recommendation, resources are grouped into tabs:  
 
 - **Healthy resources** – relevant resources, which either aren't impacted or on which you've already remediated the issue.  
 - **Unhealthy resources** – resources that are still impacted by the identified issue.  
 - **Not applicable resources** – resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
-First review and remediate vulnerabilities exposed via [attack paths](how-to-manage-attack-path.md), as they pose the greatest risk to your security posture; then use the following procedures to view, remediate, prioritize, and monitor vulnerabilities for your containers.
+If you are using Defender CSPM, first review and remediate vulnerabilities exposed via [attack paths](how-to-manage-attack-path.md), as they pose the greatest risk to your security posture. Then use the following procedures to view, remediate, prioritize, and monitor vulnerabilities for your containers.
 
 ## View vulnerabilities on a specific cluster
 
@@ -66,9 +66,8 @@ Use these steps to remediate each of the affected images found either in a speci
 1. Follow the steps in the remediation section of the recommendation pane.
 1. When you've completed the steps required to remediate the security issue, replace each affected image in your cluster, or replace each affected image for a specific vulnerability:
     1. Build a new image (including updates for each of the packages) that resolves the vulnerability according to the remediation details.
-    1. Push the updated image to trigger a scan; it may take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
+    1. Push the updated image to trigger a scan and delete the old image. It may take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
     1. Use the new image across all vulnerable workloads.
-    1. Remove the vulnerable image from the registry.
 1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c).
 1. If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 

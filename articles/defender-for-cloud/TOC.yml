@@ -553,7 +553,7 @@
     - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
-    - name: Vulnerability assessments for Azure powered by Microsoft Defender Vulnerability Management
+    - name: Vulnerability assessments for Azure powered by MDVM
       items:
       - name: Overview
         href: agentless-container-registry-vulnerability-assessment.md
