@@ -253,7 +253,7 @@ This placement hint uses the `AntiAffinity` hintType with the intention of avoid
 1. Set the required variables.
 
     ```bash
-    RESOURCE_GROUP=<Operator Nexus cluster resource group>
+    RESOURCE_GROUP=<Target VM resource group>
     NEXUS_CLUSTER_SUBSCRIPTION="$(az account show -o tsv --query id)"
     ```
 
