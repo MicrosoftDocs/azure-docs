@@ -11,20 +11,20 @@ ms.date: 12/13/2020
 
  The following example shows the body of a pool create event.
 
-```
+```json
 {
-	"id": "myPool1",
-	"displayName": "Production Pool",
-	"vmSize": "Standard_F1s",
-	"imageType": "VirtualMachineConfiguration",
-	"cloudServiceConfiguration": {
-		"osFamily": "3",
-		"targetOsVersion": "*"
-	},
-	"networkConfiguration": {
-		"subnetId": " "
-	},
-	"virtualMachineConfiguration": {
+    "id": "myPool1",
+    "displayName": "Production Pool",
+    "vmSize": "Standard_F1s",
+    "imageType": "VirtualMachineConfiguration",
+    "cloudServiceConfiguration": {
+        "osFamily": "3",
+        "targetOsVersion": "*"
+    },
+    "networkConfiguration": {
+        "subnetId": " "
+    },
+    "virtualMachineConfiguration": {
           "imageReference": {
             "publisher": " ",
             "offer": " ",
@@ -32,15 +32,15 @@ ms.date: 12/13/2020
             "version": " "
           },
           "nodeAgentId": " "
-    	},
-	"resizeTimeout": "300000",
-	"targetDedicatedNodes": 2,
-	"targetLowPriorityNodes": 2,
-	"taskSlotsPerNode": 1,
-	"vmFillType": "Spread",
-	"enableAutoScale": false,
-	"enableInterNodeCommunication": false,
-	"isAutoPool": false
+    },
+    "resizeTimeout": "300000",
+    "targetDedicatedNodes": 2,
+    "targetLowPriorityNodes": 2,
+    "taskSlotsPerNode": 1,
+    "vmFillType": "Spread",
+    "enableAutoScale": false,
+    "enableInterNodeCommunication": false,
+    "isAutoPool": false
 }
 ```
 

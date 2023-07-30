@@ -108,7 +108,7 @@ For more information, see [Sensor setting reference](configure-sensor-settings-p
 |Service area  |Updates  |
 |---------|---------|
 | **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Enrich Windows workstation and server data with a local script (Public preview)](#enrich-windows-workstation-and-server-data-with-a-local-script-public-preview) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### End-to-end deployment guides
 
@@ -134,11 +134,11 @@ A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS 
 
 For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
 
-### Download WMI script from OT sensor console
+### Enrich Windows workstation and server data with a local script (Public preview)
 
-The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
-
-For more information, see [Download the script](detect-windows-endpoints-script.md#download-and-run-the-script)
+Use a local script, available from the OT sensor UI, to enrich Microsoft Windows workstation and server data on your OT sensor. The script runs as a utility to detect devices and enrich data, and can be run manually or using standard automation tools.
+ 
+For more information, see [Enrich Windows workstation and server data with a local script](detect-windows-endpoints-script.md).
 
 ### Automatically resolved OS notifications
 

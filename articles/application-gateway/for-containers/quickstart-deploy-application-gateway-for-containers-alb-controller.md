@@ -25,77 +25,78 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
-	```azurecli-interactive
-	# Sign in to your Azure subscription.
-	SUBSCRIPTION_ID='<your subscription id>'
-	az login
-	az account set --subscription $SUBSCRIPTION_ID
+    ```azurecli-interactive
+    # Sign in to your Azure subscription.
+    SUBSCRIPTION_ID='<your subscription id>'
+    az login
+    az account set --subscription $SUBSCRIPTION_ID
 
-	# Register required resource providers on Azure.
-	az provider register --namespace Microsoft.ContainerService
-	az provider register --namespace Microsoft.Network
-	az provider register --namespace Microsoft.NetworkFunction
-	az provider register --namespace Microsoft.ServiceNetworking
+    # Register required resource providers on Azure.
+    az provider register --namespace Microsoft.ContainerService
+    az provider register --namespace Microsoft.Network
+    az provider register --namespace Microsoft.NetworkFunction
+    az provider register --namespace Microsoft.ServiceNetworking
 
-	# Install Azure CLI extensions.
-	az extension add --name alb
-	```
+    # Install Azure CLI extensions.
+    az extension add --name alb
+    ```
 
 2. Set an AKS cluster for your workload.
 
-	> [!NOTE]
-	> The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
-	> AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
+    > [!NOTE]
+    > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
+    > AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
     > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable and use an existing AKS cluster section. 
 
-	If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
-	
-	```azurecli-interactive
- 	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<your resource group name>'
-	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
-	```
+    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
+    
+    ```azurecli-interactive
+     AKS_NAME='<your cluster name>'
+    RESOURCE_GROUP='<your resource group name>'
+    az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
+    ```
 
-	If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
+    If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.
  
-	```azurecli-interactive
-	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<your resource group name>'
-	LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
-	VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
+    ```azurecli-interactive
+    AKS_NAME='<your cluster name>'
+    RESOURCE_GROUP='<your resource group name>'
+    LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
+    VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
-	az group create --name $RESOURCE_GROUP --location $LOCATION
-	az aks create \
-		--resource-group $RESOURCE_GROUP \
-		--name $AKS_NAME \
-		--location $LOCATION \
-		--node-vm-size $VM_SIZE \
-		--network-plugin azure \
- 		--enable-oidc-issuer \
- 		--enable-workload-identity \
-		--generate-ssh-key
-	```
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az aks create \
+        --resource-group $RESOURCE_GROUP \
+        --name $AKS_NAME \
+        --location $LOCATION \
+        --node-vm-size $VM_SIZE \
+        --network-plugin azure \
+        --enable-oidc-issuer \
+        --enable-workload-identity \
+        --generate-ssh-key
+    ```
 
 3. Install Helm
 
-	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
+    [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
-	> [!NOTE]
-	> Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
+    > [!NOTE]
+    > Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
 
-	You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
+    You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
 
-	# [Windows](#tab/install-helm-windows)
-	See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
-	```powershell
-	winget install helm.helm
-	```
+    # [Windows](#tab/install-helm-windows)
+    See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
 
-	# [Linux](#tab/install-helm-linux)
-	The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
-	```bash
-	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-	```
+    ```powershell
+    winget install helm.helm
+    ```
+
+    # [Linux](#tab/install-helm-linux)
+    The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
+    ```bash
+    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+    ```
 
 
 ## Install the ALB Controller
@@ -103,30 +104,30 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
     ```azurecli-interactive
-	RESOURCE_GROUP='<your resource group name>'
-	AKS_NAME='<your aks cluster name>'
-	IDENTITY_RESOURCE_NAME='azure-alb-identity'
-	
-	mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
-	mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
-	
-	echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
-	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
-	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+    RESOURCE_GROUP='<your resource group name>'
+    AKS_NAME='<your aks cluster name>'
+    IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
-	echo "Waiting 60 seconds to allow for replication of the identity..."
-	sleep 60
+    mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+    mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
+
+    echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
+    az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
+    principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+
+    echo "Waiting 60 seconds to allow for replication of the identity..."
+    sleep 60
  
-	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
-	az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
-	
-	echo "Set up federation with AKS OIDC issuer"
-	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
-	az identity federated-credential create --name "azure-alb-identity" \
-	    --identity-name "$IDENTITY_RESOURCE_NAME" \
-	    --resource-group $RESOURCE_GROUP \
-	    --issuer "$AKS_OIDC_ISSUER" \
-	    --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
+    echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
+    az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
+
+    echo "Set up federation with AKS OIDC issuer"
+    AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+    az identity federated-credential create --name "azure-alb-identity" \
+        --identity-name "$IDENTITY_RESOURCE_NAME" \
+        --resource-group $RESOURCE_GROUP \
+        --issuer "$AKS_OIDC_ISSUER" \
+        --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
     ALB Controller requires a federated credential with the name of _azure-alb-identity_.  Any other federated credential name is unsupported.
 
@@ -135,27 +136,27 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 2. Install ALB Controller using Helm
 
-	### For new deployments
-	ALB Controller can be installed by running the following commands:
+    ### For new deployments
+    ALB Controller can be installed by running the following commands:
 
-	```azurecli-interactive
-	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-	     --version 0.4.023971 \
-	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
-	```
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+    helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+         --version 0.4.023971 \
+         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+    ```
 
-   	> [!Note]
-   	> ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.  During upgrade, please ensure you specify the --namespace parameter.
+    > [!Note]
+    > ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.  During upgrade, please ensure you specify the --namespace parameter.
 
-	### For existing deployments
-	ALB can be upgraded by running the following commands (ensure you add the `--namespace namespace_name` parameter to define the namespace if the previous installation did not use the namespace _azure-alb-system_):
-	```azurecli-interactive
-	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-	     --version 0.4.023971 \
-	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
-	```
+    ### For existing deployments
+    ALB can be upgraded by running the following commands (ensure you add the `--namespace namespace_name` parameter to define the namespace if the previous installation did not use the namespace _azure-alb-system_):
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+    helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+         --version 0.4.023971 \
+         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+    ```
 
 ### Verify the ALB Controller installation
 

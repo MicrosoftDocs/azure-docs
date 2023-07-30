@@ -21,6 +21,8 @@ The latest management API versions for Azure Container Apps are:
 - [`2022-10-01`](/rest/api/containerapps/stable/container-apps) (stable)
 - [`2023-04-01-preview`](/rest/api/containerapps/preview/container-apps) (preview)
 
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+
 ### Updating API versions
 
 To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:

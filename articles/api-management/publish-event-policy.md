@@ -27,10 +27,10 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
     <http-response>
         [...]
         <publish-event>
-    	    <targets>
-    		    <graphql-subscription id="subscription field" />
-    	    </targets>
-        </publish-event> 
+            <targets>
+                <graphql-subscription id="subscription field" />
+            </targets>
+        </publish-event>
     </http-response>
 </http-data-source>
 ```
@@ -50,7 +50,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 ### Usage notes
 
-* This policy is invoked only when a related GraphQL query or mutation is executed. 
+* This policy is invoked only when a related GraphQL query or mutation is executed.
 
 ## Example
 
@@ -78,18 +78,18 @@ type Subscription {
 
 ```xml
 <http-data-source>
-	<http-request>
-		<set-method>POST</set-method>
-		<set-url>https://contoso.com/api/user</set-url>
-		<set-body template="liquid">{ "id" : {{body.arguments.id}}, "name" : "{{body.arguments.name}}"}</set-body>
-	</http-request>
-	<http-response>
-		<publish-event>
-			<targets>
-				<graphql-subscription id="onUserCreated" />
-			</targets>
-		</publish-event>
-	</http-response>
+    <http-request>
+        <set-method>POST</set-method>
+        <set-url>https://contoso.com/api/user</set-url>
+        <set-body template="liquid">{ "id" : {{body.arguments.id}}, "name" : "{{body.arguments.name}}"}</set-body>
+    </http-request>
+    <http-response>
+        <publish-event>
+            <targets>
+                <graphql-subscription id="onUserCreated" />
+            </targets>
+        </publish-event>
+    </http-response>
 </http-data-source>
 ```
 

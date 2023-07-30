@@ -13,41 +13,29 @@ zone_pivot_groups: programming-languages-set-functions
 Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
 > [!IMPORTANT]
-> Beginning on December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. 
+> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. 
 > 
-> After the deadline, function apps can be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll get related service support once you upgraded them to version 4.x.
+> Apps using versions 2.x and 3.x can still be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll only get related service support once you upgrade them to version 4.x.
 > 
->End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
+> End of support for these older runtime versions is due to the end of support for .NET Core 3.1, which they had as a core dependency. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
 >
->We highly recommend you migrating your function apps to version 4.x of the Functions runtime by following this article.
->    
->Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
-
+> We highly recommend that you migrate your function apps to version 4.x of the Functions runtime by following this article.
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp" 
-## Choose your target .NET
 
+## Choose your target .NET version
 
-On version 3.x of the Functions runtime, your C# function app targets .NET Core 3.1. When you migrate your function app to version 4.x, you have the opportunity to choose the target version of .NET. You can upgrade your C# project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
+On version 3.x of the Functions runtime, your C# function app targets .NET Core 3.1 using the in-process model or .NET 5 using the isolated worker model.
 
-| .NET version | Process model<sup>*</sup> | 
-| --- | --- | --- |
-| .NET 7 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
-| .NET 6 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
-| .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
-
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Standard Terms Support (STS) releases and .NET Framework are supported .NET Azure functions [isolated worker process](./dotnet-isolated-process-guide.md). 
+[!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> On version 3.x of the Functions runtime, if you're on .NET 5, we recommend you upgrade to .NET 7. If you're on .NET Core 3.1, we recommend you upgrade to .NET 6 (in-process) for a quick upgrade path. 
+> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path with the longest support window from .NET.
 >
-> If you're looking for moving to a Long Term Support (LTS) .NET release, we recommend you upgrade to .NET 6 .
-> 
-> Migrating to .NET Isolated worker model to get all benefits provided by Azure Functions .NET isolated worker process. For more information about .NET isolated worker process advantages see [.NET isolated worker process enhancement](./dotnet-isolated-in-process-differences.md). For more information about .NET version support, see [Supported versions](./dotnet-isolated-process-guide.md#supported-versions).
+> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 
 ## Prepare for migration
@@ -87,6 +75,9 @@ Upgrading instructions are language dependent. If you don't see your language, c
 ::: zone pivot="programming-language-csharp"  
 
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
+
+> [!TIP]
+> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 
@@ -307,3 +298,5 @@ If you don't see your programming language, go select it from the [top of the pa
 
 > [!div class="nextstepaction"]
 > [Learn more about Functions versions](functions-versions.md)
+
+[.NET Upgrade Assistant]: /dotnet/core/porting/upgrade-assistant-overview

@@ -154,8 +154,8 @@ Customers who have configured CAE settings under Security before have to migrate
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
-1.	You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
+1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
+1. You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
 1. Browse to **Conditional Access** and you find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 

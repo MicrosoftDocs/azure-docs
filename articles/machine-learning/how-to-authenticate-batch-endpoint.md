@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authorization on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it. 
+Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ You can either use one of the [built-in security roles](../role-based-access-con
 
 The following examples show different ways to start batch deployment jobs using different types of credentials:
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure Machine Learning studio. Please use the Azure Machine Learning CLI v2 instead for job creation.
 
 ### Running jobs using user's credentials
@@ -84,7 +84,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
     ```python
     job = ml_client.batch_endpoints.invoke(
-            endpoint_name, 
+            endpoint_name,
             input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
@@ -98,13 +98,13 @@ When working with REST, we recommend invoking batch endpoints using a service pr
     ```azurecli
     az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
     ```
-    
+
 1. Take note of the generated output.
 
 1. Once authenticated, make a request to the invocation URI replacing `<TOKEN>` by the one you obtained before.
-    
+
     __Request__:
-    
+
     ```http
     POST jobs HTTP/1.1
     Host: <ENDPOINT_URI>
@@ -112,15 +112,15 @@ When working with REST, we recommend invoking batch endpoints using a service pr
     Content-Type: application/json
     ```
     __Body:__
-        
+
     ```json
     {
         "properties": {
-    	    "InputData": {
-    		"mnistinput": {
-    		    "JobInputType" : "UriFolder",
-    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
-    	        }
+            "InputData": {
+            "mnistinput": {
+                "JobInputType" : "UriFolder",
+                "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+                }
             }
         }
     }
@@ -134,7 +134,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
@@ -171,37 +171,37 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
     ```python
     job = ml_client.batch_endpoints.invoke(
-            endpoint_name, 
+            endpoint_name,
             input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 
 1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
-    
+
     __Request__:
-    
+
     ```http
     POST /{TENANT_ID}/oauth2/token HTTP/1.1
     Host: login.microsoftonline.com
     ```
-    
+
     __Body__:
-    
+
     ```
     grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&resource=https://ml.azure.com
     ```
-    
+
     > [!IMPORTANT]
     > Notice that the resource scope for invoking a batch endpoints (`https://ml.azure.com1) is different from the resource scope used to manage them. All management APIs in Azure use the resource scope `https://management.azure.com`, including Azure Machine Learning.
 
 3. Once authenticated, use the query to run a batch deployment job:
-    
+
     __Request__:
-    
+
     ```http
     POST jobs HTTP/1.1
     Host: <ENDPOINT_URI>
@@ -209,15 +209,15 @@ In this case, we want to execute a batch endpoint using a service principal alre
     Content-Type: application/json
     ```
     __Body:__
-        
+
     ```json
     {
         "properties": {
-    	    "InputData": {
-    		"mnistinput": {
-    		    "JobInputType" : "UriFolder",
-    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
-    	        }
+            "InputData": {
+            "mnistinput": {
+                "JobInputType" : "UriFolder",
+                "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+                }
             }
         }
     }
@@ -263,7 +263,7 @@ Once authenticated, use the following command to run a batch deployment job:
 
 ```python
 job = ml_client.batch_endpoints.invoke(
-        endpoint_name, 
+        endpoint_name,
         input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
     )
 ```

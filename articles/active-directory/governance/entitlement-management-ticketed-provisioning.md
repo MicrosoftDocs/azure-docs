@@ -133,7 +133,7 @@ After registering your application, you must add a client secret by following th
 
 To authorize the created application to call the [MS Graph resume API](/graph/api/accesspackageassignmentrequest-resume) you'd do the following steps:
 
-1.	Navigate to the Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate to the Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**.
 

@@ -89,7 +89,7 @@ Some legacy scenarios required a human identity to be used in *non-human* scenar
 
 * **Device objects** represent devices that are associated with an Azure AD tenant. Device objects contain attributes that have the required information about the device. This includes the operating system, associated user, compliance state, and the nature of the association with the Azure AD tenant. This association can take multiple forms depending on the nature of the interaction and trust level of the device.
 
-  * **Hybrid Domain Joined**. Devices that are owned by the organization and [joined](../devices/concept-azure-ad-join-hybrid.md) to both the on-premises Active Directory and Azure AD. Typically a device purchased and managed by an organization and managed by System Center Configuration Manager.
+  * **Hybrid Domain Joined**. Devices that are owned by the organization and [joined](../devices/concept-hybrid-join.md) to both the on-premises Active Directory and Azure AD. Typically a device purchased and managed by an organization and managed by System Center Configuration Manager.
 
   * **Azure AD Domain Joined**. Devices that are owned by the organization and joined to the organization's Azure AD tenant. Typically a device purchased and managed by an organization that is joined to Azure AD and managed by a service such as [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune).
 
