@@ -304,7 +304,7 @@ In this section, the `AntiAffinity` hint type is used to prevent VMs from being 
 In this example, when you set the scope to `Machine`, it prevents VMs from being placed on the same bare-metal machine. This approach boosts fault tolerance by reducing the risk of a single machine's failure affecting workload, hence increasing the overall robustness.
 
 ```bash
---placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/virtualMachines/<vm-2>","schedulingExecution":"Hard","scope":"Rack"}]'
+--placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/virtualMachines/<vm-2>","schedulingExecution":"Hard","scope":"Machine"}]'
 ```
 
 #### Prevent virtual machines from being placed in a same rack (VM anti-affinity)
