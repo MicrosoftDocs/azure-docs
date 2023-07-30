@@ -240,7 +240,7 @@ This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingE
 
 #### Preferred scheduling (bare-metal machine anti-affinity)
 
-This placement hint uses the `AntiAffinity` hintType with the intention of avoiding a specific bare-metal machine for the virtual machine's placement. However, it's important to note that despite this preference, the VM could still be placed on this undesired bare-metal machine if other bare-metal machines don't have enough capacity. This placement happens because the `schedulingExecution` is set to `Soft`, which allows for the VM to be accommodated on the initially avoided bare-metal machine if other options aren't feasible.
+This placement hint uses the `AntiAffinity` hintType with the intention of avoiding a specific bare-metal machine for the virtual machine's placement. However, it's important to note that despite this preference, the VM could still be placed on this undesired bare-metal machine if other bare-metal machines don't have enough capacity. This placement happens because the schedulingExecution is set to `Soft`, which allows for the VM to be accommodated on the initially avoided bare-metal machine if other options aren't feasible.
 
 ```bash
 --placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Soft","scope":"Rack"}]'
