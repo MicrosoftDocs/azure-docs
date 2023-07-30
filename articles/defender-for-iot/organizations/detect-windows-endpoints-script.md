@@ -5,7 +5,11 @@ ms.date: 07/12/2022
 ms.topic: how-to
 ---
 
-# Detect Windows workstations and servers with a local script
+# Detect Windows workstations and servers with a local script (Public preview)
+
+> [!NOTE]
+> This feature is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
 
