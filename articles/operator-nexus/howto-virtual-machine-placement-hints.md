@@ -41,7 +41,7 @@ The `hintType` argument is used in placement hints to specify whether the placem
 
 The hintType argument has two possible values:
 
-* `Affinity`: If the hintType is set to Affinity, the placement hint is used to create an affinity rule between the resource and the referenced resources. As a result, the VM is scheduled on the same bare-metal machine, rack, or close to the virtual machine instance as the referenced resource.
+* Affinity: If the hintType is set to Affinity, the placement hint is used to create an affinity rule between the resource and the referenced resources. As a result, the VM is scheduled on the same bare-metal machine, rack, or close to the virtual machine instance as the referenced resource.
 * `AntiAffinity`: If the hintType is set to AntiAffinity, the placement hint is used to create an anti-affinity rule between the resource and the referenced resources. As a result, the VM is scheduled on a different bare-metal machine, rack, or virtual machine instance from the referenced resource.
 
 ### Resource ID
