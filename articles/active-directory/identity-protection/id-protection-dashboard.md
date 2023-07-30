@@ -160,10 +160,10 @@ Customers with P2 licenses can view a comprehensive list of recommendations that
 
 Recent Activity provides a summary of recent risk-related activities in your tenant. Possible activity types are:
 
-1.	Attack Activity 
-1.	Admin Remediation Activity 
-1.	Self-Remediation Activity 
-1.	New High-Risk Users 
+1. Attack Activity 
+1. Admin Remediation Activity 
+1. Self-Remediation Activity 
+1. New High-Risk Users 
 
 [![Screenshot showing recent activities in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
 
