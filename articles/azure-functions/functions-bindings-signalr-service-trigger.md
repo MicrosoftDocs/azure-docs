@@ -249,7 +249,7 @@ The trigger input type is declared as either `InvocationContext` or a custom typ
 
 ### InvocationContext
 
-`InvocationContext` contains all the content in the message send from aa SignalR service, which includes the following properties:
+`InvocationContext` contains all the content in the message sent from a SignalR service, which includes the following properties:
 
 |Property | Description|
 |------------------------------|------------|
