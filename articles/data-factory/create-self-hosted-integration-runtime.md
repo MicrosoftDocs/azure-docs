@@ -461,7 +461,7 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 > [!NOTE]
 > It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
 
-### Self-contained Interactive Authoring
+### Self-contained Interactive Authoring (preview)
 In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection is not established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allow list [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
 
 > ![NOTE]
