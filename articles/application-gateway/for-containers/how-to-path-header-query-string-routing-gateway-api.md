@@ -6,16 +6,16 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 07/30/2023
 ms.author: greglin
 ---
 
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
 
-This document helps set up an example application that uses resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header:
-- [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
-- [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
-- [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Using `matches` to route based on path, header, and query string.
+This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Review the following gateway API resources for more information: 
+- [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - create a gateway with one HTTPS listener.
+- [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - create an HTTP route that references a backend service.
+- [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Use `matches` to route based on path, header, and query string.
 
 ## Prerequisites
 
@@ -157,9 +157,9 @@ status:
 Once the gateway has been created, create an HTTPRoute to define two different matches and a default service to route traffic to.
 
 The way the following rules read are as follows:
-1) If the path is /bar, traffic is routed to backend-v2 service on port 8080 OR
-2) If the request contains an HTTP header with the name magic and the value foo, the URL contains a query string defining the name great with a value of example, AND the path is /some/thing, the request will be sent to backend-v2 on port 8080.
-3) Else all other requests will be routed to backend-v1 service on port 8080.
+1) If the path is **/bar**, traffic is routed to backend-v2 service on port 8080 OR
+2) If the request contains an HTTP header with the name **magic** and the value **foo**, the URL contains a query string defining the name great with a value of example, AND the path is **/some/thing**, the request is sent to backend-v2 on port 8080.
+3) Otherwise, all other requests are routed to backend-v1 service on port 8080.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -250,7 +250,7 @@ fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addres
 By using the curl command, we can validate three different scenarios:
 
 ### Path based routing
-In this scenario, the client request sent to http://frontend-fqdn/bar will be routed to backend-v2 service.
+In this scenario, the client request sent to http://frontend-fqdn/bar is routed to backend-v2 service.
 
 Run the following command:
 ```bash
@@ -260,7 +260,7 @@ curl http://$fqdn/bar
 Notice the container serving the request is backend-v2.
 
 ### Query string + header + path routing
-In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" will be routed to backend-v2 service.
+In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" is routed to backend-v2 service.
 
 Run the following command:
 ```bash
@@ -270,7 +270,7 @@ curl http://$fqdn/some/thing?great=example -H "magic: foo"
 Notice the container serving the request is backend-v2.
 
 ### Default route
-If neither of the first two scenarios are satisfied, Application Gateway for Containers will route all other requests to the backend-v1 service.
+If neither of the first two scenarios are satisfied, Application Gateway for Containers routes all other requests to the backend-v1 service.
 
 Run the following command:
 ```bash
