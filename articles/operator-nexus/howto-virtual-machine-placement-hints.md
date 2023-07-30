@@ -75,7 +75,7 @@ In general, the scope argument helps placement engine in determining the correct
 
 The `schedulingExecution` argument is used in placement hints to specify whether the placement hint is a hard or soft requirement during scheduling.
 
-The `schedulingExecution` argument has two possible values:
+The `schedulingExecution` argument has two possible values: `Hard` or `Soft`.
 
 * `Hard`: When the schedulingExecution is set to Hard, the placement hint is considered a strict requirement during scheduling. As a result, the scheduler only places the virtual machine on the specified resource specified in the placement hint. If there's no resource available that satisfies the hard requirement, the scheduling of the virtual machine fails.
 * `Soft`: When the schedulingExecution is set to Soft, the placement hint is considered a preference during scheduling. As a result, the scheduler tries to place the virtual machine on the specified resource specified in the placement hint, but if it isn't possible, the scheduler can place the virtual machine on a different resource.
