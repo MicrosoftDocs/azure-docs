@@ -24,7 +24,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 ## Placement hints configuration
 
-This section is all about explaining placement hints. The aim is to help understand how each field in the API works, which is useful when setting up and managing virtual machines.
+This section explains the concept of placement hints and how each field in the API works, which is useful when setting up and managing virtual machines.
 
 ```json
 {
