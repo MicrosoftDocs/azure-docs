@@ -5,7 +5,7 @@ description: Learn how to create a blob container in your Azure Storage account 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.author: pauljewell

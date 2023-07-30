@@ -5,7 +5,7 @@ description: Learn how to use the .NET client library to create a read-only snap
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.devlang: csharp
