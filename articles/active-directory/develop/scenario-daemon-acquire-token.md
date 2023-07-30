@@ -28,16 +28,16 @@ Here's an example of defining the scopes for the web API as part of the configur
 
 ```json
 {
-	"AzureAd": {
-		// Same AzureAd section as before.
-	},
+    "AzureAd": {
+        // Same AzureAd section as before.
+    },
 
-	"MyWebApi": {
-		"BaseUrl": "https://localhost:44372/",
-		"RelativePath": "api/TodoList",
-		"RequestAppToken": true,
-		"Scopes": [ "[Enter here the scopes for your web API]" ]
-	}
+    "MyWebApi": {
+        "BaseUrl": "https://localhost:44372/",
+        "RelativePath": "api/TodoList",
+        "RequestAppToken": true,
+        "Scopes": [ "[Enter here the scopes for your web API]" ]
+    }
 }
 ```
 
