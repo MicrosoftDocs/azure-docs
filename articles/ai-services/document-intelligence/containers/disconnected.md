@@ -15,8 +15,8 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Containers in disconnected environments
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0-v2-1.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -49,7 +49,7 @@ Start by provisioning a new resource in the portal.
 * Ensure you select the `Commitment tier disconnected containers DC0` option for Pricing tier
 * Select the appropriate pricing tier from at least one of custom, read or prebuilt commitment tiers
 
-  :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot: disconnected tier configuration in the Azure portal.":::
+  :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot of disconnected tier configuration in the Azure portal.":::
 
 ## Gather required parameters
 
@@ -61,7 +61,7 @@ There are three required parameters for all Azure AI services' containers:
 
 Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
 > You will only use your key and endpoint to configure the container to run in a disconnected environment. After you configure the container, you won't need the key and endpoint values to send API requests. Store them securely, for example, using Azure Key Vault. Only one key is necessary for this process.
@@ -70,16 +70,15 @@ Both the endpoint URL and API key are needed when you first run the container to
 
 Download the Docker container that has been approved to run in a disconnected environment. For example:
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 |Docker pull command | Value |Format|
 |----------|-------|------|
-|&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0: latest |
+|&#9679; **`docker pull [image]`**</br></br> &#9679; **`docker pull [image]:latest`**|The latest container image.|&#9679; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest</br>  </br>&#9679; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0: latest |
 
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-
 
 |Docker pull command | Value |Format|
 |----------|-------|------|
@@ -89,13 +88,11 @@ Download the Docker container that has been approved to run in a disconnected en
 
 ::: moniker-end
 
-  **Example Docker pull command**
+**Example Docker pull command**
 
 ```docker
 docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest
 ```
-
-
 
 ## Configure the container to be run in a disconnected environment
 
@@ -184,7 +181,7 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an added license parameter. Here's a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH environment variable with a value set to the folder containing the downloaded license file.
 

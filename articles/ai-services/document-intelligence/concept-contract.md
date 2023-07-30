@@ -14,13 +14,13 @@ monikerRange: 'doc-intel-3.1.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence Contract model
+# Document Intelligence contract model
 
 [!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports certain English tax document formats.
 
-## Automated Contract processing
+## Automated contract processing
 
 Automated contract processing is the process of extracting key contract fields from documents. Historically, the contract analysis process has been done manually and, hence, very time consuming. Accurate extraction of key data from contracts is typically the first and one of the most critical steps in the contract automation process.
 
@@ -30,7 +30,7 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Contract model** | <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-contract**|
+|**Contract model** | &#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br> &#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> &#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-contract**|
 
 ## Input requirements
 
@@ -44,7 +44,7 @@ See how data, including customer information, vendor details, and line items, is
 
 * A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Document Intelligence Studio
 
@@ -54,7 +54,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
+    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot of the analyze invoice menu.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
@@ -66,9 +66,10 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us)|
+| English (en) | United States (us)|
 
 ## Field extraction
+
 The following are the fields extracted from a contract in the JSON output response. 
 
 |Name| Type | Description | Example output |
@@ -80,7 +81,6 @@ The following are the fields extracted from a contract in the JSON output respon
 | ExpirationDate | Date |Date when the contract ends to be in effect| One year |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
 | Jurisdictions | Array | List of jurisdictions| |
-
 
 The contract key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

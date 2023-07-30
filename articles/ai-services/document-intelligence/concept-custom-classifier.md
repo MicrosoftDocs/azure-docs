@@ -144,6 +144,29 @@ https://{service-endpoint}/formrecognizer/documentClassifiers/{classifier}:analy
 The response contains the identified documents with the associated page ranges in the documents section of the response.
 
 ```json
+{
+  ...
+    
+    "documents": [
+      {
+        "docType": "formA",
+        "boundingRegions": [
+          { "pageNumber": 1, "polygon": [...] },
+          { "pageNumber": 2, "polygon": [...] }
+        ],
+        "confidence": 0.97,
+        "spans": []
+      },
+      {
+        "docType": "formB",
+        "boundingRegions": [
+          { "pageNumber": 3, "polygon": [...] }
+        ],
+        "confidence": 0.97,
+        "spans": []
+      }, ...
+    ]
+  }
 
 ```
 

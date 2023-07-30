@@ -13,13 +13,11 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD036 -->
 
-# Language support
+# Language detection and extraction support
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->
-
-##### Language detection and extraction support
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by model and feature.
 
@@ -51,7 +49,7 @@ Model | Description |
 
 ## Next steps
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
   > [!div class="nextstepaction"]
   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)

@@ -349,10 +349,6 @@ After your training set is labeled, you can train your custom model and use it t
 
 ::: moniker-end
 
-::: moniker range="doc-intel-2.1.0"
-
-::: moniker-end
-
 ## Next steps
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -361,7 +357,7 @@ After your training set is labeled, you can train your custom model and use it t
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
-::: moniker-end
+:::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
@@ -369,4 +365,4 @@ After your training set is labeled, you can train your custom model and use it t
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
-::: moniker-end
+:::moniker-end

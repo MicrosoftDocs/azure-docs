@@ -9,8 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/24/2023
 ms.author: lajanuar
-ms.custom: references_regions
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
@@ -55,5 +54,5 @@ To retrain a model with a more recent API version, ensure that the layout result
 Learn to create and compose custom models:
 
 > [!div class="nextstepaction"]
-> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
-> [**Compose custom models**](how-to-guides/compose-custom-models.md)
+>
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)  [**Compose custom models**](how-to-guides/compose-custom-models.md)
