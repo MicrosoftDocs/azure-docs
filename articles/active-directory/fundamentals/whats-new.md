@@ -299,7 +299,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Other                                    
 **Product capability:** User Authentication                     
 
-Earlier this month we announced the release of [MSAL.NET 4.55.0](https://www.nuget.org/packages/Microsoft.Identity.Client/4.55.0), the latest version of the [Microsoft Authentication Library for the .NET platform](https://learn.microsoft.com/entra/msal/dotnet/). The new version introduces support for user-assigned [managed identity](https://learn.microsoft.com/entra/msal/dotnet/advanced/managed-identity) being specified through object IDs, CIAM authorities in the `WithTenantId` API, better error messages when dealing with cache serialization, and improved logging when using the [Windows authentication broker](https://learn.microsoft.com/entra/msal/dotnet/acquiring-tokens/desktop-mobile/wam).
+Earlier this month we announced the release of [MSAL.NET 4.55.0](https://www.nuget.org/packages/Microsoft.Identity.Client/4.55.0), the latest version of the [Microsoft Authentication Library for the .NET platform](/entra/msal/dotnet/). The new version introduces support for user-assigned [managed identity](/entra/msal/dotnet/advanced/managed-identity) being specified through object IDs, CIAM authorities in the `WithTenantId` API, better error messages when dealing with cache serialization, and improved logging when using the [Windows authentication broker](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/wam).
 
 ---
 
@@ -311,7 +311,7 @@ Earlier this month we announced the release of [MSAL.NET 4.55.0](https://www.nug
 
 Earlier this month, the Microsoft Authentication Library team announced the release of [MSAL for Python version 1.23.0](https://pypi.org/project/msal/1.23.0/). The new version of the library adds support for better caching when using client credentials, eliminating the need to request new tokens repeatedly when cached tokens exist.
 
-To learn more about MSAL for Python, see: [Microsoft Authentication Library (MSAL) for Python](https://learn.microsoft.com/entra/msal/python/).
+To learn more about MSAL for Python, see: [Microsoft Authentication Library (MSAL) for Python](/entra/msal/python/).
 
 ---
 
