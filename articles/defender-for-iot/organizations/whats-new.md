@@ -20,9 +20,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Deprecation notice for legacy Splunk, Aruba ClearPass, and Palo Alto integrations](#deprecation-notice-for-legacy-splunk-aruba-clearpass-and-palo-alto-integrations) |
+| **OT networks** | Defender for IoT will update their integration to cloud base integration |
 
-## Deprecation notice for legacy integrations
+## Integration update notice 
 
 Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto Panorama integrations with an upcoming patch version of 23.1.x. We recommend that you transition to more updated integration methods instead, as described in the following table:
 
