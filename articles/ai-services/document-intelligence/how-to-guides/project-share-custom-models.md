@@ -36,7 +36,6 @@ If your storage account VNet is enabled or if there are any firewall constraints
 
 A workaround is to manually create a project using the same settings as the project being shared.
 
-
 ## Share a custom extraction model with Document Intelligence Studio
 
 Follow these steps to share your project using Document Intelligence Studio:

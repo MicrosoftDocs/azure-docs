@@ -1171,7 +1171,6 @@ To learn how to use the Sample Labeling tool with an Azure Container Instance, *
 
 ---
 
-
 :::moniker-end
 
 ## Validate that the service is running

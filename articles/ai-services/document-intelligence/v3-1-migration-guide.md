@@ -30,7 +30,7 @@ The `2023-07-31` (GA) API has a few updates and changes from the preview API ver
 - Disabling barcodes by default for prebuilt-read and prebuilt-layout, languages for prebuilt-read, and keyValuePairs for prebuilt-invoice.
 - Annotation extraction is removed.
 - Query fields and common names of key-value pairs are removed.
-- Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If addon features are requested for Office/HTML files, an empty array is returned without errors.
+- Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If add-on features are requested for Office/HTML files, an empty array is returned without errors.
 
 ### Analysis features
 
@@ -60,12 +60,12 @@ Formulas/StyleFont/OCR High Resolution* - Premium features incur added costs
 Compared with v3.0, Document Intelligence v3.1 introduces several new features and capabilities:
 
 * [Barcode](concept-read.md#barcode-extraction) extraction.
-* [Addon capabilities](concept-add-on-capabilities.md) including high resolution, formula, and font properties extraction.
+* [Add-on capabilities](concept-add-on-capabilities.md) including high resolution, formula, and font properties extraction.
 * [Custom classification model](concept-custom-classifier.md) for document splitting and classification.
 * Language expansion and new fields support in [Invoice](concept-invoice.md) and [Receipt](concept-receipt.md) model.
 * New document type support in [ID document](concept-id-document.md) model.
 * New prebuilt [Health insurance card](concept-insurance-card.md) model.
-* Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If addon features are requested for Office/HTML files, an empty array is returned without errors.
+* Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If add-on features are requested for Office/HTML files, an empty array is returned without errors.
 * Model expiration for custom extraction and classification models - Our new custom models build upon on a large base model that we update periodically for quality improvement. An expiration date is introduced to all custom models to enable the retirement of the corresponding base models.  Once a custom model expires, you need to retrain the model using the latest API version (base model).
 
 ```http

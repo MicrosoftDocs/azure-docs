@@ -137,16 +137,16 @@ Document Intelligence Studio preview features are currently in gated preview. Fe
 
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form-preview":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form-preview) | Extract student loan interest details
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage interest details.
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
+    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form-preview":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form-preview) | Extract qualified tuition details.
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
    :::column-end:::
 :::column span="":::
    :::column-end:::
@@ -332,7 +332,6 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-
 ### US tax 1098 form
 
 :::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
@@ -366,7 +365,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-### Addon capabilities
+### Add-on capabilities
 
 :::moniker-end
 
