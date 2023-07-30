@@ -59,8 +59,8 @@ operating system.
 1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror and download an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
->[!NOTE]
-> From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.If you wish to use the latest OS, proceed setting up the machine with Ubuntu 20.04 iso image.
+   >[!NOTE]
+   > From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.If you wish to use the latest OS, proceed setting up the machine with Ubuntu 20.04 iso image.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
     
