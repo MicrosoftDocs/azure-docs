@@ -42,9 +42,9 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 **No action is required from you, but you may need to update some of your own documentation.**
 
-Azure AD is being renamed to Microsoft Entra ID. The name change will roll out across all Microsoft products and experiences throughout the second half of 2023. 
+Azure AD is being renamed to Microsoft Entra ID. The name change rolls out across all Microsoft products and experiences throughout the second half of 2023. 
 
-Capabilities, licensing, and usage of the product is not changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
+Capabilities, licensing, and usage of the product isn't changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
 
 Learn more and get renaming details: [New name for Azure Active Directory](../fundamentals/new-name.md).
 
@@ -56,7 +56,7 @@ Learn more and get renaming details: [New name for Azure Active Directory](../fu
 **Service category:** Conditional Access                            
 **Product capability:** End User Experiences                  
 
-My Apps can now be targeted in conditional access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher which improves app launch performance for both SAML and other app types. 
+My Apps can now be targeted in conditional access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher, which improves app launch performance for both SAML and other app types. 
 
 Learn More about setting up conditional access policies here: [Azure AD Conditional Access documentation](../conditional-access/index.yml).
 
@@ -78,7 +78,7 @@ Protected actions are high-risk operations, such as altering access policies or 
 **Service category:** Access Reviews                            
 **Product capability:** Identity Governance                      
 
-This new feature, part of the Microsoft Entra ID Governance SKU, allows admins to review and address stale accounts that haven’t been active for a specified period. Admins can set a specific duration to determine inactive accounts which were not used for either interactive or non-interactive sign-in activities. As part of the review process, stale accounts can automatically be removed. For more information, see: [Microsoft Entra ID Governance Introduces Two New Features in Access Reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-introduces-two-new-features-in/ba-p/2466930).
+This new feature, part of the Microsoft Entra ID Governance SKU, allows admins to review and address stale accounts that haven’t been active for a specified period. Admins can set a specific duration to determine inactive accounts that weren't used for either interactive or non-interactive sign-in activities. As part of the review process, stale accounts can automatically be removed. For more information, see: [Microsoft Entra ID Governance Introduces Two New Features in Access Reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-introduces-two-new-features-in/ba-p/2466930).
 
 ---
 
@@ -225,7 +225,7 @@ This feature enables admins to create dynamic group rules based on the user obje
 **Service category:** User Management                                  
 **Product capability:** User Management                      
 
-We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, as well as assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 ---
 
@@ -263,7 +263,7 @@ For more information, see: [Require an app protection policy on Windows devices 
 
 In July 2023 we've added the following 10 new applications in our App gallery with Federation support:    
 
-[Gainsight SAML](https://learn.microsoft.com/azure/active-directory/saas-apps/gainsight-saml-tutorial), [Dataddo](https://www.dataddo.com/), [Puzzel](https://www.puzzel.com/), [Worthix App](../saas-apps/worthix-app-tutorial.md), [iOps360 IdConnect](https://iops360.com/iops360-id-connect-azuread-single-sign-on/), [Airbase](../saas-apps/airbase-tutorial.md), [Couchbase Capella - SSO](../saas-apps/couchbase-capella-sso-tutorial.md), [SSO for Jama Connect®](../saas-apps/sso-for-jama-connect-tutorial.md), [mediment (メディメント)](https://mediment.jp/), [Netskope Cloud Exchange Administration Console](../saas-apps/netskope-cloud-exchange-administration-console-tutorial.md), [Uber](../saas-apps/uber-tutorial.md), [Plenda](https://app.plenda.nl/), [Deem Mobile](../saas-apps/deem-mobile-tutorial.md), [40SEAS](https://www.40seas.com/), [Vivantio](https://www.vivantio.com/), [AppTweak](https://www.apptweak.com/), [ioTORQ EMIS](https://www.iotorq.com/), [Vbrick Rev Cloud](../saas-apps/vbrick-rev-cloud-tutorial.md), [OptiTurn](../saas-apps/optiturn-tutorial.md), [Application Experience with Mist](https://www.mist.com/), [クラウド勤怠管理システムKING OF TIME](../saas-apps/cloud-attendance-management-system-king-of-time-tutorial.md), [Connect1](../saas-apps/connect1-tutorial.md), [DB Education Portal for Schools](../saas-apps/db-education-portal-for-schools-tutorial.md), [SURFconext](../saas-apps/surfconext-tutorial.md), [Chengliye Smart SMS Platform](../saas-apps/chengliye-smart-sms-platform-tutorial.md), [CivicEye SSO](../saas-apps/civic-eye-sso-tutorial.md), [Colloquial](../saas-apps/colloquial-tutorial.md), [BigPanda](../saas-apps/bigpanda-tutorial.md), [Foreman](https://foreman.mn/)
+[Gainsight SAML](../saas-apps/gainsight-saml-tutorial.md), [Dataddo](https://www.dataddo.com/), [Puzzel](https://www.puzzel.com/), [Worthix App](../saas-apps/worthix-app-tutorial.md), [iOps360 IdConnect](https://iops360.com/iops360-id-connect-azuread-single-sign-on/), [Airbase](../saas-apps/airbase-tutorial.md), [Couchbase Capella - SSO](../saas-apps/couchbase-capella-sso-tutorial.md), [SSO for Jama Connect®](../saas-apps/sso-for-jama-connect-tutorial.md), [mediment (メディメント)](https://mediment.jp/), [Netskope Cloud Exchange Administration Console](../saas-apps/netskope-cloud-exchange-administration-console-tutorial.md), [Uber](../saas-apps/uber-tutorial.md), [Plenda](https://app.plenda.nl/), [Deem Mobile](../saas-apps/deem-mobile-tutorial.md), [40SEAS](https://www.40seas.com/), [Vivantio](https://www.vivantio.com/), [AppTweak](https://www.apptweak.com/), [ioTORQ EMIS](https://www.iotorq.com/), [Vbrick Rev Cloud](../saas-apps/vbrick-rev-cloud-tutorial.md), [OptiTurn](../saas-apps/optiturn-tutorial.md), [Application Experience with Mist](https://www.mist.com/), [クラウド勤怠管理システムKING OF TIME](../saas-apps/cloud-attendance-management-system-king-of-time-tutorial.md), [Connect1](../saas-apps/connect1-tutorial.md), [DB Education Portal for Schools](../saas-apps/db-education-portal-for-schools-tutorial.md), [SURFconext](../saas-apps/surfconext-tutorial.md), [Chengliye Smart SMS Platform](../saas-apps/chengliye-smart-sms-platform-tutorial.md), [CivicEye SSO](../saas-apps/civic-eye-sso-tutorial.md), [Colloquial](../saas-apps/colloquial-tutorial.md), [BigPanda](../saas-apps/bigpanda-tutorial.md), [Foreman](https://foreman.mn/)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
 
@@ -290,6 +290,28 @@ We've added the following new applications in our App gallery with Provisioning 
 
 For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
+
+---
+
+### General Availability - Microsoft Authentication Library for .NET 4.55.0
+
+**Type:** New feature       
+**Service category:** Other                                    
+**Product capability:** User Authentication                     
+
+Earlier this month we announced the release of [MSAL.NET 4.55.0](https://www.nuget.org/packages/Microsoft.Identity.Client/4.55.0), the latest version of the [Microsoft Authentication Library for the .NET platform](/entra/msal/dotnet/). The new version introduces support for user-assigned [managed identity](/entra/msal/dotnet/advanced/managed-identity) being specified through object IDs, CIAM authorities in the `WithTenantId` API, better error messages when dealing with cache serialization, and improved logging when using the [Windows authentication broker](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/wam).
+
+---
+
+### General Availability - Microsoft Authentication Library for Python 1.23.0
+
+**Type:** New feature       
+**Service category:** Other                                    
+**Product capability:** User Authentication                  
+
+Earlier this month, the Microsoft Authentication Library team announced the release of [MSAL for Python version 1.23.0](https://pypi.org/project/msal/1.23.0/). The new version of the library adds support for better caching when using client credentials, eliminating the need to request new tokens repeatedly when cached tokens exist.
+
+To learn more about MSAL for Python, see: [Microsoft Authentication Library (MSAL) for Python](/entra/msal/python/).
 
 ---
 
@@ -411,7 +433,7 @@ The Converged Authentication Methods Policy enables you to manage all authentica
 **Service category:** Provisioning                        
 **Product capability:** Azure Active Directory Connect Cloud Sync                
 
-Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
 
 ---
 
@@ -723,7 +745,7 @@ To address this challenge, we're introducing a new system-preferred authenticati
 **Service category:** User Management                     
 **Product capability:** User Management            
 
-We have increased the number of properties that admins are able to define when creating and inviting a user in the Entra admin portal. This brings our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, as well as assign roles. For more information, see:  [How to create, invite, and delete users](../fundamentals/how-to-create-delete-users.md).
+We have increased the number of properties that admins are able to define when creating and inviting a user in the Entra admin portal. This brings our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see:  [How to create, invite, and delete users](../fundamentals/how-to-create-delete-users.md).
 
 ---
 
