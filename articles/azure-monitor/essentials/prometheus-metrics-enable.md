@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 07/30/2023
 ms.reviewer: aul
 ---
 
@@ -506,11 +506,8 @@ The following table lists the firewall configuration required for Azure monitor 
 | `*.handler.control.monitor.azure.us` | For querying data collection rules  | 443 |
 
 ## Uninstall the metrics add-on
-Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection rule (DCR), DCRA and recording rules groups created as part of onboarding. . This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
-```azurecli
-az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
-```
+To uninstall the metrics add-on, see [Disable Prometheus metrics collection on an AKS cluster.](./prometheus-metrics-disable.md) 
 
 ## Supported regions
 
