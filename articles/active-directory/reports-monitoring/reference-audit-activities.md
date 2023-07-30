@@ -774,7 +774,7 @@ If you're using Entitlement Management to streamline how you assign members of A
 |Audit Category|Activity|
 |---|---|
 |EntitlementManagement|Add Entitlement Management role assignment|
-|EntitlementManagement|Administrator directly assigns user to access package|		 
+|EntitlementManagement|Administrator directly assigns user to access package|
 |EntitlementManagement|Administrator directly removes user access package assignment|
 |EntitlementManagement|Approval stage completed for access package assignment request|
 |EntitlementManagement|Approve access package assignment request|
@@ -784,9 +784,9 @@ If you're using Entitlement Management to streamline how you assign members of A
 |EntitlementManagement|Cancel access package assignment request|
 |EntitlementManagement|Create access package|
 |EntitlementManagement|Create access package assignment policy|
-|EntitlementManagement|Create access package assignment user update request|	
+|EntitlementManagement|Create access package assignment user update request|
 |EntitlementManagement|Create access package catalog|
-|EntitlementManagement|Create connected organization|	
+|EntitlementManagement|Create connected organization|
 |EntitlementManagement|Create custom extension|
 |EntitlementManagement|Create incompatible access package|
 |EntitlementManagement|Create incompatible group|
