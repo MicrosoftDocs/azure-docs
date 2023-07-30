@@ -421,7 +421,7 @@ If the upgrade had issues, follow these steps to roll back:
    >[!NOTE]
    >Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
 
-1.	Run the installer for your previous version (for example, 8.0.x.x).
+1. Run the installer for your previous version (for example, 8.0.x.x).
 1. Configure Azure AD to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
 
    **Request**

@@ -167,23 +167,23 @@ In Service Provider settings, define SAML SP instance settings for the SHA-prote
 
 3. (Optional) In Security Settings, select **Enable Encryption Assertion** to enable Azure AD to encrypt issued SAML assertions. Azure AD and BIG-IP APM encryption assertions help assure content tokens aren't intercepted, nor personal or corporate data compromised.
 
-4.	In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
+4. In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
  
    ![Screenshot of the Create New option in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-5.	Select **OK**. 
-6.	The **Import SSL Certificate and Keys** dialog appears. 
-7.	For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
-8.	For **Certificate and Key Name**, select **New** and enter the input.
-9.	Enter the **Password**.
-10.	Select **Import**.
-11.	Close the browser tab to return to the main tab.
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears. 
+7. For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
+8. For **Certificate and Key Name**, select **New** and enter the input.
+9. Enter the **Password**.
+10. Select **Import**.
+11. Close the browser tab to return to the main tab.
 
    ![Screenshot of selections and entries for SSL Certificate Key Source.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-12.	Check the box for **Enable Encrypted Assertion**.
-13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
-14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
+12. Check the box for **Enable Encrypted Assertion**.
+13. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
+14. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
    
    ![Screenshot of two entries and one option for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -247,8 +247,8 @@ Conditional Access policies control access based on device, application, locatio
 
 To select a policy to be applied to the application being published:
 
-1.	On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
-2.	Select the **right arrow** and move it to the **Selected Policies** list.
+1. On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
+2. Select the **right arrow** and move it to the **Selected Policies** list.
 
   > [!NOTE]
   > You can select the **Include** or **Exclude** option for a policy. If both options are selected, the policy is unenforced.
