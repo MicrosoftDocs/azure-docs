@@ -25,7 +25,7 @@ The following table lists the platform logs that are available at different laye
 > [!NOTE]
 > The Azure activity log is primarily for activities that occur in Azure Resource Manager. The activity log doesn't track resources by using the classic/RDFE model. Some classic resource types have a proxy resource provider in Resource Manager, for example, Microsoft.ClassicCompute. If you interact with a classic resource type through Resource Manager by using these proxy resource providers, the operations appear in the activity log. If you interact with a classic resource type outside of the Resource Manager proxies, your actions are only recorded in the Operation log. The [Operation log](https://portal.azure.com/?Microsoft_Azure_Monitoring_Log=#view/Microsoft_Azure_Resources/OperationLogsBlade) can be browsed in a separate section of the portal.
 
-:::image type="content" source="media/platform-logs-overview/logs-overview.png" alt-text="A diagram showing the types of platform logs and where the logs can be sent." lightbox"media/platform-logs-overview/logs-overview.png":::
+:::image type="content" source="media/platform-logs-overview/logs-overview.png" alt-text="A diagram showing the types of platform logs and where the logs can be sent." lightbox="media/platform-logs-overview/logs-overview.png":::
 
 ## View platform logs
 
