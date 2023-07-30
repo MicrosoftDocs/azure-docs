@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor
 ms.reviewer: vitalyg
 ms.topic: troubleshooting
-ms.date: 06/09/2022
+ms.date: 09/27/2022
 ---
 
 # Troubleshooting metrics charts
