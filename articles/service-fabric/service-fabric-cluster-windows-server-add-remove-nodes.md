@@ -50,21 +50,21 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 
 7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) to get the latest configuration file and add the newly added node to the "Nodes" section. It is also recommended to always have the latest cluster configuration available in case you need to redeploy a cluster that has the same configuration.
 
-    ```json
-    {
-        "nodeName": "vm5",
-        "iPAddress": "182.17.34.52",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc1/r0",
-        "upgradeDomain": "UD1"
-    }
-    ```
+   ```json
+   {
+       "nodeName": "vm5",
+       "iPAddress": "182.17.34.52",
+       "nodeTypeRef": "NodeType0",
+       "faultDomain": "fd:/dc1/r0",
+       "upgradeDomain": "UD1"
+   }
+   ```
 
 8. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) to begin the upgrade.
 
-    ```powershell
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
-    ```
+   ```powershell
+   Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
 
     You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
@@ -74,23 +74,23 @@ For clusters configured with Group Managed Service Account(gMSA)(https://technet
 
 1. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) on any of the existing nodes to get the latest configuration file and add details about the new node you want to add in the "Nodes" section. Make sure the new node is part of the same group managed account. This account should be an Administrator on all machines.
 
-    ```json
-    {
-        "nodeName": "vm5",
+   ```json
+   {
+       "nodeName": "vm5",
         "iPAddress": "182.17.34.52",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r0",
         "upgradeDomain": "UD1"
-    }
-    ```
+   }
+   ```
 
 2. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) to begin the upgrade.
 
-    ```powershell
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
-    ```
+   ```powershell
+   Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
 
-    You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
+   You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### Add node types to your cluster
 In order to add a new node type, modify your configuration to include the new node type in "NodeTypes" section under "Properties" and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Once the upgrade completes, you can add new nodes to your cluster with this node type.
@@ -100,7 +100,7 @@ A node can be removed from a cluster using a configuration upgrade, in the follo
 
 1. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) to get the latest configuration file and *remove* the node from "Nodes" section. Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" section. The "value" should be a comma-separated list of node names of nodes that need to be removed.
 
-    ```json
+   ```json
     "fabricSettings": [
         {
         "name": "Setup",
@@ -120,13 +120,13 @@ A node can be removed from a cluster using a configuration upgrade, in the follo
         ]
         }
     ]
-    ```
+   ```
 
 2. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) to begin the upgrade.
 
-    ```powershell
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
-    ```
+   ```powershell
+   Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
 
     You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
