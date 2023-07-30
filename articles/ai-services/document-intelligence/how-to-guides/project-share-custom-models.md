@@ -23,7 +23,7 @@ Document Intelligence Studio is an online tool to visually explore, understand, 
 
 In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Document Intelligence and storage resources.
 
-Generally, in the process of creating a custom model project, most of the requirements should have been met for project sharing. However, in cases where the project sharing feature does not work, please check the below.
+Generally, in the process of creating a custom model project, most of the requirements should have been met for project sharing. However, in cases where the project sharing feature doesn't work, check [permissions](#granted-access-and-permissions).
 
 ## Granted access and permissions
 
