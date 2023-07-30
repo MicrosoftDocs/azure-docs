@@ -15,9 +15,9 @@ ms.custom: devx-track-csharp, aaddev, has-adal-ref, kr2b-contr-experiment, devx-
 #Customer intent: As an application developer, I want to migrate my confidential client app from ADAL.NET to MSAL.NET.
 ---
 
-# Migrate confidential client applications from ADAL.NET to MSAL.NET
+# Migrate confidential client applications from ADAL.NET to MSAL.NET via Microsoft.Identity.Web
 
-In this how-to guide you'll migrate a confidential client application from Azure Active Directory Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET). Confidential client applications include web apps, web APIs, and daemon applications that call another service on their own behalf. For more information about confidential apps, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md). If your app is based on ASP.NET Core, see [Microsoft.Identity.Web](microsoft-identity-web.md).
+In this how-to guide you'll migrate a confidential client application from Azure Active Directory Authentication Library for .NET (ADAL.NET) to the higher-level APIs provided in Microsoft.Identity.Web, which uses Microsoft Authentication Library for .NET (MSAL.NET) under the covers. Confidential client applications include web apps, web APIs, and daemon applications that call another service on their own behalf. For more information about confidential apps, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md). If your app is based on ASP.NET Core, see [Microsoft.Identity.Web](microsoft-identity-web.md).
 
 For app registrations:
 
@@ -33,7 +33,7 @@ For app registrations:
    - A `resourceId` string. This variable is the app ID URI of the web API that you want to call.
    - An instance of `IClientAssertionCertificate` or `ClientAssertion`. This instance provides the client credentials for your app to prove the identity of your app.
 
-1. After you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references. For more information, see [Install a NuGet package](https://www.bing.com/search?q=install+nuget+package). To use token cache serializers, install [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache).
+1. After you've identified that you have apps that are using ADAL.NET, install the Microsoft.Identity.Web NuGet package [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and rebuild. For more information, see [Install a NuGet package](https://www.bing.com/search?q=install+nuget+package). To use token cache serializers, install [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache).
 
 1. Update the code according to the confidential client scenario. Some steps are common and apply across all the confidential client scenarios. Other steps are unique to each scenario. 
 
@@ -64,16 +64,16 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 
 [!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)]
 
-In this case, replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenClient`.
+In this case, remove the call to `AuthenticationContext.AcquireTokenAsync` as well as any code to load certificates and replace with the higher-level APIs, as shown below. You will need to install a NuGet package [Microsoft.Identity.Abstractions](https://www.nuget.org/packages/Microsoft.Identity.Abstractions).
 
-Here's a comparison of ADAL.NET and MSAL.NET code for daemon scenarios:
+Here's a comparison of ADAL.NET and Microsoft.Identity.Web code for daemon scenarios with calling Microsoft Graph:
 
 :::row:::
 :::column span="":::
     ADAL
 :::column-end:::
 :::column span="":::
-    MSAL
+    Microsoft.Identity.Web
 :::column-end:::
 :::row-end:::
 :::row:::
@@ -93,11 +93,8 @@ public partial class AuthWrapper
  const string resourceId = "https://target-api.domain.com";
  X509Certificate2 certificate = LoadCertificate();
 
-
-
  public async Task<AuthenticationResult> GetAuthenticationResult()
  {
-
 
   var authContext = new AuthenticationContext(authority);
   var clientAssertionCert = new ClientAssertionCertificate(
@@ -117,49 +114,61 @@ public partial class AuthWrapper
 :::column-end:::   
 :::column span="":::
 ```csharp
-using Microsoft.Identity.Client;
-using System.Security.Cryptography.X509Certificates;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Graph;
+using Microsoft.Identity.Abstractions;
+using Microsoft.Identity.Web;
+using System;
 using System.Threading.Tasks;
 
-public partial class AuthWrapper
+class Program
 {
- const string ClientId = "Guid (Application ID)";
- const string authority 
-   = "https://login.microsoftonline.com/{tenant}";
- // App ID URI of web API to call
- const string resourceId = "https://target-api.domain.com";
- X509Certificate2 certificate = LoadCertificate();
+   static async Task Main(string[] _)
+   {
+      TokenAcquirerFactory tokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance();
 
- IConfidentialClientApplication app;
+      // Configure the application options to be read from the configuration
+      // and add the services you need (Graph, token cache)
+      IServiceCollection services = tokenAcquirerFactory.Services;
+      services.AddMicrosoftGraph();
+      // By default, you get an in-memory token cache.
+      // For more token cache serialization options, see https://aka.ms/msal-net-token-cache-serialization
 
- public async Task<AuthenticationResult> GetAuthenticationResult()
- {
+      // Resolve the dependency injection.
+      var serviceProvider = tokenAcquirerFactory.Build();
 
-   var app = ConfidentialClientApplicationBuilder.Create(ClientId)
-           .WithCertificate(certificate)
-           .WithAuthority(authority)
-           .Build();
-
-  // Setup token caching https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet
-  // For example, for an in-memory cache with 1GB limit, use  
-  app.AddInMemoryTokenCache(services =>
-  {
-      // Configure the memory cache options
-      services.Configure<MemoryCacheOptions>(options =>
+      // Call Microsoft Graph using the Graph SDK
+      try
       {
-          options.SizeLimit = 1024 * 1024 * 1024; // in bytes (1 GB of memory)
-      });
-  }
+            GraphServiceClient graphServiceClient = serviceProvider.GetRequiredService<GraphServiceClient>();
+            var users = await graphServiceClient.Users
+               .GetAsync(r => r.Options.WithAppOnly());
+            Console.WriteLine($"{users.Value.Count} users");
+      }
+      catch (ServiceException e)
+      {
+            Console.WriteLine("We could not retrieve the user's list: " + $"{e}");
 
-  var authResult = await app.AcquireTokenForClient(
-              new [] { $"{resourceId}/.default" })
-              // .WithTenantId(specificTenant)
-              // See https://aka.ms/msal.net/withTenantId
-              .ExecuteAsync()
-              .ConfigureAwait(false);
-
-  return authResult;
- }
+            // If you get the following exception, here is what you need to do
+            // ---------------------------------------------------------------
+            //  IDW10503: Cannot determine the cloud Instance.
+            //    Provide the configuration (appsettings.json with an "AzureAd" section, and "Instance" set,
+            //    the project needs to be this way)
+            // <ItemGroup>
+            //  < None Update = "appsettings.json" >
+            //    < CopyToOutputDirectory > PreserveNewest </ CopyToOutputDirectory >
+            //  </ None >
+            // </ ItemGroup >
+            // System.ArgumentNullException: Value cannot be null. (Parameter 'tenantId')
+            //    Provide the TenantId in the configuration
+            // Microsoft.Identity.Client.MsalClientException: No ClientId was specified.
+            //    Provide the ClientId in the configuration
+            // ErrorCode: Client_Credentials_Required_In_Confidential_Client_Application
+            //    Provide a ClientCredentials section containing either a client secret, or a certificate
+            //    or workload identity federation for Kubernates if your app runs in AKS
+      }
+   }
 }
 ```
    :::column-end:::
@@ -295,6 +304,24 @@ public partial class AuthWrapper
  }
 }
 ```
+
+And in the appsettings.json file:
+```json
+{
+"AzureAd": {
+   "Instance": "https://login.microsoftonline.com/",
+   "TenantId": "[Enter here the tenantID or domain name for your Azure AD tenant]",
+   "ClientId": "[Enter here the ClientId for your application]",
+   "ClientCredentials": [
+      {
+         "SourceType": "KeyVault",
+         "KeyVaultUrl": "<VaultUri>",
+         "KeyVaultCertificateName": "<CertificateName>"
+      }
+   ]
+}
+}
+```
 :::column-end:::
 :::row-end:::
 
@@ -312,7 +339,7 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 
 ### Migrate a web app that calls web APIs
 
-If your app uses ASP.NET Core, we strongly recommend that you update to Microsoft.Identity.Web because it processes everything for you. For a quick presentation, see the [Microsoft.Identity.Web announcement of general availability](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0). For details about how to use it in a web app, see [Why use Microsoft.Identity.Web in web apps?](https://aka.ms/ms-id-web/webapp).
+If your app uses ASP.NET Core, we strongly recommend that you update to Microsoft.Identity.Web because it processes everything for you. For a quick presentation, see the [Microsoft.Identity.Web announcement of general availability](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0) and the higher-level API improvements brought in [Microsoft.Identity.Web 2.x](https://github.com/AzureAD/microsoft-identity-web/wiki/v2.0). For details about how to use it in a web app, see [Why use Microsoft.Identity.Web in web apps?](https://aka.ms/ms-id-web/webapp).
 
 Web apps that sign in users and call web APIs on behalf of users employ the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
@@ -328,16 +355,16 @@ The ADAL code for your app uses auth code flow if it contains a call to `Authent
 
 [!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)] 
 
-In this case, replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenByAuthorizationCode`.
+In this case, the call to `AuthenticationContext.AcquireTokenAsync` will be replaced in the `Startup.cs` file of your web app. ASP .NET Core middleware will handle the sign0-in and acquisition of the authorization code, and Microsoft.Identity.Web will engage MSAL to exchange the code for tokens and call downstream APIs.
 
-Here's a comparison of sample authorization code flows for ADAL.NET and MSAL.NET:
+Here's a comparison of sample authorization code flows for ADAL.NET and Microsoft.Identity.Web:
 
 :::row:::
    :::column span="":::
       ADAL
    :::column-end:::
    :::column span="":::
-      MSAL
+      Microsoft.Identity.Web
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -355,20 +382,15 @@ public partial class AuthWrapper
  private Uri redirectUri = new Uri("host/login_oidc");
  X509Certificate2 certificate = LoadCertificate();
 
-
-
  public async Task<AuthenticationResult> GetAuthenticationResult(
   string resourceId,
   string authorizationCode)
  {
 
-
   var ac = new AuthenticationContext(authority);
   var clientAssertionCert = new ClientAssertionCertificate(
                                   ClientId,
                                   certificate);
-
-
 
   var authResult = await ac.AcquireTokenByAuthorizationCodeAsync(
                                       authorizationCode,
@@ -383,166 +405,134 @@ public partial class AuthWrapper
    :::column-end:::
    :::column span="":::
 ```csharp
-using Microsoft.Identity.Client;
+﻿using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
-using System;
-using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
+using Microsoft.Identity.Web.UI;
 
-public partial class AuthWrapper
+public class Startup
 {
- const string ClientId = "Guid (Application ID)";
- const string authority
-    = "https://login.microsoftonline.com/{tenant}";
- private Uri redirectUri = new Uri("host/login_oidc");
- X509Certificate2 certificate = LoadCertificate();
+   public Startup(IConfiguration configuration)
+   {
+      Configuration = configuration;
+   }
 
- public IConfidentialClientApplication CreateApplication()
- {
-  IConfidentialClientApplication app;
+   public IConfiguration Configuration { get; }
 
-  app = ConfidentialClientApplicationBuilder.Create(ClientId)
-               .WithCertificate(certificate)
-               .WithAuthority(authority)
-               .WithRedirectUri(redirectUri.ToString())
-               .WithLegacyCacheCompatibility(false)
+   // This method gets called by the runtime. Use this method to add services to the container.
+   public void ConfigureServices(IServiceCollection services)
+   {
+      // Sign-in users with the Microsoft identity platform
+      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+      .AddMicrosoftIdentityWebApp(options => Configuration.Bind("AzureAd", options));
+
+      services.AddControllersWithViews(options =>
+      {
+            var policy = new AuthorizationPolicyBuilder()
+               .RequireAuthenticatedUser()
                .Build();
+            options.Filters.Add(new AuthorizeFilter(policy));
+      }).AddMicrosoftIdentityUI();
 
-  // Add a token cache. For details about other serialization
-  // see https://aka.ms/msal-net-cca-token-cache-serialization
-  app.AddInMemoryTokenCache();
+      services.AddRazorPages();
+   }
 
-  return app;
- }
-
- // Called from 'code received event'.
- public async Task<AuthenticationResult> GetAuthenticationResult(
-      string resourceId,
-      string authorizationCode)
- {
-  IConfidentialClientApplication app = CreateApplication();
-
-  var authResult = await app.AcquireTokenByAuthorizationCode(
-                  new[] { $"{resourceId}/.default" },
-                  authorizationCode)
-                  .ExecuteAsync()
-                  .ConfigureAwait(false);
-
-  return authResult;
- }
+   // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {    
+      app.UseAuthentication();
+      app.UseAuthorization();
+   }
 }
 ```
    :::column-end:::
 :::row-end:::
 
-Calling `AcquireTokenByAuthorizationCode` adds a token to the token cache when the authorization code is received. To acquire extra tokens for other resources or tenants, use `AcquireTokenSilent` in your controllers.
-
-```csharp
-public partial class AuthWrapper
-{
- // Called from controllers
- public async Task<AuthenticationResult> GetAuthenticationResult(
-      string resourceId2,
-      string authority)
- {
-  IConfidentialClientApplication app = CreateApplication();
-  AuthenticationResult authResult;
-
-  var scopes = new[] { $"{resourceId2}/.default" };
-  var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
-
-  try
-  {
-   // try to get an already cached token
-   authResult = await app.AcquireTokenSilent(
-               scopes,
-               account)
-                // .WithTenantId(specificTenantId) 
-                // See https://aka.ms/msal.net/withTenantId
-                .ExecuteAsync().ConfigureAwait(false);
-  }
-  catch (MsalUiRequiredException)
-  {
-   // The controller will need to challenge the user
-   // including asking for claims={ex.Claims}
-   throw;
-  }
-  return authResult;
- }
-}
-```
-
 #### Benefit from token caching
 
-Because your web app uses `AcquireTokenByAuthorizationCode`, it needs to use a distributed token cache for token caching. For details, see [Token cache for a web app or web API](msal-net-token-cache-serialization.md?tabs=aspnet) and read through [sample code](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
-
-
-```CSharp
-app.UseInMemoryTokenCaches(); // or a distributed token cache.
+To use the in-memory token cache, update the `Startup.cs`:
+```csharp
+// or use a distributed Token Cache by adding
+services.AddMicrosoftIdentityWebAppAuthentication(Configuration);
+   .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest })
+      .AddInMemoryTokenCaches();
 ```
+Or use a distributed cache, which is recommended for production services, update the `Startup.cs`:
+
+```csharp
+services.AddMicrosoftIdentityWebAppAuthentication(Configuration);
+      .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest })
+         .AddDistributedTokenCaches();
+
+// and then choose your implementation
+
+// For instance the distributed in memory cache 
+services.AddDistributedMemoryCache() // NOT RECOMMENDED FOR PRODUCTION! Use a persistent cache like Redis
+
+// Or a Redis cache
+services.AddStackExchangeRedisCache(options =>
+{
+options.Configuration = "localhost";
+options.InstanceName = "SampleInstance";
+});
+
+// Or a Cosmos DB cache
+services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
+{
+   cacheOptions.ContainerName = Configuration["CosmosCacheContainer"];
+   cacheOptions.DatabaseName = Configuration["CosmosCacheDatabase"];
+   cacheOptions.ClientBuilder = new CosmosClientBuilder(Configuration["CosmosConnectionString"]);
+   cacheOptions.CreateIfNotExists = true;
+});
+
+// Or even a SQL Server token cache
+services.AddDistributedSqlServerCache(options =>
+{
+options.ConnectionString = _config["DistCache_ConnectionString"];
+options.SchemaName = "dbo";
+options.TableName = "TestCache";
+options.DefaultSlidingExpiration = TimeSpan.FromMinutes(90);
+});
+```
+Learn more about [the L1 cache in a distributed (L2) token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/L1-Cache-in-Distributed-(L2)-Token-Cache).
 
 #### Handling MsalUiRequiredException
 
-When your controller attempts to acquire a token silently for different
-scopes/resources, MSAL.NET might throw an `MsalUiRequiredException` as expected if the user needs to re-sign-in, or if the
-access to the resource requires more claims (because of a conditional access
-policy). For details on mitigation see how to [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md).
+Microsoft.Identity.Web handles the `MsalUiRequiredException` for you, out of the box. Learn more about [conditional access and incremental consent](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access) or details on mitigation see how to [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md).
 
 [Learn more about web apps calling web APIs](scenario-web-app-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
 ---
 
-## MSAL benefits
+## MSAL and Microsoft.Identity.Web benefits
 
-Key benefits of MSAL.NET for your app include:
+Key benefits for your app include:
 
-- **Resilience**. MSAL.NET helps make your app resilient through:
+- **Resilience**. 
 
-  - Azure AD Cached Credential Service (CCS) benefits. CCS operates as an Azure AD backup.
+  - [Azure AD Cached Credential Service (CCS) benefits](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/advances-in-azure-ad-resilience/ba-p/2147048). CCS operates as an Azure AD backup.
   - Proactive renewal of tokens if the API that you call enables long-lived tokens through [continuous access evaluation](app-resilience-continuous-access-evaluation.md).
 
-- **Security**. You can acquire Proof of Possession (PoP) tokens if the web API that you want to call requires it. For details, see [Proof Of Possession tokens in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens)
+- **Security**. 
+   - You can acquire Proof of Possession (PoP) tokens if the web API that you want to call requires it. For details, see [Proof Of Possession tokens in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens).
+   - Microsoft.Identity.Web leverages Microsoft.IdentityModel, the premier defensive-in-depth auth request validation library offered by Microsoft.
 
-- **Performance and scalability**. If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when you're creating the confidential client application (`.WithLegacyCacheCompatibility(false)`) to significantly increase performance.
-  
-  ```csharp
-  app = ConfidentialClientApplicationBuilder.Create(ClientId)
-          .WithCertificate(certificate)
-          .WithAuthority(authority)
-          .WithLegacyCacheCompatibility(false)
-          .Build();
-  ```
+
+- **Performance and scalability**. 
+   - Engingeering teams focus on performance improvements across our suite of authentication and authorization libraries, such as improvements made in Microsoft.IdentityModel 7x, which bring the requests per second from 320K to 380K.
+   - The libraries are compatible with and supported by the latest and greatest versions of .NET.
+   - Microsoft.Identity.Web, MSAL.NET and Microsoft.IdentityModel are Ahead of Time (AOT) compatible and trimmed.
 
 ## Troubleshooting
 
-### MsalServiceException
-
-The following troubleshooting information makes two assumptions: 
-
-- Your ADAL.NET code was working.
-- You migrated to MSAL by keeping the same client ID.
-
-If you get an exception with either of the following messages: 
-
-> `AADSTS700027: Client assertion contains an invalid signature. [Reason - The key was not found.]`
-
-> `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active`
-> `subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription`
-> `administrator.`
-
-Troubleshoot the exception using these steps:
-
-1. Confirm that you're using the latest version of [MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/).
-1. Confirm that the authority host that you set when building the confidential client app and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
-
-### MsalClientException
-
-In multi-tenant apps, specify a common authority when building the app to target a specific tenant such as, the tenant of the user when calling a web API. Since MSAL.NET 4.37.0, when you specify `.WithAzureRegion` at the app creation, you can no longer specify the Authority using `.WithAuthority` during the token requests. If you do, you'll get the following error when updating from previous versions of MSAL.NET:
-
-  `MsalClientException - "You configured WithAuthority at the request level, and also WithAzureRegion. This is not supported when the environment changes from application to request. Use WithTenantId at the request level instead."`
-
-To remediate this issue, replace `.WithAuthority` on the AcquireTokenXXX expression by `.WithTenantId`. Specify the tenant using either a GUID or a domain name.
+Find more resource on [web app troubleshooting](https://github.com/AzureAD/microsoft-identity-web/wiki/web-app-troubleshooting) and [web API troubleshooting](https://github.com/AzureAD/microsoft-identity-web/wiki/web-api-troubleshooting)
 
 ## Next steps
 
