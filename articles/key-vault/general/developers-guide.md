@@ -87,6 +87,18 @@ The data plane controls access to keys, certificates, and secrets. You can use l
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
 
+#### Other Libraries
+
+##### Cryptography client for Key Vault and Managed HSM
+This module provides a cryptography client for the [Azure Key Vault Keys client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys).
+
+> [!Note]
+> This project is not supported by the Azure SDK team, but does align with the cryptography clients in other supported languages.
+
+| Language | Reference |
+|--|--|
+|Go|[Reference](https://pkg.go.dev/github.com/heaths/azcrypto@v1.0.0#section-readme)|
+
 ### APIs and SDKs for certificates
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  

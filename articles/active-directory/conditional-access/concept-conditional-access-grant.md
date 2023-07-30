@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 06/26/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -33,7 +33,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require multifactor authentication (Azure AD Multifactor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require authentication strength](#require-authentication-strength)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
+- [Require hybrid Azure AD joined device](../devices/concept-hybrid-join.md)
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access.md)
 - [Require password change](#require-password-change)
@@ -59,16 +59,17 @@ Administrators can choose to require [specific authentication strengths](../auth
 
 Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Azure AD so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization by using Intune](/intune/protect/device-compliance-get-started).
 
-A device can be marked as compliant by Intune for any device operating system or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
+A device can be marked as compliant by Intune for any device operating system or by a third-party mobile device management system for Windows devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
 Devices must be registered in Azure AD before they can be marked as compliant. You can find more information about device registration in [What is a device identity?](../devices/overview.md).
 
 The **Require device to be marked as compliant** control:
+
    - Only supports Windows 10+, iOS, Android, and macOS devices registered with Azure AD and enrolled with Intune.
-   - Considers Microsoft Edge in InPrivate mode a non-compliant device.
+   - Microsoft Edge in InPrivate mode is considered a non-compliant device.
 
 > [!NOTE]
-> On Windows 7, iOS, Android, macOS, and some third-party web browsers, Azure AD identifies the device by using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser, the user is prompted to select the certificate. The user must select this certificate before they can continue to use the browser.
+> On Windows, iOS, Android, macOS, and some third-party web browsers, Azure AD identifies the device by using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser, the user is prompted to select the certificate. The user must select this certificate before they can continue to use the browser.
 
 You can use the Microsoft Defender for Endpoint app with the approved client app policy in Intune to set the device compliance policy to Conditional Access policies. There's no exclusion required for the Microsoft Defender for Endpoint app while you're setting up Conditional Access. Although Microsoft Defender for Endpoint on Android and iOS (app ID dd47d17a-3194-4d86-bfd5-c6ae6f5651e3) isn't an approved app, it has permission to report device security posture. This permission enables the flow of compliance information to Conditional Access.
 
@@ -88,7 +89,7 @@ Organizations can require that an approved client app is used  to access selecte
 
 To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 
-The following client apps support this setting, this list isn't exhaustive and is subject to change::
+The following client apps support this setting. This list isn't exhaustive and is subject to change:
 
 - Microsoft Azure Information Protection
 - Microsoft Cortana
@@ -131,13 +132,13 @@ See [Require approved client apps for cloud app access with Conditional Access](
 
 ### Require app protection policy
 
-In your Conditional Access policy, you can require that an [Intune app protection policy](/intune/app-protection-policy) is present on the client app before access is available to the selected cloud apps.
+In Conditional Access policy, you can require that an [Intune app protection policy](/intune/app-protection-policy) is present on the client app before access is available to the selected applications. These mobile application management (MAM) app protection policies allow you to manage and protect your organization's data within specific applications.
 
-To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app.
+To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app. App protection policies are generally available for iOS and Android, and in public preview for Microsoft Edge on Windows. [Windows devices support no more than 3 Azure AD user accounts in the same session](../devices/faq.yml#i-can-t-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-11-device--why). For more information about how to apply policy to Windows devices, see the article [Require an app protection policy on Windows devices (preview)](how-to-app-protection-policy-windows.md).
 
-Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the [SDK documentation](/mem/intune/developer/app-sdk-get-started).
+Applications must meet certain requirements to support app protection policies. Developers can find more information about these requirements in the section [Apps you can manage with app protection policies](/mem/intune/apps/app-protection-policy#apps-you-can-manage-with-app-protection-policies). 
 
-The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
+The following client apps support this setting. This list isn't exhaustive and is subject to change. If your app isn't in the list please check with the application vendor to confirm support:
 
 - Adobe Acrobat Reader mobile app
 - iAnnotate for Office 365
@@ -168,23 +169,14 @@ The following client apps are confirmed to support this setting, this list isn't
 - Provectus - Secure Contacts
 - Yammer (Android, iOS, and iPadOS)
 
-This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
-
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.
-
-Apps for the app protection policy support the Intune mobile application management feature with policy protection.
-
-The **Require app protection policy** control:
-
-- Only supports iOS and Android for device platform condition.
-- Requires a broker app to register the device. On iOS, the broker app is Microsoft Authenticator. On Android, the broker app is Intune Company Portal.
 
 See [Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
 
 ### Require password change
 
-When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change a password by using Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
+When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change a password by using Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process closes the user risk event to prevent unnecessary alerts for administrators.
 
 When a user is prompted to change a password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 

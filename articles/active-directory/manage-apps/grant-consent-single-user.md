@@ -138,7 +138,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 1. Grant the delegated permissions to the client enterprise application on behalf of the user by running the following request.
    
-   ```http   
+   ```http
    POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
    
    Request body

@@ -26,7 +26,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-- An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app).
+- An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app). If your application is deployed using the Basic plan, be sure to upgrade to the Standard plan.
 - A domain name with access to the DNS registry for a domain provider, such as GoDaddy.
 - A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 - A deployed instance of Azure Key Vault. For more information, see [About Azure Key Vault](../key-vault/general/overview.md).
@@ -118,7 +118,7 @@ Use the following steps to upload your certificate to key vault:
 1. Go to your key vault instance.
 1. In the navigation pane, select **Certificates**.
 1. On the upper menu, select **Generate/import**.
-1. In the **Create a certificate** dialog under **Method of certificate creation**, select `Import`.
+1. On the **Create a certificate** page, select **Import** for **Method of Certificate Creation**, and then provide a value for **Certificate Name**.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
 1. Under **Password**, if you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault removes that password.
 1. Select **Create**.
@@ -131,10 +131,10 @@ Use the following command to import a certificate:
 
 ```azurecli
 az keyvault certificate import \
-    --file <path-to-pfx-file> \
+    --file <path-to-pfx-or-pem-file> \
     --name <certificate-name> \
     --vault-name <key-vault-name> \
-    --password <export-password>
+    --password <password-if-needed>
 ```
 
 ---
@@ -188,6 +188,12 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/import-certificate.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, with the Import key vault certificate button highlighted." lightbox="./media/how-to-custom-domain/import-certificate.png":::
 
+1. On the **Select certificate from Azure** page, select the **Subscription**, **Key Vault**, and **Certificate** from the drop-down options, and then choose **Select**.
+
+   :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
+
+1. On the opened **Set certificate name** page, enter your certificate name, and then select **Apply**.
+
 1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
    :::image type="content" source="./media/how-to-custom-domain/key-certificates.png" alt-text="Screenshot of a private key certificate.":::
@@ -230,11 +236,11 @@ You can use a CNAME record to map a custom DNS name to Azure Spring Apps.
 Go to your DNS provider and add a CNAME record to map your domain to the `<service-name>.azuremicroservices.io`. Here, `<service-name>` is the name of your Azure Spring Apps instance. We support wildcard domain and sub domain.
 After you add the CNAME, the DNS records page resembles the following example:
 
-:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of a DNS records page.":::
+:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of a DNS records page." lightbox="./media/how-to-custom-domain/dns-records.png":::
 
 ## Map your custom domain to Azure Spring Apps app
 
-If you don't have an application in Azure Spring Apps, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md).
+If you don't have an application in Azure Spring Apps, follow the instructions in [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -272,9 +278,9 @@ Use the following command to show the list of custom domains:
 
 ```azurecli
 az spring app custom-domain list \
-    --resource-group <resource-group-name>
-    --service <Azure-Spring-Apps-instance-name>
-    --app <app-name> \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --app <app-name>
 ```
 
 ---
@@ -299,11 +305,11 @@ Use the following command to update a custom domain of the app.
 
 ```azurecli
 az spring app custom-domain update \
-    --resource-group <resource-group-name> 
-    --service <service-name>
+    --resource-group <resource-group-name>  \
+    --service <service-name> \
     --domain-name <domain-name> \
     --certificate <cert-name> \
-    --app <app-name> \
+    --app <app-name>
 
 ```
 
@@ -319,9 +325,9 @@ By default, anyone can still access your app using HTTP, but you can redirect al
 
 #### [Azure portal](#tab/Azure-portal)
 
-In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only**, to `True`.
+In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only** to `Yes`.
 
-:::image type="content" source="./media/how-to-custom-domain/enforce-http.png" alt-text="Screenshot of an SSL binding with the Https Only option highlighted.":::
+:::image type="content" source="./media/how-to-custom-domain/enforce-https.png" alt-text="Screenshot of an SSL binding with the Https Only option highlighted.":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -343,4 +349,4 @@ When the operation is complete, navigate to any of the HTTPS URLs that point to 
 
 - [What is Azure Key Vault?](../key-vault/general/overview.md)
 - [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-- [Launch your Spring Cloud App by using the Azure CLI](./quickstart.md)
+- [Use TLS/SSL certificates](./how-to-use-tls-certificate.md)

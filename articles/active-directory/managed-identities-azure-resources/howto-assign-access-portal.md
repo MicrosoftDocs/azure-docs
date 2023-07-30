@@ -31,6 +31,8 @@ After you've configured an Azure resource with a managed identity, you can give 
 
 ## Use Azure RBAC to assign a managed identity access to another resource
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 >[!IMPORTANT]
 > The steps outlined below show is how you grant access to a service using Azure RBAC. Check specific service documentation on how to grant access - for example check Azure Data Explorer for instructions. Some Azure services are in the process of adopting Azure RBAC on the data plane
 
@@ -53,5 +55,3 @@ After you've enabled managed identity on an Azure resource, such as an [Azure VM
 - [Managed identity for Azure resources overview](overview.md)
 - To enable managed identity on an Azure virtual machine, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md).
 - To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal](qs-configure-portal-windows-vmss.md).
-
-

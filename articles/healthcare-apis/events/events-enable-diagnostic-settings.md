@@ -31,7 +31,9 @@ In this article, learn how to enable the Events diagnostic settings for Azure Ev
 
 ## Next steps
 
-To learn how to use Events metrics in the Azure portal, see
+In this article, you learned how to enable diagnostic settings for Events.
+
+To learn how to use Events metrics using the Azure portal, see
 
 > [!div class="nextstepaction"]
 > [How to use Events metrics](events-use-metrics.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning workspaces using Terraform.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.custom: devx-track-terraform
 ms.author: deeikele
 author: denniseik

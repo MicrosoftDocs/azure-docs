@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Fine-tune your deployment](#fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) |
+| **OT networks** |[Migrate to site-based licenses](#migrate-to-site-based-licenses) <br><br> **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Fine-tune your deployment](#fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) |
 
 ### OT sensor installation and setup enhancements
 
@@ -61,6 +61,21 @@ For more information, see [Update a sensor's monitoring interfaces (configure ER
 In new sensor installations of version 23.1.x, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
 
 In sensors that have been updated from previous versions to 23.1.x, the *cyberx* and *cyberx_host* users remain enabled as before.
+
+
+### Migrate to site-based licenses
+
+Existing customers can now migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
+
+On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
+
+:::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365."  lightbox="media/release-notes/migrate-to-365.png":::
+
+Make sure to edit any relevant sites to match your newly licensed site sizes. For example:
+
+:::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal."  lightbox="media/release-notes/edit-site-size.png":::
+
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
 
 ## June 2023
 
