@@ -27,6 +27,8 @@ You can customize the default attribute-mappings according to your business need
 
 ## Editing user attribute-mappings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to access the **Mappings** feature of user provisioning:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -141,6 +143,7 @@ When you're editing the list of supported attributes, the following properties a
 - **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Azure portal. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
+
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
    1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
    2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.

@@ -171,18 +171,18 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
     AddonAzureBackupJobs
     | where JobOperation == "Restore"
     | summarize arg_max(TimeGenerated,*) by JobUniqueId
-	| where DatasourceType == "Microsoft.Compute/disks"
-    | where JobStatus=="Completed"	
+    | where DatasourceType == "Microsoft.Compute/disks"
+    | where JobStatus=="Completed"
     ````
 
 - Backup Storage Consumed per Backup Item
 
     ````Kusto
     CoreAzureBackup
-	| where OperationName == "BackupItem"
-	| summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
-	| project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
-	````
+    | where OperationName == "BackupItem"
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
+    | project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
+    ````
 
 ### Diagnostic data update frequency
 

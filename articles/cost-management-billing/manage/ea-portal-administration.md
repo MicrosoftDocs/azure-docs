@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/05/2023
+ms.date: 07/28/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -138,9 +138,8 @@ To add another account, select **Add Another Account**, or select **Add** at the
 To confirm account ownership:
 
 1. Sign in to the Azure Enterprise portal.
-1. View the status.
-
-   The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
+1. View the status.  
+  The status changes from **Pending** to **Active**. When Active, dates shown under the **Start/End Date** column are the start and end dates of the agreement.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
 ## Add an account from another Azure AD tenant

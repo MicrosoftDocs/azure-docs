@@ -8,42 +8,58 @@ ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, dev
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Migrate apps from Azure Functions version 1.x to version 4.x 
+# <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
 
 ::: zone pivot="programming-language-java"
+
 > [!IMPORTANT]
 > Java isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Java app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript"
+
 > [!IMPORTANT]
 > TypeScript isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your TypeScript app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+
 ::: zone-end
+
 ::: zone pivot="programming-language-powershell"
+
 > [!IMPORTANT]
 > PowerShell isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your PowerShell app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+
 ::: zone-end
+
 ::: zone pivot="programming-language-python"
+
 > [!IMPORTANT]
-> Python isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Python app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+> Python isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Python app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.
+
 ::: zone-end
-::: zone pivot="programming-language-csharp"
-If you're running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
-Migrating a C# function app from version 1.x to version 4.x of the Functions runtime requires you to make changes to your project code. Many of these changes are a result of changes in the C# language and .NET APIs. JavaScript apps generally don't require code changes to migrate. 
-
-You can upgrade your C# project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
-
-| .NET version | Process model<sup>*</sup> | 
-| --- | --- | --- |
-| .NET 7 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
-| .NET 6 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
-| .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
-| .NET&nbsp;Framework&nbsp;4.8 | [Isolated worker process](./dotnet-isolated-process-guide.md) |  
-
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md). For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md). 
-::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
-This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime.
+
+This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Choose your target .NET version
+
+On version 1.x of the Functions runtime, your C# function app targets .NET Framework.
+
+[!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
+
+> [!TIP]
+> **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade.
+>
+> Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-csharp"
 
 ## Prepare for migration
 
@@ -72,11 +88,17 @@ Before you upgrade your app to version 4.x of the Functions runtime, you should 
 * Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
+
 ## Update your project files
 
 The following sections describes the updates you must make to your C# project files to be able to run on one of the supported versions of .NET in Functions version 4.x. The updates shown are ones common to most projects. Your project code may require updates not mentioned in this article, especially when using custom NuGet packages.
 
+Migrating a C# function app from version 1.x to version 4.x of the Functions runtime requires you to make changes to your project code. Many of these changes are a result of changes in the C# language and .NET APIs.
+
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
+
+> [!TIP]
+> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 
@@ -425,3 +447,5 @@ In version 2.x, the following changes were made:
 
 > [!div class="nextstepaction"]
 > [Learn more about Functions versions](functions-versions.md)
+
+[.NET Upgrade Assistant]: /dotnet/core/porting/upgrade-assistant-overview

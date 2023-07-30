@@ -45,6 +45,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 ## Enable the cloud in your Microsoft cloud settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
@@ -81,7 +83,7 @@ Follow these steps to add the tenant you want to collaborate with to your Organi
 
 ## Sign-in endpoints
 
-After enabling collaboration with an organization from a different Microsoft cloud, cross-cloud Azure AD guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Azure AD credentials.
+After enabling collaboration with an organization from a different Microsoft cloud, cross-cloud Azure AD guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Azure AD credentials.
 
 Cross-cloud Azure AD guest users can also use application endpoints that include your tenant information, for example:
 
