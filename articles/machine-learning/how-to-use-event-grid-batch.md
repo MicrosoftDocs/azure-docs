@@ -28,9 +28,9 @@ The workflow looks as follows:
 3. A Logic App is subscribed to listen to those events. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in a specific folder inside of it. Further filtering can be done if needed (for instance, based on file extensions).
 4. The Logic App will be triggered, which in turns will:
 
-   a. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal
+   1. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal
 
-   b. It will trigger the batch endpoint (default deployment) using the newly created file as input.
+   1. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
 5. The batch endpoint will return the name of the job that was created to process the file.
 
