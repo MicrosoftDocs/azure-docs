@@ -44,7 +44,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. Select **Create**.
 
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/create-front-door-2.png" alt-text="Screenshot that shows the marketplace and Front Door, with the Create button highlighted." :::
+   :::image type="content" source="../media/waf-front-door-rate-limit-configure/create-front-door-2.png" alt-text="Screenshot that shows Front Door and CDN profiles, with the Create button highlighted." :::
 
 1. Select **Continue to create a Front Door** to use the *quick create* portal creation process.
 
