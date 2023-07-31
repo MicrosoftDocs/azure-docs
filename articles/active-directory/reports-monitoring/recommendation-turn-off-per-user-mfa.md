@@ -42,7 +42,7 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 1. Confirm that there's an existing CA policy with an MFA requirement. Ensure that you're covering all resources and users you would like to secure with MFA.
     - Review your [Conditional Access policies](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
 
-2.	Require MFA using a Conditional Access policy.
+2. Require MFA using a Conditional Access policy.
     - [Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
 3. Ensure that the per-user MFA configuration is turned off. 

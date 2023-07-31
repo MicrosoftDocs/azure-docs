@@ -41,7 +41,7 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   1. In search, enter and select **Subscriptions**.
   1. In **Subscriptions** home page, select your subscription from the list.
   1. In the **Subscription | Preview features** page, under **Settings**, select **Preview features**.
-  1. Search for **Dynamic Scope (preview)**. 
+  1. Search for **Dynamic scoping**. 
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
              
 #### [Arc-enabled VMs](#tab/arcvms)

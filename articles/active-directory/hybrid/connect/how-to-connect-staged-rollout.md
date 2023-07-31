@@ -40,7 +40,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
-    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../../devices/concept-azure-ad-join-hybrid.md) or [personal registered devices](../../devices/concept-azure-ad-register.md) via Add Work or School Account.
+    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-azure-ad-register.md) via Add Work or School Account.
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
