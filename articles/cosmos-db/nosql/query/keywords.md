@@ -1,5 +1,6 @@
 ---
 title: Keywords
+titleSuffix: Azure Cosmos DB for NoSQL
 description: Use various keywords for common functionality in Azure Cosmos DB for NoSQL.
 author: jcodella
 ms.author: jacodel

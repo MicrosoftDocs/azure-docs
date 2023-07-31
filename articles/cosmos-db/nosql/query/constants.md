@@ -1,5 +1,6 @@
 ---
 title: Constants
+titleSuffix: Azure Cosmos DB for NoSQL
 description: Use constants to represent specific data values in Azure Cosmos DB for NoSQL.
 author: jcodella
 ms.author: jacodel

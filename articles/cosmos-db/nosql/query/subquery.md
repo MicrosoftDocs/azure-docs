@@ -1,5 +1,6 @@
 ---
 title: Subqueries
+titleSuffix: Azure Cosmos DB for NoSQL
 description: Use different types of subqueries for complex query statements in Azure Cosmos DB for NoSQL.
 author: jcodella
 ms.author: jacodel
