@@ -20,15 +20,19 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. To start creating an App Service plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate). 
-
-2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created. 
-   
-3. In the **App Service Plan** section, select an existing plan, or create a plan by selecting **Create new**.
+1. To start creating an App Service Plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 
    ![Create an App Service plan.][createASP] 
 
-4. When creating a plan, you can select the pricing tier of the new plan. In **Sku and size**, select **Change size** to change the pricing tier. 
+2. Configure the **Project Details** section before configuring the App Service plan. 
+  
+3. In the **App Service Plan details** section, name the App Service Plan, then select the **Operating System** and **Region**. Region determines where your App Service plan is created.
+
+4. When creating a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select a **Pricing plan** or select **Explore pricing plans** to view additional details. 
+
+5. In the **Zone redundancy** section, select whether the App Service Plan zone redundancy should be enabled or disabled.
+
+6. Select **Review + create** to create the App Service Plan.
 
 <a name="move"></a>
 
