@@ -16,7 +16,7 @@ ms.date: 07/26/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-One of the key features that Azure Cosmos DB for MongoDB vCore provides is text indexing, which allows for efficient searching and querying of text-based data. We are compatible with version 2 text indexes on MongoDB. In this article, we will explore the usage of text indexes in Azure Cosmos DB for MongoDB, along with practical examples and syntax to help you leverage this feature effectively.
+One of the key features that Azure Cosmos DB for MongoDB vCore provides is text indexing, which allows for efficient searching and querying of text-based data. The service implements version 2 text indexes which support case sensitivity but not diacritic sensitivity. In this article, we will explore the usage of text indexes in Azure Cosmos DB for MongoDB, along with practical examples and syntax to help you leverage this feature effectively.
 
 ## What are Text Indexes? 
 
