@@ -8,9 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/25/2023
+ms.date: 07/31/2023
 ms.custom: query-reference
-ms.custom: ignite-2022
 ---
 
 # Self-joins in Azure Cosmos DB for NoSQL
