@@ -215,7 +215,7 @@ In the following steps, you build a feature set named `transactions` that has ro
    The specification contains these elements:
 
    * `source`: A reference to a storage resource. In this case, it's a Parquet file in a blob storage resource.
-   * `features`: A list of features and their datatypes. If you provide transformation code, the code must return a DataFrame that maps to the features and datatypes.
+   * `features`: A list of features and their datatypes. If you provide transformation code (see the "Day 2" section), the code must return a DataFrame that maps to the features and datatypes.
    * `index_columns`: The join keys required to access values from the feature set.
 
    To learn more about the specification, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and the [CLI (v2) feature set YAML schema](./reference-yaml-feature-set.md).
