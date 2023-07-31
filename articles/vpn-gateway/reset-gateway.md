@@ -100,4 +100,4 @@ StatusCode     : OK
 
 ## Next steps
 
-For more information about VPN Gateway, see the [VPN Gatway FAQ](vpn-gateway-vpn-faq.md).
+For more information about VPN Gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
