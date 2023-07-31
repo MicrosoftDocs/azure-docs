@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 03/28/2023
+  ms.date: 07/14/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
@@ -67,6 +67,10 @@ sections:
           How long does Azure AD store activity logs? What is the data retention?
         answer: |
           Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+      - question: |
+          How can I find out if a user purchased a license or enabled a trial license for my tenant? I don't see this activity in the audit logs.
+        answer: |
+          At this time, there is not a specific activity in the audit logs for license purchases or enablement. However, you may be able to correlate the "Onboard resource to PIM" activity from the "Resource Management" category to the purchase or enablement of a license. This activity may not always be available or provide the exact details.
 
   - name: Sign-in logs
     questions:

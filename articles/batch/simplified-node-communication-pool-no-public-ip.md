@@ -96,7 +96,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
                "sku": "22_04-lts"
           },
           "nodeAgentSKUId": "batch.node.ubuntu 22.04"
-     }
+     },
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
           "publicIPAddressConfiguration": {

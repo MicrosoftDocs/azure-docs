@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 07/17/2023
 ---
 
 # What can I accomplish with Microsoft Purview DevOps policies?
@@ -108,6 +108,7 @@ SQL dynamic metadata includes a list of more than 700 DMVs and DMFs. The followi
 | | Use the Query Store | [sys.query_store_plan](/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql) |
 | | | [sys.query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql) |
 | | | [sys.query_store_query_text](/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql) |
+| | Get Error Log (not yet supported)| [sys.sp_readerrorlog](/sql/relational-databases/system-stored-procedures/sp-readerrorlog-transact-sql) | 
 ||||
 | SQL Security Auditor | Get audit details | [sys.dm_server_audit_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-server-audit-status-transact-sql) |
 ||||

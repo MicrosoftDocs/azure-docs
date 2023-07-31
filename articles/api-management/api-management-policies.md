@@ -95,6 +95,7 @@ More information about policies:
 
 - [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
 - [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
+- [Validate OData request](validate-odata-request-policy.md) - Validates a request to an OData API to ensure conformance with the OData specification.
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
 - [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
@@ -104,4 +105,4 @@ For more information about working with policies, see:
 
 + [Tutorial: Transform and protect your API](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

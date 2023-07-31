@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Language and region support for the Bing Custom Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Custom Search API supports more than three dozen countries/regions, many with more than one language.
 

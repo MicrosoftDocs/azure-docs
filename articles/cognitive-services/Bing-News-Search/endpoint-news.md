@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Bing News Search API endpoints
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The **News Search API** returns news articles, Web pages, images, videos, and [entities](../bing-entities-search/overview.md). Entities contain summary information about a person, place, or topic.
 

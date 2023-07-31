@@ -11,6 +11,7 @@ ms.date: 08/26/2021
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners
+
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. This article lists the partners who have solutions or services that use Azure Cosmos DB. This list changes over time, Microsoft is not responsible to any changes or updates made to the solutions of these partners.
@@ -36,7 +37,7 @@ From NoSQL migration to application development, you can choose from a variety o
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland, and Switzerland and Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | NoSQL migration| Ireland|
 | [Syone](https://www.syone.com/) | NoSQL migration| Portugal|
-|[Tallan](https://www.tallan.com/)    |  App development      |    USA     |
+|[EY](https://www.ey.com/alliances/microsoft)    |  App development      |    USA     |
 | [TCS](https://www.tcs.com/) | App development | USA, UK, France, Malaysia, Denmark, Norway, Sweden|
 |[VTeamLabs](https://www.vteamlabs.com/)    | Personalization, Retail (inventory), IoT, Gaming, Operational Analytics (Spark), Serverless architecture, NoSQL Migration, App development       |  USA      |  
 | [White Duck GmbH](https://whiteduck.de/en/) |New app development, App Backend, Storage for document-based data| Germany |

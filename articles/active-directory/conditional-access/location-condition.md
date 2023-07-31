@@ -106,7 +106,7 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-### Define locations
+## Define locations
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
@@ -123,6 +123,7 @@ When you configure the location condition, you can distinguish between:
 
 - Any location
 - All trusted locations
+- All Network Access locations
 - Selected locations
 
 ### Any location
@@ -141,6 +142,10 @@ This option applies to:
 Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multifactor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
 
 If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
+
+### All Network Access locations of my tenant
+
+Organizations with access to Global Secure Access preview features will have an additional location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 
@@ -165,6 +170,8 @@ You can also find the client IP by clicking a row in the report, and then going 
 When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address isn't used because there's no validation that it comes from a trusted source, so would present a method for faking an IP address.
 
 When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
+
+We recommend organizations utilize Global Secure Access to enable [source IP restoration](../../global-secure-access/how-to-source-ip-restoration.md) to avoid this change in address and simplify management.
 
 ### When is a location evaluated?
 

@@ -119,7 +119,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 - The coordinates, gender, and age of any faces contained in the image.
 - The ImageType (clip art or a line drawing).
 - The dominant color, the accent color, or whether an image is black & white.
-- The category defined in this [taxonomy](../cognitive-services/computer-vision/category-taxonomy.md).
+- The category defined in this [taxonomy](../ai-services/computer-vision/category-taxonomy.md).
 - Does the image contain adult or sexually suggestive content?
 
 ### Analyze an image C# example request
@@ -359,7 +359,7 @@ A successful response is returned in JSON. Shown below is an example of a succes
    }
 }
 ```
-For more information, see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision.
+For more information, see [public documentation](../ai-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision.
 
 ## Face API
 
@@ -605,12 +605,12 @@ Response:
    }
 ]
 ```
-For more information, see [public documentation](../cognitive-services/computer-vision/index-identity.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, see [public documentation](../ai-services/computer-vision/overview-identity.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 
 ## Text Analytics
 
-For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../cognitive-services/text-analytics/quickstarts/client-libraries-rest-api.md?tabs=version-3-1&pivots=programming-language-csharp).
+For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../ai-services/language-service/language-detection/overview.md?tabs=version-3-1&pivots=programming-language-csharp).
 
 ### Variations
 
@@ -632,7 +632,7 @@ For instructions on how to use Text Analytics, see [Quickstart: Use the Text Ana
 ### Variations
 
 - The URI for accessing Translator in Azure Government is different than in Azure. For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
-- [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
+- [Virtual Network support](../ai-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
   The URI for accessing the API is:
   - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
   - You can find your custom domain endpoint in the overview blade on the Azure Government portal once the resource is created. 
@@ -640,7 +640,7 @@ For instructions on how to use Text Analytics, see [Quickstart: Use the Text Ana
 
 ### Text translation method
 
-The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with Translator. 
+The below example uses [Text Translation - Translate method](../ai-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with Translator. 
 
 ### Text translation C# example request
 
@@ -718,7 +718,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, see [public documentation](../cognitive-services/translator/translator-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
+For more information, see [public documentation](../ai-services/translator/translator-overview.md) and [public API documentation](../ai-services/translator/reference/v3-0-reference.md) for Translator.
 
 
 ### Next Steps

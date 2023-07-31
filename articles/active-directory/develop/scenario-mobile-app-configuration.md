@@ -24,7 +24,7 @@ After you create your application, you'll learn how to configure the code by usi
 
 The following Microsoft libraries support mobile apps:
 
-[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
+[!INCLUDE [develop-libraries-mobile](./includes/libraries/libraries-mobile.md)]
 
 ## Instantiate the application
 

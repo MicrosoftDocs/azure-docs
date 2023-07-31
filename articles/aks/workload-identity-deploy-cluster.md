@@ -132,11 +132,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: quick-start
-  namespace: SERVICE_ACCOUNT_NAMESPACE
+  namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
     azure.workload.identity/use: "true"
 spec:
-  serviceAccountName: workload-identity-sa
+  serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
 EOF
 ```
 

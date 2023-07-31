@@ -24,7 +24,7 @@ Learn how to configure the code for your daemon application that calls web APIs.
 
 The following Microsoft libraries support daemon apps:
 
-[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
+[!INCLUDE [develop-libraries-daemon](./includes/libraries/libraries-daemon.md)]
 
 ## Configure the authority
 

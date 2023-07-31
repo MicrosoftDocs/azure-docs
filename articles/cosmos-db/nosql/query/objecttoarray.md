@@ -115,55 +115,13 @@ SELECT VALUE
 
 This final example uses an item within an existing container that stores data using fields within a JSON object.
 
-```json
-[
-  {
-    "name": "Witalica helmet",
-    "quantities": {
-      "small": 15,
-      "medium": 24,
-      "large": 2,
-      "xlarge": 0
-    }
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/seed.json":::
 
 In this example, the function is used to break up the object into an array item for each field/value pair.
 
-```sql
-SELECT
-    p.name,
-    ObjectToArray(p.quantities, "size", "quantity") AS quantitiesBySize
-FROM
-    products p
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/query.sql":::
 
-```json
-[
-  {
-    "name": "Witalica helmet",
-    "quantitiesBySize": [
-      {
-        "size": "small",
-        "quantity": 15
-      },
-      {
-        "size": "medium",
-        "quantity": 24
-      },
-      {
-        "size": "large",
-        "quantity": 2
-      },
-      {
-        "size": "xlarge",
-        "quantity": 0
-      }
-    ]
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/result.json":::
 
 ## Remarks
 

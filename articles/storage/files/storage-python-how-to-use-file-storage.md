@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: pauljewell
-ms.subservice: files
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

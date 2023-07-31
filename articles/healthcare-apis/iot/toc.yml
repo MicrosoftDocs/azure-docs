@@ -54,7 +54,7 @@ items:
       expanded: false
       items:
       - name: Overview of the FHIR destination mapping
-        href: overview-of-fhir-destination-mapping.md
+        href: overview-of-fhir-destination-mapping.md    
   - name: Monitor
     expanded: false
     items:
@@ -70,7 +70,10 @@ items:
     - name: Deployment errors
       href: troubleshoot-errors-deployment.md
     - name: Error logs
-      href: troubleshoot-errors-logs.md   
+      href: troubleshoot-errors-logs.md
+- name: Samples
+  expanded: false
+  href: overview-of-samples.md     
 - name: Concepts
   expanded: false
   items:

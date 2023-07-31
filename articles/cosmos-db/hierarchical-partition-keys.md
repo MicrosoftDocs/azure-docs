@@ -289,6 +289,7 @@ PaymentEvent item = new PaymentEvent()
 PartitionKey partitionKey = new PartitionKeyBuilder()
             .Add(item.TenantId)
             .Add(item.UserId)
+            .Add(item.SessionId)
             .Build();
 
 // Create the item in the container

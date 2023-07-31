@@ -14,7 +14,7 @@ ms.date: 01/31/2019
 
 # Get trending videos with the Bing Video Search API 
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Video Search API enables you to find today's trending videos from across the web, and in different categories. 
 

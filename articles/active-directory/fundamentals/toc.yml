@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: New name for Azure AD
+    href: new-name.md
   - name: Identity fundamentals
     href: identity-fundamental-concepts.md
   - name: Introduction to identity and access management (IAM)
@@ -21,7 +23,7 @@ items:
     href: how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: properties-area.md
-  - name: Add company branding (preview)
+  - name: Add company branding
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
@@ -142,8 +144,6 @@ items:
   - name: Legacy and deprecated features
     expanded: false
     items:
-    - name: Add company branding (legacy)
-      href: customize-branding.md
     - name: Create or delete a user (legacy)
       href: add-users-azure-active-directory.md
 - name: Identity architecture and deployment

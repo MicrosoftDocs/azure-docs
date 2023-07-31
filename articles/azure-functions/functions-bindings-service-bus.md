@@ -25,6 +25,8 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 # [In-process](#tab/in-process)
 
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
+
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus).
@@ -34,12 +36,6 @@ Add the extension to your project installing this [NuGet package](https://www.nu
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
-
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x, or a later version.
 
 ---
 
@@ -77,26 +73,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Functions version 1.x doesn't support the isolated worker process.
 
-# [Extension 5.x+](#tab/extensionv5/csharp-script)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
-
-This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
-
-This extension is available from the extension bundle v3 by adding the following lines in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
 ---
 
 ::: zone-end 
@@ -127,6 +103,109 @@ Functions 1.x apps automatically have a reference to the extension.
 ---
 
 ::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+---
+
+Choose a version to see binding type details for the mode and version.
+
+# [Extension 5.x+](#tab/extensionv5/in-process)
+
+The Service Bus extension supports parameter types according to the table below.
+
+| Binding scenario | Parameter types |
+|-|-|
+| Service Bus trigger (single message)| [ServiceBusReceivedMessage]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus trigger (message batch) | `ServiceBusReceivedMessage[]`<br/>`string[]` |
+| Service Bus trigger advanced scenarios<sup>2</sup> | [ServiceBusClient]<br/>[ServiceBusMessageActions]<br/>[ServiceBusSessionMessageActions]<br/>[ServiceBusReceiveActions]<br/> |
+| Service Bus output (single message) | [ServiceBusMessage]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus output (multiple messages) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single message types<br/>[ServiceBusSender] |
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
+
+This version of the extension supports parameter types according to the table below.
+
+The Service Bus extension supports parameter types according to the table below.
+
+| Binding scenario | Parameter types |
+|-|-|
+| Service Bus trigger (single message)| [Microsoft.Azure.ServiceBus.Message]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus trigger (message batch) | `ServiceBusReceivedMessage[]`<br/>`string[]` |
+| Service Bus trigger advanced scenarios<sup>2</sup> | [IMessageReceiver]<br/>[MessageReceiver]<br/>[IMessageSession]<br/> |
+| Service Bus output (single message) | [Message]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus output (multiple messages) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single message types<br/>[MessageSender]|
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
+
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
+
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview.
+
+**Service Bus trigger**
+
+[!INCLUDE [functions-bindings-service-bus-trigger-dotnet-isolated-types](../../includes/functions-bindings-service-bus-trigger-dotnet-isolated-types.md)]
+
+**Service Bus output binding**
+
+[!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+Earlier versions of extensions in the isolated worker process only support binding to `string`, `byte[]`, and JSON serializable types. Additional options are available to **Extension 5.x+**.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
+
+---
+
+[Azure.Messaging.ServiceBus]: /dotnet/api/azure.messaging.servicebus
+[ServiceBusReceivedMessage]: /dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage
+[ServiceBusMessage]: /dotnet/api/azure.messaging.servicebus.servicebusmessage
+[ServiceBusClient]: /dotnet/api/azure.messaging.servicebus.servicebusclient
+[ServiceBusSender]: /dotnet/api/azure.messaging.servicebus.servicebussender
+
+[ServiceBusMessageActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebusmessageactions
+[ServiceBusSessionMessageActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebussessionmessageactions
+[ServiceBusReceiveActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebusreceiveactions
+
+[Microsoft.Azure.ServiceBus]: /dotnet/api/microsoft.azure.servicebus
+[Message]: /dotnet/api/microsoft.azure.servicebus.message
+[IMessageReceiver]: /dotnet/api/microsoft.azure.servicebus.core.imessagereceiver
+[MessageReceiver]: /dotnet/api/microsoft.azure.servicebus.core.messagereceiver
+[IMessageSession]: /dotnet/api/microsoft.azure.servicebus.imessagesession
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
+
+[Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
+
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+
+:::zone-end
 
 <a name="host-json"></a>  
 
@@ -239,3 +318,5 @@ For a reference of host.json in Functions 1.x, see [host.json reference for Azur
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [Update your extensions]: ./functions-bindings-register.md
+
+[C# scripting]: ./functions-reference-csharp.md

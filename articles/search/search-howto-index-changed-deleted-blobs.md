@@ -2,7 +2,6 @@
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
 description: Indexers that index from Azure Storage can pick up new and changed content automatically. This article describes the strategies.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

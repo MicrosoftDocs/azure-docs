@@ -5,7 +5,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 11/09/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet

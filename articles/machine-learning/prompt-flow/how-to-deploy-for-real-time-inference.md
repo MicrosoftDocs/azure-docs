@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 07/07/2023
 ---
 
 
@@ -92,6 +92,12 @@ You can continue to configure the endpoint in wizard, as the endpoint creation w
 #### Allow sharing sample input data for testing purpose only
 
 If the checkbox is selected, the first row of your input data will be used as sample input data for testing the endpoint later.
+
+### Outputs
+
+In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
 
 ### Connections
 
@@ -215,12 +221,28 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
 
+## Troubleshoot endpoints deployed from prompt flow
+
+### Unable to fetch deployment schema
+
+After you deploy the endpoint and want to test it in the **Test tab** in the endpoint detail page, if the **Test tab** shows **Unable to fetch deployment schema** like following, you can try the following 2 methods to mitigate this issue:
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
+
+- Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
+- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-runtime-from-ui) and re-run the flow in the latest runtime and then deploy the flow again.
+
+### Access denied to list workspace secret
+
+If you encounter error like "Access denied to list workspace secret", check whether you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
+
 ## Clean up resources
 
 If you aren't going use the endpoint after completing this tutorial, you should delete the endpoint.
 
 > [!NOTE]
 > The complete deletion may take approximately 20 minutes.
+
 
 
 ## Next Steps

@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Sending search queries to the Bing Visual Search API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
 

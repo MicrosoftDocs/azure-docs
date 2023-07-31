@@ -2,7 +2,7 @@
 title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
 

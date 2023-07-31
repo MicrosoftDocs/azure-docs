@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/18/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -134,7 +134,7 @@ To create and run a new scan:
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Specify the maximum memory (in GB) available on your VM to be used for scanning processes. This value depends on the size of Cassandra server to be scanned.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="scan Cassandra source" border="true":::
 
-1. Select **Test connection** (available when using self-hosted integration runtime).
+1. Select **Test connection** to validate the settings.
 
 1. Select **Continue**.
 

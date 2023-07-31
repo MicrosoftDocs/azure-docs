@@ -75,10 +75,10 @@ The following example creates a resource group named *myResourceGroup* in the *e
 
 The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
 
-* Create an AKS cluster using the [`az aks create`][az-aks-create] command with the `--enable-addons monitoring` and `--enable-msi-auth-for-monitoring` parameters to enable [Azure Monitor Container insights][azure-monitor-containers] with managed identity authentication (preview).
+* Create an AKS cluster using the [`az aks create`][az-aks-create] command with the `--enable-addons monitoring` parameter to enable [Azure Monitor Container insights][azure-monitor-containers] with managed identity authentication (Minimum Azure CLI version 2.49.0 or higher).
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+    az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.

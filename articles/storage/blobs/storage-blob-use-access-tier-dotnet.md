@@ -61,6 +61,8 @@ The following code example shows how to rehydrate an archived blob to the `Hot` 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs" id="Snippet_RehydrateUsingCopy":::
 
+To learn more about copying a blob with .NET, see [Copy a blob with .NET](storage-blob-copy.md).
+
 ## Resources
 
 To learn more about setting access tiers using the Azure Blob Storage client library for .NET, see the following resources.

@@ -15,7 +15,7 @@ In Microsoft Purview, you can scan various types of data sources and view the sc
 
 ## Monitor scan runs
 
-1. Open the the Microsoft Purview governance portal by:
+1. Open the Microsoft Purview governance portal by:
 
     - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
     - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
@@ -62,8 +62,8 @@ You can click the **run ID** to check more about the scan run details:
         | Failed      | The scan phase fails. You can check the error details by clicking the "More info" link next to it. |
         | Canceled    | The scan run is canceled by user.                           |
         | In Progress | The scan is running in progress.                             |
-        | Queued      | The scan run is waiting for available integration runtime resource.<br>If you use self-hosted integration runtime, note each node can run a number of concurrent scans at the same time depending on your machine specification (CPU and memory). More scans will be in Queued status. |
-        | Throttled   | The scan run is being throttled. It means this Microsoft Purview account at the moment has more ongoing scan runs than the allowed max concurrent count. Learn more about the limit [here](how-to-manage-quotas.md). This particular scan run will be waiting and be executed once your other ongoing scan(s) finishes. |
+        | Queued      | The scan run is waiting for available integration runtime resource.<br>If you use self-hosted integration runtime, note each node can run a number of concurrent scans at the same time depending on your machine specification (CPU and memory). More scans are in Queued status. |
+        | Throttled   | The scan run is being throttled. It means this Microsoft Purview account at the moment has more ongoing scan runs than the allowed max concurrent count. Learn more about the limit [here](how-to-manage-quotas.md). This particular scan run is waiting and will be executed once your other ongoing scan(s) finishes. |
 
         The scan run is not charged during "Throttled" or "Queued" status.
 
@@ -90,6 +90,21 @@ You can click the **run ID** to check more about the scan run details:
     - **Relationships ingested**: The number of relationships ingested into the data map. It includes lineage and other relationships like foreign key relationships.
 
     - **Duration**: The ingestion duration and the start/end time.
+
+## View the exception log (Preview)
+
+When some assets or relationship fail to ingest into data map during scan, e.g. ingestion status ends up as partially completed, you can see a "**Download log**" button in the [scan run details](#scan-run-details) panel. It provides exception log files that capture the details of the failures.
+
+The following table shows the schema of a log file.
+
+| Column | Description |
+| ------ | ----------- |
+| TimeStamp	| The UTC timestamp when the ingestion operation happens.| 
+| ErrorCode	| Error code of the exception. | 
+| OperationItem	| Identifier for the failed asset/relationship, usually using the fully qualified name. | 
+| Message | More information on which asset/relationship failed to ingest due to what reason. If there is ingestion failure for resource set, it may apply to multiple assets matching the same naming pattern, and the message includes the impacted count. |
+
+Currently, the exception log doesn't include failures happened during scan phase (metadata discovery). It will be added later.
 
 ## Monitor links
 

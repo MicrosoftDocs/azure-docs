@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 07/03/2023
+ms.date: 07/18/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 07/03/2023.
+Date list was last updated: 07/18/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -1214,7 +1214,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StateStoreWriteRequests |Yes |State store write requests |Count |Total |Number of write requests to state store |ExtensionName, IsSuccessful, FailureCategory |
 
 ## Microsoft.ContainerInstance/containerGroups  
-<!-- Data source : arm-->
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1222,6 +1222,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MemoryUsage |Yes |Memory Usage |Bytes |Average |Total memory usage in byte. |containerName |
 |NetworkBytesReceivedPerSecond |Yes |Network Bytes Received Per Second |Bytes |Average |The network bytes received per second. |No Dimensions |
 |NetworkBytesTransmittedPerSecond |Yes |Network Bytes Transmitted Per Second |Bytes |Average |The network bytes transmitted per second. |No Dimensions |
+
+## Microsoft.ContainerInstance/containerScaleSets  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CpuPercentage |Yes |Percentage CPU |Percent |Average |Average of the CPU percentages consumed by individual Container Groups in this Scale Set |OrchestratorId |
+|CpuUsage |Yes |CPU usage |MilliCores |Average |Average of the CPU utilizations in millicores consumed by Container Groups in this Scale Set |OrchestratorId |
+|MemoryPercentage |Yes |Memory percentage |Percent |Average |Average of the memory percentages consumed ((usedMemory/allocatedMemory) * 100) by Container Groups in this Scale Set |OrchestratorId |
+|MemoryUsage |Yes |Memory usage |Bytes |Total |Total memory used by all the Container Groups in this Scale Set |OrchestratorId |
 
 ## Microsoft.ContainerRegistry/registries  
 <!-- Data source : naam-->
@@ -1349,6 +1359,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AirflowIntegrationRuntimeJobHeartbeatFailure |No |Airflow Integration Runtime Heartbeat Failure |Count |Total |Airflow Integration Runtime Heartbeat Failure |IntegrationRuntimeName, Job |
 |AirflowIntegrationRuntimeJobStart |No |Airflow Integration Runtime Job Start |Count |Total |Airflow Integration Runtime Job Start |IntegrationRuntimeName, Job |
 |AirflowIntegrationRuntimeMemoryPercentage |Yes |Airflow Integration Runtime Memory Percentage |Percent |Average |Airflow Integration Runtime Memory Percentage |IntegrationRuntimeName, ContainerName |
+|AirflowIntegrationRuntimeNodeCount |Yes |Airflow Integration Runtime Node Count |Count |Average |Airflow Integration Runtime Node Count |IntegrationRuntimeName |
 |AirflowIntegrationRuntimeOperatorFailures |No |Airflow Integration Runtime Operator Failures |Count |Total |Airflow Integration Runtime Operator Failures |IntegrationRuntimeName, Operator |
 |AirflowIntegrationRuntimeOperatorSuccesses |No |Airflow Integration Runtime Operator Successes |Count |Total |Airflow Integration Runtime Operator Successes |IntegrationRuntimeName, Operator |
 |AirflowIntegrationRuntimePoolOpenSlots |No |Airflow Integration Runtime Pool Open Slots |Count |Total |Airflow Integration Runtime Pool Open Slots |IntegrationRuntimeName, Pool |
@@ -1383,19 +1394,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IntegrationRuntimeAvailableMemory |Yes |Integration runtime available memory |Bytes |Average |Integration runtime available memory |IntegrationRuntimeName, NodeName |
 |IntegrationRuntimeAvailableNodeNumber |Yes |Integration runtime available node count |Count |Average |Integration runtime available node count |IntegrationRuntimeName |
 |IntegrationRuntimeAverageTaskPickupDelay |Yes |Integration runtime queue duration |Seconds |Average |Integration runtime queue duration |IntegrationRuntimeName |
-|IntegrationRuntimeCopyAvailableCapacityPercentage |Yes |Integration runtime copy available capacity percentage |Percent |Maximum |Integration runtime copy available capacity percentage |IntegrationRuntimeName |
-|IntegrationRuntimeCopyCapacityUtilization |Yes |Integration runtime copy capacity utilization |Percent |Maximum |Integration runtime copy capacity utilization |IntegrationRuntimeName |
-|IntegrationRuntimeCopyWaitingQueueLength |Yes |Integration runtime copy waiting queue length |Count |Average |Integration runtime copy waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeCpuPercentage |Yes |Integration runtime CPU utilization |Percent |Average |Integration runtime CPU utilization |IntegrationRuntimeName, NodeName |
-|IntegrationRuntimeExternalAvailableCapacityPercentage |Yes |Integration runtime external available capacity percentage |Percent |Maximum |Integration runtime external available capacity percentage |IntegrationRuntimeName |
-|IntegrationRuntimeExternalCapacityUtilization |Yes |Integration runtime external capacity utilization |Percent |Maximum |Integration runtime external capacity utilization |IntegrationRuntimeName |
-|IntegrationRuntimeExternalWaitingQueueLength |Yes |Integration runtime external waiting queue length |Count |Average |Integration runtime external waiting queue length |IntegrationRuntimeName |
-|IntegrationRuntimePipelineAvailableCapacityPercentage |Yes |Integration runtime pipeline available capacity percentage |Percent |Maximum |Integration runtime pipeline available capacity percentage |IntegrationRuntimeName |
-|IntegrationRuntimePipelineCapacityUtilization |Yes |Integration runtime pipeline capacity utilization |Percent |Maximum |Integration runtime pipeline capacity utilization |IntegrationRuntimeName |
-|IntegrationRuntimePipelineWaitingQueueLength |Yes |Integration runtime pipeline waiting queue length |Count |Average |Integration runtime pipeline waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeQueueLength |Yes |Integration runtime queue length |Count |Average |Integration runtime queue length |IntegrationRuntimeName |
 |MaxAllowedFactorySizeInGbUnits |Yes |Maximum allowed factory size (GB unit) |Count |Maximum |Maximum allowed factory size (GB unit) |No Dimensions |
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
+|MVNetIRCopyAvailableCapacityPCT |Yes |Copy available capacity percentage of MVNet integration runtime |Percent |Maximum |Copy available capacity percentage of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRCopyCapacityUtilization |Yes |Copy capacity utilization of MVNet integration runtime |Percent |Maximum |Copy capacity utilization of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRCopyWaitingQueueLength |Yes |Copy waiting queue length of MVNet integration runtime |Count |Average |Copy waiting queue length of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRExternalAvailableCapacityPCT |Yes |External available capacity percentage of MVNet integration runtime |Percent |Maximum |External available capacity percentage of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRExternalCapacityUtilization |Yes |External capacity utilization of MVNet integration runtime |Percent |Maximum |External capacity utilization of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRExternalWaitingQueueLength |Yes |External waiting queue length of MVNet integration runtime |Count |Average |External waiting queue length of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRPipelineAvailableCapacityPCT |Yes |Pipeline available capacity percentage of MVNet integration runtime |Percent |Maximum |Pipeline available capacity percentage of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRPipelineCapacityUtilization |Yes |Pipeline capacity utilization of MVNet integration runtime |Percent |Maximum |Pipeline capacity utilization of MVNet integration runtime |IntegrationRuntimeName |
+|MVNetIRPipelineWaitingQueueLength |Yes |Pipeline waiting queue length of MVNet integration runtime |Count |Average |Pipeline waiting queue length of MVNet integration runtime |IntegrationRuntimeName |
 |PipelineCancelledRuns |Yes |Cancelled pipeline runs metrics |Count |Total |Cancelled pipeline runs metrics |FailureType, CancelledBy, Name |
 |PipelineElapsedTimeRuns |Yes |Elapsed Time Pipeline Runs Metrics |Count |Total |Elapsed Time Pipeline Runs Metrics |RunId, Name |
 |PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Name |
@@ -1775,11 +1786,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BillingApiOperations |Yes |Billing API Operations |Count |Total |Billing metric for the count of all API requests made against the Azure Digital Twins service. |MeterId |
 |BillingMessagesProcessed |Yes |Billing Messages Processed |Count |Total |Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. |MeterId |
 |BillingQueryUnits |Yes |Billing Query Units |Count |Total |The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. |MeterId |
-|BulkOperationEntityCount |Yes |Bulk Operation Entity Count (preview) |Count |Total |The number of twins, models, or relationships processed by a bulk operation. |Operation, Result |
-|BulkOperationLatency |Yes |Bulk Operation Latency (preview) |Milliseconds |Average |Total time taken for a bulk operation to complete. |Operation, Authentication, Protocol |
 |DataHistoryRouting |Yes |Data History Messages Routed (preview) |Count |Total |The number of messages routed to a time series database. |EndpointType, Result |
 |DataHistoryRoutingFailureRate |Yes |Data History Routing Failure Rate (preview) |Percent |Average |The percentage of events that result in an error as they are routed from Azure Digital Twins to a time series database. |EndpointType |
 |DataHistoryRoutingLatency |Yes |Data History Routing Latency (preview) |Milliseconds |Average |Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to a time series database. |EndpointType, Result |
+|ImportJobEntityCount |Yes |Import Job Entity Count |Count |Total |The number of twins, models, or relationships processed by an import job. |Operation, Result |
+|ImportJobLatency |Yes |Import Job Latency |Milliseconds |Average |Total time taken for an import job to complete. |Operation, Authentication, Protocol |
 |IngressEvents |Yes |Ingress Events |Count |Total |The number of incoming telemetry events into Azure Digital Twins. |Result |
 |IngressEventsFailureRate |Yes |Ingress Events Failure Rate |Percent |Average |The percentage of incoming telemetry events for which the service returns an internal error (500) response code. |No Dimensions |
 |IngressEventsLatency |Yes |Ingress Events Latency |Milliseconds |Average |The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. |Result |
@@ -3850,13 +3861,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|BackendConnectionTimeouts |Yes |Backend Connection Timeouts |Count |Total |Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Traffic Controller to the backend target) |Microsoft.regionName, BackendService |
+|BackendConnectionTimeouts |Yes |Backend Connection Timeouts |Count |Total |Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Application Gateway for Containers to the backend target) |Microsoft.regionName, BackendService |
 |BackendHealthyTargets |Yes |Backend Healthy Targets |Count |Average |Count of healthy backend targets |Microsoft.regionName, BackendService |
-|BackendHTTPResponseStatus |Yes |Backend HTTP Response Status |Count |Total |HTTP response status returned by the backend target to Traffic Controller |Microsoft.regionName, BackendService, HttpResponseCode |
-|ClientConnectionIdleTimeouts |Yes |Total Connection Idle Timeouts |Count |Total |Count of connections closed, between client and Traffic Controller frontend, due to exceeding idle timeout |Microsoft.regionName, Frontend |
-|ConnectionTimeouts |Yes |Connection Timeouts |Count |Total |Count of connections closed due to timeout between clients and Traffic Controller |Microsoft.regionName, Frontend |
-|HTTPResponseStatus |Yes |HTTP Response Status |Count |Total |HTTP response status returned by Traffic Controller |Microsoft.regionName, Frontend, HttpResponseCode |
-|TotalRequests |Yes |Total Requests |Count |Total |Count of requests Traffic Controller has served |Microsoft.regionName, Frontend |
+|BackendHTTPResponseStatus |Yes |Backend HTTP Response Status |Count |Total |HTTP response status returned by the backend target to Application Gateway for Containers |Microsoft.regionName, BackendService, HttpResponseCode |
+|ClientConnectionIdleTimeouts |Yes |Total Connection Idle Timeouts |Count |Total |Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout |Microsoft.regionName, Frontend |
+|ConnectionTimeouts |Yes |Connection Timeouts |Count |Total |Count of connections closed due to timeout between clients and Application Gateway for Containers |Microsoft.regionName, Frontend |
+|HTTPResponseStatus |Yes |HTTP Response Status |Count |Total |HTTP response status returned by Application Gateway for Containers |Microsoft.regionName, Frontend, HttpResponseCode |
+|TotalRequests |Yes |Total Requests |Count |Total |Count of requests Application Gateway for Containers has served |Microsoft.regionName, Frontend |
 
 ## Microsoft.SignalRService/SignalR  
 <!-- Data source : naam-->
@@ -3953,7 +3964,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cache_used_percent |Yes |Cache used percentage |Percent |Maximum |Cache used percentage. Applies only to data warehouses. |No Dimensions |
 |connection_failed |Yes |Failed Connections : System Errors |Count |Total |Failed Connections |Error |
 |connection_failed_user_error |Yes |Failed Connections : User Errors |Count |Total |Failed Connections : User Errors |Error |
-|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol, ConnectionPolicyResult |
+|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol |
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based databases. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based databases. |No Dimensions |
@@ -3979,8 +3990,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |sessions_count |Yes |Sessions count |Count |Average |Number of active sessions. Not applicable to Synapse DW Analytics. |No Dimensions |
 |sessions_percent |Yes |Sessions percentage |Percent |Average |Sessions percentage. Not applicable to data warehouses. |No Dimensions |
 |snapshot_backup_size_bytes |Yes |Data backup storage size |Bytes |Maximum |Cumulative data backup storage size. Applies to Hyperscale databases. |No Dimensions |
-|sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses. |No Dimensions |
-|sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses. |No Dimensions |
+|sql_instance_cpu_percent |Yes |SQL instance CPU percent |Percent |Maximum |CPU usage by all user and system workloads. Not applicable to data warehouses. |No Dimensions |
+|sql_instance_memory_percent |Yes |SQL instance memory percent |Percent |Maximum |Memory usage by the database engine instance. Not applicable to data warehouses. |No Dimensions |
+|sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses. (This metric is equivalent to sql_instance_cpu_percent, and will be removed in the future.) |No Dimensions |
+|sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses. (This metric is equivalent to sql_instance_memory_percent, and will be removed in the future.) |No Dimensions |
 |storage |Yes |Data space used |Bytes |Maximum |Data space used. Not applicable to data warehouses. |No Dimensions |
 |storage_percent |Yes |Data space used percent |Percent |Maximum |Data space used percent. Not applicable to data warehouses or hyperscale databases. |No Dimensions |
 |tempdb_data_size |Yes |Tempdb Data File Size Kilobytes |Count |Maximum |Space used in tempdb data files in kilobytes. Not applicable to data warehouses. |No Dimensions |
@@ -4016,8 +4029,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |physical_data_read_percent |Yes |Data IO percentage |Percent |Average |Data IO percentage |No Dimensions |
 |sessions_count |Yes |Sessions Count |Count |Average |Number of active sessions |No Dimensions |
 |sessions_percent |Yes |Sessions percentage |Percent |Average |Sessions percentage |No Dimensions |
-|sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
-|sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
+|sql_instance_cpu_percent |Yes |SQL instance CPU percent |Percent |Maximum |CPU usage by all user and system workloads. Applies to elastic pools. |No Dimensions |
+|sql_instance_memory_percent |Yes |SQL instance memory percent |Percent |Maximum |Memory usage by the database engine instance. Applies to elastic pools. |No Dimensions |
+|sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Applies to elastic pools. (This metric is equivalent to sql_instance_cpu_percent, and will be removed in the future.) |No Dimensions |
+|sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Applies to elastic pools. (This metric is equivalent to sql_instance_memory_percent, and will be removed in the future.) |No Dimensions |
 |storage_limit |Yes |Data max size |Bytes |Average |Data max size. Not applicable to hyperscale |No Dimensions |
 |storage_percent |Yes |Data space used percent |Percent |Average |Data space used percent. Not applicable to hyperscale |No Dimensions |
 |storage_used |Yes |Data space used |Bytes |Average |Data space used. Not applicable to hyperscale |No Dimensions |
@@ -4725,4 +4740,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Mon Jul 03 2023 13:34:26 GMT+0800 (China Standard Time)-->
+<!--Gen Date:  Tue Jul 18 2023 10:25:51 GMT+0300 (Israel Daylight Time)-->

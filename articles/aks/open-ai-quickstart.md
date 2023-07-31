@@ -8,15 +8,18 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
 
-In this article, you will learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, you can easily adapt different AI models, such as content generation, summarization, semantic search, and natural language to code generation, for your specific tasks. 
+In this article, you will learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, you can easily adapt different AI models, such as content generation, summarization, semantic search, and natural language to code generation, for your specific tasks. You will start by deploying an AKS cluster in your Azure subscription. Then you will deploy your OpenAI service and the sample application. 
 
-This article also walks you through how to run a sample multi-container solution representative of real-world implementations. The multi-container solution is comprised of applications written in multiple languages and frameworks, including: 
+The sample cloud native application is representative of real-world implementations. The multi-container application is comprised of applications written in multiple languages and frameworks, including: 
 - Golang with Gin
 - Rust with Actix-Web
 - JavaScript with Vue.js and Fastify
 - Python with FastAPI
 
 These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
+
+> [!NOTE]
+> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
 The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub.
 
@@ -118,366 +121,14 @@ For the [AKS Store application][aks-store-demo], this manifest includes the foll
 - Mongo DB: NoSQL instance for persisted data
 - Rabbit MQ: Message queue for an order queue
 
-1. Create a file named `aks-store.yaml` and copy the following manifest.
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: mongodb
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: mongodb
-      template:
-        metadata:
-          labels:
-            app: mongodb
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: mongodb
-            image: mcr.microsoft.com/mirror/docker/library/mongo:4.2
-            ports:
-            - containerPort: 27017
-              name: mongodb
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: mongodb
-    spec:
-      ports:
-      - port: 27017
-      selector:
-        app: mongodb
-      type: ClusterIP    
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: rabbitmq
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: rabbitmq
-      template:
-        metadata:
-          labels:
-            app: rabbitmq
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: rabbitmq
-            image: mcr.microsoft.com/mirror/docker/library/rabbitmq:3.10-management-alpine
-            ports:
-            - containerPort: 5672
-              name: rabbitmq-amqp
-            - containerPort: 15672
-              name: rabbitmq-http
-            env:
-            - name: RABBITMQ_DEFAULT_USER
-              value: "username"
-            - name: RABBITMQ_DEFAULT_PASS
-              value: "password"
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: rabbitmq
-    spec:
-      selector:
-        app: rabbitmq
-      ports:
-        - name: rabbitmq-amqp
-          port: 5672
-          targetPort: 5672
-        - name: rabbitmq-http
-          port: 15672
-          targetPort: 15672
-      type: ClusterIP
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: order-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: order-service
-      template:
-        metadata:
-          labels:
-            app: order-service
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: order-service
-            image: ghcr.io/azure-samples/aks-store-demo/order-service:latest
-            ports:
-            - containerPort: 3000
-            env:
-            - name: ORDER_QUEUE_PROTOCOL
-              value: "amqp"
-            - name: ORDER_QUEUE_HOSTNAME
-              value: "rabbitmq"
-            - name: ORDER_QUEUE_PORT
-              value: "5672"
-            - name: ORDER_QUEUE_USERNAME
-              value: "username"
-            - name: ORDER_QUEUE_PASSWORD
-              value: "password"
-            - name: FASTIFY_ADDRESS
-              value: "0.0.0.0"
-            resources: {}
-          initContainers:
-          - name: wait-for-rabbitmq
-            image: busybox
-            command: ['sh', '-c', 'until nc -zv rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']        
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: order-service
-    spec:
-      type: ClusterIP
-      ports:
-      - name: http
-        port: 3000
-        targetPort: 3000
-      selector:
-        app: order-service
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: makeline-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: makeline-service
-      template:
-        metadata:
-          labels:
-            app: makeline-service
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: makeline-service
-            image: ghcr.io/azure-samples/aks-store-demo/makeline-service:latest
-            ports:
-            - containerPort: 3001
-            env:
-            - name: ORDER_QUEUE_CONNECTION_STRING
-              value: "amqp://username:password@rabbitmq:5672/"
-            - name: ORDER_QUEUE_NAME
-              value: "orders"
-            - name: ORDER_DB_CONNECTION_STRING
-              value: "mongodb://mongodb:27017"
-            - name: ORDER_DB_NAME
-              value: "orderdb"
-            - name: ORDER_DB_COLLECTION_NAME
-              value: "orders"
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: makeline-service
-    spec:
-      type: ClusterIP
-      ports:
-      - name: http
-        port: 3001
-        targetPort: 3001
-      selector:
-        app: makeline-service
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: product-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: product-service
-      template:
-        metadata:
-          labels:
-            app: product-service
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: product-service
-            image: ghcr.io/azure-samples/aks-store-demo/product-service:latest
-            ports:
-            - containerPort: 3002
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: product-service
-    spec:
-      type: ClusterIP
-      ports:
-      - name: http
-        port: 3002
-        targetPort: 3002
-      selector:
-        app: product-service
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: store-front
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: store-front
-      template:
-        metadata:
-          labels:
-            app: store-front
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: store-front
-            image: ghcr.io/azure-samples/aks-store-demo/store-front:latest
-            ports:
-            - containerPort: 8080
-              name: store-front
-            env: 
-            - name: VUE_APP_ORDER_SERVICE_URL
-              value: "http://order-service:3000/"
-            - name: VUE_APP_PRODUCT_SERVICE_URL
-              value: "http://product-service:3002/"
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: store-front
-    spec:
-      ports:
-      - port: 80
-        targetPort: 8080
-      selector:
-        app: store-front
-      type: LoadBalancer
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: store-admin
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: store-admin
-      template:
-        metadata:
-          labels:
-            app: store-admin
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: store-admin
-            image: ghcr.io/azure-samples/aks-store-demo/store-admin:latest
-            ports:
-            - containerPort: 8081
-              name: store-admin
-            env:
-            - name: VUE_APP_PRODUCT_SERVICE_URL
-              value: "http://product-service:3002/"
-            - name: VUE_APP_MAKELINE_SERVICE_URL
-              value: "http://makeline-service:3001/"
-            - name: VUE_APP_AI_SERVICE_URL
-              value: "http://ai-service:5001/"
-            resources: {}
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: store-admin
-    spec:
-      ports:
-      - port: 80
-        targetPort: 8081
-      selector:
-        app: store-admin
-      type: LoadBalancer  
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: virtual-customer
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: virtual-customer
-      template:
-        metadata:
-          labels:
-            app: virtual-customer
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: virtual-worker
-            image: ghcr.io/azure-samples/aks-store-demo/virtual-customer:latest
-            env:
-            - name: ORDER_SERVICE_URL
-              value: http://order-service:3000/
-            - name: ORDERS_PER_HOUR
-              value: "100"
-            resources: {}
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: virtual-worker
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: virtual-worker
-      template:
-        metadata:
-          labels:
-            app: virtual-worker
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: virtual-worker
-            image: ghcr.io/azure-samples/aks-store-demo/virtual-worker:latest
-            env:
-            - name: MAKELINE_SERVICE_URL
-              value: http://makeline-service:3001
-            - name: ORDERS_PER_HOUR
-              value: "100"
-            resources: {}
-    ```
+> [!NOTE]
+> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
+
+1. Review the [YAML manifest](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-all-in-one.yaml) for the application. You will see a series of deployments and services that make up the entire application. 
 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
-    kubectl apply -f aks-store.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-all-in-one.yaml
     ```
 
     The following example resembles output showing successfully created deployments and services.
@@ -510,13 +161,15 @@ You can either use Azure OpenAI or OpenAI and run your application on AKS.
 1. Select the Azure OpenAI instance you created.
 1. Select **Keys and Endpoints** to generate a key.
 1. Select **Model Deployments** > **Managed Deployments** to open the [Azure OpenAI studio][aoai-studio].
-1. Create a new deployment using the **text-davinci-003** model. 
+1. Create a new deployment using the **gpt-35-turbo** model. 
 
 For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
 ### [OpenAI](#tab/openai)
 1. [Generate an OpenAI key][open-ai-new-key] by selecting **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
 1. [Start a paid plan][openai-paid] to use OpenAI API.
+
+
 --- 
 
 ## Deploy the AI service
@@ -582,6 +235,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
       deployment.apps/ai-service created
       service/ai-service created
     ```
+
 ### [OpenAI](#tab/openai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
@@ -640,6 +294,8 @@ Now that the application is deployed, you can deploy the Python-based microservi
       deployment.apps/ai-service created
       service/ai-service created
     ```
+
+
 ---
 
 > [!NOTE]
@@ -680,10 +336,13 @@ Now that the application is deployed, you can deploy the Python-based microservi
 1. Open a web browser and browse to the external IP address of your service. In the example shown here, open 40.64.86.161 to see Store Admin in the browser. Repeat the same step for Store Front. 
 1. In store admin, click on the products tab, then select **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
+
 :::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="Screenshot of how to use openAI to generate a product description.":::
 1. You can now see the new product you created on Store Admin used by sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
+
 :::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="Screenshot viewing the new product in the store admin page.":::
 1. You can also see the new product you created on Store Front used by buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
+
 :::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="Screenshot viewing the new product in the store front page.":::
 
 ## Next steps
@@ -695,27 +354,49 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 
 <!-- Links external -->
 [aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
+
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
+
 [kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
 [aoai-studio]: https://oai.azure.com/portal/
+
 [open-ai-landing]: https://openai.com/
+
 [open-ai-new-key]: https://platform.openai.com/account/api-keys
+
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
+
 [aoai-access]: https://aka.ms/oai/access
+
 [openai-paid]: https://platform.openai.com/account/billing/overview
+
 [openai-platform]: https://platform.openai.com/
+
 [miyagi]: https://github.com/Azure-Samples/miyagi
 
 <!-- Links internal -->
 [azure-resource-group]: ../azure-resource-manager/management/overview.md 
+
 [az-group-create]: /cli/azure/group#az-group-create
+
 [az-aks-create]: /cli/azure/aks#az-aks-create
+
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+
 [aoai-get-started]: ../cognitive-services/openai/quickstart.md
+
 [managed-identity]: /azure/cognitive-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
+
 [key-vault]: csi-secrets-store-driver.md
+
 [aoai]: ../cognitive-services/openai/index.yml
+
 [learn-aoai]: /training/modules/explore-azure-openai
+

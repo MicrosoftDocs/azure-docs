@@ -248,6 +248,7 @@ There are a couple possible reasons:
 ### Can't view list of shares in the storage account asset
 
  * You don't have enough permissions the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+ * Review [storage account prerequisites](#azure-storage-account-prerequisites) and make sure your storage account region, performance, and redundancy options are all supported.
 
 ## Next steps
 

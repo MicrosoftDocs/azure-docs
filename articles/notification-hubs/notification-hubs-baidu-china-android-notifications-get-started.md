@@ -5,16 +5,13 @@ services: notification-hubs
 documentationcenter: android
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 03/18/2020
+ms.date: 07/17/2023
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 06/19/2019
 ms.custom: devx-track-java, devx-track-csharp, devx-track-dotnet
 ---
 

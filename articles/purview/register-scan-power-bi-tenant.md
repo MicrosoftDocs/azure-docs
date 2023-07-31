@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 07/17/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -188,7 +188,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. Review network configuration and validate if:
-   1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed.
+   1. If your Power BI doesn't allow public access, make sure [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed.
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
       - `*.powerbi.com` 

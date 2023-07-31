@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/25/2022
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---

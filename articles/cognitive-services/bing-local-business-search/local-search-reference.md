@@ -14,7 +14,7 @@ ms.author: rosh
 
 # Bing Local Business Search API v7 reference
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries/regions, etc.  
 

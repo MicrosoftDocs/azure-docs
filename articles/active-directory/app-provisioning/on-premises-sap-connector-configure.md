@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 The following documentation provides configuration and tutorial information demonstrating how to provision users from Azure AD into SAP ERP Central Component (SAP ECC) 7.0.  
 
 
-[!INCLUDE [active-directory-app-provisioning-sap.md](../../../includes/active-directory-app-provisioning-sap.md)]
+[!INCLUDE [app-provisioning-sap.md](../../../includes/app-provisioning-sap.md)]
 
 ## Next steps
 

@@ -65,14 +65,15 @@ There are several keyboard shortcuts you can use to help use some of the feature
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> (Windows) | Shows the Windows Security dialog box. |
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Delete</kbd> (macOS) | Shows the Windows Security dialog box. |
+| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> (Windows)<br /><br /><kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Delete</kbd> (macOS) | Shows the Windows Security dialog box. |
 | <kbd>Windows</kbd> | <kbd>ALT</kbd>+<kbd>F3</kbd> | Sends the *Windows* key to the remote session. |
 | <kbd>ALT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE UP</kbd> | Switches between programs from left to right. |
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
 
 > [!NOTE]
-> You can copy and paste text only. Files can't be copied or pasted to and from the web client. Additionally, you can only use <kbd>CTRL</kbd>+<kbd>C</kbd> and <kbd>CTRL</kbd>+<kbd>V</kbd> to copy and paste text.
+> - You can copy and paste text only. Files can't be copied or pasted to and from the web client. Additionally, you can only use <kbd>CTRL</kbd>+<kbd>C</kbd> and <kbd>CTRL</kbd>+<kbd>V</kbd> to copy and paste text.
+>
+> - When you're connected to a desktop or app, you can access the resources toolbar at the top of window by using <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>HOME</kbd> on Windows, or <kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Home</kbd> on macOS.
 
 #### Input Method Editor
 
