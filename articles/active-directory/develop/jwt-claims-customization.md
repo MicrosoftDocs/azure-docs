@@ -196,26 +196,26 @@ As another example, consider when Britta Simon tries to sign in using the follow
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. The claim falls back to `user.extensionattribute1` ignoring the condition entry in both cases.
 
 ## Security considerations
-Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims customization, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the customization to protect themselves from customizations created by malicious actors. This can be done in one the following ways:
+Applications that receive tokens rely on claim values that are authoritatively issued by Azure AD and can't be tampered with. When you modify the token contents through claims customization, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the customization to protect themselves from customizations created by malicious actors. This can be done in one the following ways:
 
 - [Configure a custom signing key](#configure-a-custom-signing-key)
-- Or, [update the application manifest to accept mapped claims](#update-the-application-manifest).  
+- [update the application manifest to accept mapped claims](#update-the-application-manifest).  
 
-Without this, Azure AD will return an [AADSTS50146 error code](https://docs.microsoft.com/EN-US/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+Without this, Azure AD returns an [AADSTS50146 error code](reference-aadsts-error-codes.md#aadsts-error-codes).
 
 ## Configure a custom signing key
-For multi-tenant apps, a custom signing key should be used. Do not set `acceptMappedClaims` in the app manifest. If set up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which cannot be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to validate the token signing key.
+For multi-tenant apps, a custom signing key should be used. Don't set `acceptMappedClaims` in the app manifest. when setting up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to validate the token signing key.
 
 Add the following information to the service principal:
 
-- Private key (as a [key credential](https://learn.microsoft.com/en-us/graph/api/resources/keycredential?view=graph-rest-1.0))
-- Password (as a [password credential](https://learn.microsoft.com/en-us/graph/api/resources/passwordcredential?view=graph-rest-1.0))
-- Public key (as a [key credential](https://learn.microsoft.com/en-us/graph/api/resources/keycredential?view=graph-rest-1.0))
+- Private key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
+- Password (as a [password credential](/graph/api/resources/passwordcredential?view=graph-rest-1.0))
+- Public key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
 
 Extract the private and public key base-64 encoded from the PFX file export of your certificate. Make sure that the `keyId` for the `keyCredential` used for "Sign" matches the `keyId` of the `passwordCredential`. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
 
 ## Request
-The following shows the format of the HTTP PATCH request to add a custom signing key to a service principal. The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key, the property usage is "Sign". For the public key, the property usage is "Verify".
+The following example shows the format of the HTTP PATCH request to add a custom signing key to a service principal. The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key, the property usage is "Sign". For the public key, the property usage is "Verify".
 
 ```
 PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
@@ -260,25 +260,25 @@ Authorization: Bearer {token}
 ```
 
 ## Configure a custom signing key using PowerShell
-Use PowerShell to [instantiate an MSAL Public Client Application](https://learn.microsoft.com/EN-US/azure/active-directory/develop/msal-net-initializing-client-applications#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](https://learn.microsoft.com/EN-US/azure/active-directory/develop/v2-oauth2-auth-code-flow) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
+Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
 To run this script you need:
 
-1. The object ID of your application's service principal, found in the Overview blade of your application's entry in Enterprise Applications in the Azure portal.
-2. An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the Overview blade of the application's entry in App registrations in the Azure portal. The app registration should have the following configuration:
-- A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration
-- In **API permissions**, Microsoft Graph delegated permissions **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions)
-3. A user who logs in to get the Microsoft Graph access token. The user should be one of the following Azure AD administrative roles (required to update the service principal):
-- Cloud Application Administrator
-- Application Administrator
-- Global Administrator
-4. A certificate to configure as a custom signing key for our application. You can either create a self-signed certificate or obtain one from your trusted certificate authority. The following certificate components are used in the script:
-- public key (typically a .cer file)
-- private key in PKCS#12 format (in .pfx file)
-- password for the private key (pfx file)
+- The object ID of your application's service principal, found in the Overview blade of your application's entry in Enterprise Applications in the Azure portal.
+- An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the Overview blade of the application's entry in App registrations in the Azure portal. The app registration should have the following configuration:
+  - A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration.
+  - In **API permissions**, Microsoft Graph delegated permissions **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions).
+- A user who logs in to get the Microsoft Graph access token. The user should be one of the following Azure AD administrative roles (required to update the service principal):
+  - Cloud Application Administrator
+  - Application Administrator
+  - Global Administrator
+- A certificate to configure as a custom signing key for our application. You can either create a self-signed certificate or obtain one from your trusted certificate authority. The following certificate components are used in the script:
+  - public key (typically a .cer file)
+  - private key in PKCS#12 format (in .pfx file)
+  - password for the private key (pfx file)
  
 > [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+> The private key must be in PKCS#12 format since Azure AD doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate information.
 
 ```
 $fqdn="fourthcoffeetest.onmicrosoft.com" # this is used for the 'issued to' and 'issued by' field of the certificate
@@ -461,21 +461,21 @@ else
 ```
 
 ## Validate token signing key
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](https://learn.microsoft.com/EN-US/azure/active-directory/develop/v2-protocols-oidc#fetch-the-openid-configuration-document). Below is the format of the OpenID Connect metadata document you should use:
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-configuration-document). The following example shows the format of the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
 ```
 
 ## Update the application manifest
-For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](https://learn.microsoft.com/EN-US/azure/active-directory/develop/reference-app-manifest). As documented on the [apiApplication resource type](https://learn.microsoft.com/en-us/graph/api/resources/apiapplication?view=graph-rest-1.0#properties), this allows an application to use claims mapping without specifying a custom signing key.
+For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication?view=graph-rest-1.0#properties), this allows an application to use claims mapping without specifying a custom signing key.
 
 >[!WARNING]
->Do not set acceptMappedClaims property to true for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
+>Do not set the acceptMappedClaims property to true for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
 
-This does require the requested token audience to use a verified domain name of your Azure AD tenant, which means you should ensure to set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
+The requested token audience is required to use a verified domain name of your Azure AD tenant, which means you should set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
 
-If you're not using a verified domain, Azure AD will return an `AADSTS501461` error code with message "_AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier, or use an application-specific signing key._"
+If you're not using a verified domain, Azure AD returns an `AADSTS501461` error code with message "_AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier or use an application-specific signing key."
 
 ## Advanced claims options
 
