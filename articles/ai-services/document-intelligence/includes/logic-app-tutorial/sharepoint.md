@@ -42,7 +42,7 @@ Before we jump into creating the Logic App, we have to set up a Sharepoint folde
 
     :::image type="content" source="../../media/logic-apps-tutorial/create-folder.png" alt-text="Screenshot of create and name folder window.":::
 
-1. You see the new folder in your site library.
+1. You new folder is located in your site library.
 
     :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-site-library.png" alt-text="Screenshot of the newly created folder.":::
 
@@ -92,7 +92,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image border="true" type="content" source="../../media/logic-apps-tutorial/logic-app-designer.png" alt-text="Screenshot of the Logic App Designer start page.":::
 
-1. Search for and select **SharePoint** the search bar. Then, select the **When a file is created (properties only)** trigger.
+1. Search for and select **SharePoint** from the search bar. Then, select the **When a file is created (properties only)** trigger.
 
     :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-setup.png" alt-text="Screenshot of the SharePoint connector and trigger selection page.":::
 
@@ -111,26 +111,38 @@ At this point, you should have a Document Intelligence resource and a SharePoint
     > Select the arrow at the end of each listed folder to traverse to the next folder in the path:
       :::image type="content" source="../../media/logic-apps-tutorial/folder-traverse-tip.png" alt-text="Screenshot of how to traverse the folder path.":::
 
-:::moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.1.0"
 
-4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
+4. Search for and select **SharePoint** from the search bar once more. Then, select the **Get file content** action.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
+1. Complete the fields as follows:
+
+    * **Site Address**. Select your SharePoint site.
+    * **File Identifier**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **Identifier**.
+    * **Infer Content Type**. Select Yes.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-get-file-content.png" alt-text="Screenshot of the Get File Content node.":::
+
+1. Next, we're going to add another new step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
 
 1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
 
-1. Now, you see a window to create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
+1. Now, you see a window where you can create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document Intelligence resource and copy them again. When you're done, select **Create**.
 
       :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
 
-1. You see the selection parameters window for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
+    > [!NOTE]
+    > If you already logged in with your credentials, the prior step is skipped.
+    > Continue by completing the **Analyze Invoice** parameters.
 
-      :::image type="content" source="../../media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
+1. Next, you see the selection parameters window for the **Analyze Document for Prebuilt or Custom models (v3.0 API)** connector.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-parameters.png" alt-text="Screenshot showing the analyze invoice window fields.":::
 
 1. Complete the fields as follows:
 
@@ -139,13 +151,11 @@ At this point, you should have a Document Intelligence resource and a SharePoint
     * **Document/Image URL**. Skip this field for this project because we're already pointing to the file content directly from the OneDrive folder.
     * **Add new parameter**. Skip this field for this project.
 
-      :::image type="content" source="../../media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
-
 1. We need to add a few more steps. Once again, select the **➕ New step** button to add another action.
 
-1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
+1. *Control* and select the **Control** tile.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choose an Operation menu.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choo. In the **Choose an operation** search bar, entese an Operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
@@ -163,7 +173,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
-1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
+1. Sign into your Outlook or Office 365 Outlook account. After doing so, you see a window where we're going to format the email with dynamic content that Document Intelligence extracts from the invoice.
 
 1. We're going to use the following expression to complete some of the fields:
 
@@ -232,6 +242,87 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
 
----
+:::moniker-end -->
 
+:::moniker range="doc-intel-2.1.0"
+
+4. Search for and select **SharePoint** from the search bar once more. Then, select the **Get file content** action.
+
+1. Complete the fields as follows:
+
+    * **Site Address**. Select your SharePoint site.
+    * **File Identifier**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **Identifier**.
+    * **Infer Content Type**. Select Yes.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-get-file-content.png" alt-text="Screenshot of the Get File Content node.":::
+
+1. Next, we're going to add another new step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
+
+1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
+
+1. Now, you see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+
+    * Enter a **Connection name**. It should be something easy to remember.
+    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window.":::
+
+    > [!NOTE]
+    > If you already logged in with your credentials, the prior step is skipped.
+    > Continue by completing the **Analyze Invoice** parameters.
+
+1. Next, you see the selection parameters window for the **Analyze Invoice** connector.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-parameters.png" alt-text="Screenshot showing the analyze invoice window.":::
+
+1. Complete the fields as follows:
+
+    * **Document/Image File Content**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **File content**. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
+    * **Document/Image URL**. Skip this field for this project because we're already pointing to the file content directly from the OneDrive folder.
+    * **Include Text Details**. Select **Yes**.
+    * **Add new parameter**. Skip this field for this project.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-analyze-invoice.png" alt-text="Screenshot showing the analyze invoice window fields.":::
+
+1. We need to add the last step. Once again, select the **➕ New step** button to add another action.
+
+1. In the **Choose an operation** search bar, enter *Outlook* and select **Outlook.com** (personal) or **Office 365 Outlook** (work).
+
+1. In the actions list, scroll down until you find **Send an email (V2)** and select this action.
+
+1. Sign into your **Outlook** or **Office 365 Outlook** account. After doing so, you see a window where we're going to format the email to be sent with dynamic content extracted from the invoice.
+
+    :::image type="content" source="../../media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
+
+1. We're almost done! Type the following entries in the fields:
+
+    * **To**. Enter your personal or business email address or any other email address you have access to.
+
+    * **Subject**. Enter ***Invoice received from:*** and then append dynamic content **Vendor name field Vendor name**.
+
+    * **Body**. We're going to add specific information about the invoice:
+
+      * Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
+
+      * On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
+
+      * Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
+
+      * Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window looks similar to the following image.
+
+      :::image border="true" type="content" source="../../media/logic-apps-tutorial/send-email-fields-complete.png" alt-text="Screenshot of the completed Outlook fields.":::
+
+      > [!TIP]
+      > If you don't see the dynamic content display automatically, use the **Search dynamic content** bar to find field entries.
+
+1. **Select Save in the upper left corner**.
+
+     :::image type="content" source="../../media/logic-apps-tutorial/logic-app-designer-save.png" alt-text="Screenshot of the Logic Apps Designer save button.":::
+
+    > [!NOTE]
+    >
+    > * This current version only returns a single invoice per PDF.
+    > * The "For each loop" around the send email action enables an output format that may return more than one invoice from PDFs in the future.
 :::moniker-end

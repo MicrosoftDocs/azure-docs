@@ -5,7 +5,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 07/24/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD041 -->
@@ -118,7 +118,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="../../media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the When a file is created window.":::
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.1.0"
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
@@ -170,7 +170,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="../../media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
-1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
+1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you see a window where we're going to format the email with dynamic content that Document Intelligence extracts from the invoice.
 
 1. We're going to use the following expression to complete some of the fields:
 
@@ -245,16 +245,20 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
-1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
+1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Invoice** from the list.
 
     :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
 
-1. Now, you see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now, you see a window where you can create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
 
     :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window.":::
+
+    > [!NOTE]
+    > If you already logged in with your credentials, the prior step is skipped.
+    > Continue by completing the **Analyze Invoice** parameters.
 
 1. Next, you see the selection parameters window for the **Analyze Invoice** connector.
 
@@ -273,7 +277,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. In the actions list, scroll down until you find **Send an email (V2)** and select this action.
 
-1. Just like with OneDrive, you're asked to sign into your **Outlook** or **Office 365 Outlook** account. After you sign in, you see a window like the following image. In this window, we're going to format the email to be sent with the dynamic content extracted from the invoice.
+1. Sign into your **Outlook** or **Office 365 Outlook** account. After doing so, you see a window where we're going to format the email to be sent with dynamic content extracted from the invoice.
 
     :::image type="content" source="../../media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
