@@ -135,7 +135,7 @@ Install the extension with **amalogs.useAADAuth=false**.
 az extension add --name k8s-extension --version 1.3.7
 ```
 
-Install the extension with **amalogs.useAADAuth=false**
+Install the extension with **amalogs.useAADAuth=false**.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=false
