@@ -41,4 +41,4 @@
     - name: Restore cluster
       href: how-to-restore-cluster.md
     - name: Text Indexes
-      href: text-indexes.md
+      href: how-to-text-indexes.md
