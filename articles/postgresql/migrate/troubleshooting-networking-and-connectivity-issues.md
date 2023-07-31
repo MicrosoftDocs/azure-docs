@@ -43,6 +43,16 @@ If both Single and Flexible server are in public access, you are unlikely to hit
 
 Let us look at these scenarios in detail.
 
+The following table can help to jump start troubleshooting connectivity issues.
+
+| Single Server | Flexible Server | Troubleshooting Tips |
+| :--- | :--- | :--- |
+| Public Access | Public access  | No action needed. Connectivity should be established automatically. |
+| Private Access | Public access | Non supported network configuration. [Visit this section to learn more](#private-access-in-source-and-public-access-in-target) |
+| Public Access in source without private end point | Private access  | [Visit this section for troubleshooting](#public-access-in-source-without-private-end-points) |
+| Public Access in source with private end point | Private access  | [Visit this section for troubleshooting](#public-access-in-source-with-private-end-points) |
+| Private Access | Private access  | [Visit this section for troubleshooting](#private-access-in-source-and-private-access-in-target) |
+
 ## Private access in source and public access in target
 This network configuration is not supported by Single to Flex migration tooling. In this case, you can opt for other migration tools to perform migration from Single Server to Flexible server such as [pg_dump/pg_restore](../single-server/how-to-upgrade-using-dump-and-restore.md).
 
