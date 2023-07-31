@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 07/28/2023
+  ms.date: 07/31/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -58,7 +58,15 @@ sections:
         answer: | 
           This is expected behavior when using the default sign-in experience for the [Azure OpenAI Studio](https://oai.azure.com).
           
-          To access Azure OpenAI Studio from a guest account you must first open a private browser session and then navigate to [https://oai.azure.com](https://oai.azure.com). Rather than immediately entering your guest account credentials instead select Sign-in options** > **Sign in to an organization** > Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. > Now sign-in with your guest account credentials. You should now be able to access the Azure OpenAI resource via the Studio.
+          To access Azure OpenAI Studio from a guest account that has been granted access to an Azure OpenAI resource:
+          
+          1. Open a private browser session and then navigate to [https://oai.azure.com](https://oai.azure.com).
+          2. Rather than immediately entering your guest account credentials instead select **Sign-in options** 
+          3. Now select **Sign in to an organization** 
+          4. Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. 
+          5. Now sign-in with your guest account credentials. 
+          
+          You should now be able to access the resource via the Azure OpenAI Studio.
           
           Alternatively if you are signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
   
