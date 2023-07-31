@@ -59,7 +59,6 @@ If the language of your documents and extraction scenarios supports custom neura
 >
 > For more information, *see* [Interpret and improve accuracy and confidence for custom models](concept-accuracy-confidence.md).
 
-
 ### Build mode
 
 The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
@@ -101,7 +100,7 @@ Document Intelligence v3.0 supports the following tools:
 |---|---|:---|
 |Custom model| <ul><li>[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|***custom-model-id***|
 
-::: moniker-end
+:::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
@@ -114,7 +113,7 @@ Document Intelligence v2.1 supports the following tools:
 |---|---|
 |Custom model| <ul><li>[Document Intelligence labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&tabs=windows&pivots=programming-language-rest-api&preserve-view=true)</li><li>[Client library SDK](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[Document Intelligence Docker container](containers/install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-::: moniker-end
+:::moniker-end
 
 ## Build a custom model
 
@@ -142,7 +141,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
 * Try the [**Sample Labeling tool quickstart**](quickstarts/try-sample-label-tool.md#train-a-custom-model) to get started building and using a custom model.
 
-::: moniker-end
+:::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -327,7 +326,10 @@ The following table describes the features available with the associated tools a
 |Zulu  | `zu` |
 :::column-end:::
 :::row-end:::
+
 :::moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Try signature detection
 
