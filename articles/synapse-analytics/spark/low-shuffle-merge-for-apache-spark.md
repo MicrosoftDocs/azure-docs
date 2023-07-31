@@ -23,7 +23,8 @@ With Low Shuffle Merge optimization, Delta keeps the matched row result from the
 ## Availability
 
 > [!NOTE]
-> - Low Shuffle Merge is available as a Preview feature. 
+> - Low Shuffle Merge is available as a Preview feature.
+> - Low Shuffle Merge is automatically disabled when MERGE command contains NOT MATCHED BY SOURCE clauses.
 
 It's available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
