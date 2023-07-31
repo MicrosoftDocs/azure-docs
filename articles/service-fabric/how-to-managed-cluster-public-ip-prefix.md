@@ -5,13 +5,13 @@ In regions with Availability Zones, Public IP address prefixes can be created as
 
 Here are some of the benefits of using a Public IP Prefix for your managed cluster:
 
-- Improved fleet management: If you manage a fleet of Service Fabric managed clusters, associating each cluster with a public IP from the same prefix can simplify the management of the entire fleet and reduce management overhead. For example, you can add an entire prefix with a single firewall rule that will add all IP addresses of the prefix associated with the SF managed clusters to an allowlist in the firewall.
+- Improved fleet management: If you manage a fleet of Service Fabric managed clusters, associating each cluster with a public IP from the same prefix can simplify the management of the entire fleet and reduce management overhead. For example, you can add an entire prefix with a single firewall rule that adds all IP addresses of the prefix associated with the SF managed clusters to an allowlist in the firewall.
 
-- Enhanced control and security: By associating a public IP from a prefix to Service Fabric managed cluster, you can simplify the control and security of your cluster's public IP address space. Since the cluster will always be assigned a public IP from the static reserved range of IPs within the IP prefix, you can easily assign network access control lists (ACLs) and other network rules specific to that range. This simplifies your control allowing you to easily manage which resources can access the cluster and vice versa.
+- Enhanced control and security: By associating a public IP from a prefix to Service Fabric managed cluster, you can simplify the control and security of your cluster's public IP address space. Because the cluster is always assigned a public IP from the reserved range of IPs within the IP prefix, you can easily assign network access control lists (ACLs) and other network rules specific to that range. The IP prefix simplifies your control allowing you to easily manage which resources can access the cluster and vice versa.
 
 - Effective resource management: A Public IP prefix enables you to use one prefix to manage all your public endpoints with predictable, contiguous IP range that doesn’t change as you scale. You can see which IP addresses are allocated and available within the prefix range. 
 
-As seen in the diagram below, a service fabric managed cluster with three node types having their own subnets has all their inbound and outbound traffic routed through the two load balancers. If external services would like to communicate with SFMC cluster, they would use the public IP addresses (allocated from public IP prefix, let’s say A) associated with the front end of the load balancers.
+As seen in the diagram, a service fabric managed cluster with three node types having their own subnets has all their inbound and outbound traffic routed through the two load balancers. If external services would like to communicate with SFMC cluster, they would use the public IP addresses (allocated from public IP prefix, let’s say A) associated with the front end of the load balancers.
 
 ![Diagram depicting a managed cluster using a public IP prefix.](media/how-to-managed-cluster-public-ip-prefix/public-ip-prefix-scenario-diagram.png)
 
@@ -41,7 +41,7 @@ The following section describes the steps that should be taken to implement publ
 
 1.	Follow the steps in the [Create a public IP address prefix](../../virtual-network/ip-services/create-public-ip-prefix-portal.md?tabs=create-default).
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
-3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource Id of the public IP prefix or update via Azure CLI, or Powershell. Use Service Fabric API version `2023-03-01-Preview` and above.
+3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` and later.
 
 ### ARM Template:
 
@@ -70,7 +70,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 #### Create a public IP address prefix
 
-In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure CLI. 
+The following section describes the steps to create a zone redundant, zonal, and non-zonal public IP prefix using Azure CLI. 
 
 The prefix in the example is * **IPv4** - /28 (16 addresses)
 
@@ -142,7 +142,7 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
     --iptags 'RoutingPreference=Internet'
 ```
 
-#### Capture the resource Id from the Public IP prefix created above and add it to the ARM template and deploy the template
+#### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
   ```azurecli-interactive
     az deployment group create \
@@ -170,7 +170,7 @@ New-AzResourceGroup @rg
 
 #### Create a public IP address prefix
 
-In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+The following section describes the steps to create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
 The prefix in the example is * **IPv4** - /28 (16 addresses)
 
@@ -255,7 +255,7 @@ New-AzPublicIpPrefix @ipv4
 ```
 
 
-#### Capture the resource Id from the Public IP prefix created above and add it to the ARM template and deploy the template
+#### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
