@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Onboarding to Microsoft Teams 
+          - text: Onboarding and the Included Benefits
             url: onboarding.md
       - linkListType: deploy
         links:

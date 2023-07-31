@@ -1,11 +1,11 @@
 ---
 title: Get started with Global Secure Access (preview)
-description: Get started with Global Secure Access (preview) for Microsoft Entra.
+description: Configure the main components of Microsoft Entra Internet Access and Microsoft Entra Private Access, which make up Global Secure Access, Microsoft's Security Service Edge solution.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
