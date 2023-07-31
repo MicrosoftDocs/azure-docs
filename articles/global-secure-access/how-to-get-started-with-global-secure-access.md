@@ -17,7 +17,7 @@ This guide helps you get started configuring both services for the first time.
 
 ## Prerequisites
 
-Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference.md). Some features may also require additional roles.
+Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference). Some features may also require additional roles.
 
 To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
 

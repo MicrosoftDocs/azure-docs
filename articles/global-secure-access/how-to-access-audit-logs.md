@@ -24,7 +24,7 @@ To access the audit log for your tenant, you must have one of the following role
 - Global Reader
 - Global Administrator
 
-Audit logs are available in [all editions of Microsoft Entra](/azure/active-directory/reports-monitoring/concept-audit-logs.md). Storage and integration with analysis and monitoring tools may require additional licenses and roles.
+Audit logs are available in [all editions of Microsoft Entra](/azure/active-directory/reports-monitoring/concept-audit-logs). Storage and integration with analysis and monitoring tools may require additional licenses and roles.
 
 ## Access the audit logs
 
@@ -49,8 +49,8 @@ You can access the audit logs from **Global Secure Access** and from **Microsoft
 
 Audit log data is only kept for 30 days by default, which may not be long enough for every organization. You may also want to integrate your logs with other services for enhanced monitoring and analysis if you need to view or query logs after 30 days.
 
-- [Stream activity logs to an event hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) to integrate with other tools, like Azure Monitor or Splunk.
-- [Export activity logs for storage](/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+- [Stream activity logs to an event hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub) to integrate with other tools, like Azure Monitor or Splunk.
+- [Export activity logs for storage](/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
 - [Monitor activity in real-time with Microsoft Sentinel](/azure/sentinel/quickstart-onboard.md).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
