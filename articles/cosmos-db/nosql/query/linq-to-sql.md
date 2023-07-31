@@ -2,14 +2,14 @@
 title: LINQ to SQL translation
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: jucocchi
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/22/2023
-ms.custom: ignite-2022
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
 
 # LINQ to SQL translation in Azure Cosmos DB for NoSQL

@@ -211,9 +211,9 @@ During the observed people tracking and matched faces procedure, images in a med
 
 Below are some considerations to keep in mind when using observed people and matched faces.
 
-### Limitations of observed people tracing
+### Limitations of observed people tracking
 
-It's important to note the limitations of observed people tracing, to avoid or mitigate the effects of false negatives (missed detections) and limited detail.
+It's important to note the limitations of observed people tracking, to avoid or mitigate the effects of false negatives (missed detections) and limited detail.
 
 * People are generally not detected if they appear small (minimum person height is 100 pixels).
 * Maximum frame size is FHD
