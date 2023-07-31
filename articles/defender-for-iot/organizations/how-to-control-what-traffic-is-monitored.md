@@ -47,7 +47,7 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
 1. Wait for the analysis to complete, and then check each interface tab to understand whether the interface is monitoring relevant traffic, or needs further fine-tuning.
 
-If the traffic shown on the **Deployment** page isn't what you expect, [Fine-tune your deployment](#fine-tune-your-deployment). If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
+If the traffic shown on the **Deployment** page isn't what you expect, [fine-tune your deployment](#fine-tune-your-deployment). If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
 
 ## Fine-tune your deployment
 
