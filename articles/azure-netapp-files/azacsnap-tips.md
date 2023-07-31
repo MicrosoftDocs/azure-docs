@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 07/30/2023
 ms.author: phjensen
 ---
 
@@ -57,8 +57,19 @@ This format makes the file parse-able with the Linux commands `watch`, `grep`, `
 # Monitor execution of AzAcSnap backup commands
 #
 # These values can be modified as appropriate.
-HEADER_VALUES_TO_EXCLUDE="AZACSNAP_VERSION,VOLUME,AZACSNAP_CONFIG_FILE"
 SCREEN_REFRESH_SECS=2
+FIELDS_TO_INCLUDE="1,2,3,6,7,9"
+# Mainlog header fields:
+#       1. DATE_TIME,
+#       2. OPERATION_NAME,
+#       3. STATUS,
+#       4. SID,
+#       5. DATABASE_TYPE,
+#       6. DURATION,
+#       7. SNAPSHOT_NAME,
+#       8. AZACSNAP_VERSION,
+#       9. AZACSNAP_CONFIG_FILE,
+#       10. VOLUME
 #
 # Use AzAcSnap global settings file (.azacsnaprc) if available,
 # otherwise use the default location of the current working directory.
@@ -74,6 +85,7 @@ echo "Changing current working directory to ${MAINLOG_LOCATION}"
 # Default MAINLOG filename.
 MAINLOG_FILENAME="azacsnap.log"
 #
+echo "Parsing '${MAINLOG_FILENAME}'"
 # High-level explanation of how commands used.
 # `watch` - continuously monitoring the command output.
 # `column` - provide pretty output.
@@ -84,16 +96,10 @@ watch -t -n ${SCREEN_REFRESH_SECS} \
   echo -n "Monitoring AzAcSnap @  "; \
   date ; \
   echo ; \
-  column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t ${MAINLOG_FILENAME} \
-    | head -n1 ; \
-  grep -e "DATE" -e "backup" ${MAINLOG_FILENAME} \
-    | column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t \
-    | tail -n +2 \
-    | tail -n 12 \
+  cat ${MAINLOG_FILENAME} \
+    | grep  -e "DATE" -e ",backup," \
+    | ( sleep 1; head -n1 - ; sleep 1; tail -n+2 - | tail -n20; sleep 1 ) \
+    | cut -f${FIELDS_TO_INCLUDE} -d"," | column -s"," -t
   "
 ```
 
