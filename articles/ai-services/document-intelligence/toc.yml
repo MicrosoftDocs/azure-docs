@@ -138,13 +138,13 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/document-intelligence/transparency-note?context=/azure/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Integration and responsible use
-    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?context=/azure/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/document-intelligence/data-privacy-security?context=/azure/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Model overview
@@ -225,15 +225,15 @@ items:
     expanded: true
     items:
     - name:  Custom
-      href: /ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/create-form-processing-model?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name:  Invoice
-      href: /ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-invoice-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Receipt
-      href: /ai-builder/flow-receipt-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-receipt-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: ID document
-      href: /ai-builder/id-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/applied-ai-services/breadcrumb/toc.json
+      href: /ai-builder/id-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/applied-ai-services/breadcrumb/toc.json
     - name: Business card
-      href: /ai-builder/flow-business-card-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Use Azure AI Document Intelligence with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure AI Document Intelligence with Azure Functions

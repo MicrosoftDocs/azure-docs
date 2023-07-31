@@ -168,7 +168,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
 
-1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
+1. A new node is added to the Logic App designer view. Search for "Azure AI Document Intelligence (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
     :::image type="content" source="media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
 
@@ -289,14 +289,14 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
-1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
+1. A new node is added to the Logic App designer view. Search for "Azure AI Document Intelligence (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
 
     :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
 
-1. Now, you see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now, you see a window where to create your connection. Specifically, you're going to connect your Azure AI Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
-    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
+    * Enter the Azure AI Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Azure AI Document Intelligence resource and copy them again. When you're done, select **Create**.
 
     :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window.":::
 

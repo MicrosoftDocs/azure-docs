@@ -64,7 +64,6 @@ The following table shows locations by service provider. If you want to view ava
 | **[Chief Telecom](https://www.chief.com.tw/)** |Supported |Supported | Hong Kong<br/>Taipei |
 | **China Mobile International** |Supported |Supported | Hong Kong<br/>Hong Kong2<br/>Singapore |
 | **China Telecom Global** |Supported |Supported | Hong Kong<br/>Hong Kong2 |
-| **[China Unicom Global](https://cloudbond.chinaunicom.cn/home-en)** | Supported | Supported | Frankfurt<br/>Hong Kong<br/>Singapore2<br/>Tokyo2 |
 | **Chunghwa Telecom** |Supported |Supported | Taipei |
 | **Claro** |Supported |Supported | Miami |
 | **Cloudflare** |Supported |Supported | Los Angeles |
