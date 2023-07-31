@@ -603,7 +603,7 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 
 ## Next steps
 
-- To learn how to manage NSG flow logs, see [Manage NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 - To learn how to read flow logs, see [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md).
 
