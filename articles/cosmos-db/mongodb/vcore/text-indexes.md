@@ -109,7 +109,7 @@ This query will return all documents in the "articles" collection that contain t
 
 
 
-## Dropping text index
+## Dropping a text index
 
 To drop a text index in MongoDB, you can use the dropIndex() method on the collection and specify the index key or name for the text index you want to remove.
 
