@@ -65,28 +65,28 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
 ## Remarks
 
 - Here's a list of the supported scalar data types:
-  | | Values order |
-  | --- | --- |
-  | **Undefined** | Single value: ``undefined`` |
-  | **Null** | Single value: ``null`` |
-  | **Boolean** | Values: ``false``, ``true``. |
-  | **Number** | A double-precision floating-point number, IEEE 754 standard. |
-  | **String** | A sequence of zero or more Unicode characters. Strings must be enclosed in single or double quotes.|
-  | **Array** | A sequence of zero or more elements. Each element can be a value of any scalar data type, except **undefined**.|
-  | **Object** | An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **undefined**. |
+    | | Values order |
+    | --- | --- |
+    | **Undefined** | Single value: ``undefined`` |
+    | **Null** | Single value: ``null`` |
+    | **Boolean** | Values: ``false``, ``true``. |
+    | **Number** | A double-precision floating-point number, IEEE 754 standard. |
+    | **String** | A sequence of zero or more Unicode characters. Strings must be enclosed in single or double quotes.|
+    | **Array** | A sequence of zero or more elements. Each element can be a value of any scalar data type, except **undefined**.|
+    | **Object** | An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **undefined**. |
 - Here's a list of escape sequences that are allowed for string literals:
-  | | Description | Unicode character |
-  | --- | --- | --- |
-  | **``\'``** | apostrophe (') | ``U+0027`` |
-  | **``\"``** | quotation mark (") | ``U+0022`` |
-  | **``\\``** | reverse solidus (\) | ``U+005C`` |
-  | **``\/``** | solidus (/) | ``U+002F`` |
-  | **``\b``** | backspace | ``U+0008`` |
-  | **``\f``** | form feed | ``U+000C`` |
-  | **``\n``** | line feed | ``U+000A`` |
-  | **``\r``** | carriage return | ``U+000D`` |
-  | **``\t``** | tab | ``U+0009`` |
-  | **``\uXXXX``** | A Unicode character defined by four hexadecimal digits. | ``U+XXXX`` |
+    | | Description | Unicode character |
+    | --- | --- | --- |
+    | **``\'``** | apostrophe (') | ``U+0027`` |
+    | **``\"``** | quotation mark (") | ``U+0022`` |
+    | **``\\``** | reverse solidus (\) | ``U+005C`` |
+    | **``\/``** | solidus (/) | ``U+002F`` |
+    | **``\b``** | backspace | ``U+0008`` |
+    | **``\f``** | form feed | ``U+000C`` |
+    | **``\n``** | line feed | ``U+000A`` |
+    | **``\r``** | carriage return | ``U+000D`` |
+    | **``\t``** | tab | ``U+0009`` |
+    | **``\uXXXX``** | A Unicode character defined by four hexadecimal digits. | ``U+XXXX`` |
 
 ## Next steps
 
