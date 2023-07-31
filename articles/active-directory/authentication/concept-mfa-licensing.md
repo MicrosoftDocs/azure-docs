@@ -54,7 +54,7 @@ The following table provides a list of the features that are available in the va
 | Remember MFA for trusted devices | | ● | ● | ● | ● |
 | MFA for on-premises applications | | | | ● | ● |
 | Conditional access | | | | ● | ● |
-| Risk-based conditional access | | | | | ● |
+| Risk-based Conditional Access | | | | | ● |
 
 ## Compare multi-factor authentication policies
 

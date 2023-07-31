@@ -76,7 +76,7 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 * User is a guest in the tenant
 * User's risk score is high
 * Sign-in occurs during user or admin consent flow
-* Persistent browser session control is configured in a conditional access policy
+* Persistent browser session control is configured in a Conditional Access policy
 
 ## Next steps
 
