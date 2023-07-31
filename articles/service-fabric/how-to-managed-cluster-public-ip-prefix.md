@@ -277,7 +277,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Review the [Service Fabric managed cluster networking scenarios](how-to-managed-cluster-networking.md) outlined in this article.
+> [Review the Service Fabric managed cluster networking scenarios](how-to-managed-cluster-networking.md).
 > 
 > [!div class="nextstepaction"]
-> Review [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md).
+> [Review Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md).
