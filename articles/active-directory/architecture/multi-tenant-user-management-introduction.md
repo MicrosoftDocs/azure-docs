@@ -67,14 +67,14 @@ The following conceptual and how-to articles provide information about Azure AD 
 - [B2B and Office 365 external sharing](../external-identities/o365-external-user.md) explains the similarities and differences among sharing resources through B2B, Office 365, and SharePoint/OneDrive.
 - [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md) describes the properties and states of the external user object in Azure AD. The description provides details before and after invitation redemption.
 - [B2B user tokens](../external-identities/user-token.md) provides examples of the bearer tokens for B2B for an external user.
-- [Conditional access for B2B](../external-identities/authentication-conditional-access.md) describes how conditional access and MFA work for external users.
+- [Conditional access for B2B](../external-identities/authentication-conditional-access.md) describes how Conditional Access and MFA work for external users.
 - [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
 - [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
 
 ### How-to articles
 
 - [Use PowerShell to bulk invite Azure AD B2B collaboration users](../external-identities/bulk-invite-powershell.md) describes how to use PowerShell to send bulk invitations to external users.
-- [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md) explains how you can use conditional access and MFA policies to enforce tenant, app, or individual external user authentication levels.
+- [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md) explains how you can use Conditional Access and MFA policies to enforce tenant, app, or individual external user authentication levels.
 - [Email one-time passcode authentication](../external-identities/one-time-passcode.md) describes how the Email one-time passcode feature authenticates external users when they can't authenticate through other means like Azure AD, a Microsoft account (MSA), or Google Federation.
 
 ## Terminology
