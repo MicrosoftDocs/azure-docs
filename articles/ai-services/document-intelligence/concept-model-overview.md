@@ -59,7 +59,7 @@ For all of the models above except Business card model, Document Intelligence no
 * [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 * [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
 * [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
 
 
 ### Read OCR
