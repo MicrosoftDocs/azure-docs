@@ -265,7 +265,6 @@
               href: node-access.md
             - name: Manage SSH access to nodes
               href: manage-ssh-node-access.md
-          href: node-access.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
