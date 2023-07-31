@@ -283,7 +283,7 @@ There are a few considerations for indexing computed properties, including:
 
 - Wildcard paths under the computed property path work like they do for regular properties.
 
-- If you're creating, updating or removing a computed property, all indexes on that property name must be dropped first.
+- If you're creating, updating, or removing a computed property, all indexes on that property name must be dropped first.
 
 > [!NOTE]
 > All computed properties are defined at the top level of the item. The path is always `/<computed property name>`.
