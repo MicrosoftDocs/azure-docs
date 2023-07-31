@@ -14,7 +14,7 @@ ms.date: 07/25/2023
 ms.collection: M365-identity-device-management
 
 ---
-# How Microsoft Support accesses identity diagnostic data
+# About Microsoft Support access requests (preview)
 
 Microsoft Support requests are automatically assigned to a support engineer with expertise in solving similar problems. To expedite solution delivery, our support engineers use diagnostic tooling to read [identity diagnostic data](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs) for your tenant.
 
