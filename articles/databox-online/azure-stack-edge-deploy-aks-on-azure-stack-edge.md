@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 07/31/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -66,7 +66,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 - If you're using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
      ```azurepowershell
-     Get-HcsNumaLpMapping -MapType MinRootAware
+     Get-HcsNumaLpMapping
      ```
 
 - This configuration is applied when you install or update to Azure Stack Edge 2307. There are two scenarios where the configuration won't be applied during installation or update:
@@ -81,21 +81,25 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
      ```azurepowershell
      Hardware:
-     { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-     { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
 
      HpnCapableLpMapping:
-     { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-     { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
 
-     BNVGF33:
-     HpnLpMapping:
-     { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-     { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+
+     7MT0SZ2:
+      HpnLpMapping:
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [] }
 
      HpnLpAvailable:
-     { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-     { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+
+       { Numa Node #1 : CPUs [] }
      ```
 
      ### [Azure Stack Edge Pro 2](#tab/pro2)
@@ -104,17 +108,17 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
      ```azurepowershell
      Hardware:
-     { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
 
      HpnCapableLpMapping:
-     { Numa Node #0 : CPUs [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       { Numa Node #0 : CPUs [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
 
-     B4P1076003103B:
+    B4P1076003103B:
      HpnLpMapping:
-     { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
   
      HpnLpAvailable:
-     { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       { Numa Node #0 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
      ```
      ---
 
