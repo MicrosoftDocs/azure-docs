@@ -568,17 +568,17 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ## Data detection and extraction
 
- | **Model**   | **Text**   | * [**Language extraction**](#supported-extracted-languages-and-locales) </br> * [**Language detection**](#language-detection) |
+ | **Model**   | **Text**   | *[**Language extraction**](#supported-extracted-languages-and-locales) </br>* [**Language detection**](#language-detection) |
 | --- | --- | --- |
 **prebuilt-read**  | ✓  |✓  |
 
 ### Microsoft Office and HTML text extraction
 
-Use the parameter `api-version=2023-07-31` when using the REST API or the corresponding SDKs of that API version to extract text from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text in the Word document by running OCR on the images. Text from embedded images are not included in the extraction.
+Use the parameter `api-version=2023-07-31` when using the REST API or the corresponding SDKs of that API version to extract text from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text in the Word document by running OCR on the images. Text from embedded images isn't included in the extraction.
 
 > [!NOTE]
 >
-> * [Addon capabilities](concept-add-on-capabilities.md) are not supported for Microsoft Word, Excel, PowerPoint, and HTML file formats.
+> * [Add-on capabilities](concept-add-on-capabilities.md) are not supported for Microsoft Word, Excel, PowerPoint, and HTML file formats.
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Document Intelligence Read OCR.":::
 
@@ -591,7 +591,6 @@ The page units in the model output are computed as shown:
 |PowerPoint |  Each slide = 1 page unit, embedded or linked images not supported | Total slides
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
-<<<<<<< HEAD
 ### Barcode extraction
 
 The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
@@ -624,8 +623,6 @@ The Read OCR model extracts all identified barcodes in the `barcodes` collection
   ]
 ```
 
-=======
->>>>>>> 67fbba716dab3c70c17779a9f9edea750586c6fc
 ### Paragraphs extraction
 
 The Read OCR model in Document Intelligence extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.

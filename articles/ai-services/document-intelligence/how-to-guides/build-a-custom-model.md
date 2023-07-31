@@ -84,7 +84,7 @@ In your project, your first task is to label your dataset with the fields you wi
 
 The files you uploaded to storage are listed on the left of your screen, with the first file ready to be labeled.
 
-1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type. 
+1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type.
 
     :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
 
@@ -126,7 +126,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. The model results are displayed in the main window and the fields extracted are listed in the right navigation bar.
 
-1. Validate your model by evaluating the results for each field. 
+1. Validate your model by evaluating the results for each field.
 
 1. The right navigation bar also has the sample code to invoke your model and the JSON results from the API.
 

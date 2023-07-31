@@ -33,7 +33,7 @@ monikerRange: '<=doc-intel-3.1.0'
 
 Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation. </br></br>
 
-| ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) | ✔️[**Gated preview models**](#gated-preview-models) |
+| ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
 
 ### Document analysis models
 
@@ -75,7 +75,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [🆕 **Insurance card**](#w-2) | Extract health insurance details.
+    [**Insurance card**](#w-2) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
@@ -88,6 +88,22 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
+    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
+   :::column-end:::
+:::column span="":::
    :::column-end:::
 :::row-end:::
 
@@ -128,27 +144,6 @@ Custom models are trained using your labeled datasets to extract distinct data f
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
     [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
-   :::column-end:::
-:::row-end:::
-
-### Gated preview models
-
-Document Intelligence Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. Complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
-
-:::row:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form-preview":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form-preview) | Extract student loan interest details
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage interest details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form-preview":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form-preview) | Extract qualified tuition details.
-   :::column-end:::
-:::column span="":::
    :::column-end:::
 :::row-end:::
 
@@ -332,8 +327,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-
-### US tax 1098 form (preview)
+### US tax 1098 form
 
 :::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
 
@@ -342,9 +336,9 @@ You can use Document Intelligence to automate document processing in application
 |Extract mortgage interest information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
-> [Return to model types](#gated-preview-models)
+> [Return to model types](#prebuilt-models)
 
-### US tax 1098-E form (preview)
+### US tax 1098-E form
 
 :::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the Document Intelligence Studio.":::
 
@@ -353,9 +347,9 @@ You can use Document Intelligence to automate document processing in application
 |Extract student loan information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
-> [Return to model types](#gated-preview-models)
+> [Return to model types](#prebuilt-models)
 
-### US tax 1098-T form (preview)
+### US tax 1098-T form
 
 :::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the Document Intelligence Studio.":::
 
@@ -364,9 +358,9 @@ You can use Document Intelligence to automate document processing in application
 |Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
-> [Return to model types](#gated-preview-models)
+> [Return to model types](#prebuilt-models)
 
-### Addon capabilities
+### Add-on capabilities
 
 :::moniker-end
 

@@ -194,7 +194,7 @@ For custom form models, while creating your custom models, you may need to extra
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-**Label as dynamic table**
+##### Label as dynamic table
 
 Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
@@ -206,7 +206,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Document Intelligence labeling as dynamic table example":::
 
-**Label as fixed table**
+##### Label as fixed table
 
 Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 

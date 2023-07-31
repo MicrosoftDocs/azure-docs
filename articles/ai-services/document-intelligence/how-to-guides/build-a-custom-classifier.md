@@ -13,7 +13,7 @@ monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
-# Build and train a custom classification model (preview)
+# Build and train a custom classification model
 
 [!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 
