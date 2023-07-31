@@ -17,11 +17,11 @@ In this article, you learn how to use the Azure portal to request a direct peeri
 
 ## Before you begin
 
-Please note the following prequisites:
+Please note the following prerequisites:
 -  There are redundant connection(s) within the peering
 -  The redundant connection should be of equal bandwidth 
--  Connections should be fully provisioned (Conection State should be set to "Active")
--  Connections should not be undergoing any changes (for example: device migration)
+-  Connections should be fully provisioned (Connection State should be set to "Active")
+-  Connections shouldn't be undergoing any changes (for example: device migration)
 -  Peering must be represented as an Azure Resource with a valid Subscription
 -  No Bandwidth Updates are expected to happen during the conversion
 -  No adding or removing of connections can occur during the conversion
