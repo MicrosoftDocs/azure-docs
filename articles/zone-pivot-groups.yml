@@ -2562,7 +2562,7 @@ groups:
   - id: msix-app-attach
     title: MSIX app attach
   - id: app-attach
-    title: App attach
+    title: App attach (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
