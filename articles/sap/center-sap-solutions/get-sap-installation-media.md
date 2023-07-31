@@ -159,12 +159,12 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
 
 Next, download the SAP installation media to the VM using a script.
 
-1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
+1. Run the Ansible script **playbook_bom_download** with your own information. With the exception of the `s_password` variable, enter the actual values **within** double quotes but **without** the triangular brackets. For the `s_password` variable, use single quotes. The Ansible command that you run should look like:
 
     ```bash
     export bom_base_name="<Enter bom base name>"
     export s_user="<s-user>"
-    export s_password="<password>"
+    export s_password='<password>'
     export storage_account_access_key="<storageAccountAccessKey>"
     export sapbits_location_base_path="<containerBasePath>"
     export BOM_directory="<BOM_directory_path>"
