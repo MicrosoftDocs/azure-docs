@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Operator Nexus virtual machine by using Azure Resource Manager template (ARM template)
-description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads by using Azure Resource Manager template (ARM template).
+title: Create an Azure Operator Nexus virtual machine by using Bicep
+description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads by using Bicep
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -9,9 +9,9 @@ ms.date: 07/30/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Quickstart: Create an Azure Operator Nexus virtual machine by using Azure Resource Manager template (ARM template)
+# Quickstart: Create an Azure Operator Nexus virtual machine by using Bicep
 
-* Deploy an Azure Nexus virtual machine using an Azure Resource Manager template.
+* Deploy an Azure Nexus virtual machine using Bicep
 
 This quick-start guide is designed to help you get started with using Nexus virtual machines to host virtual network functions (VNFs). By following the steps outlined in this guide, you're able to quickly and easily create a customized Nexus virtual machine that meets your specific needs and requirements. Whether you're a beginner or an expert in Nexus networking, this guide is here to help. You learn everything you need to know to create and customize Nexus virtual machines for hosting virtual network functions.
 
@@ -24,9 +24,9 @@ This quick-start guide is designed to help you get started with using Nexus virt
 
 Before deploying the virtual nachine template, let's review the content to understand its structure. 
 
-:::code language="json" source="includes/virtual-machine/virtual-machine-arm-template.json":::
+:::code language="json" source="includes/virtual-machine/virtual-machine-bicep-template.bicep":::
 
-Once you have reviewed and saved the template file named ```virtual-machine-arm-template.json```, proceed to the next section to deploy the template.
+Once you have reviewed and saved the template file named ```virtual-machine-bicep-template.bicep```, proceed to the next section to deploy the template.
 
 ## Deploy the template
 
@@ -37,7 +37,7 @@ Once you have reviewed and saved the template file named ```virtual-machine-arm-
 2. Deploy the template.
 
 ```azurecli
-    az deployment group create --resource-group myResourceGroup --template-file virtual-machine-arm-template.json --parameters @virtual-machine-parameters.json
+    az deployment group create --resource-group myResourceGroup --template-file virtual-machine-bicep-template.bicep --parameters @virtual-machine-parameters.json
 ```
 
 ## Review deployed resources

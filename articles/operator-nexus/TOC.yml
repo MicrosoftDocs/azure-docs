@@ -37,6 +37,8 @@
           href: quickstarts-tenant-workload-deployment.md
         - name: Use ARM template
           href: quickstarts-virtual-machine-deployment-arm.md
+        - name: Use Bicep file
+          href: quickstarts-virtual-machine-deployment-bicep.md
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
