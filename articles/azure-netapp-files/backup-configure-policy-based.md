@@ -48,7 +48,7 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.      
+6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Select **Save**.      
 
     The minimum value for **Daily Backups to Keep** is 2. 
 
@@ -87,7 +87,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is prepopulated.  
 
-  :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
+  :::image type="content" source="../media/azure-netapp-files/backup-configure-enabled.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-enabled.png":::
 
 ## Next steps  
 

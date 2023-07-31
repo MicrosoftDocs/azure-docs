@@ -38,7 +38,7 @@ Having a BIG-IP in front of the app enables overlay of the service with Azure AD
 The secure hybrid access solution for this scenario has:
 
 * **Application** - BIG-IP published service to be protected by Azure AD secure hybrid access (SHA)
-* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access (CA), and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
 * **HR system** - LDAP-based employee database as the source of truth for application permissions
 * **BIG-IP** - Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before performing header-based SSO to the back-end application
 
@@ -223,9 +223,9 @@ On the **Additional User Attributes** tab, you can enable session augmentation f
 
 #### Conditional Access Policy
 
-CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view lists CA policies that don't include user actions.
+The **Available Policies** view lists Conditional Access policies that don't include user actions.
 
 The **Selected Policies** view shows policies targeting all cloud apps. These policies can't be deselected or moved to the Available Policies list because they're enforced at a tenant level.
 
