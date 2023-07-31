@@ -80,7 +80,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
         --generate-ssh-key
     ```
 
-4. Install Helm
+3. Install Helm
 
     [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
