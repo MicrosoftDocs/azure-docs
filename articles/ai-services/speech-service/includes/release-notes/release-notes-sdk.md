@@ -6,6 +6,50 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.31.0: August 2023 release
+
+#### **Breaking changes**
+* We have made some changes to real-time diarization of speech to text. The existing ConversationTranscriber API has been simplified and a new MeetingTranscriber API has been introduced.
+
+    * What is changing?
+        
+        *   **ConversationTranscriber API:**
+            *   The API has been redesigned to support real-time speaker differentiation in speech to text scenarios
+            * Voice signatures are not required nor supported in this API
+            * ConversationTranscriber API is similar to SpeechRecognizer API which enables easier transition between the two APIs
+            * Supports speech to text service features like custom phrase list, language id and word level timings
+            * Meeting management related functionality has been removed from the API
+        * **MeetingTranscriber API:**
+            * This is a new API that is similar to the previous version of ConversationTranscriber API with some naming changes
+            * This API supports adding and removing participants to a meeting
+            * Speaker identification is supported by using voice signatures that can be provided with the meeting participants
+
+#### New Features
+
+* Added new MeetingTranscriber API, https://docs.microsoft.com/azure/ai-services/speech-service/meeting-transcription
+
+* Synchronized speech synthesis word boundary and viseme events with audio playback
+
+#### Bug fixes
+
+* Fixed macOS minimum supported version https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2017
+
+#### Samples
+
+* **CSharp**
+
+    * https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/meeting-transcription/README.md
+
+* **Java**
+
+    * https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/browser/conversation-transcription/README.md
+
+    * https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/browser/meeting-transcription/README.md
+
+    * https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/conversation-transcription/README.md
+
+    * https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/meeting-transcription/README.md
+
 ### Speech SDK 1.30.0: July 2023 release
 
 #### New Features
