@@ -117,8 +117,6 @@ Document Intelligence v2.1 supports the following tools:
 
 ## Build a custom model
 
-### [Custom extraction](#tab/extraction)
-
 Extract data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
@@ -167,17 +165,6 @@ Extract data from your specific or unique documents using custom models. You nee
 
 For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-model.md)
 
-### [Custom classification](#tab/classification)
-
-Extract data from your specific or unique documents using custom models. You need the following resources:
-
-* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
-
-  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
-
-:::moniker-end
-
 ## Custom model extraction summary
 
 This table compares the supported data extraction areas:
@@ -195,15 +182,17 @@ This table compares the supported data extraction areas:
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.
 
+:::moniker-end
+
 ## Custom model development options
 
 The following table describes the features available with the associated tools and SDKs. As a best practice, ensure that you use the compatible tools listed here.
 
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom form 2.1 | [Document Intelligence 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
-| Custom template 3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom neural | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom form v2.1 | [Document Intelligence 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural v3.1 v3.0 | [Document Intelligence 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
@@ -232,13 +221,343 @@ The following table describes the features available with the associated tools a
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 ::: moniker range=">=doc-intel-3.0.0"
-  The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](#supported-languages-and-locales).
 
-  Document Intelligence v3.0  introduces several new features and capabilities:
+### Handwritten text
 
-* **Custom model API**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+### Print text
+
+The following table lists the supported languages for print text by the most recent GA version.
+
+:::row:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Abaza|abq|
+  |Abkhazian|ab|
+  |Achinese|ace|
+  |Acoli|ach|
+  |Adangme|ada|
+  |Adyghe|ady|
+  |Afar|aa|
+  |Afrikaans|af|
+  |Akan|ak|
+  |Albanian|sq|
+  |Algonquin|alq|
+  |Angika (Devanagari)|anp|
+  |Arabic|ar|
+  |Asturian|ast|
+  |Asu (Tanzania)|asa|
+  |Avaric|av|
+  |Awadhi-Hindi (Devanagari)|awa|
+  |Aymara|ay|
+  |Azerbaijani (Latin)|az|
+  |Bafia|ksf|
+  |Bagheli|bfy|
+  |Bambara|bm|
+  |Bashkir|ba|
+  |Basque|eu|
+  |Belarusian (Cyrillic)|be, be-cyrl|
+  |Belarusian (Latin)|be, be-latn|
+  |Bemba (Zambia)|bem|
+  |Bena (Tanzania)|bez|
+  |Bhojpuri-Hindi (Devanagari)|bho|
+  |Bikol|bik|
+  |Bini|bin|
+  |Bislama|bi|
+  |Bodo (Devanagari)|brx|
+  |Bosnian (Latin)|bs|
+  |Brajbha|bra|
+  |Breton|br|
+  |Bulgarian|bg|
+  |Bundeli|bns|
+  |Buryat (Cyrillic)|bua|
+  |Catalan|ca|
+  |Cebuano|ceb|
+  |Chamling|rab|
+  |Chamorro|ch|
+  |Chechen|ce|
+  |Chhattisgarhi (Devanagari)|hne|
+  |Chiga|cgg|
+  |Chinese Simplified|zh-Hans|
+  |Chinese Traditional|zh-Hant|
+  |Choctaw|cho|
+  |Chukot|ckt|
+  |Chuvash|cv|
+  |Cornish|kw|
+  |Corsican|co|
+  |Cree|cr|
+  |Creek|mus|
+  |Crimean Tatar (Latin)|crh|
+  |Croatian|hr|
+  |Crow|cro|
+  |Czech|cs|
+  |Danish|da|
+  |Dargwa|dar|
+  |Dari|prs|
+  |Dhimal (Devanagari)|dhi|
+  |Dogri (Devanagari)|doi|
+  |Duala|dua|
+  |Dungan|dng|
+  |Dutch|nl|
+  |Efik|efi|
+  |English|en|
+  |Erzya (Cyrillic)|myv|
+  |Estonian|et|
+  |Faroese|fo|
+  |Fijian|fj|
+  |Filipino|fil|
+  |Finnish|fi|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Fon|fon|
+  |French|fr|
+  |Friulian|fur|
+  |Ga|gaa|
+  |Gagauz (Latin)|gag|
+  |Galician|gl|
+  |Ganda|lg|
+  |Gayo|gay|
+  |German|de|
+  |Gilbertese|gil|
+  |Gondi (Devanagari)|gon|
+  |Greek|el|
+  |Greenlandic|kl|
+  |Guarani|gn|
+  |Gurung (Devanagari)|gvr|
+  |Gusii|guz|
+  |Haitian Creole|ht|
+  |Halbi (Devanagari)|hlb|
+  |Hani|hni|
+  |Haryanvi|bgc|
+  |Hawaiian|haw|
+  |Hebrew|he|
+  |Herero|hz|
+  |Hiligaynon|hil|
+  |Hindi|hi|
+  |Hmong Daw (Latin)|mww|
+  |Ho(Devanagiri)|hoc|
+  |Hungarian|hu|
+  |Iban|iba|
+  |Icelandic|is|
+  |Igbo|ig|
+  |Iloko|ilo|
+  |Inari Sami|smn|
+  |Indonesian|id|
+  |Ingush|inh|
+  |Interlingua|ia|
+  |Inuktitut (Latin)|iu|
+  |Irish|ga|
+  |Italian|it|
+  |Japanese|ja|
+  |Jaunsari (Devanagari)|Jns|
+  |Javanese|jv|
+  |Jola-Fonyi|dyo|
+  |Kabardian|kbd|
+  |Kabuverdianu|kea|
+  |Kachin (Latin)|kac|
+  |Kalenjin|kln|
+  |Kalmyk|xal|
+  |Kangri (Devanagari)|xnr|
+  |Kanuri|kr|
+  |Karachay-Balkar|krc|
+  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
+  |Kara-Kalpak (Latin)|kaa|
+  |Kashubian|csb|
+  |Kazakh (Cyrillic)|kk-cyrl|
+  |Kazakh (Latin)|kk-latn|
+  |Khakas|kjh|
+  |Khaling|klr|
+  |Khasi|kha|
+  |K'iche'|quc|
+  |Kikuyu|ki|
+  |Kildin Sami|sjd|
+  |Kinyarwanda|rw|
+  |Komi|kv|
+  |Kongo|kg|
+  |Korean|ko|
+  |Korku|kfq|
+  |Koryak|kpy|
+  |Kosraean|kos|
+  |Kpelle|kpe|
+  |Kuanyama|kj|
+  |Kumyk (Cyrillic)|kum|
+  |Kurdish (Arabic)|ku-arab|
+  |Kurdish (Latin)|ku-latn|
+  |Kurukh (Devanagari)|kru|
+  |Kyrgyz (Cyrillic)|ky|
+  |Lak|lbe|
+  |Lakota|lkt|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Latin|la|
+  |Latvian|lv|
+  |Lezghian|lex|
+  |Lingala|ln|
+  |Lithuanian|lt|
+  |Lower Sorbian|dsb|
+  |Lozi|loz|
+  |Lule Sami|smj|
+  |Luo (Kenya and Tanzania)|luo|
+  |Luxembourgish|lb|
+  |Luyia|luy|
+  |Macedonian|mk|
+  |Machame|jmc|
+  |Madurese|mad|
+  |Mahasu Pahari (Devanagari)|bfz|
+  |Makhuwa-Meetto|mgh|
+  |Makonde|kde|
+  |Malagasy|mg|
+  |Malay (Latin)|ms|
+  |Maltese|mt|
+  |Malto (Devanagari)|kmj|
+  |Mandinka|mnk|
+  |Manx|gv|
+  |Maori|mi|
+  |Mapudungun|arn|
+  |Marathi|mr|
+  |Mari (Russia)|chm|
+  |Masai|mas|
+  |Mende (Sierra Leone)|men|
+  |Meru|mer|
+  |Meta'|mgo|
+  |Minangkabau|min|
+  |Mohawk|moh|
+  |Mongolian (Cyrillic)|mn|
+  |Mongondow|mog|
+  |Montenegrin (Cyrillic)|cnr-cyrl|
+  |Montenegrin (Latin)|cnr-latn|
+  |Morisyen|mfe|
+  |Mundang|mua|
+  |Nahuatl|nah|
+  |Navajo|nv|
+  |Ndonga|ng|
+  |Neapolitan|nap|
+  |Nepali|ne|
+  |Ngomba|jgo|
+  |Niuean|niu|
+  |Nogay|nog|
+  |North Ndebele|nd|
+  |Northern Sami (Latin)|sme|
+  |Norwegian|no|
+  |Nyanja|ny|
+  |Nyankole|nyn|
+  |Nzima|nzi|
+  |Occitan|oc|
+  |Ojibwa|oj|
+  |Oromo|om|
+  |Ossetic|os|
+  |Pampanga|pam|
+  |Pangasinan|pag|
+  |Papiamento|pap|
+  |Pashto|ps|
+  |Pedi|nso|
+  |Persian|fa|
+  |Polish|pl|
+  |Portuguese|pt|
+  |Punjabi (Arabic)|pa|
+  |Quechua|qu|
+  |Ripuarian|ksh|
+  |Romanian|ro|
+  |Romansh|rm|
+  |Rundi|rn|
+  |Russian|ru|
+  |Rwa|rwk|
+  |Sadri (Devanagari)|sck|
+  |Samburu|saq|
+  |Samoan (Latin)|sm|
+  |Sango|sg|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Sangu (Gabon)|snq|
+  |Sanskrit (Devanagari)|sa|
+  |Santali(Devanagiri)|sat|
+  |Scots|sco|
+  |Scottish Gaelic|gd|
+  |Sena|seh|
+  |Serbian (Cyrillic)|sr-cyrl|
+  |Serbian (Latin)|sr, sr-latn|
+  |Shambala|ksb|
+  |Sherpa (Devanagari)|xsr|
+  |Shona|sn|
+  |Siksika|bla|
+  |Sirmauri (Devanagari)|srx|
+  |Skolt Sami|sms|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Soga|xog|
+  |Somali (Arabic)|so|
+  |Somali (Latin)|so-latn|
+  |Songhai|son|
+  |South Ndebele|nr|
+  |Southern Altai|alt|
+  |Southern Sami|sma|
+  |Southern Sotho|st|
+  |Spanish|es|
+  |Sundanese|su|
+  |Swahili (Latin)|sw|
+  |Swati|ss|
+  |Swedish|sv|
+  |Tabassaran|tab|
+  |Tachelhit|shi|
+  |Tahitian|ty|
+  |Taita|dav|
+  |Tajik (Cyrillic)|tg|
+  |Tamil|ta|
+  |Tatar (Cyrillic)|tt-cyrl|
+  |Tatar (Latin)|tt|
+  |Teso|teo|
+  |Tetum|tet|
+  |Thai|th|
+  |Thangmi|thf|
+  |Tok Pisin|tpi|
+  |Tongan|to|
+  |Tsonga|ts|
+  |Tswana|tn|
+  |Turkish|tr|
+  |Turkmen (Latin)|tk|
+  |Tuvan|tyv|
+  |Udmurt|udm|
+  |Uighur (Cyrillic)|ug-cyrl|
+  |Ukrainian|uk|
+  |Upper Sorbian|hsb|
+  |Urdu|ur|
+  |Uyghur (Arabic)|ug|
+  |Uzbek (Arabic)|uz-arab|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Latin)|uz|
+  |Vietnamese|vi|
+  |Volapük|vo|
+  |Vunjo|vun|
+  |Walser|wae|
+  |Welsh|cy|
+  |Western Frisian|fy|
+  |Wolof|wo|
+  |Xhosa|xh|
+  |Yakut|sah|
+  |Yucatec Maya|yua|
+  |Zapotec|zap|
+  |Zarma|dje|
+  |Zhuang|za|
+  |Zulu|zu|
+   :::column-end:::
+:::row-end:::
+
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -249,7 +568,7 @@ The following table describes the features available with the associated tools a
 |:-----|:----:|
 |Afrikaans|`af`|
 |Albanian |`sq`|
-|Asturian |`ast`|
+|Estuarian |`ast`|
 |Basque  |`eu`|
 |Bislama   |`bi`|
 |Breton    |`br`|
@@ -333,6 +652,10 @@ The following table describes the features available with the associated tools a
 
 ### Try signature detection
 
+* **Custom model v 3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
+* [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
+
 1. Build your training dataset.
 
 1. Go to [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
@@ -353,18 +676,17 @@ After your training set is labeled, you can train your custom model and use it t
 
 ## Next steps
 
-::: moniker range=">=doc-intel-3.0.0"
-
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
-
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
-
-:::moniker-end
-
 ::: moniker range="doc-intel-2.1.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+:::moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
+
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 :::moniker-end
