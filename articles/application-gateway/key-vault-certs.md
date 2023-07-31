@@ -124,7 +124,7 @@ Once selected, select  **Add** (if creating) or **Save** (if editing) to apply t
 Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the Key Vault must be completed via ARM template, Bicep, CLI, or  PowerShell.
 
 > [!Note]
-> Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
+> Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal and will recieve an error of *This key vault doesn't allow access to the managed identity*.
 
 In this example, we’ll use PowerShell to reference a new Key Vault secret.
 ```
