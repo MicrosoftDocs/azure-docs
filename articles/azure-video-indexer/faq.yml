@@ -227,3 +227,12 @@ sections:
 
       - question: Does Azure AI Video Indexer offer a trial account?
         answer: Yes, Azure AI Video Indexer offers a trial account that gives full service and API functionality. There is a quota of 600 minutes worth of videos for web-based interface users and 2,400 minutes for API users.
+
+- name: How to optout results for specific AI models 
+    questions:
+      - question: How to optout a specific result from a public AI model?
+        answer: |
+          Send a detailed explenation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including: AI model you are reffering to, the result you'd like to optput, the reason we should optout the results and an explenation of why you are asking this.
+
+      - question: How long does it take?
+        answer: Processing the request might take few weeks.
