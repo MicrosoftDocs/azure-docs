@@ -49,7 +49,7 @@ Before you proceed with the following procedures, be sure to complete the first 
 
       1. When the status bar displays **Configure session**, select it.
       1. Select **Upload conda file**.
-      1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development).
+      1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
       1. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
    1. Start the Spark session.

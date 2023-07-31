@@ -62,7 +62,7 @@ You can create a new notebook and execute the instructions in this tutorial step
 
    1. Select **Configure session**.
    1. Select **Upload Conda file**.
-   1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development).
+   1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
    1. Increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=start-spark-session)]
