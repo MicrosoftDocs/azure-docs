@@ -48,7 +48,7 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.      
+6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Select **Save**.      
 
     The minimum value for **Daily Backups to Keep** is 2. 
 
