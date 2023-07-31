@@ -27,7 +27,7 @@ Listing of Western Hemisphere regions including US, Canada, and Brazil.
 
 #### [Europe](#tab/Europe)
 
-Listing of European regions including UK, France, Germany, and Switzerland.
+Listing of European regions.
 
 #### [Asia / Pacific](#tab/AsiaPacific)
 
@@ -36,9 +36,12 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 
 #### [Middle East / Africa](#tab/MiddleEast)
 
+Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
+
 ---
 
 #### [US](#tab/US/Americas)
+
 |Source|West US|West US 2|West US 3|
 |---|---|---|---|
 |Australia Central|144|164|158|
@@ -518,6 +521,54 @@ Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
 |West US|218|221|202|
 |West US 2|210|211|195|
 |West US 3|232|233|217|
+
+#### [Asia](#tab/Asia/AsiaPacific)
+
+|Source|East Asia|Southeast Asia|
+|---|---|---|
+|Australia Central|125|94|
+|Australia Central 2|125|94|
+|Australia East|122|89|
+|Australia Southeast|116|83|
+|Brazil South|328|341|
+|Canada Central|197|218|
+|Canada East|206|227|
+|Central India|83|50|
+|Central US|177|197|
+|East Asia||34|
+|East US|199|222|
+|East US 2|195|218|
+|France Central|179|147|
+|France South|169|137|
+|Germany North|192|162|
+|Germany West Central|185|155|
+|Japan East|46|70|
+|Japan West|47|77|
+|Korea Central|38|69|
+|Korea South|32|61|
+|North Central US|186|205|
+|North Europe|193|164|
+|Norway East|204|174|
+|Norway West|200|171|
+|Qatar Central|133|98|
+|South Africa North|327|296|
+|South Africa West|342|312|
+|South Central US|168|192|
+|South India|68|35|
+|Southeast Asia|34||
+|Sweden Central|208|179|
+|Switzerland North|179|150|
+|Switzerland West|176|146|
+|UAE Central|111|78|
+|UAE North|112|80|
+|UK South|185|153|
+|UK West|188|158|
+|West Central US|163|184|
+|West Europe|187|156|
+|West India|85|54|
+|West US|149|169|
+|West US 2|142|162|
+|West US 3|151|175|
 
 #### [UAE / Qatar](#tab/uae-qatar/MiddleEast)
 
