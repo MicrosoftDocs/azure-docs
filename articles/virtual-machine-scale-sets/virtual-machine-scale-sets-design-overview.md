@@ -43,7 +43,19 @@ Virtual machine scale sets supports 3 zonal deployment models:
 
 ### Zone redundant or zone spanning 
 
-A zone redundant or zone spanning scale set will spread instances evenly across all selected zones. Each VM and its disks are zonal, so they will be pinned to a specific zone. Instances between zones are connected by high-performance network with low latency. 
+A zone redundant or zone spanning scale set will spread instances across all selected zones `"zones": ["1","2","3"]`. By default the scale set will perform a best effort approach to evenly spread instances across selected zones, however you can specify that you want strict zone balance by specifying `"zoneBalance": "true"` in your deployment. Each VM and its disks are zonal, so they will be pinned to a specific zone. Instances between zones are connected by high-performance network with low latency. In the event of a zonal outage or connectivity issue, connectivity to instances within the affected zone may be compromised, while instances in other availability zones should be unaffected. You may add capacity to the scale set during a zonal outage, and the scale set will add additonal instances to the unaffected zones. When the zone is restored, you many need to scale down your scale set to the original capacity (or set up autoscale rules to do this automatically based on metrics). 
+
+Spreading instances across availability zones meets the 99.99% SLA for instances spread across availability zones, and is recommended for most workloads in Azure.
+
+### Zonal or zone aligned (single zone)
+
+A zonal or zone aligned scale set will place instances in a single availability zone `"zones": ['1']`. Each VM and its disks are zonal, so they will be pinned to a specific zone. This configuration is primarily used when you need lower latency between instances.
+
+### Regional
+
+A regional VMSS is when the zone assignment is not explicitly set (zones=[] or zones=null). In this configuration, the scale set will create Regional (not-zone pinned) instances and will implicitly place instances throughout the region. There is no guarantee for balance or spread across zones, or that instances will land in the same availability zone. Disk colocation is guaranteed for Ultra and Premium v2 disks, best effort for Premium V1 disks, and not guaranteed for Standard sku (SSD or HDD) disks. 
+
+In the rare case of a full zonal outage, any or all instances within the scale set may be impacted.
 
 ## Overprovisioning
 
