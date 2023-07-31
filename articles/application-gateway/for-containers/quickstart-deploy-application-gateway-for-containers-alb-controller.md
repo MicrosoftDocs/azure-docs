@@ -177,7 +177,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     alb-controller-bootstrap-5c6c59c7b8-cll86   1/1     Running   0          3m40s
     ```
 
-1. Verify GatewayClass `azure-application-lb` is installed on your cluster:
+2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```azurecli-interactive
     kubectl get gatewayclass azure-alb-external -o yaml
