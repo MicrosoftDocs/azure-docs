@@ -213,4 +213,3 @@ If you don't have the latitude and longitude information, but have the physical 
 ## Next steps
 
 - [Objects and arrays](object-array.md)
-- [Index and query GeoJSON location data](../how-to-geospatial-index-query.md)
