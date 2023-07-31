@@ -125,7 +125,7 @@ For more information to help you decide which network model to use, see [Compare
 ### Create an AKS cluster with system-assigned managed identities
 
 > [!NOTE]
-> When using system-assigned identity, azure-cli grants the Network Contributor role to the system-assigned identity after the cluster is created. If you're using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities] instead.
+> When using system-assigned identity, the Azure CLI grants the Network Contributor role to the system-assigned identity after the cluster is created. If you're using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities] instead.
 
 * Create an AKS cluster with system-assigned managed identities using the [`az aks create`][az-aks-create] command.
 
@@ -163,7 +163,7 @@ For more information to help you decide which network model to use, see [Compare
 >     --vnet-subnet-id $SUBNET_ID 
 > ```
 
-### Create an AKS cluster with user-assigned managed identities
+### Create an AKS cluster with user-assigned managed identity
 
 #### Create a managed identity
 
@@ -214,7 +214,7 @@ If you're using the Azure CLI, the role is automatically added and you can skip 
 
 #### Create an AKS cluster
 
-* Create an AKS cluster using the [`az aks create`][az-aks-create] command and provide the control plane identity resource ID via `assign-identity` to assign the user-assigned managed identity.
+* Create an AKS cluster using the [`az aks create`][az-aks-create] command and provide the control plane's managed identity resource ID for the `assign-identity` argument to assign the user-assigned managed identity.
 
     ```azurecli-interactive
     az aks create \

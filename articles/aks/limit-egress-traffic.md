@@ -243,7 +243,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 
 If you don't have user-assigned identities, follow the steps in this section. If you already have user-assigned identities, skip to [Create an AKS cluster with user-assigned identities](#create-an-aks-cluster-with-user-assigned-identities).
 
-1. Create a control plane managed identity using the [`az identity create`][az-identity-create] command.
+1. Create a managed identity using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
     az identity create --name myIdentity --resource-group myResourceGroup
@@ -290,11 +290,11 @@ If you don't have user-assigned identities, follow the steps in this section. If
    ```
 
   > [!NOTE]
-  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
 ### Create an AKS cluster with user-assigned identities
 
-Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command and providing your control plane identity resource ID kubelet managed identity.
+Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command, provide the resource ID of the managed identity for the control plane by including the `assign-kubelet-identity` argument.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \

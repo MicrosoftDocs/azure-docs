@@ -231,7 +231,7 @@ A custom user-assigned managed identity for the control plane enables access to 
   
 * After creating the identity, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
-* Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure you provide the control plane identity resource ID for `assign-identity`.
+* Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
     ```azurecli-interactive
     az aks update \
@@ -320,7 +320,7 @@ A kubelet identity enables access to the existing identity prior to cluster crea
 
 ### Create a cluster using user-assigned kubelet identity
 
-Now you can create your AKS cluster with your existing identities. Make sure to provide the resource ID of the managed identity for the control plane using the `assign-identity` command, and the kubelet managed identity using the `assign-kubelet-identity` command.
+Now you can create your AKS cluster with your existing identities. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity using the `assign-kubelet-identity` argument.
 
 * Create an AKS cluster with your existing identities using the [`az aks create`][az-aks-create] command.
 
@@ -429,7 +429,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
     }
     ```
 
-2. Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure you provide the control plane identity resource ID for `assign-identity` and the kubelet managed identity for `assign-kubelet-identity`.
+2. Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity for `assign-kubelet-identity` argument.
 
     ```azurecli-interactive
     az aks update \
