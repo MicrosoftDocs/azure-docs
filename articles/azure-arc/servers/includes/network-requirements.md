@@ -55,7 +55,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
-| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For data services in direct mode, the controller pod on the Kubernetes cluster needs to have outbound connectivity to the endpoints to send the logs, metrics, inventory, and billing information to Azure Monitor/Data Processing Service. <br/><br> For data services in indirect mode, the machine that runs `az arcdata dc upload` needs to have the outbound connectivity to Azure Monitor and Data Processing Service. | Outbound |
+| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For Azure Arc-enabled SQL Server. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Outbound |
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder.
