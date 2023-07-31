@@ -15,7 +15,7 @@ The new Defender for Storage plan was launched on March 28, 2023. If you're curr
 
 The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. 
 
-THe new plan also provides a more predictable and flexible pricing structure for better control over coverage and costs.
+The new plan also provides a more predictable and flexible pricing structure for better control over coverage and costs.
 
 The new pricing plan charges based on the number of storage accounts you protect, which simplifies cost calculations and allows for easy scaling as your needs change. You can enable it at the subscription or resource level and can also exclude specific storage accounts from protected subscriptions, providing more granular control over your security coverage. Extra charges may apply to storage accounts with high-volume transactions that exceed a high monthly threshold.
 
