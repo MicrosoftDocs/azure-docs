@@ -1,7 +1,7 @@
 ---
 title: Durable Functions Troubleshooting Guide - Azure Functions
 description: Guide to troubleshoot common issues with durable functions.
-author: nytiannn
+author: ttorble
 ms.topic: conceptual
 ms.date: 03/10/2023
 ms.author: azfuncdf

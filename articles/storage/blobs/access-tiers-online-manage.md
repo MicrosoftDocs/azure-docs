@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 06/22/2023
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli

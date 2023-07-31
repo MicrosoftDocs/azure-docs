@@ -87,18 +87,18 @@ In some cases, you might want to directly assign specific users to an access pac
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can select **Create new policy** to add a new policy.
+1. In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can select **Create new policy** to add a new policy.
 
-1.	Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
+1. Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
 
     > [!NOTE]
     > If you select a policy with questions, you can only assign one user at a time.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
 
-1.	Optionally provide a justification for your direct assignment for record keeping.
+1. Optionally provide a justification for your direct assignment for record keeping.
 
-1.	If the selected policy includes additional requestor information, select **View questions** to answer them on behalf of the users, then select **Save**.  
+1. If the selected policy includes additional requestor information, select **View questions** to answer them on behalf of the users, then select **Save**.  
 
      ![Assignments - click view questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
 
@@ -117,15 +117,15 @@ Entitlement management also allows you to directly assign external users to an a
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1.	In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package in which you want to add a user.
+1. In the left menu, select **Access packages** and then open the access package in which you want to add a user.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
-1.	Select **New assignment** to open **Add user to access package**.
+1. Select **New assignment** to open **Add user to access package**.
 
-1.	In the **Select policy** list, select a policy that allows that is set to **For users not in your directory**
+1. In the **Select policy** list, select a policy that allows that is set to **For users not in your directory**
 
 1. Select **Any user**. You’ll be able to specify which users you want to assign to this access package.
     ![Assignments - Add any user to access package](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
@@ -137,9 +137,9 @@ Entitlement management also allows you to directly assign external users to an a
     > - Similarly, if you set your policy to include **All configured connected organizations**, the user’s email address must be from one of your configured connected organizations. Otherwise, the user won't be added to the access package.
     > - If you wish to add any user to the access package, you'll need to ensure that you select **All users (All connected organizations + any external user)** when configuring your policy.
 
-1.	Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
-1.	Select **Add** to directly assign the selected users to the access package.
-1.	After a few moments, select **Refresh** to see the users in the Assignments list.
+1. Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
+1. Select **Add** to directly assign the selected users to the access package.
+1. After a few moments, select **Refresh** to see the users in the Assignments list.
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph

@@ -617,8 +617,9 @@ The basic use case for capture filters uses the same filter for all Defender for
 - `traffic-monitor`: Captures communication statistics
 
 > [!NOTE]
-> Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
+> - Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 >
+> - The capture filter command has a character length limit that's based on the complexity of the capture filter definition and the available network interface card capabilities. If your requested filter commmand fails, try grouping subnets into larger scopes and using a shorter capture filter command.
 
 ### Create a basic filter for all components
 

@@ -69,11 +69,11 @@ However, the following scenarios should continue to work:
 -	Signing back into an application after redemption process using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact), follow these steps:
-1.	Delete the conflicting Contact object.
-2.	Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
-3.	Reinvite the guest user.
-4.	Wait for the user to redeem invitation.
-5.	Add the user's Contact email back into Exchange and any DLs they should be a part of.
+1. Delete the conflicting Contact object.
+2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
+3. Reinvite the guest user.
+4. Wait for the user to redeem invitation.
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of.
 
 
 ## Invitation redemption flow
