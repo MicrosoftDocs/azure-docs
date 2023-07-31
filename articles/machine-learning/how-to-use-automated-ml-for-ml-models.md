@@ -277,11 +277,11 @@ To generate a Responsible AI dashboard for a particular model,
 
 1. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the **View Responsible AI dashboard** link: 
 
-  ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
+   ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
 
 The Responsible AI dashboard appears for that model as shown in this image:
 
-  ![Responsible AI dashboard](media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png)
+   ![Responsible AI dashboard](media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png)
 
 In the dashboard, you'll find four components activated for your Automated ML’s best model: 
 
