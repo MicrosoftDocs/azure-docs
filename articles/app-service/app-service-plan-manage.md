@@ -22,7 +22,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 1. To start creating an App Service Plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 
-   ![Create an App Service plan.][createASP] 
+   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service Plan in the Azure portal":::
 
 2. Configure the **Project Details** section before configuring the App Service plan. 
   
@@ -94,6 +94,5 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 > [Scale up an app in Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png
