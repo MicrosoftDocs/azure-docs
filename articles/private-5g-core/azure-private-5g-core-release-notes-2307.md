@@ -20,7 +20,7 @@ Packet core versions are supported until two subsequent versions have been relea
 
 ## What's new
 ### UE Usage Tracking
-The UE usage tracking messages in Azure event hub are now encoded in AVRO file container format, which enables the customer to consume these events via Power BI or Azure Stream Analytics(ASA)
+The UE usage tracking messages in Azure event hub are now encoded in AVRO file container format, which enables the customer to consume these events via Power BI or Azure Stream Analytics(ASA). If you want to enable this feature for your deployment, contact your support representative.
 
 ### Unknown User Cause Code Mapping in 4G
 In this release the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
