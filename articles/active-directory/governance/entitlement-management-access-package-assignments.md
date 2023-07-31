@@ -189,7 +189,7 @@ $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 
-## Manage user lifecycle (preview)  
+## Manage guest user lifecycle (preview)  
 
 Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
 
