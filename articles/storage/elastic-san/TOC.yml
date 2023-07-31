@@ -16,6 +16,8 @@ items:
     href: elastic-san-scale-targets.md
   - name: Networking
     href: elastic-san-networking-concepts.md
+  - name: Performance
+    href: elastic-san-performance.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
