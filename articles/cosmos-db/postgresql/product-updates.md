@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 07/27/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -22,19 +22,30 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
-### June  2023
-* General availability: Customer defined database name is now available in [all regions](./resources-regions.md) at [cluster provisioning](./quickstart-create-portal.md) time.
-    * If the database name is not specified, the default `citus` name is used.
+### July 2023
+* General availability: Terraform support is now available for all cluster management operations. See the following pages for details:
+    * [Cluster management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_cluster)
+    * [Worker node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_node_configuration)
+    * [Coordinator / single node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_coordinator_configuration)
+    * [Postgres role management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_role)
+    * [Public access: Firewall rule management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_firewall_rule)
+    * [Private access: Private endpoint management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint)
+    * [Private access: Private Link service management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_link_service)
+* General availability: 99.99% monthly availability [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
+### June 2023
+* General availability: Customer-defined database name is now available in [all regions](./resources-regions.md) at [cluster provisioning](./quickstart-create-portal.md) time.
+    * If the database name isn't specified, the default `citus` name is used.
 * General availability: [Managed PgBouncer settings](./reference-parameters.md#managed-pgbouncer-parameters) are now configurable on all clusters.
     * Learn more about [connection pooling](./concepts-connection-pool.md).
 * General availability: Preferred availability zone (AZ) selection is now enabled in [all Azure Cosmos DB for PostgreSQL regions](./resources-regions.md) that support AZs.
     * Learn about [cluster node availability zones](./concepts-cluster.md#node-availability-zone) and [how to set preferred availability zone](./howto-scale-grow.md#choose-preferred-availability-zone).
-* General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
+* General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only.
     * See [details](./concepts-node-domain-name.md).
-* Preview: Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL Audit extension.
-    *See [details](./how-to-enable-audit.md).
+* Preview: Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL pgAudit extension.
+    * See [details](./how-to-enable-audit.md).
 
-### May  2023
+### May 2023
 
 * General availability: [Pgvector extension](howto-use-pgvector.md) enabling vector storage is now fully supported on Azure Cosmos DB for Postgres.
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.20, 12.15, 13.11, 14.8, and 15.3) are now available in all supported regions.
@@ -45,7 +56,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 	* See [this page](./reference-extensions.md#citus-extension) for the latest supported Citus versions.
 	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
 
-### April  2023
+### April 2023
 
 * General availability: [Representational State Transfer (REST) APIs](/rest/api/postgresqlhsc/) are now fully supported for all cluster management operations.
 * General availability: [Bicep](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep) and [ARM templates](/azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template) for Azure Cosmos DB for PostgreSQL's serverGroupsv2 resource type.
@@ -104,6 +115,7 @@ might have constrained capabilities.  For more information, see
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 * [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md).
+* [Database audit with pgAudit](./how-to-enable-audit.md).
 
 ## Contact us
 

@@ -51,9 +51,7 @@ When you acquire a token using `acquire_token_by_username_password`, MSAL Python
 
 When you connect directory to AD FS, the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
 
-MSAL Python supports ADFS 2019.
-
-It does not support a direct connection to ADFS 2016 or ADFS v2. To support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
+MSAL Python supports ADFS 2019, but does not support a direct connection to ADFS 2016 or ADFS v2. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
 
 ## Next steps
 

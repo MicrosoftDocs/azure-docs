@@ -1,5 +1,5 @@
 ---
-author: karlerickson
+author: KarlErickson
 ms.author: caiqing
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022

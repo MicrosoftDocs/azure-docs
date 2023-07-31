@@ -428,13 +428,13 @@ $message = $Request.Query.Message
 
 Push-OutputBinding -Name outputEvent -Value  @{
     id = "1"
-    EventType = "testEvent"
-    Subject = "testapp/testPublish"
-    EventTime = "2020-08-27T21:03:07+00:00"
-    Data = @{
+    eventType = "testEvent"
+    subject = "testapp/testPublish"
+    eventTime = "2020-08-27T21:03:07+00:00"
+    data = @{
         Message = $message
     }
-    DataVersion = "1.0"
+    dataVersion = "1.0"
 }
 
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
@@ -644,7 +644,7 @@ In-process C# class library functions supports the following types:
 
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
-Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
+[!INCLUDE [functions-bindings-event-grid-output-dotnet-isolated-types](../../includes/functions-bindings-event-grid-output-dotnet-isolated-types.md)]
 
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 

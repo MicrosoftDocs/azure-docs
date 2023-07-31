@@ -32,6 +32,8 @@ The following diagram displays how the sample app works:
 
 ## Step 1: Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to register your application in the Azure portal:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -104,7 +106,7 @@ You can also use an integrated development environment to open the folder.
    > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](../../active-directory-certificate-credentials.md).
 
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

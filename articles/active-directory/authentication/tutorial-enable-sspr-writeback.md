@@ -122,6 +122,8 @@ To enable SSPR writeback, first enable the writeback option in Azure AD Connect.
 
 ## Enable password writeback for SSPR
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 With password writeback enabled in Azure AD Connect, now configure Azure AD SSPR for writeback. SSPR can be configured to writeback through Azure AD Connect sync agents and Azure AD Connect provisioning agents (cloud sync).   When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well.
 
 To enable password writeback in SSPR, complete the following steps:

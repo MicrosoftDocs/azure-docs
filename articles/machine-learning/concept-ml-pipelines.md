@@ -17,10 +17,10 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 # What are Azure Machine Learning pipelines?
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
 :::moniker-end
 :::moniker range="azureml-api-2"
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 :::moniker-end
 
 An Azure Machine Learning pipeline is an independently executable workflow of a complete machine learning task. An Azure Machine Learning pipeline helps to standardize the best practices of producing a machine learning model, enables the team to execute at scale, and improves the model building efficiency.

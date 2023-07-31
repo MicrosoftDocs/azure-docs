@@ -4,8 +4,8 @@ description: This article explains how to back up Azure Kubernetes Service (AKS)
 ms.topic: how-to
 ms.service: backup
 ms.date: 05/25/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Kubernetes Service using Azure Backup (preview) 
@@ -37,7 +37,7 @@ A Backup vault is a management entity that stores recovery points created over t
 >[!Note]
 >The Backup vault is a new resource used for backing up newly supported workloads and is different from the already existing Recovery Services vault.
 
-Learn [how to create a Backup vault](backup-vault-overview.md#create-a-backup-vault).
+Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
 
 ## Create a backup policy

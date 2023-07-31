@@ -16,9 +16,9 @@ ms.reviewer: dhruvinshah
 # Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
 When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
-1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
-2.	CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
-3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
+1. Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+2. CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
+3. Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
 The following figure shows an example for complex application domain structure.
 

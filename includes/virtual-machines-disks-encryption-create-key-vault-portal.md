@@ -13,7 +13,7 @@ Setting up customer-managed keys for your disks requires you to create resources
 
 ## Set up your Azure Key Vault
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Key Vaults**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png" alt-text="Screenshot of the Azure portal with the search dialog box expanded." lightbox="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png":::

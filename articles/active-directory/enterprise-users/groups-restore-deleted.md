@@ -31,6 +31,8 @@ User | Can restore any deleted Microsoft 365 group that they own
 
 ## View and manage the deleted Microsoft 365 groups that are available to restore
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
 
 2. Browse to **Azure Active Directory** > **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore.

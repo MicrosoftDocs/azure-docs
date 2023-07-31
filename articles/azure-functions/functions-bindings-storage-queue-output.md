@@ -548,7 +548,7 @@ You can write multiple messages to the queue by using one of the following types
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Isolated worker process currently only supports binding to string parameters.
+[!INCLUDE [functions-bindings-storage-queue-output-dotnet-isolated-types](../../includes/functions-bindings-storage-queue-output-dotnet-isolated-types.md)]
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 

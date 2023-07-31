@@ -2,7 +2,7 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ms.custom: references_regions
 ---
 
@@ -109,6 +109,9 @@ You can configure private DNS zones using the following parameters:
   * "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`.
   * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone.
   * If you are specifying a `<subzone>` there is a 32 character limit for the `<subzone>` name.
+
+  > [!IMPORTANT]
+  > The **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** cannot be changed after the cluster has been created and it can't be deleted. Otherwise, the cluster will have issues performing upgrade operations.
 
 ### Create a private AKS cluster with a private DNS zone
 

@@ -29,6 +29,9 @@ Organizations with compliance requirements or risk management plans have sensiti
 
 In addition to the application access governance scenario, you can also use identity governance and the other Microsoft Entra features for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).  If your organization has multiple administrators in Azure AD or Azure, uses B2B or self-service group management, then you should [plan an access reviews deployment](deploy-access-reviews.md) for those scenarios.
 
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
 ## Getting started with governing access to applications
 
 Microsoft Entra identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD  with many popular SaaS applications, on-premises applications, and applications that your organization has developed. Once you've prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
@@ -43,7 +46,7 @@ Before you begin the process of governing application access from Azure AD, you 
 
 * **Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated and properly licensed**.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.  To use Azure AD to govern access to applications, you must have one of the following licenses in your tenant:
 
-  * Azure AD Premium P2
+  * Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   * Enterprise Mobility + Security (EMS) E5 license
 
    Your tenant needs to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license for those users, you can then govern access to up to 1500 applications per user.

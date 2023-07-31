@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/31/2023
 ms.author: erd 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
 # PowerShell: How to use Packer to create virtual machine images in Azure
