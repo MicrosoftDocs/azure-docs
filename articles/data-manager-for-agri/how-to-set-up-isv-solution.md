@@ -14,11 +14,11 @@ ms.custom: template-how-to
 ## Install an ISV solution
 
 1. Once you've installed an instance of Agri Data Manager from Azure portal, navigate to Solutions tab on the left hand side in your instance.
-2. You will be able to view the list of available Solutions. Click on the solution of your choice and click on Add button against it.
-3. You will be navigated to Azure Marketplace page for the Solution. 
+2. You'll be able to view the list of available Solutions. Click on the solution of your choice and click on Add button against it.
+3. You'll be navigated to Azure Marketplace page for the Solution. 
 4. Click on Contact Me CTA and the ISV partner will contact you to help with next steps of installation. 
-5. To edit an installed Solution, click on the edit icon against the Solution in Solutions page and you will be redirected to Azure Marketplace from where you can Contact the ISV partner by clicking on Contact Me.
-6. To delete an installed Solution, click on the delete icon against the Solution in Solutions page and you will be redirected to Azure Marketplace from where you can Contact the ISV partner by clicking on Contact Me.
+5. To edit an installed Solution, click on the edit icon against the Solution in Solutions page. You'll be redirected to Azure Marketplace from where you can contact the ISV partner by clicking on Contact Me.
+6. To delete an installed Solution, click on the delete icon against the Solution in Solutions page and you'll be redirected to Azure Marketplace from where you can Contact the ISV partner by clicking on Contact Me.
 
 
 ## Use an ISV solution
@@ -30,7 +30,7 @@ A high level view of how you can create a new request and get responses from the
 :::image type="content" source="./media/3p-solutions-new.png" alt-text="Screenshot showing access flow for ISV API.":::
 
 1. You make an API call for a PUT request with the required parameters (for example Job ID, Farm details)
-    * The Data Manager API receives this request and authenticates it.  If the request is invalid, you'll get an error code back.
+    * The Data Manager API receives this request and authenticates it.  If the request is invalid, you get an error code back.
 2. If the request is valid, the Data Manager creates a PUT request to ISV Partners solution API.
 3. The ISV solution then makes a GET request to the weather service in data manager that is required for processing.
 4. The ISV solution completes the processing the request and submits a response back to the Data Manager.
