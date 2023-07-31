@@ -95,13 +95,13 @@ After updating your cluster, the control plane and pods use the managed identity
 >
 > * If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the update.
 
-## Add role assignment for control plane managed identity
+## Add role assignment for managed identity
 
 When you create and use your own VNet, attach Azure disks, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, you need to use the Principal ID of the cluster managed identity to perform a role assignment.
 
 If you're not using the Azure CLI, but you're using your own VNet, attach Azure disks, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using [user-assigned managed identity for the control plane][bring-your-own-control-plane-managed-identity]. For the control plane to use a system-assigned managed identity, we can't get the identity ID before creating cluster, which delays the role assignment from taking effect.
 
-### Get the principal ID of control plane managed identity
+### Get the principal ID of managed identity
 
 * Get the existing identity's principal ID using the [`az identity show`][az-identity-show] command.
 
