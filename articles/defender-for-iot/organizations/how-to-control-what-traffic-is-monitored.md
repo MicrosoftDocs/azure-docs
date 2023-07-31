@@ -40,18 +40,18 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 1. Each interface tab shows the following details:
 
     - Connection status, indicated by a green or red connection icon in the tab name. For example, in the image above, the *eth1* interface shows as green, and is therefore connected.
-    - The total number of detected subnets and VLANs, shown in widgets at the top of the tab.
+    - The total number of detected subnets and VLANs, shown at the top of the tab.
     - The protocols detected on each subnet.
     - The number of unicast addresses detected for each subnet.
     - Whether broadcast traffic is detected for each subnet, indicating a local network.
 
-1. Wait for the analysis to complete, and then check each interface tab to understand whether the interface is monitoring relevant traffic, or needs further fine-tuning. Any subnets not listed as subnets are treated as external networks.
+1. Wait for the analysis to complete, and then check each interface tab to understand whether the interface is monitoring relevant traffic, or needs further fine-tuning.
 
-If an interface needs fine-tuning, [update your subnets manually](#fine-tune-your-deployment). If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
+If the traffic shown on the **Deployment** page isn't what you expect, [Fine-tune your deployment](#fine-tune-your-deployment). If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
 
 ## Fine-tune your deployment
 
-After having analyzed the traffic your sensor is monitoring, you may need to fine-tune your deployment and manually edit your subnets. Use this procedure to ensure that all traffic you want to monitor is being detected by your sensor. 
+After having analyzed the traffic your sensor is monitoring, you may need to fine-tune your deployment. Use this procedure to ensure that all traffic you want to monitor is being detected by your sensor.
 
 While your OT sensor automatically learns your network subnets during the initial deployment, we recommend analyzing the detected traffic and updating them as needed to optimize your map views and device inventory. 
 
