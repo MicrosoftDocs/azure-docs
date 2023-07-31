@@ -21,7 +21,7 @@ In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is que
 This quickstart walks you through the query modifications that invoke semantic search.
 
 > [!NOTE]
-> Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
+> Looking for a Cognitive Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
 
 ## Prerequisites
 

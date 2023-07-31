@@ -31,6 +31,8 @@ This article is for customers using Azure AD Pass-through Authentication through
 
 ### Step 1: Check where your Authentication Agents are installed
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to check where your Authentication Agents are installed:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.

@@ -5,7 +5,7 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 07/27/2023
 ms.author: cherylmc
 
 ---
@@ -150,7 +150,7 @@ You can add custom routes. Modify the downloaded profile XML file and add the **
 
 ### Block (exclude) routes
 
-You block (exclude) routes. Modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
+The ability to completely block routes isn't supported by the Azure VPN Client. The Azure VPN Client doesn't support dropping routes from the local routing table. Instead, you can exclude routes from the VPN interface. Modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
 
 ```xml
 <azvpnprofile>

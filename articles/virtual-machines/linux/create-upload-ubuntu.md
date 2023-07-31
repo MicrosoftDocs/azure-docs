@@ -187,7 +187,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     1. Change directory to the boot EFI directory:
     
        ```bash
-        sudo cd /boot/efi/EFI
+        cd /boot/efi/EFI
        ```
 
     2. Copy the ubuntu directory to a new directory named boot:
@@ -199,7 +199,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     3. Change directory to the newly created boot directory:
 
        ```bash
-        sudo cd boot
+       cd boot
        ```
 	
     4. Rename the shimx64.efi file:

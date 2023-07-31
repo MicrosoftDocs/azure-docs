@@ -111,7 +111,7 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
 ## Output
 
 ```console
-Azure AI services Azure AI Vision - Java Quickstart Sample
+Azure AI Vision - Java Quickstart Sample
 
 Analyzing an image from a URL ...
 

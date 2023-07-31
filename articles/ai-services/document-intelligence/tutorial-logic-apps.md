@@ -28,7 +28,7 @@ monikerRange: '<=doc-intel-3.1.0'
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 > [!IMPORTANT]
 >

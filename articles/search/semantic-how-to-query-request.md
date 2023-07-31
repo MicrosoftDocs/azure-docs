@@ -25,9 +25,9 @@ There are two main activities to perform:
 
 ## Prerequisites
 
-+ A search service on Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), in these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe.
++ A search service on Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-  If you have an existing S1 or greater service in one of these regions, you can enable semantic search without having to create a new service.
+  If you have an existing S1 or greater service in a supported region, you can enable semantic search without having to create a new service.
 
 + Semantic search [enabled on your search service](semantic-search-overview.md#enable-semantic-search).
 
@@ -210,11 +210,11 @@ If you happen to include an invalid field, there's no error, but those fields wo
 
 ## 3 - Avoid features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search don't undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
+Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
 
-+ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
++ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches.
 
-+ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
++ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned if you run a semantic query over ordered results.
 
 ## 4 - Set up the query
 
@@ -351,6 +351,8 @@ The response for the above example query returns the following match as the top 
         "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
         "Category": "Luxury"
     },
+  ...
+]
 ```
 
 > [!NOTE]

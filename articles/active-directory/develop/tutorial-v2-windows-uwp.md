@@ -383,6 +383,8 @@ private async Task DisplayMessageAsync(string message)
 
 ## Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now, register your application:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.

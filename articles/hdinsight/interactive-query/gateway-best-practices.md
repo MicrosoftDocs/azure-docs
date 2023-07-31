@@ -3,7 +3,7 @@ title: Gateway deep dive and best practices for Apache Hive in Azure HDInsight
 description: Learn how to navigate the best practices for running Hive queries over the Azure HDInsight gateway
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/25/2023
 ---
 
 # Gateway deep dive and best practices for Apache Hive in Azure HDInsight

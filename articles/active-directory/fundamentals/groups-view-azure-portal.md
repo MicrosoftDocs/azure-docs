@@ -29,9 +29,13 @@ Before you begin, you’ll need to:
 
 - Create an Azure Active Directory tenant. For more information, see [Access the Azure portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
-## Sign in to the Azure portal
+<a name='sign-in-to-the-azure-portal'></a>
 
-You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+## Sign in to the [Azure portal](https://portal.azure.com)
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+You must sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 ## Create a new group 
 

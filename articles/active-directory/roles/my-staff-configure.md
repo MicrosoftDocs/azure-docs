@@ -44,6 +44,8 @@ To complete this article, you need the following resources and privileges:
 
 ## How to enable My Staff
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Once you have configured administrative units, you can apply this scope to your users who access My Staff. Only users who are assigned an administrative role can access My Staff. To enable My Staff, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)  as a Global Administrator, User Administrator, or Group Administrator.

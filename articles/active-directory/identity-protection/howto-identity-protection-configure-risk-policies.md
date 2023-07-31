@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,7 +58,7 @@ Policies allow for excluding users such as your [emergency access or break-glass
 
 ## Enable policies
 
-Organizations can choose to deploy risk-based policies in Conditional Access using the steps outlined below or using the [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates-preview).
+Organizations can choose to deploy risk-based policies in Conditional Access using the steps outlined below or using the [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates).
 
 Before organizations enable remediation policies, they may want to [investigate](howto-identity-protection-investigate-risk.md) and [remediate](howto-identity-protection-remediate-unblock.md) any active risks.
 

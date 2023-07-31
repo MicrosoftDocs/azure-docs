@@ -6,13 +6,16 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
 # Use private IP for internal routing for an Ingress endpoint 
 
 This feature exposes the ingress endpoint within the `Virtual Network` using a private IP.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Prerequisites  
 Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)
