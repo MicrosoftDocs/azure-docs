@@ -2,7 +2,7 @@
 title: Azure Functions Core Tools reference 
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
-ms.date: 07/13/2021
+ms.date: 07/30/2023
 ---
 
 # Azure Functions Core Tools reference
@@ -15,7 +15,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | ----- | ----- |
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
 | [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
-| [`func azurecontainerapps`](#func-azurecontainerapps) | Deploy containerized function app to Azure Container Apps. |
+| [`func azurecontainerapps`](#func-azurecontainerapps-deploy) | Deploy containerized function app to Azure Container Apps. |
 | [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
 | [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
 | [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
@@ -227,11 +227,11 @@ The following publish options apply, based on version:
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
 | **`--csx`** | Publish a C# script (.csx) project. |
-| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this will be appended to the command line. |
+| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this are appended to the command line. |
 | **`--force`** | Ignore prepublishing verification in certain scenarios. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
-| **`--management-url`** | Sets the management URL for your cloud. Use this when running in sovereign cloud. |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
@@ -279,7 +279,7 @@ The following deployment options apply:
 | **`--location `** | Region for the deployment. Ideally, this is the same region as the environment and storage account resources. |
 | **`--management-url`** | Sets the management URL for your cloud. Use this when running in sovereign cloud. |
 | **`--name`** | The name used for the function app deployment in the Container Apps environment. This same name is also used when managing the function app in the portal. The name should be unique in the environment. | 
-| **`--registry`** | When set, a Docker build is run and the image is pushed to the registry set in `--registry`. You can't use `--registry` with `--image-name`. For Docker Hhub, also use `--registry-username`.|
+| **`--registry`** | When set, a Docker build is run and the image is pushed to the registry set in `--registry`. You can't use `--registry` with `--image-name`. For Docker Hub, also use `--registry-username`.|
 | **`--registry-password`** | The password or token used to retrieve the image from a private registry.|
 | **`--registry-username`** | The username used to retrieve the image from a private registry.|
 | **`--resource-group`** | The resource group in which to create the functions-related resources.|

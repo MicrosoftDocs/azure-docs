@@ -3,7 +3,7 @@ title: Work with Azure Functions Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 0/30/2023
 ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -217,7 +217,7 @@ For compiled C# project, add references to the specific NuGet packages for the b
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
 
-If you must use a binding extension or an extension version not in a supported bundle, you'll need to manually install extension. For such rare scenarios, see [Install extensions](#install-extensions).
+If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see [Install extensions](#install-extensions).
 ::: zone-end
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
@@ -365,7 +365,7 @@ Keep in mind the following considerations when running your functions locally:
 
 + By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
 
-+ While there is local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
++ While there's local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
 
 + You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Non-HTTP triggered functions](#non-http-triggered-functions).
 
@@ -461,7 +461,7 @@ The Azure Functions Core Tools supports two types of deployment:
 
 ### Authenticating with Azure
 
-You must have either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools. By defaultm, Core Tools uses these tools to authenticate with your Azure account. 
+You must have either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools. By default, Core Tools uses these tools to authenticate with your Azure account. 
 
 If you don't have these tools installed, you need to instead [get a valid access token](/cli/azure/account#az-account-get-access-token) to use during deployment. You can present an access token using the `--access-token` option in the deployment commands.  
 
@@ -474,7 +474,7 @@ To publish your local code to a function app in Azure, use the [`func azure func
 func azure functionapp publish <FunctionAppName>
 ```
 
-This command publishes project files from the current directory to the `<FunctionAppName>` as a .zip deployment package. If the project requires conpilation, it is done remotely during deployment. 
+This command publishes project files from the current directory to the `<FunctionAppName>` as a .zip deployment package. If the project requires compilation, it's done remotely during deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 Java uses Maven to publish your local project to Azure instead of Core Tools. Use the following Maven command to publish your project to Azure: 
