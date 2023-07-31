@@ -17,7 +17,7 @@ ms.custom: cliv2, sdkv2
 
 With Azure Machine Learning SDK and CLI v2, you can use _expressions_ when a value may not be known when you're authoring a job or component. When you submit a job or call a component, the expression is evaluated and the value is substituted.
 
-The format for an expression is `${{ <expression> }}`. Some expressions are evaluated on the _client_, when submitting the job or component. Other expressions are evaluated on the _server_ &emdash; the compute where the job or component is running.
+The format for an expression is `${{ <expression> }}`. Some expressions are evaluated on the _client_, when submitting the job or component. Other expressions are evaluated on the _server_ (the compute where the job or component is running.)
 
 ## Client expressions
 
@@ -26,7 +26,7 @@ The format for an expression is `${{ <expression> }}`. Some expressions are eval
 
 | Expression | Description | Scope |
 | ---- | ---- | ---- |
-| `${{inputs.<input_name>}}` | References to an input data asset. | Works for all jobs. |
+| `${{inputs.<input_name>}}` | References to an input data asset or model. | Works for all jobs. |
 | `${{outputs.<output_name>}}` | References to an output data asset. | Works for all jobs. |
 | `${{search_space.<hyperparameter>}}` | References the hyperparameters to use in a sweep job. The hyperparameter values for each trial are selected based on the `search_space`. | Sweep jobs only. |
 | `${{parent.inputs.<input_name>}}` | Binds the inputs of a child job (pipeline step) in a pipeline to the inputs of the top-level parent pipeline job. | Pipeline jobs only. |
@@ -47,3 +47,4 @@ For more information on these expressions, see the following articles and exampl
 * [Tutorial: ML pipelines with Python SDK v2](tutorial-pipeline-python-sdk.md)
 * [Create and run component-based ML pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 * [Example: Iris batch prediction notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/parallel/2a_iris_batch_prediction/iris_batch_prediction.ipynb)
+* [Example: Pipeline YAML file](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml)
