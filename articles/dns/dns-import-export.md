@@ -27,7 +27,7 @@ Azure CLI is a cross-platform command-line tool used for managing Azure services
 
 Before you import a DNS zone file into Azure DNS, you need to obtain a copy of the zone file. The source of this file depends on where the DNS zone is hosted.
 
-* If your DNS zone is hosted by a partner service, they'll have a way for you to download the DNS zone file. Partner services include domain registrar, dedicated DNS hosting provider, or an alternative cloud provider.
+* If your DNS zone is hosted by a partner service, the service should have a way for you to download the DNS zone file. Partner services include domain registrar, dedicated DNS hosting provider, or an alternative cloud provider.
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file is also shown on the **General** tab of the DNS console.
 * If your DNS zone is hosted using BIND, the location of the zone file for each zone gets specified in the BIND configuration file **named.conf**.
 
@@ -36,7 +36,7 @@ Before you import a DNS zone file into Azure DNS, you need to obtain a copy of t
 
 ## Import a DNS zone file into Azure DNS
 
-Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exists, then the record sets in the zone file is merged with the existing record sets.
+Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exists, then the record sets in the zone file are merged with the existing record sets.
 
 ### Merge behavior
 
@@ -55,7 +55,7 @@ The following notes provide more technical details about the zone import process
 * The `$INCLUDE` and `$GENERATE` directives aren't supported.
 * These record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS because it needs to refer to the primary name server provided by Azure DNS.
-* The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data is not overwritten by the values contained in the imported zone file.
+* The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data isn't overwritten by the values contained in the imported zone file.
 * During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are to be concatenated and truncated to 255 characters.
 
 ### CLI format and values
@@ -72,7 +72,7 @@ Values:
 * `<zone name>` is the name of the zone.
 * `<zone file name>` is the path/name of the zone file to be imported.
 
-If a zone with this name doesn't already exist in the resource group, one is be created for you. For an existing zone, the imported record sets are merged with existing record sets. 
+If a zone with this name doesn't already exist in the resource group, one is created for you. For an existing zone, the imported record sets are merged with existing record sets. 
 
 ### Import a zone file
 
