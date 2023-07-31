@@ -78,7 +78,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Default Attributes")
 
-1. CITI Program application expects urn:oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
+1. CITI Program application expects urn: oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
