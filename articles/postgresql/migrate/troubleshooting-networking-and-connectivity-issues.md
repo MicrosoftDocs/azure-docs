@@ -44,9 +44,16 @@ If both Single and Flexible server are in public access, you are unlikely to hit
 Let us look at these scenarios in detail.
 
 ## Private access in source and public access in target
-This network configuration is not supported by Single to Flex migration tooling. In this case, you can opt for other migration tools to perform migration from Single Server to Flexible server.
+This network configuration is not supported by Single to Flex migration tooling. In this case, you can opt for other migration tools to perform migration from Single Server to Flexible server such as [pg_dump/pg_restore](../single-server/how-to-upgrade-using-dump-and-restore.md).
 
 ## Public access in source and private access in target
+There are two possible configurations for your source server in this scenario.
+- Public access in source without private end points.
+- Public access in source with private end points.
+
+Let us look into the details of setting network connectivity between the target and source in the above scenarios.
+
+### Public access in source without private end points
 In this case, single server needs to allowlist connections from the subnet in which flexible server is deployed. You can perform the following steps to set up connectivity between single and flexible server.
 
 1. Go to the VNet rules sections in the Connection Security blade of your single server and click on the option **Adding existing virtual network**.
@@ -59,6 +66,8 @@ In this case, single server needs to allowlist connections from the subnet in wh
 
 Once the settings are applied, the connection from flexible server to single server will be established and you'll no longer hit this issue.
 
+### Public Access in source with private end points
+In this case, the connection will be routed through private end point. Refer to the steps mentioned in the following section about establishing connectivity in case of private access in source and private access in target. 
 ## Private access in source and private access in target
 
 1. If a single server is in private access, then it can be accessed only through private end points. Get the VNet and subnet details of the private end point by clicking on the private endpoint name.
