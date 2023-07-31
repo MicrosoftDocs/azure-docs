@@ -123,7 +123,7 @@ cmdlet | Usage
 `new-mgdomain -BodyParameter @{Id="<your domain name>"; IsDefault="False"}` | Adds the domain name to organization as Unverified (no DNS verification has been performed yet).
 `get-mgdomain` | The domain name is now included in the list of domain names associated with your managed organization, but is listed as **Unverified**.
 `Get-MgDomainVerificationDnsRecord` | Provides the information to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
-`confirm-mgdomain –Domainname <domainname>` | <br>- If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<br>- The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged organization has Microsoft 365 services blocking the takeover.
+`confirm-mgdomain –Domainname <domainname>` | - If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<br>- The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged organization has Microsoft 365 services blocking the takeover.
 `get-mgdomain` | The domain list now shows the domain name as **Verified**.
 
 > [!NOTE]
