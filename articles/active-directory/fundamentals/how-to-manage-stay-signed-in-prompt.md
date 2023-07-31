@@ -44,9 +44,11 @@ You must have the **Global Administrator** role to enable the 'Stay signed in?' 
 
 ## Enable the 'Stay signed in?' prompt
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The KMSI setting is managed in the **User settings** of Azure Active Directory (Azure AD).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Azure Active Directory** > **Users** > **User settings**.
 1. Set the **Show keep user signed in** toggle to **Yes**.
 

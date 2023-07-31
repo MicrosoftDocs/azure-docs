@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
-  ms.date: 06/23/2023
+  ms.date: 07/25/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -328,7 +328,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: purview/index.yml
+      url: /purview/index
     # Card
     - title: Data Factory
       summary: Hybrid data integration at enterprise scale, made easy

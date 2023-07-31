@@ -25,6 +25,8 @@ PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To open the settings for an Azure AD role:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

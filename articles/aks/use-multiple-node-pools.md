@@ -163,7 +163,7 @@ Use the following instructions to migrate your Ubuntu nodes to Azure Linux nodes
 > [!NOTE]
 > When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
 
-2. [Cordon the existing Ubuntu nodes][cordon-and-drain.md].
+2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
 3. [Drain the existing Ubuntu nodes][drain-nodes].
 4. Remove the existing Ubuntu nodes using the `az aks delete` command.
 
@@ -821,7 +821,7 @@ az group delete --name myResourceGroup2 --yes --no-wait
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[[use-tags]: use-tags.md
+[use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet

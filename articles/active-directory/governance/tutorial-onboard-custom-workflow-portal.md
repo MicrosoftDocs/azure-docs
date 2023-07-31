@@ -56,33 +56,35 @@ The pre-hire scenario can be broken down into the following:
   - Verifying the workflow was successfully executed
 
 ## Create a workflow using prehire template
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to create a pre-hire workflow that generates a TAP and send it via email to the user's manager using the Azure portal.
 
- 1.  Sign in to the [Azure portal](https://portal.azure.com).
- 2.  On the right, select **Azure Active Directory**.
- 3.  Select **Identity Governance**.
- 4.  Select **Lifecycle workflows**.
- 5.  On the **Overview** page, select **New workflow**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the right, select **Azure Active Directory**.
+3. Select **Identity Governance**.
+4. Select **Lifecycle workflows**.
+5. On the **Overview** page, select **New workflow**.
+    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
- 6. From the templates, select **select** under **Onboard pre-hire employee**.
-  :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
-    
- 7.  Next, you configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow triggers two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
+6. From the templates, select **select** under **Onboard pre-hire employee**.
+    :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting workflow template." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
 
-     :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
+7. Next, you configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow triggers two days before the employee's hire date.  On the onboard pre-hire employee screen, add the following settings and then select **Next: Configure Scope**.
 
-   8.  Next, you configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters).
+    :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
-       :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
+8. Next, you configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters).
 
-   9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you're finished.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Screenshot of reviewing an on-board workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
-   10.  On the review blade, verify the information is correct and select **Create**.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Screenshot of creating an onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
+9. On the following page, you may inspect the task if desired but no additional configuration is needed. Select **Next: Review + Create** when you're finished.
+    :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-review-create.png" alt-text="Screenshot of reviewing an on-board workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-review-create.png":::
 
- 
+10. On the review blade, verify the information is correct and select **Create**.
+    :::image type="content" source="media/tutorial-lifecycle-workflows/onboard-create.png" alt-text="Screenshot of creating an onboard workflow." lightbox="media/tutorial-lifecycle-workflows/onboard-create.png":::
+
 ## Run the workflow 
 Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
 

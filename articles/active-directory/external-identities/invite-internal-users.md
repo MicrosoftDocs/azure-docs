@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 07/27/2023
 
 ms.author: cmulligan
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 
 ms.collection: engagement-fy23, M365-identity-device-management
 
@@ -26,7 +26,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 
 ## Things to consider
 
-- **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is [email one-time passcode authentication](one-time-passcode.md); if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
+- **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is email one-time passcode authentication; if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
 
 - **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be linked to an Azure subscription to activate MAU billing.
 
@@ -50,20 +50,22 @@ You can use the Azure portal, PowerShell, or the invitation API to send a B2B in
 
 ## Use the Azure portal to send a B2B invitation
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
 1. Select the **Azure Active Directory** service.
 1. Select **Users**.
 1. Find the user in the list or use the search box. Then select the user.
-1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**. 
+1. In the **Overview** tab, under **My Feed**, select **Convert to external user**. 
 
-   ![Screenshot of user profile Overview tab with B2B collaboration card](media/invite-internal-users/manage-b2b-collaboration-link.png)
+    :::image type="content" source="media/invite-internal-users/manage-b2b-collaboration-link.png" alt-text="Screenshot of user profile Overview tab with B2B collaboration card.":::
 
    > [!NOTE] 
    > If the card says “Resend this B2B user's invitation or reset their redemption status.” the user has already been invited to use external credentials for B2B collaboration.
 
-1. Next to **Invite internal user to B2B collaboration?** select **Yes**, and then select **Done**. 
+1. Add an external email address and select **Send**. 
 
-   ![Screenshot showing the invite internal user radio button](media/invite-internal-users/invite-internal-user-selector.png)
+    :::image type="content" source="media/invite-internal-users/invite-internal-user-selector.png" alt-text="Screenshot showing the convert to external user page.":::
 
    > [!NOTE]
    > If the option is unavailable, make sure the user's **Email** property is set to the external email address they should use for B2B collaboration.
@@ -115,4 +117,6 @@ ContentType: application/json
 The response to the API is the same response you get when you invite a new guest user to the directory.
 ## Next steps
 
+- [Add and invite guest users](add-users-administrator.md)
+- [Customize invitations using API](customize-invitation-api.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)

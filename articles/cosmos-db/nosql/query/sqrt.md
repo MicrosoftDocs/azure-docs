@@ -49,5 +49,5 @@ The following example returns the square roots of various numeric values.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`POWER`](power.md)

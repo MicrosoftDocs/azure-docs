@@ -94,6 +94,8 @@ If CBA enabled user cannot use MF cert (such as on mobile device without smart c
 
 ## MFA with Single-factor certificate-based authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
 Some of the supported combinations are
 

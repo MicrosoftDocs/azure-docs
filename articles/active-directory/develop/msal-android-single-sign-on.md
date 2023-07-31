@@ -92,6 +92,8 @@ If Intune Company Portal is installed and is operating as the active broker, and
 
 #### Generate a redirect URI for a broker
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You must register a redirect URI that is compatible with the broker. The redirect URI for the broker should include your app's package name and the Base64-encoded representation of your app's signature.
 
 The format of the redirect URI is: `msauth://<yourpackagename>/<base64urlencodedsignature>`

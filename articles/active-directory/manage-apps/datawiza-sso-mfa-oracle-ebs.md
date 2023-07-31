@@ -145,6 +145,8 @@ Configuration on the management console is complete. You're prompted to deploy D
 
 ### Optional: Enable Multi-Factor Authentication on Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To provide more security for sign-ins, you can enable Multi-Factor Authentication in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
