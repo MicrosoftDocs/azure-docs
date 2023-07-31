@@ -19,7 +19,12 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 ## Round-trip latency figures
 
-The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown as follows. 
+The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
+
+> [!IMPORTANT]
+> Monthly latency numbers across Azure regions do not change on a regular basis. Given this, you can expect an update of these tables every 6 to 9 months. Not all public Azure regions are listed in the tables below. When new regions come online, we will update this document as soon as latency data is available.
+> 
+> You can perform VM-to-VM latency between regions using [test Virtual Machines](../virtual-network/virtual-network-test-latency.md) in your Azure subscription.
 
 #### [North America / South America](#tab/Americas)
 
@@ -668,9 +673,6 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 3|296|277|
 
 ---
-
-> [!IMPORTANT]
-> Monthly latency numbers across Azure regions do not change regulary. Given this, you can expect an update of this table every 6 to 9 months outside of the addition of new regions. When new regions come online, we will update this document as soon as data is available.
 
 ## Next steps
 
