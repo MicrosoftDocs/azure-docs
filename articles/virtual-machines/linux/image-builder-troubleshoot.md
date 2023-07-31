@@ -780,6 +780,8 @@ To resolve the issue, delete the below resources one by one in the specific orde
 1. Resource Group.
 1. Image template.
 
+For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
+
 ## DevOps tasks
 
 ### Troubleshoot the task
