@@ -9,7 +9,7 @@ ms.service: signalr
 ms.topic: how-to
 ---
 
-#  Geo-Replication (Preview) in Azure SignalR
+#  Geo-replication (Preview) in Azure SignalR
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure SignalR, managing multi-region scenarios has become significantly easier.
 
@@ -45,12 +45,12 @@ However, managing multiple Azure SignalR Services brings some challenges:
 
 ![Screenshot of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png  "Mutiple SignalR Example")
 
-## Harnessing Geo-replication
+## Harnessing geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
 ![Screenshot of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png  "Replica Example")
 
-## Create a SignalR Replica
+## Create a SignalR replica
 
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
@@ -77,7 +77,7 @@ To delete a replica in the Azure portal:
 1. Navigate to your Azure SignalR Service, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
 
-## Understanding how the SignalR Replica Works
+## Understanding how the SignalR replica works
 
 The diagram below provides a brief illustration of the SignalR Replicas' functionality:
 
@@ -91,7 +91,7 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 > [!NOTE]
 > * In the data plane, a primary Azure SignalR resource functions identically to its replicas
 
-## Impact on Performance After Adding Replicas
+## Impact on performance after adding replicas
 
 Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The cost for synchronization is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
 
