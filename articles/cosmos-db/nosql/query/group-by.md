@@ -37,7 +37,7 @@ The ``GROUP BY`` clause divides the query's results according to the values of o
 
 ## Examples
 
-For the examples in this section, this reference set of items is used.
+For the examples in this section, this reference set of items is used. Each item includes a ``capabilities`` object that may include ``softwareDevelopment`` and ``mediaTrained`` properties.
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by/seed.json" range="1-2,4-11,13-20,22-29,31-38,40-46,48-55,57-64" highlight="4-7,12-15,20-23,28-31,36-38,43-46,51-54":::
 
