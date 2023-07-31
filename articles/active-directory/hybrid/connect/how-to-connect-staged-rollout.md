@@ -42,7 +42,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
     For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-azure-ad-register.md) via Add Work or School Account.
 
--   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
+-   You have configured all the appropriate tenant-branding and Conditional Access policies you need for users who are being migrated to cloud authentication.
 
 -   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
