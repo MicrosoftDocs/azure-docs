@@ -104,16 +104,18 @@ The following procedures describe how to restore your sensor using a backup file
 
 ### Restore an OT sensor from the sensor GUI
 
-1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI. This backup file must be one that had been generated automatically or manually via the CLI.
+1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI. 
 
     Backup files are saved on your OT sensor machine, at `/var/cyberx/backups`, and are named using the following syntax: `<sensor name>-backup-version-<version>-<date>.tar`.
 
     For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`
 
     > [!IMPORTANT]
-    > Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+    > - Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+    >
+    > - Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, you'll need to contact support to use it to restore your sensor.
  
-1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**. 
+1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**.
 
 1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
 
@@ -131,6 +133,5 @@ For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-a
 
 ## Next steps
 
-[Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md)
-
-[Backup OT network sensors from the on-premises management console](back-up-sensors-from-management.md)
+- [Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md)
+- [Backup OT network sensors from the on-premises management console](back-up-sensors-from-management.md)
