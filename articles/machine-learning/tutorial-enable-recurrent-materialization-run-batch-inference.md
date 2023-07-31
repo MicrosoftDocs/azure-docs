@@ -109,7 +109,7 @@ To handle inference of the model in production, you might want to set up recurre
 
 * The first window starts at the `start_time` value defined in `RecurrenceTrigger`, and so on.
 * The first recurrent job is submitted at the start of the next window after the update time.
-* Later recurrent jobs will be submitted at every window after the first job.
+* Later recurrent jobs are submitted at every window after the first job.
 
 As explained in earlier tutorials, after data is materialized (backfill or recurrent materialization), feature retrieval uses the materialized data by default.
 
@@ -151,7 +151,7 @@ In the pipeline view:
 1. Select `inference_step` in the `outputs` card.
 1. Copy the `Data` field value. It looks something like `azureml_995abbc2-3171-461e-8214-c3c5d17ede83_output_data_data_with_prediction:1`.
 1. Paste the `Data` field value in the following cell, with separate name and version values. The last character is the version, preceded by a colon (`:`).
-1. Note the `predict_is_fraud` column that the generated batch inference pipeline.
+1. Note the `predict_is_fraud` column that the batch inference pipeline generated.
 
    In the batch inference pipeline (*/project/fraud_mode/pipelines/batch_inference_pipeline.yaml*) outputs, because you didn't provide `name` or `version` values for `outputs` of `inference_step`, the system created an untracked data asset with a GUID as the name value and `1` as the version value. In this cell, you derive and then display the data path from the asset.
 
