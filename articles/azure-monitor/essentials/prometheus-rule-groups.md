@@ -28,11 +28,40 @@ Azure Managed Prometheus rule groups, recording rules and alert rules can be cre
 
 ### Limiting rules to a specific cluster
 
-You can optionally limit the rules in a rule group to query data originating from a specific cluster, using the rule group `clusterName` property.
-You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, and therefore limit each group to cover a different cluster. 
+You can optionally limit the rules in a rule group to query data originating from a specific cluster, by adding a cluster scope to your rule group, and by using the rule group `clusterName` property.
+You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
-- The `clusterName` value must be identical to the `cluster` label that is added to the metrics from a specific cluster during data collection.
-- If `clusterName` isn't specified for a specific rule group, the rules in the group query all the data in the workspace from all clusters.
+To limit your rule group to a cluster scope, you should add the Azure Resource Id of your cluster to the rule group **scopes[]** list. Note that the **scopes** list must still include the Azure Monitor workspace resource Id. The following cluster resource types are supported as a cluster scope:
+* Azure Kubernetes Service clusters (AKS) (Microsoft.ContainerService/managedClusters)
+* Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
+* Azure connected appliances (Microsoft.ResourceConnector/appliances)
+
+In addition to the cluster Id, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specificed a clusterName, the rule group will use the resource name part of your cluster Id.
+
+Here is an example of how a rule group is configured to limit query to a specific cluster:
+
+``` json
+{
+    "name": "sampleRuleGroup",
+    "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
+    "apiVersion": "2023-03-01",
+    "location": "northcentralus",
+    "properties": {
+         "description": "Sample Prometheus Rule Group limited to a specific cluster",
+         "scopes": [
+             "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.monitor/accounts/<azure-monitor-workspace-name>",
+             "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.containerservice/managedclusters/<myClusterName>"
+         ],
+         "clusterName": "<myCLusterName>",
+         "rules": [
+             {
+                ...
+             }
+         ]
+    }
+}        
+```
+If neither cluster Id scope nor `clusterName` are specified for a rule group, the rules in the group will query data from all the clusters in the workspace from all clusters.
 
 ### Creating Prometheus rule group using Resource Manager template
 
@@ -200,6 +229,7 @@ To enable or disable a rule, select the rule in the Azure portal. Select either 
 
 > [!NOTE] 
 > After you disable or re-enable a rule or a rule group, it may take few minutes for the rule group list to reflect the updated status of the rule or the group.
+
 
 
 ## Next steps
