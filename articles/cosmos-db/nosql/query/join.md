@@ -1,7 +1,6 @@
 ---
 title: Self-joins
 titleSuffix: Azure Cosmos DB for NoSQL
-titleSuffix: Azure Cosmos DB for NoSQL
 description: Use the JOIN keyword to perform a self-join in Azure Cosmos DB for NoSQL.
 author: jcodella
 ms.author: jacodel
