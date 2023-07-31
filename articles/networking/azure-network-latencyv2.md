@@ -2,11 +2,11 @@
 title: Azure network round-trip latency statistics
 description: Learn about round-trip latency statistics between Azure regions.
 services: networking
-author: asudbring
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: article
 ms.date: 07/21/2023
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Azure network round-trip latency statistics
@@ -141,10 +141,10 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 | Source | Australia</br>Central | Australia</br>Central 2 | Australia</br>East | Australia</br>Southeast |
 |--------|-------------------|---------------------|----------------|---------------------|
-| Australia Central | NaN | 2 | 8 | 14 |
-| Australia Central 2 | 2 | NaN | 8 | 14 |
-| Australia East | 7 | 8 | NaN | 14 |
-| Australia Southeast | 14 | 14 | 14 | NaN |
+| Australia Central |   | 2 | 8 | 14 |
+| Australia Central 2 | 2 |   | 8 | 14 |
+| Australia East | 7 | 8 |   | 14 |
+| Australia Southeast | 14 | 14 | 14 |   |
 | Brazil South | 323 | 323 | 319 | 330 |
 | Canada Central | 203 | 204 | 197 | 209 |
 | Canada East | 212 | 212 | 205 | 217 |
