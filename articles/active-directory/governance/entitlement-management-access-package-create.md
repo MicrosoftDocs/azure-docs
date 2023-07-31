@@ -169,9 +169,9 @@ Then, create the access package:
 
 ```powershell
 $params = @{
-	CatalogId = $catalog.id
-	DisplayName = "sales reps"
-	Description = "outside sales representatives"
+    CatalogId = $catalog.id
+    DisplayName = "sales reps"
+    Description = "outside sales representatives"
 }
 
 $ap = New-MgEntitlementManagementAccessPackage -BodyParameter $params
@@ -181,21 +181,21 @@ After you create the access package, assign the resource roles to it.  For examp
 
 ```powershell
 $rparams = @{
-	AccessPackageResourceRole = @{
-	   OriginId = $rr[2].OriginId
-	   DisplayName = $rr[2].DisplayName
-	   OriginSystem = $rr[2].OriginSystem
-	   AccessPackageResource = @{
-	      Id = $rsc[0].Id
-	      ResourceType = $rsc[0].ResourceType
-	      OriginId = $rsc[0].OriginId
-	      OriginSystem = $rsc[0].OriginSystem
-	   }
-	}
-	AccessPackageResourceScope = @{
-	   OriginId = $rsc[0].OriginId
-	   OriginSystem = $rsc[0].OriginSystem
-	}
+    AccessPackageResourceRole = @{
+       OriginId = $rr[2].OriginId
+       DisplayName = $rr[2].DisplayName
+       OriginSystem = $rr[2].OriginSystem
+       AccessPackageResource = @{
+          Id = $rsc[0].Id
+          ResourceType = $rsc[0].ResourceType
+          OriginId = $rsc[0].OriginId
+          OriginSystem = $rsc[0].OriginSystem
+       }
+    }
+    AccessPackageResourceScope = @{
+       OriginId = $rsc[0].OriginId
+       OriginSystem = $rsc[0].OriginSystem
+    }
 }
 New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
 ```
@@ -205,24 +205,24 @@ Finally, create the policies.  In this policy, only the administrator can assign
 ```powershell
 
 $pparams = @{
-	AccessPackageId = $ap.Id
-	DisplayName = "direct"
-	Description = "direct assignments by administrator"
-	AccessReviewSettings = $null
-	RequestorSettings = @{
-		ScopeType = "NoSubjects"
-		AcceptRequests = $true
-		AllowedRequestors = @(
-		)
-	}
-	RequestApprovalSettings = @{
-		IsApprovalRequired = $false
-		IsApprovalRequiredForExtension = $false
-		IsRequestorJustificationRequired = $false
-		ApprovalMode = "NoApproval"
-		ApprovalStages = @(
-		)
-	}
+    AccessPackageId = $ap.Id
+    DisplayName = "direct"
+    Description = "direct assignments by administrator"
+    AccessReviewSettings = $null
+    RequestorSettings = @{
+        ScopeType = "NoSubjects"
+        AcceptRequests = $true
+        AllowedRequestors = @(
+        )
+    }
+    RequestApprovalSettings = @{
+        IsApprovalRequired = $false
+        IsApprovalRequiredForExtension = $false
+        IsRequestorJustificationRequired = $false
+        ApprovalMode = "NoApproval"
+        ApprovalStages = @(
+        )
+    }
 }
 New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
 
