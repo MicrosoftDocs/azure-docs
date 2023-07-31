@@ -47,6 +47,13 @@ An Azure PowerShell script is provided in this document. It performs the followi
 
 You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
+> [!IMPORTANT]
+>**Known Issue:** Running the migration script multiple times in the same powershell session/window can delete all resources in the resource group.
+>
+>**Mitigation:** To avoid this issue, please run the migration script in a new PowerShell window or session each time. You can ensure that a new session is created before >running the migration script again by running "Exit-PSSession" each time after the script has finished.
+>
+>**Resolution:** We apologize for the inconvenience and understand that this is not the ideal experience. We are working on fixing this issue and we expect to have a solution by August 10, 2023. After this date, customers will be able to run the migration script in the same session.
+
 ## Using the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
