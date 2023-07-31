@@ -47,7 +47,7 @@ For more information, see [CLI command reference from OT network sensors](../cli
 After deploying your sensor, make sure to configure ERSPAN settings on the **Interface configurations** page. For more information, see:
 
 - In the deployment wizard GUI: [Define the interfaces you want to monitor](../ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor)
-- In the OT sensor settings: [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
+- In the OT sensor system settings: [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
 
 For example:
 
