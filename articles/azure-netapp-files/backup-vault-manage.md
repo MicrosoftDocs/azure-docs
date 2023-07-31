@@ -40,7 +40,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 
     If there are backups from volumes that have been deleted that you want to migrate, select **Include backups from Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
 
-  :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
+   :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
 
 1. Navigate to the **Backup Vault** menu to view and manage your backups.
 
