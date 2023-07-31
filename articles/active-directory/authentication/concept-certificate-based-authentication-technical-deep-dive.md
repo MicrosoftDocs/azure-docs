@@ -282,7 +282,7 @@ Sign-in logs provide information about sign-ins and how your resources are used 
 
 Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
 
-For the test scenarios, choose a user with a conditional access policy that requires MFA. 
+For the test scenarios, choose a user with a Conditional Access policy that requires MFA. 
 Configure the user binding policy by mapping SAN Principal Name to UserPrincipalName.
 
 The user certificate should be configured like this screenshot:
