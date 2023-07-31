@@ -61,7 +61,7 @@ Here's an example of how a rule group is configured to limit query to a specific
     }
 }        
 ```
-If both cluster ID scope and `clusterName` are not specified  for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
+If both cluster ID scope and `clusterName` aren't specified  for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
 
 ### Creating Prometheus rule group using Resource Manager template
 
@@ -182,7 +182,7 @@ The `rules` section contains the following properties for alerting rules.
 
 If you have a [Prometheus rules configuration file](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#configuring-rules) (in YAML format), you can now convert it to an Azure Prometheus rule group ARM template, using the [az-prom-rules-converter utility](https://github.com/Azure/prometheus-collector/tree/main/tools/az-prom-rules-converter#az-prom-rules-converter). The rules file can contain definition of one or more rule groups.
 
-In addition to the rules file, you can provide the utility with more properties that are needed to create the Azure Prometheus rule groups, including: subscription, resource group, location, target Azure Monitor workspace, target cluster name, and action groups (used for alert rules). The utility creates a template file that can be deployed directly or within a deployment pipe providing some of these properties as parameters. Note that properties provided to the utility are used for all the rule groups in the template, for example, all rule groups in the file are created in the same subscription/resource group/location, using the same Azure Monitor workspace, etc. If an action group is provided as a parameter to the utility, the same action group is used in all the alert rules in the template. If you want to change this default configuration (for example, use different action groups in different rules) you can edit the resulting template according to your needs, before deploying it.
+In addition to the rules file, you can provide the utility with more properties that are needed to create the Azure Prometheus rule groups, including: subscription, resource group, location, target Azure Monitor workspace, target cluster name, and action groups (used for alert rules). The utility creates a template file that can be deployed directly or within a deployment pipe providing some of these properties as parameters. Properties that you provide to the utility are used for all the rule groups in the template. For example, all rule groups in the file are created in the same subscription, resource group and location, and using the same Azure Monitor workspace. If an action group is provided as a parameter to the utility, the same action group is used in all the alert rules in the template. If you want to change this default configuration (for example, use different action groups in different rules) you can edit the resulting template according to your needs, before deploying it.
 
 > [!NOTE] 
 > !The az-prom-convert-utility is provided as a courtesy tool. We recommend that you review the resulting template and verify it matches your intended configuration.
