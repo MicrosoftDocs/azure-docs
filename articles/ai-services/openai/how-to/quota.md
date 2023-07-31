@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 07/31/2023
 ms.author: mbullwin
 ---
 
@@ -130,7 +130,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](https://learn.microsoft.com/en-us/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
 
 |Parameter|Type| Description |
 |--|--|--|
