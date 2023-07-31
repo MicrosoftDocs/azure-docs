@@ -1,5 +1,5 @@
 ---
-title: Working with arrays and objects
+title: Work with arrays and objects
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Create arrays and objects and perform actions on them using the array syntax in Azure Cosmos DB for NoSQL.
 author: jcodella
@@ -12,7 +12,7 @@ ms.date: 07/31/2023
 ms.custom: query-reference
 ---
 
-# Working with arrays and objects in Azure Cosmos DB for NoSQL
+# Work with arrays and objects in Azure Cosmos DB for NoSQL
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 

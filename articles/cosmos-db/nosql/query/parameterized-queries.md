@@ -2,14 +2,14 @@
 title: Parameterized queries
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Execute parameterized queries in Azure Cosmos DB for NoSQL to provide robust handling and escaping of user input, and prevent accidental exposure of data through SQL injection.
-author: seesharprun
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 07/29/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: how-to
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
 
 # Parameterized queries in Azure Cosmos DB for NoSQL

@@ -1,18 +1,18 @@
 ---
-title: Working with JSON
+title: Work with JSON
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Query and access nested JSON properties and use special characters in Azure Cosmos DB for NoSQL.
-author: seesharprun
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 09/19/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: how-to
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
 
-# Working with JSON in Azure Cosmos DB for NoSQL
+# Work with JSON in Azure Cosmos DB for NoSQL
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
@@ -81,7 +81,7 @@ FROM
 ]
 ```
 
-## Working with arrays
+## Work with arrays
 
 In addition to nested properties, JSON also supports arrays. When working with arrays, you can access a specific element within the array by referencing its position.
 
@@ -285,7 +285,7 @@ FROM
 ]
 ```
 
-## Aliasing
+## Alias values
 
 You can explicitly alias values in queries. If a query has two properties with the same name, use aliasing to rename one or both of the properties so they're disambiguated in the projected result.
 
@@ -310,7 +310,7 @@ FROM
 ]
 ```
 
-### Aliasing with reserved keywords or special characters
+### Alias values with reserved keywords or special characters
 
 You can't use aliasing to project a value as a property name with a space, special character, or reserved word. If you wanted to change a value's projection to, for example, have a property name with a space, you could use a [JSON expression](#json-expressions).
 
