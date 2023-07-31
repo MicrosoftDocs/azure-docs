@@ -12,27 +12,28 @@ ms.custom: devx-track-azurecli, devx-track-linux
 
 The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure key vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster. For more information, see [Use the Secrets Store CSI Driver][csi-secrets-store-driver].
 
-Currently, the following methods of access are available:
+The following access methods are available:
 
-- Azure AD Workload identity
+- Azure Active Directory (Azure AD) workload identity
 - User-assigned managed identity
 
 ## Access with an Azure AD workload identity
 
-An [Azure AD workload identity][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Azure Active Directory (Azure AD) then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
+An [Azure AD workload identity][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Azure AD then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
 > [!NOTE]
 > This authentication method replaces Azure AD pod-managed identity (preview). The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ### Prerequisites
 
-Before you begin, you must have the following prerequisites in place:
+Before you begin, you must have the following prerequisites:
 
-- An existing Key Vault with Azure role-based access control (Azure RBAC) configured. For more information, see [Azure Key Vault data plane access control recommendation](../key-vault/general/rbac-access-policy.md#data-plane-access-control-recommendation).
+- An existing key vault with Azure role-based access control (Azure RBAC) configured. For more information, see [Azure Key Vault data plane access control recommendation](../key-vault/general/rbac-access-policy.md#data-plane-access-control-recommendation).
 - An active Azure subscription.
-- An existing AKS cluster with `--enable-oidc-issuer` and `--enable-workload-identity`.
+- An existing AKS cluster with `--enable-oidc-issuer` and `--enable-workload-identity` enabled.
 
-Azure AD workload identity is supported on both Windows and Linux clusters.
+> [!NOTE]
+> Azure AD workload identity is supported on both Windows and Linux clusters.
 
 ### Configure workload identity
 
@@ -57,7 +58,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
     export IDENTITY_TENANT=$(az aks show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query identity.tenantId -o tsv)
     ```
 
-3. Create a role assignment that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+3. Create a role assignment that grants the workload identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     export KEYVAULT_SCOPE=$(az keyvault show --name $KEYVAULT_NAME --query id -o tsv)
@@ -178,7 +179,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
     az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
     ```
 
-2. Create a role assignment that grants the identity permission to access the Key Vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+2. Create a role assignment that grants the identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     export IDENTITY_CLIENT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv)"
