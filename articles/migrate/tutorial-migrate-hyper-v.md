@@ -41,7 +41,7 @@ Before you begin this tutorial, you should:
 1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 1. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
 1. Go to the already created project or [create a new project.](./create-manage-projects.md)
-1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, write to an Azure managed disk, and manage failover operations for the Recovery Services Vault associated with your Azure Migrate project.
 
 ## Download the provider
 
@@ -51,7 +51,7 @@ For migrating Hyper-V VMs, the Migration and modernization tool installs softwar
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
-1. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. Click **Create resources**. This creates a Recovery Services Vault in the background.
     - If you've already set up migration with the Migration and modernization tool, this option won't appear since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
@@ -76,7 +76,7 @@ Run the provider setup file on each host, as described below:
 1. Select **AzureSiteRecoveryProvider.exe** file.
     - In the provider installation wizard, ensure **On (recommended)** is checked, and then select **Next**.
     - Select **Install** to accept the default installation folder.
-    - Select **Register** to register this server in Azure Site Recovery vault.
+    - Select **Register** to register this server in the Recovery Services Vault.
     - Select **Browse**.
     - Locate the registration key and select **Open**.
     - Select **Next**.

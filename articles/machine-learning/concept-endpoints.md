@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 02/07/2023
+ms.date: 07/12/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -41,7 +41,7 @@ An **endpoint** is a stable and durable URL that can be used to request or invok
 
 - a stable and durable URL (like _endpoint-name.region.inference.ml.azure.com_),
 - an authentication mechanism, and
-- an authentication mechanism.
+- an authorization mechanism.
 
 A **deployment** is a set of resources and computes required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments. These deployments can host independent assets and consume different resources based on the needs of the assets. Endpoints have a routing mechanism that can direct requests to specific deployments in the endpoint.
 

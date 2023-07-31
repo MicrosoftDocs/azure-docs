@@ -21,7 +21,7 @@ In this article, you can learn to secure header and LDAP-based applications usin
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication
   * See also, [What is Conditional Access?](../conditional-access/overview.md) to learn about how it helps enforce organizational policies
 * Full single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com)
 
 To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
@@ -80,6 +80,8 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 >Replace example strings or values in this guide with those for your environment.
 
 ## Register Easy Button
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 

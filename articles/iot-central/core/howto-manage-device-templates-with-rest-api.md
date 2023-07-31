@@ -457,27 +457,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
->[!NOTE]
->`{deviceTemplateId}` should be the same as the `@id` in the payload.
-
-The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the `capabilityModel` in the device template:
 
 ```json
 {
-    "displayName": "Thermostat",
-
-    "@id": "dtmi:contoso:mythermostattemplate",
-    "@type": [
-        "ModelDefinition",
-        "DeviceModel"
-    ],
-    "@context": [
-        "dtmi:iotcentral:context;2",
-        "dtmi:dtdl:context;2"
-    ],
     "capabilityModel": {
-        "@id": "dtmi:contoso:Thermostat;1",
-        "@type": "Interface",
         "contents": [
             {
                 "@type": [

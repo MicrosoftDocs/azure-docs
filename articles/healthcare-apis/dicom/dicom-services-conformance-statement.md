@@ -12,6 +12,9 @@ ms.author: mmitrik
 
 # DICOM Conformance Statement v1
 
+> [!NOTE]
+> API version 2 is the latest API version and should be used in place of v1. See the [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md) for details.
+
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
@@ -319,7 +322,7 @@ The `quality` query parameter is also supported. An integer value between `1` an
 | `400 (Bad Request)` | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
-| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance did not contain pixel data. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data. |
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcode requests the file requested was too large. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
@@ -350,7 +353,7 @@ The following parameters for each query are supported:
 | Key    | Support Value(s)    | Allowed Count | Description |
 | :----- | :----- | :------------ | :---------- |
 | `{attributeID}=` | `{value}`     | 0...N    | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
+| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The other attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
 | `limit=`  | `{value}`  | 0..1   | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`     | `{value}`  | 0..1  | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
 | `fuzzymatching=` | `true` / `false`  | 0..1    | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However, "ohn" doesn't match. |
@@ -543,7 +546,7 @@ The response body is empty. The status code is the only useful information retur
 
 ## Worklist Service (UPS-RS)
 
-The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).
+The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). The Worklist service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).
 
 Throughout, the variable `{workitem}` in a URI template stands for a Workitem UID.
 
@@ -648,7 +651,7 @@ This transaction retrieves a Workitem. It corresponds to the UPS DIMSE N-GET ope
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.5
 
-If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve this Attribute's role as an access lock.
+If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve the attribute's role as an access lock.
 
 | Method  | Path                    | Description   |
 | :------ | :---------------------- | :------------ |
@@ -685,7 +688,7 @@ To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` a
 
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
-The request payload contains a dataset with the changes to be applied to the target Workitem. When modifying a sequence, the request must include all Items in the sequence, not just the Items to be modified.
+The request payload contains a dataset with the changes to be applied to the target Workitem. When a sequence is modified, the request must include all Items in the sequence, not just the Items to be modified.
 When multiple Attributes need to be updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
 
 There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
@@ -846,7 +849,7 @@ The query API returns one of the following status codes in the response:
 
 #### Additional Notes
 
-The query API will not return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
+The query API won't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
 
 * Paged results are optimized to return matched newest instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case insensitive and accent insensitive for PN VR types.

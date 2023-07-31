@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.author: bozhlin
 author: bozhong68
 ms.reviewer: larryfr

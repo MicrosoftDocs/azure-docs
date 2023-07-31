@@ -40,9 +40,11 @@ The code sample can be obtained in two ways:
 
 ## Register the web API (TodoListService)
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Register your web API in **App registrations** in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Find and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

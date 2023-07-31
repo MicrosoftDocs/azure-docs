@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/10/2023
 ---
 
 # Generate schemas for SAP artifacts in Azure Logic Apps
@@ -383,11 +383,18 @@ The following example shows an RFC call with a table parameter that has an anony
 <RFC_XML_TEST_1 xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
    <IM_XML_TABLE>
       <RFC_XMLCNT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
-         <_x002F_AnonymousField>exampleFieldInput</_x002F_AnonymousField>
+         <_x002F_AnonymousField>AQIDBAU=</_x002F_AnonymousField>
       </RFC_XMLCNT>
    </IM_XML_TABLE>
 </RFC_XML_TEST_1>
 ```
+
+The previous example also shows how to encode binary arrays for the SAP data types `byte` and `XString`. The binary arrays are base64 encoded in XML (XSD binary data type `xs:base64Binary`). In the example, the sample base64 string value `AQIDBAU=` decodes as the binary array `[01][02][03][04]`. This encoding differs and is more space-efficient than the hex encoding of the underlying SAP .NET Connector. With hex encoding, the same value is encoded as the string `01020304`. 
+
+> [!NOTE]
+> Use caution when using binary array encoding because hex encoding uses a subset of the base64 range and 
+> appears as valid base64 values. For example, the string value `01020304` also decodes as a valid base64 
+> encoded value, but results in a different binary array `[d3][5d][36][d3][7d][38]`, not binary array `[01][02][03][04]`.
 
 The following example includes prefixes for the namespaces. You can declare all prefixes at once, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
 

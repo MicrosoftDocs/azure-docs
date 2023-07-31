@@ -111,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+SHA256 | 0DD9D0E2774BB8B33EB7EF7D97D44A90A7928A4B1A30686C5B01EBD867F3BD68
 
 ### Create an account to access servers
 

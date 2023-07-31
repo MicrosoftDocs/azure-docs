@@ -41,57 +41,34 @@ To get started, follow these instructions to work with remote networks using the
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches
 {
     "name": "BranchOffice_CustomIKE",
-    "country": "United States", 
     "region": "eastUS", 
-    "version": "1.0.0",
-    "bandwidthCapacity": 500,
     "deviceLinks": [
         {
-            "name": "CPE Link 1",
-            "ipAddress": "20.125.118.219",
-            "version": "1.0.0",
-            "deviceVendor": "Other",
-            "bgpConfiguration": {
-                "ipAddress": "172.16.11.5",
-                "asn": 8888
+            "name": "custom link",
+            "ipAddress": "114.20.4.14",
+            "deviceVendor": "ciscoMeraki",
+            "tunnelConfiguration": {
+                "saLifeTimeSeconds": 300,
+                "ipSecEncryption": "gcmAes128",
+                "ipSecIntegrity": "gcmAes128",
+                "ikeEncryption": "aes128",
+                "ikeIntegrity": "sha256",
+                "dhGroup": "ecp384",
+                "pfsGroup": "ecp384",
+                "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom",
+                "preSharedKey": "SHAREDKEY"
             },
-            
-		"tunnelConfiguration": {
-			"@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom",
-			"preSharedKey": "Detective5OutgrowDiligence",
-			"saLifeTimeSeconds": 300,
-			"ipSecEncryption": "gcmAes128",
-			"ipSecIntegrity": "gcmAes128",
-			"ikeEncryption": "gcmAes128",
-			"ikeIntegrity": "gcmAes128",
-			"dhGroup": "dhGroup14",
-			"pfsGroup": "pfs14"
-		}
-        },
-		
-		{
-		   "name": "CPE Link 2",
-            "ipAddress": "20.125.118.220",
-            "version": "1.0.0",
-            "deviceVendor": "Other",
             "bgpConfiguration": {
-                "ipAddress": "172.16.11.6",
-                "asn": 8888
+                "localIpAddress": "10.1.1.11",
+                "peerIpAddress": "10.6.6.6",
+                "asn": 65000
             },
-
-		"tunnelConfiguration": {
-			"@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom",
-			"preSharedKey": "Detective5OutgrowDiligence",
-			"saLifeTimeSeconds": 300,
-			"ipSecEncryption": "gcmAes128",
-			"ipSecIntegrity": "gcmAes128",
-			"ikeEncryption": "gcmAes128",
-			"ikeIntegrity": "gcmAes128",
-			"dhGroup": "dhGroup14",
-			"pfsGroup": "pfs14"
-		}
-		}
-		
+            "redundancyConfiguration": {
+                "redundancyTier": "zoneRedundancy",
+                "zoneLocalIpAddress": "10.1.1.12"
+            },
+            "bandwidthCapacityInMbps": "mbps250"
+        }
     ]
 }
 ```

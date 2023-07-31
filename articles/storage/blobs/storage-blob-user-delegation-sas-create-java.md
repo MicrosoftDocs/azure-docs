@@ -5,13 +5,13 @@ description: Learn how to create a user delegation SAS for a blob with Azure Act
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Create a user delegation SAS for a blob with Java

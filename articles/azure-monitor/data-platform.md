@@ -16,7 +16,7 @@ Today's complex computing environments run distributed applications that rely on
 
 [Azure Monitor](overview.md) collects and aggregates data from various sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources. You can gain deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
-:::image type="content" source="media/overview/overview-2023-06.png" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-2023-06.png":::
+:::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
 ## Observability data in Azure Monitor
 

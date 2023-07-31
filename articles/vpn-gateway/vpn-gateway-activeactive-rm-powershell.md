@@ -31,7 +31,8 @@ If you already have a VPN gateway, you can:
 You can combine these together to build a more complex, highly available network topology that meets your needs.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic.
+> The active-active mode is available for all SKUs except Basic or Standard. For more information, see [Configuration settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+>
 
 ## <a name ="aagateway"></a>Part 1 - Create and configure active-active VPN gateways
 

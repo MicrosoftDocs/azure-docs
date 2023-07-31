@@ -836,6 +836,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-vulnerability-assessment-agentless.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-agentless-scanning-vms",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-exclude.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-classic-enable#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan",
             "redirect_document_id": true
