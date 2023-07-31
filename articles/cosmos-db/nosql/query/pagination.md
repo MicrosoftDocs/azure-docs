@@ -18,7 +18,7 @@ ms.custom: query-reference
 
 In Azure Cosmos DB for NoSQL, queries may have multiple pages of results. This document explains criteria that Azure Cosmos DB for NoSQL's query engine uses to decide whether to split query results into multiple pages. You can optionally use continuation tokens to manage query results that span multiple pages.
 
-## Understanding query executions
+## Query executions
 
 Sometimes query results are split over multiple pages. A separate query execution generates each page's results. When query results can't be returned in one single execution, Azure Cosmos DB for NoSQL automatically splits results into multiple pages.
 
@@ -33,7 +33,7 @@ In addition, there are other reasons that the query engine might need to split q
 
 The number of items returned per query execution are less than or equal to ``MaxItemCount``. However, it's possible that other criteria might have limited the number of results the query could return. If you execute the same query multiple times, the number of pages might not be constant. For example, if a query is throttled there may be fewer available results per page, which means the query has extra pages. In some cases, it's also possible that your query may return an empty page of results.
 
-## Handling multiple pages of results
+## Handle multiple pages of results
 
 To ensure accurate query results, you should progress through all pages. You should continue to execute queries until there are no extra pages.
 
