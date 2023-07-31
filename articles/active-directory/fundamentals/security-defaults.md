@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 07/31/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -154,6 +154,10 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 > The Azure AD Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multifactor authentication. Organizations should not be using this account for other purposes.
 
 ## Deployment considerations
+
+### Preparing your users
+
+It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout. Send users to https://myprofile.microsoft.com to register by selecting the **Security Info** link on that page.
 
 ### Authentication methods
 
