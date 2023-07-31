@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to the Azure portal
 
-In your web browser, go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+In your web browser, sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
 

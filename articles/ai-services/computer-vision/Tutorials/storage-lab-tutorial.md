@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
-1. Open the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you're asked to sign in, do so using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you're asked to sign in, do so using your Microsoft account.
 1. To create a storage account, select **+ Create a resource** in the ribbon on the left. Then select **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)

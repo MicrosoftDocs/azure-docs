@@ -22,29 +22,29 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**.
-3. Add a new Cognitive Services account to your Resource group and search for **Health Insights**.
+3. Add a new Azure AI services account to your Resource group and search for **Health Insights**.
 
     ![Screenshot of how to create the new Project Health Insights service.](media/create-service.png) 
 
-    or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Cognitive Services account.
+    or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Azure AI services account.
 
 4. Enter the following values:
     - **Resource group**: Select or create your Resource group name.
     - **Region**: Select an Azure location, such as West Europe.
-    - **Name**: Enter a Cognitive Services account name.
+    - **Name**: Enter an Azure AI services account name.
     - **Pricing tier**: Select your pricing tier.
 
-    ![Screenshot of how to create new Cognitive Services account.](media/create-health-insights.png) 
+    ![Screenshot of how to create new Azure AI services account.](media/create-health-insights.png) 
 
 5. Navigate to your newly created service.
     
-    ![Screenshot of the Overview of Cognitive Services account.](media/created-health-insights.png) 
+    ![Screenshot of the Overview of Azure AI services account.](media/created-health-insights.png) 
 
 ## Configure private endpoints
 
-With private endpoints, the network traffic between the clients on the VNet and the Cognitive Services account run over the VNet and a private link on the Microsoft backbone network. This eliminates exposure from the public internet.
+With private endpoints, the network traffic between the clients on the VNet and the Azure AI services account run over the VNet and a private link on the Microsoft backbone network. This eliminates exposure from the public internet.
 
-Once the Cognitive Services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
+Once the Azure AI services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
 ![Screenshot of Private Endpoint.](media/private-endpoints.png) 
 

@@ -4,7 +4,7 @@ description: Learn how to run and scale apps from container images on Azure Batc
 ms.topic: how-to
 ms.date: 07/14/2023
 ms.devlang: csharp, python
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
 # Use Azure Batch to run container workloads

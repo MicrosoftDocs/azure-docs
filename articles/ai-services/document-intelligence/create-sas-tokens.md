@@ -65,7 +65,7 @@ To get started, you need:
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
     * Select **Your storage account** → **Data storage** → **Containers**.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot that shows the Data storage menu in the Azure portal.":::
@@ -87,9 +87,9 @@ To get started, you need:
 
 The Azure portal is a web-based console that enables you to manage your Azure subscription and resources using a graphical user interface (GUI).
 
-1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    * **Your storage account** → **containers** → **your container**.
+1. Navigate to **Your storage account** > **containers** > **your container**.
 
 1. Select **Generate SAS** from the menu near the top of the page.
 
