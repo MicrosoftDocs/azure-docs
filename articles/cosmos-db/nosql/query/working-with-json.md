@@ -2,14 +2,14 @@
 title: Working with JSON
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Query and access nested JSON properties and use special characters in Azure Cosmos DB for NoSQL.
-author: seesharprun
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 09/19/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: how-to
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
 
 # Working with JSON in Azure Cosmos DB for NoSQL
