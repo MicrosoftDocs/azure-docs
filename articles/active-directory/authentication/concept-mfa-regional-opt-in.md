@@ -1,6 +1,6 @@
 ---
 title: Regions that need to opt in for Azure AD Multi-Factor Authentication (MFA) telephony verification | Azure Active Directory
-description: To protect customers, some regions require adminstrators to create a support ticket to request to opt in to receive MFA telephony verification Azure Active Directory
+description: To protect customers, some regions require a support ticket to request to opt in to receive MFA telephony verification Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
@@ -21,19 +21,19 @@ As a protection for our customers, Microsoft doesn't automatically support telep
 
 ## Why this protection is needed  
 
-In today's digital world, telecommunication services have become ingrained into our lives. But advancements come with a risk of fraudulent activities. International Revenue Share Fraud (IRSF) is a threat with severe financial implications that also makes using services more difucult. Let's look at IRSF fraud more in-depth.  
+In today's digital world, telecommunication services have become ingrained into our lives. But advancements come with a risk of fraudulent activities. International Revenue Share Fraud (IRSF) is a threat with severe financial implications that also makes using services more dificult. Let's look at IRSF fraud more in-depth.  
 
 IRSF is a type of telephony fraud where criminals exploit the billing system of telecommunication services providers to make profit for themselves. Bad actors gain unauthorized access to a telecommunication network and divert traffic to those networks to skim profit for every transaction that is sent to that network. To divert traffic, bad actors steal existing usernames and passwords, create new usernames and passwords, or try a host of other things to send SMS messages and voice calls through their telecommunication network. Bad actors do this by taking advantage of multifactor authentication screens, which require an SMS or voice call before a user can access their account. This activity causes exorbitant charges and makes services unreliable for our customers, causing downtime, and system errors.  
 
 Here's how an IRSF attack may happen:  
 
 1. A bad actor first gets premium rate phone numbers and registers them.  
-1. A bad actor uses automated scripts to request voice calls or SMS messages. The bad actor is colluding with number providers and the telecommunication network to drive more traffic to those services and will skim some of the profits of the increased traffic.  
+1. A bad actor uses automated scripts to request voice calls or SMS messages. The bad actor is colluding with number providers and the telecommunication network to drive more traffic to those services. The bad actor skims some of the profits of the increased traffic.  
 1. A bad actor will hop around different region codes to continue to drive traffic and make it hard for them to get caught.  
 
-The most common way to conduct an IRSF attack is through some end-user experience that requires a two-factor authentication code. Bad actors add those premium rate phone numbers and pump traffic to them by requesting two-factor authentication codes. This results in revenue-skimming, and has led to a $10-billion dollar loss.  
+The most common way to conduct an IRSF attack is through some end-user experience that requires a two-factor authentication code. Bad actors add those premium rate phone numbers and pump traffic to them by requesting two-factor authentication codes. This activity results in revenue-skimming, and has led to a $10-billion dollar loss.  
 
-IRSF fraud poses a significant threat to online businesses and can result in substantial financial losses and reputational damage. By understanding IRSF, one becomes more aware of the problem and can engage in implementing preventive measures such as regional restrictions, rate limiting, and phone number verification.  
+IRSF fraud poses a significant threat to online businesses and can result in substantial financial losses and reputational damage. By understanding IRSF, you can be more aware of the problem and can engage in implementing preventive measures such as regional restrictions, rate limiting, and phone number verification.  
 
 ## SMS verification
 
