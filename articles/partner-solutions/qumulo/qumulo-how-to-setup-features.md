@@ -45,3 +45,11 @@ Key links to get started:
 1. [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0)
 1. [Qumulo REST API](https://care.qumulo.com/hc/en-us/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0)
 1. [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit)
+
+## Next steps
+- [Quickstart: Get started with Azure Native Qumulo Scalable File Service](qumulo-create.md)
+- [Troubleshoot Azure Native Qumulo Scalable File Service](qumulo-troubleshoot.md)
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
