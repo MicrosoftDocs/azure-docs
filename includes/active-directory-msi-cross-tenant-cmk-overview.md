@@ -68,6 +68,9 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 | 3. | Grant the consented application identity access to the Azure key vault by assigning the role [Key Vault Crypto Service Encryption User](../articles/key-vault/general/rbac-guide.md?preserve-view=true&tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) | To assign the **Key Vault Crypto Service Encryption User** role to the application, you must have been assigned the [User Access Administrator](../articles/role-based-access-control/built-in-roles.md#user-access-administrator) role. | None |
 | 4. | Copy the key vault URL and key name into the customer-managed keys configuration of the SaaS offering.| None| None|
 
+> [!NOTE]
+> To authorize access to the Managed HSM for encryption using CMK, see example for Storage Account [here](../articles/storage/common/customer-managed-keys-configure-key-vault-hsm.md#assign-a-role-to-the-storage-account-for-access-to-the-managed-hsm). For more information about managing keys with Managed HSM, see [Manage a Managed HSM using the Azure CLI](../articles/key-vault/managed-hsm/key-management.md)
+
 #### Considerations for customers of service providers
 
 - In the customer tenant, *Tenant2*, an admin can set policies to block non-admin users from installing applications. These policies can prevent non-admin users from creating service principals. If such a policy is configured, then users with permissions to create service principals will need to be involved.
