@@ -18,7 +18,7 @@ ms.custom: sdkv2, build-2023
 
 This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
 
-You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The ML lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the ML lifecycle. To learn more about basic concepts for feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
+You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The ML lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the ML lifecycle. To learn more about basic concepts for managed feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
 
 This tutorial is the first part of a four-part series. Here, you learn how to:
 
@@ -51,9 +51,9 @@ Before you proceed with this tutorial, be sure to cover these prerequisites:
 
 This tutorial uses an Azure Machine Learning Spark notebook for development.
 
-1. In the Azure Machine Learning studio environment, select **Notebooks** on the left pane, and then select the **Samples** tab. 
+1. In the Azure Machine Learning studio environment, select **Notebooks** on the left pane, and then select the **Samples** tab.
 
-1. Browse to the *featurestore_sample* directory (*Samples* > *SDK v2* > *sdk* > *python* > *featurestore_sample*), and then select **Clone**.
+1. Browse to the *featurestore_sample* directory (select **Samples** > **SDK v2** > **sdk** > **python** > **featurestore_sample**), and then select **Clone**.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" lightbox="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" alt-text="Screenshot that shows selection of the sample directory in Azure Machine Learning studio.":::
 
@@ -64,16 +64,16 @@ This tutorial uses an Azure Machine Learning Spark notebook for development.
 1. To configure the notebook environment, you must upload the *conda.yml* file:
 
    1. Select **Notebooks** on the left pane, and then select the **Files** tab.
-   1. Browse to the *env* directory (*Users* > *testUser* > *featurestore_sample* > *project* > *env*), and then select the *conda.yml* file. In this path, *testUser* is the user directory.
+   1. Browse to the *env* directory (select **Users** > **testUser** > **featurestore_sample** > **project** > **env**), and then select the *conda.yml* file. In this path, *testUser* is the user directory.
    1. Select **Download**.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/download-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/download-conda-file.png" alt-text="Screenshot that shows selection of the Conda YAML file in Azure Machine Learning studio.":::
 
-1. In the Azure Machine Learning environment, open the notebook, and then select **Configure Session**.
+1. In the Azure Machine Learning environment, open the notebook, and then select **Configure session**.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/open-configure-session.png" lightbox="media/tutorial-get-started-with-feature-store/open-configure-session.png" alt-text="Screenshot that shows selections for configuring a session for a notebook.":::
 
-1. On the **Configure Session** panel, select **Python packages**.
+1. On the **Configure session** panel, select **Python packages**.
 
 1. Upload the Conda file:
    1. Select **Upload Conda file**.
@@ -123,19 +123,19 @@ Not applicable.
 
 This tutorial uses two SDKs:
 
-* Feature store CRUD SDK
+* *Feature store CRUD SDK*
 
   You use the same `MLClient` (package name `azure-ai-ml`) SDK that you use with the Azure Machine Learning workspace. A feature store is implemented as a type of workspace. As a result, this SDK is used for CRUD operations for feature stores, feature sets, and feature store entities.
 
-* Feature store core SDK
+* *Feature store core SDK*
 
   This SDK (`azureml-featurestore`) is for feature set development and consumption. Later steps in this tutorial describe these operations:
 
-  * Develop a feature set specification
-  * Retrieve feature data
-  * List or get a registered feature set
-  * Generate and resolve feature retrieval specifications
-  * Generate training and inference data by using point-in-time joins
+  * Develop a feature set specification.
+  * Retrieve feature data.
+  * List or get a registered feature set.
+  * Generate and resolve feature retrieval specifications.
+  * Generate training and inference data by using point-in-time joins.
 
 This tutorial doesn't require explicit installation of those SDKs, because the earlier Conda YAML instructions cover this step.
 
@@ -218,7 +218,7 @@ In the following steps, you build a feature set named `transactions` that has ro
    * `features`: A list of features and their datatypes. If you provide transformation code (see the "Day 2" section), the code must return a DataFrame that maps to the features and datatypes.
    * `index_columns`: The join keys required to access values from the feature set.
 
-   To learn more about the specification, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and the [CLI (v2) feature set YAML schema](./reference-yaml-feature-set.md).
+   To learn more about the specification, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and [CLI (v2) feature set YAML schema](./reference-yaml-feature-set.md).
 
    Persisting the feature set specification offers another benefit: the feature set specification can be source controlled.
 
@@ -276,7 +276,7 @@ Feature store asset creation and updates can happen only through the SDK and CLI
 
 1. Open the [Azure Machine Learning global landing page](https://ml.azure.com/home).
 1. Select **Feature stores** on the left pane.
-1. From this list of accessible feature stores, select the feature store that you created earlier in this tutorial.
+1. From the list of accessible feature stores, select the feature store that you created earlier in this tutorial.
 
 ## Generate a training data DataFrame by using the registered feature set
 
@@ -294,9 +294,7 @@ Feature store asset creation and updates can happen only through the SDK and CLI
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=print-txn-fset-sample-values)]
 
-1. Select features, and generate training data.
-
-   Here, you select the features that become part of the training data. Then, you use the feature store SDK to generate the training data itself.
+1. Select the features that become part of the training data. Then, use the feature store SDK to generate the training data itself.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=select-features-and-gen-training-data)]
 
