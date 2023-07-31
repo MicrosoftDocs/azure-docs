@@ -59,11 +59,6 @@
     - name: Bitwise operators
       displayName: bitwise, binary, operators
       href: bitwise-operators.md
-- name: Functions
-  items:
-    - name: User-defined functions
-      displayName: functions, udf
-      href: udfs.md
 - name: Aggregate functions
   items:
     - name: AVG
