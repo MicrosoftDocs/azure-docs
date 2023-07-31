@@ -65,7 +65,7 @@ items:
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
-    - name: View applied conditional access policies
+    - name: View applied Conditional Access policies
       href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
