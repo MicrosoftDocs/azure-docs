@@ -37,21 +37,21 @@ WHERE <filter_condition>
 
 This first example uses a simple equality query to return a subset of items. The ``=`` operator is used with the ``WHERE`` clause to create a filter based on simple equality.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/query.sql" highlight="":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where/query.sql" highlight="7-8":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where/result.json":::
 
 In this next example, a more complex filter is composed of [scalar expressions](scalar-expressions.md).
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/query.sql" highlight="":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/query.sql" range="1-8" highlight="7-8":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/result.json":::
 
 In this final example, a property reference to a boolean property is used as the filter.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/query.sql" highlight="":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-field/query.sql" range="1-8" highlight="7-8":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/TOPIC/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-field/result.json":::
 
 ## Remarks
 
