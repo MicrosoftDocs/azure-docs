@@ -97,7 +97,7 @@ This module provides a cryptography client for the [Azure Key Vault Keys client 
 
 | Language | Reference |
 |--|--|
-|Go|[Reference](https://pkg.go.dev/github.com/heaths/azcrypto@v1.0.0#section-readme)|
+|Go|[Reference](https://pkg.go.dev/github.com/heaths/azcrypto)|
 
 ### APIs and SDKs for certificates
 
