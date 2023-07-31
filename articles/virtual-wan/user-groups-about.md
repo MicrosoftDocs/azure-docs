@@ -25,7 +25,7 @@ This article covers the following concepts:
 * Configuration requirements and limitations
 * Use cases
 
-[!INCLUDE [User groups configuration all](../../includes/virtual-wan-user-groups-include.md)]
+[!INCLUDE [User groups configuration all](../../includes/virtual-wan-user-groups.md)]
 
 For configuration information, see [RADIUS - configure NPS for vendor-specific attributes](user-groups-radius.md).
 
@@ -60,7 +60,7 @@ The following result is:
 
 This section lists configuration requirements and limitations for user groups and IP address pools.
 
-[!INCLUDE [User groups configuration considerations](../../includes/virtual-wan-user-groups-considerations-include.md)]
+[!INCLUDE [User groups configuration considerations](../../includes/virtual-wan-user-groups-considerations.md)]
 
 * Address pools can't overlap with address pools used in other connection configurations (same or different gateways) in the same virtual WAN.
 
